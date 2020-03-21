@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>.children() - jQuery - Bj&ouml;rns studiewebb</title>
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+    #container { width: 800px; margin: 0px auto; }
+    #footer { font-size: .8em; text-align: center; }
+    .code { font-family: "Courier New", Courier, monospace; color: inherit; background-color: #ff9; padding: 1px; }
+    .codeblock { border: dotted 3px red; padding: 5px; }
+  </style>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<h1>.children()</h1>
+		</header>
+	</div>
+  
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>Exempel som visar på hur jQuery-metoden .children() fungerar.</p>
+			
+    <div id="punktlistor">
+      <ul>
+        <li>Punkt A1</li>
+        <li>Punkt A2</li>
+        <li>Punkt A3</li>
+      </ul>
+      <ol>
+        <li>Punkt B1</li>
+        <li>Punkt B2</li>
+        <li>Punkt B3</li>
+      </ol>
+    </div>
+    
+    <div id="stycken">
+      <p id="s1">Stycke 1 med <strong>extra</strong> innehåll</p>
+      <p id="s2">Stycke 2 med <strong>extra</strong> innehåll</p>
+      <p id="s3">Stycke 3</p>
+      <p id="s4">Stycke 4 med <strong>extra</strong> innehåll</p>
+      <p id="s5">Stycke 5 med <strong>extra</strong> innehåll</p>
+      <p id="s6">Stycke 6</p>
+    </div>
+    
+    <div class="codeblock">
+      <h2>Kod</h2>
+      
+      <p>Välj element med id stycken och sen dess barn, filtrerat på udda index 
+        (jämna i sida), samt ändra stil för bakgrund till ljusgrå.</p>
+      
+      <div class="code">
+        <p>$(&quot;#stycken&quot;).children(&quot;:odd&quot;).css(&quot;background-color&quot;, &quot;lightgrey&quot;);</p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#stycken").children(":odd").css("background-color", "lightgrey");
+    });
+  </script>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2011-08-04.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

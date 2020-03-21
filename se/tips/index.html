@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <!-- End Google Tag Manager -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Kilted Vikings tips för utveckling av webbsidor och -platser." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Kilted Viking - Fredsälskande nörd som hoppas på hållbarhet" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://kiltedviking.net/se/tips/" />
+	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
+	<link rel="canonical" href="https://kiltedviking.net/se/tips/" />
+	<link rel="preload" href="../../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <title>Webbutveckingstips - Kilted Viking</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../css/kiltedviking4.css" rel="stylesheet" />
+</head>
+<body>
+	<header class="image-header image-ben-vrackie">
+		<h1>Webbutvecklingstips</h1>
+		<h2 class="hidden-xs">Att utveckla webbsidor och -platser</h2>
+	</header>
+	<div class="container">
+    <!-- Menubar -->
+    <nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!-- Button for when menu collapses -->
+					<button type="button" class="navbar-toggle collapsed" 
+						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
+						<!-- Add accessibility things -->
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../">Hem</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
+						<li class="active"><a href="./"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
+						<li><a href="../google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
+						<li><a href="../om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
+						<li><a href="../../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+
+						<li class="dropdown">
+							<a href="../../" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-globe"></i> In English
+								<i class="caret"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
+								<li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
+								<li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
+								<li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+    <!-- *** Contents column ************************************************* -->
+    <div class="row">
+			<div class="col-sm-6 col-sm-offset-2">
+				<h3>Introduktion</h3>
+
+				<p>Jag lär mig ständigt nya saker om webbutveckling och på denna sida beskriver 
+          jag teknologier och koncept jag försökt lära mig eller som jag behöver lära mig mer om.
+				</p>
+				<p>På senare tid har jag blivit uppmärksammad på hur man kan hjälpa sökmotorer,
+					m.m. att hitta rätt (d.v.s. sökmotoroptimering eller SEO), men också hur
+					man åtgärdar rekommendationer från verktyg som Googles Lighthouse.
+				</p>
+				<h4>Tips på denna sida</h4>
+				<ul>
+					<li><b>Open Graph protocol</b> - information om sida vid delning (via t.ex. sociala medier)</li>
+					<li><b>Schema.org</b> - beskriv innehåll i webbsidor för sökmotorer, m.m.</li>
+					<li><b>Länkar och säkerhet</b> - skydda besökare från oseriösa webbplatser</li>
+					<li><b>Webbbservern Apache</b> - dirigera om besökare när sidor döps om eller flyttas</li>
+				</ul>
+				<p>Se även min sida Google-teknologier.</p>
+
+        <h3>Open Graph protocol</h3>
+        <p>Data som ska användas av webbplatser där egen webbplats delas, t.ex. Facebook
+          och Twitter.
+        </p>
+
+        <h4>Läs mer</h4>
+        <ul>
+            <li><a href="https://css-tricks.com/essential-meta-tags-social-media/"
+              target="_blank" rel="noopener">The Essential Meta Tags for Social Media</a>, 
+              CSS-Tricks</li>
+          <li><a href="https://ogp.me/"
+            target="_blank" rel="noopener">https://ogp.me/</a></li>
+        </ul>
+
+        <h3>Schema.org</h3>
+        <p>Standard för att beskriva saker (eng. things), t.ex. webbplats, verksamhet,
+          film eller bok, och som hjälper sökmotorer att förstå innehåll.
+				</p>
+				<p>På denna sida används detta bl.a. för sidans brödsmulor (eng. <i>breadcrumbs</i>).</p>
+
+        <h4>Läs mer</h4>
+        <ul>  
+          <li><a href="https://www.semrush.com/blog/schema-markup-for-company-corporations/"
+            target="_blank" rel="noopener">How to Write Great Schema Markup for Your 
+            Company</a>, SEMrush Blog</li>
+          <li><a href="https://schema.org/"
+						target="_blank" rel="noopener">https://schema.org/</a></li>
+				</ul>
+				<h4>Verktyg och tjänster</h4>
+				<ul>
+					<li><a href="https://search.google.com/structured-data/testing-tool" target="_blank"
+						rel="noopener">Google Structured Data Testing Tool</a></li>
+        </ul>
+
+        <h3>Länkar och säkerhet</h3>
+        <p>För att undvika säkerhetsproblem vid öppnande av webbsidor på andra webbplatser
+          bör man använda attributet <code>rel</code> och något av värdena <code>&quot;noopener&quot;</code>
+          och <code>&quot;noreferrer&quot;</code>.
+        </p>
+
+        <h4>Läs mer</h4>
+        <ul>
+          <li><a href="https://developers.google.com/web/tools/lighthouse/audits/noopener"
+            target="_blank" rel="noopener">Links to cross-origin destinations are 
+            unsafe</a> (Lighthouse), Google's Tools for Web Developer</li>
+				</ul>
+				
+				<h3>Webbservern Apache</h3>
+				<p>För oss som har våra webbplatser hos webbhotell så kan det vara trevligt
+					att kunna dirigera om besökare när vi döper om eller flyttar sidor. En
+					vanlig webbserver hos webbhotell är Apache och nedan är några exempel på
+					omdirigeringar jag använt mig av.
+				</p>
+				<p>Inställningar för Apache kan ändras m.h.a. en fil med namnet <code>.htaccess</code>
+					(filnamn börjar med en punkt och har ingen &quot;filändelse&quot;) och 
+					kan placeras i roten på webbplats för att gälla för hela webbplatsen i
+					mapp som filen ska gälla för.
+				</p>
+
+				<h4>Flyttade sidor</h4>
+				<p>För att flytta sidor från en mapp till en annan så kan man lägga till
+					följande kod i webbplatsens central fil <code>.htaccess</code> (i roten
+					på webbplatsen).
+				</p>
+
+				<div>
+					<code>RewriteEngine On<br />
+						#Dirigera om fran /mapp1/mapp1b/ till /mapp2/<br />
+						RewriteRule ^mapp1/mapp1b/(.*)$ /mapp2/$1 [R=301,NC,L]
+					</code>
+				</div>
+
+				<h4>Läs mer och referenser</h4>
+				<ul>
+					<li><a href="https://coolestguidesontheplanet.com/redirecting-a-web-folder-directory-to-another-in-htaccess/"
+						target="_blank" rel="noopener">Redirecting a Web Folder Directory to another Directory in htaccess</a></li>
+				</ul>
+			</div>
+
+			<!-- *** News column ***************************************************** -->
+			<aside class="col-sm-3 col-sm-offset-0">
+        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+              <span itemprop="name">Hem</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="name">Webbutvecklingstips</span>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+				<!-- <h3>Nyheter</h3>
+				
+				<p class="newstext">(Se engelsk startsida)</p> -->
+			</aside>
+		</div>
+	
+		<!-- *** Footer row ****************************************************** -->
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<footer>
+					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 2020-03-07.</p>
+						<p><b>Foto:</b> Stig till Ben Vrackie, Pitlochry, Skottland.</p>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

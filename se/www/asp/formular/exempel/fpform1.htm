@@ -1,0 +1,54 @@
+<HTML>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<META NAME="ProgId" CONTENT="FrontPage.Editor.Document">
+<TITLE>Ny sida 1</TITLE>
+</HEAD>
+
+<BODY>
+
+<!--webbot BOT="GeneratedScript" PREVIEW=" " startspan --><script Language="JavaScript"><!--
+function FrontPage_Form1_Validator(theForm)
+{
+
+  if (theForm.Namn.value == "")
+  {
+    alert("Ange ett värde för fältet KollaNamn.");
+    theForm.Namn.focus();
+    return (false);
+  }
+
+  if (theForm.Namn.value.length < 5)
+  {
+    alert("Skriv minst 5 tecken i fältet KollaNamn.");
+    theForm.Namn.focus();
+    return (false);
+  }
+
+  if (theForm.Namn.value.length > 20)
+  {
+    alert("Skriv högst 20 tecken i fältet KollaNamn.");
+    theForm.Namn.focus();
+    return (false);
+  }
+  return (true);
+}
+//--></script><!--webbot BOT="GeneratedScript" endspan --><FORM METHOD="POST" ACTION="fpform1.asp" onsubmit="return FrontPage_Form1_Validator(this)" name="FrontPage_Form1">
+  <P><LABEL FOR="fp1">Ange ditt namn: </LABEL><!--WEBBOT BOT="Validation"
+  S-Display-Name="KollaNamn" B-Value-Required="TRUE" I-Minimum-Length="5"
+  I-Maximum-Length="20" --><INPUT TYPE="text" NAME="Namn" SIZE="20" MAXLENGTH="20" ID="fp1"></P>
+  <P><TEXTAREA ROWS="2" NAME="S1" COLS="20"></TEXTAREA></P>
+  <P><INPUT TYPE="checkbox" NAME="C1" VALUE="ON"></P>
+  <P><INPUT TYPE="radio" VALUE="V1" CHECKED NAME="R1"></P>
+  <P><SELECT SIZE="1" NAME="D1">
+  </SELECT></P>
+  <P><INPUT TYPE="button" VALUE="Knapp" NAME="B3"></P>
+  <P>&nbsp;</P>
+  <P><INPUT TYPE="submit" VALUE="Skicka" NAME="B1"><INPUT TYPE="reset" VALUE="Återställ" NAME="B2"></P>
+</FORM>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del0.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del0.html" />
+  <title>HTML - Kodens struktur</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container ">
+      <a href="../index.html" class="right" title="Till startsida för studiewebb">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>Kodens struktur</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html" title="Startsida för HTML">Hem</a></li>
+            <li class="active"><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundl&auml;ggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">L&auml;nkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formul&auml;r</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li class="active"><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundl&auml;ggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">L&auml;nkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formul&auml;r</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>
+          
+          <p>P&aring; denna sida beskrivs den grundl&auml;ggande strukturen f&ouml;r HTML-kod - dess 
+            uppbyggnad, syntax och hur man skriver koden. Kommentarers utseende beskrivs 
+            samt n&aring;gra rekommendationer om hur man b&ouml;r skriva koden ges. Sist diskuteras 
+            hur webbl&auml;sare hanterar felaktig HTML-kod.</p>
+        </div>
+        
+        <div class="col l5 s12">
+          <!-- <nav> -->
+            <ul class="collection">
+              <li><a href="#bakgrund" class="collection-item">Bakgrund</a></li>
+              <li><a href="#element" class="collection-item">Element och taggar</a></li>
+              <li><a href="#syntax" class="collection-item">Syntax</a></li>
+              <li><a href="#kommentarer" class="collection-item">Kommentarer</a></li>
+              <li><a href="#rekommendationer" class="collection-item">Rekommendationer</a></li>
+              <li><a href="#webblasare" class="collection-item">Webbl&auml;sare och HTML-kod</a></li>
+              <li><a href="#validering" class="collection-item">Validering av kod</a></li>
+            </ul>
+          <!-- </nav> -->
+        </div>
+      </div>
+
+      <h2 id="bakgrund">Bakgrund till HTML</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Tanken med HTML (Hypertext Markup Language) var att den skulle anv&auml;ndas f&ouml;r 
+            att <strong>m&auml;rka upp olika objekt</strong> (element - se nedan) och d&auml;rmed 
+            ge inneh&aring;llet i ett <strong>HTML-dokument</strong> struktur.
+            Och f&ouml;r att <strong>slippa &quot;uppfinna hjulet igen&quot;</strong> (och 
+            d&auml;rmed ha redundant data p&aring; Internet) skulle f&ouml;rfattaren av ett HTML-dokument
+            kunna <strong>&quot;l&auml;nka&quot; </strong>ord i texten till andra HTML-dokument d&auml;r
+            orden beskrivs. Bes&ouml;karen av ett HTML-dokument skulle d&aring;, om den
+            &ouml;nskar, kunna klicka p&aring; l&auml;nken f&ouml;r att l&auml;sa mer om ordet i det andra
+            HTML-dokumentet.</p>
+          
+          <p>En annan tanke med HTML var att HTML inte skulle diktera hur objekten i
+            ett HTML-dokument skulle se ut. Utan tillverkare, eller rent av anv&auml;ndarna,
+            av webbl&auml;sarna skulle kunna avg&ouml;ra hur de olika objekten i HTML-dokument
+            skulle visas.</p>
+          
+          <p>Detta &auml;r, i viss m&aring;n, &auml;ven sant idag. Men tillverkare av webbl&auml;sare har 
+            (bl.a.) f&ouml;rs&ouml;kt ge HTML mer &quot;funktion&quot; (&auml;n standard) f&ouml;r att g&ouml;ra
+            HTML-dokument ett mer attraktivt medium. D&auml;rf&ouml;r har t.ex. <strong>visuella 
+            taggar</strong> - d.v.s. taggar som inte har med dokumentets struktur att g&ouml;ra -
+            f&ouml;r bl.a. fet och kursiv stil introducerats liksom attribut (f&ouml;r taggar
+            - se nedan) som p&aring;verkar objektens utseende.</p>
+          
+          <p>I dag str&auml;var <a href="https://www.w3c.org/" target="_blank" rel="noopener"> World Wide 
+            Web Consortium</a> (W3C) - som standardiserar bl.a. HTML, XHTML och stilmallar 
+            (Cascading Style Sheets, CSS) - att ta bort dessa taggar och attribut
+            fr&aring;n (X)HTML f&ouml;r att ers&auml;tta dem med andra tekniker (bl.a. CSS). Utvecklingen 
+            av HTML har dock avstannat i ett f&ouml;rs&ouml;k att ers&auml;tta den (?) med XHTML (Extensible 
+            HTML) - n&auml;sta generation av HTML. (HTML-standard version 5 &auml;r &quot;under 
+            remiss&quot;.)</p>
+
+          <p>HTML-dokument, eller <strong>hemsidor</strong> som de &auml;ven kallas, som &auml;r
+            relaterade (h&ouml;r ihop) brukar kallas f&ouml;r en webbplats (eller &quot;webbsajt&quot;
+            i talspr&aring;k, eng. <em>web site</em>). En webbplats kan g&auml;lla alla hemsidor
+            p&aring; en webbserver, en webbadress (t.ex. https://www.kiltedviking.net/) eller 
+            bara en samling med hemsidor p&aring; en webbserver (som t.ex. denna - Bj&ouml;rns
+            studiewebb).</p>
+        </div>
+      </div>
+
+      <h2 id="element">Element och taggar</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Hemsidor best&aring;r av <strong>element</strong> - t.ex. stycken, rubriker,
+            tabeller och bilder. Denna hemsida (som du l&auml;ser denna text p&aring;)
+            best&aring;r bl.a. av rubriker (i olika storlekar och f&auml;rger), stycken,
+            punktlistor, horisontella streck och l&auml;nkar. De fyra f&ouml;rsta &auml;r ganska
+            l&auml;tta att uppt&auml;cka i hemsidan. Men f&ouml;r sj&auml;lva l&auml;nkarna syns endast en
+            del av - de bl&aring;a och understrukna orden som g&ouml;r att man hoppar till en
+            annan position i detta dokument.</p>
+          
+          <p>Element byggs upp med s.k. <strong>taggar</strong>
+            (eng. <em>tags</em>) - t.ex. &lt;p&gt; (<em>paragraph</em>), &lt;hx&gt; (<em>heading</em>
+            storlek x), &lt;table&gt; och &lt;img&gt; (<em>image</em>). N&aring;gra av taggarna, speciellt de
+            vanligaste (som f&ouml;r stycken), har f&ouml;rkortats f&ouml;r att minska
+            HTML-kodens storlek. Taggar best&aring;r av tecknen mindre &auml;n (&quot;&lt;&quot;) och st&ouml;rre
+            &auml;n (&quot;&gt;&quot;) med elementets namn mellan -
+            t.ex. &lt;html&gt;.</p>
+
+          <p>De flesta elementen har en <strong>&ouml;ppnande tagg</strong> (t.ex. &lt;html&gt;) 
+            och en <strong>avslutande tagg</strong> (t.ex. &lt;/html&gt;). Mellan den 
+            &ouml;ppnande och avslutande taggen placeras <strong>elementets inneh&aring;ll</strong> 
+            (om den har n&aring;got). F&ouml;r en del element, speciellt de utan inneh&aring;ll, beh&ouml;ver 
+            man dock inte ange den avslutande taggen. Om det &auml;r XHTML s&aring; m&aring;ste dock taggarna 
+            avslutas med ett snedstreck, t.ex. &lt;br&nbsp;/&gt;.</p>
+        </div>
+      </div>
+
+      <h2 id="syntax">Syntax</h2>
+      <h3>Mellanrum i kod (<em>white-spaces</em>)</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>HTML-kod &auml;r inte k&auml;nslig f&ouml;r mellanrum - mellanslag, tabbar och radbrytningar (s.k.
+            <em>white-spaces</em>) - mellan taggar. Ett eller flera mellanslag, radbrytningar 
+            och/eller tabbar omvandlas till <strong>ett</strong>
+            mellanslag n&auml;r elementen visas i webbl&auml;saren. Vissa element (t.ex.
+            rubriker) ger automatiskt en radbrytning, med f&ouml;r de element som inte
+            g&ouml;r det kan man anv&auml;nda ett speciellt element f&ouml;r radbrytning (mer om
+            radbrytningar senare). Dock f&aring;r inte taggarnas namn och dess attribut (mer om
+            attribut senare) inneh&aring;lla n&aring;gra mellanrum. Och taggar och dess attribut
+            m&aring;ste separeras med mellanrum.</p>
+        </div>
+        <div class="col l5 s12">
+          <h6>R&auml;tt:</h6>
+          <blockquote>
+            <code>&lt;body color=&quot;white&quot;&gt;<br />
+            &lt;body<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; color=&quot;white&quot;&gt;</code><br />&nbsp;
+          </blockquote>
+
+          <h6>Fel:</h6>
+          <blockquote>
+            <code>&lt;bo dy&gt;<br />
+            &lt;bodycolor=&quot;white&quot;&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Skiftl&auml;ge</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggar kan skrivas med b&aring;de versaler och gemener, d.v.s. taggarna
+            &lt;HTML&gt;, &lt;html&gt; och &lt;HtMl&gt; &auml;r alla giltiga i HTML. Man
+            b&ouml;r dock f&ouml;rs&ouml;ka vara konsekvent vad g&auml;ller skiftl&auml;ge (d.v.s. hur man
+            kombinerar gemener och versaler) f&ouml;r att g&ouml;ra koden mer
+            l&auml;ttl&auml;st. (Se <a href="#rekommendationer">Rekommendationer</a> nedan
+            f&ouml;r mer information.)</p>
+            
+          <p>I XHTML m&aring;ste man dock anv&auml;nda gemener f&ouml;r taggar.</p>
+        </div>
+      </div>
+
+      <h3>&Ouml;verlappning och inneslutning</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggar f&aring;r inte &ouml;verlappa varandra, d.v.s. g&aring; omlott. Resultatet kan
+            d&aring; bli n&aring;got helt annat &auml;n man t&auml;nkt sig i vissa webbl&auml;sare.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h6>Fel - &ouml;verlappning:</h6>
+          <blockquote>
+            <code>&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg1&gt;<em>ijkl</em>&lt;/tagg2&gt;</code>
+          </blockquote>
+
+          <h6>R&auml;tt - inneslutning:</h6>
+          <blockquote>
+            <code>&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg2&gt;<em>ijkl</em>&lt;/tagg1&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p> Vissa taggar f&aring;r innesluta vissa andra taggar, t.ex. kan n&aring;gra tecken i
+            ett stycke kan m&auml;rkas upp med fet stil i ett stycke.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code class="kod">&lt;p&gt;<em>Ord med </em>&lt;b&gt;<em>fet</em>&lt;/b&gt;<em> stil</em>&lt;/p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Attribut</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggar kan ha <strong>attribut</strong> som t.ex. p&aring;verkar elementets utseende eller
+            positionering. Attributen anges d&aring; i den &ouml;ppnande taggen och best&aring;r
+            oftast av ett attributnamn=v&auml;rde-par, d.v.s. attributets namn och ett
+            likhetstecken (=) f&ouml;ljt av v&auml;rdet f&ouml;r attributet. V&auml;rdet placeras inom dubbla
+            citattecken (t.ex. <code>&quot;v&auml;rde&quot;</code>).</p>
+
+          <p>Som exempel p&aring; hur ett attribut anv&auml;nds s&aring; kan vi ange klass f&ouml;r ett stycke
+            (n&aring;got som kan anv&auml;ndas f&ouml;r att applicera stilmallar, CSS).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>&lt;p class=&quot;fet&quot;&gt;...&lt;/p&gt;</code></p>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>En del attribut saknar dock v&auml;rden, men d&aring; b&ouml;r man anv&auml;nda attributets
+            namn, likhetstecken och namnet p&aring; attributet som v&auml;rde s&aring; att koden &auml;r korrekt
+            i b&aring;de HTML och XHTML. T.ex. s&aring; kan en kryssruta vara
+            f&ouml;rbockad som standard genom att anv&auml;nda attributet <code>checked=&quot;checked&quot;</code> enligt
+            f&ouml;ljande:</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; /&gt;</code></p>
+          </blockquote>
+        </div>
+      </div>
+
+      <h2 id="kommentarer">Kommentarer i HTML-kod</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Kommentarer b&ouml;r anv&auml;ndas f&ouml;r att g&ouml;ra hemsidor l&auml;ttare att
+              uppdatera och de har f&ouml;ljande utseende</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>&lt;!-- Text som inte visas av webbl&auml;sare --&gt;</code></p>
+          </blockquote>
+        </div>
+        <div class="col l7 s12">
+          <p>Kommentarer visas inte i webbl&auml;sarens f&ouml;nster. Dock kan kommentarer ses i
+            (X)HTML-koden om bes&ouml;karen v&auml;ljer Visa k&auml;lla (eller motsvarande) f&ouml;r att
+            se koden f&ouml;r hemsidan.</p>
+          
+          <p>Ett anv&auml;ndningsomr&aring;de f&ouml;r kommentarer &auml;r att visa var informationen,
+            i t.ex. en hemsida med komplex design (och d&auml;rmed ofta komplex (X)HTML-kod),
+            ska placeras. D&auml;rmed g&ouml;r man det ocks&aring; l&auml;ttare f&ouml;r
+            webb-/informationsansvariga att uppdatera hemsidorna med ny/&auml;ndrad
+            information.</p>
+        </div>
+      </div>
+
+      <h2 id="rekommendationer">Rekommendationer</h2>
+      
+      <h3>Anv&auml;nd endast gemener f&ouml;r taggar</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Som standard har taggar och dess attribut skrivits med versaler. Detta
+            har gjorts f&ouml;r att g&ouml;ra det l&auml;ttare att l&auml;sa HTML-koden. Men med dagens
+            editorer, som f&auml;rgkodar koden, s&aring; &auml;r detta inte l&auml;ngre n&ouml;dv&auml;ndigt
+            d&aring; f&auml;rgerna visar vad som &auml;r taggar, attribut, v&auml;rde f&ouml;r attribut och
+            inneh&aring;ll (i elementen).</p>
+          
+          <p>F&ouml;r korrekt XHTML-kod (och XML-kod) s&aring; ska taggar och attribut skrivas med 
+            gemener.</p>
+        </div>
+      </div>
+
+      <h3>Anv&auml;nd alltid &ouml;ppnande och avslutande tagg</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>F&ouml;r att stilmallar (Cascading Style Sheets, CSS) ska fungera
+            ordentligt m&aring;ste man oftast anv&auml;nda b&aring;de den &ouml;ppnande och avslutande
+            taggen f&ouml;r alla element. F&ouml;r vissa taggar i HTML (men inte tvunget XHTML) 
+            &auml;r n&auml;mligen den avslutande taggen inte obligatorisk. Men om den avslutande 
+            taggen inte anv&auml;nds s&aring; kan inte webbl&auml;saren avg&ouml;r var den ska b&ouml;rja och sluta 
+            att applicera en eventuell stilmall.</p>
+
+          <p>Om avslutande tagg utel&auml;mnas i XHTML s&aring; m&aring;ste den &ouml;ppnande (och enda) taggen
+            avslutas med ett snedstreck, t.ex. &lt;br&nbsp;/&gt;</p>
+        </div>
+      </div>
+
+      <h3>G&ouml;r hemsidor som fungerar i webbl&auml;sare fr&aring;n flera tillverkare</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Om hemsidorna inte &auml;r t&auml;nkta f&ouml;r ett intran&auml;t (d.v.s. endast inom
+            en organisation med en webbl&auml;sare som standardprogram) s&aring; b&ouml;r man koda hemsidorna 
+            s&aring; att de fungerar i webbl&auml;sare fr&aring;n de flesta tillverkare (&aring;tminstone
+            Microsoft Internet Explorer, Mozilla Firefox/SeaMonkey, Opera och Apple Safari
+            idag - 100710).</p>
+
+          <p class="kommentar">Om detta inte &auml;r m&ouml;jligt s&aring; kan man g&ouml;ra tv&aring; (eller fler) 
+            upps&auml;ttningar av hemsidorna, d.v.s. en upps&auml;ttning f&ouml;r varje webbl&auml;sartyp. 
+            Man kan sen automatiskt (med t.ex. JavaScript) skicka vidare bes&ouml;karens webbl&auml;sare
+            till r&auml;tt upps&auml;ttning av hemsidor beroende p&aring; typen av bes&ouml;karens
+            webbl&auml;sare.</p>
+        </div>
+      </div>
+
+      <h2 id="webblasare">Webbl&auml;sare och HTML-kod</h2>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>De flesta av dagens webbl&auml;sare &auml;r ganska &quot;f&ouml;rl&aring;tande&quot; vad
+            g&auml;ller felaktig (X)HTML-kod, d.v.s. webbl&auml;sare &auml;r gjorda f&ouml;r att
+            hantera/f&ouml;rst&aring; vissa fel i (X)HTML-kod. Resultatet av den felaktiga koden
+            beror dock p&aring; vilken webbl&auml;sare som bes&ouml;karen anv&auml;nder.</p>
+
+          <p>Webbl&auml;sare &auml;r &auml;ven gjorda f&ouml;r att bortse fr&aring;n taggar och attribut
+            de inte k&auml;nner till. Detta g&ouml;r att &auml;ldre webbl&auml;sare kan visa hemsidor
+            gjorda med en nyare version av (X)HTML &auml;n vad webbl&auml;saren var gjord f&ouml;r.
+            Detta inneb&auml;r att webbl&auml;sare (oftast) inte genererar ett fel om den
+            st&ouml;ter p&aring; en felstavad tagg eller attribut. Men resultatet beror, som
+            ovan, p&aring; vilken webbl&auml;sare som bes&ouml;karen anv&auml;nder.</p>
+        </div>
+      </div>
+
+      <h2 id="validering">Validering av HTML-kod</h2>
+
+      <div class="row">
+        <div class="col l6 s12">
+          <p>Validering anv&auml;nds f&ouml;r att kontrollera att (X)HTML-kod &auml;r korrekt. Om kod
+            &auml;r korrekt s&aring; &auml;r det st&ouml;rre chans att webbsidor visas s&aring; som man t&auml;nkte
+            n&auml;r man utvecklade webbplats.</p>
+          
+          <p>P&aring; Internet finns ett antal valideringsprogram som kan kontrollera
+            riktigheten i syntaxen i ett (X)HTML-dokument. S&aring; om vi vill kontrollera
+            (X)HTML-kodens riktighet i en av v&aring;ra hemsidor s&aring; bes&ouml;ker vi n&aring;gon av
+            hemsidorna nedan och fyller i adressen till v&aring;r egen hemsida.
+            Valideringsprogrammet kommer d&aring; visa eventuella fel i hemsidan.&nbsp;</p>
+
+          <p>F&ouml;r att valideringen ska fungera m&aring;ste vi tala om f&ouml;r
+            valideringsprogrammet vilken version av (X)HTML som koden inneh&aring;ller.
+            D&auml;rf&ouml;r l&auml;gger vi till f&ouml;ljande rad l&auml;ngst upp i (X)HTML-dokument.</p>
+        </div>
+
+        <div class="col l6 s12">
+          <h3><small>HTML 5</small></h3>
+          <blockquote>
+            <code>&lt;!DOCTYPE html&gt;</code>
+          </blockquote>
+
+          <h3><small>HTML 4.01 (Strict)</small></h3>
+          <blockquote>
+            <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;
+              &quot;https://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code>
+          </blockquote>
+
+          <h3><small>XHTML 1.0 (Strict)</small></h3>
+          <blockquote>                
+            <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+              &quot;https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col s12">
+          <p class="kommentar">Alla (X)HTML-dokument b&ouml;r inneh&aring;lla denna 
+            rad, men de flesta webbl&auml;sare klarar (bevisligen) av att visa hemsidorna 
+            korrekt &auml;nd&aring; dock i, vad som kallas, <em>quirks mode</em>.
+            <em>Quirks mode</em> anger att webbläsare ska visa webbsidor enligt tidigare
+            icke-standard sätt, d.v.s. hur tillverkare av webbläsare tyckte det skulle
+            se ut eller hur standard skulle tolkas.</p>
+        </div>
+      </div>
+
+      <h3>Valideringsprogram</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul class="collection">
+            <li class="collection-item"><a href="https://validator.w3.org/" target="_blank" rel="noopener">World Wide Consortium</a> (W3C)</li>
+            <li class="collection-item"><a href="https://www.htmlhelp.com/tools/validator/" target="_blank" rel="noopener">Web Design Group</a>
+              - WDG har &auml;ven en <a href="https://www.htmlhelp.com/links/validators.htm" target="_blank" rel="noopener">lista</a>
+              med fler valideringsprogram p&aring; Internet.</li>
+          </ul>
+          
+          <p>Det finns &auml;ven till&auml;gg till Firefox som kan validera n&auml;r du surfar p&aring; sidor.
+            Sj&auml;lv anv&auml;nder jag till&auml;gget HTML Validator (och Firebug) f&ouml;r detta.</p>
+          
+          <p>Om valideringen g&aring;r igenom s&aring; f&aring;r du ocks&aring; m&ouml;jlighet att placera
+            en &quot;ikon&quot; p&aring; din hemsida som visar att du &auml;r duktig p&aring; HTML.
+            :-)</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <ul class="pagination center-align">
+            <li><a href="#" onclick="return false;">&lt; F&ouml;reg&aring;ende</a></li>
+            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li class="waves-effect"><a href="del1.html">N&auml;sta &gt;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="page-footer center-align">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <b>Skapad av:</b> Bj&ouml;rn G D Persson.
+            </div>
+            <div class="col l6 s12">
+              <b>Uppdaterad:</b> 2020-01-26.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+    $(".sidenav").sidenav();
+  </script>
+</body>
+</html>

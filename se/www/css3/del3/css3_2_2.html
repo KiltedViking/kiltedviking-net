@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del3/css3_2_2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del3/css3_2_2.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 3.2.2 - Namngivning av stilmall med klasser - Bj&ouml;rns studiewebb</title>
+
+  <!-- Stilmallar för klasser -->
+  <style>
+    .storrubrik { font-size: 72px; }
+    .kod { font-family: "Courier New"; }
+  </style>
+</head>
+<body>
+  <h1 class="storrubrik">Var JavaScript-kod skrivs</h1>
+
+  <p>JavaScript-koden kan skrivs (n&auml;stan) var som helst i ett HTML-dokument.
+    Men koden m&aring;ste skrivas inom HTML-taggen SCRIPT. Attributet TYPE i
+    SCRIPT-taggen kan anv&auml;ndas f&ouml;r att ange vilket spr&aring;k som skriptet
+    &auml;r skrivet med, i detta fall JavaScript då attributets v&auml;rde &auml;r
+    &quot;text/javascript&quot;.</p>
+  <p>(Texten i denna webbsida har h&auml;mtats fr&aring;n underwebben JavaScript
+    p&aring; webbplatsen Bj&ouml;rns studiewebb.)</p>
+
+  <h5>Exempel:</h5>
+  <code>
+    <p class="kod">&lt;html&gt;<br />
+      &lt;head&gt;</p>
+    <p class="kod">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+      &nbsp; //T.ex. metoder och globala variabler som<br />
+      &nbsp; // anropas fr&aring;n skript nedan<br />
+      &lt;/script&gt;</p>
+    <p class="kod">&lt;/head&gt;<br />
+      &lt;html&gt;<br />
+      &lt;body&gt;<br />
+      &lt;!-- HTML-kod --&gt;</p>
+    <p class="kod">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+      &nbsp; //Koden f&ouml;r skriptet<br />
+      &lt;/script&gt;</p>
+    <p class="kod">&lt;!-- Mer HTML-kod --&gt;<br />
+      &lt;/body&gt;<br />
+      &lt;/html&gt;</p>
+  </code>
+
+  <h2>D&ouml;lja JavaScript-koden f&ouml;r &auml;ldre webbl&auml;sare</h2>
+  <p>Vanligen s&aring; brukar man d&ouml;lja koden f&ouml;r &auml;ldre webbl&auml;sare genom att
+    &quot;kommentera bort&quot; koden med en HTML-kommentar. Viktigt &auml;r (speciellt
+    f&ouml;r Netscape) &auml;r att man m&aring;ste &quot;kommentera bort&quot; den avslutande
+    kommentartaggen m.h.a. JavaScripts kommentar. (Lite omst&auml;ndigt men s&aring; fungerar
+    det...)</p>
+
+  <code>
+    <p class="kod">&lt;html&gt;<br />
+    &lt;head&gt;</p>
+    <p class="kod">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+    &lt;!-- //D&ouml;lj f&ouml;r &auml;ldre webbl&auml;sare<br />
+    &nbsp; //... koden ...<br />
+    // Kommentera bort avslutande tagg--&gt;<br />
+    &lt;/script&gt;</p>
+  </code>
+
+  <form action="">
+    <p><input type="button" value="St&auml;ng f&ouml;nster" onclick="window.close()" /></p>
+  </form>
+</body>
+</html>

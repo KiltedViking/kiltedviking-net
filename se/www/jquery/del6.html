@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del5.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del5.html" />
+  <title>Effekter - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>Effekter - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item active" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Sidans innehåll</h2>
+          
+        <p>P&aring; denna sida beskrivs man kan dölja eller visa element med olika effekter,
+          eller animeringar. Metoder nedan kan användas för att dölja eller visa element,
+          men även ändra elements position.</p>          
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#inledning">Inledning</a>
+          <a class="item" href="#metoder">Metoder</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="inledning">Inledning</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>För att göra sidor mer tilltalande kan man animera visande och döljande av
+          element.</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="metoder">Metoder</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>I detta avsnitt beskrivs metoder för att dölja/visa element med effekter,
+          t.ex. genom att gradvis dölja ett element.</p>
+        
+        <table class="ui table">
+          <caption>Effektmetoder</caption>
+          <thead>
+            <tr>
+              <th>Metod</th>
+              <th>Element som väljs ut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.animate(egenskaper[, tid][, funk1][, complete])</code></td>
+              <td>Utför en anpassad animering av egenskaper av element</td>
+            </tr>
+            <tr>
+              <td><code>.clearQueue([namn])</code></td>
+              <td>Rensar animeringskö, och ev. endast den med namn som i argumentet namn</td>
+            </tr>
+            <tr>
+              <td><code>.delay(intervall[, namn])</code></td>
+              <td>Ange antal millisekunder som nästa jobb i animeringskö ska fördröjas</td>
+            </tr>
+            <tr>
+              <td><code>.dequeue([namn])</code></td>
+              <td>Utför nästa jobb i animeringskö, och ev. endast från den med namn som i argumentet namn</td>
+            </tr>
+            <tr>
+              <td><code>.fadeIn([tid][, funk1][, funk2])</code></td>
+              <td>Animerar objekt från dolt till fullt synligt</td>
+            </tr>
+            <tr>
+              <td><code>.fadeOut([tid][, funk1][, funk2])</code></td>
+              <td>Animerar objekt från fullt synligt till dolt</td>
+            </tr>
+            <tr>
+              <td><code>.fadeTo(tid, intensitet[, funk1][, funk2])</code></td>
+              <td>Animerar objekt från fullt synligt/dolt till intensitet </td>
+            </tr>
+            <tr>
+              <td><code>.fadeToggle([tid,] [funk1,] [funk2] )</code></td>
+              <td>Animerar objekt från fullt synligt eller dolt till dolt resp. fullt 
+                synligt, beroende på om element är synligt eller dolt</td>
+            </tr>
+            <tr>
+              <td><code>.queue(...)</code></td>
+              <td>Manipulera animeringskö (behandlas inte här)</td>
+            </tr>
+            <tr>
+              <td><code>.show([tid,] [funk1,] [funk2] )</code></td>
+              <td>Animerar objekt från dolt till fullt synligt</td>
+            </tr>
+            <tr>
+              <td><code>.slideDown([tid][, funk1][, funk2])</code></td>
+              <td>Animerar objekt från dolt till synligt genom att öka dess höjd </td>
+            </tr>
+            <tr>
+              <td><code>.slideToggle([tid][, funk1][, funk2])</code></td>
+              <td>Animerar objekt från synligt eller dolt till dolt eller synligt genom 
+                att minska resp. öka dess höjd, beroende på om element är synligt eller dolt</td>
+            </tr>
+            <tr>
+              <td><code>.slideUp([tid][, funk1][, funk2])</code></td>
+              <td>Animerar objekt från synligt till dolt genom att minska dess höjd </td>
+            </tr>
+            <tr>
+              <td><code>.stop([rensa][, fullfolj])</code></td>
+              <td>Avsluta nuvarande animering, och ev. rensa kö om argumentet rensa sant 
+                och avsluta animering omedelbart om argumentet fullfolj sant</td>
+            </tr>
+            <tr>
+              <td><code>.toggle([tid][, funk1][, funk2])</code></td>
+              <td>Dölj eller visa element, beroende på om element är synligt eller dolt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nine wide column">
+        <p>Detta exempel visar på hur man kan dölja och sen visa element när något 
+          klickas på (eng. toggle). Först väljs div-tagg ut med hjälp av dess id codefadein, 
+          sen dess förfader som är fieldset, för att koppla funktion till dess klickhändelse.
+          I klickhändelse kopplas animeringsmetoden slideToggle() till div-taggen.</p>
+            
+        <fieldset>
+          <legend>Exempel</legend>
+          <p id="codeFadeIn">Klicka i denna ruta (fieldset) för att dölja stycke och sen igen för att visa den igen.</p>
+        </fieldset>
+      </div>
+      
+      <div class="seven wide column">
+        <code>$("#codefadein").parents("fieldset").click(function(){<br />
+          &nbsp; $("#codefadein").slideToggle("slow");<br />});</code>
+      </div>
+                    
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://api.jquery.com/category/effects/" target="_blank" rel="noopener">Effects</a>
+            (jQuery-dokumentation).</li>
+        </ul>
+
+        <div class="ui compact menu">
+          <a class="item" href="del5.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item" href="del7.html">N&auml;sta &gt;</a>
+        </div>
+      </div>
+    </div>
+  
+		<footer>
+			<p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+		</footer>
+  </div>
+  
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    $("document").ready(function() {
+      $("#codeFadeIn").parent("fieldset").click(function(){
+        $("#codeFadeIn").slideToggle("slow");
+      });
+    });
+  </script>
+</body>
+</html>

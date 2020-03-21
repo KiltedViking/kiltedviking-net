@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet href="xmlstil1_1.css" type="text/css" ?>
+<niva1>
+  <niva2>
+    <rubrik1>Rubrik 1 - nr 1</rubrik1>
+    <niva31>Niva 3-1 - nr 1</niva31>
+    <niva32>Niva 3-2 - nr 1</niva32>
+  </niva2>
+  <niva2>
+    <rubrik1>Rubrik 1 - nr 2</rubrik1>
+    <niva31>Niva 3-1 - nr 2</niva31>
+    <niva32>Niva 3-2 - nr 2</niva32>
+  </niva2>
+</niva1>

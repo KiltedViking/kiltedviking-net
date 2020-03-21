@@ -1,0 +1,45 @@
+#Exclude database connection - see EXAMPLE file for content
+/db_kiltedviking.php
+/news/item*.php
+
+#Exclude Bing and Google verification file
+BingSiteAuth.xml
+/google*.html
+
+#Exclude tests
+/minigal
+/temp
+/test
+/postinfo.html
+
+#Exclude photos from travels
+/travels/RoadTrip2004Jul/*/*.JPG
+/travels/Scotland2006/*.JPG
+/travels/Scotland2007/*.JPG
+/travels/Urkult2005Aug/*.JPG
+/travels/Urkult2006Aug/*.JPG
+/travels/Urkult2007/*.JPG
+
+#Exclude CSS library
+se/www/css/pure-release-1.0.1
+se/www/css/semantic-ui
+
+#Exclude YUI library's source code (minified version included from js folder)
+/se/www/js/yui/*
+
+# Exclude OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Exclude binary files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so

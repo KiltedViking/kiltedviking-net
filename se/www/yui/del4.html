@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Uts&ouml;kning - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Uts&ouml;kning</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Uts&ouml;kning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+<!--      <li><a href="del6.html">Effekter</a></li> -->
+      <li><a href="del7.html">H&auml;ndelser</a></li>
+    </ul>
+<!--
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+-->
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>P&aring; denna sida beskrivs man kan s&ouml;ka ut relaterade element, t.ex. 
+	syskon-, f&ouml;r&auml;ldra- eller barnelement.</p>
+			
+	<h2>Sidans inneh&aring;ll</h2>
+		
+	<ul>
+	  <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#metoder">Metoder</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+	</ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p></p>
+    
+    <p>Uts&ouml;kningsmetoderna p&aring; denna sida anv&auml;nds f&ouml;r att hitta relaterade element,
+      t.ex. barn-, syskon- och f&ouml;r&auml;ldraelement.</p>
+      
+    
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="metoder">Metoder</h2>
+
+    <p>Metoderna nedan utg&aring;r fr&aring;n ett element f&ouml;r att v&auml;lja ut relaterade element.</p>
+    
+    <table class="tableproperties">
+      <caption>Fler selektorer</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Element som v&auml;ljs ut</th>
+      </tr>
+      <tr>
+        <td class="code">.ancestor(selektor1, [inkludera-själv[, selektor2]])</td>
+        <td>Förfader som matchar selektor1. Om inkludera-själv är sann så inkluderas element som metod anropas på
+			i sökning. Argumentet selektor2 kan användas för att ange när sökning ska avbrytas.</td>
+      </tr>
+      <tr>
+        <td class="code">.ancestors(selektor, [inkludera-själv])</td>
+        <td>Förfader som matchar selektor1. Om inkludera-själv är sann så inkluderas element som metod anropas på
+			i sökning.</td>
+      </tr>
+      <tr>
+        <td class="code">.next([selektor])</td>
+        <td>Nästa syskon som matchar selektor, eller som skickad funktion returnerar sant för. Om
+			selektor utelämnas väljs nästa syskon.</td>
+      </tr>
+      <tr>
+        <td class="code">.previous([selektor])</td>
+        <td>Föregående syskon som matchar selektor, eller som skickad funktion returnerar sant för. Om
+			selektor utelämnas väljs föregående syskon.</td>      </tr>
+      <tr>
+        <td class="code">.siblings([selektor])</td>
+        <td>Alla syskon som matchar selektor, eller som skickad funktion returnerar sant för. Om
+			selektor utelämnas väljs nästa syskon.</td>
+      </tr>
+    </table>
+					
+	<fieldset>
+      <legend>Exempel</legend>
+      <p>I exempel nedan så väljs först alla länkar och sen närmaste förälder som är DIV-tagg.</p>
+      
+      <div class="code">
+        <p>Y.all("a").ancestor("div");</p>
+      </div>
+    </fieldset>
+		
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/Node.html" class="externallink">Klassen Node</a>
+        (YUI-dokumentation).</li>
+    </ul>
+
+    <ul class="foregaendenasta">
+      <li><a href="del3.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del5.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-15.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

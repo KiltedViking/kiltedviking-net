@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Grundl&auml;ggande - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Grundl&auml;ggande</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Uts&ouml;kning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+<!--      <li><a href="del6.html">Effekter</a></li> -->
+      <li><a href="del7.html">H&auml;ndelser</a></li>
+    </ul>
+<!--
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+-->
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>P&aring; denna sida beskrivs &quot;det inledande&quot; om YUI, bl.a. vad
+      som kr&auml;vs f&ouml;r YUI samt vad funktionen use() &auml;r 
+      och hur den anv&auml;nds.</p>
+			
+		<h2>Sidans inneh&aring;ll</h2>
+		
+		<ul>
+			<li><a href="#forbereda">F&ouml;rbereda webbsida f&ouml;r YUI</a></li>
+			<li><a href="#objekt">YUI-objektet</a></li>
+			<li><a href="#relaterat">JavaScript-relaterat</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+		</ul>
+
+    <h2 id="forbereda">F&ouml;rbereda websida f&ouml;r YUI</h2>
+
+    <p>F&ouml;r att anv&auml;nda YUI beh&ouml;vs tv&aring; saker:</p>
+		
+		<ul>
+			<li>en referens till YUI-ramverk</li>
+			<li>och ett &quot;YUI-skript&quot; - antingen i webbsida eller i en extern
+				JavaScript-fil.</li>
+		</ul>
+		
+    <h3>Versioner av YUI-filer</h3>
+
+	<p>Källkodsfiler för YUI finns i lite olika format, bl.a. utvecklings- och produktionsfiler samt
+		olika &quot;fröfiler&quot;.</p>
+
+	<h4>Utvecklings- och produktionsfiler</h4>
+    
+    <p>Bortsett fr&aring;n att det sl&auml;pps nya versioner av YUI med j&auml;mna mellanrum 
+      s&aring; finns det tv&aring; olika typer av YUI-filer. Skillnaden mellan dem &auml;r att en &auml;r i
+      &quot;l&auml;sbart&quot; format, d.v.s. &auml;r t&auml;nkt f&ouml;r utveckling och fels&ouml;kning,
+      och den andra i komprimerat format (mellanrum och radbrytningar tagits bort),
+      d.v.s. &auml;r t&auml;nkt f&ouml;r produktion.</p>
+      
+    <ul>
+      <li>&lt;yui-fil&gt;.js - läsbar version (base-version 3.4.1 var 149 kB).</li>
+      <li>&lt;yui-fil&gt;-min.js - komprimerad version (base-version 3.4.1. var 29 kB).</li>
+    </ul>
+    
+	<h4>&quot;Fröfiler&quot; (seed files)</h4>
+	
+	<p>&quot;Fröfiler&quot; används för att ladda YUI-ramverk, och det finns ett antal olika
+		versioner, bl.a.</p>
+		
+	<ul>
+		<li>yui.js - rekommenderas främst då den innehåller baskod och verktyget Loader (samt metadata).</li>
+		<li>yui-base.js - innehåller baskod och verktyget Get samt vid första använding av YUI() laddas Loader (och metadata).</li>
+		<li>yui-core.js - minst då endast innehåller baskod och eventuella moduler måste hämtas med verktyget Get.</li>
+	</ul>
+	
+	<p>Verktyget Loader (som i sin tur använder verktyget Get i bakgrunden) används bl.a. för att ladda
+		ytterligare YUI-moduler då de refereras till.</p>
+
+    <p class="kommentar">I denna webbplats har jag tagit bort eventuella versionsnumret i filnamnet 
+      eller mappar f&ouml;r att inte beh&ouml;va redigera alla filer om jag byter 
+      version.</p>
+    
+	<h3>Referens till YUI-ramverk</h3>
+		
+    <p>Innan vi anger referens till YUI-ramverk så måste vi avgöra vilken version av fröfil vi ska
+		använda. I ursprunglig mappstruktur i ramverkets ZIP-fil så finns de i en mapp med samma
+		namn, t.ex. <rot>/build/yui-base/yui-base-min.js.</p>
+    
+    <p>F&ouml;r att spara bes&ouml;kares bandbredd (och tid) s&aring; kan man ange en referens till
+		YUI-ramverk p&aring; en server p&aring; Internet, t.ex. hos Yahoo!. (D&auml;rmed &auml;r sannolikheten
+		st&ouml;rre att bes&ouml;kare redan laddat ner ramverket n&auml;r den bes&ouml;ker sida.)</p>
+		
+	<p>I exempel nedan refereras till &quot;standardversionen&quot; av YUI-ramverket.</p>
+		
+	<div class="code">
+		<p>&lt;script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"&gt;&lt;/script&gt;</p>
+	</div>
+	
+	<p class="kommentar">Ett problem med ovanst&aring;ende URL &auml;r att den laddar en viss 
+		version av ramverk, d.v.s. version 3.4.1 i detta fall, och att om man vill anv&auml;nda
+		den senaste versionen av ramverket s&aring; m&aring;ste man &auml;ndra URL:er i alla dokument.</p>
+	
+	<h3>&quot;YUI-skript&quot;</h3>
+	
+	<p>&quot;YUI-skript&quot; (som faktiskt &auml;r &quot;vanlig&quot; JavaScript)
+		kan t.ex. placeras i webbsidans head-tagg eller innan avslutade body-tagg,
+		men &auml;ven i en extern fil.</p>
+		
+    <fieldset>
+      <legend>Exempel</legend>
+		<p>I exempel nedan skapas först en instans av YUI-objekt för att sen anropa metoden use() i instansen.
+			Som argument till metod skickas en lista på moduler som ska laddas och en funktion (eng. callback
+			function; ofta en anonym funktion) att anropa när moduler laddats.</p>
+			
+		<p>I detta exempel används ska modulen Node laddas för att kunna manipulera element (noder). Argument
+			till funktionen (eng. callback function) har kallats Y (enligt &quot;standard&quot;), vilken
+			sen kan användas i funktionen för att t.ex. samla alla H2-rubriker.</p>
+			
+      <div class="code">
+        <p>&lt;script type=&quot;text/javascript&quot;&gt;<br />
+          &nbsp;&nbsp;<span class="codehilight">YUI().use("node", function(Y) {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y.all("h2").setStyle("color: red;");<br />
+          &nbsp;&nbsp;});</span><br />
+          &lt;/script&gt;</p>
+          
+        <p>&lt;script type=&quot;text/javascript&quot; src=&quot;my_yui_script.js&quot;&gt;&lt;/script&gt;</p>
+      </div>
+    </fieldset>
+		
+	<script type="text/javascript">
+      YUI().use("node", function(Y) {
+        Y.all("h2").setStyle("color: red;");
+      });
+      YUI().use("node", function(Y) {
+        Y.all(".codehilight").setStyle("font-weight: bold, color: blue, background-color: inherit;");
+      });
+      /*
+			$(document).ready(function() {
+				$(".codehilight").css({"font-weight": "bold", "color": "blue", "background-color": "inherit"});
+			});
+      */
+	</script>
+			
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+    <h2 id="objekt">Konstruktorn YUI() och metoden use()</h2>
+
+    <p>F&ouml;r att skapa ett YUI-objekt anv&auml;nds konstruktorn YUI(), för att sen anropas
+		metoden use() på objektet.</p>
+			
+    <fieldset>
+      <legend>Exempel</legend>
+      <p>I exempel s&aring; v&auml;ljs alla h2-taggar och ges (text-)f&auml;rgen r&ouml;d.</p>
+        
+      <div class="code">
+        <p>YUI().use(&quot;node&quot;, function() {...});</p>
+      </div>
+    </fieldset>
+			
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+    <h2 id="relaterat">JavaScript-relaterat</h2>
+    
+    <p>I detta avsnitt beskrivs en del JavaScript-relaterade saker man beh&ouml;ver f&ouml;rst&aring;,
+      bl.a. konceptet anonyma funktioner.</p>
+      
+    <h3>Anonyma funktioner</h3>
+
+    <p>En <a href="http://en.wikipedia.org/wiki/Anonymous_function" class="externallink">anonym 
+      funktion</a> &auml;r en funktion utan namn, d.v.s. det g&aring;r inte att anropa den
+      (om den inte kopplats till n&aring;got, t.ex. en variabel eller h&auml;ndelsehanterare :-)).</p>
+      
+    <fieldset>
+      <legend>Exempel</legend>
+      <p>Den grundl&auml;ggande strukturen/koden &auml;r f&ouml;ljande:</p>
+      <div class="code">
+        <p>function () { //har saknas namn pa funktion<br />
+        &nbsp; //kod i funktion<br />
+        }</p>
+      </div>
+    </fieldset>
+    
+    <p>Anonyma funktioner kan bl.a. anv&auml;ndas d&aring; man inte beh&ouml;ver referera till funktionen
+      vid namn i kod, t.ex. n&auml;r man kopplar en h&auml;ndelsehanterare till ett elements
+      h&auml;ndelse eller d&aring; man skickar en funktion som argument till en annan funktion.</p>
+      
+    <p class="kommentar">Funktioner &auml;r objekt i JavaScript och kan d&auml;rf&ouml;r skickas
+      som argument till en annan funktion.</p>
+
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://yuilibrary.com/yui/docs/" class="externallink">YUI-dokumentation</a>.</li>
+    </ul>
+
+    <ul class="foregaendenasta">
+      <li><a href="index.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del2.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-09.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

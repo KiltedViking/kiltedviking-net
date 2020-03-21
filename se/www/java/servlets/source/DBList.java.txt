@@ -1,0 +1,139 @@
+/*
+ * Java Servlet som visar poster från en databas i en HTML-tabell.
+ * Björn Persson, EkI, MdH - 2001-03-10 (rev. 2001-06-10).
+ * bjorn.persson@mdh.se
+ *
+ * Skapa en ODBC-källa med namnet skivor (eller ändra namnet i variabeln url).
+ */
+
+  //Importera paket för...
+import javax.servlet.*;			//servlet
+import javax.servlet.http.*;	//servlet
+import java.io.*;				//I/O
+import java.sql.*;				//databaskoppling
+
+public class DBList extends HttpServlet
+{
+	  //Metod som anropas när servlet begärs med metoden HTTP-GET
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws IOException
+	{
+		  //*******************************************************************
+		  //Deklarera variabler
+		int i = 1;  //Räknare för att ändra stilmall för varannan rad i tabell
+		String strClass = null; //Sträng att placera stilmalls namn i
+
+		  //Skapa URL för databaskoppling (ODBC-källa skivor)
+		String url = "jdbc:odbc:skivor";		
+		
+		  //Skapa SQL-fråga
+		String sql = "SELECT * FROM tblAlbum ORDER BY Artist, År, Media, Titel";
+		
+		  //Hämta objekt att skriva till för det resulterande HTML-dokumentet
+		PrintWriter out = response.getWriter();
+		
+		//Tala om för webbserver vad som kommer att skickas (d.v.s. HTML-kod)
+		response.setContentType("text/html");
+		
+		  //*******************************************************************
+		  //Starta HTML-dokument genom att skriva ut HTML-kod
+		out.println("<HTML>");
+		out.println("<HEAD>");
+		out.println("<TITLE>Resultatet från servlet DBList</TITLE>");
+		out.println("  <STYLE>");
+		out.println("    H1 { font-family: Verdana }");
+		out.println("    .normal { font: 10pt Verdana }");
+		out.println("    .normalgul { font: 10pt Verdana; background-color: #ffffcc }");
+		out.println("    .rubrik { font: bold 10pt Verdana }");
+		out.println("  </STYLE>");
+		out.println("</HEAD>");
+		out.println("<BODY>");
+		out.println("<H1>Resultatet från servlet DBList</H1>");
+		out.println("<H2>Artister och dess album i databasen</H2>");
+		
+		  //*******************************************************************
+		  //Starta HTML-tabell och skriv ut rubriker för kolumner i tabell
+		out.println("<TABLE>");
+		out.println("  <TR>");
+		out.println("    <TD CLASS=\"rubrik\">Artist/grupps namn</TD>");
+		out.println("    <TD CLASS=\"rubrik\">Titel på album</TD>");
+		out.println("    <TD CLASS=\"rubrik\">År</TD>");
+		out.println("    <TD CLASS=\"rubrik\">Media</TD>");
+		out.println("  </TR>");
+		
+		  //*******************************************************************
+		  //Databasobjekt kan generera fel (exceptions) och måste därför finnas
+		  // inom ett try-catch-block.
+		try
+		{
+			  //Ladda klass med JDBC-drivrutn
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			
+			  //Öppna förbindelse till databas
+			Connection con = DriverManager.getConnection(url);
+			
+			  //Skapa Statement-objekt
+			Statement st = con.createStatement();
+			
+			  //Utför fråga och placera resultat i variabeln rs
+			ResultSet rs = st.executeQuery(sql);
+			
+			  //***************************************************************
+			  //Loopa över posterna i frågeresultatet
+			while(rs.next())
+			{
+				  //Om räknare jämne, använd stilmall med gul bakgrund
+				if((i % 2) == 0)
+					strClass = "normalgul";
+				else
+					strClass = "normal";
+				
+				out.println("  <TR>");  //Påbörja rad i HTML-tabell
+				
+				  //Kolumn 1 - artists namn
+				out.print("    <TD CLASS=\"" + strClass + "\">");
+				out.print(rs.getString("Artist"));
+				out.println("</TD>");
+				
+				  //Kolumn 2 - titeln för album
+				out.print("    <TD CLASS=\"" + strClass + "\">");
+				out.print(rs.getString("Titel"));
+				out.println("</TD>");
+				
+				  //Kolumn 3 - år som album gavs ut
+				out.print("    <TD CLASS=\"" + strClass + "\">");
+				out.print(rs.getString("År"));
+				out.println("</TD>");
+				
+				  //Kolumn 4 - media som album finns på
+				out.print("    <TD CLASS=\"" + strClass + "\">");
+				out.print(rs.getString("Media"));
+				out.println("</TD>");
+				
+				out.println("  </TR>");  //Avsluta rad i HTML-tabell
+				
+				i++;
+			} //while
+			  //***************************************************************
+			  //Stäng frågeresultat och förbindelse
+			rs.close();
+			con.close();
+			
+		} //try
+		catch(Exception e)  //Hantera eventuella fel i databaskoppling
+		{
+			System.err.println(e);
+			out.println("<P><B>Det uppstod ett fel...</B></P>");
+			out.println("<P>" + e.getMessage() + "<BR>&nbsp;</P>");
+		} //catch
+		
+		  //*******************************************************************
+		  //Avsluta HTML-tabell och -dokument
+		out.println("</TABLE>");
+		out.println("<P>&nbsp;</P>");
+		out.println("<P CLASS=\"normal\">Antal skivor totalt: " + (i-1) + "</P>");
+		out.println("</BODY>");
+		out.println("</HTML>");
+	} // doGet()
+	
+} //class DBList

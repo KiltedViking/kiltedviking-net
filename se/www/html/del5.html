@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Formulär i HTML." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del5.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del5.html" />
+  <title>HTML - Formul&auml;r i HTML</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container ">
+      <a href="../index.html" class="right">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>Formul&auml;r i HTML</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li class="active"><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li class="active"><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+    
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>    
+          
+          <p>Formul&auml;r anv&auml;nds f&ouml;r att h&auml;mta information fr&aring;n bes&ouml;karen. P&aring;
+            denna sida beskriv bl.a. hur formul&auml;r byggs upp, d.v.s. dess
+            grundl&auml;ggande struktur, hur inneh&aring;llet i formul&auml;r skickas till
+            webbservern och vilka element (kontroller) som kan finnas i ett
+            formul&auml;r.</p>
+
+          <div class="card-panel orange lighten-3">
+            <b>Observera</b> att valet av ramverk för utseende av denna webbplats (Materialize)
+            påverkar hur kontroller visas, vilket i vissa fall inte är så praktiskt!
+          </div>
+
+          <p>Hur inneh&aring;ll h&auml;mtas fr&aring;n formul&auml;r i servlets och skriptsidor
+            (JSP och PHP) behandlas i mina underwebbar <a href="../java/" class="externallink">Java</a>
+            och <a href="../php/" class="externallink">PHP</a>.</p>
+
+          <h3>Att göra</h3>
+          <div class="card-panel">
+            <h4>2020-02-02</h4>
+            <p>Beskriv taggen <code>&lt;label&gt;</code> samt lägg till den i alla
+              exempel (för att få godkänt på tester i Lighthous i Google Chrome ;-)).</p>
+            <p>Placera kodexempel i taggen <code>&lt;code&gt;</code> för att göra dem
+              tydligare.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <ul class="collection">
+            <li><a href="#struktur" class="collection-item">Hur formul&auml;r byggs upp</a></li>
+            <li><a href="#skickas" class="collection-item">S&auml;tt p&aring; vilket formul&auml;r kan skickas</a></li>
+            <li><a href="#element" class="collection-item">Element</a>
+
+              <ul class="collection">
+                <li><a href="#type-text" class="collection-item">Enradig textruta</a></li>
+                <li><a href="#type-textarea" class="collection-item">Flerradig textruta</a></li>
+                <li><a href="#type-password" class="collection-item">Textruta f&ouml;r l&ouml;senord</a></li>
+                <li><a href="#type-hidden" class="collection-item">Dold textruta</a></li>
+                <li><a href="#type-checkbox" class="collection-item">Kryssruta</a></li>
+                <li><a href="#type-radio" class="collection-item">Radioknapp</a></li>
+                <li><a href="#type-submit" class="collection-item">Submit-knapp</a></li>
+                <li><a href="#type-reset" class="collection-item">Reset-knapp</a></li>
+                <li><a href="#type-button" class="collection-item">Kommandoknapp</a></li>
+                <li><a href="#type-select" class="collection-item">Listrutor</a></li>
+              </ul>
+
+            </li>
+            <li><a href="#exempel" class="collection-item">Ett st&ouml;rre exempel</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="struktur">Hur formul&auml;r byggs upp</h2>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Ett formul&auml;r best&aring;r fr&auml;mst av tre delar</p>
+          
+          <ul class="collection">
+            <li class="collection-item">taggen <code>&lt;form&gt;</code> som visar 
+              var formul&auml;ret b&ouml;rjar och slutar.</li>
+
+            <li class="collection-item">kontroller som bes&ouml;kare fyller i - skapas 
+              med en eller flera av taggarna <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> 
+              och/eller <code>&lt;select&gt;</code>.</li>
+
+            <li class="collection-item">Submit-knappen, som ocks&aring; den skapas 
+              med taggen <code>&lt;input&gt;</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;form&gt;</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggen &lt;form&gt; &auml;r, som n&auml;mnt ovan, den tagg som visar var
+            formul&auml;ret b&ouml;rjar och slutar. M.h.a. taggens attribut talar man om var
+            och hur formul&auml;rets inneh&aring;ll ska skickas.</p>
+          
+          <p>Var inneh&aring;llet ska skickas
+            anges i attributet action som en URL. URL:en kan peka p&aring; ett
+            CGI-program, en (Java-)servlet eller en skriptsida (t.ex. JSP eller PHP).</p>
+          
+          <p>Formul&auml;r kan skickas med metoderna GET eller POST, vilket anges
+            genom att ge attributet <code>method</code> v&auml;rdet &quot;get&quot; respektive
+            &quot;post&quot;. (Mer om GET och POST finns i n&auml;sta avsnitt.)</p>
+        </div>
+        <div class="col l5 s12">
+          <blockquote>
+            <code>
+              <p>&lt;h1&gt;Ett enkelt formul&amp;auml;r&lt;/h1&gt;</p>
+              <p>&lt;form method=&quot;post&quot;<br />
+                &nbsp; action=&quot;html5_1_behandlat.php&quot;&gt;</p>
+              <p>...</p>
+              <p>&lt;/form&gt;</p>
+            </code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Kontroller i formul&auml;r</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I ett (X)HTML-formul&auml;r kan finnas de flesta typer av (enkla) kontroller
+            som kan finnas i ett Windows-program. Exempel p&aring; n&aring;gra &auml;r textrutor
+            (enkelradiga och flerradiga), listrutor, kombinationsrutor, kryssrutor,
+            radioknappar och &quot;vanliga&quot; knappar. (Kontrollerna beskrivs
+            l&auml;ngre ner p&aring; hemsidan.)</p>
+        </div>
+        <div class="col l5 s12">
+          <blockquote>
+            <code>
+              <p class="kod">&lt;p&gt;Fyll i ditt namn:&lt;br /&gt;<br />
+                &nbsp; &lt;input type=&quot;text&quot; name=&quot;txtNamn&quot;&gt;&lt;/p&gt;</p>
+            </code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Submit-knappen</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Submit-knappen &auml;r det som g&ouml;r att formul&auml;rets inneh&aring;ll skickas
+            iv&auml;g n&auml;r bes&ouml;karen klickar p&aring; knappen. Ofta brukar Submit-knappen
+            finnas i par med Reset-knappen, men det &auml;r inte obligatoriskt.</p>
+        </div>
+        <div class="col l5 s12">
+          <blockquote>
+            <code>
+              <p class="kod">&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;&lt;/p&gt;</p>
+              <p class="kod">&lt;/form&gt;</p>
+            </code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Exempel p&aring; ett enkelt formul&auml;r</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Exemplet nedan visa en textruta och en knapp med texten Skicka.</p>
+          
+          <div class="kod">
+          </div>
+
+          <div class="center">
+            <div class="center-align hide-on-med-and-down">
+              <p><a href="del5/html5_1.html" target="_blank" 
+                class="btn bg-scania-red fg-scania-yellow">Exempel 5.1 - ett enkelt formul&auml;r (PHP)</a></p>
+            </div>
+            <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
+              för att visa exempel och studera dess bakomliggande kod.
+            </div>
+          </div>
+
+          <p><b>Observera</b> att exempel ovan kr&auml;ver en webbserver med st&ouml;d f&ouml;r
+            PHP f&ouml;r att resultatet ska behandlas!</p>
+        </div>
+      </div>
+
+      <h2 id="skickas">S&auml;tt p&aring; vilket formul&auml;r kan skickas</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Formul&auml;r, eller snarare inneh&aring;llet i formul&auml;rets kontroller, kan
+            skickas p&aring; ett av tv&aring; s&auml;tt: GET eller POST. Hur formul&auml;ret skickas
+            anges genom att ange &quot;get&quot; eller &quot;post&quot; som v&auml;rde till formul&auml;rets
+            attribut <code>method</code>.</p>
+        </div>
+      </div>
+
+      <h3>Metoden GET</h3>
+      
+      <div class="row">
+        <div class="col l7">
+          <p>Som standard s&aring; beg&auml;r bes&ouml;karens webbl&auml;sare hemsidor fr&aring;n
+            webbservern m.h.a. metoden GET. Och om formul&auml;r s&auml;nds med metoden GET
+            s&aring; kommer inneh&aring;llet i formul&auml;ret att l&auml;ggas till till URL:en,
+            som formul&auml;rets attributet <code>action</code> pekar p&aring;, efter ett fr&aring;getecken. Om
+            formul&auml;ret inneh&aring;ller en textrutan med namnet &quot;fornamn&quot; och
+            attributet <code>action</code> har v&auml;rdet &quot;behandla.asp&quot; s&aring; skulle
+            webbl&auml;saren beg&auml;ra hemsidan med f&ouml;ljande URL</p>
+          
+          <p class="kod">behandla.asp?fornamn=<i>varde_som_fyllts_i</i></p>
+          
+          <p>Formul&auml;rets inneh&aring;ll, eller snarare det efter fr&aring;getecknet, brukar
+            kallas <i>query string</i> (ben&auml;mnt som parametrar p&aring; <a href="del3.html#typer">hemsidan 
+            om l&auml;nkar</a>).</p>
+          
+          <p>F&ouml;rdelen med metoden GET &auml;r att man kan g&ouml;ra l&auml;nkar med URL:er som
+            inneh&aring;ller en <i>query string</i>. T.ex. s&aring; finns det en Java servlet
+            p&aring; M&auml;lardalens h&ouml;gskolas webbserver som visar information om de
+            anst&auml;llda. Och p&aring; h&ouml;gskolans alla hemsidor finns (eller b&ouml;r det
+            finnas) en l&auml;nk till informations- och teknikansvariga f&ouml;r hemsidorna.
+            L&auml;nken till dessa har kod liknande f&ouml;ljande:</p>
+          
+          <p class="kod">&lt;a href=&quot;http://www.mdh.se/se.mdh.Personal?<br />
+            fornamn=Bj&ouml;rn&amp;efternamn=Persson&quot;&gt;</p>
+            
+          <p><a href="http://www.mdh.se/se.mdh.Personal?fornamn=Bj&ouml;rn&amp;efternamn=Persson">Se</a> 
+            hur (den resulterande) hemsidan ser ut. (L&auml;nken
+            &auml;r gammal och jag jobbar inte l&auml;ngre f&ouml;r h&ouml;gskolan, men ni kan studera
+            URL.)</p>
+        </div>
+      </div>
+
+      <h3>Metoden POST</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Om man ist&auml;llet &auml;ndrar metoden till POST s&aring; kommer inneh&aring;llet i
+            formul&auml;ret skickas som en del av kroppen p&aring; den beg&auml;ran som
+            webbl&auml;saren g&ouml;r till webbservern. D.v.s. vad som skickas &auml;r inte
+            synligt f&ouml;r bes&ouml;karen.</p>
+
+          <p>Denna metod &auml;r att f&ouml;redra om inneh&aring;llet i ett formul&auml;r
+            inneh&aring;ller ett l&ouml;senord eller mycket information. Det &auml;r dock ingen
+            garanti att l&ouml;senordet inte blir avsl&ouml;jat d&aring; l&ouml;senordet (oftast)
+            &auml;nd&aring; kommer skickas i klartext! Vad det g&auml;ller storleken p&aring;
+            formul&auml;rets inneh&aring;ll s&aring; finns det webbl&auml;sare och webbservrar som
+            inte till&aring;ter mer &auml;n en viss l&auml;ngd p&aring; URL:er. Om ett formul&auml;r skickar
+            mycket data s&aring; &auml;r allts&aring; POST det enda alternativet.</p>
+
+          <p>Metoden POST &auml;r &auml;ven att f&ouml;redra om en hemsida uppdaterar data i
+            t.ex. en databas. Om bes&ouml;karen skapar ett bokm&auml;rke/favorit till
+            sidan s&aring; kommer bokm&auml;rket/favoriten <b>inte</b> att inneh&aring;lla det som
+            skickades med formul&auml;ret. Sk&auml;let till detta &auml;r att inneh&aring;llet i
+            formul&auml;ret skickades i kroppen p&aring; beg&auml;ran som webbl&auml;saren gjorde.
+            Bokm&auml;rken/favoriter inneh&aring;ller endast URL:en till hemsidan. Skaparen
+            av servlet eller skriptsida kan d&aring; kontrollera om formul&auml;rets inneh&aring;ll
+            &auml;r tom och, om s&aring; &auml;r fallet, t.ex. skicka bes&ouml;karen till
+            formul&auml;ret.</p>
+        </div>
+      </div>
+
+      <h3>Tv&aring; exempel som visar skillnaden mellan metoderna GET och POST</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>B&auml;gge formul&auml;r &auml;r de samma. Det som skiljer dem &aring;t &auml;r v&auml;rdet
+            p&aring; attributet <code>method</code> i taggen &lt;form&gt; hur URL:en kommer se ut (se
+            textf&auml;ltet Address i Internet Explorer eller Location i Mozilla Firefox).</p>
+
+          <div class="center-align hide-on-med-and-down">
+            <p><a href="del5/html5_1.html" target="_blank" 
+              class="btn bg-scania-red fg-scania-yellow">Exempel 5.1 - formul&auml;r med method=&quot;post&quot;</a></p>
+          </div>
+
+          <div class="center-align hide-on-med-and-down">
+            <p><a href="del5/html5_2.html" target="_blank" 
+              class="btn bg-scania-red fg-scania-yellow">Exempel 5.2 - formul&auml;r med method=&quot;get&quot;.</a></p>
+          </div>
+
+          <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
+            för att visa exempel och studera dess bakomliggande kod.
+          </div>
+
+          <div class="card-panel orange">
+          <p><b>Observera</b> att exemplen kr&auml;ver en webbserver (t.ex. IIS) med st&ouml;d f&ouml;r ASP!
+            (Exempel 5.1. &auml;r samma som ovan - det &auml;r m.a.o. inte ett misstag att
+            exemplet visas igen! :-)</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="hruletop"><a name="element"></a>Element i formul&auml;r</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>De flesta elementen (kontrollerna) i formul&auml;r skapas med taggen
+            &lt;input&gt; och har inte en avslutande tagg. Det som avg&ouml;r
+            vilken typ av kontroll det ska vara &auml;r d&aring; attributet TYPE. F&ouml;r
+            kontroller som bygger p&aring; taggen &lt;input&gt; har v&auml;rdet p&aring;
+            attributet <code>type</code> angivits i rubriken (t.ex. Enradig textruta - 
+            <code>type=&quot;text&quot;</code>).</p>
+
+          <p>De flerradiga textrutorna samt list- och kombinationsrutorna skapas
+            med taggarna &lt;textarea&gt; respektive &lt;select&gt;. Den avslutande
+            taggen &auml;r obligatorisk f&ouml;r b&auml;gge dessa taggar.</p>
+
+          <p>F&ouml;r varje kontroll visas f&ouml;rst dess utseende sedan taggen, alla
+            dess attribut samt exempelv&auml;rden f&ouml;r attributen. De attribut, ut&ouml;ver
+            attributet <code>type</code> f&ouml;r taggen <code>&lt;input&gt;</code>, som &auml;r
+            obligatoriska har markerats med texten <b>[obl.]</b> i f&ouml;rklaringen av
+            attributen. (Attributen f&ouml;rklaras i ordningen: obligatoriska attribut
+            f&ouml;rst, attribut som b&ouml;r anv&auml;ndas d&auml;refter och sist de mindre
+            frekvent anv&auml;nda attributen.)</p>
+        </div>
+      </div>
+
+      <h3 id="type-text">Enradig textruta - <code>TYPE=&quot;text&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <form action="">
+            <h4>Utseende</h4> 
+            <p><input type="text" size="25" maxlength="25" name="MinText" 
+              value="Startvarde" class="browser-default" /></p>
+            <p><input type="text" size="25" maxlength="25" name="MinText" 
+              placeholder="Startvarde" class="browser-default" /></p>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
+              maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code><br />
+            <code>&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
+              maxlength=&quot;25&quot; placeholder=&quot;Startvarde&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</li>
+            <li><code>size</code> - bredden p&aring; kontrollen i tecken.</li>
+            <li><code>maxlength</code> - antal tecken som bes&ouml;karen till&aring;ts fylla i.</li>
+            <li><code>placeholder</code> - text som kommer visas i kontrollen d&aring;
+              hemsidan laddas, men som tas bort n&auml;r f&auml;ltet f&aring;r fokus.</li>
+            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-textarea">Flerradig textruta</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Denna kontroll &auml;r ett undantag fr&aring;n regeln d&aring; den har en
+            avslutande tagg (som &auml;r obligatorisk). Eventuell text som skrivs mellan
+            taggarna kommer vara synlig i textrutan d&aring; hemsidan laddas.</p>
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+              <textarea rows="5" cols="25" name="sture">Startvarde</textarea>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+          <code>&lt;textarea name=&quot;MinArea&quot; rows=&quot;5&quot; 
+            cols=&quot;25&quot;&gt;Startvarde&lt;/textarea&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</li>
+            <li><code>rows</code> - h&ouml;jden p&aring; kontrollen i antalet rader.</li>
+            <li><code>cols</code> - bredden p&aring; kontrollen i antal tecken.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="hruletop"><a name="type-password"></a>Textruta f&ouml;r l&ouml;senord - 
+        <code>type=&quot;password&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Observera att denna kontroll inte b&ouml;r anv&auml;ndas om formul&auml;rets metod &auml;r satt
+            till GET. L&ouml;senordet kommer d&aring; att skickas i klarttext som en del av
+            URL:en!</p>
+          
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <input type="password" size="25" maxlength="25" name="MinText" 
+              value="Startvarde" class="browser-default" />
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;password&quot; name=&quot;MittLosenord&quot;
+              size=&quot;25&quot; maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</li>
+            <li><code>size</code> - bredden p&aring; kontrollen i tecken.</li>
+            <li><code>maxlength</code> - antal tecken som bes&ouml;karen till&aring;ts fylla i.</li>
+            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-hidden">Dold textruta - <code>type=&quot;hidden&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Du kanske fr&aring;gar dig &quot;Vad ska jag med en dold textruta d&aring;
+            bes&ouml;karen inte kan fylla i n&aring;got i den?&quot;. Sk&auml;let till att man
+            har dolda textrutor &auml;r f&ouml;r att man i dynamiska webbsidor t.ex. ska
+            kunna mellanlagra inneh&aring;llet fr&aring;n formul&auml;r som bes&ouml;karen bes&ouml;kt
+            tidigare.</p>
+          
+          <div class="card-panel">
+            <p class="kommentar">Ett formul&auml;r b&ouml;r inte vara f&ouml;r l&aring;ngt. Blir
+              det f&ouml;r l&aring;ngt s&aring; b&ouml;r man fundera p&aring; att bryta upp formul&auml;ret och
+              placera det p&aring; flera webbsidor med kortare formul&auml;r (ett formul&auml;r
+              som fylls i i flera steg). F&ouml;r att spara inneh&aring;llet i tidigare ifyllda
+              formul&auml;r, s&aring; att de kan anv&auml;ndas i sista steget av formul&auml;rets
+              ifyllande, brukar inneh&aring;llet (fr&aring;n tidigare steg) placeras i textrutor
+              som &auml;r dolda f&ouml;r bes&ouml;karen.</p>
+            
+            <p class="kommentar">Ett annat alternativ (till dolda textrutor) &auml;r att
+              anv&auml;nda sessionsvariabler (finns i bl.a. JSP, PHP och servlets), med 
+              det &auml;r ett separat &auml;mne i sig.</p>
+          </div>
+
+          <h4>Utseende</h4>
+          <form action="">
+            <input type="hidden" name="MinText" value="Startvarde" />
+              (den &auml;r g&ouml;md s&aring; den syns inte :-)
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;hidden&quot; name=&quot;MinDold&quot; 
+              value=&quot;Startvarde&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</li>
+            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-checkbox">Kryssruta - <code>type=&quot;checkbox&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Avser n&aring;got som bara kan anta tv&aring; v&auml;rden. Kryssrutor skiljer sig
+            fr&aring;n kontrollerna ovan i att dess namn och v&auml;rde skickas endast om
+            kryssrutan &auml;r ifylld (f&ouml;rbockad).</p>
+          
+          <h4>Utseende</h4>
+          <form action="#">
+            <!-- Observera att ramverk kravde kod nedan for att kryssruta skulle visas! -->
+            <p>
+              <label>
+                <input type="checkbox" id="MittKryss0" name="MittKryss0" value="Kryssad0" /> 
+                <span>MittKryss0</span>
+              </label>
+            </p>
+            <p>
+            <label>
+              <input type="checkbox" id="MittKryss1" name="MittKryss1" value="Kryssad1" 
+                checked="checked" /> 
+              <span>MittKryss1</span>
+            </label>
+            </p>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code><p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss0&quot; name=&quot;MittKryss0&quot; 
+              value=&quot;Kryssad0&quot; /&gt;<br />
+              &lt;label for=&quot;MittKryss0&quot;&gt;MittKryss0&lt;/label&gt;</p>
+              <p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss1&quot; name=&quot;MittKryss1&quot; 
+                value=&quot;Kryssad1&quot; checked="checked" /&gt;<br />
+                &lt;label for=&quot;MittKryss1&quot;&gt;MittKryss1&lt;/label&gt;</p></code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p class="kommentar">För att kryssruta skulle fungera med CSS-ramverket
+            jag valt för denna sida så var jag tvungen att lägga till id-attributet
+            och en label-tagg.
+          </p>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</li>
+            <li><code>value</code> - v&auml;rde som ska skickas om kryssruta &auml;r ifylld. Om attributet
+              inte anv&auml;nds s&aring; skickas v&auml;rdet "on".</li>
+            <li><code>checked</code> -&nbsp;om kryssruta ska vara ifylld eller inte n&auml;r
+              webbsida laddas. Detta attribut saknar v&auml;rde.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-radio">Radioknapp - <code>type=&quot;radio&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Radioknappar brukar kopplas samma (de ges samma v&auml;rde p&aring; attributet
+            <code>name</code>) vilket g&ouml;r det m&ouml;jligt att endast kunna markera en av dem (se
+            exempel 5.3 nedan).</p>
+          
+          <h4>Utseende</h4>
+          <form action="">
+            <p>
+              <label>
+                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad0" checked="checked" />
+                <span>MinRadio0</span>
+              </label>
+            </p>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;radio&quot; id=&quot;MinRadio&quot; name=&quot;MinRadio&quot; 
+              value=&quot;Markerad0&quot; checked="checked" /&gt;<br />
+              &lt;label for=&quot;MinRadio&quot;&gt;MinRadio0&lt;/label&gt;</code> 
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>name</code> - kontrollens namn [obl.]. Detta namn beh&ouml;ver inte vara unikt
+              - men grupper av radioknappar m&aring;ste vara (se exempel nedan).</li>
+            <li><code>value</code> - v&auml;rde som ska skickas om radioknapp &auml;r markerad.</li>
+            <li><code>checked</code> - om radioknapp ska vara ifylld eller inte n&auml;r
+              webbsida laddas. Detta attribut saknar v&auml;rde.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Anv&auml;nda radioknappar</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I motsatts till kryssrutor s&aring; anv&auml;nds radioknappar i grupper. F&ouml;r att
+            skapa en grupp med radioknappar s&aring; ges radioknappar i gruppen samma v&auml;rde
+            p&aring; attributet <code>name</code>. Och f&ouml;r att avg&ouml;ra vilken av radioknapparna (alternativen)
+            som v&auml;ljs anv&auml;nds v&auml;rdet p&aring; radioknapps <code>value</code>-attribut. Radioknappens
+            betydelse visas l&auml;mpligen genom att text skrivs efter radioknappen, p&aring;
+            s&aring; s&auml;tt kan radioknappar visas ovanf&ouml;r varandra (som i exempel nedan) oavsett
+            l&auml;ngd p&aring; texterna.</p>
+            
+          <p>Om vi vill att ett alternativ ska vara valt n&auml;r formul&auml;r laddas s&aring;
+            anv&auml;nds attributet <code>checked</code> (utan v&auml;rde) som i f&ouml;rsta gruppen. Men vi
+            kan &auml;ven l&aring;ta inga av alternativen vara valda som i andra gruppen.</p>
+
+          <form action="">
+            <p>Grupp 1</p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad0" checked="checked" />
+                <span>MinRadio0</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad1" />
+                <span>MinRadio1</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad2" />
+                <span>MinRadio2</span>
+              </label>
+            </p>
+            <p>Grupp 2</p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad0" checked="checked" />
+                <span>MinRadio0</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad1" />
+                <span>MinRadio1</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad2" />
+                <span>MinRadio2</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col l5 s12">
+          <blockquote>
+            <p><code>&lt;form&gt;</code></p>
+            <p><code>&lt;p&gt;Grupp 1&lt;/P&gt;<br />
+              &lt;p&gt;<br />
+              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a1&quot; name=&quot;grupp1&quot;<br />
+              &nbsp;&nbsp;&nbsp; value=&quot;1&quot; checked="checked" /&gt;<br />
+              &nbsp; &lt;label for=&quot;a1&quot;&gt;Alternativ 1&lt;/label&gt;<br />
+              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a2&quot; name=&quot;grupp1&quot;<br />
+              &nbsp;&nbsp;&nbsp; value=&quot;2&quot; /&gt;<br />
+              &nbsp; &lt;label for=&quot;a2&quot;&gt;Alternativ 2&lt;/label&gt;<br />
+              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a3&quot; name=&quot;grupp1&quot;<br />
+              &nbsp;&nbsp;&nbsp; value=&quot;3&quot; /&gt;<br />
+              &nbsp; &lt;label for=&quot;a3&quot;&gt;Alternativ 3&lt;/label&gt;<br />
+              &lt;/p&gt;</code></p>
+            <p><code>&lt;p&gt;Grupp 2&lt;/p&gt;</code></p>
+            <p><code>&lt;p&gt;<br />
+              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b1&quot; name=&quot;grupp2&quot;<br />
+              &nbsp;&nbsp;&nbsp; value=&quot;Ja&quot; /&gt;<br />
+              &nbsp; &lt;label for=&quot;b1&quot;&gt;Ja&lt;/label&gt;<br />
+              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b2&quot; name=&quot;grupp2&quot;<br />
+              &nbsp;&nbsp;&nbsp; value=&quot;Nej&quot; /&gt;<br />
+              &nbsp; &lt;label for=&quot;b2&quot;&gt;Nej&lt;/label&gt;<br />
+              &lt;/p&gt;</code></p>
+            <p><code>&lt;/form&gt;</code></p>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3 id="type-submit">Submit-knapp - <code>type=&quot;submit&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>En standardknapp som utl&ouml;ser h&auml;ndelsen som skickar iv&auml;g
+            formul&auml;rets inneh&aring;ll till t.ex. CGI-program, servlet eller skriptsida f&ouml;r
+            behandling.</p>
+        </div>
+          
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <input type="submit" name="MittSubmit" value="Skicka" onclick="return false;" />
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot; 
+              name=&quot;MinSubmit&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>value</code> - text som komer synas p&aring; knapp. Om detta attribut
+              utel&auml;mnas kommer webbl&auml;saren visa text i stil med &quot;Skicka&quot; (eller 
+              &quot;Submit&quot; om engelsk version av webbl&auml;sare).</li>
+            <li><code>name</code> - kontrollens namn. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret. Att ange namnet p&aring; en Submit-knapp kan vara anv&auml;ndbart
+              om man vill ha tv&aring; Submit-knappar i samma formul&auml;r d&auml;r de tv&aring;
+              knapparna ska utf&ouml;r olika saker. &quot;Mottagande&quot; servlet
+              eller skriptsida kan kontrollera vilken knapp som klickats p&aring; f&ouml;r
+              att avg&ouml;ra vad som ska g&ouml;ras, t.ex. uppdatera eller l&auml;gga till.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-reset">Reset-knapp - <code>type=&quot;reset&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Knapp som &aring;terst&auml;ller formul&auml;r till det tillst&aring;nd 
+            det var n&auml;r sida laddades.</p>
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <input type="reset" name="MinReset" value="&Aring;terst&auml;ll" />
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;reset&quot; value=&quot;&amp;Aring;terst&amp;auml;ll&quot;
+              name=&quot;MinReset&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>value</code> - text som kommer synas p&aring; knapp. Om detta attribut
+              utel&auml;mnas kommer webbl&auml;saren visa text i stil med
+              &quot;&Aring;terst&auml;ll&quot; (eller &quot;Reset&quot; om engelsk version
+              av webbl&auml;sare).</li>
+            <li><code>name</code> - kontrollens namn. Fr&auml;mst anv&auml;ndbart i samband med JavaScript.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-button">Kommandoknapp - <code>type=&quot;button&quot;</code></h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Har bl.a. (liksom de andra tv&aring; knapptyperna ovan) en h&auml;ndelse Click som
+            kan kopplas till t.ex. en funktion i JavaScript (se exempel 5.3 nedan, och
+            JavaScript-webb, d&auml;r knapp anv&auml;nds f&ouml;r att st&auml;nga f&ouml;nster).</p>
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <input type="button" name="MittKnapp" value="Klicka mig!"
+              onclick="javascript:alert('Du klickade p&aring; mig')" />
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;input type=&quot;button&quot; value=&quot;Klicka mig!&quot;
+              name=&quot;MinKnapp&quot; onclick=&quot;javascript:alert(&apos;Du klickade
+              p&aring; mig&apos;)&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&ouml;rklaring till attributen</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <ul>
+            <li><code>value</code> - text som kommer synas p&aring; knapp.</li>
+            <li><code>name</code> - kontrollens namn.</li>
+            <li><code>onclick</code> - (h&auml;ndelse-)attribut d&auml;r (JavaScript-)logik kan kopplas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="type-select">Listrutor</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Listrutor har en egen tagg - &lt;select&gt; - och kan vara nedrullningsbara
+            (eng. drop-down list) eller inte. Det som styr om en listruta &auml;r nedrullningsbar
+            eller inte &auml;r attributet <code>size</code> eller avsaknaden av attributet (standard idag
+            &auml;r 1). Om <code>size</code> &auml;r 1 (eller utel&auml;mnas) s&aring; visas listruta nedrullningsbar och om <code>size</code>
+            &auml;r st&ouml;rre &auml;n 1 som en vanlig listruta med lika m&aring;nga rader som v&auml;rdet p&aring; <code>size</code>.
+            Listrutor namnges, liksom &ouml;vriga kontroller, med attributet <code>name</code> i <code>select</code>-
+            taggen.</p>
+          
+          <p>De olika alternativen i listrutor markeras med taggen &lt;option&gt; inom
+            <code>select</code>-taggen. Om antalet alternativ &auml;r fler &auml;n antalet rader som kan
+            visas s&aring; kommer automatiskt en rullningslist att visas.</p>
+        </div>
+      </div>
+
+      <h4>Nedrullningsbar listruta</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>En nedrullningsbar listruta visar eventuellt valt alternativ och en
+            knapp f&ouml;r att &quot;rulla ner&quot; lista med alternativ.
+          </p>
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <select size="1" name="MinListruta" class="browser-default">
+                <option>Alternativ 1</option>
+                <option>Alternativ 2</option>
+                <option>Alternativ 3</option>
+                <option>Alternativ 4</option>
+                <option>Alternativ 5</option>
+                <option>Alternativ 6</option>
+                <option>Alternativ 7</option>
+                <option>Alternativ 8</option>
+                <option>Alternativ 9</option>
+                <option>Alternativ 10</option>
+                <option>Alternativ 11</option>
+                <option>Alternativ 12</option>
+                <option>Alternativ 13</option>
+                <option>Alternativ 14</option>
+                <option>Alternativ 15</option>
+                <option>Alternativ 16</option>
+                <option>Alternativ 17</option>
+                <option>Alternativ 18</option>
+                <option>Alternativ 19</option>
+                <option>Alternativ 20</option>
+              </select>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;select size="1" name="MinListruta"&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
+              &nbsp;&nbsp;&nbsp; ...<br />
+              &lt;/select&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>Listruta med flera rader</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Listor brukar som standard visas med 8 synliga alternativ.</p>
+        </div>
+
+        <div class="col l7 s12">
+          <h4>Utseende</h4>
+          <form action="">
+            <select size="5" name="MinListruta" multiple="multiple" class="browser-default">
+                <option>Alternativ 1</option>
+                <option>Alternativ 2</option>
+                <option>Alternativ 3</option>
+                <option>Alternativ 4</option>
+                <option>Alternativ 5</option>
+                <option>Alternativ 6</option>
+                <option>Alternativ 7</option>
+                <option>Alternativ 8</option>
+                <option>Alternativ 9</option>
+                <option>Alternativ 10</option>
+                <option>Alternativ 11</option>
+                <option>Alternativ 12</option>
+                <option>Alternativ 13</option>
+                <option>Alternativ 14</option>
+                <option>Alternativ 15</option>
+                <option>Alternativ 16</option>
+                <option>Alternativ 17</option>
+                <option>Alternativ 18</option>
+                <option>Alternativ 19</option>
+                <option>Alternativ 20</option>
+              </select>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>HTML-kod</h4>
+          <blockquote>
+            <code>&lt;select size=&quot;5&quot; name=&quot;MinListruta&quot; multiple="multiple"&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
+              &nbsp;&nbsp;&nbsp; ...<br />
+              &lt;/select&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>Listrutor till&aring;ter &auml;ven att man kan v&auml;lja flera alternativ (genom
+            att h&aring;lla ner CTRL-tangent och klicka). F&ouml;r att g&ouml;ra detta m&ouml;jligt
+            anv&auml;nder vi attributet <code>multiple</code> (utan v&auml;rde!) i <code>select</code>-taggen. (Prova
+            g&auml;rna i listrutan ovan.) Attributet <code>multiple</code> kan endast anv&auml;ndas med
+            icke-nedrullningsbara listrutor och anv&auml;ndandet av attributet kommer
+            automatiskt att konvertera taggen till en &quot;vanlig&quot; listruta
+            (oavsett om <code>size</code> s&auml;tts till 1).</p>
+        </div>
+      </div>
+
+      <h4>Styra vilket v&auml;rde som skickas</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Om vi inte anger ett v&auml;rde som ska skickas s&aring; kommer texten
+            (inneh&aring;llet) i <code>option</code>-taggen att skickas. Men ibland kan det vara mer
+            praktiskt att skicka t.ex. ett tal (som t.ex. motsvarar en prim&auml;rnyckel
+            i en tabell) ist&auml;llet f&ouml;r en l&aring;ng text. F&ouml;r att skicka ett annat
+            v&auml;rde, &auml;n det i <code>option</code>-taggen, anv&auml;nder vi attributet <code>value</code> i
+            <code>option</code>-taggen. I exemplet nedan kommer t.ex. v&auml;rdet &quot;1&quot;
+            skickas ist&auml;llet f&ouml;r texten &quot;Alternativ 1&quot;.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;select size=&quot;5&quot; name=&quot;MinLista&quot;&gt;<br />
+              &nbsp; &lt;option value=&quot;1&quot;&gt;Alternativ 1&lt;/option&gt;<br />
+              &nbsp; &lt;option value=&quot;2&quot;&gt;Alternativ 2&lt;/option&gt;<br />
+              &nbsp; ...<br />
+              &lt;/select&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>Observera att &auml;ven om vi skriver ett tal s&aring; kommer v&auml;rdet
+            &quot;1&quot; att skickas som en str&auml;ng! Alla v&auml;rden i formul&auml;r
+            skickas n&auml;mligen som str&auml;ngar och som vi m&aring;ste konvertera till
+            respektive datatyp (om det beh&ouml;vs) i hemsidan/programmet som tar emot
+            formul&auml;rets inneh&aring;ll.</p>
+        </div>
+      </div>
+
+      <h4>Markera ett alternativ som standard</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Vi kan &auml;ven l&aring;ta ett av alternativen vara markerade som standard
+            d&aring; hemsidan laddas (eller laddas om). F&ouml;r detta anv&auml;nder vi
+            attributet <code>selected</code> (utan v&auml;rde!) i den <code>option</code>-tagg som motsvarar det
+            v&auml;rde vi vill ha markerad. Nedrullningsbara listrutor kommer oftast att ha f&ouml;rsta
+            alternativet i listan markerat som standard om man inte anv&auml;nder
+            attributet <code>selected</code>. F&ouml;ljande kod</p>
+
+          <form action="">
+            <p>
+              <select size="1" name="MinKombo">
+                <option>Alternativ 1</option>
+                <option selected="selected">Alternativ 2</option>
+                <option>Alternativ 3</option>
+                <option>Alternativ 4</option>
+              </select>
+            </p>
+          </form>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;select size=&quot;1&quot; name=&quot;MinKombo&quot;&gt;<br />
+              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
+              &nbsp; &lt;option selected="selected"&gt;Alternativ 2&lt;/option&gt;<br />
+              &nbsp; ...<br />
+              &lt;/select&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h2 id="exempel">Ett st&ouml;rre exempel p&aring; formul&auml;r</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>N&auml;sta exempel &auml;r ett st&ouml;rre formul&auml;r med
+            textrutor (en och flera rader), sammankopplade radioknappar, kryssrutor
+            och knappar f&ouml;r att skicka samt t&ouml;mma formul&auml;r. F&ouml;r att se koden:
+            titta p&aring; hemsidan och v&auml;lj &quot;Visa k&auml;lla&quot; (eller motsvarande
+            i webbl&auml;saren). Kr&auml;ver en webbserver med st&ouml;d f&ouml;r ASP!</p>
+
+          <div class="center-align hide-on-med-and-down">
+            <p><a href="del5/html5_3.html" target="_blank" 
+              class="btn bg-scania-red fg-scania-yellow">Exempel 5.3 - Ett st&ouml;rre exempel med formul&auml;r</a></p>
+          </div>
+          <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
+            för att visa exempel och studera dess bakomliggande kod.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <ul class="pagination center-align">
+            <li class="waves-effect"><a href="del4.html">&lt; F&ouml;reg&aring;ende</a></li>
+            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li class="waves-effect"><a href="del6.html">N&auml;sta &gt;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="page-footer center-align">
+        <div class="container">
+          <div class="row">
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-15.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+    $(".sidenav").sidenav();
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_7.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_7.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Variablers räckvidd i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  <script type="text/javascript">
+    var global_1 = 1; //Deklarerar en global variabel
+  </script>
+</head>
+<body>
+<h1>Variablers räckvidd i JavaScript</h1>
+<hr />
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"><br />
+  &lt;!--<br />
+  &nbsp;&nbsp;&nbsp; //Deklarera en metod med lokal variabel<br />
+  &nbsp; function funk1()<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; var lokal_1 = 3; //Lokal variabel som endast kan nås i metoden<br />
+  <br />
+  &nbsp;&nbsp;&nbsp; document.writeln("Variabel lokal_1 är: " + lokal_1 + "&lt;br>");<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("Summan av variablerna lokal_1 och global_1 är: "&nbsp;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  + (lokal_1 + global_1) + "&lt;br>");<br />
+  &nbsp;&nbsp;&nbsp; global_1++; //Öka på den globala variabeln<br />
+  &nbsp; }<br />
+  <br />
+  &nbsp; global_2 = 2; //Deklarerar en global variabel till<br />
+  <br />
+  &nbsp; document.writeln(&quot;Variabel global_1 är: " + global_1 + "&lt;br>");<br />
+  &nbsp; document.writeln("Variabel global_2 är: " + global_2 + "&lt;br>");<br />
+  &nbsp; document.writeln("Anropar metod som ökar på variabeln global_1&lt;br>");<br />
+  &nbsp; funk1();<br />
+  <br />
+  &nbsp; document.writeln("Variabel global_1 är nu: " + global_1 + "&lt;br>");<br />
+  --><br />
+  &lt;/script></p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+      //Deklarera en metod med lokal variabel
+    function funk1()
+    {
+      var lokal_1 = 3; //Lokal variabel som endast kan nås i metoden
+      
+      document.writeln("Variabel lokal_1 är: " + lokal_1 + "<br />");
+      document.writeln("Summan av variablerna lokal_1 och global_1 är: " 
+                       + (lokal_1 + global_1) + "<br />");
+      global_1++; //Öka på den globala variabeln
+    }
+    
+    global_2 = 2; //Deklarerar en global variabel till
+
+    document.writeln("Variabel global_1 är: " + global_1 + "<br />");
+    document.writeln("Variabel global_2 är: " + global_2 + "<br />");
+    document.writeln("Anropar metod som ökar på variabeln global_1<br />");
+    funk1();
+    
+    document.writeln("Variabel global_1 är nu: " + global_1 + "<br />");
+  </script>
+  </p>
+</blockquote>
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

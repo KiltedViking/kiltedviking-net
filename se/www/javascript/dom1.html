@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/dom1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/dom1.html" />
+  <title>Document Object Model (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1>Document Object Model (JavaScript)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li class="active"><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Innehåll</h2>
+
+      <p>På den webbsidan introduceras <em>Document Object Model (DOM) Level 1</em>
+        (DOM1). Bl.a. behandlas bakgrunden till DOM1 samt vad DOM faktiskt är. Här
+        behandlas även begreppet diskret JavaScript (eng. <em>unobtrusive JavaScript</em>)
+        och hur man &quot;aktiverar&quot; den (kopplar kod till webbsida).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#bakgrund" class="collection-item">Bakgrund</a></li>
+        <li><a href="#noder" class="collection-item">DOM och noder</a></li>
+        <li><a href="#nodtyper" class="collection-item">Typer av noder</a></li>
+        <li><a href="#diskret" class="collection-item">Diskret JavaScript</a></li>
+        <li><a href="#loadevent" class="collection-item">Funktionen addLoadEvent</a></li>
+        <li><a href="#referenser" class="collection-item">Referenser</a></li>
+      </ul>
+    </div>
+  </div>
+      
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="bakgrund">Bakgrund</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Netscape skapade JavaScript för att bl.a. kunna göra webbsidor mer interaktiva,
+        vilket Microsoft (MS) hakade på (men kallade JScript). Så här långt var allt
+        OK... tills MS bestämde sig för att gå sin egen väg, d.v.s. utveckla sin egen
+        dokumentmodell (se nedan). Därmed hade vi två dokumentmodeller och webbutvecklare
+        var tvungna att antingen göra två uppsättningar av webbsidor eller skriva
+        två versioner av kod där modeller skiljde sig. Detta är vad som brukar
+        kallas <em>DOM Level 0</em> (DOM0). </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Dokumentmodeller</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En dokumentmodell är hur ett dokument är strukturerat, d.v.s. hur element
+        (rubriker, stycken, länkar, m.m.) i ett dokument bl.a. kan refererars till i
+        ett programspråk (så som JavaScript - se även sidan Objekt). Element i
+        dokument brukar representeras av objekt, bl.a. då de kan innehålla text men
+        även andra element. Objekten i DOM brukar kallas noder och placeras i ett
+        träd - ett s.k. nodträd.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Specifikationerna <em>DOM Core</em> och <em>DOM HTML</em></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>DOM används, som sagt, för att skapa en enhetlig dokumentmodell, d.v.s.
+        underlätta utveckling av interaktiva webbsidor. Modellen, kan sägas, bestå
+        av två delar:</p>
+
+      <ul>
+        <li><em>DOM Core</em> - gemensam modell för alla typer av strukturerade dokument
+          (så som HTML, XHTML och XML).</li>
+        <li><em>DOM HTML</em> - utökad modell för det som är specifikt för (X)HTML-dokument.</li>
+      </ul>
+
+      <p>Vad detta betyder är att vissa saker finns definierade i DOM Core-specifikationen
+        medans andra i DOM HTML-specifikationen. Så om ni letar efter en komplett
+        referens så måste ni eventuellt leta i två referenser... I denna underwebb
+        försöker jag skapa en gemensam referens för dessa två specifikationer, men
+        samtidigt visa på vilken specifikation som objekt (samt dess egenskaper och
+        metoder) tillhör, skulle ni vilja &quot;forska&quot; vidare.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="noder">DOM och noder</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>När en webbklient läser in ett dokument, må det vara (X)HTML- eller XML-dokument,
+        så skapar den ett nodträd med alla element i dokumentet. D.v.s. för varje
+        rubrik (Hx), stycke (P), länkar (A) m.m. så skapas en motsvarande nod i nodträdet.
+        Om element även innehåller text, som är synlig för besökare, och attribut
+        (vilka inte är synliga) så skapas även noder för dessa. <strong>Observera</strong>
+        att även mellanslag, tabbar och radbrytningar (s.k. <em>white spaces</em>)
+        kan genererar textnoder!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Ett första exempel</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan visas ett enkelt HTML-dokument.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title>Titel&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Rubrik 1&lt;/h1&gt;
+    &lt;p&gt;Stycke 1&lt;/p&gt;
+    &lt;p&gt;Stycke 2 med &lt;a href=...&gt;l&auml;nk&lt;/a&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="dom1/js_dom1_1.html" target="_blank" class="button button-primary">Exempel 1.1 - Enkelt XHTML-dokument</a></p>
+
+      <p>Ovanstående HTML-dokument resulterar i följande nodträd (enligt <em>DOM
+        Inspector</em> i Firefox). Efter respektive nod visas nodtyp samt eventuellt
+        innehåll inom &quot;hakparenteser&quot; ([ och ], samt något nedtonat - där är inte
+        fel på dina ögon :-).</p>
+
+      <ul>
+        <li>
+          #document
+            <ul>
+              <li>HTML <span class="grey">[elementnod (dokumenttyp)]</span></li>
+              <li>
+                HTML <span class="grey">[elementnod]</span>
+                <ul>
+                  <li>
+                    HEAD <span class="grey">[elementnod]</span>
+                    <ul>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                      <li>#text <span class="grey">[textnod innehållande tabb]</span></li>
+                      <li>
+                        TITLE <span class="grey">[elementnod]</span>
+                        <ul>
+                          <li>#text <span class="grey">[textnod innehållande &quot;Titel&quot;]</span></li>
+                        </ul>
+                      </li>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    BODY <span class="grey">[elementnod]</span>
+                    <ul>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                      <li>
+                        H1 <span class="grey">[elementnod]</span>
+                        <ul>
+                          <li>#text <span class="grey">[textnod innehållande &quot;Rubrik&quot;]</span></li>
+                        </ul>
+                      </li>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                      <li>
+                        P <span class="grey">[elementnod]</span>
+                        <ul>
+                          <li>#text <span class="grey">[textnod innehållande &quot;Stycke 1&quot;]</span></li>
+                        </ul>
+                      </li>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                      <li>
+                        P <span class="grey">[elementnod]</span>
+                        <ul>
+                          <li>#text <span class="grey">[textnod innehållande &quot;Stycke
+                            2 med &quot;]</span></li>
+                          <li>
+                            A <span class="grey">[elementnod]</span>
+                            <ul>
+                              <li>#text <span class="grey">[textnod innehållande &quot;länk&quot;]</span></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>#text <span class="grey">[textnod innehållande radbrytning]</span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+        </li>
+      </ul>
+
+      <p>Den första noden, #document, motsvarar själva dokumentet och den första
+        HTML-noden innehåller dokumenttyp för dokumentet (om t.ex. HTML, XHTML eller
+        XML). Den andra HTML-noden är själva innehållet i dokumentet, d.v.s. HTML-taggen
+        i dokumentet, som innehåller de två obligatoriska delarna: sidhuvud (HEAD)
+        och sidkropp (BODY - den synliga delen av dokumentet).</p>
+
+      <p>Sidhuvudet innehåller endast (obligatoriska) titel medan sidkroppen innehåller
+        den del av dokumentet som är synlig för besökare, d.v.s. stycken (P), rubriker
+        (Hx), listor (OL/UL), m.m.. <strong>Observera</strong> ett antal #text som
+        motsvarar radbrytning, m.m.!</p>
+
+      <p>En detalj att <strong>observera</strong> är att länkar (A) måste innehålla
+        ett attribut HREF som är adressen som länk &quot;pekar på&quot;. Men, som
+        diskuteras nedan, så ska det ju finnas en motsvarande attributnod, vilket
+        inte syns ovan. Jag har alltså inte glömt dem i trädet ovan utan de brukar
+        faktiskt behandlas annorlunda från övriga typer av noder (vilket är förrvirrande!).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="nodtyper">Typer av noder</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I DOM finns ett antal nodtyper, där vi främst är intresserade av de tre
+        första i lista nedan. <span class="kommentar">(Jag återkommer till varför
+        de/lista är numrerad senare.)</span></p>
+
+      <ol>
+        <li><strong>element</strong> (objekt)</li>
+        <li><strong>attribut</strong> (objekt, men kan även betraktas som sträng - se nedan)</li>
+        <li><strong>text</strong> (sträng)</li>
+        <li>CDATA</li>
+        <li>entitetsreferens</li>
+        <li>entitetsnod</li>
+        <li>processinstruktion</li>
+        <li>kommentar</li>
+        <li>dokument (objekt)</li>
+        <li>dokumenttyp</li>
+        <li>dokumentfragment (objekt)</li>
+        <li>notation</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Elementnoder</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En elementnod (typ 1) motsvarar alltså ett element i ett (X)HTML-dokument, t.ex.
+        stycken (P), rubriker (Hx), länkar (A) och betoningar (EM). Denna typ av nod
+        kan innehålla andra noder och typiska exempel är de för taggarna HTML, HEAD
+        och BODY, men även t.ex. stycken (P) och listor (OL/UL) som kan innehålla andra
+        noder (element). Eftersom element kan ha attribut och innehålla text (data)
+        så är det mycket vanligt, om inte regel, att elementnoder innehåller attribut-
+        och/eller textnoder, utöver eventuella elementnoder.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Attributnoder</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Attributnoder (typ 2) motsvarar attribut i (X)HTML-taggar, t.ex. HREF i länk (A)
+        samt de mer övergripande attributen ID och CLASS som alla taggar har. Som
+        nämnts ovan så behandlas attributnoder annorlunda från övriga typer av noder
+        (i.a.f. element- och textnoder, som behandlas här). Det är bl.a. fullt möjligt
+        att betrakta dem som värden i elementnoder och inte barnnoder (se Elementnoder
+        nedan). Denna typ av noder kan inte innehålla andra noder och i s.k. DOM-granskare
+        (<em>DOM inspectors</em>) så visas denna typ av noder inte som del av nodträd.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Textnoder</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Eftersom element som rubriker (Hx) och stycken (P) kan innehålla text så
+        motsvarar texten av textnoder (typ 3). I DOM-granskare så visas denna typ
+        av noder som &quot;#text&quot; och denna typ av noder kan inte innehålla
+        andra noder.</p>
+
+      <p><strong>Observera</strong> att om t.ex. stycken (P) innehåller andra element,
+        så som länkar (A), så är dess text oftast uppdelad i <strong>flera</strong>
+        textnoder! I exempel i förra avsnittet så innehåller det andra stycket texten
+        &quot;Stycke 2 med länk&quot;, men eftersom ordet &quot;länk&quot; är en
+        del av länkelementet (A) så tillhör detta ord motsvarande elementnod för länk.
+        D.v.s. texten i andra stycket är två textnoder tillhörande två olika elementnoder:
+        &quot;Stycke 2 med &quot; i P-noden och &quot;länk&quot; i A-noden. Skulle
+        vi t.ex. vilja översätta stycket till ett annat språk så måste vi alltså ändra
+        innehållet i två textnoder.</p>
+
+      <ul>
+        <li>
+          P <span class="grey">[element]</span>
+          <ul>
+            <li>#text <span class="grey">[strängen &quot;Stycke 2 med &quot;]</span></li>
+            <li>
+              A <span class="grey">[element]</span>
+              <ul>
+                <li>#text <span class="grey">[strängen &quot;länk&quot;]</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Övriga nodtyper</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Övriga nodtyper, inte beskrivna ovan, fyller sin funktion de också, men
+        de manipuleras inte så ofta (och definitivt inte i denna underwebb). De finns
+        med i lista ovan för att göra referens komplett. (Se Referenser för mer information.)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Nodtypsnummer</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Respektive nodtyp (element, attribut eller text) motsvaras alltså av ett
+        nummer (vilket förklarar numreringen i listan ovan). Detta är användbart tillsammans
+        med operatorn <span class="code">typeof</span>, vilket visas i exempel nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>if((typeof minNod) == 1)
+  //Gör något med elementnod
+else if((typeof minNod) == 2)
+  //Gör något med attributnod
+else if((typeof minNod) == 3)
+  //Gör något med textnod</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="diskret">Diskret JavaScript</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Förtroendet för JavaScript, och viljan att aktivera den i sin webbläsare,
+        är ganska lågt hos många besökare på Internet. Men om webbutvecklare är villiga
+        att ta till sig syftet med konceptet diskret JavaScript (eng. <em>unobtrusive
+        JavaScript</em>) så kanske besökare kommer bli mer villiga att aktivera
+        JavaScript.</p>
+
+      <p>Konceptet bygger på att webbplatser ska fungera oavsett om JavaScript (och
+        även stilmallar, CSS) är aktiverat (eller fungerar) i besökares klient. Funktioner
+        som erhålls med JavaScript ska även vara en utökning som ger besökare ett
+        mervärde av att ha det aktiverat, d.v.s. JavaScript-funktion ska inte vara
+        påträngande eller påtvingat.</p>
+
+      <p>För att diskret JavaScript ska fungera så lägger vi alltså till eventuell
+        funktion med JavaScript när webbsida laddas, vilket vi bl.a. kan använda funktionen
+        addLoadEvent() nedan till. Funktionen läggs till genom en (eller flera)
+        &quot;initieringsfunktioner&quot; som bl.a. testar hur mycket klienten klarar
+        av innan den går vidare.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="loadevent">Funktionen addLoadEvent</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Någon, som är intelligentare än mig, har tagit fram en funktion som lägger
+        till funktioner som ska exekveras när en webbsida laddas, d.v.s. när händelsen
+        &quot;load&quot; sker. Vi kopplar alltså dessa funktioner till fönstrets
+        händelseattribut <span class="code">onload</span>. Funktionen tillåter bl.a.
+        att lägger till flera funktioner som ska exekveras när webbsida laddas (vilket
+        är skälet till att jag tar upp den istället för att bara tilldela till <span
+        class="code">window.onload</span> :-).</p>
+
+      <p>Skriv av (eller kopiera) kod nedan och spara i en fil med namnet addloadevent.js
+        (eller namn av eget tycke :-).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func; //OBS: inga parenteser!
+  }
+  else {
+    window.onload = function() {
+      oldonload();
+      func();
+    }
+  }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Lägg sen till följande rad i (X)HTML-dokumentets HEAD-tagg för att länka
+        in det externa dokumentet ovan (ändra namn på fil om du sparade med annat
+        namn än addloadevent.js).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;script type=&quot;text/javascript&quot; src=&quot;addloadevent.js&quot;&gt;&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I en tredje fil (HTML-dokument är det första :-), t.ex. min_javascript.js,
+        så placerar vi sen nedanstående kod plus alla funktioner som vi vill använda
+        oss av. <strong>Observera</strong> att i anropet av funktionen addLoadEvent()
+        så skriver vi <strong>inga</strong> parenteser efter vårt funktionsnamn, bara
+        namnet!</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>addLoadEvent(minFunktion); //Koppla funktion till sidladdning
+function minFunktion() {
+&nbsp; alert('Sida laddas');  //Ta bort när koppling fungerar...
+&nbsp; //Placera kod här som ska exekveras när sida laddas
+}
+//Övriga av dina funktioner här...</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Kod som ska skrivas i funktionen minFunktion() ovan behandlas i kommande
+        sidor. (Ta bort raden med alert() när du vet att koppling fungerar, d.v.s.
+        att meddelanderuta visas. :-)</p>
+
+      <p>Lägg sen till även följande rad i (X)HTML-dokumentets HEAD-tagg för att länka
+        in det externa dokumentet ovan (ändra namn på fil om du sparade med annat
+        namn än min_javascript.js).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;script type=&quot;text/javascript&quot; src=&quot;min_javascript.js&quot;&gt;&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p><a href="dom1/dom_index.zip">Ladda ner kod</a> för exempel ovan.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Om funktionen/About the function</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Denna funktion hittade jag i följande suveräna bok:/I found this function
+        in the following excellent book:</p>
+
+      <ul>
+        <li>Keith, J., <em>DOM Scripting - Web Design with JavaScript
+        and the Document Object Model</em>, Friends of ED, 2005.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <p>Nedan finns några webbsidor/-platser med mer information om ämnet på denna
+        webbsida.</p>
+
+      <ul>
+        <li><a href="https://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/level-one-core.html" 
+          class="externallink" target="_blank" rel="noopener">DOM
+          Core</a> hos <a href="https://www.w3.org/" class="externallink" target="_blank" 
+          rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+      </ul>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="del5.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="dom1a.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del1.html" />
+  <title>Grundl&auml;ggande - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>Grundl&auml;ggande - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item active" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Inneh&aring;ll</h2>
+
+        <p>P&aring; denna sida beskrivs &quot;det inledande&quot; om jQuery, bl.a. vad
+          som kr&auml;vs f&ouml;r jQuery samt vad funktionen <code>$()</code> och 
+          h&auml;ndelsehanteraren <code>.ready()</code> &auml;r 
+          och hur de anv&auml;nds.</p>  
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#forbereda">F&ouml;rbereda webbsida f&ouml;r jQuery</a>
+          <a class="item" href="#objekt">jQuery-objektet</a>
+          <a class="item" href="#dollar">Funktionen <code>$()</code> (och konstruktorn <code>jQuery</code>)</a>
+          <a class="item" href="#ready">H&auml;ndelsehanteraren <code>.ready()</code></a>
+          <a class="item" href="#relaterat">JavaScript-relaterat</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="nine wide column">
+        <h2 id="forbereda">F&ouml;rbereda websida f&ouml;r jQuery</h2>
+
+        <p>F&ouml;r att anv&auml;nda jQuery beh&ouml;vs tv&aring; saker:</p>
+        
+        <ul>
+          <li>en referens till jQuery-ramverk</li>
+          <li>och ett &quot;jQuery-skript&quot; - antingen i webbsida eller i en extern
+            JavaScript-fil.</li>
+        </ul>
+        
+        <h3>Versioner av jQuery-fil</h3>
+          
+        <p>Bortsett fr&aring;n att det sl&auml;pps nya versioner av jQuery med j&auml;mna mellanrum 
+          s&aring; finns det tv&aring; olika jQuery-filer. Skillnaden mellan dem &auml;r att en &auml;r i
+          &quot;l&auml;sbart&quot; format, d.v.s. &auml;r t&auml;nkt f&ouml;r utveckling och fels&ouml;kning,
+          och den andra i komprimerat format (mellanrum och radbrytningar tagits bort),
+          d.v.s. &auml;r t&auml;nkt f&ouml;r produktion.</p>
+          
+        <ul>
+          <li><code>jquery-X.Y.Z.js</code> - version X.Y.Z (version 1.6.2 var 231 kB).</li>
+          <li><code>jquery-X.Y.X.min.js</code> - komprimerad version X.Y.Z (version 1.6.2. var 90 kB).</li>
+        </ul>
+        
+        <p>I denna webbplats har jag tagit bort versionsnumret i filnamnet f&ouml;r att inte 
+          beh&ouml;va redigera alla filer om jag byter version.</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <h3>Referens till jQuery-ramverk</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>F&ouml;r att spara bes&ouml;kares bandbredd (och tid) s&aring; kan man ange en referens till
+          jQuery-ramverk p&aring; en server p&aring; Internet, t.ex. hos Google. (D&auml;rmed &auml;r sannolikheten
+          st&ouml;rre att bes&ouml;kare redan laddat ner ramverket n&auml;r den bes&ouml;ker sida.)</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="nine wide column">
+        <p class="kommentar">Ett problem med ovanst&aring;ende URL &auml;r att den laddar en viss 
+          version av ramverk, d.v.s. version 3.4 i detta fall, och att om man vill anv&auml;nda
+          den senaste versionen av ramverket s&aring; m&aring;ste man &auml;ndra URL:er i alla dokument.
+          Man skulle ist&auml;llet kunna referera till ramverksfilen <span class="code">jquery-latest.js</span>,
+          men d&aring; kan man f&aring; problem med kompabilitet n&auml;r ny version av ramverk sl&auml;pps.</p>
+        
+        <h3>&quot;jQuery-skript&quot;</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>&quot;jQuery-skript&quot; (som faktiskt &auml;r &quot;vanlig&quot; JavaScript)
+          kan t.ex. placeras i webbsidans head-tagg eller innan avslutade body-tagg,
+          men &auml;ven i en extern fil.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>&lt;script&gt;
+&nbsp; <span class="codehilight">$(&quot;h2&quot;).css(&quot;color&quot;, &quot;red&quot;);</span>
+&lt;/script&gt;  
+&lt;script src=&quot;my_jquery_script.js&quot;&gt;&lt;/script&gt;</code></pre>
+        <!-- 2017-11-26: Flyttade kod till slutet pa dokument -->
+      </div>
+            
+      <div class="nine wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="objekt">jQuery-objektet</h2>
+
+        <p>jQuery-ramverket bygger p&aring; ett jQuery-objekt, vars uppgift &auml;r att kapsla 
+          in ett eller flera element (DOM-objekt) i webbsidan f&ouml;r att exponera en 
+          enhetlig samling av metoder. Genom att kapsla in elementen s&aring; kan man anv&auml;nda
+          samma samling av metoder (funktioner) oavsett webbl&auml;sare eller version av 
+          webbl&auml;sare.</p>
+          
+        <p class="kommentar">Skillnader mellan webbl&auml;sare, och versioner av webbl&auml;sare,
+          hanteras allts&aring; inuti ramverkets kod. Allts&aring; mer som vi inte beh&ouml;ver bry oss
+          om. :-)</p>
+          
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+          
+        <h2 id="dollar">Funktionen <code>$()</code> (och konstruktorn <code>jQuery</code>)</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>F&ouml;r att skapa ett jQuery-objekt anv&auml;nds funktionen <code>$()</code>, 
+          som &auml;r en f&ouml;rkortning  f&ouml;r konstruktorn <code>jQuery()</code>. 
+          Som argument till funktionen <code>$()</code> (eller jQuery-konstruktor) 
+          kan skickas ett DOM-objekt (t.ex. document) eller en str&auml;ng med element i 
+          sida att h&auml;mta referenser till. Str&auml;ngen inneh&aring;ller &quot;selektorer&quot; 
+          (vilket &auml;r &auml;mnet f&ouml;r n&auml;sta sida).</p>
+
+        <p>De tv&aring; exemplen nedan betyder samma sak, d.v.s. f&ouml;rst anv&auml;nds funktionen <code>$()</code>
+          och sen konstruktorn <code>jQuery()</code>. I exempel s&aring; v&auml;ljs alla h2-taggar och ges (text-)f&auml;rgen 
+          r&ouml;d.</p>    
+      </div>
+
+      <div class="seven wide column">
+        <code>$(&quot;h2&quot;).css(&quot;color&quot;, &quot;red&quot;);</code><br />
+        <code>jQuery(&quot;h2&quot;).css(&quot;color&quot;, &quot;red&quot;);</code>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="ready">H&auml;ndelsehanteraren <code>.ready()</code></h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>H&auml;ndelsehanteraren <code>.ready()</code> anv&auml;ndas f&ouml;r att 
+          skript inte ska b&ouml;rja exekveras f&ouml;rr&auml;n hela webbsidan har 
+          laddats. Om sida inte laddats klart s&aring; kanske vissa element inte finns 
+          och kod f&ouml;r att manipulera dem kommer inte att fungera.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>&lt;script&gt;
+  $(document).ready(function() {
+    //kod som ska exekveras nar sida laddats
+  });
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="nine wide column">
+        <p>Om argumentet till funktionen <code>$()</code> är en funktion så motsvarar 
+          det ett anrop till händelsehanteraren <code>.ready()</code>.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>&lt;script&gt;
+  $(function() {
+    //kod som ska exekveras nar sida laddats
+  });
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="nine wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="relaterat">JavaScript-relaterat</h2>
+        
+        <p>I detta avsnitt beskrivs en del JavaScript-relaterade saker man beh&ouml;ver f&ouml;rst&aring;,
+          bl.a. konceptet anonyma funktioner.</p>
+          
+        <h3>Anonyma funktioner</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>En <a href="https://en.wikipedia.org/wiki/Anonymous_function" target="_blank" 
+          rel="noopener">anonym funktion</a> &auml;r en funktion utan namn, d.v.s. 
+          det g&aring;r inte att anropa den (om den inte kopplats till n&aring;got, 
+          t.ex. en variabel eller h&auml;ndelsehanterare :-)).</p>
+
+          <p>Den grundl&auml;ggande strukturen/koden &auml;r f&ouml;ljande:</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>function () { //har saknas namn pa funktion
+  //kod i funktion
+}</code></pre>
+      </div>
+      
+      <div class="nine wide column">
+        <p>Anonyma funktioner kan bl.a. anv&auml;ndas d&aring; man inte beh&ouml;ver referera till funktionen
+          vid namn i kod, t.ex. n&auml;r man kopplar en h&auml;ndelsehanterare till ett elements
+          h&auml;ndelse eller d&aring; man skickar en funktion som argument till en annan funktion.</p>
+          
+        <p class="kommentar">Funktioner &auml;r objekt i JavaScript och kan d&auml;rf&ouml;r 
+          tilldelas till en variabel skickas som argument till en annan funktion.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>var minFunktion = function () {
+  //kod i funktion
+}
+minFunktion(); //Anropa funktion</code></pre>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://docs.jquery.com/Main_Page" target="_blank" rel="noopener">jQuery-dokumentation</a></li>
+          <li><a href="https://developers.google.com/speed/libraries" target="_blank" rel="noopener">Google Hosted Libraries</a></li>
+        </ul>
+
+        <div class="ui compact menu">
+          <a class="item" href="index.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item" href="del2.html">N&auml;sta &gt;</a>
+        </div>
+      </div>  
+    </div>
+    
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-03-07.</p>
+    </footer>
+  </div>
+
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".codehilight").css({"font-weight": "bold", "color": "blue", "background-color": "inherit"});
+    });
+  </script>
+</body>
+</html>

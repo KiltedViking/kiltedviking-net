@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/php/lathund/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/php/lathund/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>PHP lathund (del 1) - Björns studiewebb</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
+  <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
+  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
+  <script type="text/javascript" src="../../studiewebb.js"></script> -->
+</head>
+<body>
+<header class="container">
+  <div class="row">
+    <div class="column column-100">
+      <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1>PHP-lathund (del 1)</h1>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+  <!-- *** Meny ************************************************************ -->
+    <div class="column column-66">
+    <!-- *** Innehall ******************************************************** -->
+      <h2>Inledning</h2>
+      <p>Denna sida innehåller första delen av lathunden för PHP.
+        Här beskrivs det grundläggande om placering av PHP-kod och
+        PHP:s syntax. PHP:s syntax påminner mycket om C/C++, Java och Perl samt fungerar
+        på ett liknande sätt som ASP (liksom <a href="../../java/index.html">JSP</a> 
+        om vi ska nämna förkortningar :-).</p>
+      
+      <p>För en komplett beskrivning av PHP rekommenderas <b>PHP-dokumentation</b> 
+        på adressen <a href="https://www.php.net/" target="_blank" rel="noopener">www.php.net</a>. 
+        Den finns att ladda ner som bl.a. en Windows-hjälpfil (.CHM).</p>
+        
+      <p>Lathunden kommer göra referenser till språk som C, C++ och Java eftersom 
+        mycket av PHP:s syntax påminner om syntaxer i just dessa språk.</p>
+      
+      <p>Tanken med denna sida var att göra en referenslista (lathund) för PHP -
+        men det visade sig bli en lite väl omfattande lathund. :-) Därför har lathunden
+        delats i två delar. Framöver kommer jag (antagligen) att göra exempel för de olika sakerna
+        som finns på denna sida. (För den vetgiriga så innehöll denna webbsida
+        ca. 930 rader med HTML-kod den 6/01-04.)</p>
+    </div>
+
+    <div class="column column-33">
+      <h2>Innehåll</h2>
+
+      <ul class="intern">
+        <li><a href="#grundlaggande">Grundläggande</a></li>
+        <li><a href="#variabler" class="lank">Variabler och datatyper</a></li>
+        <li><a href="#utskrift" class="lank">Utskrifter</a></li>
+        <li><a href="#operatorer" class="lank">Operatorer</a></li>
+        <li><a href="#kontrollstrukturer" class="lank">Kontrollstrukturer</a></li>
+        <li><a href="#loopar" class="lank">Loopar</a></li>
+      </ul>
+      
+      <ul class="intern">
+        <li><a href="lathund2.html" class="lank">Del 2</a></li>
+      </ul>
+      
+      <ul class="tillbakalista flerradiglista">
+        <li><a href="../">Tillbaka</a> till PHP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column column-66">
+    
+      <h2><a name="grundlaggande"></a>Grundläggande</h2>
+      
+      <p>PHP-kod &quot;bäddas in&quot; (eng. <i>is embedded</i>) i HTML-kod
+        mellan den öppnande taggen &lt;?php och den avslutande taggen ?&gt;.
+        (Ibland kan andra taggar användas, bl.a. samma som i ASP.) PHP-taggarna kan 
+        förekomma flera gånger i HTML-koden, d.v.s. vi kan dela
+        upp PHP-koden i flera olika delar.</p>
+        
+      <pre><code>&lt;!-- Utanför PHP-taggar är det ren HTML-kod --&gt;
+&lt;?php
+&nbsp; //Här placeras koden
+?&gt;
+&lt;!-- Utanför PHP-taggar är det ren HTML-kod --&gt;</code></pre>
+    
+      <p>PHP-koden mellan taggarna tolkas och exekveras (av den s.k. PHP-motorn) varje gång
+        som en webbläsare begär PHP-sidan. Resultatet från exekveringen kommer
+        infogas på den plats (i, vad jag kallar, den resulterande webbsidan) där PHP-koden
+        finns. D.v.s. PHP-koden ersätts med resultatet från exekveringen av
+        PHP-koden. Resultatet kan bestå av utskrifter, värdet på en variabel eller
+        resultatet av ett funktionsanrop. </p>
+      
+      <p>I exemplet nedan har PHP-koden markerats med gul bakgrund.</p>
+      
+      <pre><code>&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
+&lt;p&gt;<span class="code">
+&lt;?php
+&nbsp; $str = &quot;Detta är PHP-kod&quot;;
+&nbsp; print $str;
+?&gt;</span>
+&lt;/p&gt;
+&lt;p&gt;Detta är mer HTML-kod&lt;/p&gt;</code></pre>
+    
+      <p>Resultatet från exekveringen ovan blir följande HTML-kod, d.v.s. den
+      HTML-kod som skickas till besökarens webbläsare:</p>
+      
+      <pre><code>&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
+&lt;p&gt;
+Detta är PHP-kod
+&lt;/p&gt;
+&lt;p&gt;Detta är mer HTML-kod&lt;/p&gt;</code></pre>
+    
+      <p>PHP skiljer inte på gemener och versaler, d.v.s. är &quot;case insensetive&quot;,
+        <strong>förutom</strong> i variabelnamn.</p>
+      
+      <h4>Satser och block</h4>
+      
+      <p>Precis som i C/C++/Java så består PHP-kod av satser. En sats är någon
+        form av exekvering som utförs och varje sats måste avslutas med ett
+        semikolon (med några undantag :-). Även block fungerar som i C/C++/Java,
+        d.v.s. innesluts inom &quot;hakparenteser&quot; ({ och }).</p>
+        
+      <h3>Kommentarer</h3>
+      
+      <p>PHP använder både en- och flerradiga kommentarer. Enradiga kommentarer skrivs
+        efter ett två snedstreck (<code>//</code>) eller &quot;brädgård&quot; (<code>#</code>) och allt på 
+        raden efter ett kommentarstecken kommer att bortses från av
+        PHP-motorn. Flerradiga kommentarer innesluts mellan öppnande <code>/*</code> och
+        avslutande <code>*/</code> (och är bl.a. användbart för att &quot;kommentera bort&quot; kod).</p>
+        
+      <p class="kommentar">Radera (eller ersätt) <b>aldrig</b> kod förrän du är
+        säker på att du inte behöver den - kommentera bort den istället. Även om
+        koden är felaktig så har den en &quot;tanke&quot;, d.v.s. talar om vad du tänkt dig
+        göra.<br />
+        Om du vill ändra i fungerande kod kan det vara en bra idé att ta en kopia
+        på koden och &quot;kommentera bort&quot; originalet samt ändra i kopian.</p>
+        
+      <p>I exemplet nedan så har kommentarer markerats med fet stil.</p>
+      
+      <pre><code>&lt;?php
+  $tal = 1 + 2;  <b>//Addition av två tal - 1 + 2</b>
+  $strang = &quot;En tuff sträng&quot;;&nbsp; <b>#En till
+  /* En kommentare
+     på flera rader */</b>
+?&gt;</code></pre>
+    
+      <hr />
+      <h2><a name="variabler"></a>Variabler och datatyper</h2>
+      
+      <h3>Variabler</h3>
+
+      <p>Variabler behöver inte deklareras i PHP, men alla variabler föregås av
+        ett dollartecken ($). För att införa
+        (&quot;deklarera&quot;) en variabel så tilldelar vi bara variabeln ett värde.</p>
+
+      <pre><code>$tal1 = 42;
+$text1 = &quot;En sträng&quot;;</code></pre>
+
+      <div class="panel">
+        <p><b>Observera</b> att detta gör att variabelnamn som stavas fel kan leda
+          till att det blir svårt att hitta fel i PHP-kod! Den enda gången som PHP
+          skiljer på gemener och versaler är i variabelnamn. Nedanstående variabler
+          betraktas alltså som olika variabler.</p>
+      </div>
+
+      <pre><code>$tal1 = 42;
+$TaL1 = 37;</code></pre>
+
+      <p>Det trevliga med att variabler använder dollartecken (före namnet på
+        variabeln) är att de kan användas inuti strängar direkt (i.a.f. de med
+        dubbla citattecken - se <i>Strängar</i> nedan). D.v.s. vi slipper
+        slå samman (konkatinera) strängar med variabler (vilket kan skapa ganska
+        &quot;ful&quot; kod). Detta fungerar dock inte alltid då vi vill indexera i (hämta
+        ett värde från) en vektor (se mer under rubriken <i>Vektorer (arrays)</i>
+        nedan).</p>
+
+      <p>I exempel nedan så infogas första variabeln (heltalet) i strängen som
+        tilldelas till andra variabelns (strängen).</p>
+
+      <pre><code>$tal1 = 42;
+$text1 = &quot;Svaret på allt är $tal1&quot;;</code></pre>
+
+      <p>Strängen (<code>$text1</code>) innehåller nu texten <code>&quot;Svaret på allt är 42&quot;</code>.</p>
+
+      <h3>Datatyper</h3>
+
+      <p>PHP har inga egentliga datatyper, men man brukar ändå skilja på
+        variabler som innehåller tal, strängar och vektorer (<i>arrays</i>).
+        (Vektorer behandlas i ett eget avsnitt nedan.)</p>
+
+      <p>För att underlätta läsandet av PHP-kod så bör man använda prefix
+        för att tala om vilken &quot;datatyp&quot; som lagras (eller är tänkt att lagras) i
+        variabeln. Nedan visas en tabell med exempel på prefix och vilka
+        motsvarande datatyper som de avser beteckna.</p>
+
+      <table class="table100proc">
+        <tr>
+          <th class="tablecolumn25proc">Prefix</th>
+          <th class="tablecolumn75proc">Undertyp</th>
+        </tr>
+        <tr>
+          <td class="code">str</td>
+          <td>sträng (string)</td>
+        </tr>
+        <tr>
+          <td class="code">int</td>
+          <td>heltal (integer)</td>
+        </tr>
+        <tr>
+          <td class="code">sng</td>
+          <td>decimaltal (single)</td>
+        </tr>
+        <tr>
+          <td class="code">dbl</td>
+          <td>decimaltal (double)</td>
+        </tr>
+        <tr>
+          <td class="code">bln</td>
+          <td>boolesk (boolean)</td>
+        </tr>
+        <tr>
+          <td class="code">obj</td>
+          <td>objekt (object)</td>
+        </tr>
+      </table>
+
+      <h4>Strängar</h4>
+
+      <p>Strängar kan innesluts mellan både enkla och dubbla citattecken ('
+        resp. &quot;), t.ex.
+        <code>'Detta är en sträng'</code> resp. <code>&quot;Detta är en också sträng&quot;</code>.</p>
+
+      <p>En escape-sekvens är ett bakåt snedstreck (<i>backslash</i>, <code>\</code>) följt
+        av ytterligare ett tecken. Escape-sekvenser används t.ex. för att infoga
+        ett citattecken i en sträng (utan att för den sakens skull avsluta
+        strängen).</p>
+
+      <pre><code>&quot;Denna sträng \&quot;innehåller\&quot; citattecken&quot;</code></pre>
+
+      <p>ger</p>
+
+      <pre><code>Denna sträng &quot;innehåller&quot; citattecken</code></pre>
+
+      <p>&nbsp;</p>
+
+      <table>
+        <tr>
+          <th class="tablecolumn25proc">Escape- sekvens</th>
+          <th class="tablecolumn75proc">Betydelse</th>
+        </tr>
+        <tr>
+          <td><code>\&quot;</code> el. <code>\'</code></td>
+          <td>Infogar ett citattecken i sträng</td>
+        </tr>
+        <tr>
+          <td><code>\n</code></td>
+          <td>Ger radbrytning (i HTML-kod - använd
+          <code>&lt;br /&gt;</code> för att få en radbrytning i webbsida)</td>
+        </tr>
+        <tr>
+          <td><code>\t</code></td>
+          <td>Ger en tabb (i HTML-kod)</td>
+        </tr>
+        <tr>
+          <td><code>\\</code></td>
+          <td>Infogar ett bakåt snedstreck (backslash, <code>\</code>)</td>
+        </tr>
+        <tr>
+          <td><code>\$</code></td>
+          <td>Infogar ett dollartecken (<code>$</code>)</td>
+        </tr>
+      </table>
+
+      <p>Escape-sekvenser är främst användbara i strängar som innesluts inom
+        dubbla citattecken (<code>&quot;</code>). Samma gäller användandet av variabler i strängar.</p>
+
+      <h4>Tal</h4>
+      
+      <p>När vi jobbar med tal i PHP så behöver vi inte tänka på att
+        deklarera en variabel med tillräcklig kapacitet (t.ex. Integer eller
+        Long) för att lagra talet i fråga. Det sköter PHP åt oss.</p>
+        
+      <p>Decimaltal skrivs i PHP-kod (enligt amerikansk standard) med punkt,
+        t.ex. <code>3.14</code>. Vid utskrift kommer dock talet att
+        skrivas ut enligt landspecifikt format, t.ex. med ett kommatecken (<code>3,14</code>)
+        på en svensk webbserver (???).</p>
+      
+      <p><b>Observera</b> att besökare med
+        svenska webbläsare ska fylla i decimaltal med komma när dom fyller i ett
+        formulär! (???)</p>
+      
+      <h4>Boolean</h4>
+      
+      <p>Booleska variabler kan tilldelas något av de reserverade orden <code>TRUE</code> eller
+        <code>FALSE</code>.</p>
+
+      <h4>Objekt</h4>
+
+      <p>Tilldelning av objekt sker på samma sätt som de primitiva (enkla) värdena.</p>
+
+      <h3>Vektorer (<i>arrays</i>)</h3>
+
+      <p>En vektorvariabel skiljer sig från en vanlig variabel genom att den
+        alltid följs av ett &quot;hakparentespar&quot; ([]). Precis som inte
+        vanliga variabler behöver deklareras så behöver inte heller vektorer (arrays)
+        heller deklareras. Inte heller behöver vi skapa skapa vektorer innan vi
+        kan tilldela värden till dem (även om detta också fungerar :-).</p>
+
+      <p>En skillnad mot vanliga programmeringsspråk (men inte skriptspråk) är
+        att vi kan lagra värden av olika typer i en vektor. Ytterligare en
+        skillnad är att vi kan använda både heltal och strängar som index i vektor
+        - t.o.m. i samma vektor.</p>
+
+      <h4>Tilldela till vektor utan index</h4>
+
+      <p>För att skapa en vektor så tilldelar vi helt enkelt ett värde till en
+        vektorvariabel.</p>
+
+      <pre><code>$arrTal[] = 1;&nbsp; //index = 0
+$arrTal[] = 1;
+$arrTal[] = 1;
+$arrTal[] = 1;&nbsp; //index = 3</code></pre>
+
+      <p>Vektor i exempel kommer att få index med början på 1. Efterföljande
+        index kommer ha index +1 från högsta index i vektor. D.v.s. eftersom
+        vektor är tom första gången så kommer högsta index vara &quot;-1&quot; och första
+        positionen kommer få index 0.</p>
+
+      <p><a href="arrays/ex1.php" target="_blank" class="button button-red">Exempel 1 - vektorer</a></p>
+
+      <h4>Tilldela till vektor med index</h4>
+
+      <p>Vi kan också ange index som värden ska ha, d.v.s. index behöver inte
+        vara ordnade eller efter varandra följande värden (d.v.s.&nbsp;
+        sekventiella som 1, 2, 3, ...).</p>
+
+        <pre><code>$arrTal[3] = 1;
+$arrTal[6] = 2; 
+$arrTal[2] = 3;
+$arrTal[1] = 4;</code></pre>
+
+      <p>I exempel ovan så kommer första positionen i vektorn ha index 3 samt
+        efterföljande index vara 6, 2 och 1.</p>
+
+      <p><a href="arrays/ex2.php" target="_blank" class="button button-red">Exempel 2 - mer vektorer</a></p>
+
+      <div class="panel">
+        <p><b>Observera</b> att vi <b>inte</b> kan använda en &quot;klassisk&quot; for-loop (med en
+          räknare som $i) för att loopa över en vektor med icke-sekventiella index.
+          Istället måste vi t.ex. använda foreach-loop (se mer under
+          Kontrollstrukturer nedan).</p>
+      </div>
+
+      <h4>Indexera i vektorer med strängar</h4>
+
+      <p>Vi kan även använda strängar som index i vektorer - vad som ibland även
+        kallas associativa vektorer (ett namn har associerats med värdet i
+        vektorn).</p>
+
+      <pre><code>$arrTal[&quot;ett&quot;] = 1;
+$arrTal[&quot;två&quot;] = 2;
+$arrTal[&quot;femtitvå&quot;] = 3;
+$arrTal[&quot;sture&quot;] = 4;</code></pre>
+
+      <p>Exempel ovan talar för sig själv. :-)</p>
+      <p>><a href="arrays/ex3.php" target="_blank" class="button button-red">Exempel 3 - ännu mer vektorer</a></p>
+
+      <p>Denna typ av index är något som vi bl.a. kan använda oss av då vi hämta poster från
+        en databas och vill använda kolumnnamnen för att hämta värden från
+        posterna.</p>
+
+      <div class="panel">
+        <p><b>Observera</b> att vi inte heller här kan använda en for-loop.</p>
+      </div>
+      <h4>Mer om vektorer...</h4>
+
+      <p>Ovanstående beskrivning av vektorer (arrays) är en del av de sätt som
+        vektorer kan manipuleras. Se PHP-manual för en komplett beskrivning. För
+        funktioner som opererar på vektorer - se del 2 av lathund.</p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="utskrift">Utskrifter</h2>
+
+      <p>Utskrifter till den resulterande webbsidan (HTML-dokumentet) kan ske
+        på två sätt:</p>
+
+      <ul>
+        <li>en sträng med print</li>
+        <li>en eller flera strängar med echo</li>
+        <li>en formaterad sträng med printf</li>
+        <li>eller som enstaka variabler (eller satser).</li>
+      </ul>
+      
+      <h3>Utskrift av sträng med print</h3>
+
+      <p>Det vanligaste sättet att skriva till den resulterande webbsidan är att
+        använda &quot;funktionen&quot; print(). &quot;Funktionen&quot; kan anropas
+        med eller utan
+        parenteser kring argumenten. Som enda argument tar
+        metoden en sträng - en sträng som kan vara sammanfogad av både strängar och
+        andra värden. PHP kommer automatiskt konvertera t.ex. tal till strängar
+        för utskrift.</p>
+
+      <pre><code>&lt;?php
+&nbsp; print &quot;Hej hela världen. &quot;;
+&nbsp; print(&quot;Klockan är nu: &quot; . date(&quot;H:i&quot;);
+?&gt;</code></pre>
+    
+      <p>Resultatet från de två raderna ovan kommer bli &quot;Hej hela
+        världen. Klockan är nu XX:XX&quot;.</p>
+      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift</a></p>
+
+      <p class="kommentar">För att sammanfoga två strängar används
+        punktoperatorn (<code>.</code>) och för att erhålla tiden så används funktionen 
+        <code>date()</code> (se även kommande avsnitt).</p>
+
+      <p><code>print</code> är egentligen inte en funktion utan en del av PHP:s språk.</p>
+
+      <h3>Utskrift av en eller flera strängar med echo</h3>
+
+      <p>&quot;Funktionen&quot; <code>echo()</code> fungerar som &quot;funktionen&quot;
+        <code>print()</code> med skillnaden att vi kan skicka flera argument till metoden 
+        (d.v.s. inte bara en sträng). Resultaten från både <code>print()</code> och 
+        <code>echo()</code> är i stort sett de samma.</p>
+
+      <pre><code>&lt;?php
+&nbsp; echo &quot;Hej hela världen. &quot;;
+&nbsp; echo(&quot;Klockan är nu: &quot;, date(&quot;H:i&quot;));
+?&gt;</code></pre>
+    
+      <p>Resultatet från de två raderna ovan kommer bli &quot;Hej hela
+        världen. Klockan är nu XX:XX&quot;.</p>
+      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen)</a></p>
+
+      <p>Observera att inga mellanrum infogas mellan parametrarna! I exemplet
+        ovan har ett mellanslag placerats sist i båda strängar för att erhålla
+        &quot;rätt&quot; resultat.</p>
+
+      <p><code>echo</code> är egentligen inte en funktion utan en del av PHP:s språk.</p>
+
+      <h3>Utskrift av formaterad sträng med printf</h3>
+
+      <p>Funktionen <code>printf()</code> fungerar på ett liknande sätt som i C/C++. Vi kan
+        bl.a. styra</p>
+
+      <ul>
+        <li>utfyllnadstecken (<i>padding</i>)</li>
+        <li>justering (<i>alignment</i>)</li>
+        <li>antal teckens bredd</li>
+        <li>precision för decimaltal</li>
+        <li>och typ (hur värde ska behandlas, t.ex. tal eller sträng)</li>
+      </ul>
+      
+      <p>Syntaxen för <code>printf()</code> är</p>
+
+      <pre><code>printf(format_sträng, arg1, arg2, ...);</code></pre>
+      
+      <p>Se PHP-dokumentationen för en beskrivning för nu... (Jag kommer ev. i
+        framtiden att göra en beskrivning). <code>printf()</code> <b>är</b> en funktion. :-)</p>
+
+      <h3>Utskrift av enstaka variabler eller satser</h3>
+
+      <p>Ibland vill vi bara skriva ut ett värde (i t.ex. en variabel) samt
+        resultatet från ett funktionsanrop eller en sats. Då kan vi använda en
+        &quot;genväg&quot; (kallat <i>inline</i> på engelska). Vi använder oss
+        av likhetstecknet för att skriva ut enligt följande exempel:</p>
+
+      <pre><code>Lite text <span class="code">&lt;?php =sats ?&gt;</span> och mer text</code></pre>
+
+      <div class="panel">
+        <p><b>Observera</b>
+          att endast ett värde kan skrivas ut åt gången och att likhetstecknet (=)
+          måste skrivas direkt efter frågetecknet (utan mellanslag)! Vill vi skriva ut flera
+          värden så måste vi innesluta respektive sats med PHP-taggar eller använda
+          någon av &quot;funktionerna&quot; ovan.</p>
+      </div>
+
+      <pre><code>&lt;head&gt;
+&lt;?php
+&nbsp; $intTal = 5
+?&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Talet är &lt;?php =$intTal ?&gt;.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    
+      <p>Resultatet (i webbläsare) från dessa rader ovan blir &quot;Talet är 5&quot;.</p>
+      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen!)</a></p>
+
+      <p class="kommentar">Det kan ibland vara praktiskt att samla all exekvering i början på en
+        webbsida och spara eventuella resultat i variabler för att skriva ut
+        variablerna med
+        denna genväg. Detta brukar göra både PHP- och HTML-koden lättare att läsa
+        samt underhålla.</p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 class="hruletop"><a name="operatorer"></a>Operatorer</h2>
+
+      <p>Nedan listas de olika typerna av operatorer som finns i PHP. Sist
+        i detta avsnitt visas en tabell med operatorprioritet.</p>
+
+      <h3>Tilldelning</h3>
+
+      <p>Tilldelning sker med likhetstecknet (<code>=</code>)</p>
+
+      <pre><code>$intTal1 =&nbsp;5;</code></pre>
+
+      <h3>Aritmetiska operator</h3>
+
+      <p>Operatorerna är de samma som i många andra språk, d.v.s. följande:</p>
+
+      <ul>
+        <li><code>+, -, *, /</code> - de fyra räknesätten</li>
+        <li><code>%</code> - modulusdivision; returnerar resten efter heltalsdivision.</li>
+        <li><code>-</code> - negering (unärt minus).</li>
+      </ul>
+      
+      <pre><code>$intTal1 = 1 + 2 * 3 / 4;</code></pre>
+      
+      <p>Division resulterar i decimaltal, även om båda operander är heltal.</p>
+      
+      <p>Operatorerna har de &quot;vanliga&quot; prioriteterna som i de flesta
+        språk (se nedan).</p>
+        
+      <h3>Sammanfogning av strängar</h3>
+
+      <p>För att sammanfoga två strängar (konkatinera) använder vi punktoperatorn (<code>.</code>)</p>
+
+      <pre><code>$strText1 = &quot;Lite text&quot; . &quot; och lite text till&quot;;</code></pre>
+
+      <p class="kommentar">Använder vi plustecken av misstag så kommer variabel
+        att innehålla en 0:a (d.v.s. om utskrift av en sträng blir 0 så kan vi vid felsökning leta
+        efter plustecken :-).</p>
+
+      <h3>Jämförelse operatorer</h3>
+
+      <ul>
+        <li><code>==</code> - likhetsjämförelse</li>
+        <li><code>!=, &lt;&gt;</code> - skilt från; jämför om operanderna inte är lika</li>
+        <li><code>&lt;</code> - mindre än</li>
+        <li><code>&gt;</code> - större än</li>
+        <li><code>&lt;=</code> - mindre än eller lika</li>
+        <li><code>&gt;=</code> - större än eller lika</li>
+        <li><code>===</code> - identitet</li>
+        <li><code>!==</code> - icke identitet</li>
+      </ul>
+      
+      <pre><code>1 != 2&nbsp;&nbsp; //Ger resultatet TRUE</code></pre>
+      
+      <p>PHP stödjer två skilt från-operatorer: != och &lt;&gt;. Likhet i PHP
+        innebär att två värden är lika - oavsett vilken datatyp värdena är.
+        Identitet innebär att två värden är lika och har samma datatyp.</p>
+        
+      <pre><code>1 == &quot;1&quot;
+1 == 1.0
+1 == &quot;1.0&quot;
+1 === 1</code></pre>
+    
+      <p>Alla fyra ovanstående uttryck är sanna.</p>
+      <p><a href="operatorer/ex1.php" target="_blank" class="button button-red">Exempel operatorer 1</a>.</p>
+        
+      <h3>Logiska operatorer</h3>
+
+      <ul>
+        <li><code>&amp;&amp;</code> eller <code>And</code> - logiskt och</li>
+        <li><code>||</code> eller <code>Or</code> - logiskt eller</li>
+        <li><code>!</code> - logiskt icke; returnerar motsatsen (sant om falskt och
+          tvärtom)</li>
+      </ul>
+      
+      <pre><code>1 != 2 &amp;&amp; 1 &lt; 2     //Ger resultatet TRUE</code></pre>
+      
+      <p>Skillnaden mellan operatorerna <code>&amp;&amp;</code> och <code>||</code> 
+        samt <code>and</code> och <code>or</code> är att de två senare har lägre prioritet.</p>
+        
+      <h3>Operatorprioritet</h3>
+
+      <p>Nedan visas en tabell med operatorernas prioritet. Operatorer överst
+        tar prioritet över de nedanför och de längst till vänster på samma
+        rad har högre prioritet än de längre till höger.</p>
+
+      <table>
+        <tr>
+          <td>högst</td>
+          <td><code>!, - (unär), *, /, %, +, - (binär), .</code></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><code>&amp;&amp;, ||</code></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><code>&lt;, &gt;, &lt;=, &gt;=, ==, !=</code></td>
+        </tr>
+        <tr>
+          <td>lägst</td>
+          <td><code>and, xor, or</code></td>
+        </tr>
+      </table>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 class="hruletop"><a name="kontrollstrukturer"></a>Kontrollstrukturer</h2>
+      
+      <p>if-/switch-satser, funktioner och loopar fungerar ungefär som i
+        C/C++/Java. Satser kan &quot;ersättas&quot; med block, d.v.s. flera satser
+        inneslutna av &quot;hakparenteserna&quot; <code>{</code> och <code>}</code>. 
+        Loopar presenteras i nästa avsnitt.</p>
+        
+      <h3>if-satser</h3>
+      
+      <p>I elseif-grenen kan elseif skrivas som ett eller två ord, d.v.s. som <code>elseif</code> 
+        eller som <code>else if</code>. Det första sättet är att föredra för att minska 
+        felaktigheter.</p>
+        
+      <h4>Syntax</h4>
+      
+      <pre><code>if(villkor)
+&nbsp; satser;
+[ elseif(villkor2)
+&nbsp; satser;
+&nbsp; ...
+&nbsp;&nbsp;&nbsp; ... ]
+[else
+&nbsp; satser; ]</code></pre>
+    
+      <h4>Exempel</h4>
+
+      <pre><code>$intTimme = date(&quot;h&quot;);
+
+if($intTimme &lt; 12)
+&nbsp; print &quot;God morgon&quot;;
+elseif($intTimme &lt; 18)
+&nbsp; print &quot;God middag&quot;;
+else
+&nbsp; print &quot;God kväll&quot;;</code></pre>
+    
+      <h3>switch-satser</h3>
+      
+      <p>I motsats till språk som C/C++/Java så kan värden i en switch-sats i
+        PHP även vara strängar (d.v.s. inte bara heltal).</p>
+        
+      <h4>Syntax</h4>
+
+      <pre><code>switch(värde_att_jämföra)
+{
+&nbsp; case värde1:
+&nbsp;&nbsp;&nbsp; satser;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; case värde2:
+&nbsp;&nbsp;&nbsp; satser;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; ...
+&nbsp;&nbsp;&nbsp; ...
+[ default:
+&nbsp;&nbsp;&nbsp; satser;
+&nbsp;&nbsp;&nbsp; break; ]
+}</code></pre>
+
+      <h4>Exempel</h4>
+
+      <pre><code>$intTimme = date(&quot;h&quot;);
+
+switch($intTimme)
+{
+&nbsp; case 0:
+&nbsp; case 1:
+&nbsp; case 2:
+&nbsp; case 3:
+&nbsp; case 4:
+&nbsp; case 5:
+&nbsp; case 6:
+&nbsp; case 7:
+&nbsp; case 8:
+&nbsp; case 9:
+&nbsp; case 10:
+&nbsp; case 11:
+&nbsp;&nbsp;&nbsp; print &quot;God morgon&quot;;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; case 12:
+&nbsp; case 13:
+&nbsp; case 14:
+&nbsp; case 15:
+&nbsp; case 16:
+&nbsp; case 17:
+&nbsp;&nbsp;&nbsp; print &quot;God middag&quot;;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; default:
+&nbsp;&nbsp;&nbsp; print &quot;God kväll&quot;;
+&nbsp;&nbsp;&nbsp; break;
+}</code></pre>
+
+      <p>Ovanstående exempel visar även på att det finns tillfällen då if-satser
+        är bättre än switch-satser. :-)</p>
+
+      <h3>Funktioner (och procedurer)</h3>
+
+      <p>För att skapa en funktion så använder vi det reserverade ordet function
+        följt av funktionens namn och eventuella parametrar. Vi anger inga datatyper för
+        parametrar till funktioner - endast namn på parametrarna. Inte heller för
+        funktionens eventuella returvärde anges datatyp.</p>
+
+      <p>För att returnera ett returvärde så använder vi det reserverade ordet
+        return följt av returvärdet.</p>
+
+      <h4>Syntax</h4>
+
+      <pre><code>function funktionsnamn([ param1, param2, ... ])
+{
+&nbsp; satser;
+&nbsp; [ return returvärde; ]
+}</code></pre>
+
+      <h4>Exempel</h4>
+
+      <pre><code>function addera(tal1, tal2)
+{
+&nbsp; return tal1 + tal2;
+}</code></pre>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 class="hruletop"><a name="loopar"></a>Loopar (iteration)</h2>
+      
+      <p>Loopar är egentligen också de kontrollstrukturer, men p.g.a. avsnittens
+        (detta och föregåendes)
+        omfattning så har det fått ett eget avsnitt.&nbsp;</p>
+      
+      <div class="panel">
+        <p class="kommentar"><b>Observera</b> att det är extra noga att du kontrollera att
+          villkoret som avbryter loopar verkligen kommer att bli sant (någon gång). Det finns
+          nämligen inget sätt att avbryta exekveringen av oändliga loopar annat
+          än att låta den tillåtna tiden för PHP-sidor ta slut (ligger mellan 1-3
+          minuter). Skälet till detta är att PHP-sidan exekverar på servern som
+          utvecklare inte brukar ha tillgång till. Under tiden som loopen exekverar
+          så är det ganska troligt att graden av CPU-utnyttjande
+          uppgår till 100% (i.a.f. i ett system med bara en CPU)!</p>
+      </div>
+
+      <h3>for</h3>
+      
+      <h4>Syntax</h4>
+      
+      <pre><code>for(initiering; slutvillkor; uppräkning)
+&nbsp; satser;</code></pre>
+    
+      <h4>Exempel</h4>
+      
+      <p>I nedanstående exempel utförs loopen 10 gånger och skriver ut strängen
+        &quot;Talet är: XX&quot; i varje iteration. På första raden initieras variabeln $varTal
+        till 1 - variabel som används för att bl.a. avbryta loopen då variabelns
+        värde överstiger 10. Observera hur vi kan infoga variabeln direkt i
+        strängen som skrivs ut utan att sammanfoga variabeln med två strängar (en
+        på var sida om variabeln).</p>
+      
+      <pre><code>for($varTal = 1; $varTal &lt;= 10; $varTal++)
+&nbsp; print &quot;Talet är: $varTal &lt;BR&gt;&quot;;</code></pre>
+    
+      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel kontrollstukturer 1.1</a></p>
+      
+      <h3>foreach</h3>
+      
+      <p>foreach-loopen används för att loopa över en vektor, d.v.s.
+      att utföra loopen en gång för varje position i vektorn. Det finns (minst?)
+      två versioner: en där man endast använder sig av värdet och en där man är
+      intresserad av både värdet <b>och</b> index (nyckel).</p>
+      
+      <h4>Syntax</h4>
+      
+      <pre><code>foreach($arrVektor as $varde)
+&nbsp; satser;
+
+foreach ($arr as $key =&gt; $value)
+&nbsp; print &quot;Key: $key; Value: $value&lt;br&gt;\n&quot;;</code></pre>
+    
+      <h4>Exempel</h4>
+      
+      <pre><code>$arrVektor[] = array(21, 22, 23);
+      
+foreach($arrVektor as $varde)
+  &nbsp; print &quot;$varde | &quot;;
+
+foreach ($arrVektor as $nyckel =&gt; $varde)
+  &nbsp; print &quot;$nyckel : $varde&lt;br&gt;\n&quot;;</code></pre>
+    
+      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
+        kontrollstrukturer 1.1</a></p>
+      
+      <h3>while</h3>
+      
+      <p>Denna loop loopar så länge villkoret på första raden är sant. </p>
+      
+      <h4>Syntax</h4>
+      
+      <pre><code>while(villkor)
+&nbsp; satser;</code></pre>
+    
+      <h4>Exempel</h4>
+      
+      <pre><code>$intTal = 0;
+
+while($intTal &lt; 10)
+{
+&nbsp; print &quot;Talet är: $intTal &lt;BR&gt;&quot;;
+&nbsp; $intTal++;
+}</code></pre>
+    
+      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel
+        kontrollstrukturer 1.1 (igen)</a></p>
+      
+      <h3>do...while</h3>
+      
+      <p>Denna loop loopar så länge villkoret på sista raden är sant.
+        Skillnaden mellan do...while och while är att den första utförs minst en
+        gång och den senare endast om villkoret är sant från början.</p>
+        
+      <h4>Syntax</h4>
+      
+      <pre><code>do
+&nbsp; satser;
+while(villkor);</code></pre>
+    
+      <h4>Exempel</h4>
+      
+      <pre><code>$intTal = 0
+
+do
+{
+&nbsp; print &quot;Talet är: $intTal &lt;br /&gt;&quot;;
+&nbsp; $intTal++;
+} while(intTal &lt; 10);</code></pre>
+    
+      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
+        kontrollstrukturer 1.1</a></p>
+      
+      <h3>break och continue</h3>
+      
+      <p>Precis som i C/C++/Java så kan vi använda de reserverade ordet <code>break</code>
+        för att avsluta en loop och <code>continue</code> för att avsluta aktuell iteration
+        (för att börja med nästa).</p>
+        
+      <h4>Exempel</h4>
+      
+      <pre><code>$intTimme = date("H");
+
+for($varTal = 0; $varTal &lt; 24; $varTal++)
+{
+&nbsp;  if($intTimme == $varTal)
+&nbsp;&nbsp;&nbsp;    break;
+&nbsp;  print "$varTal | ";
+}
+print "Timme är: $intTimme.";
+
+for($varTal = 0; $varTal &lt; 24; $varTal++)
+{
+&nbsp;  if($varTal % 2)
+&nbsp;&nbsp;&nbsp;    continue;
+&nbsp;  print "$varTal | ";
+}</code></pre>
+
+      <p><a href="kontrollstrukturer/ex2.php" target="_blank" class="button button-red">Exempel 
+        kontrollstrukturer 1.1</a></p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida |
+        <a href="lathund2.html">Till</a> del 2 |
+        <a href="../">Tillbaka</a> till PHP</p>
+    </div>
+    
+    <div class="column column-33">
+      <h2>Länkar</h2>
+      <p>(Kommer... eller???)</p>
+    </div>
+  </div>
+</div>
+
+<footer class="container">
+  <div class="row">
+    <div class="column column-100">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-01.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

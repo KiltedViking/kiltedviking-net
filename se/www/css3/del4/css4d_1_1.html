@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css4/del4/css4d_1_1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4/css4d_1_1.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 4d.1.1 - Egenskapen f&ouml;r marginaler, kantlinjer och utfyllnad - Bj&ouml;rns studiewebb</title>
+  
+  <!-- Stilmallar för att ändra typsnitt för rubriker och stycken - stilar för
+      exempel appliceras på respektive element nedan -->
+  <style>
+    h1, h2 { font-family: Verdana; }
+    p { font: 11pt Verdana; }
+  </style>
+</head>
+<body>
+
+<h1>Egenskaper f&ouml;r marginaler, kantlinjer och utfyllnad</h1>
+
+<p>F&ouml;r detta och alla andra stycke (P-taggen) p&aring; denna sida har f&ouml;ljande egenskap
+  anv&auml;nts: { font: 11pt Verdana }. Vissa stycken har givits en bakgrundsf&auml;rg f&ouml;r
+  att visa hur egenskaper p&aring;verkar. (Prova g&auml;rna med att minska och &ouml;ka bredden 
+  p&aring; f&ouml;nstret.)</p>
+
+<h2>Egenskaperna margin, border och padding</h2>
+
+<p>Ett stycke &quot;vanlig&quot; text.</p>
+
+<p style="color: black; background-color: yellow; margin-left: 1cm;">F&ouml;r detta
+  stycke anv&auml;nds egenskapen: { margin-left: 1cm; }.</p>
+  
+<p style="color: black; background-color: cyan; padding-left: 1cm;">F&ouml;r detta
+  stycke anv&auml;nds egenskapen: { padding-left: 1cm; }.</p>
+  
+<p style="color: black; background-color: yellow; border-left: 1cm; border-color: blue; border-style: solid;">F&ouml;r
+  detta stycke anv&auml;nds egenskapen: { border-left: 1cm; border-color: blue;
+  border-style: solid; }. Vi m&aring;ste ange stil f&ouml;r kantlinje f&ouml;r att kantlinjen 
+  ska visas.</p>
+
+<p style="color: black; background-color: yellow; border-left: 1cm; border-color: blue; border-style: solid; margin-left: 1cm; padding-left: 1cm;">F&ouml;r
+  detta stycke anv&auml;nds egenskapen: { border-left: 1cm; border-color: blue;
+  border-style: solid; margin-left: 1cm; padding-left: 1cm; }. Detta exempel visar 
+  marginal, kantlinje och utfyllnad f&ouml;r v&auml;nster sida av box som alla &auml;r 1 cm.</p>
+
+<p>Ett stycke &quot;vanlig&quot; text.</p>
+
+<p style="color: black; background-color: yellow; margin-top: -0.4cm;">F&ouml;r detta
+  stycke anv&auml;nds egenskapen: { margin-top: -0.4cm; }. Detta visar hur detta 
+  element kan inkr&auml;kta p&aring; ovanst&aring;ende elements box genom att anv&auml;nda en negativ 
+  &ouml;vre marginal.</p>
+  
+<p>Ett stycke &quot;vanlig&quot; text.</p>
+
+<p style="border-width: 1px 0px; border-color: red; border-style: solid; padding: 3px 0px;">F&ouml;r 
+  detta stycke anv&auml;nds egenskapen: { 
+  border-width: 1px 0px; border-color: red; border-style: solid; padding: 3px 0px; }. 
+  Genom att bara ange 2 v&auml;rden f&ouml;r kantlinjens bredd (1 resp. 0 pixlar) s&aring; erh&aring;lls 
+  samma bredd p&aring; motst&aring;ende sida av boxen.</p>
+  
+<p style="border-width: 8px 6px 4px 1px; border-color: blue red; border-style: dashed; padding: 10px;">F&ouml;r 
+  detta stycke anv&auml;nds egenskapen: { 
+  border-width: 8px 6px 4px 1px; border-color: blue red; border-style: dashed; 
+  padding: 10px; }. 
+  Genom att ange &quot;alla&quot; 4 v&auml;rden f&ouml;r kantlinjens bredd (8, 6, 4 resp. 1 pixlar) s&aring; 
+  kan olika bredd p&aring; alla sidor av boxen erh&aring;llas. Anv&auml;nds tv&aring; f&ouml;rger f&ouml;r kantlinje s&aring; 
+  f&ouml;r motst&aring;ende sidor samma f&ouml;rg och h&auml;r har &auml;ven kantlinjens typ satts 
+  till streckad (<em>dashed</em>). F&ouml;r att erh&aring;lla avst&aring;nd mellan elementet och dess 
+  kantlinje s&aring; anv&auml;nds utfyllnad (<em>padding</em>).</p>
+  
+<hr />
+
+<p style="text-align: center; font: 10pt Verdana;"><b>Skapad av:</b> Bj&ouml;rn G.D. Persson. <b>Uppdaterad:</b> 2017-10-29.</p>
+</body>
+</html>

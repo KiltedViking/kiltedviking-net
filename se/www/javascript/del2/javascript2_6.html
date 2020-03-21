@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_6.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_6.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Inbyggda metoder i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Inbyggda metoder i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>Test av parseInt(), parseFloat() och isNaN()</h3>
+<p>Detta exempel visar på hur metoderna parseInt(), parseFloat() och IsNaN()
+fungerar. I exemplet deklareras två variabler som tilldelas strängar (textInt
+och textFloat) som innehåller tal. Vid första tilldelningen av variabeln
+textInt så börjar strängen med en bokstav (&quot;a&quot;) vilket kommer leda
+till att metoden parseInt() kommer &quot;misslyckas&quot;, d.v.s. returnera
+värdet NaN. Andra gången (efter första if-satsen) tilldelas textInt en
+sträng som börjar med siffror (&quot;12&quot;) och avslutas med en bokstav
+(&quot;a&quot;). Detta kommer inte påverka metoden parseInt() då den endast
+behandlar siffrorna i strängen.</p>
+<p>Metoden parseFloat() fungerar på ett liknande sätt som parseInt() så vi
+visar endast hur metoden fungerar med en sträng som innehåller ett decimaltal.</p>
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"><br />
+  &lt;!--&nbsp;<br />
+  &nbsp; var textInt = "a12";   //deklarera variabler<br />
+  &nbsp; var textFloat = "3.14";<br />
+  &nbsp; var enInt = 0;<br />
+  &nbsp; var enFloat = 0.0;<br />
+  <br />
+  &nbsp; enInt = parseInt(textInt);<br />
+  <br />
+  &nbsp; document.writeln("textInt innehåller: " + textInt);<br />
+  <br />
+  &nbsp; if(isNaN(enInt))<br />
+  &nbsp;&nbsp;&nbsp; document.writeln(&quot;. enInt innehåller NaN och är: " + enInt)<br />
+  &nbsp; else<br />
+  &nbsp;&nbsp;&nbsp; document.writeln(&quot;. enInt innehåller inte NaN och är: " + enInt);<br />
+  <br />
+  &nbsp; document.writeln("&lt;br>&lt;br>");<br />
+  <br />
+  &nbsp; textInt = "12a";<br />
+  &nbsp; enInt = parseInt(textInt);<br />
+  &nbsp; document.writeln("textInt innehåller: " + textInt);<br />
+  <br />
+  &nbsp; if(isNaN(enInt))<br />
+  &nbsp;&nbsp;&nbsp; document.writeln(&quot;. enInt innehåller NaN och är: " + enInt)<br />
+  &nbsp; else<br />
+  &nbsp;&nbsp;&nbsp; document.writeln(&quot;. enInt innehåller inte NaN och är: " + enInt);<br />
+  <br />
+  &nbsp; document.writeln("&lt;br>&lt;br>");<br />
+  <br />
+  &nbsp; enFloat = parseFloat(textFloat);<br />
+  <br />
+  &nbsp;    if(isNaN(enFloat))<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("enFloat innehåller NaN och är: " + enFloat)<br />
+  &nbsp; else<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("enFloat innehåller inte NaN och är: " + enFloat);&nbsp;<br />
+  --><br />
+  &lt;/script></p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var textInt = "a12";   //deklarera variabler
+    var textFloat = "3.14";
+    var enInt = 0;
+    var enFloat = 0.0;
+    
+    enInt = parseInt(textInt);  //Konvertera strängen till ett heltal (om det går)
+    
+    document.writeln("textInt innehåller: " + textInt);
+    
+    if(isNaN(enInt))  //Testa om resultatet blev NaN
+      document.writeln(". enInt innehåller NaN och är: " + enInt)
+    else
+      document.writeln(". enInt innehåller inte NaN och är: " + enInt);
+
+    document.writeln("<br /><br />");
+
+    textInt = "12a"; //Tilldela variabeln ett "riktig" värde som kan konverteras
+    enInt = parseInt(textInt);
+    document.writeln("textInt innehåller: " + textInt);
+
+    if(isNaN(enInt))
+      document.writeln(". enInt innehåller NaN och är: " + enInt)
+    else
+      document.writeln(". enInt innehåller inte NaN och är: " + enInt);
+
+    document.writeln("<br /><br />");
+
+    enFloat = parseFloat(textFloat);  //Konvertera sträng till decimaltal
+    
+    if(isNaN(enFloat))  //Testa om konverteringen gick bra
+      document.writeln("enFloat innehåller NaN och är: " + enFloat)
+    else
+      document.writeln("enFloat innehåller inte NaN och är: " + enFloat);    
+  </script>
+  </p>
+</blockquote>
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

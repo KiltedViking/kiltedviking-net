@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Övriga element i HTML." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del6.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del6.html" />
+  <title>HTML - Fler taggar</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container ">
+      <a href="../index.html" class="right">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>Fler taggar</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li class="active"><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li class="active"><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+    
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>
+                  
+          <p>Denna hemsida beskriver taggar som inte riktigt passar in i de andra delarna 
+            p&aring; denna underwebb. H&auml;r beskrivs bl.a. &quot;strukturella taggar&quot;, d.v.s
+            de som markerar element av n&aring;got slag (t.ex. adresser och f&ouml;rkortningar).</p>
+
+          <p><b>Gruppering:</b> <code>span</code> och <code>div</code>.</p>
+
+          <p><b>Strukturella taggar:</b> <code>abbr</code>, <code>acronym</code>, 
+            <code>address</code>, <code>cite</code>, <code>dfn</code>, <code>em</code> 
+            och <code>strong</code>.</p>
+
+          <p><b>Citattaggar:</b> <code>blockquote</code> och <code>q</code>.</p>
+
+          <p><b>Ännu fler strukturella taggar:</b> <code>code</code>, <code>kbd</code>, 
+            <code>samp</code> och <code>var</code>.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <ul class="collection">
+            <li><a href="#gruppering" class="collection-item">Gruppering</a></li>
+            <li><a href="#strukturella" class="collection-item">Strukturella taggar</a></li>
+            <li><a href="#citat" class="collection-item">Citat</a></li>
+            <li><a href="#strukturella2" class="collection-item">Fler strukturella taggar</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="gruppering">Gruppering</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggarna <code>&lt;span&gt;</code> och <code>&lt;div&gt;</code> &auml;r <strong>mycket</strong>
+            anv&auml;ndbara till bl.a. design och f&ouml;r att &quot;g&ouml;ra webbsidor mer interaktiva&quot;. De anv&auml;nds f&ouml;r 
+            att m&auml;rka upp/gruppera del av ett element (t.ex. text i ett stycke) respektive ett 
+            antal element. Detta &auml;r anv&auml;ndbart f&ouml;r att t.ex. applicera stilar p&aring; det som 
+            taggarna markerar/grupperar eller koppla h&auml;ndelser (musklickningar, m.m.) 
+            till det markerade/grupperade.</p>
+          
+          <p>Skillnaderna mellan taggarna &auml;r att <code>&lt;span&gt;</code> &auml;r t&auml;nkt att 
+            anv&auml;ndas &quot;l&ouml;pande&quot; (eng. <i>inline</i>), d.v.s. utan att p&aring;verka 
+            elementets fl&ouml;de, medan <code>&lt;div&gt;</code> &auml;r blockbaserat, d.v.s. det
+            infogas som standard radbrytning f&ouml;re och efter taggen.</p>
+            
+          <p>(I.o.m. XHTML s&aring; kan <code>&lt;div&gt;</code> inte l&auml;ngre anv&auml;ndas f&ouml;r att 
+            centrera element med attributet <code>align</code>. Ist&auml;llet anv&auml;nds stilmallar.)</p>
+        </div>
+      </div>
+
+      <h3>Exempel med &lt;span&gt;</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I exempel nedan anv&auml;nds taggen <code>&lt;span&gt;</code> f&ouml;r att appliceras 
+            fet stil p&aring; ordet &quot;musmark&ouml;r&quot; samt hantera h&auml;ndelserna <code>MouseOver</code> 
+            och <code>MouseOut</code> &ouml;ver orden &quot;denna text&quot;.</p>
+          
+          <p>Placera <span style="font-weight:bold">musmark&ouml;ren</span> &ouml;ver
+            <span id="denna_text" onmouseover="this.style.color='red'"
+            onmouseout="this.style.color=''">denna text</span>.</p>
+
+          <p>Som exempel ovan visar s&aring; p&aring;verkas inte &quot;fl&ouml;det&quot; i texten av taggen.
+            Exemplet ovan visar &auml;ven hur vi kan anv&auml;nda taggen <code>id</code> f&ouml;r att namnge
+            taggen s&aring; att vi kan referera till den i t.ex. skriptkod (t.ex.
+            JavaScript).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Placera <b>&lt;span style=&quot;font-weight:<br />
+              &nbsp; bold&quot;&gt;</b>musmark&ouml;ren<b>&lt;/span&gt;</b> &ouml;ver <br />
+              &nbsp;&nbsp;<b>&lt;span id=&quot;denna_text&quot; <br />
+              &nbsp;&nbsp;onmouseover=&quot;this.style.color='red'&quot; <br />
+              &nbsp;&nbsp;onmouseout=&quot;this.style.color=''&quot;&gt;</b>denna <br />
+              &nbsp;&nbsp;text<b>&lt;/span&gt;</b>.&lt;/p&gt;</code>
+            </blockquote>
+        </div>
+      </div>
+
+      <h3>Exempel med &lt;div&gt;</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I nedanst&aring;ende exempel anv&auml;nds taggen <code>&lt;div&gt;</code> ist&auml;llet, ett exempel
+            som visar p&aring; hur taggen <code>&lt;div&gt;</code> &quot;st&ouml;r fl&ouml;det&quot;, d.v.s. infogar
+            radbrytningar, men eventuellt &auml;ven hur applicerade stilmallar inte
+            fungerar som de ska. (F&ouml;rsta raden, har i skrivande stund, typsnittet
+            Verdana med samma storlek som texten p&aring; denna hemsida medan resten av
+            raderna antingen &auml;r st&ouml;rre storlek p&aring; typsnitt eller har
+            &quot;standardtypsnittet&quot; - Times New Roman eller liknande.)</p>
+            
+            <div style="font-size: 13px">
+              Placera 
+              <div style="font-weight: bold">musmark&ouml;ren</div> 
+              &ouml;ver
+              <div id="denna_text2" onmouseover="this.style.color='red'"
+                onmouseout="this.style.color=''">denna text</div>.
+            </div>
+        </div>
+
+        <div class="col l5 s12">
+          
+          <blockquote>
+            <code>&lt;div&gt;<br />
+              &nbsp; Placera<br />
+              &nbsp; <b>&lt;div style=&quot;font-weight:<br />
+              &nbsp;&nbsp;&nbsp; bold&quot;&gt;</b>musmark&ouml;ren<b>&lt;/div&gt;</b><br />
+              &nbsp; &ouml;ver<br />
+              &nbsp; <b>&lt;div<br />
+              &nbsp;&nbsp;&nbsp; onmouseover=&quot;this.style.color='red'&quot;<br />
+              &nbsp;&nbsp;&nbsp; onmouseout=&quot;this.style.color=''&quot;&gt;</b>denna<br />
+              &nbsp;&nbsp;&nbsp; text<b>&lt;/div&gt;</b><br />
+              &nbsp; .<br />
+              &lt;/div&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p class="kommentar">I exempel ovan s&aring; m&aring;ste <code>div</code>-tagg anv&auml;ndas
+            ist&auml;llet f&ouml;r <code>p</code>-tagg, som i exempel med <code>span</code>-taggar ovan,
+            d&aring; en <code>div</code>-tagg inte f&aring;r placeras i en <code>p</code>-tagg i XHTML.</p>
+        </div>
+      </div>
+
+      <h2 id="strukturella">Strukturella taggar</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Strukturella taggar &auml;r taggar som m&auml;rker upp element i dokument som har n&aring;gon 
+            &quot;form av betydelse&quot;, t.ex. adress, f&ouml;rkortning eller citat.</p>
+          
+          <p>Dessa taggar anv&auml;nds l&auml;mpligen med attributet <code>title</code>, som d&aring;
+            kan inneh&aring;lla ev. f&ouml;rklaring av vad elementet representerar. N&auml;r attributet 
+            <code>title</code> anv&auml;nds s&aring; visar en del webbl&auml;sare elementet med en streckad 
+            understrykning och n&auml;r bes&ouml;kare f&ouml;r mark&ouml;ren &ouml;ver det s&aring; visas en &quot;pop-up&quot;-text
+            med inneh&aring;llet i attributet.</p>
+        </div>
+      </div>
+
+      <h3>Taggarna &lt;abbr&gt; och &lt;acronym&gt; - f&ouml;rkortningar</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p><code>&lt;abbr&gt;</code> och <code>&lt;acronym&gt;</code> anv&auml;nds b&aring;da f&ouml;r 
+            att m&auml;rka upp f&ouml;rkortningar, med skillnaden att den f&ouml;rsta anv&auml;nds f&ouml;r bokst&auml;vsf&ouml;rkortningar 
+            (t.ex. VD) och den senare f&ouml;r f&ouml;rkortade ord, vars bokstavskombination &quot;l&auml;ses 
+            ut&quot; (akronymer; t.ex. SAAB och IKEA).</p>
+          
+          <div style="padding-left: 10px;">
+            <p>Om man &auml;r lite lat och inte vill f&ouml;rklara allt s&aring; kan man anv&auml;nda f&ouml;rkortningen
+              <abbr title="Read The F*cking Manual">RTFM</abbr>.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Om man &auml;r lite lat och inte vill f&ouml;rklara allt s&aring; kan man anv&auml;nda 
+              f&ouml;rkortningen &lt;abbr title=&quot;Read The F*cking Manual&quot;&gt;RTFM&lt;/abbr&gt;.&lt;p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;address&gt; - adress</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Denna tagg anv&auml;nds f&ouml;r att markera adressuppgifter, t.ex. postadress, telefon
+            och e-postadresser. Taggen kan inneh&aring;lla mer &auml;n bara adresser, d.v.s. &auml;ven
+            lite beskrivande text.<br />
+            Webbl&auml;sare tenderar till att visa texten med kursiv stil
+            (och inforgar inga tomma rader f&ouml;re eller efter elementet).</p>  
+          
+          <div style="padding-left: 10px">
+            <address>
+              Bj&ouml;rn Persson<br />
+              Nygatan 1<br />
+              123 45&nbsp; NYSTAD<br />
+              Telefon: 0123-45 67 89<br />
+              Webbplats: www.kiltedviking.net
+            </address>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;address&gt;<br />
+              &nbsp; Bj&ouml;rn Persson&lt;br /&gt;<br />
+              &nbsp; Nygatan 1&lt;br /&gt;<br />
+              &nbsp; 123 45&nbsp; NYSTAD&lt;br /&gt;<br />
+              &nbsp; Telefon: 0123-45 67 89&lt;br /&gt;<br />
+              &nbsp; Webbplats: www.kiltedviking.net<br />
+              &lt;/address&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p class="kommentar">Denna tagg anv&auml;nds l&auml;mpligen tillsammans med n&aring;gon av
+            taggarna <code>&lt;p&gt;</code> eller <code>&lt;div&gt;</code>, alternativt
+            att stilmallar (CSS) anv&auml;nds f&ouml;r att ge elementet lite avst&aring;nd till andra
+            element.</p>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;cite&gt; - citat</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>F&ouml;r att markera citat i l&ouml;pande text kan man anv&auml;nda taggen <code>&lt;cite&gt;</code>.</p>
+          
+          <div style="padding-left: 10px;">
+            <p>Om vill verka tuff s&aring; kan man s&auml;ga <cite title="Terminator">I'll be back</cite>,
+              men det kr&auml;ver nog solglas&ouml;gon och en hel del muskler.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Om vill verka tuff s&aring; kan man s&auml;ga &lt;cite title=&quot;Terminator&quot;&gt;I'll 
+              be back&lt;/cite&gt;, men det kr&auml;ver nog solglas&ouml;gon och en hel del muskler.&lt;p&gt;</code>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p class="kommentar">(Se &auml;ven <a href="#citat">Citat</a> nedan.)</p>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;dfn&gt; - definition av term</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Anv&auml;nd <code>&lt;dfn&gt;</code> f&ouml;r att markera en term - en term som b&ouml;r
+            f&ouml;rklaras i meningen/stycket som termen finns i.</p>
+          
+          <div style="padding-left: 10px;">
+            <p><dfn>XHTML</dfn> &auml;r en standard f&ouml;r att m&auml;rka upp element i ett dokument.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <p>&lt;p&gt;&lt;dfn&gt;XHTML&lt;/dfn&gt; &auml;r en standard f&ouml;r att m&auml;rka upp
+              element i ett dokument.&lt;p&gt;</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggarna &lt;em&gt; och &lt;strong&gt; - f&ouml;rst&auml;rkt text</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Om man vill betona, eller f&ouml;rst&auml;rka, text s&aring; kan man anv&auml;nda n&aring;gon av taggarna
+            <code>&lt;em&gt;</code> eller <code>&lt;strong&gt;</code> - den f&ouml;reg&aring;ende 
+            visas oftast med kursiv stil medan den senare oftast visas med fet stil.</p>
+            
+          <p>(Se mer under <a href="./del2.html#visuella">Textformatering</a>)</p>
+        </div>
+      </div>
+
+      <h2 id="citat">Citat</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Det finns tv&aring; taggar f&ouml;r att markera citat - en f&ouml;r i l&ouml;pande text, <code>&lt;q&gt;</code>,
+            och en f&ouml;r flera stycken, <code>&lt;blockquote&gt;</code>.</p>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;q&gt;</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <div style="padding-left: 10px;">
+            <p>Ett vanligt citat &auml;r <q cite="https://sv.wikipedia.org/wiki/Ceasar">Et tu, 
+              Brute</q>.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Ett vanligt citat &auml;r &lt;q cite=&quot;https://sv.wikipedia.org/wiki/Ceasar&quot;&gt;Et 
+              tu, Brute&lt;/q&gt;.</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;blockquote&gt;</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <blockquote cite="https://www.lipsum.com/">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+            <p>Proin quis enim et erat consectetur pharetra tincidunt a ligula. ...</p>
+            <p>Curabitur nisl dolor, semper commodo accumsan et, convallis a massa. ...</p>
+          </blockquote>
+
+          <p class="kommentar">(Jag anv&auml;nder denna tagg f&ouml;r kodavsnitt 
+            f&ouml;r att de ska sticka ut.)</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;blockquote cite=&quot;https://www.lipsum.com/&quot;&gt;<br />
+              &nbsp; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur<br />
+              &nbsp;&nbsp;&nbsp; adipiscing elit. ...&lt;/p&gt;</code><br />
+            <code>&nbsp; &lt;p&gt;Proin quis enim et erat consectetur pharetra<br />
+              &nbsp;&nbsp;&nbsp; tincidunt a ligula. ...&lt;/p&gt;</code><br />
+            <code>&nbsp; &lt;p&gt;Curabitur nisl dolor, semper commodo accumsan<br />
+              &nbsp;&nbsp;&nbsp; et, convallis a massa. ...&lt;/p&gt;<br />
+              &lt;/blockquote&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h2 id="strukturella2">Fler strukturella taggar (datorrelaterade)</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Det finns fyra ytterligare strukturella taggar som fr&auml;mst &auml;r f&ouml;r datorrelaterade
+            saker. (De presenteras separat fr&aring;n &ouml;vriga strukturella taggar d&aring; de antagligen
+            &auml;r av intresse f&ouml;r en mindre m&auml;ngd av mina bes&ouml;kare. :-)</p>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;code&gt; - datorkod</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Denna tagg anv&auml;nds flitigt i denna underwebb f&ouml;r namn p&aring; alla taggar och 
+            attribut samt alla kodexempel. :-)</p>
+          
+          <div style="padding-left: 10px;">
+            <p>Tilldelning i JavaScript: <code>var sum = talA + talB;</code>.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Tilldelning i JavaScript: &lt;code&gt;var sum = talA + talB;&lt;/code&gt;.&lt;/p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;kbd&gt; - text att mata in</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <div style="padding-left: 10px;">
+            <p>F&ouml;r att starta en kommandotolk skriver man <kbd>cmd</kbd> i K&ouml;r-f&auml;ltet.</p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;F&ouml;r att starta en kommandotolk skriver man &lt;kbd&gt;cmd&lt;/kbd&gt;
+              i K&ouml;r-f&auml;ltet.&lt;/p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;samp&gt; - utskrift av resultat</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <div style="padding-left: 10px;">
+            <p>Resultatet fr&aring;n kommandot time kan vara<br />
+              <samp>Aktuell tid: 17:37:57,09<br />
+              Ange ny tid:</samp></p>
+          </div>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Resultatet fr&aring;n kommandot time kan vara&lt;br /&gt;<br />
+              &nbsp; &lt;samp&gt;Aktuell tid: 17:37:57,09&lt;br /&gt;<br />
+              &nbsp; Ange ny tid:&lt;/samp&gt;&lt;/p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Taggen &lt;var&gt; - variabel/argument</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Denna tagg &auml;r t&auml;nkt att anv&auml;ndas f&ouml;r att m&auml;rka 
+            upp variabeler, eller argument  till funktion/metod.</p>
+          
+          <div style="padding-left: 10px;">
+            <p>Till metoden <code>window.open()</code> i JavaScript bifogar man argumentet <var>url</var>
+              som inneh&aring;ller URL som ska &ouml;ppnas i f&ouml;nster.</p>
+          </div>    
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;p&gt;Till metoden window.open() i JavaScript bifogar man argumentet
+              &lt;var&gt;url&lt;/var&gt; som inneh&aring;ller URL som ska &ouml;ppnas i f&ouml;nster.&lt;/p&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <ul class="pagination center-align">
+            <li class="waves-effect"><a href="del5.html">&lt; F&ouml;reg&aring;ende</a></li>
+            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li><a href="#" onclick="return false;">N&auml;sta &gt;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="page-footer center-align">
+        <div class="container">
+          <div class="row">
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-15.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+    $(".sidenav").sidenav();
+  </script>
+</body>
+</html>

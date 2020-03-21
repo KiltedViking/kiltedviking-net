@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ASP och formul�r - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff"><a name= "borjan"></a>&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
+  </tr>
+  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+      <table border="0" width="100%">
+        <tr>
+          <td width="30%"><a href="../../index.html"><img border="0"
+            src="../../bilder/logony1.jpg" alt="Till startsida f�r Bj�rns studiewebb"
+            width="155" height="54"></a></td>
+          <td width="70%" class="rubrik">ASP och formul�r</td>
+        </tr>
+        <tr valign="top">
+          <td width="30%" bgcolor="#ffffaa">
+            <h4>Inneh�ll</h4>
+            <p><a href="#formularHTML" class="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Formul�r med HTML</a><br />
+            <a href="#hamta" class="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            H�mta information</a><br />
+            <a href="#storre" class="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            St�rre exempel</a></p>
+
+            <p><a href="formularfp.html" class="lank">Formul�r med FP</a>
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10"></p>
+
+            <p><a href="../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Tillbaka</a> till ASP<br />
+            <a href="../../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Till startsida</a> f�r studiewebb</p>
+          </td>
+          <td width="70%">
+
+            <p>Denna sida inneh�ller en beskrivning av hur man <b> skapar formul�r</b>
+            med HTML-kod (som t.ex. kan skickas till en ASP-sida) samt hur man <b> h�mtar informationen
+            fr�n formul�r</b> i ASP-sidor.</p>
+            <p>K�nner du dig os�ker p� HTML �r rekommenderad l�sning, innan du
+            g�r vidare p� denna webbsida, &quot;underwebben&quot;
+            <a href="../../html/index.html" target="_blank">HTML</a>
+            som mer ing�ende beskriver de olika kontrollerna (f�lten) som f�rekommer
+            i HTML.</p>
+
+            <p>Formul�r p� webbsidor kan skapas visuellt med verktyg som
+            Microsoft FrontPage (FP) eller skivas direkt i HTML-kod.</p>
+          </td>
+        </tr>
+      </table>
+
+      <hr />
+
+      <h2><a name= "formularHTML"></a>Formul�r med HTML-kod</h2>
+
+      <p>F�r att skapa ett formul�r beh�vs minst tre saker:</p>
+
+      <ul>
+        <li>FORM-taggen</li>
+        <li>en kontroll</li>
+        <li>och en Submit-knapp.</li>
+      </ul>
+
+      <p>Dessa detaljer behandlas nedan. Har du br�ttom kan du skippa till
+      slutet p� detta avsnitt som visar ett exempel med n�dv�ndig kod.</p>
+
+      <h3>FORM-taggen</h3>
+
+      <p>FORM-taggen anv�nds f�r att m�rka upp start och slut p� formul�r.
+      Attributen i taggen anv�nds f�r att tala om var formul�rets inneh�ll
+      ska skickas samt hur inneh�llet ska skickas. De tv� viktigaste
+      attributen i FORM-taggen �r</p>
+
+      <ul>
+        <li>METHOD - hur formul�r ska skickas: med get eller post (se nedan).</li>
+        <li>ACTION - var formul�rets inneh�ll ska skickas. Detta kan t.ex.
+          vara ett CGI-program, en ASP-sida eller en Java-servlet.</li>
+      </ul>
+      <p>Nedan visas koden f�r ett enkelt formul�r som skickar inneh�llet
+      till filen MINSIDA.ASP. Kontrollernas och Submit-knappens position har
+      markerats med (HTML-)kommentarer.</p>
+
+      <blockquote>
+        <p><span class="kod"><b>&lt;FORM METHOD=&quot;post&quot;
+          ACTION=&quot;minsida.asp&quot;&gt;</b><br />
+          &nbsp; &lt;!-- Kontroller i formul�r --&gt;<br />
+          &nbsp; &lt;!-- Submit-knapp --&gt;<br />
+          <b>&lt;/FORM&gt;</b></span></p>
+      </blockquote>
+      
+      <h4>Metoderna get och post</h4>
+
+      <p>Ett formul�r kan skickas p� tv� olika s�tt: med get eller post. Den
+      stora skillnaden �r hur inneh�llet skickas och hur mycket som kan
+      skickas.</p>
+
+      <p>Metoden get �r den ursprungliga (den gamla) varianten av hur man
+      skickar formul�r. Inneh�llet skickas som en del av URL:en (se exempel
+      nedan) till (t.ex.)
+      ASP-sida som hanterar inneh�llet i formul�ret. Eftersom vi anv�nder
+      URL:en f�r att skicka inneh�llet s� �r m�ngden data vi kan skicka
+      begr�nsad (127 till 255 tecken).</p>
+
+      <blockquote>
+        <p><span class="kod">http://www.eki.mdh.se/minsida.asp?Namn=Bj�rn&amp;Telefon=3678</span></p>
+
+      </blockquote>
+
+      <p>Metoden post �r den nyare varianten f�r att skicka formul�r.
+      Data i formul�r skickas som en del av webbl�sarens beg�ran om
+      webbsidor. D�rf�r syns inte inneh�llet i URL:en. Det �r ocks� den metod
+      som <b> b�r</b> anv�ndas om man fr�gar efter ett l�senord i formul�ret.
+      Eftersom data skickas i beg�ran s� �r inte m�ngden data heller
+      begr�nsad.</p>
+
+      <P class="kommentar"><b>Observera</b> att l�senordet fortfarande skickas
+      okrypterat �ven om metoden post anv�nds!</p>
+
+      <p>Att anv�nda metoden post �r allts� ett s�kert kort. :-)</p>
+
+      <h3>Kontroller</h3>
+
+      <p>M�nga av de vanliga kontroller som anv�nds i t.ex. Visual Basic finns
+      �ven i HTML:</p>
+
+      <ul>
+        <li>textf�lt - en- och flerradiga</li>
+        <li>radioknappar</li>
+        <li>kryssrutor</li>
+        <li>knappar</li>
+        <li>list- och kombinationsrutor</li>
+      </ul>
+      <h4>Enkla kontroller (&lt;INPUT&gt;)</h4>
+
+      <p>De flesta av kontrollerna skapas m.h.a. INPUT-taggen (utom
+      flerradiga textrutor och list-/kombinationsrutor). Kontroller som skapas
+      med INPUT-taggen anv�nder attributet TYPE f�r att tala om vilken typ av
+      kontroll som ska skapas. I tabellen nedan visas attributet och typen av
+      kontroll som skapas.</p>
+
+      <FORM>
+      <TABLE BORDER="1" WIDTH="100%">
+        <TR>
+          <TD WIDTH="33%" class="gulfet">Typ av kontroll</TD>
+          <TD WIDTH="33%" class="gulfet">V�rde p� TYPE</TD>
+          <TD WIDTH="34%" class="gulfet">Exempel</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">Textf�lt</TD>
+          <TD WIDTH="33%" class="normal">&quot;text&quot;</TD>
+          <TD WIDTH="34%" class="normal"><INPUT TYPE="text" NAME="T1" VALUE="Exempel"></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">L�senordsf�lt</TD>
+          <TD WIDTH="33%" class="normal">&quot;password&quot;</TD>
+          <TD WIDTH="34%" class="normal"><INPUT TYPE="password" NAME="T2" VALUE="Exempel"></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">Dolt textf�lt</TD>
+          <TD WIDTH="33%" class="normal">&quot;hidden&quot;</TD>
+          <TD WIDTH="34%" class="normal">(syns inte :-)<INPUT TYPE="hidden" NAME="T3" VALUE="Exempel"></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">Kryssruta</TD>
+          <TD WIDTH="33%" class="normal">&quot;check&quot;</TD>
+          <TD WIDTH="34%" class="normal"><INPUT TYPE="checkbox" NAME="C1" VALUE="ON"></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">Radioknapp</TD>
+          <TD WIDTH="33%" class="normal">&quot;radio&quot;</TD>
+          <TD WIDTH="34%" class="normal"><INPUT TYPE="radio" VALUE="V1" CHECKED NAME="R1"></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="33%" class="normal">Tryckknapp</TD>
+          <TD WIDTH="33%" class="normal">&quot;button&quot;</TD>
+          <TD WIDTH="34%" class="normal"><INPUT TYPE="button" VALUE="Exempel"></TD>
+        </TR>
+      </TABLE>
+      </FORM>
+
+      <h5>Attributet NAME</h5>
+
+      <p>Gemensamt f�r de flesta kontroller �r att man anv�nder attributet
+      NAME f�r att ange namnet p� kontrollen. Namnet anv�nds f�r att
+      referera till v�rdet i den mottagande ASP-sidan.</p>
+
+      <p>Ett enkelt textf�lt med namnet &quot;mintext&quot; skulle skapas med
+      f�ljande HTML-kod:</p>
+
+      <blockquote>
+        <p><span class="kod">&lt;INPUT TYPE=&quot;text&quot;
+          NAME=&quot;mintext&quot;&gt;</span></p>
+      </blockquote>
+
+      <h5>Attributet VALUE</h5>
+
+      <p>Vill vi ange ett v�rde n�r formul�ret laddas kan vi anv�nda
+      attributet VALUE. Tex ger f�ljande HTML-kod:</p>
+
+      <blockquote>
+        <p>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;mintext&quot; SIZE=&quot;40&quot;<br />
+        &nbsp; VALUE=&quot;Text som visas n�r formul�r laddas"></p>
+      </blockquote>
+
+      <p>f�ljande utseende:</p>
+
+      <blockquote>
+        <form>
+          <p><input type="text" name="mintext" size="40" value="Text som visas n�r formul�r laddas"></p>
+        </form>
+      </blockquote>
+
+      <h4>Flerradiga textf�lt (&lt;TEXTAREA&gt;)</h4>
+
+      <p>Flerradiga textf�lt skiljer sig p� en del punkter fr�n de enradiga,
+      bortsett fr�n att f�ltet har flera rader. :-) Bl.a. s� har f�ltet
+      b�de en �ppnande och avslutande tagg. Och attributen COLS och ROWS anv�nds
+      f�r att ange (ungef�rligen) hur m�nga teckens bredd och h�jd som
+      textf�ltet ska visas med.</p>
+
+      <p>Exempel p� HTML-kod f�r ett flerradigt textf�lt visas nedan
+      (observera att <b>allt</b> som skrivs mellan �ppnande och avslutande tagg
+      kommer att visas i textf�ltet - �ven mellan slag och radbrytningar!)</p>
+
+      <blockquote>
+        <p>&lt;TEXTAREA NAME=&quot;mintext&quot; COLS=&quot;30&quot;<br />
+        &nbsp; ROWS=&quot;3&quot;&gt;Exempel&lt;/TEXTAREA&gt;</p>
+
+        <FORM>
+          <p><TEXTAREA NAME="mintext" COLS="30" ROWS="3">Exempel</TEXTAREA></p>
+        </FORM>
+        <p>&nbsp;</p>
+
+      </blockquote>
+
+      <h4>List- och kombinationsrutor (&lt;SELECT&gt; och &lt;OPTION&gt;)</h4>
+
+      <p>Precis som med textf�ltet s� har list- och kombinationsrutor en
+      �ppnande och avslutande tagg. Och f�r varje alternativ i rutan s�
+      anv�nds taggen &lt;OPTION&gt;. OPTION-taggens attribut VALUE kan
+      anv�ndas f�r att skicka ett annat v�rde �n det som visas f�r
+      bes�karen.</p>
+
+      <p>Nedan visas tv� exempel p� hur man skapar en kombinationsruta i
+      HTML-kod. I det f�rsta exemplet visas en kombinationsruta och i det andra
+      exemplet en listruta. F�r att f� en kombinationsruta kan man utel�mna
+      attributet SIZE och om man vill ha en listruta ist�llet, s� anger man
+      ett v�rde st�rre �n 1 f�r attributet SIZE (t.ex. SIZE=&quot;4&quot;).</p>
+
+      <blockquote>
+        <p>&lt;SELECT NAME=&quot;minlista&quot;&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;1&quot;&gt;Alternativ 1&lt;/OPTION&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;2&quot;&gt;Alternativ 2&lt;/OPTION&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;3&quot;&gt;Alternativ 3&lt;/OPTION&gt;<br />
+        &lt;/SELECT&gt;</p>
+
+        <FORM>
+          <p><SELECT SIZE="1" NAME="D1">
+          <OPTION VALUE="1" SELECTED>Alternativ 1</OPTION>
+          <OPTION VALUE="2">Alternativ 2</OPTION>
+          <OPTION VALUE="3">Alternativ 3</OPTION>
+          &nbsp;
+          </SELECT></p>
+        </FORM>
+        <p>&lt;SELECT NAME=&quot;minlista&quot; SIZE=&quot;4&quot;&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;1&quot;&gt;Alternativ 1&lt;/OPTION&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;2&quot;&gt;Alternativ 2&lt;/OPTION&gt;<br />
+        &nbsp; &lt;OPTION VALUE=&quot;3&quot;&gt;Alternativ 3&lt;/OPTION&gt;<br />
+        &lt;/SELECT&gt;</p>
+
+        <FORM>
+          <p><SELECT SIZE="4" NAME="D1">
+          <OPTION VALUE="1" SELECTED>Alternativ 1</OPTION>
+          <OPTION VALUE="2">Alternativ 2</OPTION>
+          <OPTION VALUE="3">Alternativ 3</OPTION>
+          &nbsp;
+          </SELECT></p>
+        </FORM>
+
+      </blockquote>
+
+      <h3>Submit-knappen</h3>
+
+      <p>Submit-knappen �r egentligen en &quot;vanlig&quot; kontroll med
+      f�rdefinerat beteende, d.v.s. att skicka iv�g formul�rets inneh�ll
+      till webbservern. Det finns �ven en knapp till som brukar anv�ndas i
+      kombination med Submit-knappen - Reset-knappen. Reset-knappen
+      �terst�ller (t�mmer) formul�ret till de v�rden som kontrollerna
+      inneh�ll n�r webbsida med formul�ret laddades.</p>
+
+      <p>Submit-knappen skapas med en INPUT-tagg vars attribut TYPE satts till
+      &quot;submit&quot;. Texten som ska visas p� knappen anges med attributet
+      VALUE. Nedan visas HTML-koden som beh�vs f�r att skapa en Submit-knapp.</p>
+
+      <blockquote>
+        <p><span class="kod">&lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Skicka
+        formul�r&quot;&gt;</span></p>
+        <form method="POST" action="../../../../../_vti_bin/shtml.dll/personal/bpn01/www/asp/formular/index.html" onSubmit="" webbot-action="--WEBBOT-SELF--">
+          <!--WEBBOT BOT="SaveResults" startspan
+          U-File="../../../_private/form_results.txt" S-Format="TEXT/CSV"
+          S-Label-Fields="TRUE" --><strong>[FrontPage-komponenten Spara resultat]</strong><!--WEBBOT
+          bot="SaveResults" endspan i-checksum="16328" -->
+          <p><input type="submit" value="Skicka formul�r" name="B1"></p>
+        </form>
+      </blockquote>
+
+      <h3>Ett enkelt formul�r</h3>
+      <p>HTML-koden som har med formul�ret att g�ra har markerat med fet stil.</p>
+      <p><span class="kodlangre">&lt;HTML&gt;<br />
+      &lt;HEAD&gt;<br />
+      &nbsp; &lt;TITLE&gt;Ett enkelt formul�r&lt;/TITLE&gt;<br />
+      &lt;/HEAD&gt;<br />
+      &lt;BODY&gt;</span></p>
+      <p><span class="kodlangre">&lt;H1&gt;Ett enkelt formul�r&lt;/H1&gt;<br />
+      &lt;P&gt;Fyll i f�lten och klicka p� Skicka f�r att skicka
+      informationen&lt;/P&gt;</span></p>
+      <p><span class="kodlangre"><b>&lt;FORM METHOD=&quot;post&quot; ACTION=&quot;registrera.asp&quot;&gt;</b><br />
+      &nbsp; &lt;P&gt;Namn:&nbsp;&nbsp; <b>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;namn&quot;&gt;</b>&lt;/P&gt;<br />
+      &nbsp; &lt;P&gt;E-post: <b> &lt;INPUT TYPE=&quot;text&quot; NAME=&quot;epost&quot;&gt;</b>&lt;/P&gt;<br />
+      &nbsp; &lt;P&gt;<b>&lt;INPUT TYPE=&quot;Submit&quot; VALUE=&quot;Skicka&quot;&gt;</b>&lt;/P&gt;<br />
+      <b>
+      &lt;/FORM&gt;</b></span></p>
+      <p><span class="kodlangre">&lt;/BODY&gt;<br />
+      &lt;/HTML&gt;</span></p>
+
+      <h3>Microsoft FrontPage och Visual InterDev</h3>
+      <p>Givetvis g�r det lite l�ttare att skapa formul�r om man anv�nder
+      verktyg f�r att redigera webbsidor visuellt. Microsoft FrontPage 2000 och
+      Visual InterDev 6 �r tv� s�dana verktyg som �r l�mpliga d� man
+      jobbar med Microsoft teknologier (d�rmed inte sagt att de �r de b�sta
+      f�r utveckling av webbsidor :-).</p>
+      <p>FrontPage �r b�st (av de tv�) f�r att utveckla utseendet f�r
+      webbsidorna, medan Visual InterDev �r b�ttre d� man skriver ASP- och
+      JavaScript-kod. F�r formul�r �r ocks� FrontPage b�st d� s� fort man
+      placerar en kontroll p� webbsidan s� l�gger FrontPage till FORM-taggen
+      samt Submit- och Reset-knappar.</p>
+
+      <hr />
+      <p align="center">| <a href="#borjan">Till b�rjan</a> p� sida |</p>
+      <hr />
+
+      <h2><a name= "hamta"></a>H�mta information fr�n formul�r</h2>
+
+      <p>H�r beskrivs hur man h�mtar informationen fr�n ett formul�r som
+      skickats till ASP-sidan. Tyv�rr finns (�nnu?) inget bra verktyg f�r att
+      generera kod f�r att l�sa inneh�llet fr�n ett formul�r. Vi m�ste
+      allts� skriva koden sj�lv.</p>
+
+      <p>F�r att webbserver ska veta att en webbsida inneh�ller ASP-kod (och
+      kunna tolka den) m�ste filen med webbsidan ha fil�ndelsen .ASP.</p>
+
+      <h3>Objektet Request</h3>
+
+      <p>All information (data?) som skickas fr�n en webbl�sare n�r den
+      (eller snarare bes�karen) beg�r en webbsida placeras i objektet Request.
+      Fr�n detta objekt kan vi sen i v�r ASP-kod h�mta bl.a. inneh�llet
+      fr�n formul�r. Objektet finns alltid tillg�ngligt och beh�ver allts�
+      inte skapas.</p>
+
+      <p>Beroende p� hur formul�ret skickades, get eller post, s� finns det
+      tv� vektorer som inneh�ller inneh�llet fr�n formul�ret - QueryString
+      respektive Form. F�r att h�mta inneh�llet i ett formul�r som skickats
+      med metoden get s� anv�nder vi allts� vektorn QueryString i
+      Request-objektet</p>
+
+      <blockquote>
+        <p><span class="kod">Request.QueryString(&quot;namn_p�_kontroll&quot;)</span></p>
+
+      </blockquote>
+      <p>Om vi ist�llet skickar formul�ret med metoden post s� anv�nder vi
+      vektorn Form</p>
+
+      <blockquote>
+        <p><span class="kod">Request.Form(&quot;namn_p�_kontroll&quot;)</span></p>
+      </blockquote>
+
+      <p>Att hantera inneh�llet fr�n exempelformul�ret ovan (Ett enkelt
+      formul�r) kan ske med nedanst�ende kod (eftersom formul�ret skickas med
+      metoden post). H�r deklareras f�rst tv� variabler som sedan tilldelas
+      inneh�llet fr�n textkontrollerna namn och epost.</p>
+
+      <blockquote>
+        <p><span class="kod">Dim strNamn, strEpost<br />
+        strNamn = Request.Form(&quot;namn&quot;)<br />
+        strEpost = Request.Form(&quot;epost&quot;)</span></p>
+      </blockquote>
+
+      <h3>Skriva till webbsida</h3>
+
+      <p>Givetvis �r det inte bara intressant att l�sa data fr�n ett
+      formul�r, utan kommunikation sker ofta �r andra h�llet med utskrift.
+      F�r att skriva till den resulterande webbsidan anv�nder vi ist�llet
+      objektet Response, �ven det alltid tillg�ngligt. Metoden vi anv�nder
+      �r Write() och i nedanst�ende kod (som forts�tter fr�n den ovan)
+      skriver ut inneh�llet i variablerna efter lite ledtext.</p>
+
+      <blockquote>
+        <p><span class="kod">&lt;%<br />
+        &nbsp; Response.Write &quot;Du angav ditt namn som: &quot;
+        &amp; strNamn<br />
+        &nbsp; Response.Write &quot; och din e-postadress som: &quot; &amp; strEpost<br />
+        %&gt;</span></p>
+      </blockquote>
+
+      <p>Eftersom ASP-sidan �r s� enkel (liksom formul�ret) s� skulle vi
+      kunna ers�tta ovanst�ende tv� rader med f�ljande kod.</p>
+
+      <blockquote>
+        <p>Du angav ditt namn som: <span class="kod">&lt;% =strNamn %&gt;</span> och
+          din e-postadress som: <span class="kod">&lt;% =strEpost %&gt;</span></p>
+      </blockquote>
+
+      <p>Det sista alternativet �r ibland att f�redra d� det g�r det
+      l�ttare att l�sa HTML-koden (liksom ASP-koden), speciellt om m�ngden
+      &quot;utskrifter&quot; �r sm�. Man anv�nder ASP-koden f�r att hantera
+      logiken och HTML-koden f�r presentation.&nbsp;</p>
+
+      <P class="kommentar">Egentligen s� b�r man
+      anv�nda komponenter f�r att hantera det mesta av logiken samt ASP endast
+      f�r att anropa metoder i komponenterna och eventuell utskrift av
+      resultatet fr�n metodanropen. Se <a href="../komponenter/index.html">ASP och
+      komponenter</a> f�r mer information.</p>
+
+      <hr />
+      <p align="center">| <a href="#borjan">Till b�rjan</a> p� sida |</p>
+      <hr />
+
+      <h2><a name= "storre"></a>Ett lite st�rre exempel</h2>
+
+      <p>I detta exempel anv�nder vi tv� filer:</p>
+
+      <ul>
+        <li>STORRE1.HTM - inneh�ller HTML-formul�ret</li>
+        <li>STORRE1.ASP - inneh�ller ASP-koden som hanterar inneh�llet fr�n
+          formul�ret</li>
+      </ul>
+      <p>&nbsp;</p>
+
+      <h3>F�rklaring till koden i filen STORRE1.HTM</h3>
+
+      <p>HTML-koden f�r formul�ret �r inte mycket mer komplex �n den i det
+      enkla exemplet ovan. Men tabellen som anv�nds f�r att styra bredden p�
+      textraderna och f�r att kunna centrar webbsidans inneh�ll g�r att koden
+      ser v�rre ut �n den �r. Men koden f�r tabellen skapas relativt enkelt
+      i t.ex. Microsoft FrontPage.</p>
+
+      <p>Formul�ret i detta exempel inneh�ller bl.a. tv� textrutor och en
+      Submit-knapp. Men h�r visas �ven hur man anv�nder radioknappar och
+      textrutor i HTML-formul�r (samt hur man hanterar dess inneh�ll nedan).</p>
+
+      <h4>Radioknappar</h4>
+
+      <p>Radioknappar brukar anv�ndas i grupper om tv� eller fler - bes�karen
+      kan d� endast markera en av radioknapparna. F�r att gruppera
+      radioknapparna s� ger man dem samma v�rde p� INPUT-taggens attribut
+      NAME. Och f�r att skicka olika v�rden, beroende p� vilken radioknapp
+      som bes�karen valde, s� anv�nder man attributet VALUE. Attributet
+      CHECKED (utan n�got v�rde efter ett likhetstecken!) anv�nds f�r att
+      avg�ra vilken radioknapp (om n�gon) som ska vara markerad n�r webbsida
+      med formul�r laddas.</p>
+
+      <p>I detta exempel anv�nder vi tv� radioknappar f�r att bes�kare ska
+      kunna ange om han/hon �r en student eller l�rare. Radioknappen ges
+      namnet sysselsattning och v�rdena &quot;studerande&quot; respektive
+      &quot;larare&quot;. Observera att svenska tecken har ersatts med
+      bokst�verna a eller o. Efter radioknappen skrivs ledtext f�r att visa
+      p� vilket alternativ som radioknappen avser.</p>
+
+      <blockquote>
+        <p><span class="kod">&lt;P&gt;Jag �r:<br />
+            <b>&lt;INPUT TYPE=&quot;radio&quot; NAME=&quot;sysselsattning&quot;<br />
+            &nbsp; VALUE=&quot;studerande&quot; CHECKED&gt;</b>studerande<br />
+            <b>&lt;INPUT TYPE=&quot;radio&quot; NAME=&quot;sysselsattning&quot;<br />
+            &nbsp; VALUE=&quot;larare&quot;&gt;</b>l�rare&lt;/P&gt;&nbsp;</span></p>
+
+        <FORM>
+        <p>Jag �r: <INPUT TYPE="radio" NAME="sysselsattning" VALUE="studerande" CHECKED>studerande
+            <INPUT TYPE="radio" NAME="sysselsattning" VALUE="larare">l�rare
+        </p>
+        </FORM>
+
+      </blockquote>
+      <h4>Kryssrutor</h4>
+
+      <p>Kryssrutor brukar, i motsats till radioknappar, kunna anges oberoende
+      av varandra, d.v.s. anv�nds f�r att markera inga eller flera alternativ.&nbsp;Om
+      vi bara anger namnet p� kontroller (med attributet NAME) s� kommer
+      v�rdet &quot;on&quot; skickas om bes�kare markerat kryssrutan. Vill vi
+      skicka n�got mer intressant v�rde (�n &quot;on&quot;) s� kan vi
+      anv�nda attributet VALUE. �ven h�r kan vi anv�nda attributet CHECKED
+      f�r att l�ta en (eller flera) kryssrutor vara markerade n�r webbsida
+      laddas.</p>
+
+      <p><b>Observera</b> �ven att kryssrutans namn (och d�rmed inneh�ll)
+      endast skickas om kryssrutan har markerats!</p>
+
+      <blockquote>
+
+      <p>&lt;P&gt;Jag vill ha information om:<br />
+      &nbsp;
+            <b>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;bocker&quot;&gt;</b>l�rob�cker<br />
+      &nbsp;
+            <b>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;program&quot;&gt;</b>program&lt;/P&gt;</p>
+
+      <FORM>
+      <p>Jag vill ha information om:
+            <INPUT TYPE="checkbox" NAME="bocker">l�rob�cker
+            <INPUT TYPE="checkbox" NAME="program">program</p>
+      </FORM>
+      </blockquote>
+
+      <h4>Fullst�ndiga koden f�r filen STORRE1.HTM</h4>
+
+      <p>Koden f�r HTML-formul�ret har markerats med fet stil i koden nedan.</p>
+
+      <PRE>&lt;HTML&gt;
+&lt;HEAD&gt;
+  &lt;TITLE&gt;Ett st�rre exempel med formul�r&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+
+&lt;!-- Centrera tabell --&gt;
+&lt;DIV ALIGN=&quot;center&quot;&gt;
+&lt;CENTER&gt;
+
+  &lt;!-- Tabell anv�nds f�r att styra bredd p� text och f�r att kunna
+       centrera. Tabellen inneh�ller endast en rad och en kolumn --&gt;
+  &lt;TABLE BORDER=&quot;0&quot; WIDTH=&quot;600&quot;&gt;
+    &lt;TR&gt;
+      &lt;TD WIDTH=&quot;100%&quot;&gt;
+
+        &lt;H1&gt;Ett st�rre exempel med formul�r&lt;/H1&gt;
+        &lt;P&gt;I detta exempel visas ett formul�r i filen STORRE1.HTM
+          och som skickar inneh�llet till en fil med namnet
+          STORRE1.ASP.&lt;/P&gt;
+
+        &lt;HR&gt;
+
+        &lt;!-- START: Formul�r --&gt;
+        <b>&lt;FORM METHOD=&quot;post&quot; ACTION=&quot;storre1.asp&quot;&gt;</b>
+
+          &lt;P&gt;F�rnamn&lt;BR&gt;
+            <b>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;fnamn&quot;&gt;</b>&lt;/P&gt;
+
+          &lt;P&gt;Efternamn&lt;BR&gt;
+            <b>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;enamn&quot;&gt;</b>&lt;/P&gt;
+
+          &lt;P&gt;Jag �r:
+            <b>&lt;INPUT TYPE=&quot;radio&quot; NAME=&quot;sysselsattning&quot;
+              VALUE=&quot;studerande&quot; CHECKED&gt;</b>studerande
+            <b>&lt;INPUT TYPE=&quot;radio&quot; NAME=&quot;sysselsattning&quot;
+              VALUE=&quot;larare&quot;&gt;</b>l�rare&lt;/P&gt;
+
+          &lt;P&gt;Jag vill ha information om:
+            <b>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;bocker&quot;&gt;</b>l�rob�cker
+            <b>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;program&quot;&gt;</b>program&lt;/P&gt;
+
+          &lt;P&gt;&lt;<b>INPUT TYPE=&quot;submit&quot; VALUE=&quot;Skicka!&quot;&gt;</b>&lt;/P&gt;
+
+        <b>&lt;/FORM&gt;</b>
+        &lt;!-- SLUT: Formul�r --&gt;
+
+        &lt;HR&gt;
+
+      &lt;/TD&gt;
+    &lt;/TR&gt;
+  &lt;/TABLE&gt;
+
+&lt;/CENTER&gt;
+&lt;/DIV&gt;
+
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE>
+
+      <h3>F�rklaring till koden i filen STORRE1.ASP</h3>
+
+      <p>HTML-koden �r i stort sett den samma i denna fil som i den med
+      HTML-formul�ret, bortsett fr�n att den inte inneh�ller ett formul�r.
+      ASP-koden har delats upp i tv� delar d�r den f�rsta delen deklarerar
+      variabler och h�mtar inneh�llet fr�n formul�ret. Denna del har
+      placerats innan den �ppnande HTML-taggen.</p>
+
+      <p>Den andra delen av ASP-koden har placerats i webbsidans kropp (d.v.s. i
+      BODY-taggen) f�r att utskrift ska kunna ske direkt d�r den ska anv�ndas
+      (med Response.Write).</p>
+
+      <p>En viktig sak, som ganska tydligt framkommer i detta exempel, �r det
+      flitiga anv�ndandet av If-satser i ASP-kod. Inneh�ll fr�n formul�r m�ste
+      kontrolleras ganska ing�ende s� att det inte genereras n�gra fel i
+      ASP-koden.</p>
+
+      <P class="kommentar">Helst av allt s� b�r man anv�nda JavaScript-kod f�r att validera
+      formul�ret <b>innan</b> formul�ret skickas till webbservern och
+      ASP-sidan. Med validering menas att man kontrollerar att alla
+      obligatoriska f�lt inneh�ller n�got, och g�rna d� giltiga v�rden.
+      Men JavaScript ligger �r utanf�r �mnet f�r denna webbsida.</p>
+
+      <h4>ASP-kod del 1</h4>
+
+      <p>I f�rsta delen av ASP-koden deklareras en variabel blnSkickat som en
+      flagga som anv�nds f�r att avg�ra om resten av koden ska exekveras. (Det
+      finns inget sk�l att exekvera n�gon kod om det inte finns n�got att
+      g�ra. :-) Genom att kontrollera om egenskapen Count i vektorn
+      Request.Form �r st�rre �n noll (0) s� kan flaggan (variablen
+      blnSkickat) s�tts till sant, annars falskt. Flaggan anv�nds �ven i den
+      andra delen av ASP-koden.</p>
+
+      <blockquote>
+        <p><span class="kod">If Request.Form.Count &gt; 0 Then<br />
+        &nbsp; blnSkickat = True<br />
+        Else<br />
+        &nbsp; blnSkickat = False<br />
+        End If</span></p>
+      </blockquote>
+
+      <p>Och om n�got skickats s� deklarerar vi variabler f�r att lagra
+      inneh�llet i formul�ret samt h�mtar och tilldelar inneh�llet till
+      variablerna. Det �r ingen skillnad mot det enkla exemplet ovan.</p>
+
+      <h4>ASP-kod del 2&nbsp;</h4>
+
+      <p>Det f�rsta vi g�r att kontrollera att n�got skickats genom att
+      anv�nda v�r flagga blnSkickat. Efter lite ledtext s�&nbsp;skriver vi ut
+      bes�karens f�r- och efternamn. Inte heller detta �r n�got nytt
+      j�mf�rt med det enkla exemplet ovan.</p>
+
+      <H5>Radioknappar och kryssrutor</H5>
+
+      <p>D�remot s� skiljer sig hanteringen av inneh�llet i radioknappar och
+      kryssrutor. Som n�mnts ovan s� kan man (med diverser attribut i
+      INPUT-taggen) styra vad som ska skickas n�r bes�kare v�ljer en
+      radioknapp eller s�tter en bock i en kryssruta. I HTML-formul�ret har
+      jag valt att skicka beskrivande str�ngar fr�n radioknapparna men endast
+      v�rdet &quot;on&quot; om bes�kare markerar en kryssruta.</p>
+
+      <p>Eftersom radioknappen f�r syssels�ttningen &quot;l�rare&quot;
+      inneh�ller svenska tecken (bokstaven � f�r att vara exakt) s� har jag
+      valt att skickat texten &quot;larare&quot; ist�llet. D�rmed m�ste jag
+      kontrollera om bes�karens syssels�ttning �r studerande (alt. l�rare)
+      eller inte och sen skriva ut bes�karens syssels�ttning. (Det vore
+      b�ttre att endast skicka en bokstav, d.v.s. &quot;s&quot; och &quot;l&quot;, men exemplet visar ju p� problemet.)</p>
+
+      <blockquote>
+
+      <p><span class="kod">If strSysselsattning = &quot;studerande&quot; Then<br />
+      &nbsp; Response.Write &quot;studerande&quot;<br />
+      Else<br />
+      &nbsp; Response.Write &quot;l�rare&quot;<br />
+      End If</span></p>
+
+      </blockquote>
+
+      <p>Kryssrutorna skapar lite mer problem, men problemet �r fr�mst
+      relaterat till att utskriften ska se bra ut (d.v.s. om texten
+      &quot;och&quot; ska skrivas ut emellan &quot;intressena&quot;). Hade vi
+      bara valt att spara i en databas s� hade vi endast beh�vt kontrollerat
+      om kryssrutan var vald eller inte f�r att skriva sant eller falskt till
+      f�ltet i databasen. Men eftersom jag valt att g�ra en &quot;snygg&quot;
+      utskrift s� m�ste jag kontrollera om kryssrutorna �r markerade, f�r
+      att i s� fall skriva ut vad bes�karen �r intresserad av.</p>
+
+      <p>Om bes�karen �r intresserad av f�rsta alternativet (l�rob�cker)
+      s� s�tter jag en flagga s� att jag i n�sta If-sats kan avg�ra om
+      texten &quot;och&quot; ska skrivas ut mellan &quot;intressena&quot;.</p>
+
+      <blockquote>
+
+      <p><span class="kod">If strBocker = &quot;on&quot; Then&nbsp;&nbsp;<br />
+      &nbsp; Response.Write &quot;l�rob�cker&quot;<br />
+      &nbsp; blnBocker = True<br />
+      End If<br />
+      <br />
+      If strProgram = &quot;on&quot; Then<br />
+      &nbsp; If blnBocker then<br />
+      &nbsp;&nbsp;&nbsp; Response.Write &quot; och
+      &quot;<br />
+      &nbsp; End If<br />
+      <br />
+      &nbsp;&nbsp;Response.Write &quot;program&quot;<br />
+      End If</span></p>
+
+      </blockquote>
+
+      <p>Detta st�rre, men relativt enkla, exempel slutat med ca 100 rader med
+      HTML- och ASP-kod (inklusive tomma rader och kommentarer!). Ska sanningen
+      fram s� bidrar &quot;designen&quot; (tabellen) f�r webbsidan med ca 25
+      rader av koden. Men 75 rader f�r att hantera och skriva ut 5 kontroller
+      �r kanske inte s� &quot;produktivt&quot;...&nbsp;</p>
+
+      <h4>Fullst�ndig kod f�r filen STORRE1.ASP&nbsp;</h4>
+
+      <p>ASP-koden har markerats med fet stil (utom kommentarer)&nbsp;</p>
+
+      <PRE><b>&lt;%
+  Option Explicit
+
+    </b>'Deklarera variabler<b>
+  Dim blnSkickat
+
+    </b>'Om formul�r skickats och �r ifyllt - s�tt flagga till sant<b>
+  If Request.Form.Count &gt; 0 Then
+    blnSkickat = True
+  Else  </b>'... annars s�tt till falskt<b>
+    blnSkickat = False
+  End If
+
+    </b>'Dekl. endast variabler och h�mta v�rden om formul�r skickats<b>
+  If blnSkickat Then
+
+      </b>'Deklarera variabler f�r inneh�ll i formul�r <b>
+    Dim strFnamn, strEnamn, strSysselsattning, strBocker, strProgram
+    Dim blnBocker
+
+      </b>'H�mta inneh�llet i formul�ret<b>
+    strFnamn = Request.Form(&quot;fnamn&quot;)
+    strEnamn = Request.Form(&quot;enamn&quot;)
+    strSysselsattning = Request.Form(&quot;sysselsattning&quot;)
+    strBocker = Request.Form(&quot;bocker&quot;)
+    strProgram = Request.Form(&quot;program&quot;)
+
+  End If
+%&gt;</b></PRE>
+      <PRE>&lt;HTML&gt;
+&lt;HEAD&gt;
+  &lt;TITLE&gt;Ett st�rre exempel med formul�r&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+
+&lt;!-- Centrera tabell --&gt;
+&lt;DIV ALIGN=&quot;center&quot;&gt;
+&lt;CENTER&gt;
+
+  &lt;!-- Tabell anv�nds f�r att styra bredd p� text och f�r att kunna
+       centrera. Tabellen inneh�ller endast en rad och en kolumn --&gt;
+  &lt;TABLE BORDER=&quot;0&quot; WIDTH=&quot;600&quot;&gt;
+    &lt;TR&gt;
+      &lt;TD WIDTH=&quot;100%&quot;&gt;
+
+        &lt;H1&gt;Ett st�rre exempel med formul�r&lt;/H1&gt;
+        &lt;P&gt;I denna fil, STORRE1.ASP, l�ses inneh�llet fr�n
+          formul�ret i filen STORRE1.HTM och visas nedan..&lt;/P&gt;
+
+        &lt;HR&gt;</PRE>
+      <PRE><b>&lt;%
+    </b>'Om formul�r skickats - visa inneh�llet i formul�ret<b>
+  If blnSkickat Then
+
+      </b>'Skriv ut lite ledtext<b>
+    Response.Write &quot;&lt;P&gt;Du uppgav f�ljande information om dig &quot;
+    Response.Write &quot;sj�lv:&lt;/P&gt;&quot;
+
+      </b>'***********************************
+<b>      </b>'*** Skriv ut f�r- och efternamn ***<b>
+    Response.Write &quot;&lt;P&gt;&lt;B&gt;F�rnamn:&lt;/B&gt; &quot; &amp; strFnamn &amp; &quot;&lt;/P&gt;&quot;
+    Response.Write &quot;&lt;P&gt;&lt;B&gt;Efternamn:&lt;/B&gt; &quot; &amp; strEnamn &amp; &quot;&lt;/P&gt;&quot;
+
+      </b>'***********************************
+<b>      </b>'*** Skriv ut syssels�ttning     ***<b>
+      </b>'P�b�rja HTML-stycke och skriv ut ledtext f�r syssels�ttning<b>
+    Response.Write &quot;&lt;P&gt;&lt;B&gt;Du �r &lt;/B&gt;&quot;
+
+      </b>'Om syssels�ttning �r stud. - skriv ut texten &quot;studerande&quot;...<b>
+    If strSysselsattning = &quot;studerande&quot; Then
+      Response.Write &quot;studerande&quot;
+    Else  </b>'... annars texten &quot;l�rare&quot;<b>
+      Response.Write &quot;l�rare&quot;
+    End If
+
+      </b>'Avsluta HTML-stycke<b>
+    Response.Write &quot;&lt;/P&gt;&quot;
+
+</b><b>      </b>'***********************************
+      '*** Skriv ut &quot;intressen&quot;        ***
+<b>      </b>'P�b�rja HTML-stycke och skriv ut ledtext f�r intresse<b>
+    Response.Write &quot;&lt;P&gt;&lt;B&gt;Du vill ha information om:&lt;/B&gt; &quot;
+
+</b><b>      </b>'Om intresserad av l�rob�cker - skriv ut texten &quot;l�rob�cker&quot;<b>
+</b><b>    If strBocker = &quot;on&quot; Then
+      Response.Write &quot;l�rob�cker&quot;
+
+        </b>'S�tt flagga att intresserad av b�cker<b>
+      blnBocker = True
+    End If
+
+      </b>'Om intresserad av program - skriv ut texten &quot;program&quot;<b>
+    If strProgram = &quot;on&quot; Then
+
+        </b>'Om �ven intresserad av b�cker skriv ut texten &quot; och &quot;<b>
+      If blnBocker then
+        Response.Write &quot; och &quot;
+      End If
+
+      Response.Write &quot;program&quot;
+
+    End If
+      </b>'Avsluta HTML-stycke<b>
+    Response.Write &quot;.&lt;/P&gt;&quot;
+
+</b><b>      </b>'***********************************
+<b>  Else   </b>'... annars meddela bes�kare att fylla i formul�ret<b>
+    Response.Write &quot;&lt;P&gt;Du m�ste fylla i formul�ret f�rst.&quot;
+    REsponse.Write &quot; Anv�nd l�nk nedan.&lt;/P&gt;&quot;
+  End If
+%&gt;</b></PRE>
+      <PRE>        &lt;HR&gt;
+        &lt;P&gt;&lt;A HREF=&quot;storre1.htm&quot;&gt;Visa formul�r&lt;/A&gt;&lt;/P&gt;
+        &lt;HR&gt;</PRE>
+      <PRE>      &lt;/TD&gt;
+    &lt;/TR&gt;
+  &lt;/TABLE&gt;
+
+&lt;/CENTER&gt;
+&lt;/DIV&gt;
+
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE>
+
+      <ul>
+        <li><a href="exempel/storre1.htm" target="_blank">Provk�r</a>
+          formul�ret och den hanterande ASP-koden.</li>
+      </ul>
+
+      <hr />
+      <p align="center">| <a href="#borjan">Till b�rjan</a> p� sida |
+        <a href="../index.html">Tillbaka</a> till ASP |</p>
+      <hr />
+
+      <p align="center"><b>Skapad av:</b> Bj�rn G D Persson. <b>Uppdaterad:</b>
+        2007-01-25.</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

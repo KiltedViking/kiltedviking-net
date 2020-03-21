@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_2.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Case-satser i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Case-satser i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"><br />
+  &nbsp; var min_var = 3;   //deklarera variabel<br />
+  &nbsp; var min_text;<br />
+  <br />
+  &nbsp; switch(min_var*2) //Testa i case-sats om ...<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; case 4:         //...talet &auml;r 4<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min_text = "Villkoret (" + min_var + "*2) &auml;r 4";<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+  &nbsp;&nbsp;&nbsp; case 6:         //...talet &auml;r 6<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min_text = "Villkoret (" + min_var + "*2) &auml;r 6";<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+  &nbsp;&nbsp;&nbsp; case 8:         //...talet &auml;r 8<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min_text = "Villkoret (" + min_var + "*2) &auml;r 8";<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+  &nbsp;&nbsp;&nbsp; default:        //...annars skriv ut f&ouml;ljande<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min_text = "Alternativet fanns inte i case-satsen";<br />
+  &nbsp; }<br />
+  <br />
+  &nbsp; document.writeln(min_text);  //Skriv ut resultatet till hemsida<br />
+  &lt;/script></p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var min_var = 3;   //deklarera variabel
+    var min_text;
+  
+    switch(min_var*2) //Testa i case-sats om ...
+    {
+      case 4:         //...talet &auml:r 4
+        min_text = "Villkoret (" + min_var + "*2) &auml;r 4";
+        break;
+      case 6:         //...talet &auml:r 6
+        min_text = "Villkoret (" + min_var + "*2) &auml;r 6";
+        break;
+      case 8:         //...talet &auml:r 8
+        min_text = "Villkoret (" + min_var + "*2) &auml;r 8";
+        break;
+      default:        //...annars skriv ut f&ouml;ljande
+        min_text = "Alternativet fanns inte i case-satsen";
+    }
+    
+    document.writeln(min_text);  //Skriv ut resultatet till hemsida
+  </script>
+  </p>
+</blockquote>
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn G. D. Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifr&aring;n str&auml;ngen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "&aring;r-m&aring;nad-dag" - januari har v&auml;rdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

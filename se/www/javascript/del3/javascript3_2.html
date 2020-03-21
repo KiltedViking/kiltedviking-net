@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_2.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 3.2 (JS-DOM) - Bj&ouml;rns studiewebb</title>
+  <link href="../../stilar/css2_exempel.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="innehall">
+<h1>Datumobjekt i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>Kod:</h5>
+<div class="code">
+<p class="kod">&lt;script type="text/javascript"><br />
+  &lt;!--<br />
+&nbsp; var datum1;<br />
+<br />
+&nbsp; datum1 = new Date();<br />
+&nbsp; document.write("&lt;p&gt;Året är " + datum1.getFullYear() + "&lt;br /&gt;");<br />
+&nbsp; document.write("Månaden är " + (datum1.getMonth() + 1) + "&lt;br /&gt;");<br />
+&nbsp; document.write("Dagen i månaden är " + datum1.getDate() + "&lt;br /&gt;");<br />
+&nbsp; document.write("Dagen i veckan är " + (datum1.getDay())<br />
+&nbsp;&nbsp;&nbsp; + " (söndag är dag 0)&lt;/p&gt;");<br />
+<br />
+&nbsp; document.write("&lt;p&gt;Timmen är " + datum1.getHours() + "&lt;br /&gt;");<br />
+&nbsp; document.write("Minuterna är " + datum1.getMinutes() + "&lt;/p&gt;");<br />
+<br />
+&nbsp; document.write("&lt;p&gt;Detta dokument redigerades sist: " + document.lastModified&nbsp;<br />
+&nbsp;&nbsp;&nbsp; + "&lt;/p&gt;");<br />
+  //--><br />
+  &lt;/script></p>
+</div>
+<h5>Resultat:</h5>
+<div class="code">
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var datum1;
+
+    datum1 = new Date();
+    document.write("<p>Året är " + datum1.getFullYear() + "<br />");
+    document.write("Månaden är " + (datum1.getMonth() + 1) + "<br />");
+    document.write("Dagen i månaden är " + datum1.getDate() + "<br />");
+    document.write("Dagen i veckan är " + (datum1.getDay()) + " (söndag är dag 0)</p>");
+
+    document.write("<p>Timmen är " + datum1.getHours() + "<br />");
+    document.write("Minuterna är " + datum1.getMinutes() + "</p>");
+
+    //Tester som jag inte fullföljt...
+    //var datum2 = Date.parse("December 12, 2009")
+    //var datum2 = Date.parse("2009-12-12")
+    //document.write(datum2 + " (" + typeof datum2 + ")");
+
+    document.write("<p>Detta dokument redigerades sist: " + document.lastModified + "</p>");
+  </script>
+</div>
+<hr />
+<p id="dokumentinfo"><b>Skapad av:</b> Bj&ouml;rn G. D. Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  var modDate = new Date(document.lastModified);
+    //Hämta månad och addera 1 (januari är 0!)
+  var modMonth = modDate.getMonth()+1;
+    //Om månad är mindre än 10 (dvs 1 siffra), lägg till en 0:a framför
+  if(modMonth < 10)
+    modMonth = "0" + modMonth;
+    //Skriv ut datum på formen "år-månad-dag"
+  document.write(modDate.getFullYear() + "-" + (modMonth) + "-" + modDate.getDate());
+</script>
+</p>
+<div class="rightalign">
+<form action="">
+  <p class="rightalign"><input type="button" value="St&auml;ng f&ouml;nstret"
+    onclick="self.close()" /></p>
+</form>
+</div>
+</div>
+</body>
+</html>

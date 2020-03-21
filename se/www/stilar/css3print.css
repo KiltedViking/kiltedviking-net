@@ -1,0 +1,219 @@
+/*******************************************************************************
+* Filnamn:      css3print.css
+* Syfte:        Stilmallar utskrift av sidor i Bjorns studiewebb.
+* Skapad av:    Bjorn G.D. Persson, bjorn(at)kiltedviking.net.nospam.
+* Skapad:       2011-07-31
+* Andrad:       -
+* Kommentarer:  Dessa stilar kommer bl.a. dölja meny.
+*******************************************************************************/
+
+/*** Overgripande stilar ******************************************************/
+/* Dessa stilar ar generella, dvs galler inte i en speciell div-tagg el. likn. */
+body
+{
+  font-size: 13px;  /* Ursprunglig storlek for typsnitt, d.v.s absolut storlek -
+                       Verdana ser bast ut i 13 pixlars storlek (enl. mig), men
+                       kan andras av de som ser lite daligt. Resterande typsnitts-
+                       storlekar kommer vara relativ till denna. */
+  font-family: Georgia, "Times New Roman", serif; /* Standardtypsnitt */
+}
+
+/* Stilar med standardvarden for rubriker */
+h1, h2
+{
+  font-family: "Copperplate Gothic Bold", Copperplate, Impact, Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1  /* Storsta rubriken ska aven vara rod och nagot storre an standard */
+{
+  font-size: 2.5em;
+}
+
+/* Aven ovriga rubriker ska vara nagot storre... */
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+
+/*** Stilar för sidhuvud, inkl. logotyp **************************************/
+div#header h1
+{
+	text-align: center;
+	margin-left: 155px;					/* Kompensera for logotyp och dess vanster marginal */
+}
+
+#logotyp
+{
+	float: left;
+}
+
+/*** Stilar for container (med gul bakgrundsfarg) *****************************/
+div#container
+{
+}
+
+div#container a
+{
+  color: black;
+  background-color: white;
+  text-decoration: none;
+}
+
+/*** Stilar for menyram *******************************************************/
+/* TODO: Fixa marginal till vanster. Fixa sa att text far plats */
+div#menyram
+{
+  display: none;
+}
+
+/*** Stilar for innehall ******************************************************/
+div#innehall
+{
+  float: left;              /* Flyt block till hoger om foregaende */
+  width: 675px;             /* Bredd pa innehallskolumn */
+  padding: 1em;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+	border-radius: 20px;
+}
+
+div#innehall p              /* Standardstil for stycken - rak vanster- och hogermarginal */
+{
+  text-align: justify;
+}
+
+div#innehall p.tillborjan   /* Stil for lankar till borjan pa sidor */
+{
+	display: none;
+}
+
+/* TODO: Ersatt eventuella kvarvarande P med UL */
+div#innehall p.foregaendenasta   /* Stil for navigeringslankar langst ner pa sida */
+{
+  display: none;
+}
+
+/* Stil for navigeringslankar langst ner pa sida (anvander "liggande" lista) */
+div#innehall ul.foregaendenasta
+{
+  display: none;
+}
+
+div#innehall ul.foregaendenasta  li /* Stil for alternativ i lista (navigeringslankar) */
+{
+  display: inline;
+}
+
+div#innehall .kommentar    /* Stil for kommentarer i sidor */
+{
+  font-size: 0.8em;
+  margin: 0px 10px;         /* Indrag till vanster och hoger */
+}
+
+div#innehall p.center     /* Stil for centrering av enskilda stycken */
+{
+  text-align: center;
+}
+
+div#innehall span.highlight, div#innehall p.highlight   /* Stil for fargkodning markerad text */
+{
+  font-weight: bold;
+}
+
+/* Typsnitt och farg for kodexempel */
+div#innehall .code
+{
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Marginaler for kodexempel i block */
+/* TODO: Ersatt eventuella kvarvarande BLOCKQUOTE med DIV */
+div#innehall div.code, div#innehall blockquote.code  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+}
+
+div#innehall div.exempel  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Exempelkod ska inte ha rak vanster- och hogermarginal */
+div#innehall div.code p
+{
+  text-align: left;
+}
+
+div#innehall p.anfang:first-letter
+{
+  font-size: 300%;
+  float: left;
+}
+
+div#innehall table  /* Stil for kodexempel */
+{
+  caption-side: bottom;
+}
+
+div#innehall table caption  /* Stil for kodexempel */
+{
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+div#innehall blockquote[cite]  /* Stil for citat */
+{
+  margin: 0px 10px;
+  font-style: italic;
+}
+
+div#innehall .hruletop
+{
+  margin-top: 5px;
+  border-top: solid 2px black;
+  padding-top: 5px;
+}
+
+div#innehall .referens  /* Stil for referenser (till t.ex. citat) */
+{
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+}
+
+table.table100proc { width: 100%; }
+th.tablecolumn25proc, td.tablecolumn25proc { width: 25%; }
+th.tablecolumn75proc, td.tablecolumn75proc { width: 75%; }
+/*** Stilar for hogermarginal *************************************************/
+/* TODO: Overflodig? */
+div#hogermarginal
+{
+  float: left;
+  width: 20px;             /* Bredd pa hogermarginalsskolumn */
+}
+
+/*** Stilar for sidfot ********************************************************/
+div#sidfot p
+{
+  clear: both;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 5px;
+  border-top: solid 2px black;
+  padding-top: 5px;
+}
+
+div#footer
+{
+	padding-top: 5px;
+  clear: both;  /* Behovs for att bakgrundsfarg ska visas over hela containers bakgrund i FF */
+}
+
+div#footer p#dokumentinfo         /* Stil for dokumentinfo langst ner pa sidor */
+{
+  text-align: center;
+  font-size: 0.8em;
+  /* border-top: 1px solid red; */
+}

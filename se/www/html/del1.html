@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Grundläggande HTML-element." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del1.html" />
+  <title>HTML - Grundl&auml;ggande HTML</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container">
+      <a href="../index.html" class="right" title="Till startsida för studiewebb">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>Grundl&auml;ggande HTML</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li class="active"><a href="del1.html">Grundl&auml;ggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">L&auml;nkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formul&auml;r</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li class="active"><a href="del1.html">Grundl&auml;ggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">L&auml;nkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formul&auml;r</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>
+          <p>Denna hemsida beskriver bl.a. de fem grundl&auml;ggande elementen som b&ouml;r
+            f&ouml;rekomma i alla hemsidor. Funktion hos taggars attribut (som bl.a. p&aring;verkar
+            taggars utseende) behandlas liksom hur man markerar rubriker och stycken samt
+            hur man infogar bilder.</p>
+          <p>... nya strukturella taggar i HTML 5.</p>
+          <p>... de fem som b&ouml;r finnas i alla sidor, taggars attribut samt f&auml;rg
+              f&ouml;r bakgrund och text.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h2>Avsnitt</h2>
+          <!-- <nav> -->
+            <ul class="collection">
+              <li><a href="#grundlaggande" class="collection-item">Grundl&auml;ggande element</a></li>
+              <li><a href="#strukturella" class="collection-item">Strukturella taggar</a></li>
+              <li><a href="#rubriker" class="collection-item">Rubriker och stycken</a></li>
+              <li><a href="#bilder" class="collection-item">Bilder</a></li>
+            </ul>
+          <!-- </nav> -->
+        </div>
+      </div>
+
+      <h2 id="grundlaggande">Grundl&auml;ggande element</h2>
+      <h3>Element som b&ouml;r finnas med i ett dokument</h3>
+
+      <div class="row">
+        <div class="col l7 s12">    
+          <p>Det finns fem element som b&ouml;r (m&aring;ste) vara med i ett (X)HTML-dokument
+            f&ouml;r att det ska vara en giltig hemsida. Webbl&auml;sare brukar dock vara
+            &quot;f&ouml;rl&aring;tande&quot; och visa hemsidan &auml;nd&aring;, dock utan garanti om
+            hur. Nedan visas taggarna f&ouml;r elementen och vad de betyder.</p>
+          
+          <!-- <blockquote> -->
+            <dl>
+              <dt><code>&lt;!DOCTYPE ...&gt;</code></dt>
+              <dd>Anger f&ouml;r webbl&auml;sare vilken typ av
+                HTML-kod som dokument inneh&aring;ller. Anv&auml;nds bl.a. f&ouml;r hur taggar ska tolkas
+                (och presdenteras). Denna tagg ska <strong>inte</strong> skrivas med gemener! 
+                <br />
+                <span class="kommentar">(Denna tagg kommer utel&auml;mnas i exempel f&ouml;r att minska 
+                kod.)</span></dd>
+              <dt><code>&lt;html&gt;</code></dt>
+              <dd>Start och slut f&ouml;r (X)HTML-kod. De &auml;r allts&aring;
+                avgr&auml;nsningarna f&ouml;r dokumentet.</dd>
+              <dt><code>&lt;head&gt;</code></dt>
+              <dd>Start och slut av dokumentinformation (s&aring; som
+                titel, f&ouml;rfattare, m.m.).</dd>
+              <dt><code>&lt;title&gt;</code></dt>
+              <dd>Titel p&aring; dokumentet. Visas oftast i
+                webbl&auml;sarens titelrad (raden ovanf&ouml;r menyraden) och anv&auml;nds &auml;ven som etikett/namn f&ouml;r
+                bokm&auml;rken/favoriter. Placeras inom elementet &lt;head&gt; ovan.</dd>
+              <dt><code>&lt;body&gt;</code></dt>
+              <dd>Start och slut p&aring; visuella delen av
+                (X)HTML-dokumentet. Text och andra element som placeras i denna del
+                kommer synas i webbl&auml;sarens f&ouml;nster.</dd>
+            </dl>
+          <!-- </blockquote> -->
+        </div>
+
+        <div class="col l5 s12">
+          <p>Nedan visas ett exempel p&aring; var taggarna (f&ouml;r &quot;de fem&quot;
+            elementen) ska placeras i
+            dokumentet och hur de f&ouml;rh&aring;ller sig till varandra.</p>
+
+          <blockquote class="kod">
+            <p><code>&lt;!DOCTYPE html&gt;<br />
+              &lt;html&gt;<br />
+              &lt;head&gt;<br />
+              &nbsp; &lt;title&gt;&lt;/title&gt;<br />
+              &lt;/head&gt;<br />
+              &lt;body&gt;<br />
+              &lt;/body&gt;<br />
+              &lt;/html&gt;</code></p>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>Se <a href="del1/html1_1.html" target="_blank"> exempel 1.1</a> - tom hemsida</p>
+        </div>
+      </div>
+
+      <h3>En enkelt hemsida med titel, text och kommentar</h3>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I detta exempel ges sidan titeln &quot;<em>En demonstration av
+          HTML-kod</em>&quot;. Dokumentets kropp (<em>body</em>) inneh&aring;ller lite
+          text och en kommentar. Observera att trots att texten till kroppen har
+          skrivits p&aring; tre rader i HTML-koden s&aring; visas eventuellt inte texten med
+          radbrytningar p&aring; samma st&auml;lle!</p>
+        <!-- </div>
+      </div> -->
+
+      <!-- <h4>Exempel som demonstrera HTML-koden f&ouml;r en enkel hemsida</h4> -->
+      
+          <p class="kommentar"><strong>Observera</strong> att taggen &lt;!DOCTYPE ...&gt;
+            har utel&auml;mnats h&auml;r och i alla efterf&ouml;ljande exempel.</p>
+        </div>
+      
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>&lt;html&gt;<br />
+              &lt;head&gt;<br />
+              &nbsp; &lt;title&gt;En demonstration av HTML-kod&lt;/title&gt;<br />
+              &lt;/head&gt;<br />
+              &lt;body&gt;<br />
+              &nbsp; &lt;p&gt;Denna hemsida demonstrerar de grundl&auml;ggande
+              elementen i HTML. Texten i kroppen syns i webbl&auml;sarens f&ouml;nster.&lt;/p&gt;<br />
+              &nbsp; &lt;!-- Kommentar som inte syns --&gt;<br />
+              &lt;/body&gt;<br />
+              &lt;/html&gt;</code></p>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>Se <a href="del1/html1_2.html" target="_blank"> exempel 1.2</a> - med titel, text i kroppen och en kommentar.</p>
+        </div>
+      </div>
+
+      <h3>Taggar och attribut</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Attribut anv&auml;nds f&ouml;r att ange egenskaper f&ouml;r ett element.
+            Egenskaperna kan &auml;ndra elementets utseende, position, m.m.. V&auml;rdet
+            f&ouml;r ett attribut anges p&aring; n&aring;got av f&ouml;ljande s&auml;tt - attribut med v&auml;rde resp.
+            attribut utan v&auml;rde (s&aring; som att kryssruta ska vara f&ouml;rbockad).</p>
+        </div>
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>attributnamn=&quot;v&auml;rde&quot;</code><br />
+              <code>attributnamn=&quot;attributnamn&quot;</code></p>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>F&auml;rger i hemsidor</h4>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Det &auml;r fortfarande m&ouml;jligt att anv&auml;nda attribut s&aring; som <code>color</code> 
+            och <code>bgcolor</code> f&ouml;r att &auml;ndra f&ouml;r- och bakgrundsf&auml;rger i vissa element.
+            Men man b&ouml;r anv&auml;nda stilmallar (CSS) ist&auml;llet f&ouml;r att ange f&auml;rger.</p>
+        </div>
+      </div>
+
+      <h2 id="strukturella">Strukturella taggar</h2>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>I HTML 5 introduceras ett antal strukturella taggar, d.v.s. taggar som inte
+            p&aring;verkar webbsidans utseende (annat &auml;n kanske radbrytningar f&ouml;re och efter).</p>
+          
+          <!-- <blockquote> -->
+            <dl>
+              <dt><code>&lt;header&gt;</code></dt>
+              <dd>- m&auml;rker upp sid- eller sektionshuvud.</dd>
+              <dt><code>&lt;footer&gt;</code></dt>
+              <dd>- m&auml;rker upp sid- eller sektionsfot.</dd>
+              <dt><code>&lt;nav&gt;</code></dt>
+              <dd>- m&auml;rker upp navigeringsl&auml;nkar.</dd>
+              <dt><code>&lt;section&gt;</code></dt>
+              <dd>- m&auml;rker upp en generisk del av dokument.</dd>
+              <dt><code>&lt;article&gt;</code></dt>
+              <dd>- m&auml;rker upp en frist&aring;ende del av dokument - en del som skulle kunna
+                anv&auml;ndas i andra sammanhang (t.ex. RSS).</dd>
+              <dt><code>&lt;aside&gt;</code></dt>
+              <dd>- m&auml;rker upp inneh&aring;ll som &auml;r relaterat till kringliggande element, men 
+                &auml;nd&aring; inte, t.ex. bakgrundsartikel.</dd>
+              <dt><code>&lt;hgroup&gt;</code></dt>
+              <dd>- anv&auml;nds f&ouml;r gruppera rubriker (h1-h6) om fler &auml;n en i f&ouml;ljd (t.ex. h1 och h2).</dd>
+            </dl>
+          <!-- </blockquote> -->
+        </div>
+
+        <div class="col l5 s12">
+          <fieldset>
+            <legend>Exempel</legend>
+            <p>Exempel kommer n&auml;r jag l&auml;rt mig mer om &auml;mnet...</p>
+          </fieldset>
+        </div>
+      </div>
+
+      <h2 id="rubriker">Rubriker och stycken</h2>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Rubriker och stycken anv&auml;nds, som i vilken ordbehandlare som helst,
+            f&ouml;r att dela upp texten i mindre delar och d&auml;rmed g&ouml;ra den mer l&auml;tt
+            l&auml;st.</p>
+          
+          <p>I (X)HTML finns 6 f&ouml;rdefinierade niv&aring;er f&ouml;r rubriker och som alla oftast visas med fet stil.
+            Rubrikerna f&ouml;r de olika niv&aring;erna markeras med taggarna <code>&lt;h1&gt;</code>
+            till <code>&lt;h6&gt;</code> (eng. <em>heading</em>). Som exempel 1.4 
+            visar s&aring; &auml;r oftast niv&aring;erna 5 och 6 f&ouml;r rubriker mindre en vanlig text. Genom 
+            att anv&auml;nda de f&ouml;rdefinierade rubrikerna kan man ganska enkelt &auml;ndra
+            utseendet p&aring; dem (i alla hemsidor p&aring; t.ex. en hel webbplats) m.h.a.
+            CSS.</p>
+          
+          <p>Stycken i (X)HTML (eller snarare i webbl&auml;sare) skiljer sig n&aring;got fr&aring;n
+            stycken i ordbehandlare d&aring; de oftast visas med en rads mellanrum mellan
+            styckena. Stycken markeras med taggen <strong>&lt;p&gt;</strong> (eng. <em>paragraph</em>).
+            Avslutande tagg <strong>b&ouml;r</strong> alltid anv&auml;ndas f&ouml;r att t.ex. CSS ska 
+            fungera).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote class="kod">
+            <p><code>&lt;html&gt;<br />
+              &lt;head&gt;<br />
+              &nbsp; &lt;title&gt;Rubriker och stycken&lt;/title&gt;<br />
+              &lt;/head&gt;<br />
+              &lt;body&gt;<br />
+              &nbsp; &lt;h1&gt;Rubrik niv&aring; 1&lt;/h1&gt;<br />
+              &nbsp; &lt;h2&gt;Rubrik niv&aring; 2&lt;/h2&gt;<br />
+              &nbsp; &lt;h3&gt;Rubrik niv&aring; 3&lt;/h3&gt;<br />
+              &nbsp; &lt;h4&gt;Rubrik niv&aring; 4&lt;/h4&gt;<br />
+              &nbsp; &lt;h5&gt;Rubrik niv&aring; 5&lt;/h5&gt;<br />
+              &nbsp; &lt;h6&gt;Rubrik niv&aring; 6&lt;/h6&gt;<br />
+              &nbsp; &lt;p&gt;Ett stycke vanlig text&lt;/p&gt;<br />
+              &nbsp; &lt;p&gt;Ett stycke till med vanlig text. Observera den tomma
+              raden mellan styckena men inte inom detta stycke (som b&ouml;r vara minst
+              tv&aring; rader).&lt;/p&gt;<br />
+              &lt;/body&gt;<br />
+              &lt;/html&gt;</code></p>
+          </blockquote>
+        </div>
+
+        <div class="col l7 s12">
+          <p>Se <a href="del1/html1_4.html" target="_blank"> exempel 1.4</a> - rubriker och stycken</p>
+        </div>
+      </div>
+
+      <h2 id="bilder">Bilder</h2>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Med risk f&ouml;r att l&aring;ta lite klichéartat s&aring; vill &auml;ven jag p&aring;st&aring;
+            att bilder s&auml;ger mer &auml;n tusen ord. :-) Bilder g&ouml;r &auml;ven hemsidor
+            roligare att titta p&aring;. Men viktigt att komma ih&aring;g &auml;r att bilder tar
+            tid att ladda ner - ganska l&aring;ng tid om man har en d&aring;lig uppkoppling till Internet. 
+            D&auml;rf&ouml;r b&ouml;r man begr&auml;nsa antal och storlek p&aring; bilder i en
+            hemsida f&ouml;r att minska nerladdningstiden f&ouml;r en hemsida (d.v.s. tiden
+            det tar f&ouml;r webbl&auml;saren att visa hela hemsidan).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <p><img src="bilder/EileanDonan.jpg" width="450" height="131" alt="Eilean Donan Castle"
+            title="Eilean Donan Castle" class="responsive-img"  /></p>
+        </div>
+      </div>
+
+      <h3>Bildformat</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Bilder kan vara något av formaten GIF (.gif), JPEG (.jpg) eller PNG (.png).</p> 
+          <p><b>GIF-bilder</b> anv&auml;nds ofta f&ouml;r ikoner eller <b>ritade bilder</b> 
+            d&aring; detta format endast tillåter 256 f&auml;rger.</p> 
+          <p>F&ouml;r <b>fotografier</b> l&auml;mpar sig <b>JPEG-bilder</b>
+            b&auml;ttre d&aring; antalet f&auml;rger kan vara mer &auml;n 256.</p> 
+          <p>Den tredje bildtypen - <b>PNG</b> (uttals oftast &quot;ping&quot;) - 
+            har utvecklats f&ouml;r Internet och &auml;r bl.a. t&auml;nkt som 
+            en ers&auml;ttare till GIF-bilder (vilket &auml;r ett licensskyddat format).</p>
+        </div>
+      </div>
+
+      <h3>Taggen <code>&lt;img&gt;</code></h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>F&ouml;r att infoga (l&auml;nka in) en bild i en hemsida s&aring; anv&auml;nder man
+            taggen <code>&lt;img&gt;</code> (eng. <em>image</em>) och anger s&ouml;kv&auml;gen (URL:en) till
+            bildfilen i taggens attribut <code>src</code> (eng. <em>source</em>). Bildfilen &auml;r
+            m.a.o. inte en del av dokumentet (som i de flesta ordbehandlare) utan
+            m&aring;ste finnas tillg&auml;nglig p&aring; webbservern (eller n&aring;gon annan
+            webbserver). Attributet <code>src</code> &auml;r obligatoriskt.</p>
+          
+          <p>Bes&ouml;kare p&aring; Internet kan vara ganska ot&aring;liga, d.v.s. ju l&auml;ngre
+            tid det tar att ladda ner och visa en hemsida ju st&ouml;rre chans &auml;r det
+            att bes&ouml;karen best&auml;mmer sig f&ouml;r att g&aring; till en annan hemsida. Ett
+            s&auml;tt att snabba upp visningen av en hemsida med bilder &auml;r att alltid
+            ange h&ouml;jden och bredden p&aring; en bild. Genom att f&ouml;rse webbl&auml;sare med
+            denna information kan webbl&auml;saren snabbare avg&ouml;ra en hemsidas
+            uppbyggnad och d&auml;rmed snabbare b&ouml;rja visa hemsidan f&ouml;r bes&ouml;karen.
+            Man <strong>b&ouml;r</strong> m.a.o. alltid ange bredd och h&ouml;jd p&aring; alla bilder.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;img src=&quot;bild.jpg&quot; <br />
+            &nbsp; alt=&quot;Text om bild 
+            inte visas&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      </div>
+
+      <h4>Ange bredd och h&ouml;jd p&aring; bilder</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>F&ouml;r att ange bredd och h&ouml;jd p&aring; en bild anv&auml;nder man attributen <code>width</code> 
+            respektive <code>height</code> i taggen <code>&lt;img&gt;</code>. V&auml;rdet 
+            f&ouml;r dessa attribut anges som bildpunkter (pixlar). I exemplet nedan har t.ex. 
+            bilden <code>bild.jpg</code> bredden 283 pixlar och h&ouml;jden 212 pixlar.</p>
+        </div>
+        
+        <div class="col l5 s12">
+          <blockquote>
+            <code>&lt;img src=&quot;bild.jpg&quot; width=&quot;283&quot;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp; height=&quot;212&quot; alt=&quot;...&quot; /&gt;</code>
+          </blockquote>
+        </div>
+      
+        <div class="col l7 s12">
+          <p>Se <a href="del1/html1_5.html" target="_blank"> exempel 1.5</a> - bild inl&auml;nkad med
+            &lt;img&gt;.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <ul class="pagination center-align">
+            <li class="waves-effect"><a href="del0.html">&lt; F&ouml;reg&aring;ende</a></li>
+            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li class="waves-effect"><a href="del2.html">N&auml;sta &gt;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="page-footer center-align">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12"><b>Skapad av:</b> Bj&ouml;rn G D Persson.</div>
+            <div class="col l6 s12"><b>Uppdaterad:</b> 2020-02-15.</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+    $(".sidenav").sidenav();
+  </script>
+</body>
+</html>

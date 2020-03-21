@@ -1,0 +1,137 @@
+/*
+ * Java Servlet som lägger till en ny post till tabell i databas
+ * Björn Persson, EkI, MdH - 2001-03-10 (rev. 2001-06-10).
+ * bjorn.persson@mdh.se
+ *
+ * Skapa en ODBC-källa med namnet skivor (eller ändra namnet i variabeln url).
+ */
+
+  //Importera paket för...
+import javax.servlet.*;      //servlet
+import javax.servlet.http.*; //servlet
+import java.io.*;            //I/O
+import java.sql.*;           //databaskoppling
+
+public class DBInfoga extends HttpServlet
+{
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws IOException
+	{
+		  //Skapa URL för databaskoppling (ODBC-källa skivor)
+		String url = "jdbc:odbc:skivor";
+		
+		  //Variabel att lagra nästa index för album - hämtas med fråga
+		int nastaIndex = 0;
+		
+		  //Skapa SQL-fråga för att hämta nästa index för album
+		String sqlIndex = "SELECT * FROM qryNastaAlbumIndex";
+		
+		  //*******************************************************************
+		  //Hämta värden från HTML-formulär
+		  // Kontroll om fältet innehöll något bör ske för _alla_ fält
+		String artist = request.getParameter("Artist");
+		String titel = request.getParameter("Titel");
+		String ar = request.getParameter("Ar");
+		String media = request.getParameter("Media");
+		
+		String kommentar = request.getParameter("Kommentar");
+		
+		  //Kontrollera att fält innehåll något, annars tilldela "tom" sträng
+		if(kommentar.length() == 0)
+		  kommentar = " ";
+
+		  //*******************************************************************
+		  // Utskrift till resulterande hemsida
+		  
+		  //Tala om för webbserver vad som kommer att skickas (d.v.s. HTML-kod)
+		response.setContentType("text/html");
+		
+		  //Hämta objekt för "output"
+		PrintWriter out = response.getWriter();
+		
+		  //Starta HTML-dokument genom att skriva ut HTML-kod
+		out.println("<HTML>");
+		out.println("<HEAD>");
+		out.println("  <STYLE>");
+		out.println("    H1 { font-family: Verdana }");
+		out.println("    .fin { font: 10pt Verdana }");
+		out.println("    .rubrik { font: bold 10pt Verdana }");
+		out.println("  </STYLE>");
+		out.println("</HEAD>");
+		out.println("<BODY>");
+		
+		out.println("<H1>Album infogat i databasen</H1>");
+		out.println("<P>Album med följande data har infogats i databasen</P>");
+		
+		  //Skriv ut värden som besökare fyllt i formulär
+		out.println("<P>Artistens namn är: <B>" + artist + "</B><BR>");
+		out.println("  Titeln på album är: <B>" + titel + "</B><BR>");
+		out.println("  Året album gavs ut är: <B>" + ar + "</B><BR>");
+		out.println("  Media som album är på: <B>" + media + "</B><BR>");
+		out.println("  Din kommentar är: <B>" + kommentar + "</B></P>");
+		
+		  //*******************************************************************
+		  //Databasobjekt kan generera fel (exceptions) och måste därför finnas
+		  // inom ett try-catch-block.
+		try
+		{
+			  //Ladda klass med JDBC-drivrutn
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			
+			//*****************************************************************
+			//Hämta nästa index för album från databas och kör UPDATE-fråga	
+			
+			  //Öppna förbindelse till databas
+			Connection con = DriverManager.getConnection(url);
+			
+			  //Skapa Statement-objekt
+			Statement st = con.createStatement();
+			
+			  //Utför fråga och placera resultat i variabeln rs
+			ResultSet rs = st.executeQuery(sqlIndex);
+			
+			  //Flytta till första posten
+			rs.next();
+			
+			  //Hämta värdet (det enda) från posten
+			nastaIndex = rs.getInt("Nasta");
+			
+			  //Stäng fråga
+			rs.close();
+			
+			//*****************************************************************
+			//Skapa UPDATE-fråga och kör
+			
+			  //Skapa SQL-fråga för att lägga till post
+			String sqlInfoga = "INSERT INTO tblAlbum VALUES(" + nastaIndex
+				+ ",'" + artist + "', '" + titel + "', '" + ar + "', '" + media
+				+ "', '" + kommentar + "')";
+			
+			  //Utför fråga
+			st.executeUpdate(sqlInfoga);
+			
+			  //Stäng förbindelse till databas
+			con.close();
+			
+		} //try
+		catch(Exception e)  //Hantera eventuella fel
+		{
+			out.println("<P><B>Det uppstod ett fel...</B></P>");
+			out.println("<P>" + e.getMessage() + "<BR>&nbsp;</P>");
+		} //catch
+		
+		  //Avsluta HTML-dokument
+		out.println("</BODY>");
+		out.println("</HTML>");
+		
+	} //doPost()
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws IOException
+	{
+		  //Anropa metoden doPost() ovan - finns ingen att implementera två
+		  // metoder som gör samma sak. :-)
+		doPost(request, response);
+	} //doGet
+	
+} //class DBInfoga

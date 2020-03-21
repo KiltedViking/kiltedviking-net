@@ -1,0 +1,282 @@
+<html>
+<head>
+  <title>Installera Resin-server - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff">&nbsp;<a name="borjan"></a></td>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrehogra.gif" width="20" height="20"></td>
+  </tr>
+  <!-- Rad med meny -->
+  <!-- Rad med rubrik --><!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+
+      <!-- Tabell för logo, rubrik, meny och ingress -->
+        <table border="0" width="100%">
+          <!-- Rad med logo och rubrik -->
+          <tr>
+            <td width="30%">
+              <a href="../../index.html">
+              <img border="0" src="../../bilder/logony1.jpg"
+                alt="Till startsida för Björns studiewebb" width="155" height="54"></a>
+            </td>
+            <td class="rubrik">
+              Installera Resin
+            </td>
+          </tr>
+
+          <!-- Rad med meny och ingress -->
+          <tr valign="top">
+            <td width="30%" bgcolor="#ffffaa">
+              <h4>Innehåll</h4>
+              <p>Installera</p>
+              <p><a href="#mjukvara" class="lank">
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+              mjukvaran</a><br>
+              <a href="#plugin" class="lank">
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+              som plug-in</a><a href="#tjanst" class="lank"><br>
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+              som tjänst</a><br>
+              <a href="#webapp" class="lank">
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+              web-app</a></p>
+              <p><a href="#ovrigt" class="lank">
+              <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+              Övrigt</a></p>
+              <p><a href="../index.html" class="lank">
+              <img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+              Tillbaka</a> till Java<br>
+              <a href="../../index.html" class="lank">
+              <img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+              Till startsida</a> för studiewebb</p>
+            </td>
+            <td>
+              <p>Denna beskrivning behandlar hur man installerar <a href="http://www.caucho.com/"
+              target="_blank">Cauchos</a>
+              JSP- och Java servlet-server Resin (version 2.x - med version 3.x så ser
+              konfigurationsfilen lite annorlunda ut). Beskrivningen är, precis som övriga
+              sidor på denna <a href="../../index.html">webbplats</a>, gjord som en manual för mig
+              själv till nästa gång jag gör samma sak. Jag har dock förhoppningar
+              om att även du (besökaren) kan få nytta av informationen.</p>
+              <p>Bl.a. förklaras hur man <b>installerar mjukvaran och kör servern som en applikation</b> (en interaktiv sådan),
+              hur man <b>installerar servern som en plug-in till IIS</b> samt
+              hur man <b>installerar servern som en tjänst i Windows NT/2000</b>.
+              Du bör följa instruktionerna i denna ordning de ges på denna sida,
+              bl.a. för att kontrollera att
+              servern fungerar som den ska (d.v.s. spring inte förväg och börja med
+              att installera servern som en tjänst...:-).</p>
+              <p>Beskrivningen visar även hur man konfigurerar <b>en egen web-app</b> (web
+              application) under IIS:s
+              dokumentroot. Lite <b>annat smått och gott</b> som kan vara av
+              intresse finns längst ner.</p>
+            </td>
+          </tr>
+        </table>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
+
+    <!-- Rad men informationen på hemsidan -->
+    <tr>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td bgcolor="#FFFFFF">
+      <hr>
+      <h2>Krav på ditt system</h2>
+      <p>Du måste ha Suns SDK 1.3 (tidigare kallat JDK), Windows NT/2000 och
+      Microsofts IIS 4/5 installerat. Resin ska även fungera med Windows 9x/ME och
+      PWS (Personal Web Server) men denna beskrivning bygger på Windows
+      NT/2000. Du behöver (antagligen) även ett nätverkskort (även om du
+      inte har ett nätverk) - jag har inte provat utan nätverkskort!</p>
+      <hr>
+      <h2><a name="mjukvara"></a>Installera mjukvaran</h2>
+      <ol>
+        <li>Packa upp ZIP-filen och kopiera till en mapp under
+          t.ex. C:\PROGRAM (t.ex. RESIN -
+          refereras till som &lt;rotmapp&gt; i resten av beskrivningen).<br>&nbsp; </li>
+        <li>Starta programmet HTTPD.EXE i mappen &lt;rotmapp&gt;\BIN. Två
+          fönster öppnas: ett med själva servern (teckenbaserat) och ett som visar status
+          (på/av) för
+          servern. Med det andra fönstret kan man starta och stoppa server samt
+          stänga av server-applikationen. <br>&nbsp;</li>
+        <li>Starta en webbläsare och öppna URL:en <br>&nbsp;<br>
+           <span class="kod">http://localhost:8080/</span><br>
+          &nbsp;<br>
+          En välkomstsida med bl.a. texten &quot;Welcome to Resin&quot; ska visas.<br>
+          &nbsp;</li>
+        <li>När du är klar stänger du server-applikationen genom att klicka
+          på knappen <b>Quit</b> (i det mindre av de två fönstren som
+          öppnades då applikation startades).</li>
+      </ol>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sidan |</p>
+      <hr>
+
+      <h2><a name="plugin"></a>Installera servern som plug-in till IIS</h2>
+      <p>Orsaken att man vill installera Resin-servern som en plug-in till en
+      annan webbserver är att man då slipper behöva ange port (8080) när man
+      vill exekvera en JSP-sida eller servlet. Alla begäran om JSP-sidor och
+      servlets skickas vidare, av ordninarie webbserver, till servlet- och
+      JSP-servern.</p>
+      <ol>
+        <li>Kör SETUP.EXE i mappen &lt;rotmapp&gt;\BIN.<br>
+          &nbsp;</li>
+        <li>Kontrollera att sökvägen till Resin-serverns mjukvara och till
+          mappen SCRIPT under dokumentroten för IIS/PWS stämmer.<br>
+          &nbsp;</li>
+        <li>Klicka på <b>OK</b> för att stänga programmet. Du får då
+          frågan om du vill starta om IIS för att ändringarna ska gälla.
+          Svara <b>Ja</b> på den frågan. Programmet stängs.<br>
+          &nbsp;</li>
+        <li>Kontrollera att servern fungerar som en plug-in genom att öppna en
+          webbläsare och öppna URL:en<br>
+          &nbsp;<br>
+          <span class="kod">http://localhost/servlet/HelloServlet</span> och<br>
+          <span class="kod">http://localhost/examples/basic/hello.jsp</span><br>
+          &nbsp;<br>
+          En sida med texten &quot;Hello, world!&quot; ska visas (servleten
+          brukar ha en lila bakgrundsfärg).<br>
+          &nbsp;</li>
+        <li>När du är klar stänger du server-applikationen genom att klicka
+          på knappen <b>Quit</b> (i det mindre av de två fönstren som
+          öppnades då applikation startades).</li>
+      </ol>
+      <p>Om du inte kan öppna URL:erna ovan så bör du kontrollera att IIS
+      startats om (eller rent utav att den startats igen, inte bara stängts av
+      av SETUP.EXE). Tjänsten heter &quot;World Wide Web Publishing
+      Service&quot; under Tjänster i Kontrollpanelen.</p>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sidan |</p>
+      <hr>
+
+      <h2><a name="tjanst"></a>Installera servern som en tjänst</h2>
+      <p>Fördelen med att använda tjänster i Windows NT/2000 är att de kan
+      startas automatiskt då Windows startas, d.v.s. man behöver inte logga
+      på datorn och starta applikationen. (Man kan ändra så att tjänsten
+      måste startas manuellt om man inte vill ha igång den hela tiden - ändra
+      tjänstens startmetod från Automatiskt till Manuellt.) En annan fördel
+      är att man slipper de två fönstren som öppnas när man kör HTTPD.EXE.</p>
+
+      <ol>
+        <li>Öppna en kommandotolk och byt till mappen &lt;rotmapp&gt;\BIN.<br>
+          &nbsp;</li>
+        <li>Skriv <span class="kod">HTTPD -install</span> för att installera tjänsten.
+          En dialogruta med texten &quot;Installed ResinSrun as an NT
+          service&quot; visas. Klicka på OK för att stänga dialogrutan. (Med
+        äldre versioner av Resin så skrev man SRUN -install.)<br>
+          &nbsp;</li>
+        <li>Öppna Tjänster i Kontrollpanelen och starta tjänsten. Tjänsten
+          heter &quot;Resin Servlet Runner&quot;.<br>
+          &nbsp;</li>
+        <li>Testa servern genom att starta en webbläsare och öppna URL:erna i
+          punkt 4 ovan.<br>
+          &nbsp;</li>
+        <li>Eftersom servern är startad som en tjänst behöver du varken
+          starta eller stoppa servern mer. Om du inte vill att tjänsten ska
+          vara igång hela tiden (den använder ju primärminne!) kan du ändra tjänstens
+          startmetod till Manuellt i Tjänster i Kontrollpanelen. Då kan du starta tjänsten (när du vill
+          använda servern) i Tjänster eller genom att skriva<br>
+          &nbsp;<br>
+          <span class="kod">NET START RESIN</span><br>
+          &nbsp;<br>
+          i kommandotolken (eller under Kör... på Start-menyn). För att
+          stoppa tjänsten ersätter man START med STOP i kommandotolken. (Med
+        äldre versioner av Resin så hette tjänster RESINRUN.)</li>
+      </ol>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sidan |</p>
+      <hr>
+
+      <h2><a name="webapp"></a>Konfigurera en egen web-app under dokumentroten på IIS</h2>
+      <p>För att placera en webbapplikation (web-app eller servlet context) under IIS:s dokumentrot måste vi
+      skapa en mapp där JSP-sidor och klassfiler med servlets ska ligga. I
+      beskrivningen nedan använder vi en mapp som heter JAVA och som ligger
+      direkt i dokumentroten.</p>
+      <p>Konfigurationsfilen är skriven i XML-format, d.v.s. syntaxen måste
+      vara riktig för att servern ska starta. Filen finns i &lt;rotmapp&gt;\CONF
+      och heter RESIN.CONF.</p>
+
+      <ol>
+        <li>Öppna konfigurationsfilen. Filen är inte skapad enligt
+          &quot;Windows-standard&quot; vilket leder till att en del program inte
+          visar radbrytningar som de bör, t.ex. Anteckningar (Notepad) visas
+          ibland radbrytningarna som ihåliga
+          rektanglar. (Själv använde jag JCreator att redigera filen med - ett
+          mycket mångsidigt program. :-)<br>
+          &nbsp;</li>
+        <li>Leta upp avslutande taggen &lt;/host&gt; (nära slutet på filen)
+          och lägg till koden med fet stil nedan.<br>
+          &nbsp;<br>
+
+          <span class="kodlangre">
+            &lt;web-app id='/examples/login'/&gt;<br>&nbsp;<br>
+            <b>&lt;!-- START TILLÄGG: Lägg till nedanstående rader ---&gt;</b><b><br>&nbsp;<br>
+            &lt;web-app id='/java' app-dir='C:\Inetpub\wwwroot\java'&gt;<br>
+            &nbsp;&nbsp;&lt;servlet-mapping url-pattern='/servlet/*'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;servlet-name='invoker'/><br>
+            &lt;/web-app&gt;<br>&nbsp;<br>
+            &lt;!-- SLUT TILLÄGG --&gt;</b><br>&nbsp;<br>
+            &lt;/host&gt;
+          </span>
+          <br>&nbsp;
+        </li>
+        <li>Skapa en mapp WEB-INF i mappen JAVA och sen en mapp CLASSES i mappen
+          WEB-INF.<br>
+          &nbsp;</li>
+        <li>Spara filen och starta om servern (antingen genom att klicka på
+          Stop och sen Start i server-applikationen eller genom att starta om
+          tjänsten).<br>
+          &nbsp;</li>
+        <li>Prova genom att placera klassfilen för en servlet i mappen CLASSES
+          och öppna URL:en<br>
+          &nbsp;<br>
+          <span class="kod">http://localhost:8080/java/servlet/ServletNamn</span>
+        </li>
+      </ol>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sidan |</p>
+      <hr>
+
+      <h2><a name="ovrigt"></a>Övrigt</h2>
+      <p>Servern kan, bortsett från JSP-sidor och servlets, även
+      &quot;visa&quot; vanliga HTML-sidor (dock inte lika effektivt som andra
+      webbservrar!). Du behöver m.a.o. inte installera IIS/PWS om du nöjer dig
+      med bara Resin. Kom då bara ihåg att alltid ange porten 8080 i alla
+      sökvägar! (t.ex. http://localhost:8080/MinSida.html).</p>
+      <p>Dokumentroten för webbservern är som standard i mappen
+      DOC under &quot;huvudmappen&quot; (&lt;rotmapp&gt;) för mjukvaran. Om du
+      inte vill använda en vanlig webbserver kan du m.a.o. placera alla dina
+      filer i denna mapp (samt skapa undermappar till den).</p>
+      <p>Tänker du använda Java Beans med Resin så måste du använda
+      direktivet import för att importera klassen för dina Java Beans!</p>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sidan
+        | <a href="../index.html">Tillbaka</a> till Java |</p>
+      <hr>
+
+      <p align="center"><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitnedrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitnedrehogra.gif" width="20" height="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

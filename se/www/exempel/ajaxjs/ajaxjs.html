@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <title>AJAX med JavaScript</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+    html { font-family: Verdana, Helvetica, sans-serif; }
+    header, footer { text-align: center; }
+    footer { clear: both; border-top: solid 1px gray; font-size: .8em; }
+    #page { width: 1000px; margin: 0 auto; }
+    .divBlock { width: 470px; float: left; padding: 0 5px;}
+  </style>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="../../studiewebb2.js"></script>
+  <script type="text/javascript">
+    var ajax;
+    var divOutput = document.getElementById("output");
+    
+    function getXHR () {
+      if(document.XMLHttpRequest)
+        return new XMLHttpRequest();
+    }
+    
+    ajax = getXHR();
+    if(ajax)
+      divOutput.innerHTML = "It worked!";
+    else
+      divOutput.innerHTML = "It worked!";
+
+  </script>
+</head>
+<body>
+  <div id="page">
+    <header>
+      <h1>AJAX med JavaScript</h1>
+    </header>
+    
+    <div class="divBlock">
+      <p>Detta exempel gjordes för att testa om man kunde testa för klassen XMLHttpRequest.
+        Tyvärr visar det sig att jag ännu inte hittat ett sätt...</p>
+    </div>
+    
+    <div class="divBlock">
+      <form action="#">
+        <!-- Anropa funktionen helloWorld i namnutrymmet - observera att funktion 
+          namnges utan parenters men anropas med -->
+        <!-- <input type="button" value="Say Hello World (from bpn)" onclick="bpn.code.helloWorld();">
+        <input type="button" value="Say Hello World (from net.kiltedviking)" onclick="net.kiltedviking.code.helloWorld();"> -->
+      </form>
+      
+      <div id="output"></div>
+    </div>
+    
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G.D. Persson. <b>Uppdaterad:</b> 2012-02-26.</p>
+    </footer>
+  </div>
+</body>
+</html>

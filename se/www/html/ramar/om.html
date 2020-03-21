@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Informationssida till ramsida</title>
+  <style type="text/css">
+  <!--
+    H1 {font-family: Verdana }
+    P  {font: 10pt Verdana }
+  -->
+  </style>
+</head>
+<body>
+<h1>Om</h1>
+<p><i>Denna hemsida skulle kunna berätta om hur webbplatsen fungerar eller vad
+   organisationen gör.</i></p>
+<p>Observera att man bör använda taggen &lt;BASE&gt; i &lt;HEAD&gt; för att ange var
+hemsidorna som länkarna refererar till ska visas. Om man inte gör det så
+kommer hemsidan visas i samma ram som länken. Detta är inte vidare praktiskt
+om man har en smal menyram till vänster (som denna hemsida...:-). För att visa
+hemsidorna i
+   ramen med namnet &quot;INFO&quot; (ramen som du läser detta i) så lägger man till följande:</p>
+<blockquote>
+  <p>&lt;BASE TARGET=&quot;INFO&quot;&gt;</p>
+</blockquote>
+<p>Om man vill använda länkar som öppnar en hemsida utan ramar (bra för
+externa länkar) kan man använda
+   attributet TARGET med värdet &quot;_top&quot;, så som Tillbaka-länken i
+   menyn:</p>
+<blockquote>
+  <p>&lt;A HREF="../" TARGET="_top">Tillbaka&lt;/A></p>
+</blockquote>
+<p style="text-align: center">[Denna fil heter OM.HTM]</p>
+</body>
+</html>

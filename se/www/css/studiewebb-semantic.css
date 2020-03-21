@@ -1,0 +1,19 @@
+header {
+  color: #fedb00;
+  background-color: #e03c31;
+  padding-top: 1em;
+}
+
+footer {
+  color: #fedb00;
+  background-color: #e03c31;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+code { background-color: #e6e6e6; }
+pre>code { display: block; }
+.fg-scania-yellow { color: #fedb00; }
+.bg-scania-yellow { background-color: #e03c31; }
+.center { text-align: center; /* margin: 0 auto; */ } 
+.logotyp { float: right; }

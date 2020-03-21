@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <!-- End Google Tag Manager -->
+  <!-- START: Metadata for sida -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_0.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_0.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: Metadata for sida -->
+  <title>Enkelt skript i JavaScript</title>
+  <style>
+		body { font-family: Verdana, Helvetica, sans-serif; }
+	</style>
+  <!-- *** START: JavaScript *** -->
+  <script type="text/javascript">
+    //Här deklareras ofta globala variabler och metoder i JavaScript
+  </script>
+  <!-- *** SLUT: JavaScript *** -->
+</head>
+<body>
+<h1>Enkelt skript i JavaScript</h1>
+<p>Denna fil ska visa på var och hur JavaScript-koden skrivs i ett 
+  HTML-dokument. Koden är placerad på tre ställen i dokumentet: i taggen &lt;HEAD&gt;,
+	mitt i och (nästan) sist. I den sista &lt;SCRIPT&gt;-taggen "skapas" bl.a. datumet (längst ner) som visar på när filen 
+  sist redigerades (Netscape är inte år 2000-säker...:-). Som en inledning kanske den koden är
+  lite komplex - men att lära sig hemsidor bygger på att låna bra ideer
+  från andra hemsideskapare.</p>
+<p>Kommentarer har placerats i koden för att visa på var JavaScript-koden
+  börjar och slutar. Du kan titta på koden genom att högerklicka mitt i
+	dokumentet och välja &quot;Visa källa&quot; (eller &quot;View Source&quot;). Kommentarerna ser ut enligt följande:</p>
+  
+<blockquote>
+	<p>&lt;!-- *** START: JavaScript *** --></p>
+		
+	<p> &lt;!-- *** SLUT: JavaScript *** --></p>
+</blockquote>
+  
+<!-- *** START: JavaScript *** -->
+<script type="text/javascript">
+  //Här skrivs JavaScript-koden
+</script>
+<!-- *** SLUT: JavaScript *** -->
+
+<!-- ************************************************************
+*** Allt nedanför denna kommentar har lagts till för sidfoten ***
+************************************************************* -->
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+
+<!-- *** START: JavaScript *** -->
+<script>
+    //Ett något längre skript för att visa datum som fil sist redigerades
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  var modDate = new Date(document.lastModified);
+  var ar = modDate.getFullYear();
+  var manad = modDate.getMonth() + 1; //januari har värdet 0!!
+  var dag = modDate.getDate();
+
+    //Lägg till den inledande nollan om månad och dag är mindre än 10  
+  if(manad < 10)
+    manad = "0" + manad;
+  if(dag < 10)
+    dag = "0" + dag;
+    
+    //Skriv ut "år-månad-dag"
+  document.write(ar + "-" + manad + "-" + dag);
+</script>
+<!-- *** SLUT: JavaScript *** -->
+</p>
+<!-- Visa en knapp för att stänga fönstret -->
+<form action="post">
+	<div style="text-align: right">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+
+</body>
+</html>

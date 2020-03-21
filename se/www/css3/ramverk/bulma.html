@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/ramverk/bulma.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/ramverk/bulma.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Exempelsida: Bulma - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/bulma.min.css">
+  <script defer src="../../js/all.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Exempelsida: Bulma</h1>
+      <p>Denna sida visar på vanliga "komponenter" i ramverket Bulma. <b>Observera</b>
+        att design inte är min staka sida och att min brist på förståelse av ramverket
+        båda påverkar denna sidas utseende! ;-)</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+    <div class="columns">
+      <div class="column has-background-light">
+        <h2 class="is-size-2">Rubriker och stycken</h2>
+        <h2 class="is-size-2">Rubrik nivå 2</h2>
+        <h3 class="is-size-3">Rubrik nivå 3</h3>
+        <h4 class="is-size-4">Rubrik nivå 4</h4>
+        <h5 class="is-size-5">Rubrik nivå 5</h5>
+        <h6 class="is-size-6">Rubrik nivå 6</h6>
+        <p class="is-size-6">Stycke text.</p>
+      </div>
+
+      <div class="column">
+        <h2 class="is-size-2">Knappar</h2>
+        <p><a href="#" class="button">Knapp (standard)</a></p>
+        <p><a href="#" class="button is-primary">Knapp (primär)</a>
+          <a href="#" class="button is-primary is-light">Knapp (primär, ljus)</a></p>
+        <p><a href="#" class="button is-link">Knapp (länk)</a>
+          <a href="#" class="button is-link is-light">Knapp (länk, ljus)</a></p>
+        <p><a href="#" class="button is-info">Knapp (info)</a>
+          <a href="#" class="button is-info is-light">Knapp (info, ljus)</a></p>
+        <p><a href="#" class="button is-success">Knapp (framgång)</a>
+          <a href="#" class="button is-success is-light">Knapp (framgång, ljus)</a></p>
+        <p><a href="#" class="button is-warning">Knapp (varning)</a>
+          <a href="#" class="button is-warning is-light">Knapp (varning, ljus)</a></p>
+        <p><a href="#" class="button is-danger">Knapp (fara)</a>
+          <a href="#" class="button is-danger is-light">Knapp (fara, ljus)</a></p>
+      </div>
+
+      <div class="column has-background-light">
+        <h2 class="is-size-2">Punktlistor</h2>
+        <p class="content">Exempel på punktlista med underordnad lista (punkt 3).</p>
+        <ul class="content">
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+          <li>Punkt 3
+            <ul class="content">
+              <li>Punkt 3.1</li>
+              <li>Punkt 3.2</li>
+              <li>Punkt 3.3</li>
+            </ul>
+          </li>
+          <li>Punkt 4</li>
+        </ul>
+      </div>
+    </div>
+      
+    <div class="columns">
+      <div class="column is-one-third">
+        <h2 class="is-size-2">Formulär</h2>
+        <form action="#">
+          <div>
+            <label for="min-text" class="label">Textruta</label>
+            <input id="min-text" placeholder="Exempel text" class="input">
+          </div>
+  
+          <div>
+            <label for="mitt-datum" class="label">Datum fält</label>
+            <input type="date" id="mitt-datum" class="input">
+          </div>
+  
+          <div class="control">
+            <label for="mitt-kryss" class="checkbox">
+              <input type="checkbox" id="mitt-kryss">
+              Kryssruta
+            </label>
+          </div>
+  
+          <div class="control">
+            <label for="min-radio1" class="radio">
+              <input type="radio" id="min-radio1" name="min-radio" value="1">
+              Radioknapp 1
+            </label>
+            <label for="min-radio2" class="radio">
+              <input type="radio" id="min-radio2" name="min-radio" value="2">
+              Radioknapp 2
+            </label>
+            <label for="min-radio3" class="radio">
+              <input type="radio" id="min-radio3" name="min-radio" value="3">
+              Radioknapp 3
+            </label>
+          </div>
+  
+          <div>
+            <label for="min-textyta" class="label">Textfält</label>
+            <textarea id="min-textyta" placeholder="Exempel text" class="textarea"></textarea>
+          </div>
+
+          <label for="mitt-val">Listruta</label>
+          <div class="select">
+            <select id="mitt-val">
+              <option>Alternativ 1</option>
+              <option>Alternativ 2</option>
+            </select>
+          </div>
+  
+          <p>
+            <input type="submit" value="Skicka" class="button" onclick="return false">
+            <input type="reset" value="Rensa" class="button">
+            <button class="button" onclick="return false;">Knapp</button>
+          </p>
+
+        </form>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="is-size-2">Kort</h2>
+      <p class="content">&quot;Informationsrutor&quot; heter kort i Bulma, medan paneler 
+        är element som används för diverse listor.</p>
+      <div class="columns">
+        <div class="column">
+          <div class="card">
+            <div class="card-content">Kort med enbart text</div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="title is-size-3">Korttitel</h3>
+            </div>
+            <div class="card-content">
+              <p class="content">Kort med titel och text</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section">
+    <div class="container">
+      <div class="card ">
+        <div class="card-content">
+          <p>Detta fönster/denna flik är tänkt att stängas för att återgå till 
+            sidan <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+        </div>
+      </div>
+      <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-02-22.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del2.html" />
+  <title>Selektorer - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>Selektorer - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item active" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Inneh&aring;ll</h2>
+        
+        <p>P&aring; denna sida beskrivs man v&auml;ljer ut element i DOM-struktur m.h.a.
+          s.k. selektorer. Selektorer kan bl.a. vara de fr&aring;n CSS, jQuerys &quot;ut&ouml;kning&quot; 
+          av CSS-selektorer samt attributnamn och/eller -v&auml;rde.</p>
+          
+        <div class="ui warning message">
+          <p><strong>Observera</strong> att denna beskrivning av selektorer inte &auml;r komplett!
+            Den skrevs baserad p&aring; den dokumentation som g&auml;llde 2011-07-31, d.v.s. kommer
+            bli f&ouml;r&aring;ldrad :-) (och jag kan ha missat n&aring;gra). Se referenser f&ouml;r komplett 
+            dokumentation av selektorer.</p>
+        </div>
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#inledning">Inledning</a>
+          <a class="item" href="#css">CSS</a>
+          <a class="item" href="#cssutokning">Ut&ouml;kning av CSS</a>
+          <a class="item" href="#attribut">Attributnamn/-v&auml;rde</a>
+          <a class="item" href="#dom">DOM-element</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="inledning">Inledning</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Selektorer anv&auml;nds f&ouml;r att v&auml;lja ut element att kapsla in i jQuery-objekt
+          och f&ouml;r att begr&auml;nsa (filtrera) ut element i existerande jQuery-objekt.</p>
+
+        <p>I f&ouml;rsta exempel nedan s&aring; v&auml;ljs alla rubriker av niv&aring; 2 och i andra exempel
+          s&aring; v&auml;ljs f&ouml;rst alla stycken, som sen filtreras till de som &auml;r f&ouml;rsta barnelement.</p>
+      </div>
+
+      <div class="seven wide column">
+        <code>$("h2");</code><br />
+        <code>$("p").filter(":first-child");</code>
+      </div>
+
+      <div class="nine wide column">
+        <h3>Str&auml;ngar och citationstecken</h3>
+        
+        <p>Selektorer av typen CSS (inklusive ut&ouml;kade) och attribut anges i str&auml;ngar, d.v.s. m&aring;ste
+          inneslutas i dubbla eller enkla citationstecken (&quot; eller '). I de fall
+          d&auml;r citationstecken ing&aring;r i str&auml;ngar s&aring; kan man anv&auml;nda &quot;den andra&quot;
+          f&ouml;r att innesluta str&auml;ngen eller l&auml;gga till tecknet \ f&ouml;re 
+          tecknet i str&auml;ngen, t.ex. <span class="code">"don't"</span> 
+          eller <span class="code">'don\'t'</span>.</p>
+        
+        <h3>Kombinera selektorer</h3>
+        
+        <p>Precis som i CSS kan man kombinera selektorer f&ouml;r att urval ska bli s&aring; precist
+          som m&ouml;jligt, t.ex. <span class="code">&quot;p.kommentar&quot;</span> - stycke 
+          av klassen kommentar - och <span class="code">&quot;h2[id]:even&quot;</span>
+          - alla rubriker av niv&aring; 2 som har ett attribut id och &auml;r varannan (j&auml;mna - 
+          se nedan).</p>
+        
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="css">CSS</h2>
+
+        <p>CSS-selektorer kan anv&auml;ndas f&ouml;r att v&auml;lja ut element, d.v.s. man b&ouml;r ha
+          grundl&auml;ggande kunskap om CSS f&ouml;r att kunna anv&auml;nda dem b&auml;st.</p>
+        
+        <h3>Grundl&auml;ggande CSS-selektorer</h3>
+        
+        <p>De grundl&auml;ggande CSS-selektorerna har funnits med i CSS-standard sen 
+          b&ouml;rjan och &auml;r ocks&aring; de enklaste att f&ouml;rst&aring;, d.v.s. &auml;r 
+          de mest vanligt f&ouml;rekommande.</p>
+        
+        <table class="ui table">
+          <caption>Grundl&auml;ggande CSS-selektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;tagg&quot;</td>
+            <td>Alla element av taggen</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;.klassnamn&quot;</td>
+            <td>Alla element av klassen <span code="code">klassnamn</span></td>
+          </tr>
+          <tr>
+            <td class="code">&quot;#id&quot;</td>
+            <td>Elementet med id <span code="code">id</span></td>
+          </tr>
+          <tr>
+            <td class="code">&quot;*&quot;</td>
+            <td>Alla elementet</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p>F&ouml;r att v&auml;lja element med flera selektorer s&aring; separeras selektorerna med 
+          komma (se exempel nedan).</p>
+      </div>
+      
+      <div class="nine wide column">
+        <p>Nedan v&auml;ljs</p>
+        <ul>
+          <li>alla taggar av typen H1</li>
+          <li>alla taggar av klassen &quot;kod&quot;</li>
+          <li>tagg med id &quot;sidfot&quot;</li>
+          <li>alla rubriker med taggen H1 och H2 samt taggar av klassen &quot;rubrik&quot;</li>
+        </ul>
+      </div>
+      
+      <div class="seven wide column">
+        <code>$(&quot;h1&quot;);</code><br />
+        <code>$(&quot;.kod&quot;);</code><br />
+        <code>$(&quot;#sidfot&quot;);</code><br />
+        <code>$(&quot;h1, h2, .rubrik&quot;);</code>
+      </div>
+        
+      <div class="nine wide column">
+        <h3>Relationsselektorer</h3>
+        
+        <p>CSS-selektorer m&ouml;jligg&ouml;r val av element med relation till varandra, bl.a.
+          barn, &auml;ttlingar och syskon.</p>
+        
+        <table class="ui table">
+          <caption>Relationsselektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;selektor1 selektor2&quot;</td>
+            <td>Alla element selektor2 som &auml;r &auml;ttlingar till selektor1</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;selektor1 > selektor2&quot;</td>
+            <td>Alla element selektor2 som &auml;r barn till selektor1, d.v.s. &quot;direkta&quot; &auml;ttlingar</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;selektor1 + selektor2&quot;</td>
+            <td>Alla element selektor2 som &auml;r efterf&ouml;ljande syskon till selektor1</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:first-child&quot;</td>
+            <td>F&ouml;rsta barnelementet</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nine wide column">
+        <p>Nedan v&auml;ljs</p>
+        <ul>
+          <li>alla P-taggar som &auml;r &auml;ttlingar till DIV-taggar av klass &quot;kod&quot;</li>
+          <li>alla P-taggar som &auml;r barn (direkta &auml;ttlingar) till DIV-taggar av klass &quot;kod&quot;</li>
+          <li>alla P-taggar som &auml;r syskon till, och f&ouml;ljer direkt efter, H2-tagg</li>
+          <li>alla P-taggar som &auml;r f&ouml;rsta barnet</li>
+        </ul>
+      </div>
+
+      <div class="seven wide column">
+        <code>$(&quot;div.kod p&quot;);</code><br />
+        <code>$(&quot;div.kod>p&quot;);</code><br />
+        <code>$(&quot;h2+p&quot;);</code><br />
+        <code>$(&quot;p&quot;).filter(&quot;:first-child&quot;);</code>
+      </div>
+      
+      <div class="nine wide column">
+        <p class="kommentar">Metoden <code>.filter()</code> f&ouml;rklaras i senare delar.</p>
+        
+        <h3>Pseudoselektorer (&ouml;vriga)</h3>
+        
+        <p>&Ouml;vriga pseudoselektorer, ut&ouml;ver :first-child, &auml;r f&ouml;ljande.</p>
+        
+        <table class="ui table">
+          <caption>Pseudoselektorer (&ouml;vriga)</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:link&quot;</td>
+            <td>Alla l&auml;nkelement (&lt;a&gt;) som inte bes&ouml;kts</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:visited&quot;</td>
+            <td>Alla l&auml;nkelement (&lt;a&gt;) som bes&ouml;kts</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:active&quot;</td>
+            <td>Element som aktivt, d.v.s. klickas p&aring;</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:focus&quot;</td>
+            <td>Element som har fokus</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:hover&quot;</td>
+            <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:lang&quot;</td>
+            <td>Element m&auml;rkta med spr&aring;ket lang</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:first-line&quot;</td>
+            <td>Elements f&ouml;rsta rad (om text)</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:first-letter&quot;</td>
+            <td>Elements f&ouml;rsta bokstav (om text)</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:before&quot;</td>
+            <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:after&quot;</td>
+            <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p class="kommentar">F&ouml;rfattaren beh&ouml;ver fortfarande f&ouml;rst&aring; hur dessa selektorer &auml;r anv&auml;ndbara...</p>
+        
+        <h3>Fler selektorer</h3>
+        
+        <p>CSS har &auml;ven st&ouml;d f&ouml;r attribut, vilket jag valt att f&ouml;rklara i avsnittet 
+          Attribut nedan (bl.a. d&aring; jag inte b&ouml;rjat anv&auml;nda detta i CSS... 
+          f&ouml;rr&auml;n i denna underwebb :-)).</p>
+        
+        <p>jQuery har ut&ouml;kats med n&aring;gra CSS-liknande selektorer, vilket &auml;r &auml;mnet f&ouml;r 
+          n&auml;sta avsnitt.</p>
+        
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="cssutokning">Ut&ouml;kning av CSS</h2>
+
+        <p>F&ouml;r att f&aring; b&auml;ttre precision f&ouml;r urval av element s&aring; ut&ouml;kar jQuery &quot;CSS-selektorer&quot;
+          med n&aring;gra ytterligare. F&ouml;rdelen med detta &auml;r att f&ouml;rst&aring;r man selektorer i
+          CSS s&aring; &auml;r det l&auml;tt att l&auml;ra sig denna ut&ouml;kning.</p>
+          
+        <h3>Formul&auml;relement</h3>
+        
+        <p>Det finns selektorer f&ouml;r att v&auml;lja element i formul&auml;r, d.v.s. knappar, textrutor,
+          m.m..</p>
+          
+        <p class="kommentar">Dessa selektorer &auml;r relativt sj&auml;lvf&ouml;rklarande och d&auml;rf&ouml;r f&ouml;r ges inga exempel. :-)</p>
+        
+        <table class="ui table">
+          <caption>Formul&auml;relement</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:button&quot;</td>
+            <td>Alla knappelement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:checkbox&quot;</td>
+            <td>Alla kryssruteelement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:file&quot;</td>
+            <td>Alla filuppladdningselementet</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:hidden&quot;</td>
+            <td>Alla elementet som inte &auml;r synliga i sida, vilket inkluderar dolda textrutor</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:image&quot;</td>
+            <td>Alla bildelementet</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:input&quot;</td>
+            <td>Alla formul&auml;relementet, d.v.s. input-taggen</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:password&quot;</td>
+            <td>Alla l&ouml;senordselementet</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:radio&quot;</td>
+            <td>Alla radioknappselementet</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:reset&quot;</td>
+            <td>Alla knappelementet av typen &aring;terst&auml;ll (<em>reset</em>)</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:submit&quot;</td>
+            <td>Alla knappelementet av typen skicka (<em>submit</em>)</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:text&quot;</td>
+            <td>Alla textruteelementet</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p>Selektorn <span class="code">:hidden</span> v&auml;ljer alla element som &auml;r dolda, 
+          d.v.s. dold textruta likav&auml;l som element vars stil &auml;r <span class="code">display: 
+          none</span>. I detta fall kan det vara b&auml;ttre och v&auml;lja ut alla input-taggar
+          som har attribut och v&auml;rde <span class="code">&quot;[type='hidden']&quot;</span>.</p>
+        
+        <p>Det finns &auml;ven n&aring;gra selektorer som &auml;r relaterade till formul&auml;r, t.ex. baserade
+          p&aring; tillst&aring;nd.</p>
+        
+        <table class="ui table">
+          <caption>Formul&auml;rrelaterade selektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:checked&quot;</td>
+            <td>Alla ibockade kryssrute- eller radioknappselement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:disabled&quot;</td>
+            <td>Alla inaktiverade formul&auml;relement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:enabled&quot;</td>
+            <td>Alla aktiverade formul&auml;relement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:selected&quot;</td>
+            <td>Alla valda alternativ i listruteelement</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p>I kategori ovan ing&aring;r &auml;ven CSS-selektorn <span class="code">:focus</span>.</p>
+        
+        <h3>Ordning</h3>
+        
+        <p>De ordningsbaserade selektorerna bygger p&aring; att index b&ouml;rjar med 0, d.v.s.
+          de udda elementen &auml;r faktiskt de j&auml;mna i sidan.</p>
+        
+        <table class="ui table">
+          <caption>Ordningsrelaterade selektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:eq(n)&quot;</td>
+            <td>Alla element som matachar index n</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:gt(n)&quot;</td>
+            <td>Alla element vars index &auml;r st&ouml;rre &auml;n n</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:lt(n)&quot;</td>
+            <td>Alla element vars index &auml;r mindre &auml;n n</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:even&quot;</td>
+            <td>Alla element vars index &auml;r j&auml;mnt</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:odd&quot;</td>
+            <td>Alla element vars index &auml;r udda </td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:first&quot;</td>
+            <td>F&ouml;rsta barnelementet</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:last&quot;</td>
+            <td>Sista barnelementet</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <ol id="olnumbered">
+          <li>ett</li>
+          <li>tv&aring;</li>
+          <li>tre</li>
+          <li>fyra</li>
+          <li>fem</li>
+          <li>sex</li>
+        </ol>
+      </div>
+      
+      <div class="nine wide column">
+        <p>I lista ovan &auml;ndras (med kod nedan)</p>
+        
+        <ul>
+          <li>udda alternativs bakgrundsf&auml;rg till ljusgr&aring;</li>
+          <li>femte alternativets bakgrundsf&auml;rg till ljusbl&aring;</li>
+          <li>f&ouml;rsta alternativets stil till fet</li>
+          <li>alternativ st&ouml;rre &auml;n 4 till kursiv stil</li>
+        </ul>
+      </div>
+
+      <div class="seven wide column">
+        <code>&quot;:odd&quot;</code><br />
+        <code>&quot;:nth(4)&quot;</code><br />
+        <code>&quot;:first&quot;</code><br />
+        <code>&quot;:gt(3)&quot;</code>
+      </div>
+
+      <div class="nine wide column">
+        <p class="kommentar">Ordningstal b&ouml;rjar p&aring; 0, d.v.s. jag har inte skrivit 
+          fel i kod ovan. :-)</p>
+        <!-- 2017-11-26: Flyttat kod till sist i dokument -->
+        
+        <h3>Relation</h3>
+        
+        <p>Dessa relationsrelaterade selektorer har anpassats f&ouml;r att f&ouml;lja CSS-standard,
+          d.v.s. numrering b&ouml;rjar p&aring; 1 (och inte 0, som de ordningsrelaterade).</p>
+        
+        <table class="ui table">
+          <caption>Relationsselektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+    <!--      <tr>
+            <td class="code">&quot;:first-child&quot;</td>
+            <td>F&ouml;rsta barnelement</td>
+          </tr> -->
+          <tr>
+            <td class="code">&quot;:last-child&quot;</td>
+            <td>Sista barnelement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:nth-child(n)&quot;</td>
+            <td>Barnelement nummer n (d&auml;r nummer &auml;r 1-baserat)</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:only-child&quot;</td>
+            <td>Barnelement som saknar syskon</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:parent&quot;</td>
+            <td>F&ouml;r&auml;ldraelement</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;selektor1 ~ selektor2&quot;</td>
+            <td>Barnelement selektor2 till selektor1</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h3>Villkor</h3>
+        
+        <p>Det finns &auml;ven n&aring;gra selektorer baserade p&aring; villkor, t.ex. att element har
+          n&aring;got.</p>
+        
+        <table class="ui table">
+          <caption>Fler selektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:contains('text')&quot;</td>
+            <td>Element som inneh&aring;ller texten text</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:empty&quot;</td>
+            <td>Element som &auml;r tomma</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:has(selektor1)&quot;</td>
+            <td>Element som har &auml;ttlingelement selektor1</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:not(selektor1)&quot;</td>
+            <td>Element som inte matchar selektor1</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <ol id="list1">
+          <li>ett</li>
+          <li>tv&aring;</li>
+          <li></li>
+          <li>fyra, och <b>bold</b> text</li>
+        </ol>
+      </div>
+        
+      <div class="nine wide column">
+        <p>I lista ovan &auml;ndras (med kod nedan)</p>
+        
+        <ul>
+          <li>bakgrundsf&auml;rg f&ouml;r alternativ med texten 'tv&aring;' till ljusgr&aring;</li>
+          <li>tomma alternativets bakgrundsf&auml;rg till ljusbl&aring;</li>
+          <li>bakgrundsf&auml;rg f&ouml;r alternativet med B-element till rosa</li>
+        </ul>
+      </div>
+
+      <div class="seven wide column">
+        <code>&quot;:contains('tv&aring;')&quot;</code><br />
+        <code>&quot;:empty&quot;</code><br />
+        <code>&quot;:has(b)&quot;</code>
+        <!-- 2017-11-26: Kod flyttad till slutet på fil -->
+      </div>
+      
+      <div class="nine wide column">
+        <h3>Fler selektorer</h3>
+        
+        <p>I detta avsnitt beskrivs fler selektorer - selektorer som jag inte lyckats
+          passa in i &ouml;vriga kategorier.</p>
+        
+        <table class="ui table">
+          <caption>Fler selektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;:animated&quot;</td>
+            <td>Element som h&aring;ller p&aring; att animeras vid exekvering av skript</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:header&quot;</td>
+            <td>Element av typen rubrik</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;:visible&quot;</td>
+            <td>Element som syns i sida</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p>jQuery har &auml;ven ut&ouml;kat st&ouml;det f&ouml;r attribut, vilket jag valt att f&ouml;rklara 
+          i avsnittet Attribut nedan.</p>
+          
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+          
+        <h2 id="attribut">Attribut</h2>
+
+        <p>&Auml;ven namn eller v&auml;rde p&aring; attribut kan anv&auml;ndas f&ouml;r att v&auml;lja ut element.</p>
+        
+        <table class="ui table">
+          <caption>Attributselektorer</caption>
+          <thead>
+          <tr>
+            <th>Selektor</th>
+            <th>Element som v&auml;ljs</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="code">&quot;[namn]&quot;</td>
+            <td>Element som har ett attribut med namnet namn</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och v&auml;rdet varde</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn^='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och ett v&auml;rde som b&ouml;rjar med varde</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn$='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och ett v&auml;rde som slutar med varde</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn*='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och ett v&auml;rde som inneh&aring;ller varde</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn~='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och ett v&auml;rde som inneh&aring;ller ordet varde</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn|='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn och antingen v&auml;rdet varde eller b&ouml;rjar med v&auml;rdet varde f&ouml;ljt av ett bindestreck</td>
+          </tr>
+          <tr>
+            <td class="code">&quot;[namn!='varde']&quot;</td>
+            <td>Element som har ett attribut med namnet namn men inte v&auml;rdet varde</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <p>N&auml;r det g&auml;ller selektor som v&auml;ljer baserat p&aring; ord s&aring; m&aring;ste v&auml;rdet b&ouml;rja 
+          med v&auml;rdet och f&ouml;ljas av mellanslag, sluta med v&auml;rdet och f&ouml;reg&aring;s av mellanslag
+          eller b&aring;de f&ouml;reg&aring;s och efterf&ouml;ljas av mellanslag. I f&ouml;rsta exempel nedan kommer alla
+          attribut med ordet fet i sig v&auml;ljas, d.v.s. med alla f&ouml;ljande id:</p>
+          
+        <ul>
+          <li>fet stil</li>
+          <li>kan fet valjas</li>
+          <li>nisse var fet</li>
+        </ul>
+      </div>
+
+      <div class="nine wide column">
+        <p>I andra exemplet kommer kommer alla rubriker vars v&auml;rde b&ouml;rjar p&aring; tal eller 
+          tal- att v&auml;ljas, men inte talet.</p>
+      </div>
+
+      <div class="seven wide column">
+        <code>$(&quot;h2[id~='fet']&quot;);</code><br />
+        <code>jQuery(&quot;h2[id|='tal'&quot;);</code>
+      </div>
+
+      <div class="nine wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="dom">DOM-element</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Vi kan &auml;ven anv&auml;nda DOM-element, t.ex. document. Detta &auml;r n&aring;got som bl.a.
+          anv&auml;nds som selektor n&auml;r vi anv&auml;nder metoden <em>ready</em>.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>$(document).ready(function() {
+  //Kod att exekvera nar sida laddats
+});</code></pre>
+      </div>
+      
+      <div class="nine wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="exempel">St&ouml;rre exempel</h2>
+        
+        <p>Nedan &auml;r l&auml;nkar till st&ouml;rre exempel.</p>
+        
+        <ul>
+          <li><a href="tester/del2_html.html" target="_blank">HTML till del 2</a></li>
+        </ul>
+
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://api.jquery.com/category/selectors/" target="_blank" rel="noopener">Selectors</a>
+            (jQuery-dokumentation).</li>
+        </ul>
+        
+        <div class="ui compact menu">
+          <a class="item" href="del1.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item" href="del3.html">N&auml;sta &gt;</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+    </footer>
+  </div>
+
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#olnumbered>li").filter(":odd").css("background-color", "lightgrey").end()
+        .filter(":nth(4)").css("background-color", "lightblue").end()
+        .filter(":first").css("font-weight", "bold").end()
+        .filter(":gt(3)").css("font-style", "italic");
+    });
+  
+    $(document).ready(function() {
+      $("#list1>li").filter(":contains('tv&aring;')").css("background-color", "lightgrey").end()
+      .filter(":empty").css("background-color", "lightblue").end()
+      .filter(":has(b)").css("background-color", "pink");
+    });
+  </script>
+</body>
+</html>

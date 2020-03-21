@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, servlets och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, servlets och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/jsp/jsp_javabeans.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/jsp/jsp_javabeans.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Server Pages (JSP) och Java Beans - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Server Pages (JSP) &amp; Java Beans</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+
+      <p>[ <b> UNDER UPPBYGGNAD</b> ]</p>
+      
+      <p>Denna sida beskriver kort hur man använder Java Beans i JSP-sidor.
+      För att få ut mest av denna beskrivning bör du ha en <a href="./">grundläggande
+      förståelse</a> för JSP. Det som
+      behandlas på denna sida är bl.a.&nbsp;hur man <b>använder Java Beans</b>i en JSP-sida.</p>
+      
+      <p>Inte alla webbservrar (som Björns studiewebb replikerats till)
+      stödjer JSP. Detta kan leda till att du får ett felmeddelande när
+      du försöker köra exemplen.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">JSP &amp; Java Beans</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+
+      <nav class="menu">
+        <a href="#beans" class="menu-item">JSP &amp; Java Beans</a>
+      </nav>
+
+      <nav class="menu">
+        <a href="./" class="menu-item">Grundläggande om JSP</a>
+        <a href="jsp_servlets.html" class="menu-item">JSP &amp; Servlet</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">            
+      <h2 id="beans">JSP &amp; Java Beans</h2>
+
+      <p>I detta avsnitt kommer vi skapa två JSP-sidor</p>
+
+      <ul>
+        <li>en som skapar en instans av Java Beans och hämtar värde på
+          egenskap</li>
+        <li>en som skapar en instans av Java Beans, hämtar värde för egenskap,
+          ökar värde med 1 och sen skriver tillbaka värde</li>
+      </ul>
+
+      <h3>Använda Java Beans i JSP-sidor</h3>
+
+      <p>För att kunna använda Java Beans i JSP-sidor använder vi oss av
+      taggarna för händelseelement (<i>action tags</i>). Vi använder taggen &lt;jsp:useBean&gt;
+      för att skapa en instans av Java Beans samt taggarna &lt;jsp:getProperty&gt;
+      och &lt;jsp:setProperty&gt; för att hämta respektive sätta värdet för
+      vår Java Beans egenskap.</p>
+
+      <h3>Skapa instans och hämta värde</h3>
+
+      <p>JSP-sida som skapar en instans av en Java Beans och sen skriver ut
+      värdet på egenskapen Count.</p>
+
+      <p>Det första vi gör är att tala om vilket språk som JSP-sidan
+      använder. De flesta implementationer av JSP-servrar använder Java som
+      språk, men specifikationen ger plats åt servertillverkare att använda
+      vilket språk som helst. Servern Resin kan t.ex. även använda JavaScript
+      som språk.</p>
+
+      <BLOCKQUOTE>
+      <p><SPAN CLASS="kod">&lt;%@ page language=&quot;java&quot; %&gt;</SPAN></p>
+      </BLOCKQUOTE>
+
+      <p>Nästa steg är att importera klassen för vår Java Beans.</p>
+
+      <BLOCKQUOTE>
+      <p><SPAN CLASS="kod">&lt;%@ page import=&quot;SimpleBean&quot; %&gt;</SPAN></p>
+      </BLOCKQUOTE>
+
+      <p>Därefter följer lite &quot;vanlig&quot; HTML-kod innan vi använder
+      ett händelseelement, useBean, för att skapa instansen av vår Java Beans.
+      Attributen till action-elementet är följande</p>
+
+      <ul>
+        <li>id - namnet som vi kan referera till instans med.</li>
+        <li>scope - livslängden för instansen.&nbsp;</li>
+        <li>class - klassen som instansen ska skapas från.</li>
+      </ul>
+
+      <BLOCKQUOTE>
+      <p><SPAN CLASS="kod">&lt;jsp:useBean id='blaha'<BR>
+      </SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <SPAN CLASS="kod">scope='application'<BR>
+      </SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <SPAN CLASS="kod">class='SimpleBean1' /&gt;</SPAN></p>
+      </BLOCKQUOTE>
+
+      <p>Sist av allt så använder vi action-elementet getProperty för att
+      hämta värdet på egenskapen Count. Attributen till getProperty är</p>
+
+      <ul>
+        <li>name - namnet som vi givit instansen (attributet id i useBean).</li>
+        <li>property - namnet på den egenskap som vi vill hämta värdet för.</li>
+      </ul>
+
+      <BLOCKQUOTE>
+      <p><SPAN CLASS="kod">&lt;jsp:getProperty name='blaha' property='count' /&gt;</SPAN></p>
+      </BLOCKQUOTE>
+
+      <p>Kommentarerna i JSP-sidan använder JSP:s speciella kommentar som
+      kommer synas i JSP-koden men inte i den resulterande HTML-koden för
+      hemsidan.</p>
+
+      <h4>Filen SimpleBean.jsp</h4>
+
+      <P>Här följer den fullständiga koden för JSP-dokumentet SimpleBean.jsp.
+        (För koden till Java Bean som används i JSP sida - se
+        <A HREF="../beans/index.html#enkla">Java
+        Beans</A>.) JSP-koden har markerats med fet stil.</P>
+
+      <p class="kodlangre">
+        <b>
+        &lt;%@ page language="Java" %><br>
+        &lt;%@ page import='SimpleBean1' %></b><br>
+        &lt;HTML><br>
+        &lt;HEAD><br>
+        &lt;TITLE>Test of class SimpleBean&lt;/TITLE><br>
+        &lt;/HEAD><br>
+        &lt;BODY><br>
+        &lt;H1>Test of class SimpleBean&lt;/H1><br>
+        <br>
+        &lt;!-- Skapa instans av Java Beans --><br>
+        <b>
+        &lt;jsp:useBean id='blaha'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        scope='application'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        class='SimpleBean1'/&gt;</b><br>
+        <br>
+        &lt;!-- Hämta värde på egenskapen Count--><br>
+        &lt;P>Counter value in Simple Bean is<br>
+        <b>
+        &lt;jsp:getProperty name='blaha'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        property='count'/&gt;</b><br>
+        &lt;/P><br>
+        <br>
+        &lt;/BODY><br>
+        &lt;/HTML>
+      </p>
+
+      <h3>Sätta värde</h3>
+      <p>Denna JSP-sida fungerar som sidan ovan (SimpleBean.jsp) men den visar
+      även hur man sätter ett värde i Java Beans. JSP-sidan hämtar värdet på egenskapen
+      Count, ökar med 1 och skriver sen det nya värdet till egenskapen.</p>
+
+      <h4>Filen SimpleBeanAdd.jsp</h4>
+
+      <p>[ <B>UNDER UPPBYGGNAD</B> ]</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

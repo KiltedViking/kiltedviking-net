@@ -1,0 +1,50 @@
+TODO 2020-01-26: Åtgärda dessa punkter! ;-)
+
+--------------------------------------------------------------------------------
+Övergripande
+--------------------------------------------------------------------------------
+
+2020-01-26:
+* Beskriv val av färger och varför tvingad till att ändra den gula nyansen (från skånska flaggan).
+* Länkar: gå igenom!
+* Beskriv vilka tester som gjorts och varför, t.ex. a11y och SEO i Lighthouse/Chrome.
+* Förklara även SEO, Open Graph protocol och Schema.org.
+
+
+--------------------------------------------------------------------------------
+HTML
+--------------------------------------------------------------------------------
+
+2020-01-26:
+* Justera för- och bakgrundsfärger för menylänkar (och övriga länkar?).
+* Ändra alla Start-länkar till Hem.
+
+--------------------------------------------------------------------------------
+JS-DOM
+--------------------------------------------------------------------------------
+
+2020-02-23 - KLART (?):
+* Dirigera om till JavaScript? - Många fel enligt Google Search Console.
+
+--------------------------------------------------------------------------------
+jQuery
+--------------------------------------------------------------------------------
+
+2020-02-213:
+* Lägg till metadata, m.m. för *hela* underwebben.
+* Fixa för lite text, som Google Search Console rapporterat.
+
+
+--------------------------------------------------------------------------------
+SEO
+--------------------------------------------------------------------------------
+
+2020-02-23:
+* Sätt igång och beskriv saker i HEAD-tagg.
+
+--------------------------------------------------------------------------------
+SEO
+--------------------------------------------------------------------------------
+
+2020-03-21:
+* Add YUI to .gitignore (no need to share already shared code ;-))

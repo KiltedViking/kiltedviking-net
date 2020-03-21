@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <!-- End Google Tag Manager -->
+  <!-- START: Metadata for sida -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_3.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: Metadata for sida -->
+  <title>Meddelanderutor i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Meddelanderutor i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>HTML-kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;p&gt;&lt;span id=&quot;spanSvar&quot;&gt;&lt;/span&gt;&lt;/p&gt;</p>
+</blockquote>
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"><br />
+  &nbsp; var res = ""; //Variabel för att lagra resultatet från dialogrutor<br />
+  <br />
+	&nbsp; //Hämta referens till element att skriva resultat till<br />
+	&nbsp; var spanSvar = document.getElementById(&quot;spanSvar&quot;);<br />
+	<br />
+  &nbsp;&nbsp;&nbsp; //Visa en dialogruta för att hämta en sträng från besökaren<br />
+  &nbsp; res = prompt("Vad vill du svara?", "startvärde");<br />
+  <br />
+  &nbsp;&nbsp;&nbsp; //Bör testa värdet returnerat från metoden prompt() då den returnerar<br />
+  &nbsp;&nbsp;&nbsp; // null i fall besökaren klickade på knappen Avbryt.<br />
+  &nbsp; if(res == null)  //Testa om resultatet var Avbryt...<br />
+  &nbsp;&nbsp;&nbsp; spanSvar.innerHTML = "Du tryckte på 'Avbryt' i dialogrutan";<br />
+  &nbsp; else  //... annars kan vi använda strängen som besökaren fyllde i<br />
+  &nbsp;&nbsp;&nbsp; spanSvar.innerHTML = "Du fyllde i '" + res + "' i andra
+  dialogrutan.&quot;;<br />  
+  &lt;/script></p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p><span id="spanSvar"></span></p>
+</blockquote>
+<hr />
+<p style="text-align: center">För att köra exemplet igen kan du klicka på Uppdatera/Reload i webbläsaren.</p>
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson 
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth() + 1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>
+<!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+<script type="text/javascript">
+	var res = ""; //Deklarera variabel för att lagra resultatet från dialogrutor
+
+		//Visa en dialogruta för att hämta en sträng från besökaren
+	res = prompt("Vad vill du svara?", "startvärde");
+	
+		//Hämta referens till element att skriva resultat till
+	var spanSvar = document.getElementById("spanSvar");
+	
+		//Bör testa värdet returnerat från metoden prompt() då den returnerar null
+		// i fall besökaren klickade på knappen Avbryt.
+	if(res == null)  //Testa om resultatet var Avbryt...
+		spanSvar.innerHTML = "Du tryckte på 'Avbryt' i dialogrutan";
+	else  //... annars kan vi använda strängen som besökaren fyllde i
+		spanSvar.innerHTML = "Du fyllde i '" + res + "' i andra dialogrutan.";
+</script>

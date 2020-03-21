@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_1.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Case-satser i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Strängobjekt i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"><br />
+  &lt;!--<br />
+  &nbsp; var str1 = "En liten sträng som vi ska jobba med";<br />
+  &nbsp; var str2 = "Ytterligare en sträng som Björn Persson skrivit";<br />
+  <br />
+  &nbsp; document.write("Sträng 1 innehåller '" + str1 + "'&lt;/p&gt;&lt;p&gt;");<br />
+	<br />
+  &nbsp; document.write("Längden på sträng 1 är " + str1.length<br />
+  &nbsp;&nbsp;&nbsp; + " tecken.&lt;br /&gt;");<br />
+  &nbsp; document.write("Stängen 'vi' finns på positionen " + str1.indexOf('vi')<br />
+  &nbsp;&nbsp;&nbsp; + " i strängen &lt;br /&gt;");<br />
+  &nbsp; document.write("Sista a:et finns på position " + str1.lastIndexOf('a')<br />
+  &nbsp;&nbsp;&nbsp; + " i strängen (första position i strängar är 0!).&lt;br /&gt;");<br />
+  &nbsp; document.write("Position 3 till 7 är '" + str1.substr(3, 5)<br />
+  &nbsp;&nbsp;&nbsp; + "' i strängen.&lt;/p&gt;&lt;p&gt;");<br />
+	<br />
+  &nbsp; document.write("Sträng 2 innehåller '" + str2  + "'&lt;/p&gt;&lt;p&gt;&quot;);<br />
+  <br />
+	&nbsp; document.write("Sträng 2 som gemener blir: '" 
+    + str2.toLowerCase() + "'&lt;br /&gt;");<br />
+  &nbsp; document.write("Sträng 2 som versaler blir: '" + str2.toUpperCase() 
+    + "'&lt;br /&gt;");<br />
+  //--><br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var str1 = "En liten sträng som vi ska jobba med";
+    var str2 = "Ytterligare en sträng som Björn Persson skrivit";
+    
+    document.write("Sträng 1 innehåller '" + str1 + "'</p><p>");
+    document.write("Längden på sträng 1 är " + str1.length
+      + " tecken.<br />");
+    document.write("Stängen 'vi' finns på positionen " + str1.indexOf('vi')
+      + " i strängen <br />");
+    document.write("Sista a:et finns på position " + str1.lastIndexOf('a')
+      + " i strängen (första position i strängar är 0!).<br />");
+    document.write("Position 3 till 7 är '" + str1.substr(3, 5)
+      + "' i strängen.</p><p>");
+    document.write("Sträng 2 innehåller '" + str2 + "'</p><p>");
+    document.write("Sträng 2 som gemener blir: '" + str2.toLowerCase() + "'<br />");
+    document.write("Sträng 2 som versaler blir: '" + str2.toUpperCase() + "'<br />");
+  </script>
+  </p>
+</blockquote>
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" 
+    + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

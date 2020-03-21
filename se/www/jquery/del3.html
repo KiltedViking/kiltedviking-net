@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del3.html" />
+  <title>Filtrering - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+  <style type="text/css">
+    /* Classes for example in page */
+    .codeMaroon { background-color: maroon; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>Filtrering - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item active" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Inneh&aring;ll</h2>
+        
+        <p>P&aring; denna sida beskrivs hur man kan filtrerar element i ett jQuery-objekt
+          ytterligare m.h.a. metoder.</p>
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#inledning">Inledning</a>
+          <a class="item" href="#metoder">Metoder</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="inledning">Inledning</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Efter att man s&ouml;kt fram element med selektorer s&aring; kan man filtrera element 
+          ytterligare i jQuery-objekt m.h.a. av ett antal metoder. De flesta filtreringsmetoder, 
+          liksom m&aring;nga av jQuery-metoderna, returnerar jQuery-objektet manipulerat, d.v.s. 
+          med filter applicerat. Detta inneb&auml;r att metoder kan &quot;l&auml;nkas&quot; (s.k. 
+          <em>chaining</em>) - en metod kan anropas direkt efter en annan.</p>
+      </div>
+
+      <div class="seven wide column">
+        <fieldset>
+          <legend>Exempel</legend>
+          
+          <p>I exempel nedan s&aring; v&auml;ljs f&ouml;rst alla punkter i listor ut f&ouml;r att sen filtreras
+            p&aring; dem som har klassen red. Stil f&ouml;r alla element i den filtrerade listan 
+            &auml;ndras sen till r&ouml;d (text-)f&auml;rg.</p>
+            
+          <code>$(&quot;li&quot;).filter(&quot;.red&quot;).css("color", "blue");</code>
+        </fieldset>
+      </div>
+
+      <div class="nine wide column">
+        <p>Vid anrop av m&aring;nga filtreringsmetoder s&aring; placeras den 
+          nuvarande samlingen av element p&aring; stacken, d.v.s. sparas undan, och kan &aring;terst&auml;llas 
+          genom att anropa metoden <span class="code">.end()</span> (se exempel i n&auml;sta
+          avsnitt).</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <h3>Strukturerande av kod</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>JavaScript:s syntax &auml;r mycket &quot;anpassningsbar&quot;, vilket g&ouml;r att vi kan 
+          skriva koden mer l&auml;sbar. Bl.a. s&aring; kan man infoga radbrytningar och indrag
+          d&auml;r man i andra spr&aring;k inte f&aring;r dela p&aring; koden.</p>
+          
+        <p class="kommentar">Det &auml;r dock praktiskt att d&auml;rf&ouml;r alltid anv&auml;nda semikolon 
+          f&ouml;r att avsluta satser s&aring; att koden &auml;r l&auml;ttare att tolka, men &auml;ven s&aring; att 
+          den fungerar korrekt om man komprimerar koden.</p>
+      </div>
+
+      <div class="seven wide column">
+        <fieldset>
+          <legend>Exempel</legend>
+          
+          <p>I exempel nedan s&aring; har satsen delats upp p&aring; tre rader (i hoppet om att det 
+            g&ouml;r det mer l&auml;ttl&auml;st :-)). F&ouml;rst v&auml;ljs alla punkter i  listor ut (rad 1), 
+            sen filtreras de p&aring; klassen r&ouml;d f&ouml;r att &auml;ndra stilen till bl&aring; (text-)f&auml;rg 
+            (som ovan) och sist s&aring; tas filtrering bort genom att anropa metoden 
+            <span class="code">.end()</span> (rad 2). D&auml;refter filtreras p&aring; klassen blue 
+            och &auml;ndrar (text-)f&auml;rg till r&ouml;d (rad 3). Satsen avslutas med semikolon. Effekten 
+            b&ouml;r bli att r&ouml;da rader &auml;ndrar f&auml;rg till bl&aring;, och tv&auml;rtom.</p>
+        
+          <pre><code>$(&quot;li&quot;)
+&nbsp; .filter(&quot;.red&quot;).css("color", "blue").end()
+&nbsp; .filter(&quot;.blue&quot;).css("color", "red");</code></pre>
+        </fieldset>
+      </div>
+
+      <div class="sixteen wide column">
+        <h3>$-funktion eller filtreringsmetoder?</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>N&aring;gra av filtreringsmetoderna &ouml;verlappar med selektorer, d.v.s. man kan i
+          vissa fall v&auml;lja p&aring; att anv&auml;nda selektorer eller filtreringsmetoder. Ibland
+          kan det vara l&auml;ttare eller mer effektivt att anv&auml;nda filtreringsmetoder ist&auml;llet
+          f&ouml;r bara selektorer (se officiell jQuery-dokumentation).</p>
+          
+        <p>Om man vill manipulera samma samling av element p&aring; flera s&auml;tt s&aring; kan man
+          anv&auml;nda $-funktionen f&ouml;r att v&auml;lja ut elementen och sen filtrera resultatet
+          f&ouml;r manipulation. Exempel p&aring; detta visas i f&ouml;reg&aring;ende avsnitt.</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="metoder">Metoder</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Filtreringsmetoder anv&auml;nds f&ouml;r att filtrera redan utvalda element. Index 
+          som anv&auml;nds som argument till metoder ska vara 0-baserade.</p>
+        
+        <p>Till m&aring;nga av de metoder nedan, som har en parameter arg, kan bl.a. skickas 
+          selektorstr&auml;ng, funktion, DOM-element  och/eller annat jQuery-objekt.</p>
+        
+        <table class="ui table">
+          <caption>Filtreringsmetoder</caption>
+          <thead>
+            <tr>
+              <th>Metod</th>
+              <th>Element som filtreras ut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.eq(n)</code></td>
+              <td>Element som har index n</td>
+            </tr>
+            <tr>
+              <td><code>.filter(arg)</code></td>
+              <td>Element som t.ex. matchar selektorer i argumentet arg</td>
+            </tr>
+            <tr>
+              <td><code>.first()</code></td>
+              <td>F&ouml;rsta elementet</td>
+            </tr>
+            <tr>
+              <td><code>.has(arg)</code></td>
+              <td>Element som har &auml;ttlingar som t.ex. matchar selektorer i argumentet arg</td>
+            </tr>
+            <tr>
+              <td><code>.is(arg)</code></td>
+              <td>true om minst ett element t.ex. matchar selektorer i argumentet arg</td>
+            </tr>
+            <tr>
+              <td><code>.last()</code></td>
+              <td>Sista elementet</td>
+            </tr>
+            <tr>
+              <td><code>.map(func)</code></td>
+              <td>Element som funktion i argument returnerar</td>
+            </tr>
+            <tr>
+              <td><code>.not(arg)</code></td>
+              <td>Tar bort element som inte t.ex. matchar selektorer i argumentet arg</td>
+            </tr>
+            <tr>
+              <td><code>.slice(n[,&nbsp;m])</code></td>
+              <td>Element med b&ouml;rjan p&aring; index n, till ev. index m</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="seven wide column">
+        <fieldset>
+          <legend>Exempel</legend>
+              
+          <p>I exempel nedan s&aring; v&auml;ljs f&ouml;rst alla punkter i listor och sen filtreras element
+            nummer 3 ut (d&aring; vektorer i JavaScript &auml;r 0-baserade).</p>
+          
+          <code class="codeToClick">$("li").eq(2); //Listelement 3</code><br />
+          <code class="codeToClick">if($(".rubrik").is(h1)) ...; //Om element &auml;r H1</code>
+          
+          <!-- 2017-12-10:Flyttat kod till slutet på fil -->
+        </fieldset>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="referenser">Referenser</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://api.jquery.com/category/traversing/filtering/" target="_blank" rel="noopener">Filtering</a>
+            (jQuery-dokumentation).</li>
+        </ul>
+
+        <div class="ui compact menu">
+          <a class="item" href="del2.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item" href="del4.html">N&auml;sta &gt;</a>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+    </footer>      
+  </div>
+
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+  //This doesn't work...
+  $(document).ready(function() {
+    $(".codeToClick").click(function(event) {
+      console.log("Kod klickad...");
+      var $target = $(event.target);
+      
+      $target.toggle(
+        function() {
+          if($target.is("div"))
+            $target.addClass("codeMaroon");
+        },
+        function() {
+          if($target.is("div"))
+            $target.removeClass("codeMaroon");
+      });
+    });
+  });
+</script>
+</body>
+</html>

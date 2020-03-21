@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+  <TITLE>Öppna ett nytt fönster</TITLE>
+  <SCRIPT>
+  <!--
+    function oppnafonster()
+    {
+      fonster = window.open("blank.htm", "nyttfonster", "width=300,height=300");
+      fonster.document.open();
+      with(fonster.document)
+      {
+        writeln("<HTML>");
+        writeln("<HEAD><TITLE>Nytt fönster</TITLE></HEAD>");
+        writeln("<BODY>");
+        writeln("<P>Hello world!</P>");
+        writeln('<FORM><P><INPUT TYPE="button" VALUE="Stäng fönster" NAME="Oppna" onclick="self.close()"></P></FORM>');
+        writeln("</BODY>");
+        writeln("</HTML>");
+        close();
+      }
+    }
+  //-->
+  </SCRIPT>
+</HEAD>
+<BODY>
+<H1>Öppna ett nytt fönster</H1>
+<FORM><P><INPUT TYPE="button" VALUE="Öppna fönster" NAME="Oppna" onclick="oppnafonster()"></P></FORM>
+
+<P>&nbsp;</P>
+
+</BODY>
+</HTML>

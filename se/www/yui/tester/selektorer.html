@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+	<head>
+		<meta charset="UTF-8">
+		<title>Test av selektorer i YUI</title>
+		<script type="text/javascript" src="../../js/yui-min.js"></script>
+		<script type="text/javascript">
+			YUI().use("node", "selector-css3", function(Y) {
+				//Alla rubriker av nivå 1, ange flera stilar
+				Y.all("h1").setStyles({color: "white", backgroundColor: "#800000"});
+				//Element med ID
+				Y.one("#sidfot").setStyle("color", "blue");
+				//Flera taggar och klasser
+				Y.all("h1, h2, .rubrik").setStyle("fontFamily", "Chalkboard, Verdana, Helvetica, sans-serif");
+				
+				//Ättling
+				Y.all("#ettId p").setStyle("color", "darkblue");
+				//Direkt ättling (barn)
+				Y.all("#ettId > p").setStyle("backgroundColor", "lightgrey");
+				//Nästkommande syskon
+				Y.all("#ettId > h2 + div").setStyle("fontStyle", "italic");
+				//Första barnet
+				Y.all("#ettId ul li:first-child").setStyle("color", "#800000");
+				
+				//Första raden
+				Y.all("#ytterligareId p::first-line").setStyle("fontWeight", "bold");
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Test av selektorer i YUI</h1>
+		</header>
+		
+		<p>Detta HTML-dokument används för att testa selektorer i YUI.</p>
+		
+		<div style="float: right; width: 200px; border: solid 1px gray; margin: 0 10px; padding: 10px;">
+			<p class="rubrik">Rubrik i ett flytande block</p>
+			<p>Text i block som flutits till höger.</p>
+			<p>Om jag skriver mer i rutan så bör denna ruta ligga till höger om alla typer av element, även rubriker,
+				då den flutits till höger med CSS.</p>
+		</div>
+		
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero massa, consectetur id ullamcorper at, adipiscing ut justo. Cras nunc tortor, sagittis vitae aliquam eget, malesuada at ipsum. Nam gravida placerat augue, vitae vestibulum dui sagittis vitae. Maecenas faucibus odio et massa vehicula nec euismod justo semper. In rutrum hendrerit arcu sed accumsan. Vivamus hendrerit mauris nec magna interdum lacinia. Etiam condimentum ultricies odio. In hac habitasse platea dictumst. Donec faucibus, elit id vulputate imperdiet, sapien metus luctus eros, sit amet egestas sapien velit sit amet lorem. Nulla at metus sed ante ullamcorper rhoncus. Maecenas interdum, lacus id feugiat adipiscing, sem lectus ultricies velit, eu semper nulla massa et risus. Ut auctor dolor non erat rhoncus nec ornare felis elementum. Nulla sit amet purus dolor. Curabitur mattis odio non leo rutrum in vestibulum tortor sagittis. Pellentesque vitae fermentum enim. Sed facilisis odio a magna euismod non volutpat nunc vestibulum.</p>
+
+		<h2>En rubrik</h2>
+		
+		<p>Cras eget leo erat. Cras ac odio ac odio fermentum fermentum eu ut massa. Mauris luctus, velit ut convallis molestie, erat elit consequat justo, placerat feugiat mi eros nec mauris. Nam eu felis ac mi eleifend auctor. Integer eleifend suscipit gravida. Suspendisse vitae nulla sit amet ipsum tempus consequat. Aliquam vulputate, arcu molestie feugiat varius, turpis nibh congue nibh, at bibendum nisl metus quis dui. Nulla mi ante, euismod non congue tincidunt, mattis ac odio. Nam scelerisque aliquam leo, dapibus pulvinar tellus hendrerit eu. Curabitur porta tincidunt ligula et cursus.</p>
+		
+		<h3>En rubrik</h3>
+		
+		<p>Sed euismod, nisl at fermentum suscipit, elit neque blandit risus, vel gravida urna nulla at dolor. Vestibulum facilisis, lectus convallis ultrices mattis, ipsum urna interdum augue, vitae semper lacus orci sit amet dui. Fusce sed mattis velit. Suspendisse consequat eleifend urna, ut adipiscing metus condimentum id. Sed vitae urna odio. Fusce id diam mi, ut pellentesque mauris. Nam vitae venenatis diam. Suspendisse ultrices ligula non ipsum blandit eget sodales neque hendrerit.</p>
+		
+		<h3>En rubrik</h3>
+		
+		<p>Donec aliquet enim vel mi ornare eu feugiat leo vestibulum. Nulla tempor metus non mauris vehicula sed lobortis ipsum mollis. Sed nibh sem, imperdiet vitae tincidunt vitae, posuere eu lorem. Maecenas quam arcu, tincidunt ac iaculis a, commodo at leo. Sed sed turpis rhoncus quam ultrices mollis. Aliquam consequat, diam sed euismod commodo, nisl turpis dignissim erat, non mattis sapien dolor at nisi. Praesent eleifend posuere sem, bibendum consequat nisl scelerisque eget. Quisque dapibus eros vitae ante interdum ultricies. Integer ultricies vehicula metus pharetra dapibus. Integer at lacus mauris, sed hendrerit magna.</p>
+		
+		<div id="ettId">
+			<h2>En rubrik</h2>
+			
+			<div>
+				<p>Integer ac lectus lectus. Praesent a tortor felis, eu hendrerit nisi. In tristique elementum pulvinar. Donec non eros nec nibh suscipit porta. Sed eget molestie nulla. Nulla fermentum tortor vehicula arcu consequat sodales. Aliquam nec blandit ante. Sed in sodales nunc. Aliquam at venenatis arcu. In scelerisque nisi non urna accumsan elementum sit amet eu enim. Donec rutrum nibh nec eros ornare lobortis. Donec volutpat risus eget orci pretium vel congue nunc pharetra. Sed at quam vitae erat lobortis pellentesque cursus eget erat. Sed euismod metus eget massa posuere ac fringilla est eleifend.</p>
+			</div>
+			
+			<p>Morbi ac lorem quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lobortis purus velit, ut tincidunt nunc. Donec augue nulla, adipiscing a elementum vel, iaculis et purus. Ut quis porttitor risus. Cras sem libero, auctor quis mattis consequat, mollis et neque. Mauris ullamcorper posuere nisl, a facilisis massa aliquet et.</p>
+			
+			<ul>
+				<li>Första barnet</li>
+				<li>Andra barnet</li>
+				<li>Tredje barnet</li>
+				<li>Fjärde barnet</li>
+			</ul>
+		</div>
+		
+		<div id="ytterligareId">
+			<h2>En rubrik</h2>
+			
+			<p>In iaculis ipsum in orci iaculis fringilla. Vestibulum ac dolor dui. Phasellus commodo semper pellentesque. Nunc non condimentum justo. Sed mauris diam, scelerisque fermentum commodo nec, placerat gravida velit. Cras mattis turpis lacinia nisl euismod laoreet. Praesent dictum, lectus id venenatis imperdiet, sem lorem gravida turpis, quis euismod lorem nisi non orci. Nunc id arcu ac eros euismod viverra nec non orci. Proin luctus cursus magna molestie facilisis. Donec quam nisl, porta ac bibendum sed, venenatis eu enim. Mauris elementum arcu a enim ultricies tempus. Suspendisse porta condimentum arcu, imperdiet egestas nunc fermentum eu. Quisque euismod, urna nec aliquam vestibulum, lorem nibh posuere turpis, et sodales orci velit id diam. Maecenas mi augue, sagittis in mollis eget, scelerisque in quam. In consequat lorem id mi ullamcorper hendrerit.</p>
+			
+			<p>Morbi iaculis rutrum lorem non porta. Vestibulum ac mi justo. In posuere, ipsum eu venenatis adipiscing, orci odio tempus libero, et congue augue nulla nec urna. Vestibulum a laoreet risus. Duis aliquet posuere erat vitae vestibulum. Suspendisse enim arcu, ultrices ut dapibus quis, eleifend sit amet tellus. Fusce nisl augue, cursus ut commodo sed, eleifend in turpis. Mauris adipiscing blandit quam sit amet lacinia. Donec fermentum molestie ante vehicula venenatis. Fusce ullamcorper nunc quis tortor venenatis non vulputate libero egestas. Duis imperdiet blandit est id elementum. Nam lacinia orci et nisl condimentum sollicitudin. Sed porttitor velit vel leo dictum nec posuere erat pellentesque. Etiam purus quam, tempor et tincidunt vitae, sagittis adipiscing felis. Curabitur mollis aliquet massa convallis sodales.</p>
+			
+			<p>Proin sollicitudin vulputate ullamcorper. Aenean id augue non lacus sollicitudin volutpat. Mauris mauris nisi, ornare sed gravida in, interdum in elit. Donec eros sapien, convallis in tristique at, convallis et est. Mauris pharetra pretium purus, vitae sollicitudin ante convallis nec. Mauris vel enim a ligula mattis egestas pulvinar at odio. Integer lacinia vehicula semper. Maecenas tortor elit, congue vel condimentum vel, interdum et leo. Vestibulum sollicitudin elit et ipsum dictum lacinia.</p>
+			
+			<p>Mauris sit amet arcu id dolor auctor auctor. Nulla facilisi. Suspendisse ac sapien quis arcu scelerisque consequat et eget neque. In hac habitasse platea dictumst. Nam id enim turpis, ac faucibus nunc. Vivamus dapibus est ac dolor cursus in vulputate velit imperdiet. Curabitur mollis arcu eget nibh volutpat ullamcorper.</p>
+		</div>
+		
+		<footer>
+			<p id="sidfot"><b>Skapad av:</b> Bj&ouml;rn G.D. Persson. <b>Uppdaterad:</b> 2012-04-15.</p>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del3/css3_5_1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del3/css3_5_1.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 3.5.1 - Applicera stilar p&aring; &auml;ttlingar - Bj&ouml;rns studiewebb</title>
+
+  <!-- Stilar för taggen h1 och endast ättlingen em till h1 och ul -->
+  <style>
+    h1 { font-family: Verdana; }
+    h1 em, ul em { color: blue; }
+  </style>
+</head>
+<body>
+  <!-- Element påverkade av första stilmallen (h1) och bägge (h1 em) -->
+  <h1>Viss del av rubrik ska vara <em>blå</em></h1>
+
+  <!-- Element opåverkade -->
+  <p>Men denna text ska <em>inte vara blå</em>, endast kursiv.</p>
+
+  <!-- Element påverkad av andra stilmallen (ul em) -->
+  <ul>
+    <li>Betonad text i onumrerad lista <em>ska vara blå</em>.
+  </ul>
+
+  <form action="">
+    <p><input type="button" value="St&auml;ng f&ouml;nster" onclick="window.close()" /></p>
+  </form>
+</body>
+</html>

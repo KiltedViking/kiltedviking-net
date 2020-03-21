@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4b.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4b.html" />
+  <title>Egenskaper: Text (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Text (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li class="active"><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+                 
+          <p>P&aring; denna hemsida beskrivs egenskaper f&ouml;r bl.a. justering av text,
+            indrag (inte marginaler! - se <a href="del4d.html">Boxar</a>)
+            samt bokstavs- och ordavst&aring;nd.</p>
+
+          <p>Egenskaper som behandlas p&aring; denna webbsida, och exempel p&aring; n&aring;gra av dess v&auml;rden,
+            &auml;r:</p>
+
+          <ul>
+            <li><code>text-decoration: none | underline | line-through</code></li>
+            <li><code>text-align: left | center | right</code></li>
+            <li><code>text-indent: ems (2em) | procent (10%)</code></li>
+            <li><code>text-transform: capitalize | lowercase</code></li>
+            <li><code>letter-spacing: ems (2em) | procent (10%)</code></li>
+            <li><code>word-spacing: ems (2em) | procent (10%)</code></li>
+            <li><code>white-space: </code></li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#textdekorationer" class="collection-item">Textdekorationer</a></li>
+            <li><a href="#textjustering" class="collection-item">Textjustering</a></li>
+            <li><a href="#indrag" class="collection-item">Indrag</a></li>
+            <li><a href="#texttransformeringar" class="collection-item">Texttransformeringar</a></li>
+            <li><a href="#avstand" class="collection-item">Bokstavs- och ordavst&aring;nd</a></li>
+            <li><a href="#whitespaces" class="collection-item"><em>White spaces</em></a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="textdekorationer">Textdekorationer</h2>
+      <div class="row">
+        <div class="seven columns">
+          <p>Textdekorationer, d.v.s. egenskapen text-decoration, inneb&auml;r fr&auml;mst
+            n&aring;gon form av till&auml;gg (eller avsaknad) av streck &ouml;ver, genom eller
+            under text. N&aring;gra av dessa v&auml;rden fungerar endast i vissa webbl&auml;sare.
+            Giltiga v&auml;rden &auml;r:</p>
+
+          <ul>
+            <li>none - inget streck (se nedan)</li>
+            <li>underline - understruken text (anv&auml;nds f&ouml;r l&auml;nkar som standard)</li>
+            <li>line-through - genomstruken text</li>
+            <li>overline - text med streck ovanf&ouml;r</li>
+            <li>blink - ger blinkande text (b&ouml;r undvikas!)</li>
+          </ul>
+
+          <p>V&auml;rdet &quot;none&quot; &auml;r standard, f&ouml;rutom f&ouml;r l&auml;nkar, och &auml;r fr&auml;mst anv&auml;ndbart
+            f&ouml;r att ta bort understrykning p&aring; l&auml;nkar i t.ex. menyer. Man b&ouml;r <strong>inte</strong>
+            ta bort understrykningen f&ouml;r l&auml;nkar i l&ouml;pande text (d.v.s. i stycken). (Se
+            t.ex. sista stycket i detta avsnitt f&ouml;r exempel p&aring; hur &quot; omv&auml;nt fel&quot;
+            det kan bli.)</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p style="text-decoration: underline">Denna text &auml;r understruken (underline).</p>
+            <p style="text-decoration: line-through">Denna text &auml;r genomstruken (line-through).</p>
+            <p style="text-decoration: overline">Denna text &auml;r &quot;&ouml;verstruken&quot; (overline).</p>
+            <p style="text-decoration: blink">Denna text blinkar (blink - om din webbl&auml;sare
+              st&ouml;djer detta).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Att <span style="text-decoration: underline">stryka under</span> text b&ouml;r
+            undvikas till f&ouml;rm&aring;n f&ouml;r att anv&auml;nda <span style="font-weight: bold;">fet
+            stil</span> (eller <span style="font-style: italic">kursiv stil</span>).
+            Understrykning &auml;r ett &quot;arv&quot; fr&aring;n skrivmaskinens tid d&aring; det
+            var det enda s&auml;ttet att betona (eng. <i>emphase</i>) text. Vi b&ouml;r &auml;ven
+            undvika <span style="font-style: italic">kursiv stil</span> d&aring; det &auml;r sv&aring;rt att l&auml;sa p&aring; olika
+            operativsystem/webbl&auml;sare - &aring;terigen b&ouml;r vi anv&auml;nda fet stil (vilket kan
+            kombineras med f&auml;rg f&ouml;r att betona olika saker p&aring; olika s&auml;tt).<br />
+            (Observera hur l&auml;tt det var, eller hur l&auml;tt det skulle kunna vara, att tolka
+            orden &quot;stryka under&quot; som en l&auml;nk i f&ouml;rsta meningen i detta stycke.
+            Detta &auml;r varf&ouml;r man inte b&ouml;r stryka under, eller ta bort understrykningar p&aring;
+            l&auml;nkar, i l&ouml;pande text. Den blinkande, eller eventuellt blinkande, texten
+            b&ouml;rjar bli lite irriterande nu, eller hur? :-)</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="textjustering">Textjustering</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Precis som i ordbehandlare kan text justeras, vilket g&ouml;rs med egenskapen
+            text-align. Giltiga v&auml;rden visas nedan och standard &auml;r left (v&auml;nsterst&auml;lld
+            text).</p>
+
+          <ul>
+            <li>left</li>
+            <li>right</li>
+            <li>center</li>
+            <li>justify</li>
+          </ul>
+
+          <p>V&auml;rdet justify inneb&auml;r att element b&ouml;r ha rak v&auml;nster- och h&ouml;germarginal (s.k.
+            marginaljustering), n&aring;got som kanske inte fungerar i alla webbl&auml;sare.</p>
+
+          <p>I exempel nedan har jag f&ouml;rs&ouml;kt fylla ut s&aring; att det &auml;r minst tre rader f&ouml;r
+            stycken med respektive v&auml;rde f&ouml;r egenskapen.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p style="text-align: left">Denna text &auml;r v&auml;nsterst&auml;lld (vilket &auml;r standard).
+              Eftersom jag valt att marginaljustera text i mina sidor m&aring;ste jag &quot;motverka&quot;
+              det i detta exempel. Tjohej vad jag m&aring;ste skriva f&ouml;r att f&aring; minst tre rader.</p>
+            <p style="text-align: right">Denna text &auml;r h&ouml;gerst&auml;lld. Det &auml;r en praktisk
+              egenskap hos text ibland, men liksom f&ouml;r centrerad text b&ouml;r man kanske undvika
+              den i l&auml;ngre text d&aring; vi f&ouml;rv&auml;ntar oss text med rak v&auml;nstermarginal.</p>
+            <p style="text-align: center">Denna text &auml;r centrerad. Om det finns flera
+              rader s&aring; tenderar detta till att inte se s&aring; bra ut, speciellt om jag anv&auml;nder
+              l&aring;nga ord som marginaljustera/vad_det_nu_heter som g&ouml;r att det inte ser
+              s&aring; bra ut.</p>
+            <p style="text-align: justify">Denna text &auml;r marginaljusterad, d.v.s. den ska,
+              liksom &ouml;vriga stycken p&aring; dessa webbsidor, ha en rak v&auml;nster- och h&ouml;germarginal.
+              Det ser ganska bra ut men fungerar inte i alla webbl&auml;sare.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="indrag">Indrag</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen text-indent ger ett indrag av <strong>f&ouml;rsta</strong> raden i
+            ett element, n&aring;got som &auml;r anv&auml;ndbart i webbsidor med flera och l&auml;ngre textstycken
+            (l&auml;ttare att hitta var stycken b&ouml;rjar). Exempel p&aring; m&aring;ttenheter f&ouml;r egenskapen
+            visas nedan (se &auml;ven <a href="del4.html#storlekar">Storlekar och m&aring;ttenheter</a>).</p>
+
+          <ul>
+            <li>em</li>
+            <li>px</li>
+            <li>% (procent)</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p style="text-indent: 2em">Detta stycke har ett indrag av 2em. Detta syns
+              p&aring; att den f&ouml;rsta raden &auml;r indragen men inte de efterf&ouml;ljande raderna.
+              &Aring;terigen m&aring;ste jag skriva &quot;blaj&quot; f&ouml;r att f&aring; minst tre rader.</p>
+            <p style="text-indent: -2em">Detta andra stycke har ett indrag av -2em, d.v.s.
+              ett negativt v&auml;rde. Detta syns p&aring; att den f&ouml;rsta raden har ett negativt
+              indrag (sticker ut till v&auml;nster) men inte de efterf&ouml;ljande raderna. (Besparar
+              er blaj h&auml;r. :-)</p>
+            </div>
+            <p class="kommentar">Nej, det är inte en designmiss - stycke ska börja utanför rutan. ;-)</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>V&auml;rde f&ouml;r denna egenskap kan vara negativt, d.v.s. vi kan erh&aring;ller ett s.k.
+            h&auml;ngande indrag som i stycke tv&aring; ovan (mest intressant i punktlistor). F&ouml;r
+            att erh&aring;lla indrag f&ouml;r alla rader i element m&aring;ste man anv&auml;nda egenskaperna
+            f&ouml;r marginaler (se <a href="del4d.html">Boxar</a>).</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="texttransformeringar">Texttransformeringar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen text-transform anv&auml;nds f&ouml;r att &auml;ndra &quot;skiftl&auml;ge&quot;, t.ex.
+            att varje ord b&ouml;rjar med bokstav, endast gemener eller endast versaler. Giltiga
+            v&auml;rdenvisas nedan och none &auml;r standard.</p>
+
+          <ul>
+            <li>none</li>
+            <li>capitalize</li>
+            <li>lowercase</li>
+            <li>uppercase</li>
+          </ul>
+
+          <p>I exempel nedan visas effekten av respektive v&auml;rde ovan (i n&auml;mnd ordning).
+            Exempel visar bl.a. att vi b&ouml;r undvika v&auml;rdet capitalize i svensk text (och
+            att jag borde l&auml;ra mig stava :-).</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p>Detta &auml;r ett stycke text som anv&auml;nds f&ouml;r att visa p&aring; hur v&auml;rden f&ouml;r denna
+              egenskap p&aring;verkar text. Vi anv&auml;nder (X)HTML f&ouml;r att m&auml;rka upp element med
+              vid anv&auml;nder CSS f&ouml;r att p&aring;verka dess utseende.</p>
+            <p style="text-transform: capitalize">Detta &auml;r ett stycke text som anv&auml;nds
+              f&ouml;r att visa p&aring; hur v&auml;rden f&ouml;r denna
+              egenskap p&aring;verkar text. Vi anv&auml;nder (X)HTML f&ouml;r att m&auml;rka upp element med
+              vid anv&auml;nder CSS f&ouml;r att p&aring;verka dess utseende.</p>
+            <p style="text-transform: lowercase">Detta &auml;r ett stycke text som anv&auml;nds
+              f&ouml;r att visa p&aring; hur v&auml;rden f&ouml;r denna
+              egenskap p&aring;verkar text. Vi anv&auml;nder (X)HTML f&ouml;r att m&auml;rka upp element med
+              vid anv&auml;nder CSS f&ouml;r att p&aring;verka dess utseende.</p>
+            <p style="text-transform: uppercase">Detta &auml;r ett stycke text som anv&auml;nds
+              f&ouml;r att visa p&aring; hur v&auml;rden f&ouml;r denna
+              egenskap p&aring;verkar text. Vi anv&auml;nder (X)HTML f&ouml;r att m&auml;rka upp element med
+              vid anv&auml;nder CSS f&ouml;r att p&aring;verka dess utseende.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="avstand">Bokstavs- och ordavst&aring;nd</h2>
+
+      <h3>Bokstavsavst&aring;nd</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Precis som att vi kan anv&auml;nda kursiv stil eller radavst&aring;nd f&ouml;r att visa p&aring;
+            att ett stycke &auml;r en ingress s&aring; kan vi &auml;ndra p&aring; avst&aring;nd mellan bokst&auml;ver f&ouml;r
+            liknande effekt. F&ouml;r detta anv&auml;nds egenskapen letter-spacing och nedan visas exempel
+            p&aring; giltiga m&aring;ttenheter (se &auml;ven <a href="del4.html#storlekar">Storlekar och m&aring;ttenheter</a>).</p>
+
+          <ul>
+            <li>em</li>
+            <li>px</li>
+            <li>% (procent)</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p>Detta stycke har ett bokstavsavst&aring;nd bestämt av ...</p>
+            <p style="letter-spacing: 0.2em">Detta stycke har ett bokstavsavst&aring;nd av 0.2em.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Ordavst&aring;nd</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Ibland vill man &auml;ven ha ett l&auml;ngre avst&aring;nd mellan ord f&ouml;r att g&ouml;ra texten
+            &quot;luftigare&quot; och f&ouml;r detta anv&auml;nds egenskapen word-spacing. Nedan
+            visas exempel p&aring; giltiga m&aring;ttenheter (se &auml;ven <a href="del4.html#storlekar">Storlekar och m&aring;ttenheter</a>).</p>
+
+          <ul>
+            <li>em</li>
+            <li>px</li>
+            <li>% (procent)</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p>Detta stycke har ett ordavst&aring;nd av ...</p>
+            <p style="word-spacing: 0.4em">Detta stycke har ett ordavst&aring;nd av 0.4em.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="whitespaces"><em>White spaces</em></h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Icke synliga tecken (eng. <em>white spaces</em>), bl.a. mellanslag, tabb
+            och retur, ska inte p&aring;verka fl&ouml;det i webbsidor (enligt (X)HTML-standarder -
+            se mer under <a href="del4d.html">Boxar</a>).
+            Men vill vi &auml;ndra detta beteende kan vi anv&auml;nda egenskapen white-space och
+            giltiga v&auml;rden f&ouml;r egenskapen visas nedan (d&auml;r normal &auml;r standard :-).</p>
+
+          <table>
+            <tr>
+              <th style="width: 15%">V&auml;rde</th>
+              <th style="width: 85%">Effekt</th>
+            </tr>
+            <tr>
+              <td>normal</td>
+              <td>P&aring;verkar inte fl&ouml;de</td>
+            </tr>
+            <tr>
+              <td>pre</td>
+              <td>Mellanslag, tabbar och radbrytningar fungerar som i textfiler och
+                automatiska radbrytning fungerar inte<br />
+                <span class="kommentar">(prova att minska bredden p&aring;
+                f&ouml;nster n&auml;r du tittar p&aring; exempel nedan)</span></td>
+            </tr>
+            <tr>
+              <td>nowrap</td>
+              <td>P&aring;verkar fl&ouml;det i den bem&auml;rkelse att automatiska radbrytning inte sker</td>
+            </tr>
+            <tr>
+              <td>pre-wrap</td>
+              <td>Mellanslag, tabbar och radbrytningar fungerar som i textfiler, men
+                automatiska radbrytning fungerar</td>
+            </tr>
+            <tr>
+              <td>pre-line</td>
+              <td>Endast radbrytningar p&aring;verkar fl&ouml;det</td>
+            </tr>
+          </table>
+
+          <p>Effekten av dessa v&auml;rden visas enklast med ett exempel (se &auml;ven referenser
+            nedan f&ouml;r ytterligare exempel).</p>
+
+          <p class="center">
+            <a href="del4/css4b_1.html" target="_blank" class="button button-primary">Exempel 4b 1 - White spaces</a>
+          </p>
+          <p>Observera att alla webbl&auml;sare inte st&ouml;djer alla v&auml;rden, fr&auml;mst pre-line!</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns l&auml;nkar med mer information.</p>
+
+          <ul>
+            <li><a href="https://www.quirksmode.org/css/whitespace.html" target="_blank"
+              rel="noopener">Exempel p&aring; effekten av egenskapen white-space</a> 
+              hos <a href="https://www.quirksmode.org/" target="_blank" rel="noopener">QuirksMode</a></li>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">CSS Reference</a> hos
+              <a href="https://www.htmlhelp.com/" target="_blank" rel="noopener">Web Design Group</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener">Cascading Style Sheets</a> hos
+              <a href="https://www.w3.org/" target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del4a.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4c.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

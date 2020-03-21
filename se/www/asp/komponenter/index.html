@@ -1,0 +1,161 @@
+<html>
+<head>
+  <title>ASP och komponenter - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
+  </tr>
+  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+      <table border="0" width="100%">
+        <tr>
+          <td width="30%"><a href="../../index.html"><img border="0"
+            src="../../bilder/logony1.jpg" alt="Till startsida för Björns studiewebb"
+            width="155" height="54"></a></td>
+          <td width="70%" class="rubrik">ASP &amp; komponenter</td>
+        </tr>
+        <tr valign="top">
+          <td width="30%" bgcolor="#ffffaa">
+            <h4>Innehåll</h4>
+            <p><A HREF="#COM" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            MS COM</A><BR>
+            <A HREF="#enkel" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            En enkel komponent</A><BR>
+            <A HREF="#skriver_ut" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Komponenter som&nbsp;<BR>
+            &nbsp;&nbsp; skriver ut</A></p>
+            <p><A HREF="../index.html" CLASS="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Tillbaka</A> till ASP<br>
+            <a href="../../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Till startsida</a> för studiewebb</p>
+          </td>
+          <td width="70%">
+
+            <p align="center">[ <b>UNDER UPPBYGGNAD</b> ]</p>
+            <p>Denna sida innehåller en beskrivning av vad komponenter är och
+            vad Microsofts COM är. Här beskrivs även hur man gör enkla
+            komponenter samt hur man skapar instanser (objekt) av komponenter
+            och hur man anropar metoder i komponenter.</p>
+            <p>För mer detaljerad information om hur man gör komponenter (med
+            COM) för
+            ASP rekommenderas boken <B>Beginning Components for ASP</B> från <A HREF="http://www.wrox.com/">Wrox
+            Press</A>.</p>
+          </td>
+        </tr>
+      </table>
+
+      <hr>
+      <H2><A NAME="COM"></A>MS Component Object Model (COM)</H2>
+
+      <P>Microsoft (MS) Component Object Model (COM) är både en specifikation
+      och en implementation. Det är en specifikation som talar om hur
+      komponenter kan hittas och skapas samt hur man kommunicerar med
+      komponenter. Men COM är också en grundläggande infrastruktur (en del av
+      operativsystemet) som ger
+      tjänster åt komponenter - därav även en implementation.</P>
+
+      <P>Några av de språk som kan använda COM-komponenter (d.v.s. är
+      COM-kompatibla) är MS Visual Basic (VB), Microsoft Visual C++ och Borland
+      Delphi.</P>
+
+      <P CLASS="kommentar">Det finns även andra komponentteknologier så som
+      OMG:s CORBA och Suns J2EE. Dessa typer av komponenter går dock inte att
+      använda direkt i ASP.</P>
+
+      <P>Uppföljaren till COM heter COM+ och som har utökat antalet tjänster
+      för komponenter samt integrerat COM bättre med operativsystemet (d.v.s.
+      Windows 2000). Nästa version av COM/COM+ är .NET-plattformen.</P>
+
+      <H3>Vad är en komponent?</H3>
+
+      <P>En komponent är en exekverbar (binär) modul som kan ersättas med en
+      annan modul med samma gränssnitt (se nedan för förklaring av
+      gränssnitt). En fördel med komponenter är att en komponent kan bytas ut
+      mot en annan utan att programmet (klienten) som använder komponenten
+      behöver kompileras om.&nbsp;</P>
+
+      <P>Komponenter kan &quot;förpackas&quot; som både biblioteksfiler (DLL:er)
+      och fristående program (EXE:er).&nbsp;När det gäller komponenter som
+      ska användas från ASP, så brukar komponenten vara en DLL.</P>
+
+      <H3>Vad är ett gränssnitt?</H3>
+
+      <P>Ett gränssnitt beskriver en komponents &quot;egenskaper&quot;. En
+      egenskap kan vara ett värde (instansvariabel) eller en metod (procedur
+      eller funktion). Gränssnitt är A och O i komponenter, d.v.s. de
+      viktigaste delarna.</P>
+
+      <P>Gränssnitten för komponenter skapas enligt en binär standard, vilket
+      är det som gör det möjligt att byta ut en komponent mot en annan (bl.a.
+      utan att kompilera om klienten).</P>
+
+      <H3>Windows Distributed interNet Application (DNA)</H3>
+
+      <P>Microsoft har en vision för hur distribuerade applikationer ska
+      utvecklas - Windows DNA (WinDNA). I WinDNA delas applikationen upp i
+      gränssnitt, affärslogik (det applikationen gör) och databaskopplingar.
+      Affärslogiken hanteras med COM, databaskopplingar med Microsoft Data
+      Access Components (MDAC) samt gränssnitt med bl.a. Internet Information
+      Server (IIS) och ASP.</P>
+
+      <P>Fokus på denna webbsida är att använda IIS och COM. För en (inte
+      riktigt komplett) beskrivning av MDAC - se <A HREF="../databaser/index.html">ASP och
+      databaser</A>.</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="enkel"></A>En enkel komponent</H2>
+      <P>Här beskrivs hur man skapar en enkel komponent i MS Visual
+      Basic samt hur man skapar en instans (ett objekt) av komponenten och
+      anropar en metod i instansen. Utskrifter av returvärden från komponents
+      metoder sker med ASP. Därför kan komponenten vi skapar i detta avsnitt
+      även användas i t.ex. MS VB, MS Visual C++ och andra COM-kompatibla
+      språk.</P>
+
+      <P>&nbsp;</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="skriver_ut"></A>Komponenter som skriver ut</H2>
+
+      <P>Här beskrivs hur man gör komponenter som skriver ut direkt till den
+      resulterande webbsidan istället för att returnera något (som måste
+      skrivas ut med ASP-kod). Denna komponent kan <B>inte</B> användas ifrån
+      vanliga programmeringsspråk (d.v.s. VB, VC++, m.fl.) då den använder
+      (kräver) IIS.</P>
+
+      <P>&nbsp;</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |
+        <A HREF="../index.html">Tillbaka</A> till ASP |</p>
+      <hr>
+
+      <p align="center">
+      <b>Skapad av:</b> Björn Persson. <b>Uppdaterad:</b> 2005-05-01.</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

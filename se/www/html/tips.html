@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Tips och tricks rörande HTML." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/tips.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/tips.html" />
+  <title>Tips och trick - HTML</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <style>
+    .brodtext  { font-family: Verdana; font-size: 10pt }
+    .lista     { font-family: Verdana; font-size: 10pt; margin-top: 20px }
+    .kod       { font-family: "Courier New", Courier, Sans-serif; font-size: 9pt }
+  </style>
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container ">
+      <a href="../index.html" class="right">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>Tips och trick</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+    
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>
+
+          <p>P&aring; denna hemsida dokumenterar jag n&aring;gra av de problem som jag st&ouml;tt p&aring; i min
+            utveckling av hemsidor/webbapplikationer eller som studenter fr&aring;gat om
+            samt hur problemen l&ouml;stes. (&Auml;n s&aring; l&auml;nge &auml;r det lite tunt, men det
+            l&auml;r bli mer.)</p>
+
+          <p>N&aring;gra av de tips som visas h&auml;r har inte
+            bara med HTML
+            att g&ouml;ra - en del har bl.a. med ASP att g&ouml;ra. Se &auml;ven <i>Utforma HTML
+            efter stilmallar</i> i <a href="../css3/index.html">stilmallswebben</a> f&ouml;r tips
+            som har med utseende och stilmallar (CSS) att g&ouml;ra.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <ul class="collection">
+            <li><a href="#genererade" class="collection-item">Genererade hemsidor som inte uppdateras (i ASP)</a></li>
+          </ul>        
+        </div>
+      </div>
+
+      <h2 id="genererade">Genererade hemsidor som inte uppdateras (i ASP)</h2>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p><b>Problem:</b> Ibland vill inte hemsidor genererade med Microsoft Active Server
+            Pages (ASP) uppdateras, t.ex. &quot;kundvagnar&quot;.
+          </p>
+
+          <p><b>Orsak:</b> Webbl&auml;saren har buffrat ASP-sidan och v&auml;ljer att visa
+            den buffrade hemsidan ist&auml;llet f&ouml;r att beg&auml;ra en uppdaterad version
+            fr&aring;n webbservern. Detta g&auml;ller bl.a. om man anv&auml;nder metoden
+            Response.Redirect() f&ouml;r att skicka vidare bes&ouml;karen till en ASP-sida
+            och bes&ouml;karen nyligen bes&ouml;kt ASP-sidan. (Det &auml;r dock inga problem om bes&ouml;karen klickar p&aring; en l&auml;nk till ASP-sidan - d&aring;
+            h&auml;mtar webbl&auml;saren en ny version av hemsidan.)&nbsp;
+          </p>
+
+          <p><b>L&ouml;sning:</b> Placera f&ouml;ljande (tv&aring;) rader i HEAD-taggen f&ouml;r
+            alla ASP-sidor.
+          </p>
+
+          <p>Dessa tv&aring; rader (den &ouml;vre och nyare - HTTP 1.1 - samt den under och
+            &auml;ldre - HTTP 1.0) talar om f&ouml;r webbl&auml;saren att den inte ska buffra
+            (eng. <i>cache</i>) hemsidorna.</p>
+        </div>
+        
+        <div class="col l5 s12">
+          <blockquote>
+            <p class="kod">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot;
+                CONTENT=&quot;no-cache&quot;&gt;<br>
+              &lt;META HTTP-EQUIV=&quot;Pragma&quot; CONTENT=&quot;no-cache&quot;&gt;</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <footer class="page-footer center-align">
+          <div class="container">
+            <div class="row">
+              <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-16.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script>
+      $(".sidenav").sidenav();
+    </script>
+  </body>
+</html>

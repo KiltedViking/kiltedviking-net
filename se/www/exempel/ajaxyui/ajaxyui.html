@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AJAX with YUI</title>
+  <style type="text/css">
+    html { 
+      color: black; 
+      background-color: #800000; 
+      font-family: Verdana, Helvetica, sans-serif;
+    }
+    h1 {
+      color: white;
+      background-color: #800000;
+      font-family: Verdana, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: -10px;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    footer {
+      font-size: .8em;
+      text-align: center;
+      margin-bottom: -15px;
+      border-top: solid 1px gray;
+    }
+    #page { 
+      width: 1000px; 
+      margin: 0 auto;
+      border-radius: 20px;
+      padding: 20px;
+      color: black; 
+      background-color: white; 
+    }
+  </style>
+  <script type="text/javascript" src="../../js/yui/build/yui/yui.js"></script>
+  <script type="text/javascript">
+    YUI().use("event", "io-base", "node", function(Y) {
+      //Create AJAX object and define handler for complete request
+      var ajax = {
+        complete: function(id, o) {  
+          Y.one("#dynamic").append("<P>" + o.responseText + "</P>");
+        }
+      };
+      /*
+      var ajaxcfg = {
+        on: {
+          complete: ajax.complete
+        },
+        context: ajax
+      };
+      */
+      //Set handler for complete request
+      Y.on("io:complete", ajax.complete); //, ajaxcfg);
+      
+      //Add handler to button's click event
+      Y.on("click", function() {
+          Y.io("sampletext.txt", ajax);
+        }, "#doaction");
+    });
+  </script>
+</head>
+<body>
+<div id="page">
+  <header>
+    <h1>AJAX with YUI</h1>
+  </header>
+  
+  <div id="content">
+    <p>This is the contents of the page. :-)</p>
+    <form>
+      <input type="button" id="doaction" onclick="" value="Get sample text">
+    </form>
+    <div id="dynamic"><p></p></div>
+  </div>
+  
+  <footer>
+    <p><b>Created by:</b> Bj&ouml;rn G.D. Persson. <b>Updated:</b> 2012-01-28.</p>
+  </footer>
+</div>
+</body>
+</html>

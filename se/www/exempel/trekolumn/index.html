@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Exempel med tre kolumner skapad med 'ren' CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Exempel på tre kolumner med CSS" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/exempel/trekolumn/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/exempel/trekolumn/" />
+  <title>Exempel: Tre kolumn-design (Björns studiewebb)</title>
+  <link href="trekolumn.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="addLoadEvent.js"></script>
+  <script type="text/javascript" src="addClass.js"></script>
+  <script type="text/javascript" src="index_html.js"></script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1>Exempel: Tre kolumn-design (Björns studiewebb)</h1>
+  </div>
+
+  <div id="columns">
+    <div id="menu">
+      <h2>Meny</h2>
+      <ul>
+        <li><a href="index.html">Startsida</a></li>
+        <li><a href="om.html">Om</a></li>
+        <li><a href="omcss.html">Om CSS</a></li>
+        <li><a href="omjs.html">Om JavaScript</a></li>
+        <li><a href="tom.html">&quot;Tom&quot; sida</a></li>
+      </ul>
+
+      <!-- Lankar till validatorer -->
+      <p>
+        <a href="https://validator.w3.org/check?uri=referer" target="_blank" rel="noopener">
+          <img src="valid-xhtml10.png" id="valid-xhtml10"
+            alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+      </p>
+      <p>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.kiltedviking.net%2Fse%2Fwww%2Fexempel%2Ftrekolumn%2F&amp;profile=css21&amp;usermedium=all&amp;warning=2"
+          target="_blank" rel="noopener">
+            <img id="valid-css" src="vcss.gif" alt="Valid CSS!" />
+        </a>
+      </p>
+    </div>
+
+    <div id="content">
+      <h2>Beskrivning av design</h2>
+
+      <ul class="liggande" id="innehallsforteckning">
+        <li><a href="#inledning" id="visaInledning">Inledning</a></li>
+        <li><a href="#sidstruktur" id="visaSidstruktur">Sidstruktur</a></li>
+        <li><a href="#sidcontainer" id="visaSidcontainer">Sida</a></li>
+        <li><a href="#sidhuvud" id="visaSidhuvud">Sidhuvud</a></li>
+        <li><a href="#kolumncontainer" id="visaKolumncontainer">Kolumner</a></li>
+        <li><a href="#meny" id="visaMeny">Meny/Länkar</a></li>
+        <li><a href="#innehall" id="visaInnehall">Innehåll</a></li>
+        <li><a href="#sidfot" id="visaSidfot">Sidfot</a></li>
+      </ul>
+
+      <div id="sectionintroduction">
+        <h3 id="inledning" title="Inledning">Inledning</h3>
+        <p>Webbsidor i detta exempel består av sju delar, varav två är s.k. containers,
+          d.v.s. innehåller inget synligt innehåll utan används för uppbyggnad av
+          webbsidor. Dessa sju delar motsvarar varsin DIV-tagg och är följande:</p>
+
+        <ul>
+          <li>Sidcontainer - innehåller övriga delar i denna lista</li>
+          <li>Sidhuvud - innehåller rubrik ovan</li>
+          <li>Kolumncontainer - innehåller de tre kolumnerna nedan</li>
+          <li>Meny (kolumn 1) - innehåller menyalternativ till vänster</li>
+          <li>Innehåll (kolumn 2) - innehåller den text du läser nu</li>
+          <li>Länkar (kolumn 3) - innehåller länkar till höger</li>
+          <li>Sidfot - innehåller dokumentinformation nedan</li>
+        </ul>
+
+        <p>Ska inte sidhuvud och sidfot användas så kan dessa plus en container
+          tas bort, men de är praktiska då de skapar en inramning av innehållet.</p>
+      </div>
+
+      <div id="sectionpagestructure">
+        <h3 id="sidstruktur" title="Sidstruktur">Sidstruktur</h3>
+        <p>Dokumentets struktur, d.v.s. dess innehåll, är den samma som ordningen
+          på delarna ovan, d.v.s. dokumentet börjar med sidhuvud följt av meny,
+          innehåll, länkar och sidfot. Skälet till detta är att om någon skulle
+          titta på webbsidor utan stöd för CSS så kommer dokumentet ändå vara läsbart
+          och någorlunda bra strukturerat. <a href="#" id="visaXhtml"> </a></p>
+
+        <div class="code xhtml" id="xhtml">
+          <p>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"<br />
+            &nbsp; "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;<br />
+            &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br />
+            &lt;head&gt;<br />
+            &nbsp;   ...<br />
+            &lt;/head&gt;<br />
+            &lt;body&gt;<br />
+            &lt;div id="container"&gt;<br />
+            &nbsp;   &lt;div id="header"&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;h1&gt;Exempel: Tre kolumn-design (Björns studiewebb)&lt;/h1&gt;<br />
+            &nbsp;   &lt;/div&gt;</p>
+
+          <p>&nbsp; &lt;div id="columns"&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;div id="menu"&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;/div&gt;</p>
+
+          <p>&nbsp;&nbsp;&nbsp; &lt;div id="content"&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;/div&gt;</p>
+
+          <p>&nbsp;&nbsp;&nbsp; &lt;div id="links"&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />
+            &nbsp; &lt;/div&gt;</p>
+
+          <p>&nbsp; &lt;div id="footer"&gt;<br />
+            &nbsp; &lt;/div&gt;</p>
+
+          <p>&lt;/div&gt;<br />
+            &lt;/body&gt;<br />
+            &lt;/html&gt;</p>
+        </div>
+      </div>
+
+      <div id="sectionpagecontainer">
+        <h3 id="sidcontainer" title="Sida">Sidcontainer</h3>
+
+        <p>Designen bygger på en övergripande container, eller sidcontainer (DIV-tagg
+          med id &quot;container&quot;), som bl.a. används för att centrera innehåller
+          i sidan, men även för bakgrundsfärgen. Container har en minsta (min) och
+          största (max) bredd på 800 respektive 1000 pixlar och marginaler erhålles
+          genom att ange vänster- och högermarginal som automatiska (auto). Denna
+          container innehåller övrigt innehåll i webbsidan och används för design.</p>
+
+        <p class="kommentar">För att visa marginaler, maximera webbläsarens fönster
+          eller öka på bredden på fönstret. Minsta och största bredd på webbsida
+          syns genom att studera radlängder i denna text när fönsters bredd minskas.</p>
+
+        <p><a href="#" id="visaCodeSidcontainer"> </a></p>
+
+        <div class="code css" id="codesidcontainer">
+          <p>div#container<br />
+            {<br />
+            &nbsp; min-width: 800px;<br />
+            &nbsp; max-width: 1000px;<br />
+            &nbsp; margin-right: auto;<br />
+            &nbsp; margin-bottom: 300px; /* Sa att lankar i dok. verkar fung. battre(?) */<br />
+            &nbsp; margin-left: auto;<br />
+            &nbsp; background-color: gray;<br />
+            &nbsp; color: white;<br />
+            &nbsp; border: 1px solid #000000;<br />
+            }</p>
+        </div>
+      </div>
+
+      <div id="sectionheader" title="Sidhuvud">
+        <h3 id="sidhuvud" title="Sidhuvud">Sidhuvud</h3>
+
+        <p>Nästa del är sidhuvudet med rubriken för webbsidan. (I detta exempel är
+          det inget speciellt med detta... den används för att centrera rubriken.
+          :-)</p>
+
+        <p><a href="#" id="visaCodeSidhuvud"> </a></p>
+
+        <div class="code css" id="codesidhuvud">
+          <p>div#header { text-align: center; }</p>
+        </div>
+      </div>
+
+      <div id="sectioncolumncontainer">
+        <h3 id="kolumncontainer" title="Kolumner">Kolumncontainer</h3>
+
+        <p>Denna container, kolumncontainer (DIV-tagg med id &quot;columns&quot;),
+          används för att kunna positionera menyn och lista med länkar (se mer nedan).
+          För att detta ska fungera så använder containern relativ positionering,
+          d.v.s. den kan användas för att positionera s.k. barnelement - element som
+          innesluts av container. Containern börjar efter sidhuvudet och slutar vid
+          sidfoten. Denna container innehåller de tre kolumnerna i webbsidan och används
+          för design. (Utan sidhuvud och sidfot så är denna container överflödig,
+          d.v.s. det hade räckt med sidcontainern.)</p>
+
+        <p><a href="#" id="visaCodeKolumncontainer"> </a></p>
+
+        <div class="code css" id="codekolumncontainer">
+          <p>div#columns { position: relative; }</p>
+        </div>
+      </div>
+
+      <div id="sectionmenu">
+        <h3 id="meny" title="Meny/Länkar">Meny och länkar</h3>
+
+        <p>Meny (kolumn 1) och länkar (kolumn 3) har samma egenskaper, d.v.s. fungerar
+          och ska se ut på lika sätt. Det som skiljer dem åt är att den ena är
+          positionerad till vänster och den andra till höger (samt dess innehåll
+          :-).</p>
+
+        <p>Både meny och länkar använder absolut positionering, relativt kolumncontainer,
+          samt har en angiven bredd (175 pixlar). Meny är positionerad 0 pixlar
+          från vänster och övre marginal medan länkar är positionerad 0 pixlar från
+          höger och övre marginal.</p>
+
+        <p>Listor med alternativ i meny och länkar &quot;snyggas till &quot; sist.</p>
+
+        <p><a href="#" id="visaCodeMeny"> </a></p>
+
+        <div class="code css" id="codemeny">
+          <p>div#menu, div#links<br />
+            {<br />
+            &nbsp; position: absolute; /* Pos. rel. kolumncontainer */<br />
+            &nbsp; width: 175px;<br />
+            &nbsp; padding: 0px 5px;<br />
+            &nbsp; top: 0px;<br />
+            }</p>
+
+          <p>div#menu { left: 0px; }</p>
+
+          <p>div#links { right: 0px; }</p>
+
+          <p>/*** Snygga till listor for meny och lankar ***/</p>
+          <p>div#menu ul, div#links ul<br />
+            {<br />
+            &nbsp; list-style: none;<br />
+            &nbsp; padding-left: 10px;<br />
+            }</p>
+
+          <p>div#menu a, div#links a<br />
+            {<br />
+            &nbsp; color: white;<br />
+            &nbsp; background-color: gray;<br />
+            &nbsp; text-decoration: none;<br />
+            }</p>
+
+          <p>div#menu a:hover, div#links a:hover<br />
+            {<br />
+            &nbsp; color: white;<br />
+            &nbsp; background-color: #c0c0c0;  /* light grey */<br />
+            &nbsp; text-decoration: none;<br />
+            }</p>
+        </div>
+      </div>
+
+      <div id="sectioncontents">
+        <h3 id="innehall" title="Innehåll">Innehåll</h3>
+
+        <p>I detta exempel används ingen positionering för innehållet (DIV med id
+          &quot;content&quot;) - här används
+          det naturliga flödet i dokument (uppifrån och ner). Vi måste dock kompensera
+          för bredden på de positionerade delarna meny och länkar, vilket görs genom
+          att ge innehållet en vänster- och högermarginal som motsvarar bredden
+          på meny respektive länkar (185 pixlar i detta fall, 175 pixlar för deras
+          bredd samt ytterligare 5 + 5 pixlar för deras utfyllnad, eng. <em>padding</em>).
+          Vi &quot;kompenserar&quot; även för bakgrundsfärgen i sidcontainer, d.v.s.
+          anger svart text och vit bakgrund för innehållet.</p>
+
+        <p class="kommentar">Eftersom innehållet är just innehållet i webbsida (d.v.s.
+          kommer bestå av många olika saker) så  är det innehållet som de flesta
+          stilmallar kommer att gälla för. Många stilmallar i detta exempel använder
+          id för respektive DIV-tagg (t.ex. div#content och div#footer) för att
+          begränsa vad stilmallar gäller för. (Bra eller dåligt? Man slipper i.a.f.
+          att använda så många klasser. :-)</p>
+
+        <p><a href="#" id="visaCodeInnehall"> </a></p>
+
+        <div class="code css" id="codeinnehall">
+          <p>div#content<br />
+            {<br />
+            &nbsp; margin-left: 185px;<br />
+            &nbsp; margin-right: 185px;<br />
+            &nbsp; border: 1px solid blue;<br />
+            &nbsp; padding: 0px 10px;<br />
+            &nbsp; color: black;<br />
+            &nbsp; background-color: white;<br />
+            }</p>
+
+            <p>/*** Snygga till innehall ***/</p>
+            <p>div#content p, div#content li { text-align: justify; }</p>
+
+            <p>div#content a:hover<br />
+            {<br />
+            &nbsp; color: blue;<br />
+            &nbsp; background-color: yellow;<br />
+            }</p>
+
+            <p>div#content p.tillborjan { text-align: right; }</p>
+
+            <p>div#content ul.liggande { list-style: none; }</p>
+
+            <p>div#content ul.liggande li { display: inline; }</p>
+
+            <p>div#content .code<br />
+            {<br />
+            &nbsp; color: black;<br />
+            &nbsp; background-color: #ffff99;<br />
+            &nbsp; font-family: monospace;<br />
+            }</p>
+
+            <p>div#content div.code { margin: 0px 10px; }</p>
+        </div>
+      </div>
+
+      <div id="sectionfooter">
+        <h3 id="sidfot" title="Sidfot">Sidfot</h3>
+
+        <p>Precis som med sidhuvudet så är inte sidfoten något speciellt med, används
+          främst för att centrera text samt minska dess textstorlek en aning.</p>
+
+        <p><a href="#" id="visaCodeSidfot"> </a></p>
+
+        <div class="code css" id="codesidfot">
+          <p>div#footer<br />
+            {<br />
+            &nbsp; font-size: 0.8em;<br />
+            &nbsp; text-align: center;<br />
+            }</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <ul class="liggande" id="innehallsforteckning2">
+        <li></li>
+      </ul>
+
+      <p>&nbsp;</p>
+    </div>
+
+    <div id="links">
+      <h2>Länkar</h2>
+      <ul>
+        <li><a href="https://www.w3.org/Style/CSS/" rel="noopener">CSS</a> hos <a
+          href="https://www.w3.org/" rel="noopener">W3C</a></li>
+        <li><a href="/se/www/">Björns studiewebb</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="footer">
+    <p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong>
+      2008-08-23.</p>
+  </div>
+</div>
+</body>
+</html>

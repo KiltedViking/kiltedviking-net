@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3.html" />
+  <title>Objekt (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      <h1>Objekt (JS)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li class="active"><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Inneh&aring;ll</h2>
+        
+      <p>P&aring; denna hemsida beskrivs n&aring;gra av de klasser som finns i JavaScript och
+        de objekt som motsvarar webbl&auml;sarens olika delar. Beskrivningar &auml;r <strong>inte</strong>
+        kompletta, d.v.s. det finns eventuellt fler egenskaper och metoder &auml;n de som
+        visas p&aring; denna webbsida. <strong>Observera</strong> ocks&aring; att objekten (inte
+        klasserna) &auml;r en del av den s.k. &quot;<em>DOM Level 0</em>-modellen&quot;,
+        d.v.s. fr&aring;n tiden innan tillverkare av webbl&auml;sare (l&auml;s Micro$oft) kunde komma
+        &ouml;verens om en gemensam modell f&ouml;r objekt i webbl&auml;sare. Detta &auml;r ett problem
+        d&aring; m&aring;ste skriva speciell kod f&ouml;r att kod ska fungera i Internet Explorer
+        respektive &ouml;vriga (Firefox, Google Chrome, Opera och Safari). (Detta &auml;r nu l&ouml;st
+        i.o.m. introduktionen av DOM - se sidan DOM.)</p>
+
+      <p class="kommentar">Objekten beskrivs p&aring; denna webbsida f&ouml;r att ge en &quot;komplett
+        bild&quot; av JavaScript, d.v.s. det &auml;r mycket troligt att du hittar dem i
+        exempel p&aring; Internet samt att vissa objektrelaterade saker p&aring; denna webbsida
+        &auml;r anv&auml;ndbara, skulle man inte vilja l&auml;ra sig DOM. :-)</p>
+
+      <p>JavaScript &auml;r fr&auml;mst, enligt mig, ett s.k. objektbaserat spr&aring;k, d.v.s. det finns
+        klasser och redan existerande objekt, men vi skapar inga egna klasser eller
+        objekt (annat &auml;n vektorer, <em>arrays</em>). I JavaScript anv&auml;nds klasser
+        f&ouml;r att samla &quot;funktioner&quot; (eller metoder, som &auml;r den korrekta termen)
+        och mer komplexa saker (d.v.s. inneh&aring;ller flera v&auml;rden) motsvaras av objekt.
+        (Se <a href="#objekt">Klasser och objekt</a> sist p&aring; denna sida f&ouml;r en kort
+        j&auml;mf&ouml;relse.)</p>
+
+      <p class="kommentar">Sen jag skapade min f&ouml;rsta version av denna underwebb s&aring;
+        har jag b&ouml;rjat misstycka om titeln p&aring; denna webbsida: Objekt. Ett b&auml;ttre
+        namn vore &quot;Klassmetoder och -egenskaper samt webbl&auml;sarobjekt&quot;, vilket
+        &auml;r lite l&aring;ngt. :-)</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#klasser_array" class="collection-item">Klassen Array</a></li>
+        <li><a href="#klasser_date" class="collection-item">Klassen Date</a></li>
+        <li><a href="#klasser_math" class="collection-item">Klassen Math</a></li>
+        <li><a href="#klasser_string" class="collection-item">Klassen String</a></li>
+        <li><a href="#webblasare" class="collection-item">Objekt i webbl&auml;sare</a></li>
+        <li><a href="#egna" class="collection-item">Egna objekt</a></li>
+        <li><a href="#objekt" class="collection-item">Mer om objekt och klasser</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="klasser">Klasser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Det finns ett antal klasser i JavaScript och de anv&auml;nds fr&auml;mst f&ouml;r dess
+        egenskaper (eller konstanter) och metoder (&quot;funktioner&quot;), med undantag
+        fr&aring;n klassen Array som vi skapar instanser (objekt) av (fr&aring;n). Namn p&aring; klasser
+        i JavaScript b&ouml;rjar med en versal, t.ex. Math och String. Nedan beskrivs
+        klasser efter den ordning som de (eller dess egenskaper/metoder) anv&auml;nds mest.</p>
+
+      <p>Innan vi tittar p&aring; klasser s&aring; f&ouml;rklaras begreppen egenskaper och metoder.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Egenskaper och metoder</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En egenskap &auml;r ett v&auml;rde och metod &auml;r en &quot;funktion&quot;. En person
+        har t.ex. ett f&ouml;delse&aring;r, vilket &auml;r en egenskap. Skulle det finnas ett personobjekt
+        s&aring; skulle vi t.ex. kunna fr&aring;ga den om dess &aring;lder genom att skriva <span
+        class="code">person.fodelsear</span>. Vi anv&auml;nder n&aring;got som kallas f&ouml;r
+        punktnotation, d.v.s. att vi skriver namn p&aring; objekt (eller klass) och sen
+        egenskap (eller metod) som vi vill anv&auml;nda.</p>
+
+      <p>En del egenskaper &auml;r s.k. konstanter (v&auml;rden som inte kan &auml;ndras), vilka
+        skrivs med versaler som standard. T.ex. s&aring; finns v&auml;rdet f&ouml;r det matematiska talet
+        pi (3,14..., fast enligt amerikansk standard: 3.14...:-) definierat i klassen
+        Math som <span class="code">Math.PI</span>.</p>
+
+      <p>En metod (&quot;funktion&quot;) g&ouml;r n&aring;got, d.v.s. vi vill att n&aring;got ska
+        h&auml;nda n&auml;r vi anropar metoder. I exempel med personobjekt skulle vi t.ex. kunna
+        vilja att person pratade eller gick och skulle d&aring; skriva n&aring;got i stil med
+        <span class="code">person.prata()</span> respektive <span class="code">person.ga()</span>.
+        F&ouml;r att skilja metoder fr&aring;n egenskaper, och d&aring; vi ibland skickar argument
+        till metoder, s&aring; f&ouml;ljs metodanrop av parenteser.</p>
+
+      <p>Man skiljer &auml;ven p&aring; instans- och klassegenskaper/-metoder, d.v.s. vad som
+        ska skrivas f&ouml;re punkten (<span class="code">Klassnamn.egenskap</span> respektive
+        <span class="code">objektVar.egenskap</span>). De flesta egenskaper och metoder p&aring; denna webbsida
+        &auml;r instansegenskaper och -metoder, d.v.s. det ska vara en variabel med ett
+        objekt f&ouml;re punkt. Om det &auml;r en klassegenskap eller -metod s&aring; markeras
+        detta tydligt p&aring; denna webbsida.</p>
+
+      <p>I beskrivningar av klasser och objekt nedan visas f&ouml;rst egenskaper i en lista
+        f&ouml;ljt av metoder i ytterligare en lista.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3 id="klasser_string">Klassen String</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Str&auml;ngar (text) &auml;r vanligt f&ouml;rekommande i programmering och ofta finns ett
+        behov av att manipulera str&auml;ngar, t.ex. hitta en str&auml;ng i en str&auml;ng, titta
+        p&aring; varje bokstav i en str&auml;ng eller omvandla till versaler/gemener. Nedan visas
+        exempel p&aring; n&aring;gra metoder i klassen String.</p>
+
+      <p>En viktig sak att komma ih&aring;g om str&auml;ngar att de i vissa fall p&aring;minner om
+        vektorer, bl.a. att str&auml;ngar &auml;r &quot;nollbaserade&quot; - f&ouml;rsta position
+        (index) i en vektor &auml;r noll. N&auml;r vi anropar metoder nedan, som returnerar
+        position, s&aring; &auml;r f&ouml;rsta positionen 0, andra positionen 1, o.s.v..</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>length</code> - inneh&aring;ller l&auml;ngden p&aring; str&auml;ngen.</li>
+      </ul>
+
+      <p>Egenskapen <span class="code">length</span> &auml;r anv&auml;ndbar f&ouml;r att t.ex. avg&ouml;ra
+        om en str&auml;ng i ett formul&auml;rs textruta &auml;r l&aring;ngt nog (t.ex. postnummer inneh&aring;ller
+        fem tecken - se sidan Formul&auml;r). Egenskapen kan &auml;ven anv&auml;ndas f&ouml;r att &quot;loopa
+        &ouml;ver&quot; en str&auml;ng, d.v.s. lika m&aring;nga g&aring;nger som l&auml;ngd p&aring; str&auml;ng.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var minStrang = "Hej!";
+for(i = 0; i &lt; minStrang.length; i++)
+{
+  ...;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>charAt(<em>pos</em>)</code> - returnerar tecknet vid
+          position <em>pos</em>.</li>
+        <li><code>indexOf(<em>str</em>)</code> - returnerar startposition
+          av <em>str</em> i str&auml;ng eller -1 om <em>str</em> inte finns i str&auml;ng.</li>
+        <li><code>lastIndexOf(<em>str</em>)</code> - returnerar startposition
+          av sista f&ouml;rekomsten av <em>str</em> i str&auml;ngen eller -1 om <em>str</em>
+          inte finns i str&auml;ng.</li>
+        <li><code>substr(<em>startpos</em>, <em>antal</em>)</code> -
+          returnerar <em>antal</em> tecken av str&auml;ngen med b&ouml;rjan p&aring; position <em>start</em>.</li>
+        <li><code>toLowerCase()</code> - returnerar kopia av str&auml;ngen
+          med endast gemener.</li>
+        <li><code>toUpperCase()</code> - returnerar kopia av str&auml;ngen
+          med endast versaler.</li>
+      </ul>
+
+      <p>JavaScript &auml;r, som sagt, praktiskt att anv&auml;nda f&ouml;r att validera (verifiera)
+        data i formul&auml;r. Detta involverar ofta att unders&ouml;ka varje tecken i en str&auml;ng,
+        n&aring;got vi kan g&ouml;ra med metoden <span class="code">charAt(<em>pos</em>)</span>
+        i kombination med egenskapen <span class="code">length</span>, d.v.s. i loop
+        i exempel ovan (se sidan Formul&auml;r f&ouml;r exempel).</p>
+
+      <p>Metoden <span class="code">indexOf(<em>str</em>)</span> kan t.ex. anv&auml;ndas
+        f&ouml;r att kontrollera att @-tecknet i en e-postadress inte &auml;r f&ouml;rsta tecken
+        samt att det finns en punkt efter @-tecknet (d.v.s. att det finns en dom&auml;n
+        och huvuddom&auml;n, s&aring; som .se, efter @-tecknet).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var epost = "namn@dom&auml;n.se";
+if(epost.indexOf("@") > 0)
+  alert('Namn f&ouml;r e-postadress har angivits.');</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del3/javascript3_1.html" target="_blank" class="button button-primary">Exempel 3.1 - Klassen String</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="klasser_date">Klassen Date</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Datum &auml;r alltid anv&auml;ndbart..:-) Man kan t.ex. infoga datum i webbsidor s&aring;
+        att man vet att bes&ouml;karen f&ouml;r dagens datum p&aring; eventuella utskrifter (se exempel
+        nedan). Datum &auml;r &auml;ven anv&auml;ndbart f&ouml;r att visa n&auml;r webbsidor
+        (dokument) senast uppdaterades, vilket vi kan man anv&auml;nda metoden <span
+        class="code">lastModified()</span> i objektet <span class="code">document</span>
+        (se mer nedan).</p>
+
+      <p><strong>Observera</strong> att vissa metoder nedan fungerar
+        olika i olika webbl&auml;sare och att programmering med datum &auml;r en k&auml;lla till
+        m&aring;nga fel i kod! Ytterligare en detalj att <strong>observera</strong> &auml;r att
+        st&ouml;d f&ouml;r datumformat, d.v.s. hur datum skrivs, varierar och att det amerikanska
+        datumformatet (m&aring;nad/dag/&aring;r) &auml;r det som verkar fungera b&auml;st! En tredje detalj
+        att <strong>observera</strong> &auml;r att &quot;datum&quot; oftast &auml;r samma sak
+        som datum <strong>och</strong> tid! S&aring; &auml;ven om du tror att du j&auml;mf&ouml;r tv&aring;
+        datumobjekt med lika v&auml;rden s&aring; kan de skilja sig &aring;t d&aring; deras tid &auml;r olika.
+        <strong>Testa</strong> d&auml;rf&ouml;r resultatet i de webbl&auml;sare som du t&auml;nker st&aring;dja!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Innan vi kan anv&auml;nda de flesta metoder nedan s&aring; m&aring;ste vi skapa en instans
+        (ett objekt) av klassen Date, vilket g&ouml;rs med nedanst&aring;ende kod. Variabeln
+        objDate kommer allts&aring; inneh&aring;lla ett datumobjekt.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var objDate = new Date();</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li>(finns inga...)</li>
+      </ul>
+      <h4>Metoder</h4>
+
+      <p>Metoder som b&ouml;rjar med &quot;get&quot; brukar returnera ett v&auml;rde och f&ouml;r
+        varje get-metod s&aring; finns det oftast en motsvarande set-metod f&ouml;r att ange
+        motsvarande v&auml;rde, t.ex. <code>getDate()</code> och <code>setDate(<em>v&auml;rde</em>)</code>. 
+        (D&auml;rf&ouml;r visas endast get-metoder nedan.)</p>
+
+      <ul>
+        <li><code>getDate()</code> - returnerar dagen i m&aring;naden (1-31).</li>
+        <li><code>getDay()</code> - returnerar veckodagen som ett tal (0-6).</li>
+        <li><code>getMonth()</code> - returnerar m&aring;nad som ett tal (0-11).</li>
+        <li><code>getFullYear()</code> - returnerar &aring;ret (med fyra siffror).</li>
+        <li><code>getHours()</code> - returnerar timme (0-23).</li>
+        <li><code>getMinutes()</code> - returnerar minuterna (0-59).</li>
+        <li><code>getSeconds()</code> - returnerar sekunderna (0-59).</li>
+        <li><code>toString()</code> - returnerar datum som str&auml;ng (text).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedanst&aring;ende kod skriver ut dagens datum (se resultat under kod). H&auml;r b&ouml;rjar
+        vi med att skapa ett nytt datumobjekt, som placeras i variabeln <span
+        class="code">objDate</span>, med vilken vi kan h&auml;mta (&quot;fullt&quot;) &aring;rtal
+        (d.v.s. fyra siffror), nummer p&aring; m&aring;nad samt dag i m&aring;nad. <strong>Observera</strong>
+        att m&aring;naden januari har v&auml;rdet noll och december elva, d.v.s. vi m&aring;ste &ouml;ka
+        p&aring; v&auml;rdet som <span class="code">getMonth()</span> returnerar och h&auml;r anv&auml;nds
+        parenteser f&ouml;r att addition ska ske ist&auml;llet f&ouml;r konkatinering (sammanslagning
+        av str&auml;ngar). Exempel visar &auml;ven att vi ibland b&ouml;r &quot;snygga till&quot;
+        utskrifter - i detta fall borde vi skriva ut en extra nolla om m&aring;nad endast
+        inneh&aring;ller en siffra.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var objDate = new Date();
+var strDate = objDate.getFullYear() + "-"
+  + (objDate.getMonth()+1) + "-" 
+  + objDate.getDate();</code></pre>
+
+      <p>Resultat fr&aring;n kod ovan (om kod fungerar i din webbl&auml;sare): 
+        <code><output id="date"></output></code></p>
+
+        <script>
+          var objDate = new Date();
+          var strDate = objDate.getFullYear() + "-" + (objDate.getMonth() + 1) + "-" + objDate.getDate();
+          document.getElementById("date").innerHTML = strDate;
+        </script>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del3/javascript3_2.html" target="_blank" class="button button-primary">Exempel 3.2 - Klassen Date</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="klasser_math">Klassen Math</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Klassen Math &auml;r inte en klass man skapa objekt fr&aring;n, utan man anv&auml;nder klassens
+        (statiska) metoder f&ouml;r diverse matematiska funktioner.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4>
+
+      <ul>
+        <li><code>PI</code> - inneh&aring;ller v&auml;rdet p&aring; Pi</li>
+      </ul>
+
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>N&aring;gra exempel p&aring; metoder vissa nedan.</p>
+
+      <ul>
+        <li><code>abs(<em>tal</em>)</code> - returnerar tal som positivt.</li>
+        <li><code>ceil(<em>tal</em>)</code> - returnerar <em>tal</em>
+          avrundat till n&auml;rmast h&ouml;gre heltal.</li>
+        <li><code>pow(<em>tal</em>, <em>exp</em>)</code> - returnerar
+          <em>tal</em> upph&ouml;jt till <em>exp</em>.</li>
+        <li><code>floor(<em>tal</em>)</code> - returnerar <em>tal</em>
+          avrundat till n&auml;rmast l&auml;gre heltal.</li>
+        <li><code>max(<em>tal1</em>, <em>tal2</em>)</code> - returnerar
+          st&ouml;rsta talet av de tv&aring; argumenten.</li>
+        <li><code>max(<em>tal1</em>, <em>tal2</em>)</code> - returnerar
+          minsta talet av de tv&aring; argumenten.</li>
+        <li><code>random()</code> - returnerar ett slumptal mellan 0
+          och 1 (som sen kan multipleras med (t.ex. 100) f&ouml;r att f&aring; ett st&ouml;rre slumptal
+          (t.ex. mellan 0 och 100).</li>
+        <li><code>round()</code> - avrundar till n&auml;rmaste heltal (d.v.s.
+          &quot;upp&quot; eller &quot;ner&quot;).</li>
+        <li><code>sqrt(<em>tal</em>)</code> - returnerar roten ur tal.</li>
+      </ul>
+
+      <p>Det finns &auml;ven funktioner f&ouml;r vinklar (d.v.s. cos, sin och tan), skulle vi
+        beh&ouml;va jobba med geometri.</p>
+
+      <p class="center"><a href="del3/javascript3_3.html" target="_blank" class="button button-primary">Exempel 3.3 - Klassen Math</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="klasser_array">Klassen Array</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Klassen Array &auml;r allts&aring; den udda klassen (p&aring; denna webbsida) d&aring; den anv&auml;nds
+        f&ouml;r att skapa instanser (objekt) av, d.v.s. vektorer. F&ouml;r en beskrivning av
+        hur man skapar och l&auml;gger till v&auml;rden (element) i vektorer, m.m., se hemsidan
+        <a href="del2.html#vektorer">Spr&aring;ket</a>. Nedan beskrivs olika egenskaper
+        och metoder som finns i objekten (vektorerna).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>length</code> - antalet element (positioner) i vektor.</li>
+      </ul>
+
+      <p>Egenskapen <span class="code">length</span> &auml;r mycket anv&auml;ndbar, speciellt
+        i for-loopar. I exempel nedan s&aring; skapas en vektor (storlek &auml;r irrelevant,
+        men 5 h&auml;r) som sen fylls med tal (p&aring; n&aring;got s&auml;tt). Sen loopar vi &quot;&ouml;ver&quot;
+        vektorn, d.v.s. vi loopar lika m&aring;nga g&aring;nger som det finns positioner i vektorn,
+        och summerar alla talen.</p>
+
+      <p class="kommentar">Observera att eftersom loopens block endast inneh&aring;ller
+        en sats s&aring; kan vi utel&auml;mna &quot;hakparenteserna&quot;. Operatorn += &ouml;kar
+        p&aring; variabeln summa med inneh&aring;llet i vektorn p&aring; position i, d.v.s. vi kunde
+        ha skrivit summa = summa + vekt[i].</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var vekt = new Array(5);
+var summa = 0;
+//kod som fyller vektor med tal
+for(int i = 0; i &lt; vekt.length; i++)
+    summa += vekt[i];</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>pop()</code> - h&auml;mtar och tar bort element &quot;&ouml;verst
+          p&aring; stack&quot;.</li>
+        <li><code>push(<em>elem</em>)</code> - l&auml;gger till elementet
+          <em>elem</em> &quot;&ouml;verst p&aring; stack&quot; - returnerar ny l&auml;ngd p&aring; vektor.
+          (Det g&aring;r att l&auml;gga till flera element, separerade med komma, med denna metod
+          - elementen l&auml;ggs till fr&aring;n v&auml;nster till h&ouml;ger.)</li>
+        <li><code>reverse()</code> - kastar om ordningen p&aring; element i
+          vektorn.</li>
+        <li><code>shift()</code> - h&auml;mtar och tar bort element &quot;f&ouml;rst
+          i k&ouml;n&quot;.</li>
+        <li><code>sort(<em>funktion</em>)</code> - sorterar vektor m.h.a. <em>funktion</em> (d.v.s.
+          en avancerad funktion som inte behandlas h&auml;r f&ouml;r nu...)</li>
+        <li><code>toString()</code> - returnerar inneh&aring;llet i vektor
+          som en str&auml;ng, d&auml;r element separeras av komma.</li>
+      </ul>
+
+      <p>En trevlig finess, f&ouml;r oss vana programmerare, &auml;r att vi kan anv&auml;nda en
+        vektor i JavaScript som en s.k. stack eller k&ouml; m.h.a. metoderna push, pop
+        och shift.</p>
+
+      <p class="kommentar">En stack fungerar som tallriksh&aring;llarna i matbespisningen
+        p&aring; skolan: man l&auml;gger till (<em>push</em>) tallrikar p&aring; toppen, vilket puttar
+        ner tidigare tallrikar, och tar (<em>pop</em>) tallrikar fr&aring;n toppen, vilket
+        h&ouml;jer upp efterf&ouml;ljande tallrikar. (Detta kallas &auml;ven f&ouml;r LIFO: <em>last in,
+        first out</em>.) K&ouml;er fungerar som i verkligheten: f&ouml;rst in, f&ouml;rst ut (FIFO:
+        <em>fist in, first out</em>). Tv&aring; konstruktion som &auml;r mycket praktiska i viss
+        programmering.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="webblasare">Objekt i webbl&auml;sare</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I JavaScript (i webbl&auml;sare) finns ett antal objekt som motsvarar webbl&auml;sare
+        och (X)HTML-dokument. Namnen p&aring; variabler som refererar till dessa objekt
+        skrivs med gemen i b&ouml;rjan (t.ex. navigator och document). Objekten inneh&aring;ller
+        ett antal egenskaper och metoder, samt n&aring;gra &auml;ven h&auml;ndelser (<em>events</em>).
+        En h&auml;ndelse &auml;r n&aring;got som kan ske, t.ex. att sida laddas eller musmark&ouml;r f&ouml;rs
+        &ouml;ver eller bort fr&aring;n ett element. (Se sidan H&auml;ndelser f&ouml;r hur man anv&auml;nder
+        dessa h&auml;ndelser.)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Objektet navigator</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Objektet <span class="code">navigator</span> motsvara bes&ouml;karens webbl&auml;sare
+        och information som kan f&aring;s fr&aring;n webbl&auml;saren &auml;r bl.a. dess namn och version.
+        Eftersom Internet Explorer respektive &ouml;vriga webbl&auml;sare fungerar p&aring; lite olika
+        s&auml;tt n&auml;r man ska komma &aring;t en del webbl&auml;sarobjekt, s&aring; kan man anv&auml;nda t.ex.
+        namnet och/eller version p&aring; webbl&auml;saren kan f&ouml;r att t.ex. k&ouml;ra olika kod.
+        (Anv&auml;nder vi DOM ist&auml;llet s&aring; finns det b&auml;ttre s&auml;tt att l&ouml;sa detta problem
+        - se sidan DOM.)</p>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>appCodeName</code> - kodnamnet p&aring; klient (t.ex.
+          &quot;Mozilla&quot;)</li>
+        <li><code>addName</code> - namn p&aring; klient (t.ex. &quot;Netscape&quot;
+          och &quot;Microsoft Internet Explorer&quot;).</li>
+        <li><code>appVersion</code> - version p&aring; klient och operativsystem
+          som klient k&ouml;rs i.</li>
+        <li><code>cookieEnabled</code> - om klient st&ouml;djer <em>cookies</em>.</li>
+        <li><code>userAgent</code> - v&auml;rde som klient identifierar sig
+          med i kommunikation med webbserver (se exempel nedan).</li>
+      </ul>
+
+      <p>De flesta webbl&auml;sare idag anv&auml;nder kodnamnet Mozilla, men vi kan anv&auml;nda
+        egenskaperna appName eller userAgent f&ouml;r att ta reda p&aring; tillverkare av
+        klient. <strong>Observera</strong> att bl.a. Firefox identifierar sig som
+        Netscape samt att en del webbl&auml;sare.....</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>javaEnabled()</code> - returnerar sant (<em>true</em>)
+          om webbl&auml;sare har Java (inte JavaScript) aktiverat.</li>
+      </ul>
+
+      <p class="center"><a href="del3/javascript3_4.html" target="_blank" class="button button-primary">Exempel 3.4 - Objektet navigator</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3>Objektet window</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Precis som navigator motsvarar webbl&auml;saren s&aring; motsvaras windows av
+        sj&auml;lva f&ouml;nstret d&auml;r hemsidan visas. Om man anv&auml;nder ramar s&aring; &auml;r
+        varje ram ett f&ouml;nster, d.v.s. det finns ett window-objekt f&ouml;r varje
+        ram i webbl&auml;saren.</p>
+
+      <p>F&ouml;r de flesta egenskaperna och metoderna beh&ouml;ver man inte skriva
+        &quot;window.&quot; framf&ouml;r - det l&auml;ggs till av JavaScript-tolken.
+        Nedan visas exempel p&aring; n&aring;gra egenskaper, metoder och h&auml;ndelser f&ouml;r
+        objektet window. N&aring;gra av metoderna har vi redan behandlat, fr&auml;mst de
+        som visar dialogrutor.</p>
+
+      <ul>
+        <li><code>opener</code> - f&ouml;nstret (eller ramen) som f&ouml;nstret &ouml;ppnades fr&aring;n.</li>
+        <li><code>parent</code> - f&ouml;nstret som &auml;r f&ouml;r&auml;lder till aktuellt f&ouml;nster
+          (g&auml;ller fr&auml;mst om man anv&auml;nder ramar).</li>
+        <li><code>self</code> - sj&auml;lva f&ouml;nstret sj&auml;lv.</li>
+      </ul>
+
+      <ul>
+        <li><code>alert()</code> - visa en meddelanderuta.</li>
+        <li><code>blur()</code> - s&auml;tt f&ouml;nstret som inaktivt.</li>
+        <li><code>close()</code> - st&auml;ng f&ouml;nstret.</li>
+        <li><code>confirm()</code> - visa en dialogruta med Ja/OK- och Nej/Avbryt-knappar.
+          Dialogrutan returnerar vilken knapp som bes&ouml;karen klickade p&aring;.</li>
+        <li><code>focus()</code> - s&auml;tt f&ouml;nstret som aktivt.</li>
+        <li><code>open()</code> - &ouml;ppna ett f&ouml;nster.</li>
+        <li><code>prompt()</code> - visa en dialogruta med en textruta f&ouml;r bes&ouml;karen att
+          skriva in en str&auml;ng. Dialogrutan returnerar str&auml;ngen.</li>
+      </ul>
+
+      <ul>
+        <li><code>onLoad</code> - h&auml;ndelse som intr&auml;ffar n&auml;r dokumentet laddas i
+          f&ouml;nstret.</li>
+        <li><code>onUnload</code> - h&auml;ndelse som intr&auml;ffar n&auml;r dokumentet laddas ur.</li>
+        <li><code>onBlur</code> - h&auml;ndelse som intr&auml;ffar n&auml;r f&ouml;nstret blir aktivt.</li>
+        <li><code>onFocus</code> - h&auml;ndelse som intr&auml;ffar n&auml;r f&ouml;nstret blir inaktivt.</li>
+      </ul>
+
+      <p class="center"><a href="del3/javascript3_5.html" target="_blank" class="button button-primary">Exempel 3.5 - Objektet window</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3>Objektet document</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Varje f&ouml;nster inneh&aring;ller ett dokument och objektet document
+        motsvarar dokument samt &auml;r &quot;underordnat&quot; objektet window.
+        Objektet &auml;r ett av de mesta anv&auml;nda, i.a.f. dess metoder <code>write()</code> och
+        <code>writeln()</code> som behandlats tidigare. I Navigator &auml;r
+        den enda f&auml;rgen som kan &auml;ndras med JavaScript bakgrundsf&auml;rgen
+        n&auml;r hemsidan laddat klart.</p>
+
+      <ul>
+        <li><code>bgColor</code> - bakgrundsf&auml;rgen f&ouml;r dokumentet.</li>
+        <li><code>lastModified</code> - datum och tid som HTML-dokumentet redigerades sist.</li>
+        <li><code>referrer</code> - addressen till hemsidan som l&auml;nkade till denna.</li>
+      </ul>
+
+      <ul>
+        <li><code>close()</code> - st&auml;nger f&ouml;nstret.</li>
+        <li><code>write()</code> - skriver till dokumentet.</li>
+        <li><code>writeln()</code> - skriver till dokumentet och avslutar med en
+          radbrytning. Radbrytningen sker endast d&aring; man skriver (HTML-kod)
+          till ett annat f&ouml;nster.</li>
+      </ul>
+
+      <p>F&ouml;r att visa egenskapen referrer s&aring; visas h&auml;r hemsidan som l&auml;nkade till
+        denna och som bes&ouml;karen klickade p&aring; f&ouml;r att se denna hemsida:</p>
+
+      <p class="center"><strong><output id="referrer"></output></strong></p>
+
+      <script type="text/javascript">
+        document.getElementById("referrer").innerHTML = document.referrer;
+      </script>
+
+      <p>Detta dokument inneh&aring;ller ett exempel p&aring; hur man kan anv&auml;nda
+        metoden <code>open()</code>. I exempeldokumentet finns kod som visar hur <code>write()</code>,
+        <code>writeln()</code> och <code>close()</code> fungerar.</p>
+
+      <p class="center"><a href="del3/javascript3_6.html" target="_blank" class="button button-primary">Exempel 3.6 - Objektet document</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3>Objektet history</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Egenskapen history...</p>
+
+      <ul>
+        <li><code>length</code> - antal sidor som webbl&auml;saren har anv&auml;nts f&ouml;r att
+          titta p&aring;.</li>
+      </ul>
+
+      <ul>
+        <li><code>back()</code> - g&ouml;r att webbl&auml;saren visar f&ouml;regvende sida som
+          bes&ouml;karen bes&ouml;kt.</li>
+        <li><code>forward()</code> - g&ouml;r att webbl&auml;saren visar n&auml;sta sida som bes&ouml;karen
+          bes&ouml;kt.</li>
+        <li><code>go(pos)</code> - g&ouml;r att webbl&auml;saren visar sidan p&aring; plats pos
+          i historielistan som bes&ouml;karen bes&ouml;kt.</li>
+      </ul>
+
+      <p>F&ouml;r att visa hur man kan be webbl&auml;saren hoppa tillbaka ett steg s&aring;
+        kan du klicka p&aring; denna l&auml;nk: <a href="javascript:history.back()">&lt;&lt;Tillbaka</a>.
+        V&auml;rdet f&ouml;r attributet <code>href</code> i taggen <code>a</code> &auml;r
+        <code>&quot;javascript:history.back()&quot;</code>.
+        (Klicka p&aring; Fram&aring;t/Forward f&ouml;r att komma tillbaka till denna hemsida
+        om ni klickar p&aring; &lt;&lt;Tillbaka ovan!)</p>
+
+      <p class="center"><a href="del3/javascript3_7.html" target="_blank" class="button button-primary">Exempel 3.7 - Objektet history</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3>Objektet location</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Objektet inneh&aring;ller bl.a. information om webbserver och dokumentets
+        s&ouml;kv&auml;gen till dokumentet.</p>
+
+      <ul>
+        <li><code>host</code> - adressen till webbservern.</li>
+        <li><code>hostname</code> - namnet p&aring; webbservern.</li>
+        <li><code>href</code> - URL:en till dokumentet.</li>
+        <li><code>pathname</code> - s&ouml;kv&auml;gen till dokumentet p&aring; servern.</li>
+        <li><code>port</code> - porten som webbservern anv&auml;nder.</li>
+        <li><code>protocol</code> - protokollet som anv&auml;nds.</li>
+      </ul>
+
+      <ul>
+        <li><code>reload()</code> - </li>
+        <li><code>replace()</code> - </li>
+      </ul>
+
+      <p class="center"><a href="del3/javascript3_8.html" target="_blank" class="button button-primary">Exempel 3.8 - Objektet location</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="egna">Egna objekt</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I JavaScript kan man skapa egna objekt (eller snarare klasser som man
+        skapar objekt fr&aring;n) om man vill. Klasserna existerar endast s&aring; l&auml;nge
+        som bes&ouml;karen har webbsidan &ouml;ppen (eller snarare s&aring; l&auml;nge n&aring;gon kod
+        exekverar i sidan :-).</p>
+
+      <p>Jag kommer inte att behandla dessa (eventuell kommer jag skriva om
+        detta stycke n&aring;gon g&aring;ng i framtiden).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="objekt">Objekt och klasser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Detta avsnitt behandlar teorin bakom en del av programmeringen i JavaScript,
+        d.v.s. du kan <a href="#referenser">skippa</a> detta avsnitt om du inte vill
+        f&ouml;rst&aring; <strong>varf&ouml;r</strong> vissa saker &auml;r och fungerar som de g&ouml;r i JavaScript.
+        :-)</p>
+
+      <p class="kommentar">F&ouml;rl&aring;t, men jag k&auml;nner att jag inte kan g&aring; vidare utan
+        att ge mig in p&aring; (relevanta delar av) programmeringens historia... eller i.a.f.
+        ge dig m&ouml;jligheten att l&ouml;sa om det, skulle du vara intresserad. :-) Sk&auml;let
+        &auml;r att jag vill f&ouml;rs&ouml;ka f&ouml;rklara  vad ett <strong>objektbaserat</strong> spr&aring;k
+        &auml;r, vilket JavaScript &auml;r enligt mig (i.a.f. med tanke p&aring; hur de flesta anv&auml;nder
+        spr&aring;ket).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Strukturerad programmering</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Strukturerad programmering bygger p&aring; tre saker och de anv&auml;nds i de flesta
+        programmeringsspr&aring;k (strukturerat eller objektorienterat), n&auml;mligen:</p>
+
+      <ul>
+        <li>sekvens - ordning som saker ska utf&ouml;ras</li>
+        <li>selektion - val (if- och case-satser)</li>
+        <li> och iteration - upprepningar (loopar).</li>
+      </ul>
+
+      <p>Dessa tre saker kan kombineras i o&auml;ndligt antal kombinationer f&ouml;r att skapa
+        program.</p>
+
+      <p>Tack vare funktioner s&aring; kan vi &auml;ven strukturera kod b&auml;ttre samt undvika upprepande
+        kod. En funktion &auml;r (kort) en bit kod som vi kan referera till (anropa) m.h.a.
+        ett namn. (Se sidan <a href="del2.html#funktioner">Spr&aring;ket</a> f&ouml;r hur funktioner
+        definieras och anropas.) Genom att skapa funktioner s&aring; kan vi bl.a. bryta
+        ner problemet (som utveckling av ett program &auml;r) i mindre delar samt placera
+        kod som upprepas p&aring; ett st&auml;lle (s&aring; att vi bara beh&ouml;ver &auml;ndra p&aring; ett st&auml;lle,
+        skulle vi hitta ett fel i kod eller vilja &auml;ndra programmets funktion).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Objektorienterad (OO) programmering</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>OO-programmering bygger
+        vidare p&aring; strukturerad programmering, d.v.s. vi anv&auml;nder fortfarande de
+        grundl&auml;ggande koncepten sekvens, selektion och iteration. Men OO bygger vidare
+        och introducerar tv&aring; nya begrepp: klasser och objekt (vilka &auml;r revolutionerande
+        och framtiden, skulle vi anv&auml;nda dem fullt ut :-).</p>
+
+      <p>En klass &auml;r en mall f&ouml;r att skapa objekt och anv&auml;nds f&ouml;r att definiera beteende
+        (funktion) hos objekt av klassen. Klasser kan &auml;ven inneh&aring;lla metoder (&quot;funktioner&quot;)
+        och egenskaper (v&auml;rden eller konstanter). (Dessa metoder och egenskaper kan
+        anv&auml;ndas utan att skapa objekt - se mer nedan.)</p>
+
+      <p>Objekt &auml;r instanser (f&ouml;rekomster) av klasser samt har egenskaper
+        och metoder (&quot;funktioner&quot;) som vi kan anv&auml;nda f&ouml;r att fr&aring;ga om,
+        och &auml;ndra, (enskilda) objekts tillst&aring;nd (&quot;v&auml;rden&quot;). (Metoder och
+        egenskaper har, som sagt, definierats i klassen enligt f&ouml;rra stycket. Men
+        egenskaperna &auml;r unika f&ouml;r respektive objekt av klassen som skapas.)</p>
+
+      <p>Det h&auml;r med klasser och objekt, d.v.s. objektorientering, kr&auml;ver ett nytt
+        tankes&auml;tt, vilket (till stor del) inte &auml;r relevant f&ouml;r oss JavaScript-programmerare
+        att f&ouml;rst&aring;. :-) Det enda vi beh&ouml;ver f&ouml;rst&aring; &auml;r varf&ouml;r vi skriver p&aring; ett visst
+        s&auml;tt ibland (n&auml;r vi anv&auml;nder funktioner) och p&aring; ett annat s&auml;tt (n&auml;r vi anv&auml;nder
+        metoder i objekt eller klasser). Enklast &auml;r att visa med ett exempel.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>OO-exempel</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En person (objekt) vet vilket &auml;r den &auml;r f&ouml;dd (egenskap)
+        och om jag fr&aring;gar personen hur gammal den &auml;r (metod) s&aring; kan
+        personen (objektet) r&auml;kna ut hur gammal den &auml;r. Vilket &aring;r det &auml;r kan personen
+        (objektet) fr&aring;ga (metod) kalendern (eller, i datatermer, klassen Date). &quot;&Ouml;versatt&quot;
+        till JavaScript s&aring; skulle vi kunna skriva f&ouml;ljande kod:</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var fodelsear = 2000;
+var aktuelltAr = new Date().getFullYear(); //H&auml;mta &aring;r med 4 siffror
+var alder = aktuelltAr - fodelsear; //=&gt; 17 &aring;r n&auml;r detta skrivs</code></pre>
+
+      <p>&Aring;lder f&ouml;r person f&ouml;dd &aring;r 2000: <output id="birthyear"></output></p>
+      <script>
+        var fodelsear = 2000; 
+        var aktuelltAr = new Date().getFullYear(); //H&auml;mta &aring;r med 4 siffror
+        document.getElementById("birthyear").innerHTML = aktuelltAr - fodelsear; //=&gt; 17 &aring;r n&auml;r detta skrivs
+      </script>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>(Om vi skapar flera personobjekt s&aring; har de varsitt v&auml;rde p&aring; egenskapen
+        f&ouml;delse&aring;r, d.v.s. de kan vara f&ouml;dda olika &aring;r och d&auml;rmed ha olika &aring;lder.)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Objekt och deras metoder och egenskaper </h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vad jag vill visa med exempel ovan (men inte sj&auml;lva JavaScript-koden :-)
+        &auml;r att vissa saker (egenskaper) &auml;r en del av objekt. Ett typiskt exempel p&aring;
+        detta &auml;r en vektor (<em>array</em>, som &auml;r ett objekt) som sj&auml;lv vet hur l&aring;ng
+        den &auml;r (egenskapen <em>length</em>). F&ouml;r att fr&aring;ga ett objekt om v&auml;rdet p&aring;
+        en egenskap s&aring; anv&auml;nder man f&ouml;ljande syntax (kallat punktnotation):</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var min_var = objekt.egenskap;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Exempel ovan s&auml;ger &quot;sn&auml;lla <em>objekt</em>, ge mig v&auml;rdet p&aring; din <em>egenskap</em>&quot;.
+        Objektet (med egenskapen) skrivs allts&aring; f&ouml;rst och f&ouml;ljs av en punkt och namnet
+        p&aring; egenskap vi vill komma &aring;t. (<strong>Observera</strong> att egenskapens
+        namn <strong>inte</strong> f&ouml;ljs av parenteser! Parenteser anv&auml;nds endast
+        om det &auml;r en metod, vilket behandlas h&auml;rn&auml;st.)</p>
+
+      <p>Objekt kan &auml;ven ha metoder (&quot;funktioner&quot;), vilket och vi s&aring;g exempel
+        p&aring; detta redan p&aring; sidan Grundl&auml;ggande: utskrift till dokument med write-metoderna
+        (<span class="code">document.write(<em>text</em>)</span>). Vi kan &auml;ven se
+        exempel p&aring; metodanrop, n&auml;r klassen Array behandlades ovan, d&auml;r vi l&auml;rde oss att
+        vi kan anropa metoden <span class="code">reverse</span> f&ouml;r att kasta om ordningen
+        p&aring; vektorers element. Metoder i objekt anropas p&aring; samma s&auml;tt som vi anv&auml;nder
+        egenskaper i objekt, men vi l&auml;gger till parenteser (med eventuella argument
+        mellan).</p>
+
+      <p>Precis som med funktioner s&aring; kan metoder returnera ett v&auml;rde.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>objekt.metod(argument1, argument2, ...);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Klasser och deras metoder och egenskaper/konstanter</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>&Auml;ven klasser kan ha metoder och egenskaper, vilket vi sett exempel p&aring;
+        denna webbsida n&auml;r vi tittade p&aring; klasser som Math och Date. Egenskaper och
+        metoder anropas p&aring; samma s&auml;tt som f&ouml;r objekt (d.v.s. med punktnotation) men
+        vi ers&auml;tter objekt med klassers namn.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Objektbaserade spr&aring;k</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I ett s.k. objektbaserat spr&aring;k anv&auml;nder vi fr&auml;mst strukturerad programmering,
+        <strong>men</strong> det finns &auml;ven ett antal klass och objekt (d.v.s. det
+        &auml;r en &quot;blandning&quot;).
+        Objektbaserade spr&aring;k identifieras genom att vi fr&auml;mst bara anv&auml;nder existerande
+        objekt (s&aring; som document och window) samt anv&auml;nda s.k. klassmetoder (metoder, eller
+        &quot;funktioner&quot;, i klasser som Date och String) men aldrig skapar
+        egna klasser.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Sammanfattningsvis...</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vad vi (fr&auml;mst) beh&ouml;ver veta &auml;r att spr&aring;ket JavaScript har objektorienterade egenskaper
+        och vi m&aring;ste skilja p&aring; om det &auml;r en funktion eller metod (i objekt eller klass)
+        som vi anropar:</p>
+
+      <ul>
+        <li>om vi anropar en funktion anv&auml;nds inga punkter (<span class="code">funktionsnamn(...)</span>).</li>
+        <li>om vi anropar en metod s&aring; m&aring;ste metodnamnet f&ouml;reg&aring;s av ett objekt eller
+          namnet p&aring; en klass samt en punkt (<span class="code">objekt.metodnamn(...)</span>).</li>
+      </ul>
+
+      <p>Sk&auml;let till varf&ouml;r jag ville ta upp &auml;mnet i detta avsnitt, skulle du ha l&ouml;st
+        hit, &auml;r bl.a. d&aring; personer som jag, skolade i b&aring;de strukturerad och objektorienterad
+        programmering, ibland har sv&aring;rt f&ouml;r spr&aring;k som JavaScript som &auml;r n&aring;gon form
+        av &quot;hybrid&quot; eller blandning. M&aring;nga nyb&ouml;rjare har &auml;ven problem att
+        f&ouml;rst&aring; n&auml;r de ska anv&auml;nda punktnotation med objekt/klasser eller bara
+        &quot;funktionsnamnet&quot; (d.v.s. inte en metod, n&aring;got som oftast &auml;r samma sak
+        f&ouml;r nyb&ouml;rjaren).</p>
+
+      <p>N&aring;ja, dags att sluta och svamla och &aring;terg&aring; till mer praktiska saker. :-)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <p>Nedan finns n&aring;gra webbsidor/-platser med mer information om &auml;mnet p&aring; denna
+        webbsida.</p>
+
+      <ul>
+        <li><a href="https://www.w3schools.com/jsref/default.asp" class="externallink"
+          target="_blank" rel="noopener">JavaScript and HTML DOM Reference</a>
+          hos <a href="https://www.w3schools.com/" class="externallink" target="_blank" rel="noopener">W3Schools</a>.</li>
+      </ul>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="del2.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="del4.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Skillnaden mellan attributen CELLPADDING och CELLSPACING</title>
+</head>
+<body>
+
+<h1>Skillnaden mellan attributen CELLPADDING och CELLSPACING</h1>
+
+<h2>cellpadding=&quot;45&quot; och cellspacing=&quot;2&quot;</h2>
+
+<table border="1" cellpadding="45" cellspacing="2">
+  <tr>
+    <td>Rad 1 - kolumn 1</td>
+    <td>Rad 1 - kolumn 2</td>
+  </tr>
+  <tr>
+    <td>Rad 2 - kolumn 1</td>
+    <td>Rad 2 - kolumn 2</td>
+  </tr>
+</table>
+
+<h2>cellpadding=&quot;1&quot; och cellspacing=&quot;45&quot;</h2>
+
+<table border="1" cellpadding="1" cellspacing="45">
+  <tr>
+    <td>Rad 1 - kolumn 1</td>
+    <td>Rad 1 - kolumn 2</td>
+  </tr>
+  <tr>
+    <td>Rad 2 - kolumn 1</td>
+    <td>Rad 2 - kolumn 2</td>
+  </tr>
+</table>
+
+<hr />
+
+<!-- ****************************************************************** -->
+<!-- Nedanför denna kommentar behandlas linjer mellan celler med färger -->
+<!-- ****************************************************************** -->
+
+<h2>Tabeller med färgad bakgrund</h2>
+
+<p>Kolumnerna har givits bakgrundsfärgerna ljusblå, ljusgrön respektive
+ljusblå. Mellan cellerna lyser den vita bakgrundsfärgen igenom.</p>
+
+<table border="0" style="width: 100%">
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 1 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 1 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 1 - Kolumn 3</td>
+  </tr>
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 2 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 2 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 2 - Kolumn 3</td>
+  </tr>
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 3 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 3 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 3 - Kolumn 3</td>
+  </tr>
+</table>
+
+<p>Genom att minska cellavståndet (cellspacing=&quot;0&quot;) så försvinner
+de vita linjerna mellan cellerna. <b>Observera</b> att man även bör ta bort
+kantlinjen (border=&quot;0&quot;) för att denna &quot;effekt&quot; även ska
+fungera i äldre webbläsare! </p>
+
+<table border="0" style="width: 100%; background-color: #ffff00"  cellspacing="0">
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 1 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 1 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 1 - Kolumn 3</td>
+  </tr>
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 2 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 2 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 2 - Kolumn 3</td>
+  </tr>
+  <tr>
+    <td style="width: 33%; background-color: #00CCFF">Rad 3 - Kolumn 1</td>
+    <td style="width: 33%; background-color: #00FF00">Rad 3 - Kolumn 2</td>
+    <td style="width: 34%; background-color: #00CCFF">Rad 3 - Kolumn 3</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<!-- START: Allt mellan denna och nästa kommentar är sidfoten med dokumentinformation -->
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Björn G.D. Persson.
+  <b>Uppdaterad:</b> 2011-04-25.</p>
+<!-- SLUT: Dokumentinformation -->
+
+</body>
+</html>

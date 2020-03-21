@@ -1,0 +1,9 @@
+/*** Customise Bulma **********************************************************/
+header.container-lg, footer.container-lg { 
+  background-color: #E03C31; 
+  color: #FEDB00; 
+  /* padding: 1em; */
+}
+.bg-scania-red { background-color: #E03C31; }
+/* TODO: Adjust colour - #FEDB00 - for a11y */
+.fg-scania-yellow { color: #FEDB00; }

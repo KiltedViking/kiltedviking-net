@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <!-- End Google Tag Manager -->
+  <!-- START: Metadata for sida -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_4.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del1/javascript1_4.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: Metadata for sida -->
+  <title>Meddelanderutor i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Meddelanderutor i JavaScript</h1>
+<p>Detta exempel fungerar inte så bra längre då inte många webbläsare har statusrader...:-S</p>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"><br />
+  <br />
+  &nbsp;&nbsp;&nbsp; //Visa text i statusraden längst ner i webbläsare<br />
+  &nbsp; status = "Text i statusraden&quot;;<br />
+  <br />
+  &lt;/script></p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+      //Visa text i statusraden längst ner i webbläsare
+    window.status = "Text i statusraden";
+  </script>
+  </p>
+</blockquote>
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth() + 1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

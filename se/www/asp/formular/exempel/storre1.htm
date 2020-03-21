@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+  <TITLE>Ett större exempel med formulär</TITLE>
+  <STYLE>
+  <!--
+    H1, H2 { font-family: Verdana; }
+    P      { font: 10pt Verdana; }
+  -->
+  </STYLE>
+</HEAD>
+<BODY>
+
+<!-- Centrera tabell -->
+<DIV ALIGN="center">
+<CENTER>
+
+  <!-- Tabell används för att styra bredd på text och för att kunna centrera -->
+  <!-- Tabellen innehåller endast en rad och en kolumn -->
+  <TABLE BORDER="0" WIDTH="600">
+    <TR>
+      <TD WIDTH="100%">
+
+        <H1>Ett större exempel med formulär</H1>
+        <P>I detta exempel visas ett formulär i filen STORRE1.HTM och som
+          skickar innehållet till en fil med namnet STORRE1.ASP.</P>
+        
+        <HR>
+        
+        <!-- START: Formulär -->
+        <FORM METHOD="post" ACTION="storre1.asp">
+        
+          <P>Förnamn<BR>
+            <INPUT TYPE="text" NAME="fnamn"></P>
+            
+          <P>Efternamn<BR>
+            <INPUT TYPE="text" NAME="enamn"></P>
+            
+          <P>Jag är:
+            <INPUT TYPE="radio" NAME="sysselsattning" VALUE="studerande" CHECKED>studerande
+            <INPUT TYPE="radio" NAME="sysselsattning" VALUE="larare">lärare</P> 
+          
+          <P>Jag vill ha information om:
+            <INPUT TYPE="checkbox" NAME="bocker">läroböcker
+            <INPUT TYPE="checkbox" NAME="program">program</P> 
+          
+          <P><INPUT TYPE="submit" VALUE="Skicka!"></P> 
+          
+        </FORM>
+        <!-- SLUT: Formulär -->
+        
+        <HR>
+
+      </TD>
+    </TR>
+  </TABLE>
+
+</CENTER>
+</DIV>
+
+</BODY>
+</HTML>

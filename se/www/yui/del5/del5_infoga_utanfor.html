@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Infoga utanför - YUI - Bj&ouml;rns studiewebb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+    
+  </style>
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../../js/yui-min.js"></script>
+</head>
+<body>
+<div id="container">
+  <h1>Infoga utanför - YUI</h1>
+  <p>Detta exempel visar på hur man kan infoga något (text/HTML) utanför element, 
+    d.v.s. före eller efter elementet. En knapp lägger till före och en annan 
+    efter en div-tagg. [ Detta verkar inte fungera i YUI. ]</p>
+  
+  <h2>Formulär för inmatning av ny text</h2>
+  
+  <form action="#" method="get">
+    <p>Text och/eller HTML att lägga till:<br>
+      <input type="text" name="newtext" id="newtext"></p>
+    <p><input type="button" id="addtextafter" value="L&auml;gg till text före">
+      <input type="button" id="addtextbefore" value="L&auml;gg till text efter"></p>
+  </form>
+  
+  <h2>DIV-tagg för att lägga till utanför</h2>
+  <div id="idplaceholder" style="border: dotted 1px black; padding: 5px;">
+    <p>Lite text i div-tagg. Text som läggs till läggs till i före eller efter div-tagg som innehåller detta stycke.</p>
+  </div>
+  
+  <script type="text/javascript">
+	YUI().use("node", function(Y) {
+		//Koppla händelse till första knappen (sist)
+      Y.one("#addtextafter").on("click", function(event) {
+        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, före vald div-tagg
+        Y.one("#idplaceholder").before("<p>" + Y.one("#newtext").get("value") + "</p>");
+      });
+      //Koppla händelse till andra knappen (först)
+      Y.one("#addtextbefore").on("click", function(event) {
+        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, efter vald div-tagg
+        Y.one("#idplaceholder").after("<p>" + Y.one("#newtext").get("value") + "</p>");
+      });
+	});
+//    $(document).ready(function() {
+//      //Koppla händelse till första knappen (sist)
+//      $("#addtextafter").click(function(event) {
+//        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, före vald div-tagg
+//        $("#idplaceholder").before("<p>" + $("#newtext").val() + "</p>");
+//      });
+//      //Koppla händelse till andra knappen (först)
+//      $("#addtextbefore").click(function(event) {
+//        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, efter vald div-tagg
+//        $("#idplaceholder").after("<p>" + $("#newtext").val() + "</p>");
+//      });
+//    });
+  </script>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="sidfot" style="margin-top: 5px; border-top: solid 1px gray;">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-22.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

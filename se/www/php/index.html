@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/php/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/php/" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <title>PHP - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
+  <link href="../css/milligram.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-milligram.css" rel="stylesheet" />
+</head>
+<body>
+<header class="container">
+  <div class="row">
+    <div class="column column-100">
+      <a href="../"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      <h1>PHP</h1>
+    </div>
+  </div>
+</header> 
+
+<div class="container">
+  <div class="row">
+    <div class="column column-66">
+    <!-- *** Innehall ******************************************************** -->
+    <h2>Inledning</h2>
+    <p>På dessa sidor beskrivs hur man använder <b>PHP</b> för att skapa dynamiska 
+      webbsidor. För att få ut mest av beskrivningarna krävs en förståelse för 
+      (X)HTML och programmering (samt ev. databaser).</p>
+    
+    <p>Här finns en <b>&quot;lathund&quot; för PHP</b>
+      som innehåller information om hur man deklarerar variabler,
+      syntaxen för kontrollstrukturer (if-/case-satser, loopar och
+      funktioner) samt några funktioner som finns tillgängliga. Även <b>formulär
+      i PHP</b> och <b>databaser i PHP</b> beskrivs här.</p>
+    
+    <p>För beskrivning av installation av Apache, MySQL, PHP, m.m. - se <a target="_blank" 
+      href="../../sammanfattningar/">mina sammanfattningar</a>.</p>
+
+    <div class="panel">
+    <p class="kommentar"><b>Observera</b> att beskrivningarna på dessa webbsidor använder jag
+      för att sammanfatta och dokumentera det jag (än så länge?) lärt mig
+      om dessa teknologier. Det är på detta sätt jag studerar bäst, d.v.s.
+      lär mig och (försöker) komma ihåg sånt jag lärt mig. Därför kan
+      det förekomma sakfel och andra felaktigheter! (som jag rättar då jag
+      hittar dem eller får dem påpekade av andra). All kod har dock
+      provkörts och fåtts att fungera under Windows NT4/2000/XP/7/8/10 (samt till viss
+      del under Novell Netware, Linux och/eller macOS :-)).</p>
+    </div>
+
+      <ul>
+        <li><a href="#introduktion">Introduktion</a></li>
+        <li><a href="#langref">Lathund</a></li>
+        <li><a href="#formular">Formulär</a></li>
+        <li><a href="#databaser">Databaser</a></li>
+      </ul>
+              
+      <h2 id="introduktion">Introduktion</h2>
+      
+      <p>PHP är ett skriptspråk som bäddas in i HTML-kod (precis som ASP och JSP,
+        med den skillnaden att JSP kompileras, d.v.s. tolkas inte varje gång). Så 
+        med en grundläggande förståelse för HTML
+        (och/eller ASP/JSP), så är inte förståelsen för PHP långt borta.</p>
+
+      <p>Syntaxen för PHP påminner om den hos C/C++/C#, Java och Perl. En viktig
+        skillnad mot många andra språk (skriptspråk eller inte) är
+        att PHP inte skiljer på gemener och versaler för operationer,
+        kontrollstrukturer och funktioner, men däremot på variabelnamn! D.v.s.
+        $enVariabel och $envariabel är inte samma variabel enligt PHP.</p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+      
+      <h2 id="langref">PHP lathund</h2>
+      
+      <p>På dessa webbsidor finns en &quot;lathund&quot; för PHP. För att få
+        ut mest  av lathunden bör man ha en
+        grundläggande förståelse för programmering (och gärna då i C/C++, Java
+        och/eller ASP).</p>
+      
+      <h3>PHP lathund</h3>
+      
+      <p>En&nbsp;lathund för hur man skriver koden i PHP. (Lathunden har fått delas 
+        då den blev väldigt lång.)</p>
+        
+      <ul>
+        <li><b>Del 1</b> innehåller bl.a. grundläggande om
+          PHP, variabler, utskrift, operatorer,
+          kontrollstrukturer (if- och case-satser, loopar samt  funktioner)</li>
+        <li><b>Del 2</b> innehåller bl.a.
+          användbara funktioner och PHP:s inbyggda objekt. Del 2 är under
+          uppbyggnad...</li>
+      </ul>
+
+      <p><a href="lathund/" class="button button-red">Del 1</a> 
+        <a href="lathund/lathund2.html" class="button button-red">Del 2</a></p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+      
+      <h2 id="formular">Formulär i PHP</h2>
+      
+      <p>Det främsta sättet att hämta information från besökare på en
+        webbplats är via formulär. På denna sida beskrivs hur man skapar
+        formulär med HTML-kod (som t.ex. kan skickas till en PHP-sida) och hur man kommer åt
+        informationen från formulär i PHP-sidor.</p>
+      
+      <p><a href="formular/" class="button button-red">PHP och formulär</a></p>
+      
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+      
+      <h2 id="databaser">Databaser i PHP</h2>
+
+      <p>De flesta informationssystem använder databaser för att lagra
+        information. På dessa hemsidor beskrivs de olika
+        funktionerna för databaser (bl.a.
+        <a href="https://www.mysql.com/" target="_blnak" rel="noopener">MySQL</a>) 
+        i PHP samt hur man kan hämta, infoga,
+        uppdatera och radera poster i tabeller i en databas.</p>
+
+      <p>I PHP används olika funktioner (eller klasser och metoder) för att bl.a. ansluta till olika databaser
+        och i nedanstående beskrivningar används databasen MySQL. Men funktioner
+        för andra databaser (t.ex. Oracle) fungerar på ett liknande sätt.
+        (Skälet till att använda MySQL är för att den ofta används i samband med
+        PHP - liksom Linux och Apache, något som kallas LAMP. Eventuellt kommer en beskrivning för Oracle också...:-)</p>
+
+      <p><a href="databaser/" class="button button-red">PHP och MySQL</a>
+        <a href="databaser/mysqli.html" class="button button-red">PHP och MySQL (MySQLi)</a></p>
+
+      <p class="tillborjan"><a href="#">Till början</a> på sida |
+        <a href="../index.html">Till</a> startsida för studiewebb</p>
+    </div>
+
+    <div class="column column-33">
+      <h3>Länkar</h3>
+      <p>(Kommer... eller?)</p>
+    </div>
+  </div>
+</div>
+
+<footer class="container">
+  <div class="row">
+    <div class="column column-100">
+      <p><b>Skapad av:</b>  Björn G D Persson. <b>Uppdaterad:</b> 2020-03-07.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

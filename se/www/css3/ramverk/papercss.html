@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head><head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/ramverk/papercss.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/ramverk/papercss.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Exempelsida: Paper CSS - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/paper.min.css" />
+</head>
+<body>
+  <div class="paper container">
+    <header>
+      <h1>Exempelsida: Paper CSS</h1>
+      <p>Denna sida visar på vanliga &quot;komponenter&quot; i ramverket Paper CSS 
+        (<a href="https://www.getpapercss.com/" target="_blank" rel="noopener">https://www.getpapercss.com/</a>).
+        <b>Observera</b> att design inte är min starka sida och att min brist 
+        på förståelse av ramverket båda påverkar denna sidas utseende! ;-)</p>
+    </header>
+
+    <div class="row">
+      <div class="col-6 col">
+        <h2>Rubriker och stycken</h2>
+        <h2>Rubrik nivå 2</h2>
+        <h3>Rubrik nivå 3</h3>
+        <h4>Rubrik nivå 4</h4>
+        <h5>Rubrik nivå 5</h5>
+        <h6>Rubrik nivå 6</h6>
+        
+        <p>Ett stycke text</p>
+      </div>
+
+      <div class="col-6 col">
+        <h2>Knappar</h2>
+        <p><a href="#" class="paper-btn">Knapp (standard)</a></p>
+        <p><a href="#" class="paper-btn btn-primary">Knapp (primär)</a></p>
+        <p><a href="#" class="paper-btn btn-secondary">Knapp (sekundär)</a></p>
+        <p><a href="#" class="paper-btn btn-success">Knapp (framgång)</a></p>
+        <p><a href="#" class="paper-btn btn-warning">Knapp (varning)</a></p>
+        <p><a href="#" class="paper-btn btn-danger">Knapp (fara)</a></p>
+      </div>
+
+      <div class="col-6 col">
+        <h2>Punktlistor</h2>
+        <ul>
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+          <li>Punkt 3
+            <ul>
+              <li>Punkt 3.1</li>
+              <li>Punkt 3.2</li>
+              <li>Punkt 3.3</li>
+            </ul>
+          </li>
+          <li>Punkt 4</li>
+        </ul>
+
+        <ol>
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+          <li>Punkt 3
+            <ol>
+              <li>Punkt 3.1</li>
+              <li>Punkt 3.2</li>
+              <li>Punkt 3.3</li>
+            </ol>
+          </li>
+          <li>Punkt 4</li>
+        </ol>
+      </div>
+
+      <div class="col-6 col">
+        <h2>Formulär</h2>
+
+        <form action="#">
+          <div class="form-group">
+            <label for="min-text">Textruta</label>
+            <input id="min-text" placeholder="Exempel text">
+          </div>
+
+          <div class="form-group">
+            <label for="mitt-datum">Datum fält</label>
+            <input type="date" id="mitt-datum">
+          </div>
+
+          <fieldset class="form-group">
+            <div>
+              <label for="mitt-kryss" class="paper-check">
+                <input type="checkbox" id="mitt-kryss">
+                <span>Kryssruta</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+              <label for="min-radio1" class="paper-radio">
+                <input type="radio" id="min-radio1" name="min-radio" value="1">
+                <span>Radioknapp 1</span>
+              </label>
+
+              <label for="min-radio2" class="paper-radio">
+                <input type="radio" id="min-radio2" name="min-radio" value="2">
+                <span>Radioknapp 2</span>
+              </label>
+
+              <label for="min-radio3" class="paper-radio">
+                <input type="radio" id="min-radio3" name="min-radio" value="3">
+                <span>Radioknapp 3</span>
+              </label>
+          </fieldset>
+
+          <div class="form-group">
+            <label for="min-textyta">Textfält</label>
+            <textarea id="min-textyta" placeholder="Exempel text" class="form-control"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="mitt-val">Listruta</label>
+            <select id="mitt-val">
+              <option>Alternativ 1</option>
+              <option>Alternativ 2</option>
+              <option>Alternativ 3</option>
+            </select>
+          </div>
+
+          <p>
+            <input type="submit" value="Skicka" onclick="return false">
+            <input type="reset" value="Rensa">
+            <button onclick="return false;">Knapp</button>
+          </p>
+        </form>
+      </div>
+
+      <div class="col-6 col">
+        <h2>Tabeller</h2>
+        <h3>Utan stil</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Kolumn 1</th>
+              <th>Kolumn 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rad 1-1</td>
+              <td>Rad 1-2</td>
+            </tr>
+            <tr>
+              <td>Rad 2-1</td>
+              <td>Rad 2-2</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Med stil (zebraränder)</h3>
+
+        <table class="table-alternating">
+          <thead>
+            <tr>
+              <th>Kolumn 1</th>
+              <th>Kolumn 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rad 1-1</td>
+              <td>Rad 1-2</td>
+            </tr>
+            <tr>
+              <td>Rad 2-1</td>
+              <td>Rad 2-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h2>Paneler/kort</h2>
+        <p>(Kort är animerade som standard, men på denna sida är de <b>inte</b> klickabara.)</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 col">
+        <div class="card">
+          <div class="card-body">
+            <p>Kort med bara text</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Kort med titel</h3>
+            <p>Kort med titel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <p>Detta fönster/denna flik är tänkt att stängas för att återgå till 
+              sidan <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+          </div>
+        </div>
+        <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-03-14.</p>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+</html>

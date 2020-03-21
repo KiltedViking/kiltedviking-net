@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/servlets/dbkoppling.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/servlets/dbkoppling.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Servlets och databaskopplingar - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+  <style>
+      .ei0290 { font-weight: bold; color: red; background-color: #ffff66 }
+  </style>
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Servlets och databaskopplingar</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>Denna sida beskriver hur man
+        hämtar data från en databas och presenterar på en genererad
+        HTML-sida samt hur man sparar information från ett formulär i
+        databasen. Du bör ha en <a href="./">grundläggande förståelse</a>
+        för hur servlets fungerar innan du läser informationen på denna
+        hemsida.</p>
+      <p>Denna hemsida hur databaskopplingar kan ske <b>med Microsoft Access
+        (genom ODBC</b><b>)</b>, hur man <b>skickar en parameter till en
+        fråga</b> i Access samt <b>mot Oracle</b> (det senare är under
+        uppbyggnad).</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Databaskopplingar</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+      <nav class="menu">
+        <a href="#odbc" class="menu-item">ODBC</a>
+        <a href="#odbcparameter" class="menu-item">ODBC med parameter</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2><a name="odbc"></a>Databaskopplingar med ODBC</h2>
+      <p>Databaskopplingar från en servlet skiljer sig inte så mycket från de i
+      en vanlig Java-applikation. Den &quot;stora&quot; skillnaden är att en
+      servlet exekverar på en server (inte besökarens dator) och att det, om ni
+      använder ODBC, måste finnas en ODBC-källa på servern (inte klienten).
+      <a href="source/DBmedJDBC.zip">Ladda
+      hem</a> den fullständiga koden samt Access-databasen.&nbsp;</p>
+      <p class="kommentar">Exemplen nedan bygger på ODBC men skulle lika gärna fungera med andra
+      drivrutiner för er databas. Orsaken till att ODBC-används i exemplen är
+      att det inte finns någon (gratis) JDBC-drivrutin till Microsoft Access
+      men dock en för ODBC. Även skälet att många studenter har just
+      Microsoft Access hemma och den är enkel att transportera gör det till en
+      lämplig databas att använda för utbildning. Generellt sätt är inte ODBC att rekommendera då
+      databastillverkarens JDBC-drivrutiner ofta är snabbare (och har mer
+      funktionalitet) än ODBC.</p>
+
+      <h3>Hämtar information från databas</h3>
+      <p>Som nämnts ovan så är inte databaskopplingar i en servlet något
+      annorlunda, vilket detta exempel ska visa. Nedan finns två länkar: en som
+      visar en hemsida med koden för servlet och en som anropar servlet (visar
+      resultatet av exekveringen).</p>
+
+      <ul>
+        <li><a href="source/DBList.java.txt">Visa</a> Java-kod för servlet - servlet hämtar
+          alla poster från en tabell och skapar en resulterande HTML-sida som visar alla poster i
+          tabellen.</li>
+      </ul>
+
+      <h3>Anropa servlet från formulär och lägg till data från formulär</h3>
+      <p>Att anropa en servlet istället för t.ex. en ASP-sida från ett
+      HTML-formulär skiljer sig inte så mycket. Skillnaden ligger i att vi anger
+      URL:en till servlet istället för en ASP-fil.</p>
+      <p>Skapa ett formulär. Ange sökvägen till servlet i FORM-taggens attribut ACTION. T.ex.
+
+      <blockquote>
+      <span class="kod">ACTION=&quot;/vXX/servlet/ServletNamn&quot;</span>
+      </blockquote>
+
+      <p>Det går bra att placera formuläret var som
+      helst under gruppens huvudmapp (vXX) så länge som URL:en i attributet ACTION är
+      absolut (d.v.s. sökvägen bör börjar med &quot;/&quot;). <b>OBS!</b> Ni bör undvika att placera HTML-/ASP-filer i
+      mappen WEB-INF och dess undermappar!
+      <p>Nedan finns tre länkar: en som visar hemsida med koden för
+      HTML-formuläret, en som visar en hemsida med koden för servlet och en
+      som visar själva formuläret (som i sin tur anropar servlet).</p>
+      <ul>
+        <li><a HREF="source/AlbumForm.html.txt">Visa</a> HTML-kod för exemplets formulär.</li>
+        <li><a HREF="source/DBInfoga.java.txt">Visa</a> Java-kod för servlet - servlet lägger till en post i
+        en tabell. Fältens data hämtas från
+        formuläret och servlet visar även vilken data som hämtats från
+        formulär.</li>
+      </ul>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><a name="odbcparameter"></a>Skicka parameter till en fråga i Access</h2>
+      <p>Ibland kan det vara praktiskt att skapa en fråga man använder
+      ofta i Access eftersom databashanterare ofta brukar hantera detta
+      effektivare än om den får en SQL-sats. Om man sen vill (dynamiskt)
+      kunna ange vilket värde som ska användas för att sortera ut
+      posterna kan man skicka en parameter till frågan. För detta
+      använder vi klassen CallableStatement istället för Statement som i
+      exemplet ovan.</p>
+      <p>För att använda klassen CallableStatement måste vi tala om
+      vilken fråga (i Access) vi vill använda och vad värdet på
+      parametern är. Det tidigare gör vi med följande sats där vi skapar
+      en instans av klassen CallableStatement.</p>
+
+      <blockquote>
+        <p>CallableStatement cst = con.prepareCall(&quot;{call
+        qryAlbumForArtist(?)}&quot;);</p>
+      </blockquote>
+
+      <p>Frågetecken (&quot;?&quot;) i strängen anger hur många
+      parametrar vi vill skicka till frågan (en i&nbsp; vårt fall ovan).
+      Nästa steg är att tala om vad värdet på parametern ska vara och
+      eftersom vi vill skicka en sträng så använder vi följande sats.</p>
+
+      <blockquote>
+        <p>cst.setString(1, &quot;Tina Turner&quot;);</p>
+      </blockquote>
+
+      <p>Metoden setString() talar om att det är en sträng vi vill
+      använda som parameter. Det finns metoder för att ange heltal (setInt()),
+      decimaltal (setFloat()), m.m.. Som parametrar till metoderna setXXX()
+      skickar vi vilken parameter (börjar numreras på 1!) och själva
+      värdet för parametern. Så i satsen ovan så vill vi att parameter 1
+      (den enda) till frågan ska ha värdet &quot;Tina Turner&quot;. Hade
+      vi haft fler parametrar till frågan så hade dessa varit 2, 3, o.s.v.
+      och vi hade behövt göra ett anrop av en setXXX()-metod för varje
+      parameter.</p>
+      <p>Nästa steg är att köra frågan. Eftersom frågan returnerar
+      poster (d.v.s. ett ResultSet-objekt) så använder vi metoden
+      executeQuery() och tilldelar resultatet till en variabel.</p>
+
+      <blockquote>
+      <p>ResultSet rs = cst.executeQuery();</p>
+      </blockquote>
+
+      <p>I detta exempel kommer vi använda ett HTML-formulär där
+      besökaren fyller i namnet på artisten/gruppen som han/hon vill se
+      album för. Vår serlvet, DBListParameter, läser artistens/gruppens
+      namn och skickar det som parameter till frågan qryAlbumForArtist.</p>
+      <p>Koden är i stort sett den samma som för klassen DBList ovan -
+      skillnaden ligger i början på try-catch-blocket där vi använder
+      oss av frågan i Access istället för en SQL-sats om besökaren fyllt
+      i textrutan i formuläret.</p>
+      <ul>
+        <li><a href="source/ArtistForm.html.txt">Visa</a> HTML-kod för
+          exemplets formulär.</li>
+        <li><a href="source/DBListParameter.java.txt">Visa</a> Java-kod för
+          servlet.</li>
+      </ul>
+
+      <h3>Kommentar till exemplet</h3>
+      <p>Om vi inte vill göra en fråga i databasen så skulle vi kunna
+      använda följande kod istället.</p>
+
+      <blockquote>
+        <p>CallableStatement cst =<br>
+        &nbsp;&nbsp;&nbsp; con.prepareCall(&quot;SELECT * FROM tblAlbum
+        WHERE Artist = '?'&quot;);<br>
+        <br>
+        cst.setString(1, &quot;Tina Turner&quot;);<br>
+        ResultSet rs = cst.executeQuery();</p>
+      </blockquote>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

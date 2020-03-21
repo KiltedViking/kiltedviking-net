@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <title>Stilmallar (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Stilmallar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li class="active"><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inledning</h2>
+
+          <p>Denna underwebb beskriver grundl&auml;ggande principer f&ouml;r version 3
+            av stilmallar - CSS3 (<em>Cascading Style Sheets</em>, CSS).  
+            Beskrivningar &auml;r p&aring; <b>inget</b> s&auml;tt utt&ouml;mmande, de &auml;r
+            t&auml;nkta att ge en n&aring;got djupar introduktion till stilmallar (CSS)
+            samt vara en k&auml;lla till (referens f&ouml;r) kunskap man inte anv&auml;nder
+            dagligen.</p>
+
+          <p>Exempelsidor i denna underwebb anv&auml;nder HTML version 5, men stilmallar b&ouml;r
+            &auml;ven fungera med HTML 4 och XHTML 1.</p>
+
+          <p><b>Observera</b> att denna underwebb anv&auml;nder JavaScript! F&ouml;r att
+            kunna anv&auml;nda underwebbens funktion (fr&auml;mst &ouml;ppna nya f&ouml;nster med exempel) kr&auml;vs
+            att din webbl&auml;sare st&ouml;djer JavaScript samt <b>inte</b> har inaktiverat
+            JavaScript! Din webbl&auml;sare m&aring;ste &auml;ven st&ouml;dja CSS version 3. :-)</p>
+          <p><b>Observera</b> även att version 8 och tidigare av webbläsaren Internet
+            Explorer inte f&ouml;ljer standarder s&aring; bra, om ens alls.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="beskrivning.html" class="collection-item">Beskrivning av stilmallar</a></li>
+            <li><a href="utforma.html" class="collection-item">Utforma HTML</a></li>
+            <li><a href="tankpa.html" class="collection-item">T&auml;nk p&aring; ...</a></li>
+            <li><a href="lankar.html" class="collection-item">L&auml;nkar</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Om stilmallar generellt</h2>
+
+    <div class="row">
+      <div class="seven columns">    
+        <p>Stilmallar fungerar, historiskt, inte alltid som man vill och inte alltid
+          p&aring; samma s&auml;tt mellan webbl&auml;sare fr&aring;n olika tillverkare.
+          Detta g&auml;ller &auml;ven mellan versioner av samma webbl&auml;sare d&aring; de kan ha olika
+          mycket st&ouml;d f&ouml;r CSS. Detta beror bl.a. p&aring; att vissa versioner av webbl&auml;sare
+          inte har st&ouml;d f&ouml;r hela CSS-standarden (delar av version 3 &auml;r t.ex. fortfarande under utveckling)
+          samt att standarder &auml;r <strong>rekommendationer</strong>, d.v.s. det finns
+          utrymme f&ouml;r tolkning och vilja att implementera standarder.<br />
+          P&aring; de st&auml;llen d&auml;r jag uppt&auml;ckt att problem kan uppst&aring;
+          har jag lagt till ett OBS! sist i avsnittet.</p>
+
+        <p>F&ouml;r att stilmallar ska fungera tillfredst&auml;llande m&aring;ste man
+          ibland anpassa HTML- eller CSS-kod. T.ex. att alla HTML-dokument har
+          en dokumenttyp (se underwebben HTML) samt att alla element har en &ouml;ppnande
+          och avslutande tagg (om s&aring;dana finns). Mer om detta kommer beskrivas
+          under l&auml;nken <strong>Utforma HTML</strong>.</p>
+
+        <p>P&aring; sidan <strong>Beskrivning</strong> beskrivs hur
+          stilmallarna p&aring; denna (och relaterade) underwebbar har utformats. Beskrivningen
+          behandlar &auml;ven vilka problem jag st&ouml;tt p&aring; och
+          hur jag hanterat dem.</p>
+      </div>
+      <div class="five columns">
+        <p>Denna underwebb använder CSS-ramverket <a href="http://getskeleton.com/" 
+          target="_blank" rel="noopener">Skeleton</a>
+          och valet att använda detta ramverket beror på:</p>
+        <ul>
+          <li>att jag är värdelös på design</li>
+          <li>att ramverket är inte vidare omfattande.</li>
+        </ul>
+
+        <p>Jag har försökt designa denna underwebb så att den påminner om underwebben
+          <a href="../html/index.html">HTML</a>.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

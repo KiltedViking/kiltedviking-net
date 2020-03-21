@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, servlets och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, servlets och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/jsp/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/jsp/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Server Pages (JSP) - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Server Pages (JSP)</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+
+      <p>Denna sida beskriver kort hur man använder Java Server Pages (JSP). Det som
+        behandlas på denna sida är bl.a.&nbsp; <b>grundläggande om JSP</b>
+        samt skapandet av en <b> enkel JSP-sida</b>. Fortsatt läsning är
+        hemsidorna som förklarar hur man <b>använder Java Beans</b>
+        och <b> servlets</b> i en JSP-sida.</p>
+
+      <p>I beskrivningarna kommer även likheter och olikheter mellan JSP
+        och Microsofts Active Server Pages (ASP) att påpekas. Kan du inte
+        ASP kan du bortse från dessa kommentarer.&nbsp;&nbsp;</p>
+
+      <p>Inte alla webbservrar (som Björns studiewebb replikerats till)
+        stödjer JSP. Detta kan leda till att du får ett felmeddelande när
+        du försöker köra exemplen.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Java Server Pages (JSP)</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+      <nav class="menu">
+        <a href="#grundlaggande" class="menu-item">Grundläggande</a>
+        <a href="#enkla" class="menu-item">Enkel JSP-sida</a>
+      </nav>
+
+      <nav class="menu">
+        <a href="jsp_javabeans.html" class="menu-item">JSP &amp; Java Beans</a>
+        <a href="jsp_servlets.html" class="menu-item">JSP &amp; Servlet</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2 id="grundlaggande">Grundläggande om JSP</h2>
+
+      <p>JSP bygger på Java men det finns ändå något av en
+      &quot;inlärningskurva&quot; att passera innan vi kan börja använda JSP.
+      Vi börjar med att titta lite på teorin bakom JSP. Har du bråttom
+      med att komma igång eller vill se kod kan du hoppa till nästa avsnitt (Enkel
+      JSP-sida).</p>
+
+      <h3>Funktion</h3>
+
+      <P>JSP-sidor är egentligen HTML-kod där speciella taggar infogats där
+      man vill ha dynamiskt innehåll i hemsidan, d.v.s. innehåll som kan
+      ändras/anpassas mellan begäran av JSP-sidan. När en webbläsare begär
+      en JSP-sida så kommer webbservern (eller snarare JSP-/servlet-servern)
+      att gå igenom JSP-sidans kod och leta efter dessa speciella taggar. När
+      servern hittar taggen så exekverar servern Java-koden som finns mellan
+      den öppnande och avslutande taggen. Resultatet från exekveringen infogas
+      i den resulterande hemsidan där koden fanns. Nedan visas ett exempel på
+      var och hur JSP-kod kan infogas för att t.ex. visa antalet besök på en
+      hemsida.</P>
+
+      <BLOCKQUOTE>
+        <P>&lt;P&gt;Denna hemsida har besökts <SPAN CLASS="kod">&lt;% <I>kod för
+          räknare</I> %&gt;</SPAN> gånger.&lt;/P&gt;</P>
+      </BLOCKQUOTE>
+
+      <H4> Bakom kulisserna</H4>
+
+      <p> Bakom kulisserna kompileras JSP-sidan till en servlet
+      första gången som sidan begärs av en webbläsare. Efterföljande
+      begäran om JSP-sidan kommer använda den servlet som kompilerades vid första
+      anropet. Skulle JSP-sidan ändras så kommer servlet-servern att upptäcka
+      detta och kompilera den nya JSP-sidan till en ny servlet. Detta leder till
+      att man alltid har en initial väntetid då en ny JSP-sida läggs ut på
+      webbservern. Men detta bör vara acceptabelt då det inte är JSP-sidorna
+      som ska uppdateras kontinuerligt utan det resultat de presterar.</p>
+
+      <p class="kommentar">Detta är egentligen inte något vi behöver bry oss
+      om som skapare av JSP-sidor, men det kan
+      t.ex. förklara varför en del av JSP:s syntax. Bl.a. så ska man
+      utelämna semikolon (&quot;;&quot;) ibland för att koden i
+      JSP-sidans resulterande servlet ska fungera. Det ska även nämnas att man
+      kan be servern att kompilera en JSP-sida till servlet innan första
+      besökaren begär den.</p>
+
+      <h3>Syntax</h3>
+
+      <p>JSP-sidor bygger på XML-standarden, d.v.s. syntaxen är mer strikt
+      hållen än den för HTML (du måste m.a.o. lägga bort eventuell fula ovanor
+      du fått när du skapat &quot;vanliga&quot; hemsidor :-). Detta innebär
+      bl.a. att alla JSP-relaterade taggar måste skrivas enligt
+      JSP-specifikation eftersom servern är känslig för bokstävers skiftläge
+      (d.v.s. gemener och versaler). Den statiska HTML-koden i ett JSP-dokument behandlas dock
+      inte av servern, utan skickas direkt till besökarens webbläsare.
+      HTML-koden brukar även kallas för malltext (eng. <I>template text</I>).</p>
+
+      <h4>Taggar</h4>
+
+      <p>Precis som i XML så måste alla JSP-taggar användas med sin avslutande tagg</p>
+
+      <blockquote>
+        <p><span class="kod">&lt;jsp:useBean id=&quot;ett_namn&quot; ...&gt;<br>
+        ...<br>
+        &lt;/jsp&gt;</span></p>
+      </blockquote>
+
+      <p>Undantaget från denna regel är de taggar som inte har något
+      innehåll (inget mellan öppnande och avslutande tagg). Den avslutande
+      taggen kan utelämnas om den öppnande taggen avslutas med ett snedstreck
+       (eng. <i>slash</i> - &quot;/&quot;).</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;jsp:useBean ... /&gt;</span></p>
+      </blockquote>
+
+      <H4>Attribut</H4>
+
+      <P>Liksom HTML (och XML) så kan taggar ha attribut som anges i den
+      öppnande taggen. Attributens namn, liksom dess värden, är också
+      känsliga för skiftläge. Värdena måste anges inom enkla eller dubbla
+      citattecken.</P>
+
+      <h3>JSP-sidors uppbyggnad</h3>
+
+      <p>JSP-sidor kan innehålla bl.a.</p>
+
+      <ul>
+        <li>HTML-kod (<I>template text</I>)</li>
+        <li>direktivelement (<i>directive</i>)</li>
+        <li>händelseelement (<i>action</i>)</li>
+        <li>skriptelement (<i>scripting</i>)</li>
+      </ul>
+
+      <p>Det som skiljer en JSP-sida från en vanlig hemsida är de tre sista i listan
+      ovan. Dessa tre typer av element&nbsp; blandas
+      in i HTML-koden och tolkas av serlvet-servern innan ett resulterande
+      HTML-dokument (hemsida) skickas till besökarens webbläsare.</p>
+
+      <h4>Skriptelement</h4>
+
+      <p>Skriptelementen påminner mycket om Microsofts ASP, men använder
+      (oftast) Java som språk istället för VBScript/JScript. En av de mer
+      iögonfallande likheterna (bortsett från förkortningen :-) är att man bl.a.
+      kan använda &lt;% och %&gt; för att skilja JSP-koden från HTML-koden.</p>
+
+      <p>Det finns fyra olika typer av skriptelement:</p>
+
+      <UL>
+        <LI>deklarationer</LI>
+        <LI>uttryck</LI>
+        <LI>scriptlets</LI>
+        <LI>JSP-kommentarer</LI>
+      </UL>
+
+      <p>Elementen har varsin tagg, vilka beskrivs nedan. <B>Observera</B> att
+      alla dessa taggar måste skrivas <B>utan</B>  mellanslag! (se vidare
+      nedan).</p>
+
+      <H5>Uttryck</H5>
+
+      <p>Uttryckselement används bl.a. för att skriva ut enklare saker,
+      t.ex. innehållet i variabler.</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;%= strVariabel %&gt;</span></p>
+      </blockquote>
+
+      <p><b>Observera</b> att likhetstecknet (&quot;=&quot;) måste skrivas
+      direkt efter det inledande procenttecknet (&quot;%&quot;), d.v.s.
+      &quot;&lt;%=&quot;, och avsaknaden
+      av semikolon (&quot;;&quot;) innan avslutande procenttecknet! (Placeringen
+      av likhetstecknet är bl.a. en av de punkter
+      som JSP är striktare än ASP.)</p>
+
+      <H5>Scriptlets</H5>
+
+      <p>Scriptlets är små snuttar av kod som bäddats in i HTML-koden inom
+      taggarna &lt;% och %&gt;. Koden som skrivs här är &quot;vanlig&quot;
+      Java-kod - vi har alltså tillgång till Javas alla kontrollstukturer (if-
+      och case-satser samt for- och while-loopar).</p>
+
+      <p>I scriptlet-koden kan man deklarera variabler precis som i
+      &quot;vanliga&quot; Java-program, d.v.s. följande kod dekalerar en
+      variabel som sen används som räknare i for-loopen.</p>
+
+      <BLOCKQUOTE>
+        <p><span class="kod">&lt;%<BR>
+        int i = 0;</span></p>
+        <p><span class="kod">for( i = 0; i &lt; 5; i++)<BR>
+        &nbsp; out.println('Detta är loop-varv ' + i + '&lt;br&gt;');<BR>
+        %&gt;</span></p>
+      </BLOCKQUOTE>
+
+      <UL>
+        <LI><A HREF="source/Scriptlets.jsp.txt" TARGET="_blank">Fullständiga
+          koden</A> för JSP-dokumentet. (Skulle Internet Explorer endast visa
+          rubriken måste du välja Visa källa för att se JSP-koden i
+          dokumentet.)</LI>
+      </UL>
+
+      <H5>Deklarationer och metoder</H5>
+
+      <p>I JSP kan man deklarera variabler m.h.a. taggen &lt;%! %&gt;. Men man <B>bör
+      undvika</B>  denna form av deklaration av variabler!</p>
+
+      <BLOCKQUOTE>
+      <p><span class="kod">&lt;%! int variabel = 0; %&gt;</span></p>
+      </BLOCKQUOTE>
+
+      <P CLASS="kommentar">Skälet till detta är att JSP-koden kommer
+      kompileras till en servlet (se mer nedan) och värdet för variabler, som
+      deklareras på detta sätt, kan manipuleras av <B>alla</B> metoder i den
+      resulterande servlet. Variabler deklarerade på detta sätt blir s.k.
+      instansvariabler och det finns endast en instans av varje JSP-sidas
+      servlet. Detta innebär att om två besökare begär samma JSP-sida
+      (d.v.s. dess resulterande servlet) så kommer bägge besökarenas bägge
+      JSP-sidor använda <B>samma</B> variabel.</P>
+
+      <H5>JSP-kommentarer</H5>
+
+      <p>JSP-kommentarer är egentligen inte ett &quot;riktigt&quot;
+      skriptelement. Men denna typ av kommentarer är ganska praktiska då de
+      är synliga i koden för ett JSP-dokument men inte i den resulterande
+      hemsidans HTML-kod. Syntaxen påminner mycket om HTML-kommentarer och har
+      följande utseende</p>
+
+      <BLOCKQUOTE>
+        <p><span class="kod">&lt;%-- Kommentartext... --%&gt;</span></p>
+      </BLOCKQUOTE>
+
+      <H5>Implicita JSP-objekt</H5>
+
+      <p>I JSP finns ett antal variabler (objekt) som alltid är tillgängliga
+      (precis som i ASP - de har för övrigt motsvarande funktion som i just
+      ASP). De mest använda är följande:</p>
+
+      <UL>
+        <LI>request - motsvarar webbläsarens begäran till webbservern.</LI>
+        <LI>response - motsvarar den resulterande hemsidan, d.v.s. det som ska
+          skickas till webbläsaren.</LI>
+        <LI>out - används för att skriva till den resulterande hemsidan.</LI>
+      </UL>
+
+      <P>Andra objekt som också finns och som man brukar komma i kontakt med
+      är session, application och exception. (Ytterligare fler objekt som det
+      är mindre sannolikt att man kommer i kontakt med är config, pgae och
+      pageContext.)&nbsp;</P>
+      <P>För att hämta värden från ett formulär använder vi t.ex. metoden
+      getParameter() i objektet request, som vi skickar namnet på formulärets
+      kontroll som parameter till.</P>
+
+      <BLOCKQUOTE>
+        <P><span class="kod">&lt;%= request.getParameter('namn_pa_kontroll') %&gt;</span></P>
+      </BLOCKQUOTE>
+
+      <P>Inuti scriptlets måste vi, precis som i servlets, använda metoderna
+      print() eller println() för att skriva till den resulterande hemsidan och
+      för detta finns objektet out. Skillnaden mot servlets är att vi inte
+      behöver fråga efter objektet utan det finns alltid tillgängligt i
+      variabeln out. (Exempel på hur metoderna används hittar du under
+      Scriptlets ovan där lite text och en räknare skrivs ut i for-loopen.)</P>
+
+      <H5>Till sist</H5>
+
+      <p>Scriptlets bör hållas till ett minimum, d.v.s. man bör inte
+      använda scriptlets för att hantera all logik i en JSP-sida (som många
+      tenderar till att göra med ASP och PHP). Istället bör man använda (statisk) HTML-kod samt skapa Java Beans
+      eller servlets för att hantera logiken och det dynamiska innehållet i
+      hemsidan. Servlets och Java Beans används sen m.h.a. händelseelementen (se
+      nedan). JSP-sidor bör
+      m.a.o. endast användas för att skapa
+      ett presentationsskikt åt Java Beans och servlets.</p>
+
+      <p class="kommentar">Det ska nämnas att inte alla uppskattar JSP, bl.a.
+      för dess likhet
+      med ASP. De anser även att JSP leder till att man lockas till att
+      använda många scriptlets istället för att placera logiken i servlets och
+      Java Beans.&nbsp;(Se bl.a. <a href="https://www.servlets.com/"
+      target="_blank" rel="noopener">servlets.com</a>.)</p>
+
+      <h4>Direktiv</h4>
+      <p>Direktiven innehåller
+      information om själva JSP-dokumentet (förblir de samma mellan anrop till sidan),
+      t.ex. filer som ska inkluderas och språk för skriptelement. Det finns
+      tre stycken direktiv:</p>
+
+      <UL>
+        <LI>include - används för att inkludera andra filer.</LI>
+        <LI>page - kan användas för att ange språk för skriptelement,
+          importera Java-klasser, m.m..</LI>
+        <LI>taglib - används för att importera (och namnge) egna
+          händelseelement (behandlas ännu inte på denna webbplats).</LI>
+      </UL>
+
+      <p>Direktiven använder attribut för att ange värden. Attributet file
+      (som är det enda attributet) för include-direktivet används t.ex. för
+      att inkludera andra (statiska) filer i JSP-dokumentet. page-direktivet har
+      ett flertal attribut, bl.a. language och contentType som bör vara med i
+      alla JSP-dokument.&nbsp;</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;%@ page language="Java" contentType=&quot;text/html&quot;
+      %&gt;</span></p>
+      <p><span class="kod">&lt;%@ page import=&quot;GurkKlass&quot; %&gt;</span></p>
+      <p><span class="kod">&lt;%@ include file=&quot;sidhuvud.html&quot; %&gt;</span></p>
+      </blockquote>
+
+      <p>Vill vi använda Java Beans i ett JSP-dokument så behöver vi importera klassen för
+      Java Beans med attributet import för page-direktivet.</p>
+
+      <h4>Händelseelement (<i>action</i>)</h4>
+
+      <P>Händelseelementen används för att bl.a. använda Java Beans och för
+      att inkludera (dynamiska) filer.&nbsp;Taggar för händelseelement består
+      av tre delar:</P>
+
+      <UL>
+        <LI>taggbibliotekets (eng. <I>tag library</I>) namn - alla
+          standardhändelser, d.v.s. de som alltid finns tillgängliga, finns i
+          taggbiblioteket jsp.<BR>
+          &nbsp;</LI>
+        <LI>händelsen - det som ska utföras. Exempel på några händelser är
+          useBean för att skapa (eller skapa referens till) en Java Beans och
+          include för att inkludera en fil.<BR>
+          &nbsp;</LI>
+        <LI>attribut - värden som skickas som parametrar till händelsen, t.ex.
+          page som ges namnet på filen som ska inkluderas.</LI>
+      </UL>
+
+      <P>Syntaxen för händelseelementen är följande:</P>
+
+      <BLOCKQUOTE>
+        <P><span class="kod">&lt;taggbilbiotek:händelse attribut1=&quot;värde1&quot; ...&gt;<BR>
+        &nbsp;&nbsp; ev. innehåll<BR>
+        &lt;/taggbibliotek:händelse&gt;</SPAN></P>
+      </BLOCKQUOTE>
+
+      <p>Som nämnt ovan så kan taggar utan innehåll förkortas genom att
+      använda ett snedstrek sist i taggen. Ovanstående kod kan då förkortas
+      till</p>
+
+      <BLOCKQUOTE>
+        <p><span class="kod">&lt;taggbilbiotek:händelse attribut1=&quot;värde1&quot;
+           ... /&gt;</SPAN></p>
+      </BLOCKQUOTE>
+
+      <p>Där finns händelser för att skapa Java Beans samt
+      för att sätt
+      och hämta värden på egenskaper i Java Beans. Programmerare kan även skapa egna
+      händelseelement (behandlas ännu inte på denna webbplats).</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;jsp:useBean id:'salt' scope='application' class='Gurka'
+      /&gt;</span></p>
+      <p><span class="kod">&lt;jsp:include page=&quot;sidhuvud.html&quot;&gt;</span></p>
+      </blockquote>
+
+      <P CLASS="kommentar">Skillnaden mellan att använda direktivet include och
+      händelseelementet &lt;jsp:include&gt; för att inkludera filer är att
+      direktivet endast kan inkludera statiska filer. Med statiska filer menas
+      filer som <B>inte</B> ändras vid exekvering av JSP-dokumentet.
+      Händelseelementet kan även hantera <B>resultatet</B> från en t.ex.
+      servlet eller annan JSP-sida som genererats (dynamiskt) vid exekvering av
+      JSP-dokumentet.&nbsp;</P>
+
+      <h3>Anropa en JSP-sida</h3>
+
+      <p>Till skillnad mot servlets så brukar inte servern vara känslig för
+      skiftläget (gemener och versaler) på JSP-sidans filnamn. D.v.s. helloworld.jsp
+      och HelloWorld.jsp bör fungerar båda två.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><a name="enkla"></a>Enkel JSP-sida</h2>
+      <p>Denna första, enkla JSP-sida visar hur vi&nbsp; anger språket för
+      JSP-koden samt hur vi kan använda scriptlets för att skriva ut variabler
+      och resultatet från enkla Java-satser (dagens datum i detta fall).</p>
+      <p>I exemplet nedan så börjar vi med att ange programmeringsspråket som
+      ska användas i JSP-sidan.</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;%@ page language=&quot;Java&quot; %&gt;</span></p>
+      </blockquote>
+
+      <p>Enligt JSP-specifikationen så ska man kunna
+      använda vilket språk som helst, men de flesta servrar har bara
+      implementerats för Java (Resin tillåter även
+      JavaScript). Därefter följen några rader med vanlig HTML-kod. Efter
+      rubriken (H1) finns ett stycke (P) där dagens datum och aktuell tid
+      skrivs ut.</p>
+
+      <blockquote>
+      <p><span class="kod">&lt;%= new java.util.Date().toString()%&gt;</span></p>
+      </blockquote>
+
+      <p>Vad som sker är att ett nytt datumobjekt&nbsp; skapas och som direkt
+      konverteras till en sträng för utskrift.</p>
+
+      <h3>Filen Enkel.jsp</h3>
+      <p class="kodlangre"><b>&lt;%@ page language=&quot;Java&quot; %></b><br>
+      &lt;HTML&gt;<br>
+      &lt;HEAD&gt;<br>
+      &nbsp; &lt;TITLE&gt;Hello World&lt;/TITLE&gt;<br>
+      &lt;/HEAD&gt;<br>
+      &lt;BODY&gt;<br>
+      &lt;H1&gt;Hello world&lt;/H1&gt;<br>
+      &lt;P&gt;Idag är det &lt;B&gt;<b>&lt;%= new java.util.Date().toString()
+      %&gt;</b>&lt;/B&gt;&lt;/P&gt;<br>
+      &lt;/BODY&gt;<br>
+      &lt;/HTML&gt;</p>
+
+      <h3>Kopiera till webbserver</h3>
+      <p>JSP-sidorna kan placeras i vilken mapp som helst (utom WEB-INF och
+      undermappar) under en av serverns s.k. servlet contexts (&lt;rotmapp&gt;\doc
+      som standard med Resin - se <a href="../resin/index.html">Installera
+      Resin-server</a>).</p>
+      <p>På Björns studiewebb har (på vissa webbservrar - se Replikering på
+      sidan Om i huvudwebben) mappen JAVA konfigurerats som ett servlet context.
+      Alla JSP-filer har placerats i mappen JSP under denna mapp.</p>
+
+      <h3>Testa (anropa)</h3>
+      <p>För att testa JSP-sida så öppnar man en URL som liknar följande</p>
+
+      <blockquote>
+      <p><span class="kod">https://server-namn:8080/Filnamn.jsp</span></p>
+      </blockquote>
+
+      <p>eller bara</p>
+
+      <blockquote>
+      <p><span class="kod">https://server-namn/Filnamn.jsp</span></p>
+      </blockquote>
+
+      <p>om server för servlets (t.ex. Resin eller Tomcat) har
+      &quot;integrerats&quot; med ordinarie webbserver.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2006-02-05.</p>
+    </div>
+  </footer>
+</body>
+</html>

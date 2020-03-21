@@ -1,0 +1,163 @@
+/*******************************************************************************
+* Filnamn:      examination4.css
+* Syfte:        Stilmallar för examination 4 på kurserna CSS-baserad webbdesign
+*               och Webbdesign med JavaScript och Document Object Model.
+* Skapad av:    Björn Persson (bjgu0005), bjorn(at)kiltedviking.net.nospam.
+* Skapad:       2008-08-06
+* Andrad:       2008-08-09, 2008-08-23
+*******************************************************************************/
+
+/*** Overgripande stilar ******************************************************/
+body
+{
+  /* font-size: 13px; */
+  font-size: 0.9em;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.kommentar
+{
+  font-size: 0.7em;
+}
+
+/*** Stilar for overgripande container ****************************************/
+div#container
+{
+  min-width: 600px;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-bottom: 300px;  /* For att lankar i dokument ska verka fungera battre (?) */
+  margin-left: auto;
+  background-color: gray;
+  color: white;
+  border: 1px solid #000000;
+}
+
+/*** Stilar for sidhuvud ******************************************************/
+div#header { text-align: center; }
+
+/*** Stil for overgripande container for kolumner *****************************/
+div#columns { position: relative; }
+
+/*** Stilar for meny och lankar (kolumner 1 och 3) ****************************/
+
+div#menu, div#links
+{
+  width: 175px;
+  padding: 0px 5px;
+  position: absolute;
+  top: 0px;
+}
+
+div#menu { left: 0px; }
+div#links { right: 0px; }
+
+div#menu ul, div#links ul
+{
+  list-style: none;
+  padding-left: 10px;
+}
+
+div#menu a, div#links a
+{
+  color: white;
+  background-color: gray;
+  text-decoration: none;
+}
+
+div#menu a:hover, div#links a:hover
+{
+  color: white;
+  background-color: #c0c0c0;  /* light grey */
+  text-decoration: none;
+}
+
+div#menu img#valid-xhtml10
+{
+  border: 0px;
+}
+
+div#menu img#valid-css
+{
+  border: 0px;
+  width: 88px;
+  height: 31px
+}
+
+/*** Stilar for innehall (kolumn 2) *******************************************/
+div#content
+{
+  margin-left: 185px;
+  margin-right: 185px;
+  border: 1px solid blue;
+  padding: 0px 10px;
+  color: black;
+  background-color: white;
+}
+
+div#content p, div#content li
+{
+  text-align: justify;
+}
+
+div#content p.tillborjan
+{
+  text-align: right;
+}
+
+div#content a:hover
+{
+  color: blue;
+  background-color: yellow;
+}
+
+div#content ul.liggande
+{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+div#content ul.liggande li
+{
+  margin: 0px;
+  display: inline;
+}
+
+div#content ol.langtext li
+{
+  margin-bottom: 10px;
+}
+
+div#content .code
+{
+  color: black;
+  background-color: #ffff99;
+  font-family: monospace;
+}
+
+div#content div.code
+{
+  margin: 0px 10px;
+}
+
+div#content .hide
+{
+  display: none;
+}
+
+div#content .avklarad
+{
+  color: white;
+  background-color: green;
+}
+
+/*** Stilar for lankar (kolumn 3) *********************************************/
+/* Se Stilar for meny och lankar ovan */
+
+/*** Stilar for sidfot ********************************************************/
+div#footer
+{
+  font-size: 0.8em;
+  text-align: center;
+}

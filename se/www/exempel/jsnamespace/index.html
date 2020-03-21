@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <title>JavaScript-namnutrymme - Bj&ouml;rns studiewebb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="../../stilar/css3.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="../../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../studiewebb2.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+    <header>
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div id="logotyp">
+        <a href="../../index.html"><img src="../../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>JavaScript-namnutrymme</h1>
+    </header>
+  </div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>På denna beskrivs hur man kan placera kod i namnutrymmen för att undvika
+      namnkonflikter om man använder kod från andra utvecklare, t.ex. ramverk.</p>
+
+    <h2>Innehåll</h2>
+
+    <ul>
+      <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#forsta">Ett första försök</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+    </ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p>Om man använder kod från andra utvecklare kan man råka ut för att man använder
+      samma namn på variabler och funktioner. För att undvika detta detta kan man
+      placera sin kod i namnutrymme (som i &quot;vanliga&quot; programspråk).</p>
+
+    <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+    <h2 id="forsta">Ett första försök</h2>
+    
+    <p>I kod nedan deklareras en variabel för att hålla &quot;namnutrymmet&quot;.
+      Samtidigt tilldelas variabeln, skulle den redan vara definierad, annars ett
+      tomt objekt, m.h.a. hakparenteser ({}). Sen skapas nästa del i namnutrymmet,
+      enligt samma princip. Sist tilldelas en funktion till namnet helloWorld i
+      namnutrymmet.</p>
+
+    <div class="code">
+      <p>var bpn = bpn || {};<br>
+        bpn.code = bpn.code || {};<br>
+        <br>
+        bpn.code.helloWorld = function() {<br>
+        &nbsp;&nbsp;...<br>
+        }</p>
+    </div>
+
+    <h3>Exempel</h3>
+    
+    <ul>
+      <li><a href="jsnamespace.html" class="externallink">Exempel</a></li>
+    </ul>
+    
+    <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+    <h2 id="referenser">Referenser</h2>
+
+    <ul>
+      <li><a href="http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces/"
+          class="externallink">Basic JavaScript Part 8: Namespaces</a> - <a href="http://elegantcode.com/"
+          class="externallink">ElegantCode</a></li>
+    </ul>
+    
+    <p>Alternativ till ovanstående lösningar finns i lista nedan.</p>
+    
+    <ul>
+      <li><a href="https://github.com/maximebf/Namespace.js" class="externallink">Namespace.js</a> 
+        - <a href="https://github.com/" class="externallink">GitHub</a></li>
+    </ul>
+
+    <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+  </div>
+
+  <div id="footer">
+    <footer>
+      <p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+        <strong>Uppdaterad:</strong> 2012-02-25.</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

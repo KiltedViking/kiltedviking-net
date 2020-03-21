@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+  <TITLE>Testa mailto</TITLE>
+  <SCRIPT>
+  <!--
+    function validera()
+    {
+      if(MinForm.Namn.value == '')
+      {
+        alert("Du måste fylla i ditt namn!");
+        event.returnValue = false;
+      }
+      temp = MinForm.Radio1.value;
+      alert(temp);
+      
+      if(temp == 'Ja')
+        alert("Jasså, du vill beställa");
+      event.returnValue = false;
+    }
+
+  //-->
+  </SCRIPT>
+</HEAD>
+<BODY>
+<H1>Testa mailto: från formulär</H1>
+<P>Detta formulär skickar ett meddelande till min e-postadress (bpn@mdh.se).<BR>
+   För att det ska fungera så måste du ha ställt in ett e-postprogram i din
+   webbläsare!<BR>
+   (Och har du inte det så kommer webbläsaren meddela dig det..:-)</P>
+
+<!-- Formularet -->
+<FORM NAME="MinForm" METHOD="POST" ACTION="mailto:bpn@mdh.se" onsubmit="validera()">
+  <P>Fyll i ditt namn:<BR>
+  <INPUT TYPE="text" NAME="Namn" SIZE="20"></P>
+  <P><INPUT TYPE="radio" NAME="Radio1" VALUE="Ja" CHECKED> Beställa nyhetsbrev<BR>
+     <INPUT TYPE="radio" NAME="Radio1" VALUE="Nej"> Avbeställa nyhetsbrev</P>
+  <P><INPUT TYPE="submit" VALUE="Skicka" NAME="Submit"></P>
+</FORM>
+
+</BODY>
+</HTML>

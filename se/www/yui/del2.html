@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Selektorer - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+    <script type="text/javascript">
+		/*** Sidspecifik skriptkod ****************/
+      YUI().use("node", function(Y) {
+        Y.all("#olnumbered>li").filter(":odd").setStyle("backgroundColor", "lightgrey");
+        Y.all("#olnumbered>li").filter(":nth(4)").setStyle("backgroundColor", "lightblue");
+        Y.all("#olnumbered>li").filter(":first").setStyle("fontWeight", "bold");
+        Y.all("#olnumbered>li").filter(":gt(3)").setStyle("fontStyle", "italic");
+
+		Y.all("#list1>li").filter(":contains('tv&aring;')").setStyle("backgroundColor", "lightgrey");
+        Y.all("#list1>li").filter(":empty").setStyle("backgroundColor", "lightblue");
+        Y.all("#list1>li").filter(":has(b)").setStyle("backgroundColor", "pink");
+      });
+    </script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Selektorer</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Uts&ouml;kning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+<!--      <li><a href="del6.html">Effekter</a></li> -->
+      <li><a href="del7.html">H&auml;ndelser</a></li>
+    </ul>
+<!--
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+-->
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>P&aring; denna sida beskrivs selektorer som används för att v&auml;lja ut 
+		element i DOM-struktur. YUI använder de fr&aring;n CSS. (På nästa sida beskrivs
+		hur man använder dessa selektorer med urvalsmetoder i YUI.)</p>
+      
+    <p><strong>Observera</strong> att denna beskrivning av selektorer inte &auml;r komplett!
+      Den skrevs baserad p&aring; den dokumentation som g&auml;llde 2012-04-09, d.v.s. kommer
+      bli f&ouml;r&aring;ldrad :-) (och jag kan ha missat n&aring;gra). Se referenser f&ouml;r komplett 
+      dokumentation av selektorer.</p>
+			
+	<h2>Sidans inneh&aring;ll</h2>
+		
+	<ul>
+	  <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#css">CSS-selektorer</a></li>
+      <li><a href="#attribut">Attributnamn/-v&auml;rde</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+	</ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p>Selektorer anv&auml;nds f&ouml;r att v&auml;lja ut element i ett HTML-dokuemnts DOM-struktur.</p>
+      
+    <fieldset>
+      <legend>Exempel</legend>
+      <p>I f&ouml;rsta exempel nedan s&aring; v&auml;ljs alla rubriker av niv&aring; 2 och i andra exempel
+        s&aring; v&auml;ljs element med ID &quot;output&quot;.</p>
+      
+      <div class="code">
+        <p>Y.all("h2");</p>
+        <p>Y.one("#output");</p>
+      </div>
+    </fieldset>
+
+    <h3>Str&auml;ngar och citationstecken</h3>
+    
+    <p>Selektorer anges i str&auml;ngar, d.v.s. m&aring;ste
+      inneslutas i dubbla eller enkla citationstecken (&quot; eller '). I de fall
+      d&auml;r citationstecken ing&aring;r i str&auml;ngar s&aring; kan man anv&auml;nda &quot;den andra&quot;
+      f&ouml;r att innesluta str&auml;ngen eller l&auml;gga till tecknet \ f&ouml;re 
+      tecknet i str&auml;ngen, t.ex. <span class="code">"don't"</span> 
+      eller <span class="code">'don\'t'</span>.</p>
+    
+    <h3>Kombinera selektorer</h3>
+    
+    <p>Precis som i CSS kan man kombinera selektorer f&ouml;r att urval ska bli s&aring; precist
+      som m&ouml;jligt, t.ex. <span class="code">&quot;p.kommentar&quot;</span> - stycke 
+      av klassen kommentar - och <span class="code">&quot;h2[id]:even&quot;</span>
+      - alla rubriker av niv&aring; 2 som har ett attribut id och &auml;r varannan (j&auml;mna - 
+      se nedan).</p>
+    
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="css">CSS-selektorer</h2>
+
+    <p>CSS-selektorer anv&auml;nds f&ouml;r att v&auml;lja ut element, d.v.s. man b&ouml;r ha
+      grundl&auml;ggande kunskap om CSS f&ouml;r att kunna anv&auml;nda dem b&auml;st.</p>
+    
+    <h3>Grundl&auml;ggande</h3>
+    
+    <p>De grundl&auml;ggande CSS-selektorerna har funnits med i CSS-standard sen 
+      b&ouml;rjan och &auml;r ocks&aring; de enklaste att f&ouml;rst&aring;, d.v.s. &auml;r 
+      de mest vanligt f&ouml;rekommande.</p>
+    
+    <table class="tableproperties">
+      <caption>Grundl&auml;ggande CSS-selektorer</caption>
+      <tr>
+        <th>Selektor</th>
+        <th>Element som v&auml;ljs</th>
+      </tr>
+      <tr>
+        <td class="code">&quot;tagg&quot;</td>
+        <td>Alla element av taggen</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;.klassnamn&quot;</td>
+        <td>Alla element av klassen <span code="code">klassnamn</span></td>
+      </tr>
+      <tr>
+        <td class="code">&quot;#id&quot;</td>
+        <td>Elementet med id <span code="code">id</span></td>
+      </tr>
+      <tr>
+        <td class="code">&quot;*&quot;</td>
+        <td>Alla elementet</td>
+      </tr>
+    </table>
+    
+    <p>F&ouml;r att v&auml;lja element med flera selektorer s&aring; separeras selektorerna med 
+      komma (se exempel nedan).</p>
+					
+    <fieldset>
+      <legend>Exempel</legend>
+      <p>Nedan v&auml;ljs</p>
+      <ul>
+        <li>alla taggar av typen H1</li>
+        <li>alla taggar av klassen &quot;kod&quot;</li>
+        <li>tagg med id &quot;sidfot&quot;</li>
+        <li>alla rubriker med taggen H1 och H2 samt taggar av klassen &quot;rubrik&quot;</li>
+      </ul>
+      
+      <div class="code">
+        <p>Y.all(&quot;h1&quot;);</p>
+        <p>Y.all(&quot;.kod&quot;);</p>
+        <p>Y.one(&quot;#sidfot&quot;);</p>
+        <p>Y.all(&quot;h1, h2, .rubrik&quot;);</p>
+      </div>
+    </fieldset>
+    
+    <h3>Relationsselektorer</h3>
+    
+    <p>CSS-selektorer m&ouml;jligg&ouml;r val av element med relation till varandra, bl.a.
+      barn, &auml;ttlingar och syskon.</p>
+    
+    <table class="tableproperties">
+      <caption>Relationsselektorer</caption>
+      <tr>
+        <th>Selektor</th>
+        <th>Element som v&auml;ljs</th>
+      </tr>
+      <tr>
+        <td class="code">&quot;selektor1 selektor2&quot;</td>
+        <td>Alla element selektor2 som &auml;r &auml;ttlingar till selektor1</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;selektor1 > selektor2&quot;</td>
+        <td>Alla element selektor2 som &auml;r barn till selektor1, d.v.s. &quot;direkta&quot; &auml;ttlingar</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;selektor1 + selektor2&quot;</td>
+        <td>Alla element selektor2 som &auml;r efterf&ouml;ljande syskon till selektor1</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:first-child&quot;</td>
+        <td>F&ouml;rsta barnelementet</td>
+      </tr>
+    </table>
+    
+    <fieldset>
+      <legend>Exempel</legend>
+      <p>Nedan v&auml;ljs</p>
+      <ul>
+        <li>alla P-taggar som &auml;r &auml;ttlingar till DIV-taggar av klass &quot;kod&quot;</li>
+        <li>alla P-taggar som &auml;r barn (direkta &auml;ttlingar) till DIV-taggar av klass &quot;kod&quot;</li>
+        <li>alla P-taggar som &auml;r syskon till, och f&ouml;ljer direkt efter, H2-tagg</li>
+        <li>alla P-taggar som &auml;r f&ouml;rsta barnet</li>
+      </ul>
+      
+      <div class="code">
+        <p>Y.all(&quot;div.kod p&quot;);</p>
+        <p>Y.all(&quot;div.kod>p&quot;);</p>
+        <p>Y.all(&quot;h2+p&quot;);</p>
+        <p>Y.all(&quot;p:first-child&quot;);</p>
+      </div>
+    </fieldset>
+    
+    <h3>Pseudoselektorer (&ouml;vriga)</h3>
+    
+    <p>Ytterligare pseudoselektorer, ut&ouml;ver :first-child, &auml;r f&ouml;ljande.</p>
+    
+    <table class="tableproperties">
+      <caption>Pseudoselektorer (&ouml;vriga)</caption>
+      <tr>
+        <th>Selektor</th>
+        <th>Element som v&auml;ljs</th>
+      </tr>
+      <tr>
+        <td class="code">&quot;:link&quot;</td>
+        <td>Alla l&auml;nkelement (&lt;a&gt;) som inte bes&ouml;kts</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:visited&quot;</td>
+        <td>Alla l&auml;nkelement (&lt;a&gt;) som bes&ouml;kts</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:active&quot;</td>
+        <td>Element som aktivt, d.v.s. klickas p&aring;</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:focus&quot;</td>
+        <td>Element som har fokus</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:hover&quot;</td>
+        <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:lang&quot;</td>
+        <td>Element m&auml;rkta med spr&aring;ket lang</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:first-line&quot;</td>
+        <td>Elements f&ouml;rsta rad (om text)</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:first-letter&quot;</td>
+        <td>Elements f&ouml;rsta bokstav (om text)</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:before&quot;</td>
+        <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;:after&quot;</td>
+        <td>Element som mark&ouml;r st&aring;r &ouml;ver</td>
+      </tr>
+    </table>
+    
+    <p class="kommentar">F&ouml;rfattaren beh&ouml;ver fortfarande f&ouml;rst&aring; hur dessa selektorer &auml;r anv&auml;ndbara...</p>
+		
+    <h3>Fler selektorer</h3>
+    
+    <p>CSS har &auml;ven st&ouml;d f&ouml;r attribut, vilket jag valt att f&ouml;rklara i avsnittet 
+      Attribut nedan (bl.a. d&aring; jag inte b&ouml;rjat anv&auml;nda detta i CSS... 
+      f&ouml;rr&auml;n i denna underwebb :-)).</p>
+    
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+			
+    <h2 id="attribut">Attribut</h2>
+
+    <p>&Auml;ven namn eller v&auml;rde p&aring; attribut kan anv&auml;ndas f&ouml;r att v&auml;lja ut element.</p>
+    
+    <table class="tableproperties">
+      <caption>Attributselektorer</caption>
+      <tr>
+        <th>Selektor</th>
+        <th>Element som v&auml;ljs</th>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn]&quot;</td>
+        <td>Element som har ett attribut med namnet namn</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och v&auml;rdet varde</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn^='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och ett v&auml;rde som b&ouml;rjar med varde</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn$='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och ett v&auml;rde som slutar med varde</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn*='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och ett v&auml;rde som inneh&aring;ller varde</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn~='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och ett v&auml;rde som inneh&aring;ller ordet varde</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn|='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn och antingen v&auml;rdet varde eller b&ouml;rjar 
+			med v&auml;rdet varde f&ouml;ljt av ett bindestreck</td>
+      </tr>
+      <tr>
+        <td class="code">&quot;[namn!='varde']&quot;</td>
+        <td>Element som har ett attribut med namnet namn men inte v&auml;rdet varde</td>
+      </tr>
+    </table>
+    
+    <p>N&auml;r det g&auml;ller selektor som v&auml;ljer baserat p&aring; ord s&aring; m&aring;ste v&auml;rdet b&ouml;rja 
+      med v&auml;rdet och f&ouml;ljas av mellanslag, sluta med v&auml;rdet och f&ouml;reg&aring;s av mellanslag
+      eller b&aring;de f&ouml;reg&aring;s och efterf&ouml;ljas av mellanslag. I f&ouml;rsta exempel nedan kommer alla
+      attribut med ordet fet i sig v&auml;ljas, d.v.s. med alla f&ouml;ljande id:</p>
+      
+    <ul>
+      <li>fet stil</li>
+      <li>kan fet valjas</li>
+      <li>nisse var fet</li>
+    </ul>
+    
+    <p>I andra exemplet kommer kommer alla rubriker vars v&auml;rde b&ouml;rjar p&aring; tal eller 
+      tal- att v&auml;ljas, men inte talet.</p>
+			
+	<div class="code">
+		<p>Y.all(&quot;h2[id~='fet']&quot;);</p>
+		<p>Y.all(&quot;h2[id|='tal'&quot;);</p>
+	</div>
+			
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+    <h2 id="exempel">St&ouml;rre exempel</h2>
+    
+    <p>Nedan &auml;r l&auml;nkar till st&ouml;rre exempel.</p>
+    
+    <ul>
+      <li><a href="tester/del2_html.html" class="externallink">HTML till del 2</a></li>
+    </ul>
+
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://www.w3.org/TR/css3-selectors/" class="externallink">CSS3 Selectors</a>
+        (W3C).</li>
+    </ul>
+    
+    <ul class="foregaendenasta">
+      <li><a href="del1.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del3.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-15.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

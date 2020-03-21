@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del5.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del5.html" />
+  <title>H&auml;ndelser - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>H&auml;ndelser - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item active" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Sidans inneh&aring;ll</h2>
+                
+        <p>P&aring; denna sida beskrivs man kan koppla funktioner f&ouml;r att hantera h&auml;ndelser
+          i element.</p>
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#inledning">Inledning</a>
+          <a class="item" href="#handelser">H&auml;ndelser</a>
+          <a class="item" href="#metoder"> - Metoder</a>
+          <a class="item" href="#genvagar"> - Genvägar till händelser</a>
+          <a class="item" href="#handelseobjekt"> - Händelseobjekt (event)</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="inledning">Inledning</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>H&auml;ndelser hj&auml;lper till att g&ouml;ra applikationer mer interaktiva,
+          bl.a. händelser som klick, dubbelklick, mus förs &ouml;ver och fokus f&ouml;rloras.</p>
+        
+        <p>Den grundl&auml;ggande principen f&ouml;r att binda en h&auml;ndelsehanterare (funktion) 
+          till ett elements h&auml;ndelse visas i exempel nedan. I det f&ouml;rsta fallet anv&auml;nds
+          metoden .bind() d&auml;r namn p&aring; h&auml;ndelse och funktion skickas som argument till
+          metod. Om vi endast vill binda funktion till en h&auml;ndelse s&aring; kan vi ist&auml;llet
+          anv&auml;nda en &quot;genv&auml;g&quot; i form av metod med h&auml;ndelses namn, som i andra
+          exemplet.</p>
+      </div>
+
+      <div class="seven wide column">
+        <code>element.bind(&quot;handelse&quot;, funktion);</code><br />
+        <code>element.handelse(funktion); //Genvag till handelse</code>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="handelser">H&auml;ndelser</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>H&auml;ndelsehanterare kan bindas, och kopplas loss, med metoder nedan. Skillnaden
+          mellan .bind() och live() (samt dess respektive motparter, .unbind() och .die())
+          &auml;r</p>
+          
+        <ul>
+          <li>att .bind() kopplar h&auml;ndelserhanterare vid tidpunkt f&ouml;r exekvering av metoden</li>
+          <li>att .live() &auml;ven kopplar h&auml;ndelsehanterare till element som l&auml;ggs till efter
+          exekvering av metoden.</li>
+        </ul>
+          
+        <h3>Argument till metoder</h3>
+        
+        <p>N&auml;r h&auml;ndelse skickas som argument till metoder (t.ex. .bind() och 
+          .live()) s&aring; skickas namn p&aring; h&auml;ndelse som str&auml;ng - en str&auml;ng som kan inneh&aring;lla 
+          flera h&auml;ndelser separerade med mellanslag.</p>
+      </div>
+      
+      <div class="seven wide column">
+        <code>element.bind(&quot;click&quot;, ...);</code><br />
+        <code>element.bind(&quot;click doubleclick&quot;, ...);</code>
+      </div>
+
+      <div class="nine wide column">
+        <p>Argumentet data kan inneh&aring;lla anpassad data som man &ouml;nskar bifoga till h&auml;ndelsehanterare
+          medan argumentet handelseobjekt i h&auml;ndelsehanterare &auml;r ett f&ouml;rdefinierat h&auml;ndelseobjekt
+          (<em>event</em>).</p>
+      </div>
+      
+      <div class="seven wide column">
+        <code>{ egenskap1: varde1, egenskap2: varde2 }</code>
+      </div>
+
+      <div class="nine wide column">
+        <p>Argumentet handelselista &auml;r ett objekt med namngivna egenskaper ({egenskap: 
+          v&auml;rde}) separerade med komma, om flera.</p>
+          
+        <p>(Se även avsnittet <i>Händelseobjekt (event)</i> nedan för beskrivning av händelseobjekt.)</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <h3 id="metoder">Metoder</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>Nedan beskrivs de övergripande metoderna för att koppla händelsehanterare
+          till händelser. (Se avsnittet Genvägar till händelser nedan för metoder som kopplar
+          till en viss händelse, d.v.s. något simplare. :-))</p>
+        
+        <table class="ui table">
+          <caption>Metoder f&ouml;r att binda och koppla loss h&auml;ndelser</caption>
+          <thead>
+            <tr>
+              <th>H&auml;ndelse</th>
+              <th>Beskrivning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr valign="top">
+              <td>
+                <code>.bind(handelse[, data], hanterare(handelseobjekt))</code><br />
+                <code>.bind(handelse[, data], falskt)</code><br />
+                <code>.bind(handelselista)</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelse handelse, med ev. extra data</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.delegate(selektor, handelse, hanterare)</code><br />
+                <code>.delegate(selektor, handelse, data, hanterare)</code><br />
+                <code>.delegate(selektor, handelse)</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelse till alla element</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.die()</code><br />
+                <code>.die(handelse[, hanterare(handelseobjekt)])</code>
+              </td>
+              <td>Kopplar loss hanterare f&ouml;r h&auml;ndelse handelse som bundits med .live()</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.live(handelse, hanterare)</code><br />
+                <code>.live(handelse, data, hanterare)</code><br />
+                <code>.live(handelseLista)</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelse handelse</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.one(handelse, [data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen handelse, och kommer max att exekveras en g&aring;ng</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.toggle(hanterare1(handelseobjekt), hanterare2(handelseobjekt)[, hanterare3(handelseobjekt)[, ...]])</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen click, d&auml;r h&auml;ndelsehanterare anropas i den ordning de skickats som argument</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.trigger(handelse, extraParamterar)</code><br />
+                <code>.trigger(handelseobjekt)</code>
+              </td>
+              <td>Utl&ouml;ser h&auml;ndelse handelse eller h&auml;ndelse i handelseobjekt</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.triggerHandler(handelse, extraParamterar)</code>
+              </td>
+              <td>Utl&ouml;ser h&auml;ndelse handelse f&ouml;r f&ouml;rsta elementet</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.unbind([handelse][, hanterare(handelseobjekt)])</code><br />
+                <code>.unbind(handelse, falskt)</code><br />
+                <code>.unbind(handelseLista)</code>
+              </td>
+              <td>Kopplar loss hanterare som kopplats med .bind(), och f&ouml;r ev. h&auml;ndelse handelse</td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <code>.undelegate(selektor, handelse)</code><br />
+                <code>.undelegate(selektor, handelse, hanterare)</code><br />
+                <code>.undelegate(selektor, handelseLista)</code><br />
+                <code>.undelegate(namnutrymme)</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelse handelse, med ev. extra data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nine wide column">
+        <p>I kod nedan kopplas en anonym funktion, med argumentet ev för händelseobjekt,
+          till händelsen <code>click</code> för alla element av klassen &quot;link&quot;.</p>
+      </div>
+
+      <div class="seven wide column">
+        <pre><code>$(".link").bind(&quot;click&quot;, function(ev) {
+  //Kod att exekvera när element klickas på
+});</code></pre>
+      </div>
+        
+      <div class="sixteen wide column">
+        <h3 id="genvagar">Genv&auml;gar till h&auml;ndelser</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>F&ouml;ljande metoder &auml;r genv&auml;gar till anrop av metoden bind() 
+          med namn på händelse som argument.</p>
+          
+        <p>Händelser utlöses genom att anropa de flesta metoderna nedan utan någon parameter.</p>
+        
+        <table class="ui table">
+          <caption>Genv&auml;gar f&ouml;r att binda h&auml;ndelser</caption>
+          <thead>
+            <tr>
+              <th>H&auml;ndelse</th>
+              <th>Beskrivning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <code>.blur()</code><br />
+                <code>.blur(hanterare(handelseobjekt))</code><br />
+                <code>.blur([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen blur, d.v.s. när elementet förlorar fokus</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.change()</code><br />
+                <code>.change(hanterare(handelseobjekt))</code><br />
+                <code>.change([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen change</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.click()</code><br />
+                <code>.click(hanterare(handelseobjekt))</code><br />
+                <code>.click([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen click</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.dblclick()</code><br />
+                <code>.dblclick(hanterare(handelseobjekt))</code><br />
+                <code>.dblclick([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen dblclick</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.error(hanterare(handelseobjekt))</code><br />
+                <code>.error([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen error</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.focus()</code><br />
+                <code>.focus(hanterare(handelseobjekt))</code><br />
+                <code>.focus([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen focus</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.focusin(hanterare(handelseobjekt))</code><br />
+                <code>.focusin([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen focus n&auml;r element eller n&aring;gon av dess &auml;ttlingar f&aring;r fokus</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.focusout(hanterare(handelseobjekt))</code><br />
+                <code>.focusout([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen blur n&auml;r element eller n&aring;gon av dess &auml;ttlingar f&ouml;rlorar fokus</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.hover(hanterareIn(handelseobjekt), hanterareUt(handelseobjekt))</code><br />
+                <code>.hover(hanterareInUt(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen hover, som &auml;r tv&aring; h&auml;nderer (in och ut)</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.keydown()</code><br />
+                <code>.keydown(hanterare(handelseobjekt))</code><br />
+                <code>.keydown([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen keydown</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.keypress()</code><br />
+                <code>.keypress(hanterare(handelseobjekt))</code><br />
+                <code>.keypress([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen keypress</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.keyup()</code><br />
+                <code>.keyup(hanterare(handelseobjekt))</code><br />
+                <code>.keyup([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen keyup</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.load(hanterare(handelseobjekt))</code><br />
+                <code>.load([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen load (anv&auml;nd .ready() ist&auml;llet)</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseup()</code><br />
+                <code>.mouseup(hanterare(handelseobjekt))</code><br />
+                <code>.mouseup([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mousedown</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseenter()</code><br />
+                <code>.mouseenter(hanterare(handelseobjekt))</code><br />
+                <code>.mouseenter([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mouseenter</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseleave()</code><br />
+                <code>.mouseleave(hanterare(handelseobjekt))</code><br />
+                <code>.mouseleave([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mouseleave</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mousemove()</code><br />
+                <code>.mousemove(hanterare(handelseobjekt))</code><br />
+                <code>.mousemove([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mousemove</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseout()</code><br />
+                <code>.mouseout(hanterare(handelseobjekt))</code><br />
+                <code>.mouseout([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mouseout</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseover()</code><br />
+                <code>.mouseover(hanterare(handelseobjekt))</code><br />
+                <code>.mouseover([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mouseover</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.mouseup()</code><br />
+                <code>.mouseup(hanterare(handelseobjekt))</code><br />
+                <code>.mouseup([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen mouseup</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.resize()</code><br />
+                <code>.resize(hanterare(handelseobjekt))</code><br />
+                <code>.resize([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen resize</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.scroll()</code><br />
+                <code>.scroll(hanterare(handelseobjekt))</code><br />
+                <code>.scroll([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen scroll</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.select()</code><br />
+                <code>.select(hanterare(handelseobjekt))</code><br />
+                <code>.select([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen select</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.submit()</code><br />
+                <code>.submit(hanterare(handelseobjekt))</code><br />
+                <code>.submit([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen submit</td>
+            </tr>
+            <tr>
+              <td>
+                <code>.unload(hanterare(handelseobjekt))</code><br />
+                <code>.unload([data, ]hanterare(handelseobjekt))</code>
+              </td>
+              <td>Binder hanterare f&ouml;r h&auml;ndelsen unload</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nine wide column">
+        <p>I kod nedan kopplas en anonym funktion, men argumentet ev för händelseobjekt,
+          till händelsen <span class="code">click</span> för element med id &quot;send&quot;.</p>
+      </div>
+      
+      <div class="seven wide column">
+          <pre><code>$("#send").click(myFunction(ev) {
+  //Kod att exekvera när element klickas på
+});</code></pre>
+      </div>
+        
+      <div class="sixteen wide column">
+        <h4>Större exempel</h4>
+        
+        <ul>
+          <li><a href="del7/del7_klick_handelseobjekt.html" target="_blank">Händelsen klick och händelsedata</a></li>
+        </ul>
+        
+        <h3 id="handelseobjekt">H&auml;ndelseobjekt (<em>event</em>)</h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>Till en del h&auml;ndelsehanterare skickas ett h&auml;ndelseobjekt (<em>event</em>)
+          med data om bl.a. h&auml;ndelse. Fr&aring;n detta objekt kan man bl.a. f&aring; position f&ouml;r
+          muspekare och ev. anpassad data som skickats till h&auml;ndelsehanterare.</p>
+          
+        <p>Åtkomst till egenskaper i tabell nedan fås genom parameter i h&auml;ndelsehanterares 
+          signatur. I exempel nedan kopplas hanterare till h&auml;ndelsen <span class="code">click</span>
+          och som argument skickas den anpassade parametern <span class="code">tal</span>, 
+          som d&auml;rmed kan refereras till med <span class="code">ev.data.tal</span>.</p>
+      </div>
+      
+      <div class="seven wide column">
+        <pre><code>$(&quot;a&quot;).bind(&quot;click&quot;, {<b>tal</b>: 12}, function(ev) {
+  alert('Ditt tal ar: ' + <b>ev.data.tal</b>);
+});</code></pre>
+      </div>
+
+      <div class="nine wide column">
+        <p>Nedan beskrivs egenskaper i händelseobjekt.</p>
+        
+        <table class="ui table">
+          <caption>Egenskaper i händelseobjekt</caption>
+          <thead>
+            <tr>
+              <th>Egenskap</th>
+              <th>Beskrivning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.data</code></td>
+              <td>eventuell data som skickades när händelsehanterare kopplades till händelse</td>
+            </tr>
+            <tr>
+              <td><code>.metaKey</code></td>
+              <td>om Ctrl-/Meta-tangent var nertryckta på tangentbord när händelse utlöstes</td>
+            </tr>
+            <tr>
+              <td><code>.pageX</code></td>
+              <td>position för musmarkör i X-led i förhållande till dokumentets övre vänstra hörn</td>
+            </tr>
+            <tr>
+              <td><code>.pageY</code></td>
+              <td>position för musmarkör i Y-led i förhållande till dokumentets övre vänstra hörn</td>
+            </tr>
+            <tr>
+              <td><code>.relatedTarget</code></td>
+              <td>eventuella andra element som ingår i händelse</td>
+            </tr>
+            <tr>
+              <td><code>.result</code></td>
+              <td>eventuellt resultat f&ouml;r h&auml;ndelse som angivits av annan h&auml;ndelsehanterare</td>
+            </tr>
+            <tr>
+              <td><code>.target</code></td>
+              <td>element som händelse utlösts för</td>
+            </tr>
+            <tr>
+              <td><code>.timeStamp</code></td>
+              <td>tidpunkt som h&auml;ndelse utl&ouml;stes, i antal sekunder sen 1970-01-01</td>
+            </tr>
+            <tr>
+              <td><code>.type</code></td>
+              <td>typ av h&auml;ndelse, t.ex. &quot;click&quot;</td>
+            </tr>
+            <tr>
+              <td><code>.which</code></td>
+              <td>eventuell tangent eller musknapp som genererade händelse, om relevant</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>Egenskapen <span class="code">.type</span> kan användas för att avgöra vilken
+          händelse som utlösts, vilket är praktiskt om man vill använda samma händelsehanterare
+          för flera händelser.</p>
+        
+        <p>Om händelse utlöstes m.h.a. klick på musen så kan man använda egenskapen 
+          <span class="code">.which</span> för att avgöra om besökare klickade med vänster (1)
+          eller höger (3) knapp.</p>
+        
+        <p>Nedan beskrivs metoder i händelseobjekt.</p>
+        
+        <table class="ui table">
+          <caption>Metoder i händelseobjekt</caption>
+          <thead>
+            <tr>
+              <th>Metod</th>
+              <th>Beskrivning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.isDefaultPrevented()</code></td>
+              <td>returnerar sant om metoden preventDefault() anropats på händelseobjekt</td>
+            </tr>
+            <tr>
+              <td><code>.isImmediatePropagationStopped()</code></td>
+              <td>returnerar sant om metoden stopImmediatePropagation() anropats på händelseobjekt</td>
+            </tr>
+            <tr>
+              <td><code>.isPropagationStopped()</code></td>
+              <td>returnerar sant om metoden stopPropagation() anropats på händelseobjekt</td>
+            </tr>
+            <tr>
+              <td><code>.preventDefault()</code></td>
+              <td>förhindrar att elementets standardhändelse sker, t.ex. navigering vid klick på länk</td>
+            </tr>
+            <tr>
+              <td><code>.stopImmediatePropagation()</code></td>
+              <td>förhindrar att elementets eventuella övriga händelsehanterare exekveras</td>
+            </tr>
+            <tr>
+              <td><code>.stopPropagation()</code></td>
+              <td>förhindrar att händelse bubblar uppåt i DOM-hierarki, d.v.s. till förfäder</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://api.jquery.com/category/events/" target="_blank" rel="noopener">Events</a>
+            (jQuery-dokumentation).</li>
+        </ul>
+
+        <div class="ui compact menu">
+          <a class="item" href="del6.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item">N&auml;sta &gt;</a>
+        </div>
+      </div>
+    </div>
+  
+		<footer>
+			<p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+		</footer>
+	</div>
+</body>
+</html>

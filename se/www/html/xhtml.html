@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Kort beskrivning av XHTML." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/xhtml.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/xhtml.html" />
+  <title>Introduktion till HTML</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../stilar/stilmall.css">
+  <style>
+    .brodtext  { font-family: Verdana; font-size: 10pt }
+    .lista     { font-family: Verdana; font-size: 10pt; margin-top: 20px }
+    .kod       { font-family: "Courier New", Courier, Sans-serif; font-size: 9pt }
+  </style>
+</head>
+<body bgcolor="#FFFFFF">
+  <table border="0" width="425" bgcolor="#FFFFFF">
+    <tr>
+      <td width="100%" colspan="2">
+        <h1>XHTML - en kort introduktion</h1>
+        <hr />
+        <p><a href="./">Hem</a></p>
+        <hr />
+
+        <h2>Skillnader mellan HTML och XHTML</h2>
+        <p>XHTML (Extensible HTML) kan kort sägas vara en korsning mellan HTML och XML. Genom att
+        använda XML som grund för hur HTML-koden ska skrivas så styr man
+        kodens syntax ganska hårt. Samtidigt är kunskapen om HTML (version 4) ganska
+        spridd vilket gör det lätt att övergå från HTML till XHTML.</p>
+        <p>XHTML är
+        ett försök att skapa en version av HTML som kommer fungera lika
+        oavsett webbläsare. (Webbläsare i förra meningen borde snarare kallas
+        för agent - även mobiltelefoner och handdatorer kan tänkas användas
+        för att visa dokumentet.) Detta gör man bl.a. genom att definitionen
+        av taggar i XHTML inte byggs in i webbläsare (vilket dom är idag med
+        HTML) utan finns tillgängliga i en fil på Internet (hos W3C). Denna
+        fil innehåller XHTML:s DTD <span class="brodtext">(<em>document
+            type definition</em>)</span>
+        som beskriver taggarnas innebörd.</p>
+        <h3>Skillnader mellan HTML- och XHTML-kod</h3>
+        <p>De flesta kraven för XHTML i listan nedan är egentligen de samma
+        som för HTML, men de flesta webbläsare brukar vara ganska förlåtande
+        om dom inte efterlevs.</p>
+        <span class="brodtext">
+        <ul>
+          <li>XHTML-dokumentet ska innehålla (börja) med en referens till en DTD.</li>
+          <li>Dokumentet ska även innehålla en referens till ett
+            XML-namnutrymme (<em>name space</em>).</li>
+          <li>Alla taggar och dess attribut skrivs med gemener (små bokstäver).</li>
+          <li>Både öppnande och avslutande tagg måste användas:
+            <ul type="circle">
+              <li>För en del element, de som inte innehåller något mellan taggarna,
+                kan den avslutande taggen utelämnas genom att avsluta den
+                öppnande taggen med ett snedstreck (<em>slash</em> -
+                &quot;/&quot;). Exempel: &lt;br/&gt; och &lt;hr/&gt;</li>
+            </ul>
+          </li>
+          <li>Elementen &lt;head&gt; och &lt;body&gt; får inte utelämnas.
+            <ul type="circle">
+              <li>Första elementet i &lt;head&gt; måste vara titeln på sidan
+                (&lt;title&gt;).</li>
+            </ul>
+          </li>
+          <li>Eventuella förkortningar (i HTML) av taggars syntax får inte
+            användas i XHTML.</li>
+        </ul>
+        </span>
+        <h3>Ett första exempel</h3>
+        <blockquote>
+        <p class="kod">&lt;?xml version="1.0" encoding=&quot;UTF-8&quot;?&gt;<br>
+        &lt;DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+        &nbsp; &quot;http://www.w3c.org/TR/xhtml1/DTD/ xhtml1-transitional.dtd&quot;&gt;<br>
+        &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><br>
+        &lt;head&gt;<br>
+        &nbsp; &lt;title&gt;En f&amp;ouml;rsta XHTML-sida&lt;/title&gt;<br>
+        &nbsp; &lt;meta name="description" content="Beskrivning av dokument"&gt;<br>
+        &nbsp; &lt;meta author="Bj&amp;ouml;rn Persson"&gt;<br>
+        &nbsp; &lt;meta http-equiv="expires" content="24 Jan 2001"&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+        &nbsp; &lt;h1&gt;En rubrik&lt;/h1&gt;<br>
+        &nbsp; &lt;p&gt;... och lite text i ett stycke.&lt;/p&gt;<br>
+        &nbsp; &lt;p&gt;&lt;strong>OBS!&lt;/strong&gt; Denna fil g&amp;aring;r inte att redigera i&nbsp;<br>
+        &nbsp;&nbsp;&nbsp; FrontPage 2000!&lt;br /&gt;<br>
+        &nbsp;&nbsp;&nbsp; FrontPage 2000 flyttar runt taggarna den inte k&amp;auml;nner igen och&nbsp;<br>
+        &nbsp;&nbsp;&nbsp; placerar dem i kroppen (&amp;lt;body&amp;gt;) ist&amp;auml;llet.&lt;/p&gt;<br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;</p>
+        </blockquote>
+        <p>Exempel X1.1: Ett <a href="xhtml/xhtml1_1.htm">enkelt XHTML-dokument</a>.</p>
+        <h2>Taggar i XHTML</h2>
+        <p>De flesta taggar i HTML 4 finns även i XHTML. Skillnaden, som
+        nämnts ovan, ligger i att alla taggar måste ha både en öppnande och
+        avslutande tagg. Även &quot;tomma&quot; taggar så som &lt;br&gt;
+        måste ha en avslutande tag - men man kan även avsluta den öppnande
+        taggen med ett snedstreck för att behöva skriva ut den avslutande
+        taggen.</p>
+        <p>I tabellen nedan vissa exempel på några taggar som
+        har ändrats, d.v.s. måste skrivas på ett lite annorlunda sätt.<br>
+        &nbsp;
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="210">
+        <h4>HTML</h4>
+      </td>
+      <td width="210">
+        <h4>XHTML</h4>
+      </td>
+    </tr>
+    <tr>
+      <td class="kod">
+        &lt;br&gt;
+      </td>
+      <td class="kod">
+        &lt;br&gt;&lt;/br&gt; eller &lt;br/&gt;
+      </td>
+    </tr>
+    <tr>
+      <td class="kod">
+        &lt;hr&gt;
+      </td>
+      <td class="kod">
+        &lt;hr&gt;&lt;/hr&gt; eller &lt;hr/&gt;
+      </td>
+    </tr>
+    <tr>
+      <td class="kod">
+        &nbsp;
+      </td>
+      <td class="kod">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td width="100%" colspan="2">
+        <p>&nbsp;<br>
+        Webbläsare för HTML implementeras så att om dom inte förstår en
+        tagg så ska dom strunta i den, d.v.s. taggens innebörd och dess
+        attribut. På så sätt kan nya versioner av HTML användas även i
+        webbläsare för äldre versioner av HTML. Det leder i.o.f.s. till att
+        hemsidorna i äldre webbläsare kanske inte visas på det sätt man
+        tänkt sig, men de visas i.a.f.. Och eftersom XHTML bygger på HTML 4
+        så kan &quot;äldre&quot; webbläsare visa även XHTML. Men problemet
+        kan uppstå då man t.ex. använder den förkortade versionen av
+        &quot;tomma&quot; taggar (t.ex. &lt;br/&gt; och &lt;hr/&gt;) då dessa
+        kan tolkas som taggar som webbläsaren inte förstår. HTML bygger ju
+        på att taggarnas namn inte får innehålla t.ex. mellanrum, d.v.s.
+        taggarnas namn måste skrivas som ett helt ord och inte sitta samman med
+        attributens namn.</p>
+        <p>För att göra XHTML-kod kompatibel med HTML kan man, i de
+        förkortade versionerna av &quot;tomma&quot; taggar, placera ett
+        mellanslag efter taggens namn. I XHTML kommer &lt;br/&gt; tolkas samma
+        som &lt;br /&gt; och i HTML kan webbläsaren tolka snedstrecket som ett
+        attribut den inte känner igen, d.v.s. webbläsare kommer bortse från
+        &quot;attributet&quot;. Detta gäller bl.a. i Netscape Navigator
+        (versioner tidigare än 4.76 idag, 010120).</p>
+        <hr />
+        <p><a href="./">Hem</a></p>
+        
+        <hr>
+        <p class="sidfot"><b>Skapad av:</b> Björn G D Persson.
+          <b>Uppdaterad:</b> 2001-07-08.</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

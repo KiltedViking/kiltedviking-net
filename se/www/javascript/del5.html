@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del5.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del5.html" />
+  <title>Formul&auml;r (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      <h1>Formul&auml;r (JavaScript)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li class="active"><a href="del5.html">Formul&auml;r</a></li>
+        <li><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Innehåll</h2>
+
+      <div class="callout warning">
+        <p class="center"><strong>OBS!</strong><br />
+          Denna sida är (fortfarande) under uppbyggnad!</p>
+      </div>
+
+      <p>Denna webbsida beskriver hur man kan använda JavaScript för att validera
+        innehåll i formulär innan formuläret skickas till webbserver. Validering bör
+        alltid ske för att avlasta webbserver från &quot;felaktiga&quot; formulär.
+        JavaScript-validering är dock <strong>inte</strong> en ersättning till
+        validering på webbserver, endast ett komplement.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#" class="collection-item">Använda JavaScript för att validera innehåll i formulär</a></li>
+        <li><a href="#" class="collection-item">Referera till formulär- och fältobjekt i ett formulär</a></li>
+        <li><a href="#" class="collection-item">Händelsen OnSubmit</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2>Använda JavaScript för att validera innehåll i formulär</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Ett mycket bra användningsområde för JavaScript är just att validera
+        innehållet i formulär innan det skickas till webbserver. På så sätt slipper
+        besökare vänta på att formuläret ska skickas till webbserver, webbserver ska
+        validera innehållet i formuläret samt webbserver ska skicka tillbaka ett
+        eventuell negativt svar från sin validering.</p>
+
+      <p>Att validera innehållet i ett formulär innebär oftast att
+        innehållet (värden) i ett formulärs olika fält testas på något
+        sätt. Vi måste därför kunna referera till formuläret och dess
+        fält, vilka är objekt i JavaScript.&nbsp;</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2>Referera till formulär- och fältobjekt i ett formulär</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Alla fält (kontroller) i ett formulär ingår som en del i JavaScripts objekthierarki,
+        d.v.s. både formulär och fält betraktas som objekt i JavaScript och har en
+        inbördes relation (förälder-barn). Objekten kan ha egenskaper som är både vektorer, med fler objekt
+        i, samt egenskaper med enkla värden (icke objekt) och som innehåller information om
+        objektet (d.v.s. dess tillstånd).</p>
+
+      <p class="kommentar">Precis som i övriga delar av JavaScripts objekthierarki
+        så namnges variabler (objekt) med endast ett värde i singular och vektorer
+        med objekt (flera) i plural, d.v.s. med ett s på slutet (t.ex. forms).</p>
+
+      <p>Nedan visas den del av objekthierarkin som har med formulär att göra. Den
+        visar på att objektet <code>document</code> är förälder till alla formulär (<code>forms</code>),
+        som i sin tur är förälder till alla kontroller, eller element (<code>elements</code>),
+        i formulär.</p>
+
+      <ul>
+        <li><code>document</code>
+          <ul>
+            <li><code>forms</code> (eller namnet på formuläret)
+              <ul>
+                <li><code>elements</code> (eller namnet på fältet)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Exempelformulär</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I resterande del av detta avsnitt använder vi ett formulär (med
+        namnet MittFormular) som innehåller ett textfält (med namnet MittFalt)
+        och en Submit-knapp (utan namn).
+        Formuläret skapas med följande HTML-kod.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;form name=&quot;MittFormular&quot; id=&quot;MittFormular&quot;&gt;
+  &lt;p&gt;Fyll i lite text: &lt;input type=&quot;text&quot;
+    name=&quot;MittFalt&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Formulärobjekt</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Objektet document har en vektor (forms) med alla
+        formulärobjekt i. Ett formulär (-objekt) kan refereras till antingen
+        genom att indexera i vektorn forms med ett tal eller genom att använda formulärets
+        namn
+        (d.v.s. det värde som angavs i FORM-taggens attribut NAME). Nedan visas
+        exempel på hur en referens (pekare) till första formuläret respektive
+        formuläret med namnet MittFormular tilldelas till variabeln frm.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var frm = document.forms[0];</code><br />
+      <code>var frm = document.MittFormular;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vill vi göra dynamisk kod eller kod som fungerar med flera formulär
+        (t.ex. om vi inkluderar en fil med JavaScript-kod) så är den första
+        formen ovan lämpligast. Men den andra formen ovan är oftast lättare
+        att läsa och förstå.</p>
+
+      <p><strong>Observera</strong> att JavaScript skiljer på gemener och versaler,
+        d.v.s. vi måste använda samma skiftläge för namnet på formuläret
+        som vi använde i FORM-taggens attribut NAME. Samma sak gäller för
+        fältobjekten nedan.</p>
+
+      <p>Själva formulärobjektet är kanske inte så intressant, men
+        dess vektor elements som innehåller alla fält i formuläret är desto
+        intressantare.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Fältobjekt</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Precis som med vektorn forms (i objektet document) kan vi hämta en
+        referens till ett fält genom att använda vektorn elements i ett
+        formulärobjekt. Vi kan även här använda oss av ett index i vektorn eller
+        använda fältets namn. Nedan visas
+        exempel på hur en referens till första fältet respektive fältet med
+        namnet MittFalt (i formuläret med namnet MittFormular) tilldelas till
+        variabeln falt.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var falt = document.MittFormular.elements[0];</code><br />
+      <code>var falt = document.MittFormular.MittFalt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Lättast är oftast att använda den andra formen ovan då det blir
+        enklare att förstå vilket av formulären och vilket fält som avses.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Ett enkelt exempel</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I detta exempel visar vi texten (innehållet) i ett textfält (MittFalt)
+        i en meddelanderuta. För att detta ska ske kan vi använda händelsen
+        OnSubmit för formuläret och lägger därför till den gulmarkerade
+        koden nedan till FORM-taggen (förklaras längre ner):</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;form ... <span class="highlight">onsubmit=&quot;return minFunktion()&quot;</span>&gt;</code>
+
+      <p>I webbsidans HEAD-tagg placeras följande skriptkod:</p>
+
+      <pre><code>&lt;script language=&quot;text/javascript&quot;&gt;
+function minFunktion() {
+  //Hämta innehållet i textfältet
+  var str = document.forms[0].elements[0].value;
+  // Visa innehållet i textfältet.
+  alert(&quot;Textfältet innehåller:\n\n&quot; + str);
+  //Returnera falskt så att formuläret inte skickas
+  return false;
+}
+&lt;/script&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del5/javascript5_1.html" target="_blank" class="button button-primary">Exempel 5.1 - Ett enkelt exempel</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2>Händelsen Submit</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Händelsen Submit i <code>form</code>-taggen används för att bl.a. köra en
+        JavaScript-funktion som validerar innehållet i ett formulär. Om funktionen
+        returernar sant så skickas formuläret, annars inte. Funktionen bör
+        lämpligen meddela besökaren om varför och vilket fält som
+        denne (eller denna) har fyllt i felaktigt.</p>
+
+      <p>För att formuläret inte ska skickas skriver vi det reserverade ordet return
+        för valideringsfunktion i FORM-taggen enligt nedan. Detta gör för att händelse
+        submit ska utföras eller inte beroende på om valideringsfunktion returnerar
+        sant eller falskt. Om valideringsfunktion returnerar falskt så avbryts alltså
+        händelsen submit.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;form ... onsubmit=&quot;<span class="highlight">return</span> minFunktion()&quot;&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Glömmer vi (det reserverade ordet) return så kommer webbläsaren
+        skicka formuläret oavsett vad minFunktion() returnerar ovan.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Ett enkelt exempel</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>När besökaren klickar på Submit-knappen så
+        kontrollerar en JavaScript-funktion om besökaren fyllt i något i
+        textfältet. Om textfältet är tomt visas en dialogruta och funktonen returnerar falskt.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function validera() {
+    //Hämta innehåll i textfältet (en sträng)
+  var str = document.MittFormular.MittFalt.value;
+  //Kontrollera om längden är 0, d.v.s. fält tomt
+  if( str.length == 0 ) {
+      //Meddela besökare om felet
+    alert(&quot;Du måste fylla i något i textfältet!&quot;);
+    //Returnera false så att formulär inte skickas
+    return false;
+  }
+  // Alla kontroller ar OK
+    // Returnera true sa att formulär skickas
+  return true;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Formulärets kod ser ut enligt följande</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;form method=&quot;get&quot; action=&quot;#&quot; name=&quot;TestForm&quot;
+  onsubmit=&quot;return validera()&quot;&gt;
+&lt;p&gt;Fyll i ett ortsnamn: &lt;input type=&quot;text&quot; 
+      name=&quot;Ort&quot; size=&quot;20&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;
+    &lt;input type=&quot;reset&quot; value=&quot;Återställ&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del5/javascript5_2.html" target="_blank" class="button button-primary">Exempel 5.2 - Händelsen submit</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Alternativ till händelsen OnSubmit</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Det går även att ersätta Submit-knappen med en vanlig knapp (d.v.s.
+        type=&quot;button&quot;), koppla en funktion som validerar formuläret till knappen
+        och sen använda formuläretobjektets funktionen submit() i funktionen.
+        Men detta kräver att webbläsaren stödjer version 4 av HTML.</p>
+
+      <p class="center">[ <strong>ATT GÖRA:</strong> Ett exempel....]</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Skicka formulär som parameter</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Om vi vill använda samma funktion för flera formulär (med flera
+        Submit-knappar på samma webbsida) så kan det vara praktiskt att skicka
+        formuläret som parameter till metoden för OnSubmit. Därmed behöver
+        funktionen endast validera fält i just det formuläret. För att skicka
+        formuläret till funktion så skickar vi &quot;this&quot; som argument till
+        funktionen enligt kod nedan. Eftersom this används i ett formulär så refererar
+        this till just detta formulär.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;form ... onsubmit=&quot;return validera(<span class="highlight">this</span>)&quot;&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vi ändrar signaturen för JavaScript-funktionen genom att lägga
+        till en parameter. Och vi kan sen använda oss av denna parameter för
+        att hämta en referens till fältet. Vi skriver om ovanstående funktion
+        validera och ändrar följande rader:</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function validera(formular) {
+    //Hämta innehåll i textfältet (en sträng)
+  var str = formular.MittFalt.value;
+  ...
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2>Egenskap för fält</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Olika fält har olika egenskaper och metoder, även om många är
+        gemensamma för flera. Nedan visas listor med
+        egenskaper och metoder för respektive typ av fält. Egenskaper är
+        publika variabler i fältobjekten (skrivs utan parenteser) och metoder
+        följs av parenteser.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Textfält</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>value</code> - innehållet i textfält (som sträng)</li>
+        <li><code>focus()</code> - placerar markören i textfältet. Användbart i
+          valideringsfunktioner då markör kan placeras i ett fält med
+          felaktig data.</li>
+        <li><code>select()</code> - markerar innehållet i textfältet. Användbart i
+          samband med focus() så att besökare enkelt kan ersätta markerad
+          text med en annan.</li>
+      </ul>
+
+      <p>Vi använder egenskapen value för att läsa innehållet i ett
+        textfält. Värdet i ett textfält är en sträng (ett strängobjekt),
+        d.v.s. vi kan fråga strängen om dess längd (med egenskapen length)
+        eller loopa över strängen (för att t.ex. kontrollera varje tecken ett
+        åt gången). Ett typiskt exempel är följande (som kontrollerar om ett
+        textfält är tomt):</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function validera(f) {
+  if( f.MittFalt.value.length == 0 )
+    alert('Du måste fylla i textfältet!');
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Ett användningsområde för metoden focus() är då en webbsida med
+        formulär laddas. Vi kan då använda händelsen OnLoad i BODY-taggen
+        för att anropa focus() i t.ex. första textfältet. Därmed kan
+        besökaren börja fylla i information i formuläret utan att först
+        behöva klicka i textkontrollen.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;body onload=&quot;document.forms[0].EttFalt.focus()&quot;&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>(Alternativ kan vi placera anropet av focus() i en
+        JavaScript-funktion som vi placerar i attributet ONLOAD.)</p>
+
+      <p>Ett annat användningsområde för focus() är att placera markören
+        (fokus) i ett fält som innehåller felaktig data vid validering av ett
+        formulär. Därmed kan besökaren se vilket fält som innehåller
+        felaktig data och börja ändra utan att klicka i fältet först.</p>
+
+      <p class="center"><a href="del5/javascript5_3.html" target="_blank" class="button button-primary">Exempel 5.3 - Egenskaper för textfält</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Listrutor</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>selectedIndex</code> - returnerar ett tal motsvarande det markerade
+          alternativet i listrutan (med början på 0). Om inget alternativ
+          är markerat så returneras -1.&</li>
+        <li><code>options</code> - returnerar en vektor med alla alternativ i
+          listrutan (se mer nedan).</li>
+        <li><code>focus()</code> - placerar &quot;markören&quot; i listrutan (gör
+          det möjligt att markera med pil- och mellanslagstangenter).</li>
+      </ul>
+
+      <p>Mest användbart är egenskapen selectedIndex som kan kontrolleras
+        att den är större eller lika med 0, d.v.s. att minst ett alternativ i
+        listruta har valts.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Vektorn options</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>text</code> - returnerar texten för markerat alternativ i listrutan.</li>
+        <li><code>value</code> - returnerar värdet i OPTION-taggens attribut VALUE</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Exempel</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Detta exempel kontrollerar om besökare markerat något alternativ i
+        en listruta (med namnet MinLista). Om så är fallet så tilldelas
+        variabeln valtIndex index för alternativet, variabeln valtAlt texten
+        för markerat alternativ och valtVarde värdet i VALUE-attributet.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function visaInnehall() {
+  var falt, valtIndex, valtText, valtVarde;
+  //Hämta referens till fält
+  falt = document.forms[0].MinLista;
+  //Hämta index för markerat alternativ
+  valtIndex = falt.selectedIndex;
+  //Om något alternativ markerat - index > -1
+  if( valtIndex >= 0 )
+  {
+    //Hämta text + värde fr attributet VALUE
+    valtText = falt.options[valtIndex].text;
+    valtVarde = falt.options[valtIndex].value;
+
+      //Visa meddelanderuta med variablerna
+    alert("Text för markerat alternativ är: " 
+      + valtText + "\n\n"
+      + "Värde för markerat alternativ är: " 
+      + valtVarde);
+  }
+  else
+    alert('Du har inte markerat något alternativ!');
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">    
+      <p>I formuläret kan vi använda en &quot;vanlig&quot; knapp för att
+        anropa funktionen visaInnehåll() och HTML-koden blir då följande:</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;form name=&quot;MittFormular&quot;&gt;
+  &lt;p&gt;Markera ett alternativ i listan och klicka på 
+    knappen.&lt;/p&gt;
+  &lt;p&gt;
+  &lt;select name="MinLista" size="8"&gt;
+    &lt;option value="1"&gt;Ett&lt;/option&gt;
+    &lt;option value="2"&gt;Två&lt;/option&gt;
+    &lt;option value="3"&gt;Tre&lt;/option&gt;
+    &lt;option value="4"&gt;Fyra&lt;/option&gt;
+    &lt;option value="5"&gt;Fem&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;input type="button" value="Kör funktion" 
+    onclick=&quot;visaInnehall()&quot;&gt;
+  &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del5/javascript5_4.html" target="_blank" class="button button-primary">Exempel 5.4 - Egenskaper för listrutor</a></p>
+
+      <p><strong>Observera</strong> att om man tillåter besökare att markera flera
+        alternativ i en listruta så innehåller selectedIndex endast det
+        första markerade alternativet.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Radioknappar</h3>
+
+      <p>&nbsp;</p>
+
+      <h3>Kryssrutor</h3>
+
+      <p>&nbsp;</p>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <p>Nedan finns några webbsidor/-platser med mer information om ämnet på denna
+        webbsida.</p>
+
+      <ul>
+        <li>Kommer...</li>
+      </ul>
+
+      
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="del4.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="dom1.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

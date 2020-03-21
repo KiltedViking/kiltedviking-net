@@ -1,0 +1,49 @@
+body { border: 0; margin: 0; }
+header {
+  /* background-image: url("../images/thistle.jpg"); */
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+header h1 { letter-spacing: 10px; }
+.nav .fa { font-size: 1.5em; }
+header.image-header>h1, header.image-header>h1>small,
+header.image-header>h2 {
+  color: #FFD600;  
+  background-color: #313941;
+  opacity: .75;
+  padding: .5em;
+}
+header.image-header>h1 { text-transform: uppercase; }
+header.image-header.image-thistle { background-image: url("../images/thistle.jpg"); }
+header.image-header.image-60007 { background-image: url("../images/60007-Sir-Nigel-Gresley.jpg"); }
+header.image-header.image-kabdalis { background-image: url("../images/kabdalis.jpg"); }
+header.image-header.image-urkult05 { background-image: url("../images/urkult05.jpg"); }
+header.image-header.image-urkult07 { background-image: url("../images/urkult07.jpg"); }
+header.image-header.image-thai-pavillion { background-image: url("../images/thai-pavillion.jpg"); }
+header.image-header.image-peatbog { background-image: url("../images/peatbog.jpg"); }
+header.image-header.image-ben-nevis { background-image: url("../images/ben-nevis.jpg"); }
+header.image-header.image-bass-rock { background-image: url("../images/bass-rock.jpg"); }
+header.image-header.image-bastad-pier { background-image: url("../images/bastad-pier.jpg"); }
+header.image-header.image-beach { background-image: url("../images/beach.jpg"); }
+header.image-header.image-hovs-hallar { background-image: url("../images/hovs-hallar.jpg"); }
+header.image-header.image-tyresta { background-image: url("../images/tyresta.jpg"); }
+header.image-header.image-visby { background-image: url("../images/visby.jpg"); }
+header.image-header.image-raukar { background-image: url("../images/raukar.jpg"); }
+header.image-header.image-ben-vrackie { background-image: url("../images/ben-vrackie.jpg"); }
+header.image-header.image-paradiset-tower { background-image: url("../images/Hudding_Paradiset_Viewing_tower.jpg"); }
+.row .h3-padding { margin-top: 20px !important; }
+a, a:hover, a:visited { color: #B71C1C; }
+footer {
+  border-top: 1px solid gray;
+  text-align: center;
+}
+/* Handle long page names/level 1 headings, i.e. Sammanfattningar */
+@media (max-width: 600px) {
+  h1 { font-size: 18px;}
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del2.html" />
+  <title>HTML till del 2 - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+  </style>
+  <!-- Ladda jQuery i borjan da anvands i JavaScript-kod mitt i sida-->
+	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div id="container">
+  <!-- H1-taggar kommer ges en skugga -->
+  <h1>HTML till del 2</h1>
+  
+  <h2>Rubrik 2</h2>
+  
+  <p>Ett stycke med text som följer direkt efter en H2-rubrik som ändrats m.h.a. jQuery.</p>
+  <p>Ytterligare ett stycke som inte har ändrats (med annat än CSS :-)).</p>
+  
+  <div class="kod">
+    <div class="kommentar">
+      <!-- P-tagg som är första barnet kommer få blå text -->
+      <p>//Kod</p>
+    </div>
+    <!-- P-tagg som är dirkt ättling till DIV-tagg med klassen kod -->
+    <p>var tal = 1 + 2;</p>
+  </div>
+  
+  <!-- <ul>
+    <li><a href="#" id="ahover">För musen över länk</a></li>
+  </ul> -->
+  
+  <h2>Ordningsselektorer</h2>
+  <p>Nedan är en lista som visar hur ordningsselektorer fungerar.</p>
+  
+  <ol id="list0">
+    <li>ett</li>
+    <li>två</li>
+    <li>tre</li>
+    <li>fyra</li>
+    <li>fem</li>
+    <li>sex</li>
+  </ol>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#list0>li").filter(":odd").css("background-color", "lightgrey").end()
+        .filter(":nth(4)").css("background-color", "lightblue").end()
+        .filter(":first").css("font-weight", "bold").end()
+        .filter(":gt(3)").css("font-style", "italic");
+    });
+  </script>
+
+  <h2>Villkorsselektorer</h2>
+  <p>Nedan är en lista som visar hur villkorsselektorer fungerar.</p>
+  
+  <ol id="list1">
+    <li>ett</li>
+    <li>två</li>
+    <li></li>
+    <li>fyra, och <b>fet</b> text</li>
+  </ol>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#list1>li").filter(":contains('två')").css("background-color", "lightgrey").end()
+      .filter(":empty").css("background-color", "lightblue").end()
+      .filter(":has(b)").css("background-color", "pink");
+    });
+  </script>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <!-- Tagg med id sidfot kommer få en röd kantlinje -->
+  <div id="sidfot">
+		<footer>
+      <!-- P-tagg som är första barnet kommer få blå text -->
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2020-02-29.</p>
+		</footer>
+	</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    //Grundläggande CSS-selektorer
+    $("h1").css("box-shadow", "5px 5px 5px blue");      //Alla H1-taggar
+    $(".kod").css("background-color", "yellow");        //Alla taggar med klassen kod
+    $("#sidfot").css("border", "solid 1px red");        //Tagg med id sidfot
+    $("h1, h2, .rubrik").css("font-family", "'Segoe Script', 'Cooper Std', Copperplate, Impact"); //Alla H1- och H2-taggar + taggar m klassen rubrik
+
+    //Relationsselektorer
+    $("div.kod p").css("font-family", "'Courier New', Courier, monospace");      //Alla P-taggsättlingar till DIV-tagg med klassen kod
+    $("div.kod>p").css("font-style", "italic");      //Alla P-taggar som är direkta ättlingar till DIV-tagg med klassen kod
+    $("h2+p").css("font-family", "'Segoe Script'");      //Alla P-taggar som är syskon till, och som följer direkt efter, H2-tagg
+    $("p").filter(":first-child").css("color", "blue"); //P-tagg som är första barnet
+
+    //Pseudoselektorer
+    $("a:hover").css("background-color", "#80000"); //P-tagg som är första barnet
+  });
+</script>
+</body>
+</html>

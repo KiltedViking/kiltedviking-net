@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/ajax1/getXMLHttpRequest.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/ajax1/getXMLHttpRequest.html" />
+  <title>Funktion getXMLHttpRequest()</title>
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <style type="text/css">
+    html { font-family: Verdana; }
+    #dynamic { border: dotted 2px maroon; }
+  </style>
+</head>
+<body>
+  <h1>Funktion getXMLHttpRequest()</h1>
+  <p>I detta exempel skapas en funktion, getXMLHttpRequest(), som kan användas för
+    att skapa en instans av XMLHttpRequest i alla dagens webbläsare. Sen kopplas
+    en händelsehanterare till objektets händelse och när besökare klickar på knapp
+    så initieras begäran med AJAX.</p>
+  
+  <fieldset>
+    <legend>Exempel</legend>
+    <form>
+      <p><input type="button" id="doaction" onclick="getText()" value="Hämta text från server"></p>
+    </form>
+    
+    <output id="dynamic"></output>
+  
+  </fieldset>
+  
+  <p style="font-size: .8em;">Detta exempel kanske endast fungerar om det finns på en webbserver.</p>
+
+  <footer>
+    <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-03-07.</p>
+  </footer>
+
+  <script type="text/javascript">
+    //Returnerar en instans av XMLHttpRequest - bor fungera med Firefox liksom 
+    // Internet Explorer
+    function getXMLHttpRequest() {
+      var xhrObject = null;
+      
+      try { //Forsok med "standard" satt
+        xhrObject = new XMLHttpRequest();
+      } catch(e) {  //Om inte gar med standard satt - forsok med IE-satt
+        try {
+          xhrObject = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) { //... och om inte det fungerar - forsok med IE-satt for annan version
+          try {
+            xhrObject = new ActiveXObject("Msxml2.XMLHTTP");
+          } catch(e) {}
+        }
+      }
+      return xhrObject;  
+    }
+    
+    var ajax = getXMLHttpRequest();
+    if(ajax) {
+      ajax.onreadystatechange = function()
+      {
+        if (ajax.readyState == 4 && ajax.status == 200)
+        {
+          document.getElementById("dynamic").innerHTML = "Text: " + ajax.responseText 
+            + " Status: " + ajax.status 
+            + " Typ: " + ajax.responseType;
+        }
+      }
+    }
+    
+    function getText() {
+      ajax.open("GET", "sampletext.txt", true);
+      ajax.send('');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_6.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_6.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Objektet document i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  <style type="text/stylesheet">
+    h1 { text-align: center;  font-weight: bold; font-size: 20pt;
+      font-family: Verdana; padding: 15 }
+    .info { background: #FFFFFF; text-align: center; margin: 15 }
+  </style>
+</head>
+<body>
+<h1>Objektet document i JavaScript</h1>
+<p style="color: black; background-color: white; text-align: center; border: 3px dotted red; padding: 10px;">Om 
+	du inte kan läsa text - ladda om sida så kommer färger ändras på sida. :-)</p>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+<p class="info">Dokumentet får en ny färg varje gång som dokumentet laddas. <br />
+  Klicka på Uppdatera/Reload för att se färgen ändras (och kunna läsa texten? :-).<br />
+Bakgrundsfärgen på detta stycke, rubriken och koden nedan styrs av en stilmall
+(CSS). Därför ändrar de eventuellt inte färg.</p>
+
+<p class="info">Nedan visas koden som slumpmässigt skapar en ny färg varje
+gång som sidan laddas (första raden som börjar på &quot;document.&quot;).
+Andra raden visar datum och tid som dokumentet sist redigerades - formen avgörs
+av webbläsaren, d.v.s. det tar sig olika ut i olika typer av webbläsare och
+versioner av webbläsare. Siste visas från vilken sida som denna länkades
+ifrån (syns inte alltid!).</p>
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+  &lt;!--<br />
+  document.bgColor = &quot;#&quot; + Math.random()*255 + Math.random()*255 +
+  Math.random()*255;<br />
+  document.write(&quot;Dokumentet redigerades sist: &lt;b&gt;&quot; +
+  document.lastModified + &quot;&lt;/b&gt;&lt;br&gt;&quot;);<br />
+  document.write(&quot;Hemsidan som länkade till denna: &lt;b&gt;&quot; +
+  document.referrer + &quot;&lt;/b&gt;&lt;br&gt;&quot;);<br />
+  //--&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    document.bgColor = "#" + Math.random()*255 + Math.random()*255 + Math.random()*255;
+    document.write("Dokumentet redigerades sist: <B>" + document.lastModified + "</B><br />");
+    document.write("Hemsidan som länkade till denna: <B>" + document.referrer + "</B><br />");    
+  </script>
+  </p>
+</blockquote>
+<!-- *************************************************************************
+******************** SIDFOT **************************************************
+************************************************************************** -->
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+	</div>
+</form>
+</body>
+</html>

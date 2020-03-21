@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/ramverk/muicss.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/ramverk/muicss.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Exempelsida: MUI - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/mui.min.css">
+  <script src="../../js/mui.min.js"></script>
+</head>
+<body>
+  <div class="mui-container">
+    <div class="mui-panel">
+      <h1>Exempelsida: MUI</h1>
+      <p>Denna sida visar på vanliga &quot;komponenter&quot; i ramverket MUI
+        Bootstrap. <b>Observera</b> att design inte är min starka sida och att min brist 
+        på förståelse av ramverket båda påverkar denna sidas utseende! ;-)</p>
+    </div>
+
+    <div class="mui-row">
+      <div class="mui-col-md-4">
+        <h2>Rubriker och stycken</h2>
+        <h2>Rubrik nivå 2</h2>
+        <h3>Rubrik nivå 3</h3>
+        <h4>Rubrik nivå 4</h4>
+        <h5>Rubrik nivå 5</h5>
+        <h6>Rubrik nivå 6</h6>
+        <p>Stycke text.</p>
+      </div>
+
+      <div class="mui-col-md-4">
+        <h2>Knappar</h2>
+        <p><a href="#" class="mui-btn">Knapp (standard)</a></p>
+        <p><a href="#" class="mui-btn mui-btn--primary">Knapp (primär)</a></p>
+        <p><a href="#" class="mui-btn mui-btn--accent">Knapp (betonad)</a></p>
+        <p><a href="#" class="mui-btn mui-btn--danger">Knapp (fara)</a></p>
+      </div>
+
+      <div class="mui-col-md-4">
+        <h2>Punktlistor</h2>
+        <ul>
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+          <li>Punkt 3
+            <ul>
+              <li>Punkt 3.1</li>
+              <li>Punkt 3.2</li>
+              <li>Punkt 3.3</li>
+            </ul>
+          </li>
+          <li>Punkt 4</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mui-row">
+      <div class="mui-col-md-4">
+        <h2>Formulär</h2>
+        
+        <form action="#" class="mui-form">
+          <div class="mui-textfield">
+            <label for="min-text">Textruta</label>
+            <input id="min-text" placeholder="Exempel text">
+          </div>
+  
+          <div class="mui-textfield mui-textfield--float-label">
+            <input type="text" id="min-text">
+            <label for="min-text">Textruta med flytande etikett</label>
+          </div>
+  
+          <div class="mui-textfield">
+            <label for="mitt-datum">Datum fält</label>
+            <input type="date" id="mitt-datum">
+          </div>
+  
+          <div class="mui-checkbox">
+            <label for="mitt-kryss">
+              <input type="checkbox" id="mitt-kryss">
+              Kryssruta
+            </label>
+          </div>
+  
+          <div class="mui-radio">
+            <label for="min-radio1">
+              <input type="radio" id="min-radio1" name="min-radio" value="1">
+              Radioknapp 1
+            </label>
+            <label for="min-radio2">
+              <input type="radio" id="min-radio2" name="min-radio" value="2">
+              Radioknapp 2
+            </label>
+            <label for="min-radio3">
+              <input type="radio" id="min-radio3" name="min-radio" value="3">
+              Radioknapp 3
+            </label>
+          </div>
+  
+          <div class="mui-textfield">
+            <label for="min-textyta">Textfält</label>
+            <textarea id="min-textyta" placeholder="Exempel text"></textarea>
+          </div>
+  
+          <div class="mui-select">
+            <select id="mitt-val">
+              <option>Alternativ 1</option>
+              <option>Alternativ 2</option>
+              <option>Alternativ 3</option>
+            </select>
+          </div>
+  
+          <p>
+            <input type="submit" value="Skicka" class="mui-btn mui-btn--primary" onclick="return false">
+            <input type="reset" value="Rensa" class="mui-btn mui-btn--primary">
+            <button class="mui-btn mui-btn--primary" onclick="return false;">Knapp</button>
+          </p>
+        </form>
+      </div>
+
+      <div class="mui-col-md-4">
+        <h2>Tabeller</h2>
+        <h3>Utan stil</h3>
+        <table class="mui-table">
+          <tr>
+            <th>Kolumn 1</th>
+            <th>Kolumn 2</th>
+          </tr>
+          <tr>
+            <td>Rad 1-1</td>
+            <td>Rad 1-2</td>
+          </tr>
+          <tr>
+            <td>Rad 2-1</td>
+            <td>Rad 2-2</td>
+          </tr>
+        </table>
+
+        <h3>Med stil (kantlinjer)</h3>
+
+        <table class="mui-table mui-table--bordered">
+          <tr>
+            <th>Kolumn 1</th>
+            <th>Kolumn 2</th>
+          </tr>
+          <tr>
+            <td>Rad 1-1</td>
+            <td>Rad 1-2</td>
+          </tr>
+          <tr>
+            <td>Rad 2-1</td>
+            <td>Rad 2-2</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <h2>Paneler/kort</h2>
+    <div class="mui-row">
+      <div class="mui-col-md-6">
+        <div class="mui-panel">
+          <p>Panel utan någon titel</p>
+        </div>
+      </div>
+      <div class="mui-col-md-6">
+        <div class="mui-panel">
+          <h3>Vanlig rubrik</h3>
+          <p>Panel med titel</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mui-row">
+      <div class="mui-col-sm-12">
+        <div class="mui-panel">
+            <p>Detta fönster/denna flik är tänkt att stängas för att återgå till 
+              sidan <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+        </div>
+        <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-02-23.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

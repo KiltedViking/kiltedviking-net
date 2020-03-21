@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript-bibliotek" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/js-bibliotek.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/js-bibliotek.html" />
+	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+  <title>JavaScript-bibliotek - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/studiewebb.css" />
+</head>
+<body>
+  <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
+  <div class="container">
+    <!-- *** START: Navbar *************************************************** -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Knapp for nar meny kollapsar -->
+          <button type="button" class="navbar-toggle collapsed" 
+            data-target="#main-navbar" data-toggle="collapse">
+            <!-- TODO 2017-09-20 - Lagg till ARIA-saker -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./">
+            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
+            <li><a href="html/index.html">HTML</a></li>
+            <li><a href="css3/index.html">CSS</a></li>
+            <li><a href="javascript/index.html">JavaScript</a></li>
+            <li><a href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li class="active"><a href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li><a href="exempel/index.html">Exempel</a></li>
+            <li><a href="seo/">SEO</a></li>
+
+            <li class="dropdown">
+              <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">
+                  Mer... <i class="caret"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="lankar.html">L&auml;nkar</a></li>
+                <li><a href="om.html">Om</a></li>
+                <li><a href="gammalt.html">&Auml;ldre material</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- *** SLUT: Navbar ************************************************** -->
+
+    <div class="row">
+      <!-- *** Kolumn med huvudinnehall ************************************ -->
+      <div class="col-sm-8">
+        <h1>JavaScript-bibliotek och ramverk</h1>
+
+        <p>P&aring; denna webbsida finns länkar till webbplatser/-sidor med mer 
+          information om JavaScript-bibliotek och -ramverk.</p>
+
+        <h2>Bibliotek eller ramverk?</h2>
+
+        <p>Ett <b>bibliotek</b> brukar definieras som en samling av verktyg (funktioner, 
+          klasser, metoder, m.m.) som löser olika typer av problem och ett <b>ramverk</b>
+          som en bas/plattform med grundläggande funktionalitet som byggs vidare från
+          eller utökas.</p>
+
+        <p>En bra början kan vara att titta på jQuery - ett bibliotek som många använder
+          som en bas, bl.a. Bootstrap (CSS).
+        </p>
+
+        <p>Nedan är några bibliotek och ramverk jag tittat på - några jag gjort 
+          beskrivningar för och några jag ännu inte hunnit med. Under Övrigt finns
+          även exempel på andra verktyg, bl.a. verktyg för utveckling så som pakethanterare.
+        </p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Bibliotek</h3>
+              
+            <h4>Behandlade i studiewebb</h4>
+            <ul>
+              <li><a href="jquery/index.html">jQuery</a></li>
+              <li><a href="yui/index.html">YUI</a> [underhålls inte mer]</li>
+            </ul>
+
+            <h4>Fler bibliotek</h4>
+            <ul>
+              <li>Dojo Toolkit</li>
+              <li>Handlebars</li>
+              <li>Lodash</li>
+              <li>Modernizr</li>
+              <li>Mustache</li>
+              <li>Prototype</li>
+              <li>Underscore</li>
+            </ul>
+
+            <h4>Konceptbibliotek</h4>
+            <p>Dessa bibliotek har specifika funktioner, t.ex. visa bilder.</p>
+            <dl>
+              <dt>FancyBox</dt>
+              <dd>Bildvisning (utvecklas ej mer)</dd>
+              <dt>LightBox</dt>
+              <dd>Bildvisning. Det finns ett antal varianter på detta koncept. Se
+                resebeskrivning <a href="../../travels/Scotland2007/" target="_blank">Scotland 2007</a>
+                för exempel på en variant.
+              </dd>
+            </dl>
+          </div>
+
+          <div class="col-sm-4">
+            <h3>Ramverk</h3>
+            <ul>
+              <li>AngularJS (version 1)</li>
+              <li>Angular (version 2+)</li>
+              <li>Backbone</li>
+              <li>Ember</li>
+              <li>Express.js</li>
+              <li>Knockout</li>
+              <li>Meteor</li>
+              <li>React</li>
+              <li>Vue</li>
+            </ul>
+          </div>
+          
+          <div class="col-sm-4">
+            <h3>Övrigt</h3>
+            <ul>
+              <li>NodeJS</li>
+            </ul> 
+
+            <h4>Packethanterare</h4>
+            <ul>
+              <li>Bower</li>
+              <li>Chocolatey (bara Windows)</li>
+              <li>npm (installeras m. Node)</li>
+              <li>Yarn</li>
+            </ul>
+
+            <h4>Utvecklarverktyg</h4>
+            <ul>
+              <li>Babel</li>
+              <li>Browserify</li>
+              <li>ESLint</li>
+              <li>Grunt</li>
+              <li>Gulp</li>
+              <li>Webpack</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- *** Kolumn med nyheter ****************************************** -->
+      <aside class="col-sm-4">
+        <h2>L&auml;nkar</h2>
+        <p>Nedan är länkar till officiella webbplatser för några bibliotek och ramverk, 
+          samt till webbplatser för att söka bibliotek och ramverk.</p>
+        <p><b>Observera</b> att några av webbplatserna kanske inte stödjer HTTPS, 
+          d.v.s. säkerhet tveksam, eller bibliotek inte längre underhålls.</p>
+
+        <h3>Bibliotek</h3>
+        <ul>
+          <li><a href="https://dojotoolkit.org/" target="_blank" rel="noopener">Dojo Toolkit</a></li>
+          <li><a href="https://handlebarsjs.com/" target="_blank" rel="noopener">Handlebars</a></li>
+          <li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a></li>
+          <li><a href="https://lodash.com/" target="_blank" rel="noopener">Lodash</a></li>
+          <li><a href="https://modernizr.com/" target="_blank" rel="noopener">Modernizr</a></li>
+          <li><a href="https://mustache.github.io/" target="_blank" rel="noopener">Mustache</a></li>
+          <li><a href="http://prototypejs.org/" target="_blank" rel="noopener">Prototype</a> [ej HTTPS!]</li>
+          <li><a href="https://underscorejs.org/" target="_blank" rel="noopener">Underscore</a></li>
+          <li><a href="https://yuilibrary.com/" target="_blank" rel="noopener">YUI</a> [underhålls inte mer]</li>
+        </ul>
+
+        <h3>Ramverk</h3>
+        <ul>
+          <li><a href="https://angularjs.org/" target="_blank" rel="noopener">AngularJS</a></li>
+          <li><a href="https://angular.io/" target="_blank" rel="noopener">Angular</a></li>
+          <li><a href="https://backbonejs.org/" target="_blank" rel="noopener">Backbone.js</a></li>
+          <li><a href="https://www.emberjs.com/" target="_blank" rel="noopener">Ember</a></li>
+          <li><a href="https://knockoutjs.com/" target="_blank" rel="noopener">Knockout</a></li>
+          <li><a href="https://www.meteor.com/" target="_blank" rel="noopener">Meteor</a></li>
+        </ul>
+
+        <h3>Fler bibliotek och ramverk</h3>
+        <ul>
+          <li><a href="https://www.javascripting.com/" target="_blank" rel="noopener">JavaScripting</a></li>
+          <li><a href="http://microjs.com/" target="_blank" rel="noopener">microjs</a> [ej HTTPS!]</li>
+        </ul>
+      </aside>  
+    </div>
+
+    <!-- *** Rad med sidfot ************************************************ -->
+    <footer class="row">
+      <div class="col-sm-12">
+        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2020-03-01.</p>
+      </div>
+    </footer>
+  </div>
+  <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

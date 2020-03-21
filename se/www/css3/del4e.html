@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4e.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4e.html" />
+  <title>Stilmallar (CSS2) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+  <style>
+    p.notering
+    {
+      float: right; 
+      width: 100px; 
+      margin: 0px 0px 10px 10px;
+      border: 1px solid blue; 
+      padding: 5px; 
+      color: blue; 
+      background: #ccc; 
+      font-size: 90%;
+    }
+  </style>
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Positionering (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li class="active"><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Innehåll</h2>
+          
+          <p style="text-align: center">090501: Denna webbsida är under utveckling!</p>
+          
+          <p>Egenskaper som behandlas på denna webbsida:</p>
+          
+          <ul>
+            <li>float: left | right | none</li>
+            <li>clear: none | left | right| both</li>
+            <li>position: static | relative | absolute | fixed</li>
+          </ul>
+          
+          <p class="kommentar">Positionering för mig har alltid varit något krångligt, 
+            men det kan bero på min mycket begränsade designförmåga. :-) På denna webbsida 
+            kommer jag försöka ge enkla exempel till oss &quot;designdumma&quot; så att
+            vi kan göra våra webbsidor lite snyggare (och användbara?).</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#inledning" class="collection-item">Inledning</a></li>
+            <li><a href="#relativ" class="collection-item">Relativ positionering</a></li>
+            <li><a href="#absolut" class="collection-item">Absolut positionering</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="inledning">Inledning</h2>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p>Vid positionering är det viktigt att bli &quot;kompis&quot; med <code>div</code>-taggen! 
+            :-) <code>div</code>-taggen används för att skapa block - block som sen kan positioneras. Positioneringen
+            kan vara absolut (t.ex. övre högra hörnet) eller relativ (&quot;flytande&quot;).
+            (Tittar man i W3C:s standard så finns det en tredje: standard, d.v.s. normalt
+            flöde. :-)</p>
+            
+          <!-- <p>Denna webbsidas design använder &quot;flytande&quot; positionering och består (något 
+            förenklat) av tre block:</p>
+          
+          <ul>
+            <li>container - hela webbsidan; används för att ange innehållets bredd och centrera
+              webbsidans innehåll samt avgränsa ytan för designen (positioneringen).</li>
+            <li>meny - block som positioneras till vänster i container.</li>
+            <li>innehåll - block som positioners till vänster <strong>mot</strong> menyblocket.</li>
+          </ul>
+          
+          <p>Blockens ordning i (X)HTML-koden är den samma som i listan ovan, d.v.s. om
+            någon besökare tittar på denna webbsida i en webbläsare som inte stödjer CSS
+            så kommer webbsidans struktur ändå var &quot;logisk&quot;.</p> -->
+          
+          <p>I exempel finns fyra fyrkantiga block (med olika färg) som har &quot;flutits&quot;
+            till vänster - för det fjärde blocket har även angivits att inget får &quot;flytas&quot;
+            till vänster om det (d.v.s. att det ska börja på ny rad).</p>
+        </div>
+
+        <div class="five columns">
+          <div>
+            <!-- Block 1 -->
+            <div style="float: left; height: 50px; width: 50px; color: black; background-color: yellow;"></div>
+            <!-- Block 2 -->
+            <div style="float: left; height: 50px; width: 50px; color: black; background-color: maroon;"></div>
+            <!-- Block 3 -->
+            <div style="float: left; height: 50px; width: 50px; color: black; background-color: silver;"></div>
+            <!-- Block 4 -->
+            <div style="float: left; height: 50px; width: 50px; clear: left; color: black; background-color: blue;"></div>
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="relativ">Relativ positionering</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Relativ positionering bygger på att element &quot;flyts&quot; och positioneras
+            relativt andra element (så som de färgade blocken ovan). Detta är mycket användbart
+            för t.ex. bilder och små noteringar (som nästa stycke, i ruta nere till höger).</p>
+            
+          <p class="notering">Detta är t.ex. en notering som &quot;flutits&quot; till 
+            höger.</p>
+            
+          <p>För relativ positionering används följande egenskaper:</p>
+          
+          <ul>
+            <li>float - anger hur element ska &quot;flytas&quot;</li>
+            <li>clear - anger hur andra element får &quot;flytas&quot; relativt aktuellt element</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Grundläggande</h3>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p>För att relativ positionering ska fungera så måste element (oftast) ha en
+            bredd, men ibland även en höjd. Detta beror (som nämnt på sidan <a href="del4d.html">Boxar</a>)
+            på principen <em>expand to fit</em>, d.v.s. att element expanderar till fulla
+            bredden (och ev. höjden) av sitt omslutande element (detta stycke anpassar
+            t.ex. sin bredd till den vita ytan i den inre röda kantlinjen). (Motsatsen är <em>shrink
+            to fit</em> som anpassar omslutande elements bredd, eller höjd, till aktuellt
+            element, så som celler i tabeller.) För att ange bredd och höjd på element
+            så används egenskaperna width resp. height.</p>
+            
+          <p class="notering">Detta är t.ex. en notering som &quot;flutits&quot; till 
+            höger.</p>
+            
+          <p style="clear: both;">För att skapa noteringen uppe till höger används följande stilmall (endast
+            de två första raderna har med positionering att göra, men här redovisas
+            allt för helhetens skull :-).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code><strong>float: right; /* Flyt till hoger */
+width: 100px; /* Ange bredd - ett maste */</strong>
+margin: 0px 0px 10px 10px;
+border: 1px solid blue;
+padding: 5px;
+color: blue;
+background: #ccc;
+font-size: 90%;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Den observante ser att den andra noteringen inte verkar ha flutits, men det
+            har den. Men för att stycket efter inte ska flyta runt det så används egenskapen
+            clear i stycket, enligt nedanstående exempel.</p>
+        </div>
+
+        <div class="five columns">
+          <code>clear: both;</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="notering">Detta är t.ex. en notering som &quot;flutits&quot; till 
+            höger.</p>
+            
+          <p style="clear: left;">Så egenskapen clear används alltså för att aktuellt element ska börja på en ny rad
+            <strong>efter</strong> alla eventuella flutna block. Genom att byta ut värdet
+            both mot left eller right så kan man istället tillåta eventuella flutna element
+            till höger resp. vänster.<br />
+            <span class="kommentar">(Jo, jag skrev rätt - detta stycke använder stilen
+            clear: left; och flyter runt noteringen till höger. :-)</span></p>
+        </div>
+      </div>
+
+      <h3>Använda i design av webbsidor</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Relativ postitionering är mycket användbart för att bygga upp webbsidors
+            design (så som den du tittar på nu :-). Principen (som jag använder i.a.f.)
+            bygger på att allt placeras i block (DIV-taggar med ID-attribut) och att dessa
+            block sen flyts till vänster, om flera kolumner önskas (så som meny och innehåll
+            i denna webbsida).</p>
+            
+          <p>Nedan visa koden för exempel på grundläggande block i webbsida med tre kolumner
+            samt med sidhuvud och sidfot. Ytterst (först) finns en DIV-tagg för hela
+            webbsidans innehåll (id=&quot;sida&quot;), vilken används för att ange bredden
+            på webbsidans innehåll, i vilken finns webbsidans tre delar (sidhuvud, innehall 
+            och sidfot). I innehall finns sen tre DIV-taggar för kolumner (kolumn1, kolumn2
+            och kolumn3), vilka kommer att flytas till vänster m.h.a. stilmall.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;div id=&quot;sida&quot;&gt;
+  &lt;div id=&quot;sidhuvud&quot;&gt;
+    ...
+  &lt;/div&gt;
+  &lt;div id=&quot;innehall&quot;&gt;
+    &lt;div id=&quot;kolumn1&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div id=&quot;kolumn2&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div id=&quot;kolumn3&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;sidfot&quot;&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Stilmallar för ovanstående (X)HTML-kod visas nedan (och är ganska lång, men
+            inte så komplicerad eftersom samma sak upprepas :-). Här är en kort genomgång
+            av vad stilarna gör.</p>
+            
+          <ul>
+            <li>body - ange övergripande egenskaper, t.ex. för- och bakgrundsfärger samt
+              typsnitt.</li>
+            <li>sida - ange bredd för sidans hela innehåll samt marginaler (om vill centrera).</li>
+            <li>sidhuvud - inget speciellt... (ändra färg, m.m. om så önskas).</li>
+            <li>kolumn1 - ange bredd samt flyt till vänster.</li>
+            <li>kolumn2 - ange bredd samt flyt till vänster.</li>
+            <li>kolumn3 - ange bredd samt flyt till vänster.</li>
+            <li>sidfot - ange att inget får flyta varken till vänster eller höger.</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <pre><code>body {
+  color: black;
+  background-color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#sida {
+  width: 800px;
+  margin: 0px auto;
+  color: black;
+  background-color: white;
+}
+
+#sidhuvud {
+  color: white;
+  background-color: maroon;
+}
+
+#kolumn1 {
+  width: 200px;
+  float: left;
+  color: white;
+  background-color: blue;
+}
+
+#kolumn2 {
+  width: 380px;
+  float: left;
+  color: black;
+  background-color: white;
+}
+
+#kolumn3 {
+  width: 200px;
+  float: left;
+  color: white;
+  background-color: teal;
+}
+
+#sidfot {
+  clear: both;
+  color: black;
+  background-color: cyan;
+  text-align: center;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del4/css4e_1_1.html" target="_blank" class="button button-primary">Exempel 4e 1.1 - Designa med relativ positionering</a></p>
+        </div>
+      </div>
+
+      <h3>Glöm inte kantlinjen!</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Det är viktigt att komma ihåg att alla block har marginal, kantlinje och
+            utfyllnad, d.v.s. när vi räknar ut hur breda element ska vara så måste vi
+            ta hänsyn till bredden på alla dessa tre. I exempel ovan (4e 1.1) så kan
+            vi se att jag <strong>inte</strong> tagit hänsyn till detta utan det finns
+            en vit yta mellan tredje kolumnen och höger marginal.</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="absolut">Absolut positionering</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Absolut positionering anges med egenskapen position och sker på något 
+            av följande sätt:</p>
+            
+          <ul>
+            <li>enligt normala flödet (&quot;standard&quot;; position: static)</li>
+            <li>relativ sin position i det normala flöde (position: relative) - efterföljande 
+              element, i normala flödet, positioneras som om elementet fanns i sin ursprungliga
+              position.</li>
+            <li>absolut sitt omslutande element (position: absolute) - efterföljande
+              element, i normala flödet, positioneras som om elementet inte finns.</li>
+            <li>fixerat realtivt någon &quot;referenspunkt&quot; (position: fixed) -
+              elementet finns på samma position oavsett hur besökare skrollar.</li>
+          </ul>
+          
+          <p>Element positioineras genom att ange avståndet från två av elementets kanter 
+            relativt något annat element (eller elementets position i flödet...).</p>
+            
+          <p class="kommentar">Förrvirrad? Då är du inte ensam! :-) Denna typ av positionering
+            kräver att man håller tungan rätt i mun.</p>
+            
+          <!-- <div style="position: relative"> -->
+          <p style="position: absolute; margin-left: auto; margin-right: 10px; width: 100px; border: 1px solid blue;">En absolut positionerad notering.</p>
+          <!-- </div> -->
+          
+          <p style="margin-left: 110px;">Stycket ovan (som visas till vänster) har positionerats 
+            (och formaterats) med nedanstående egenskaper. (Detta stycke har fått en vänster
+            marginal på 110 pixlar för att det inte ska visas under det positionerade
+            stycket. Och detta exempel visar på hur lite jag kan om detta ämne. :-)</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>position: absolute;
+margin-left: auto; 
+margin-right: 10px; 
+width: 100px; 
+border: 1px solid blue;</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">Guide to Cascading Style  Sheets</a> hos <a href="https://www.htmlhelp.com/" 
+              target="_blank" rel="noopener">Web Design Group</a>.</li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener">CSS-standarder</a> 
+              hos <a href="https://www.w3.org/" target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del4d.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li>N&auml;sta&gt;</li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

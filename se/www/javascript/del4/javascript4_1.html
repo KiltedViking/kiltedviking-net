@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del4/javascript4_1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del4/javascript4_1.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Händelser i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  <style>
+    .markering { background:#c0c0c0; }
+  </style>
+</head>
+<body>
+  <h1>Händelser i JavaScript</h1>
+  <!-- *************************************************************************
+  ******************** EXEMPEL 1 ***********************************************
+  ************************************************************************** -->
+  <hr />
+
+  <p>JavaScript-koden som behövs för att stänga fönstret har markerats med gul
+    bakgrund i kodexemplet nedan. Här anges att när händelsen onClick sker så
+    ska metoden close() köras i egenskapen self i objektet window. (Ni kommer väl
+    ihåg att man inte behöver ange &quot;windows.&quot; när man vill använda en
+    egenskap eller metod i objektet window!)</p>
+
+  <p>Knappen ser ni om ni skrollar ner till slutet på detta dokument - längst
+    ner till höger finns knappen.</p>
+
+  <p>(&lt;div&gt; med attributet align måste jag använda för att knappen ska kunna högerställas i
+    Navigator. Och för att knappen ska visas i Navigator måste jag använda taggen
+    &lt;form&gt;. Därför ser koden mer avancerad ut än den egentligen är.)</p>
+
+  <h5>Kod:</h5>
+
+  <blockquote>
+    <p class="kod">&lt;div align=&quot;center&quot;><br />
+    &lt;form action=&quot;post&quot;&gt;<br />
+    &lt;p&gt;<br />
+    &nbsp; &lt;input type=&quot;button&quot; value=&quot;St&amp;auml;ng f&amp;ouml;nstret&quot;&nbsp;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="markering">onclick=&quot;self.close()&quot;&gt;</span><br />
+    &lt;/p><br />
+    &lt;/form><br />
+    &lt;/div></p>
+  </blockquote>
+
+  <h5>Resultat:</h5>
+
+  <blockquote>
+    <p>
+    <!-- ********************************************************************************
+    *********************** START KOD ***************************************************
+    ********************************************************************************* -->
+    <script>
+    
+    </script>
+    </p>
+  </blockquote>
+  <!-- *************************************************************************
+  ******************** SIDFOT **************************************************
+  ************************************************************************** -->
+  <hr />
+
+  <p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+    <b>Uppdaterad:</b>
+    <script>
+        //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+        // d.v.s. datumet som filen sist redigerades
+      modDate = new Date(document.lastModified);
+        //Skriv ut "år-månad-dag" - januari har värdet 0!!
+      document.write(modDate.getFullYear() + "-" + (modDate.getMonth() + 1) + "-" + modDate.getDate());
+    </script>
+  </p>
+
+  <form action="post">
+    <div style="text-align: center">
+      <input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!--
+*******************************************************************************
+*** HTML-formulär som anropar en Java-servlet för att lagra en post i databas.
+*** Björn Persson, EkI, MdH - 2001-03-10 (rev. 2001-06-10).
+*** bjorn.persson@mdh.se
+***
+*******************************************************************************
+*** Denna fil ska (bör) ligga i roten för web-app (gruppens startmapp) eller
+*** dess undermappar. (En web-app, eng. web application, är en mapp och dess
+*** undermappar på en webbserver samt alla HTML-filer och servlets i dessa
+*** mappar. På kursen EI0290 så är varje grupps startmapp en web-app.)
+***
+*** Klassfiler (.CLASS) för servlets ska placeras i mappen CLASSES under WEB-INF
+*** för web-app (gruppens startmapp). OBS! Placera _inga_ HTML- eller ASP-filer
+*** i mappen WEB-INF eller dess undermapapr!
+***
+*** ---------------------------------------------------------------------------
+*** URL i formulärets attribut ACTION ska vara följande:
+*** ---------------------------------------------------------------------------
+***
+***   /vXX/servlet/KlassNamnFörServlet
+***
+*** (I exemplet nedan pekar URL (för attributet ACTION) till min web-app på min
+*** dator hemma. Glöm inte ändra till URL för din web-app!)
+*******************************************************************************
+-->
+<HTML>
+<HEAD>
+  <TITLE>Lägga till ett album</TITLE>
+  <STYLE>
+  <!--
+    H1    { font-family: Verdana }
+    P     { font: 10pt Verdana }
+    .text { font: 10pt Verdana }
+  -->
+  </STYLE>
+</HEAD>
+<BODY>
+<H1>Lägga till ett album</H1>
+<P><B>Observera</B> att alla fält måste fyllas i för att servlet ska fungera!
+  (Det finns m.a.o. ingen felhantering i servlet, vilket det borde göra.)</P>
+
+
+<!-- ACTION ska vara sökvägen till servlet -->
+<FORM METHOD="post" ACTION="/studier/java/servlet/DBInfoga">
+  <TABLE>
+  <TR>
+    <TD CLASS="text">Artist eller grupps namn: </TD>
+    <TD><INPUT TYPE="text" NAME="Artist" VALUE="Tina Turner"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="text">Titel på album: </TD>
+    <TD><INPUT TYPE="text" NAME="Titel" VALUE="Simply the best"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="text">År som album gavs ut: </TD>
+    <TD CLASS="text">
+      <INPUT TYPE="text" NAME="Ar" VALUE="1999"> (t.ex. 1999 eller 2001)
+    </TD>
+  </TR>
+  <TR>
+    <TD CLASS="text">Media som album finns på: </TD>
+    <TD>
+      <SELECT NAME="Media">
+        <OPTION SELECTED>CD</OPTION>
+        <OPTION>CD dubbel</OPTION>
+        <OPTION>LP</OPTION>
+        <OPTION>LP dubbel</OPTION>
+      </SELECT>
+    </TD>
+  </TR>
+  <TR>
+    <TD CLASS="text">Kommentar: </TD>
+    <TD><INPUT TYPE="text" NAME="Kommentar" VALUE="Den bästa"></TD>
+  </TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD ALIGN="center"><INPUT TYPE="submit" VALUE="Lägg till"></TD>
+  </TR>
+</TABLE>
+</FORM>
+</BODY>

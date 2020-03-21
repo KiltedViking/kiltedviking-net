@@ -1,0 +1,19 @@
+<%@ page language="Java" %>
+<HTML>
+<HEAD><TITLE>Exempel med scriptlets</TITLE></HEAD>
+<BODY>
+<H1>Exempel med scriptlets</H1>
+<P>
+
+<!-- START av JSP-kod/resultat från JSP-kod -->
+<%
+  int i = 0;
+
+  for(i = 0; i < 5; i++)
+    out.println("Detta är loop-varv " + i + "<br>");
+%>
+<!-- SLUT på JSP-kod/resultat från JSP-kod -->
+
+</P>
+</BODY>
+</HTML>

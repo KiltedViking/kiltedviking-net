@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/ramverk/picnic.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/ramverk/picnic.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Exempelsida: Picnic CSS - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/picnic.min.css" />
+  <link rel="stylesheet" href="../../css/plugins.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Exempelsida: Picnic CSS</h1>
+    <p>Denna sida visar på vanliga &quot;komponenter&quot; i ramverket Picnic CSS
+      (<a href="https://picnicss.com/" target="_blank" rel="noopener">https://picnicss.com/</a>).
+      <b>Observera</b> att design inte är min starka sida och att min brist 
+      på förståelse av ramverket båda påverkar denna sidas utseende! ;-)</p>
+  </header>
+
+  <div class="visual flex three">
+    <div>
+      <h2>Rubriker och stycken</h2>
+      <h2>Rubrik nivå 2</h2>
+        <h3>Rubrik nivå 3</h3>
+        <h4>Rubrik nivå 4</h4>
+        <h5>Rubrik nivå 5</h5>
+        <h6>Rubrik nivå 6</h6>
+        <p>Stycke text.</p>
+    </div>
+
+    <div>
+      <h2>Knappar</h2>
+        <p><a href="#" class="button">Knapp (standard)</a></p>
+        <p><a href="#" class="button success">Knapp (framgång)</a></p>
+        <p><a href="#" class="button warning">Knapp (varning)</a></p>
+        <p><a href="#" class="button error">Knapp (fel)</a></p>
+    </div>
+
+    <div>
+      <h2>Punktlistor</h2>
+      <ul>
+        <li>Punkt 1</li>
+        <li>Punkt 2</li>
+        <li>Punkt 3
+          <ul>
+            <li>Punkt 3.1</li>
+            <li>Punkt 3.2</li>
+            <li>Punkt 3.3</li>
+          </ul>
+        </li>
+        <li>Punkt 4</li>
+      </ul>
+
+      <ol>
+        <li>Punkt 1</li>
+        <li>Punkt 2</li>
+        <li>Punkt 3
+          <ol>
+            <li>Punkt 3.1</li>
+            <li>Punkt 3.2</li>
+            <li>Punkt 3.3</li>
+          </ol>
+        </li>
+        <li>Punkt 4</li>
+      </ol>
+    </div>
+
+    <div>
+      <h2>Formulär</h2>
+
+        <form action="#">
+          <div>
+            <label for="min-text">Textruta</label>
+            <input id="min-text" placeholder="Exempel text">
+          </div>
+
+          <div>
+            <label for="mitt-datum">Datum fält</label>
+            <input type="date" id="mitt-datum">
+          </div>
+
+          <div>
+            <label for="mitt-kryss">
+              <input type="checkbox" id="mitt-kryss">
+              <span class="checkable">Kryssruta</span>
+            </label>
+          </div>
+
+          <div>
+            <label for="min-radio1">
+              <input type="radio" id="min-radio1" name="min-radio" value="1">
+              <span class="checkable">Radioknapp 1</span>
+            </label>
+          </div>
+
+          <div>
+            <label for="min-radio2">
+              <input type="radio" id="min-radio2" name="min-radio" value="2">
+              <span class="checkable">Radioknapp 2</span>
+            </label>
+          </div>
+
+          <div>
+            <label for="min-radio3">
+              <input type="radio" id="min-radio3" name="min-radio" value="3">
+              <span class="checkable">Radioknapp 3</span>
+            </label>
+          </div>
+
+          <div>
+            <label for="min-textyta">Textfält</label>
+            <textarea id="min-textyta" placeholder="Exempel text"></textarea>
+          </div>
+
+          <div>
+            <label for="mitt-val">Listruta</label>
+            <select id="mitt-val">
+              <option>Alternativ 1</option>
+              <option>Alternativ 2</option>
+              <option>Alternativ 3</option>
+            </select>
+          </div>
+
+          <p>
+            <input type="submit" value="Skicka" onclick="return false">
+            <input type="reset" value="Rensa" class="button">
+            <button onclick="return false;">Knapp</button>
+          </p>
+        </form>
+    </div>
+
+    <div>
+      <h2>Tabeller</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Kolumn 1</th>
+              <th>Kolumn 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rad 1-1</td>
+              <td>Rad 1-2</td>
+            </tr>
+            <tr>
+              <td>Rad 2-1</td>
+              <td>Rad 2-2</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <h2>Paneler/kort</h2>
+
+  <div class="visual flex three">
+    <div>
+      <div class="card">
+        <p>Kort med endast text</p>
+      </div>
+    </div>
+
+    <div>
+      <article class="card">
+        <header>
+          <h3>Korttitel</h3>
+        </header>
+        <p>Kort med titel</p>
+      </article>
+    </div>
+  </div>
+
+  <footer>
+      <div class="card">
+          <p>Detta fönster/denna flik är tänkt att stängas för att återgå till 
+            sidan <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+      </div>
+      <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-03-14.</p>
+    </div>
+  </footer>
+</body>
+</html>

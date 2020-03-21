@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Manipulation - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Manipulation</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Uts&ouml;kning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+<!--      <li><a href="del6.html">Effekter</a></li> -->
+      <li><a href="del7.html">H&auml;ndelser</a></li>
+    </ul>
+<!--
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+-->
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>P&aring; denna sida beskrivs hur man manipulerar element i DOM-struktur, t.ex.
+      l&auml;gger till nya element och &auml;ndrar stil (CSS) för element.</p>
+			
+	<h2>Sidans inneh&aring;ll</h2>
+		
+	<ul>
+	  <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#css">CSS</a></li>
+      <li><a href="#storlek">Storlek (höjd och bredd)</a></li>
+      <li><a href="#manipulation">Manipulation</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+	</ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p>N&auml;r vi valt ut element s&aring; &auml;r det dags att manipulera elementen, 
+		t.ex. genom att &auml;ndra stil (CSS) f&ouml;r element, d&ouml;lja/visa element 
+		eller rent av l&auml;gga till nya/ta bort existerande element. Metoder för detta
+		finns bl.a. i klasserna Node och NodeList.</p>
+    
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="css">CSS</h2>
+
+    <p>I detta avsnitt beskrivs metoder f&ouml;r att &auml;ndra stil f&ouml;r element, 
+      antingen genom att lägga till eller ta bort stil, men även klass för element.</p>
+
+	<p>Sammansatta namn på stilar skrivs med kamelpuckelnotation (eng. camel case), t.ex.
+		&quot;font-weight&quot; skrivs &quot;fontWeight&quot;.</p>
+    
+    <table class="tableproperties">
+      <caption>CSS-metoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.addClass(klass)</td>
+        <td>L&auml;gger till klass till alla element</td>
+      </tr>
+      <tr>
+        <td class="code">.getComputedStyle(egenskap)</td>
+        <td>H&auml;mtar beräknad (faktisk) egenskap i elementets stil, d.v.s egna och ärvda</td>
+      </tr>
+      <tr>
+        <td class="code">.getStyle(egenskap)</td>
+        <td>H&auml;mtar egenskap i elementets stil</td>
+      </tr>
+      <tr>
+        <td class="code">.hasClass(klass)</td>
+        <td>true om element &auml;r av klass i argumentet klass</td>
+      </tr>
+      <tr>
+        <td class="code">.removeClass(klass)</td>
+        <td>Tar bort klass fr&aring;n elementet</td>
+      </tr>
+      <tr>
+        <td class="code">.replaceClass(existerandeKlass, nyKlass)</td>
+        <td>Ersätter existerandeKlass med nyKlass. Om existerandeKlass inte finns, så läggs nyKlass till</td>
+      </tr>
+      <tr>
+        <td class="code">.setStyle(egenskap, varde)</td>
+        <td>S&auml;tter egenskap till varde i elementets stil</td>
+      </tr>
+      <tr>
+        <td class="code">.setStyles(vardelista)</td>
+        <td>S&auml;tter egenskaper vardelista i elementets stil</td>
+      </tr>
+      <tr>
+        <td class="code">.toggleClass(klass, tvinga)</td>
+        <td>Om element har klass tas den bort, annars läggs klass till</td>
+      </tr>
+    </table>
+<!--    
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p>I exempel nedan väljs element med ID &quot;errors&quot; ut och sen läggs
+        klassen &quot;visualRed&quot; till, för att sen tas bort på nästa rad. På
+        tredje raden sätts elementets stil för bakgrundsfärg direkt och på fjärde
+        raden sätts stil för både bakgrundsfärg och fet stil direkt i element. Om
+        man sätter flera stilar så använder man en vektor med namngivna positioner
+        (eng. <i>map</i>).</p>
+      
+      <div class="code">
+        <p>$("#errors").addClass("visualRed");</p>
+        <p>$("#errors").removeClass("visualRed");</p>
+        <p>$("#errors").css("background-color", "red");</p>
+        <p>$("#errors").css({"background-color": "red", "font-style": bold});</p>
+      </div>
+    </fieldset>
+-->		
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="storlek">Storlek (höjd och bredd)</h2>
+    
+    <p>I detta avsnitt beskrivs metoder för att hämta eller sätta höjd och bredd
+      för element, värden som avser storlek innan- och utanför kantlinjer, men även
+      positionering av element. Metoderna finns i både klassen Node och NodeList, och
+		skillnaden mellan dem är att de gäller en eller flera element.</p>
+
+    <table class="tableproperties">
+      <caption>Storleksmetoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.getX()</td>
+        <td>H&auml;mtar elementets position i horisontellt led</td>
+      </tr>
+      <tr>
+        <td class="code">.getX()</td>
+        <td>H&auml;mtar elementets position i horisontellt och vertikalt led som vektor</td>
+      </tr>
+      <tr>
+        <td class="code">.getY()</td>
+        <td>H&auml;mtar elementets position i vertikalt led</td>
+      </tr>
+      <tr>
+        <td class="code">.setX(x)</td>
+        <td>S&auml;tter elementets position i horisontellt led till x</td>
+      </tr>
+      <tr>
+        <td class="code">.setXY({x,y})</td>
+        <td>S&auml;tter elementets position i horisontellt och vertikalt led till x resp. y</td>
+      </tr>
+      <tr>
+        <td class="code">.setY(y)</td>
+        <td>S&auml;tter elementets position i vertikalt led till y</td>
+      </tr>
+	</table>
+	
+	<p>Klassen Node innehåller även en del egenskaper som har med dokument och fönstret
+		som dokument visas i. (Dessa egenskaper finns alltså inte i klassen NodeList.)</p>
+	
+    <table class="tableproperties">
+      <caption>Storleksegenskaper</caption>
+      <tr>
+        <th>Egenskap</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.docHeight</td>
+        <td>Höjd på dokumentet</td>
+      </tr>
+      <tr>
+        <td class="code">.docScrollX</td>
+        <td>Antal pixlar som dokument skrollats horisontellt</td>
+      </tr>
+      <tr>
+        <td class="code">.docScrollY</td>
+        <td>Antal pixlar som dokument skrollats vertikalt</td>
+      </tr>
+      <tr>
+        <td class="code">.docWidth</td>
+        <td>Bredd på dokument</td>
+      </tr>
+      <tr>
+        <td class="code">.winHeight</td>
+        <td>Höjd på synlig del av dokument, exklusive rullningslister</td>
+      </tr>
+      <tr>
+        <td class="code">.winWidth</td>
+        <td>Bredd på synlig del av dokument, exklusive rullningslister</td>
+      </tr>
+    </table>
+<!--
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p></p>
+      
+      <div class="code">
+        <p>var intInnerWidth = $("#errors").innerWidth();</p>
+      </div>
+    </fieldset>
+-->
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="manipulation">Manipulation</h2>
+
+    <p>I detta avsnitt beskrivs metoder f&ouml;r att manipulera element i DOM-struktur. 
+      Element kan infogas före och efter ett annat element.</p>
+<!--
+    <h3>Infoga utanf&ouml;r element</h3>
+    
+    <p>Metoder i detta avsnitt till&aring;ter infogande utanf&ouml;r element, antingen
+      före eller efter elementet.</p>
+    
+    <table class="tableproperties">
+      <caption>Manipulationsmetoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.after(innahall)</td>
+        <td>Infogar innehall efter element</td>
+      </tr>
+      <tr>
+        <td class="code">.before(innahall)</td>
+        <td>Infogar innehall fore element</td>
+      </tr>
+      <tr>
+        <td class="code">.insertAfter(mal)</td>
+        <td>Infogar element efter argumentet mal</td>
+      </tr>
+      <tr>
+        <td class="code">.insertBefore(mal)</td>
+        <td>Infogar element f&ouml;re argumentet mal</td>
+      </tr>
+    </table>
+    
+      <p>De tv&aring; f&ouml;rsta metoderna (<span class="code">.after()</span> och <span class="code">.before()</span>)
+        infoga argument till element i jQuery-objekt i motsats till de tv&aring; sista metoderna
+        som infogar element efter/f&ouml;re argument.</p>
+            
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p>I båda satser l&auml;ggs texten till efter element med ID &quot;errors&quot;, 
+        fast med det två olika metoderna.</p>
+      
+      <div class="code">
+        <p>$("#errors").after("&lt;p&gt;Some error text&lt;/p&gt;");</p>
+        <p>$("&lt;p&gt;Some error text&lt;/p&gt;").insertAfter("#errors");</p>
+      </div>
+    </fieldset>
+    
+    <h4>Större exempel</h4>
+    
+    <ul>
+      <li><a href="del5/del5_infoga_utanfor.html" class="externallink">Infoga utanför</a></li>
+    </ul>
+-->
+    <h3>Infoga inuti element</h3>
+    
+    <p>Metoder i detta avsnitt till&aring;ter infogande inuti ett element, antingen
+      först (eng. <i>prepend</i>), sist (eng. <i>append</i>) eller infogande/ersättande 
+      av hela innehållet.</p>
+    
+    <table class="tableproperties">
+      <caption>Manipulationsmetoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.append(arg)</td>
+        <td>L&auml;gger till argumentet arg till slutet p&aring; elements inneh&aring;ll</td>
+      </tr>
+      <tr>
+        <td class="code">.appendChild(arg)</td>
+        <td>L&auml;gger till argumentet arg till slutet p&aring; elements inneh&aring;ll
+			och returnerar det tillagda elementet</td>
+      </tr>
+      <tr>
+        <td class="code">.appendTo(mal)</td>
+        <td>L&auml;gger till element till slutet p&aring; argumentet mal</td>
+      </tr>
+      <tr>
+        <td class="code">.prepend(arg)</td>
+        <td>L&auml;gger till argumentet arg till b&ouml;rjan p&aring; elements inneh&aring;ll</td>
+      </tr>
+      <tr>
+        <td class="code">.setHTML(arg)</td>
+        <td>S&auml;tter argumentet arg som elementets inneh&aring;ll</td>
+      </tr>
+      <tr>
+        <td class="code">.insert(innehall, var)</td>
+        <td>Infogar innehall på position angiven i var - var kan vara ett index, ett element, 
+		en nod eller sträng som anger relativ postion (&quot;replace&quot;, &quot;before&quot; eller &quot;after&quot;)</td>
+      </tr>
+    </table>
+    
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p>På första raden väljs först element ut att lägga till inuti och sen läggs 
+        text till sist inuti elementet. Samma sak sker på andra raden, men här &quot;väljs&quot;
+        först text att lägga till och som argument till metod skickas element att 
+        lägga till text till.</p>
+      
+      <div class="code">
+        <p>Y.one("#errors").append("Some error text");</p>
+        <p>var newP = Y.Node.create("&lt;p&gt;Some error text&lt;/p&gt;");<br>
+			newP.appendTo("#errors");</p>
+      </div>
+    </fieldset>
+    
+    <h4>Större exempel</h4>
+    
+    <ul>
+      <li><a href="del5/del5_infoga_inuti.html" class="externallink">Infoga inuti</a></li>
+    </ul>
+    
+    <h3>Kopiera och ta bort</h3>
+    
+    <p>Metoder i detta avsnitt till&aring;ter kopiering och borttagande av element, men
+      &auml;ven elements attribut. Metoderna i tabell nedan kan användas för att
+      manipulera element.</p>
+      
+    <table class="tableproperties">
+      <caption>Metoder för manipulation av element</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.cloneNode(barn)</td>
+        <td>Skapar och returnerar kopia p&aring; element och, om barn är sant, alla &auml;ttlingar</td>
+      </tr>
+      <tr>
+        <td class="code">.destroy([rekursivt])</td>
+        <td>Tar bort alla barnelement och, om rektursivt sant, alla ättlingar och dess relaterade objekt</td>
+      </tr>
+      <tr>
+        <td class="code">.empty()</td>
+        <td>Tar bort alla barnelement och alla ättlingar och dess relaterade objekt</td>
+      </tr>
+      <tr>
+        <td class="code">.remove(destroy)</td>
+        <td>Tar bort aktuellt element från förälder och, om destroy sant, anropa metoder .destroy() på elementet</td>
+      </tr>
+      <tr>
+        <td class="code">.removeChild(arg)</td>
+        <td>Tar bort barnelement i arg. Returnerar borttaget element.</td>
+      </tr>
+      <tr>
+        <td class="code">.replace(nyttElement)</td>
+        <td>Ersätter aktuellt element med det i nyttElement</td>
+      </tr>
+      <tr>
+        <td class="code">.replaceChild(nyttElement, existerandeElement)</td>
+        <td>Ersätter barnelementet existerandeElement med nyttElement</td>
+      </tr>
+      <tr>
+        <td class="code">.setHTML(arg)</td>
+        <td>Ersätter elementets innehåll med det i arg</td>
+      </tr>
+      <tr>
+        <td class="code">.unwrap()</td>
+        <td>Tar bort elementets förälder</td>
+      </tr>
+      <tr>
+        <td class="code">.wrap(html)</td>
+        <td>L&auml;gg till HTML i html runt elementet</td>
+      </tr>
+    </table>
+<!--
+    <fieldset>
+      <legend>Exempel</legend>
+
+    </fieldset>
+-->    
+    <p>Det finns ett antal metoder för att manipulera attribut i element, men även
+      för att manipulera egenskaper (eng. <i>properties</i>) som t.ex. kan användas
+      i egen kod.</p>
+    
+    <table class="tableproperties">
+      <caption>Metoder för manipulation av attribut/egenskaper</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.removeAttribute(namn)</td>
+        <td>Tar bort attributet som matchar argumentet namn</td>
+      </tr>
+      <tr>
+        <td class="code">.set(namn, varde)</td>
+        <td>Sätter attributet namn till värdet varde. Endast giltiga attribut sätts.</td>
+      </tr>
+      <tr>
+        <td class="code">.setAttribute(namn, varde)</td>
+        <td>Sätter attributet namn till värdet varde. Även anpassade attribut sätts.</td>
+      </tr>
+      <tr>
+        <td class="code">.setAttrs(vektor)</td>
+        <td>Sätter alla attribut i vektor</td>
+      </tr>
+    </table>
+<!--
+    <fieldset>
+      <legend>Exempel</legend>
+
+    </fieldset>
+-->
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/Node.html" class="externallink">Klassen Node</a>
+        (YUI-dokumentation).</li>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/NodeList.html" class="externallink">Klassen NodeList</a>
+        (YUI-dokumentation).</li>
+    </ul>
+
+    <ul class="foregaendenasta">
+      <li><a href="del4.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del7.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-05-01.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

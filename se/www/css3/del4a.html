@@ -1,0 +1,856 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4a.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4a.html" />
+  <title>Egenskaper: Typsnitt (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+  <style type="text/css">
+    /* Lokala stilmallar som endast anv&auml;nds i detta dokument */
+    .minserif { font-family: serif }
+    .minsansserif { font-family: sans-serif }
+    .minmonospace { font-family: monospace }
+    .mincursive { font-family: cursive }
+    .minfantasy { font-family: fantasy }
+    .medgeorgia { font-family: Georgia }
+    .shadow {text-shadow: 2px 2px 2px red; }
+    .fet { font-weight: bold; }
+    .ejfet { font-weight: normal; }
+  </style>
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Typsnitt (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li class="active"><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+
+          <p>Egenskaper f&ouml;r text har delats i tv&aring; delar: p&aring; denna sida beskrivs egenskaper
+            f&ouml;r typsnitt (eng. <em>fonts</em>) och stilar (d.v.s. egenskaper som b&ouml;rjar
+            med &quot;font-&quot; :-) samt p&aring; n&auml;sta (<a href="del4b.html">Text</a>)
+            beskrivs egenskaper som mer har med textmassor att g&ouml;ra (indrag, avst&aring;nd,
+            m.m., eller egenskaper som b&ouml;rjar med &quot;text-&quot; :-).</p>
+
+          <p>Egenskaper som behandlas p&aring; denna sida visas nedan med exempel p&aring; giltiga
+            v&auml;rden f&ouml;r respektive egenskap.</p>
+
+          <ul>
+            <li>font-style: normal | italic</li>
+            <li>font-variant: normal | small-caps</li>
+            <li>font-weight: normal | bold</li>
+            <li>font-size: <em>punktstorlek</em> (10pt) | <em>centimeter</em> (1cm)</li>
+            <li>line-height: normal | ems (2em) | procent (150%)</li>
+            <li>font-family: {<em>lista med typsnitt</em>}</li>
+            <li>font: <em>kombination av egenskaper ovan</em> (bold 13px Verdana)</li>
+          </ul>
+
+          <p class="kommentar">Egenskaperna beskrivs i den ordning de anv&auml;nds i &quot;genv&auml;gen&quot;
+            font (se l&auml;ngre ner p&aring; sida).</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#stilar" class="collection-item">Stilar</a></li>
+            <li><a href="#storlekar" class="collection-item">Storlekar och radavst&aring;nd</a></li>
+            <li><a href="#typsnitt" class="collection-item">Typsnitt och typsnittsfamiljer</a></li>
+            <li><a href="#skuggor" class="collection-item">Skuggor</a></li>
+            <li><a href="#genvagar" class="collection-item">&quot;Genv&auml;gar&quot;</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="stilar">Stilar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Ett typsnitt (eller typstil, enligt mer kunniga i typografi) &auml;r en samling
+            med bokst&auml;ver i samma stil, t.ex. Times New Roman, Arial, Helvetica och MS
+            Comic Sans. Typsnitts utseende kan p&aring;verkas med bl.a stilar, t.ex. kursiv
+            eller fet.</p>
+        </div>
+      </div>
+
+      <h3>Egenskapen font-style</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen font-style anv&auml;nds f&ouml;r att &auml;ndra text till en kursiv stil
+            (eng. <em>italic</em> eller <em>oblique</em>). Giltiga v&auml;rden f&ouml;r egenskapen
+            &auml;r:</p>
+
+          <ul>
+            <li>normal</li>
+            <li>italic</li>
+            <li>oblique</li>
+          </ul>
+
+          <p>V&auml;rdet &quot;normal&quot; &auml;r standard, d.v.s. v&auml;rdet &auml;r fr&auml;mst anv&auml;ndbart
+            om vi vill motverka stil som (eventuellt) applicerats av en stilmall
+            (se avsnittet Egenskapen font-weight nedan f&ouml;r exempel).</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p style="font-style: normal">Detta stycke anv&auml;nder stilen normal.</p>
+            <p style="font-style: italic">Detta stycke anv&auml;nder stilen italic.</p>
+            <p style="font-style: oblique">Detta stycke anv&auml;nder stilen oblique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Som de tv&aring; styckena i exempel ovan visar s&aring; ser de antagligen v&auml;ldigt lika
+            ut (d.v.s. fungerar fr&auml;mst med typsnitt som kostar pengar).</p>
+
+          <p class="center"><a href="del4/css4a_1_0.html" target="_blank" class="button button-primary">Exempel 4a.1.0 - Stilarna kursiv (italics) och kursiv (oblique)</a></p>
+        </div>
+      </div>
+
+      <h3>Egenskapen font-variant</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att anv&auml;nda st&ouml;rre och mindre versaler f&ouml;r text (s.k. kapit&auml;ler) anv&auml;nds
+            egenskapen font-variant. Giltiga v&auml;rden f&ouml;r egenskapen &auml;r:</p>
+
+          <ul>
+            <li>normal</li>
+            <li>small-caps</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p>Detta stycke anv&auml;nder varianten normal.</p>
+            <p style="font-variant: small-caps">Detta stycke anv&auml;nder varianten small-caps.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>V&auml;rdet normal fungerar som f&ouml;r font-style, d.v.s. &auml;r standard och kan anv&auml;ndas
+            f&ouml;r att motverka en annan stilmall.</p>
+        </div>
+      </div>
+
+      <h3>Egenskapen font-weight</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vikten, eller &quot;sv&auml;rtan&quot;, hos text avg&ouml;r hur fet den ser ut. Giltiga
+            v&auml;rden f&ouml;r egenskapen &auml;r:</p>
+
+          <ul>
+            <li>normal</li>
+            <li>bold</li>
+            <li>bolder</li>
+            <li>lighter</li>
+            <li>100 till 900</li>
+          </ul>
+
+          <p>V&auml;rdet normal &auml;r (inte s&aring; chockande) standard, ett v&auml;rde som &auml;r anv&auml;ndbart
+            om vi vill &quot;motverka&quot; fet stil i ett stycke. I exempel nedan finns
+            tv&aring; stilmallar (klasserna fet och ejfet) samt (X)HTML-kod som visar p&aring; hur
+            det skulle kunna anv&auml;ndas.</p>
+        </div>
+
+        <div class="five columns">
+          <code>.fet { font-weight: bold; }</code><br />
+          <code>.ejfet { font-weight: normal; }</code>
+
+          <pre><code>&lt;p class=&quot;fet&quot;&gt;Lite
+  &lt;span class=&quot;ejfet&quot;&gt;icke fet&lt;/span&gt; 
+  text i ett stycke fet text.&lt;/p&gt;</code></pre>
+
+          <div class="example-result">
+            <p style="font-weight: bold">Lite <span style="font-weight: normal">icke fet</span>
+              text i ett stycke fet text.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen font-weight ska (enligt standard) kunna anta v&auml;rden som
+            100, 200, ... , 900 (400 = normal, 700 = bold). Men alla dessa v&auml;rden st&ouml;ds
+            inte av s&aring; m&aring;nga typsnitt (endast de som kostar pengar...). Detta inneb&auml;r
+            att v&auml;rdena bolder och lighter inte &auml;r till s&aring; mycket nytta heller...</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="storlekar">Storlekar och radavst&aring;nd</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Storlekar och radavst&aring;nd &auml;r tv&aring; sammanl&auml;nkade egenskaper och beskrivs nedan.</p>
+        </div>
+      </div>
+
+      <h3>Egenskapen font-size</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen font-size anv&auml;nds f&ouml;r att &auml;ndra storleken p&aring; typsnitt och vi kan
+            anv&auml;nda n&aring;gon av nedanst&aring;ende m&aring;tt eller m&aring;ttenheter (se &auml;ven <a href="del4.html#storlekar">Storlekar
+            och m&aring;ttenheter</a> f&ouml;r m&aring;ttenheter).</p>
+
+          <ul>
+            <li>de sju f&ouml;rdefinierade storlekarna</li>
+            <li>relativa storlekar</li>
+            <li>absoluta storlekar</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>F&ouml;rdefinerade storlekar</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>CSS anv&auml;nder samma sju &quot;f&ouml;rdefinierade&quot; storlekar f&ouml;r typsnitt
+            som i HTML:s FONT-tagg, fast i CSS anv&auml;nds nyckelord ist&auml;llet f&ouml;r siffror.
+            Storleken p&aring; de f&ouml;rdefinierade storlekarna avg&ouml;rs av webbl&auml;sare, eller av
+            eventuella &auml;ndringar som bes&ouml;kare gjort i sin webbl&auml;sare. (Numera f&ouml;rordas
+            att webbl&auml;sare anv&auml;nder ett f&ouml;rh&aring;llande av ca. 1.2 mellan storlekarna.) De
+            f&ouml;rdefinierade storlekarna visas nedan, fr&aring;n minsta till st&ouml;rsta, och v&auml;rdet
+            medium &auml;r standard.</p>
+
+          <ul>
+            <li>xx-small</li>
+            <li>x-small</li>
+            <li>small</li>
+            <li>medium</li>
+            <li>large</li>
+            <li>x-large</li>
+            <li>xx-large</li>
+          </ul>
+
+          <p>Ut&ouml;ver de f&ouml;rdefinerade storlekarna kan vi anv&auml;nda tv&aring; nyckelord f&ouml;r att
+            minska respektive &ouml;ka storleken p&aring; typsnittet (relativt omgivande element)
+            och de &auml;r:</p>
+
+          <ul>
+            <li>smaller</li>
+            <li>larger</li>
+          </ul>
+
+          <p>I exempel nedan visas hur de sju f&ouml;rdefinerade storlekarna tar sig ut. Efter
+            ett horisontellt streck (HR) har typsnittstorlek &ouml;kats till 20 pixlar (20px
+            - f&ouml;r att testa om det p&aring;verkar, viket det inte verkar g&ouml;ra). Sist visas hur
+            de relativa storlekarna smaller och larger tar sig ut.</p>
+
+          <p class="center"><a href="del4/css4a_1_1.html" target="_blank" class="button button-primary">Exempel 4a.1.1 - F&ouml;rdefinerade storlekar</a></p>
+
+          <p>Observera att de sju f&ouml;rdefinierade storlekarna i CSS inte helt matchar de
+            i HTML:s FONT-tagg!</p>
+        </div>
+      </div>
+
+      <h4>Relativa m&aring;ttenheter</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi kan &auml;ven anv&auml;nda relativa m&aring;ttenheter (se <a href="del4.html#storlekar">Storlekar
+            och m&aring;ttenheter</a> f&ouml;r f&ouml;rklaringar) f&ouml;r att ange storlek p&aring; typsnitt. Storleken
+            &auml;r d&aring; relativ till &ouml;vergripande/omslutande element (eller f&ouml;r&auml;lder). Nedan
+            visas m&aring;ttenheter f&ouml;r relativa storlekar.</p>
+
+          <ul>
+            <li>em</li>
+            <li>ex</li>
+            <li>px</li>
+            <li>% (procent)</li>
+          </ul>
+
+          <p>I exempel nedan s&aring; skapas en stilmall f&ouml;r BODY d&auml;r typssnittsstorleken &auml;ndras
+            till 17 pixlar samt en klass (minklass) f&ouml;r stycken som har storleken 0.8em. Stycken
+            som anv&auml;nder klassen kommer d&aring; ha en punktstorlek p&aring; ca. 14 pixlar (17*0,8=13,6)
+            d&aring; BODY &auml;r &ouml;vergripande element f&ouml;r stycken (P).</p>
+        </div>
+
+        <div class="five columns">
+          <code>body { font-size: 17px; }</code><br />
+          <code>p.minklass { font-size: 0.8em; }</code>
+
+          <pre><code>&lt;body&gt;
+  &lt;p&gt;Stycke &auml;rver storlek fr&aring;n BODY.&lt;/p&gt;
+  &lt;p class=&quot;minklass&quot;&gt;Stycke som anv&auml;nder 
+  storlek i klass.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+
+          <!-- <p>Nedan visas resultatet, d.v.s. att f&ouml;rsta stycket har en punktstorlek av
+            17 pixlar och stycke av klassen minklass ca 14 pixlar (beroende p&aring; webbl&auml;sare).</p> -->
+
+          <div class="example-result" style="font-size: 17px">
+            <p>Stycke som &auml;rver storlek fr&aring;n BODY.</p>
+            <p style="font-size: 0.8em">Stycke som anv&auml;nder storlek i klass.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Observera att negativa v&auml;rden f&ouml;r egenskapen font-size inte f&aring;r anv&auml;ndas
+            (vilket &auml;r till&aring;tet f&ouml;r andra egenskaper - se bl.a. Boxar)!</p>
+        </div>
+      </div>
+
+      <h4>Absoluta m&aring;ttenheter</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi kan &auml;ven anv&auml;nda n&aring;gon av de absoluta m&aring;ttenheterna f&ouml;r att ange storlek,
+            men dessa passar b&auml;st f&ouml;r andra media &auml;n sk&auml;rmar (som &auml;nnu inte behandlas i
+            denna underwebb, s&aring; jag &ouml;verl&aring;ter till er att experimentera med m&aring;ttenheterna
+            sj&auml;lva). Nedan visas de absoluta m&aring;ttenheterna (se <a href="del4.html#storlekar">Storlekar
+            och m&aring;ttenheter</a> f&ouml;r f&ouml;rklaringar).</p>
+
+          <ul>
+            <li>pt</li>
+            <li>cm</li>
+            <li>mm</li>
+            <li>in</li>
+            <li>pc</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Radavst&aring;nd</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskapen line-height anv&auml;nds f&ouml;r att &auml;ndra radavst&aring;nd inom t.ex. ett stycke
+            (P). N&aring;gra av v&auml;rden eller m&aring;ttenheterna som &auml;r giltiga f&ouml;r egenskapen &auml;r:</p>
+
+          <ul>
+            <li>normal</li>
+            <li>ett tal</li>
+            <li>em</li>
+            <li>procent</li>
+          </ul>
+
+          <p>Standardv&auml;rde f&ouml;r denna egenskap &auml;r 1.2em (eller rekommenderas vara mot tidigare
+            1.5em). I exempel nedan s&aring; skapas en klass (ingress) f&ouml;r stycken (P) d&auml;r
+            radavst&aring;nd &auml;r dubbelt (och stilen &auml;r kursiv).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>p.ingress
+{
+  line-height: 2em;
+  font-style: italic;
+}</code></pre>
+
+          <div class="example-result">
+            <h4>En rubrik</h4>
+            <p style="line-height: 2em; font-style: italic">Ett stycke som ska f&ouml;rest&auml;lla
+              en ingress i en artikel (&auml;ven om typsnittet har fast teckenbredd - se mer
+              l&auml;ngre ner p&aring; sida).</p>
+            <p>Ett andra stycke som &auml;r &quot;vanlig&quot; text, d.v.s. detta stycke har
+              ett standardavst&aring;nd av 1.2em om webbl&auml;sare f&ouml;ljer rekommendation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exempel nedan visas hur stycken (P) med &quot;standardstorlek&quot; tar
+            sig ut med bl.a. radavst&aring;nden 1em, 2em, 3em och 4em. Det sista stycket har givits
+            ett radavst&aring;nd av 0.5em, d.v.s. halva typsnittstorleken. I detta sista stycke
+            har &auml;ven f&auml;rgen p&aring; en mening &auml;ndrats till bl&aring; f&ouml;r att visa p&aring; hur webbl&auml;sare
+            hanterar n&auml;r radavst&aring;nd &auml;r f&ouml;r litet (enligt standard s&aring; ska efterf&ouml;ljande
+            rader skrivas &ouml;ver f&ouml;reg&aring;ende).</p>
+
+          <p class="center"><a href="del4/css4a_1_2.html" target="_blank" class="button button-primary">Exempel 4a.1.2 - Radavst&aring;nd</a></p>
+
+          <p>Om vi anv&auml;nder en relativ m&aring;ttenhet f&ouml;r radavst&aring;nd s&aring; baseras avst&aring;ndet p&aring;
+            elementets faktiska typsnittsstorlek (oavsett om elementet inneh&aring;ller text
+            eller inte). Med faktiska menas att om &auml;ven typsnittsstorleken &auml;r relativ s&aring;
+            ber&auml;knas den faktiska typssnittstorleken innan radavst&aring;nd ber&auml;knas. V&auml;rde
+            f&ouml;r denna egenskap f&aring;r <strong>inte</strong> vara negativt. F&ouml;r att minska
+            avst&aring;ndet mellan stycken kan vi anv&auml;nda marginaler ist&auml;llet (se
+            <a href="del4d.html">Boxar</a>).</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="typsnitt">Typsnitt och typsnittsfamiljer</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Typsnitt har getts namn, bl.a. efter personer som skapade dem (t.ex. Garamond
+            och Baskerville), och tillh&ouml;r n&aring;gon typsnittsfamilj (eller typkarakt&auml;r).
+            Nedan beskrivs egenskaper som anv&auml;nds f&ouml;r att &auml;ndra typsnitt och/eller
+            typsnittsfamiljer.</p>
+
+          <p class="kommentar">Innan n&aring;gon som vet b&auml;ttre &auml;n jag hetsar upp sig ang&aring;ende
+            mina kunskaper i typografi, eller vad det heter, s&aring; vill jag meddela att jag
+            &auml;r medveten om att jag har brister i &auml;mnet - jag &auml;r en n&ouml;rd, d.v.s. intresserad
+            av datorer och inte design/layout! :-) S&aring; ha &ouml;verseende med min okunskap.</p>
+        </div>
+      </div>
+
+      <h3>Egenskapen font-family</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>N&auml;r vi vill &auml;ndra typsnitt s&aring; kan vi antingen anv&auml;nda namnet p&aring; ett visst
+            typsnitt (eller typsnittsfamilj - se Typsnittsfamiljer nedan)
+            eller en lista med typsnitt (eller typsnitt och/eller typsnittsfamiljer).
+            Anv&auml;nder vi endast ett visst typsnitt s&aring; m&aring;ste bes&ouml;karen ha det typsnittet
+            installerat p&aring; sin dator. Saknar bes&ouml;karen det typsnittet kommer webbl&auml;saren
+            &auml;nd&aring; att anv&auml;nda standardtypsnittet (se tabell nedan). Om namnet p&aring; typsnittet
+            inneh&aring;ller mellanslag m&aring;ste namnet inneslutas inom citattecken (&aring;terigen, detta
+            &auml;r det enda tillf&auml;llet d&aring; citationstecken f&aring;r anv&auml;ndas i CSS).</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ font-family: Verdana; }</code><br />
+          <code>{ font-family: &quot;Times New Roman&quot;; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Genom att anv&auml;nda en lista med typsnitt (och/eller typsnittsfamiljer), d&auml;r
+            typsnitten rangordnas efter vilket vi f&ouml;rst vill ha, s&aring; &auml;r chansen st&ouml;rre
+            att bes&ouml;karen har n&aring;got av typsnitten i listan installerad p&aring; sin dator.
+            Rangordningen sker s&aring; att det typsnitt som st&aring;r f&ouml;rst (l&auml;ngst till v&auml;nster)
+            &auml;r det som vi vill ha f&ouml;rst och namnen (p&aring; typsnitten/familjerna) separeras med komma.</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ font-family: Verdana, Arial, sans-serif; }</code><br />
+          <code>{ font-family: "Times New Roman", Times, serif; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Observera att typsnittsfamiljer kommer runt det h&auml;r med mellanslag i namn
+            genom att anv&auml;nda bindestreck (-), t.ex. sans-serif. Vi ska allts&aring; <strong>inte</strong>
+            anv&auml;nda citationstecken kring typsnittsfamiljer.</p>
+        </div>
+      </div>
+
+      <h4>Vanligt f&ouml;rekommande typsnitt</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Olika operativsystem, s&aring; som Windows, Linux och MacOS, anv&auml;nder tyv&auml;rr olika
+            namn p&aring; samma/liknande typsnitt. Nedan visas en tabell med &quot;standardtypsnitten&quot;
+            i Windows och MacOS f&ouml;r typsnitt med resp. utan serifer samt fast teckenbredd
+            (se Typsnittsfamiljer nedan).</p>
+
+          <table>
+            <caption>&quot;Standardtypsnitt&quot; f&ouml;r MacOS och Windows</caption>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Windows</th>
+                <th>Macintosh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="normal">Med serifer</td>
+                <td class="minserif">Times New Roman</td>
+                <td class="minserif">Times</td>
+              </tr>
+              <tr>
+                <td class="normal">Utan serifer</td>
+                <td class="minsansserif">Arial</td>
+                <td class="minsansserif">Helvetica</td>
+              </tr>
+              <tr>
+                <td class="normal">Fast teckenbredd</td>
+                <td class="minmonospace">Courier New</td>
+                <td class="minmonospace">Courier</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Tv&aring; andra typsnitt som blir alltmer vanliga i Windows, bl.a. d&aring; bes&ouml;kare
+            uppgraderar sina datorer med nya operativsystem och webbl&auml;saren Internet Explorer,
+            &auml;r Verdana och Georgia. Dessa kan &auml;ven f&aring;s till Linux och (?) MacOS. I n&auml;sta stycke
+            visas exempel p&aring; Georgia (om du har den installerad :-).</p>
+
+          <p class="medgeorgia">Denna hemsida anv&auml;nder Raleway som huvudsakligt typsnitt,
+            fr&auml;mst d&aring; den &auml;r l&auml;ttare att l&auml;sa p&aring; sk&auml;rmen &auml;n Times New Roman. Ett alternativ
+            vore att att anv&auml;nda Georgia (som i detta stycke) som p&aring;minner om Times New
+            Roman, men som &auml;r gjort f&ouml;r att vara l&auml;ttare att l&auml;sa p&aring; sk&auml;rmen.</p>
+
+          <p>F&ouml;r att vara (relativt) s&auml;ker p&aring; att vi anv&auml;nder ett typsnitt
+            utan serifer, och som bes&ouml;karen l&auml;r ha installerat, s&aring; skulle vi kunna anv&auml;nda
+            stilmallen &quot;utanserifer&quot; nedan. P&aring; motsvarande s&auml;tt kan vi anv&auml;nda
+            stilmallen &quot;medserifer&quot; nedan f&ouml;r att vara (relativt) s&auml;ker p&aring; att
+            f&aring; ett typsnitt med serifer. D.v.s. det &auml;r mycket vanligt att man ser stilmallar
+            med nedanst&aring;ende v&auml;rden p&aring; egenskap f&ouml;r typsnitt.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>.utanserifer {
+  font-family: Verdana, Arial, 
+    Helvetica, sans-serif;
+}
+.medserifer {
+  font-family: Georgia, "Times New Roman", 
+    Times, sans-serif;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>Typsnittsfamiljer</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>N&auml;r vi vill &auml;ndra typsnitt f&ouml;r text kan vi antingen ange ett visst
+            (eller flera) typsnitt eller en familj av typsnitt. I det f&ouml;rsta fallet
+            m&aring;ste bes&ouml;karen ha typsnittet (eller n&aring;got av typsnitten)
+            installerat p&aring; sin dator f&ouml;r att texten ska visas med det &ouml;nskade typsnittet.
+            Om vi ist&auml;llet anv&auml;nder en familj av typsnitt s&aring; &ouml;verl&aring;ter vi till
+            webbl&auml;saren att avg&ouml;ra vilket typsnitt som kommer anv&auml;ndas, men vet vi
+            ungef&auml;r hur det kommer att ta sig ut. De typsnittsfamiljer som st&ouml;ds i CSS
+            visas nedan samt standardtypsnittet i Windows (sist jag hittade n&aring;gon som
+            visste/publicerade p&aring; Internet).</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Typsnittsfamilj</th>
+                <th>Windows</th>
+                <th>macOS</th>
+                <th>Linux</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>serif</td>
+              <td>Times New Roman</td>
+              <td>Times</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>sans-serif</td>
+              <td>Arial</td>
+              <td>Helvetica</td>
+              <td>Nimbus Sans L</td>
+            </tr>
+            <tr>
+              <td>monospace</td>
+              <td>Courier New</td>
+              <td>Courier</td>
+              <td>Nimbus Mono L</td>
+            </tr>
+            <tr>
+              <td>cursive</td>
+              <td>Script eller Comic Sans MS</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>fantasy</td>
+              <td>?</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <p class="kommentar">Observera att Script inte &auml;r ett TrueType-typsnitt.
+            Ett TrueType-typsnitt klarar av att visas i olika storlekar utan att
+            bokst&auml;verna i texten bli &quot;taggig&quot;. Teckensnitt som inte &auml;r
+            av typen TrueType brukar bli &quot;taggiga&quot; n&auml;r de blir f&ouml;r
+            stora. F&ouml;r &ouml;vrigt s&aring; &auml;r typsnittet Script sm&aring;tt ol&auml;sligt i
+            &quot;normal&quot; punktstorlek i en webbl&auml;sare (se exempel 4.1.2).</p>
+        </div>
+      </div>
+
+      <h3>Typsnittsfamiljen serif</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>En serif &auml;r en utsv&auml;ngning, oftast l&auml;ngst ut p&aring;  varje
+            streck, i en bokstav. Serifer anv&auml;nds f&ouml;r att g&ouml;ra text mer
+            l&auml;ttl&auml;st, d.v.s. s&aring; att vi m&auml;nniskor l&auml;ttare kan l&auml;sa texten (tyda
+            bokst&auml;verna).
+            Detta g&auml;ller fr&auml;mst tryckt material d&aring; sk&auml;rmars uppl&ouml;sning (antal
+            punkter/tum, eng. <em>dots per inch</em> - dpi) inte &auml;r s&aring; h&ouml;g som tryckt
+            material. Times New Roman &auml;r ett typiskt exempel p&aring; ett typsnitt med serifer och
+            typsnittsfamiljen serif &auml;r standardtypsnittet i de flesta webbl&auml;sare.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p class="minserif">Text som skrivs med typsnittsfamiljen serif.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Typsnittsfamiljen sans-serif</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Motsatsen till typsnittsfamiljen serif &auml;r sans-serif som inte har
+            n&aring;gra utsv&auml;vningar alls. Ett typiskt exempel p&aring; ett typsnitt i
+            familjen sans-serif &auml;r Arial, men &auml;ven Verdana (som anv&auml;nds i denna
+            text). Typsnittsfamiljen sans-serif &auml;r att f&ouml;redra f&ouml;r hemsidor d&aring; den
+            &auml;r l&auml;ttare att l&auml;sa p&aring; sk&auml;rmen, dock inte d&aring; den skrivs ut, d&aring; serifer
+            inte blir s&aring; tydliga p&aring; en sk&auml;rm. Nedan visas ett stycke (en rad) som anv&auml;nder typsnittsfamiljen sans-serif och som kommer visas med typsnittet Arial i Windows.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p class="minsansserif">Text som skrivits med typsnittsfamiljen sans-serif.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Typsnittsfamiljen monospace</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Det mesta av texten som vi l&auml;ser i tryckt, eller annan media,
+            anv&auml;nder typsnitt d&auml;r bokst&auml;ver har olika bredd (s&aring; som text p&aring; denna
+            hemsida). Bokstaven 'i'
+            beh&ouml;ver t.ex. inte lika mycket plats (bredd) som bokstaven 'm'. Denna
+            form av typsnitt har s.k. anpassad teckenbredd. Typsnitt i familjen monospace har fast teckenbredd, d.v.s. alla bokst&auml;ver har samma bredd.
+            Denna familj anv&auml;nds l&auml;mpligen n&auml;r man vill visa text som inneh&aring;ller
+            t.ex. programkod eller annat som ska skrivas av. (N&auml;r vi l&auml;ser text
+            beh&ouml;ver vi ofta inte l&auml;sa varje bokstav utan vi anv&auml;nder &quot;erfarenhet&quot;
+            f&ouml;r att tolka ord, d.v.s. vi k&auml;nner igen m&ouml;nster. Detta &auml;r bl.a. ett
+            sk&auml;l till varf&ouml;r vi kan l&auml;sa text som inneh&aring;ller stavfel och &auml;nd&aring; f&ouml;rst&aring;
+            texten.) De mest anv&auml;nda typsnitten i familjen &auml;r Courier
+            eller Courier New.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p class="minmonospace">Text som skrivits med typsnittsfamiljen monospaced.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Typsnittsfamiljerna cursive och fantasy</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Typsnittsfamiljen cursive best&aring;r av typsnitt som ska p&aring;minna om handskriven
+            text medan fantasy &auml;r de mer fantasifulla typsnitten. B&aring;da bygger p&aring; mycket
+            runda bokst&auml;ver och tecken. Exempel i familjen cursive &auml;r typsnittet Script
+            och i familjen fantasy MS Comic Sans. Som exempel nedan visar p&aring; (kan visa
+            p&aring;) s&aring; st&ouml;djer inte alla webbl&auml;sare dessa typsnittsfamiljer.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="example-result">
+            <p class="mincursive">Text som skrivits med typsnittsfamiljen cursive.</p>
+            <p class="minfantasy">Text som skrivits med typsnittsfamiljen fantasy.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Exempel som visar typsnittsfamiljerna i egenskapen font-family</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exempel nedan visas stycken i de olika typsnittsfamiljerna. Observera att
+            endast typsnittsfamiljerna serif, sans-serif och monospaced har brett st&ouml;d
+            i dagens webbl&auml;sare!</p>
+
+          <p class="center"><a href="del4/css4a_1_3.html" target="_blank" class="button button-primary">Exempel 4a.1.3 - Typsnittsfamiljer</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="skuggor">Skuggor</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Skyggor är nytt i CSS3. För att lägga till en skugga anger man hur mycket 
+            stor förskjutning ska vara i X- och Y-led, eventuell &quot;längd&quot; på 
+            skugga (eng. blur) samt eventuell färg.</p>
+        </div>
+
+        <div class="five columns">
+          <code>text-shadow: 2px 2px 2px;</code><br />
+          <code>text-shadow: 2px 2px 10px red;</code>
+          
+          <div class="example-result">
+            <p style="text-shadow: 2px 2px 2px;">Detta stycke har en skugga med &quot;längden&quot; 2px.</p>
+            <p style="text-shadow: 2px 2px 10px red;">Detta stycke har en röd skugga med &quot;längden&quot; 10px.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del4/css4a_1_4.html" target="_blank" class="button button-primary">Exempel 4a.1.4 - Skuggor</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="genvagar">&quot;Genv&auml;gar&quot;</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Genv&auml;gar (eller f&ouml;rkortningar, eng. <em>shorthand</em>) anv&auml;nds f&ouml;r att
+            &auml;ndra flera egenskaper p&aring; en g&aring;ng. En s&aring;dan &quot;genv&auml;g&quot; &auml;r font, med
+            vilken vi kan &auml;ndra alla egenskaper ovan med.</p>
+        </div>
+      </div>
+
+      <h3>&quot;Genv&auml;gen&quot; font</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Med &quot;genv&auml;gen&quot; font r&auml;cker det med att anv&auml;nda en egenskap (font)
+            f&ouml;r att &auml;ndra n&aring;gra eller alla egenskaperna ovan. De olika v&auml;rdena separerade
+            med mellanslag. Ordningen som v&auml;rden anges &auml;r <strong>viktig</strong> och
+            visas nedan. V&auml;rden som &auml;r frivilliga har placerats inom &quot;hakparenteser&quot;
+            ([ och ]), d.v.s. vi m&aring;ste alltid ange storlek (font-size) och typsnitt (font-family).
+            Radavst&aring;nd (line-height) f&ouml;ljer efter typsnittsstorlek (font-size) efter ett
+            snedstreck (/), t.ex. 14px/2em f&ouml;r storlek 14px och radavst&aring;nd 2em (&quot;dubbelt&quot;).</p>
+        
+          <pre><code>font: [&lt;font-style&gt;] |
+      [&lt;font-variant&gt;] |
+      [&lt;font-weight&gt;]
+      | &lt;font-size&gt;[/&lt;line-height&gt;] | 
+      &lt;font-family&gt;</code></pre>
+
+          <p>F&ouml;r att erh&aring;lla text med fet stil, punktstorlek 11 och typsnittet
+            Verdana skulle vi kunna skriva f&ouml;ljande</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>.minstil {
+  font-weight: bold;
+  font-size: 11pt;
+  font-family: Verdana;
+}</code></pre>
+
+          <code>.minstil { font: bold 11pt Verdana; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p><strong>Observera</strong> att om vi anv&auml;nder egenskapen font och utel&auml;mnar
+            n&aring;gon av de frivilliga egenskaperna s&aring; &aring;terst&auml;lls deras v&auml;rden (eng. <em>reset</em>)
+            till deras standardv&auml;rden. Effekten av detta blir att stilmallen f&ouml;r klass
+            ovan &auml;r det samma som nedanst&aring;ende stilmall.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>.minstil {
+  <b>font-style: normal;</b>
+  <b>font-variant: normal;</b>
+  font-weight: bold;
+  font-size: 11pt;
+  <b>line-height: normal;</b>
+  font-family: Verdana;
+}</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns l&auml;nkar med mer information.</p>
+
+          <ul>
+            <li><a href="http://www.apaddedcell.com/web-fonts/" target="_blank"
+              rel="noopener">Exempel p&aring; typsnitt</a> [ej HTTPS!]
+              i Windows, MacOS och Linux hos <a href="http://www.apaddedcell.com/" 
+              target="_blank" rel="noopener">A Padded
+              Cell</a> [ej HTTPS!]</li>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">CSS Reference</a> hos
+              <a href="https://www.htmlhelp.com/" target="_blank" rel="noopener">Web Design Group</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener">Cascading Style Sheets</a> hos
+              <a href="https://www.w3.org/" target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <nav class="navbar center">
+        <ul class="foregaendenasta">
+          <li><a href="del4.html">&lt; F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4b.html">N&auml;sta &gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

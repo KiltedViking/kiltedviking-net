@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del1.html" />
+  <title>Funktion (CSS2) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Funktion hos stilmallar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li class="active"><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+
+          <p>H&auml;r beskrivs den grundl&auml;ggande funktionen hos (eller teorin bakom)
+          stilmallar och l&auml;ngst ner finns l&auml;nkar till valideringsprogram f&ouml;r
+          stilmallar.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#grundlaggande" class="collection-item">Grundl&auml;ggande funktion</a></li>
+            <li><a href="#regler" class="collection-item">Regler f&ouml;r applicering av stilmallar</a></li>
+            <li><a href="#konflikter" class="collection-item">Konflikter mellan stilmallar</a></li>
+            <li><a href="#grunden" class="collection-item">Grunden f&ouml;r exempel</a></li>
+            <li><a href="#validering" class="collection-item">Validering av stilmallar</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="grundlaggande">Grundl&auml;ggande funktion</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>(X)HTML ska (b&ouml;r) endast anv&auml;ndas f&ouml;r att m&auml;rka upp olika element i ett (X)HTML-dokument,
+            t.ex. rubriker, stycken, listor och tabeller. Det ska m.a.o. inte f&ouml;rekomma
+            n&aring;gra instruktioner i (X)HTML om hur elementen ska presenteras. Stilmallar (CSS) anv&auml;nds f&ouml;r
+            att &auml;ndra hur elementen i (X)HTML ska presenteras, t.ex. f&ouml;r- och bakgrundsf&auml;rg,
+            storlek och position. En f&ouml;rdel med detta &auml;r att man kan separera struktur
+            (d.v.s. (X)HTML med information) fr&aring;n presentation (CSS). Man vinner ocks&aring;
+            m&ouml;jligheten att &auml;ndra design (utseende) f&ouml;r en hel webbplats genom att
+            &auml;ndra p&aring; ett st&auml;lle: i de gemensamma stilmallarna (CSS).</p>
+
+          <p class="kommentar">CSS &auml;r inte begr&auml;nsat till att endast anv&auml;ndas med (X)HTML
+            utan kan, i teorin, anv&auml;ndas med alla typer av uppm&auml;rkningsspr&aring;k (eng. <em>mark-up
+            languages</em>).</p>
+
+          <p>Varje webbl&auml;sare har en &quot;standardmall&quot; f&ouml;r hur respektive element i (X)HTML
+            ska presenteras, n&aring;got som vi anv&auml;ndare av webbl&auml;sare kan anpassa till v&aring;rt
+            eget tycke. (Dessa &auml;ndringar kan g&ouml;ra p&aring; lite olika s&auml;tt, ibland med dialogrutor
+            och ibland genom att redigera en fil med stilmallar [CSS].) Men den grundl&auml;ggande
+            principen &auml;r att element i (X)HTML-dokument presenteras, uppifr&aring;n och ner,
+            i den ordning de finns i dokument. Elementen anpassas (oftast) &auml;ven till bredden
+            p&aring; f&ouml;nstret f&ouml;r bes&ouml;karens webbl&auml;sare. Detta inneb&auml;r, oftast, &auml;ven att h&ouml;jden
+            (l&auml;ngden) p&aring; element p&aring;verkas. Tycker vi inte om detta, d.v.s. vi vill snygga
+            till elementens presentation, s&aring; b&ouml;r vi anv&auml;nda CSS f&ouml;r detta - vilket &auml;r
+            &auml;mnet f&ouml;r denna underwebb. :-)</p>
+
+          <p>En stilmall appliceras p&aring; (g&auml;ller f&ouml;r) en eller flera taggar f&ouml;r att p&aring;verka
+            hur elementen presenteras i webbl&auml;sare. Stilmallar kan appliceras direkt p&aring;
+            en tagg eller genom arv fr&aring;n en &ouml;vergripande tagg (kallat <em>cascading</em>,
+            d.v.s. att stilmallar &quot;rinner&quot; ner till underliggande/omslutna
+            taggar). En &ouml;vergripande/omslutande tagg &auml;r
+            en tagg som inneh&aring;ller (eller kan inneh&aring;lla) andra taggar. T.ex. kan taggen
+            HTML inneh&aring;lla taggen BODY som, i sin tur, kan inneh&aring;lla taggar som Hx,
+            P, TABLE och UL. En stil som appliceras p&aring; taggen BODY (vilket &auml;r den
+            f&ouml;rsta taggen som det &auml;r meningsfullt att applicera en stil p&aring;) kommer att (eller
+            b&ouml;r) g&auml;lla &auml;ven f&ouml;r alla rubriker och stycken som placerats i taggen BODY.
+            (Vi &aring;terkommer till de tv&aring; orden "eller b&ouml;r" l&auml;ngre ner p&aring; sidan.)</p>
+
+          <p>I exempel nedan s&aring; har vi t.ex. f&ouml;rst en rubrik (H1) som &auml;rver fr&aring;n BODY.
+            Efter det finns det tv&aring; stycken (P) som ocks&aring; &auml;rver fr&aring;n BODY. Men i det andra
+            stycket s&aring; finns betonad text (EM) som &auml;rver fr&aring;n b&aring;de BODY och P.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;html&gt;
+  &lt;head&gt;
+  &nbsp;  ...
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1>Rubrik som &auml;rver fr&aring;n BODY&lt;/h1&gt;
+    &lt;p&gt;Stycke som &auml;rver fr&aring;n BODY.&lt;/p&gt;
+    &lt;p&gt;
+      Stycke som &auml;rver fr&aring;n BODY. 
+      &lt;em&gt;Kursiv stil som &auml;rver
+        fr&aring;n BODY och P.&lt;/em&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+        </div>
+      </div>
+
+      <h3>Använda strukturella element för applicering av stilar</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          
+          <p>Vi skulle allts&aring; kunna &auml;ndra typsnitt f&ouml;r alla element i ett dokument genom
+            att ange en stilmall f&ouml;r taggen <code>body</code>. Om vi sen skulle vilja ha ett annat
+            typsnitt i ett stycke, t.ex. f&ouml;r lite exempelkod, s&aring; beh&ouml;ver vi endast &auml;ndra
+            typsnittet f&ouml;r det stycket.</p>
+
+          <p>Ofta best&aring;r dokument av ett antal delar (t.ex. sidhuvud, meny, inneh&aring;ll och
+            sidfot) - detta dokument &quot;best&aring;r&quot; t.ex. av menyn till v&auml;nster och
+            inneh&aring;llet som du l&auml;ser just nu. Om vi vill att olika delar i dokument (s&aring;
+            som meny och inneh&aring;ll i detta dokument) ska ha olika stilar s&aring; brukar man
+            anv&auml;nda HTML:s tagg <code>div</code>. I exempel nedan s&aring; har jag anpassat koden ovan
+            f&ouml;r att skapa tv&aring; s.k. block: ett f&ouml;r meny (&ouml;verst) och inneh&aring;ll (som exempel
+            ovan). Jag anv&auml;nder mig av <code>div</code>-taggens attribut <code>id</code> f&ouml;r att g&ouml;ra blocken unikt
+            identifierbara. (<code>div</code>, <code>id</code> och block, eller boxar, samt positionering av blocken
+            - t.ex. bredvid varandra, som i detta dokument - behandlas p&aring; efterf&ouml;ljande
+            sidor i denna underwebb.)</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;html&gt;
+&lt;head&gt;
+&nbsp;  ...
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;meny&quot;&gt;
+&nbsp; &lt;!-- Menyalternativ h&auml;r --&gt;
+&lt;/div&gt;
+&lt;div id=&quot;innehall&quot;&gt;
+  &lt;h1>Rubrik som &auml;rver fr&aring;n BODY&lt;/h1&gt;
+  &lt;p&gt;Stycke som &auml;rver fr&aring;n BODY.&lt;/p&gt;
+  &lt;p&gt;
+    Stycke som &auml;rver fr&aring;n BODY. 
+    &lt;em&gt;Kursiv stil som &auml;rver
+    fr&aring;n BODY och P.&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="regler">Regler f&ouml;r applicering av stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att applicera stilmallar p&aring; taggar s&aring; anv&auml;nder man s.k. selektorer (eng.
+            <em>selectors</em>), eller &quot;namnger&quot; stilmallar, som jag vill kalla
+            det (och g&ouml;r i denna underwebb - se <a href="del3.html">Namngivning</a>).
+            Det &auml;r till&aring;tet, och vanligt f&ouml;rekommande, att applicera flera stilmallar
+            p&aring; en och samma tagg, bl.a. d&aring; stilmallar kan &auml;rvas. Detta inneb&auml;r att
+            det kan uppst&aring; &quot;konflikter&quot;, d.v.s. att tv&aring; stilmallar vill &auml;ndra
+            samma egenskap till olika v&auml;rden, n&aring;got som webbl&auml;sare har till uppgift
+            att l&ouml;sa. F&ouml;r att l&ouml;sa dessa konflikter s&aring; har olika typer av stilmallar (se
+            <a href="del3.html">Namngivning</a>) olika prioritet.</p>
+
+          <p>Nedan visas (n&aring;got f&ouml;renklat) vilken prioritet som olika typer av stilmallar
+            har, d.v.s. vilken stilmall som &quot;vinner&quot; om det finns flera stilmallar
+            (eller snarare egenskap eller egenskaper i stilmall) f&ouml;r samma tagg.</p>
+
+          <ol>
+            <li>Stilmall i en tagg (i taggs attribut <code>style</code>)</li>
+            <li>Stilmall finns f&ouml;r attributet <code>id</code></li>
+            <li>Stilmall finns f&ouml;r klass eller pseudoklass (eller attribut - behandlas
+              inte i denna underwebb)</li>
+            <li>Stilmall finns f&ouml;r tagg</li>
+          </ol>
+
+          <p>Men h&ouml;gst prioritet har eventuella stilmallar som bes&ouml;kare har skapat i sin
+            webbl&auml;sare (n&aring;got som [n&auml;stan] inte tas h&auml;nsyn till eller behandlas i denna
+            underwebb). Detta kan, till viss del, motverkas m.h.a. m&auml;rkningen !important
+            (vilket inte heller behandlas i denna underwebb).</p>
+        </div>
+      </div>
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="konflikter">Konflikter mellan stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Dagens (2008-07-09) webbl&auml;sare hanterar konflikter mellan stilmallar
+            n&aring;gorlunda lika, men det kan finnas avvikelser (fr&auml;mst i IE) - d&auml;rav &quot;eller
+            b&ouml;r&quot; inom parenteser ovan. Tanken &auml;r att om
+            en stilmall appliceras p&aring; en &ouml;vergripande tagg s&aring; ska dess egenskaper
+            &auml;rvas av inneslutna taggar. Men vissa webbl&auml;sare bryr sig ibland inte om detta
+            arv. (Tidigare exempel, f&ouml;r CSS 1, g&auml;ller inte l&auml;ngre d&aring; de flesta uppgraderat
+            till senare generation av webbl&auml;sare, d.v.s. webbl&auml;sare som st&ouml;djer det mesta
+            av CSS.)</p>
+
+          <p>Men konflikter &auml;r varf&ouml;r vi webbutvecklare alltid m&aring;ste testa
+            v&aring;ra webbsidor i alla webbl&auml;sare, och versioner av dessa webbl&auml;sare,
+            som vi kan f&ouml;ruts&auml;tta att bes&ouml;kare kommer att anv&auml;nda.
+            (N&aring;ja... vi kanske kan bortse  fr&aring;n Lynx - den textbaserade webbl&auml;saren
+            i UNIX-v&auml;rlden - eftersom den &auml;nd&aring; inte verkar, eller beh&ouml;ver,
+            st&ouml;dja stilmallar. :-) Vi b&ouml;r, om m&ouml;jligt, &auml;ven testa
+            webbl&auml;sare i olika operativsystem (Windows, MacOS, Linux, m.fl.).</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="grunden">Grunden f&ouml;r m&aring;nga exempel</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att kunna visa p&aring; stilmallarnas p&aring;verkan p&aring; (X)HTML-elements
+            utseende beh&ouml;vs ibland lite textmassa med olika typer av (X)HTML-taggar.
+            D&auml;rf&ouml;r kommer m&aring;nga exempel att utg&aring; fr&aring;n filen
+            i exempel (nedan). I exempel inneh&aring;ller XHTML-dokumentet ingen formatering
+            alls - texten kommer t.ex. att visas med typsnittet Times New Roman i Windows.</p>
+
+          <!-- <form action="#">
+            <p class="center"><input type="button" value="Exempel 1.1 - Oformaterat dokument"
+              onclick="oppna('del1/css1_1.html')" /></p>
+          </form> -->
+
+          <a href="del1/css1_1.html" target="_blank" class="button button-primary">Exempel 1.1 - Oformaterat dokument</a>
+
+          <p class="kommentar">Exempel (och underwebbens webbsidor) anv&auml;nder numera XHTML
+            version 1 ist&auml;llet f&ouml;r HTML (av obest&auml;md version d&aring; dokumenttyp saknas i b&ouml;rjan
+            p&aring; alla HTML-filer). Detta inneb&auml;r fr&auml;mst att (X)HTML-kod validerats, d.v.s.
+            har korrekt syntax (se underwebben HTML), och ser lite annorlunda ut. XHTML
+            version 1 &auml;r i stort sett HTML 4.01 fast med striktare regler f&ouml;r hur koden
+            f&aring;r skrivas.</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="validering">Validering av stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>&Auml;ven stillmallar kan och b&ouml;r, liksom (X)HTML, valideras av speciella program
+            p&aring; Internet. Nedan finns l&auml;nkar till n&aring;gra.</p>
+
+          <ul>
+            <li><a href="http://jigsaw.w3.org/css-validator/" class="externallink" 
+              target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+            <li><a href="http://www.htmlhelp.com/tools/csscheck/" class="externallink"
+              target="_blank" rel="noopener">Web Design Group</a></li>
+          </ul>
+
+          <p>Om man anv&auml;nder Firefox kan man &auml;ven installera insticksprogram (<em>plug-ins</em>
+            eller <em>add-ons</em>) som validerar sidor n&auml;r man t.ex. tittar p&aring; dem i
+            webbl&auml;saren (s&aring; som HTML Validator) eller l&auml;gger till en verktygsrad i webbl&auml;sarens
+            f&ouml;nster (s&aring; som Web Developer) med flera verktyg f&ouml;r bl.a. (X)HTML, CSS och
+            JavaScript.</p>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul>
+          <li><a href="index.html">&lt; F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del2.html">N&auml;sta &gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div id="footer">
+      <footer>
+        <p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+          <strong>Uppdaterad:</strong> 2020-02-09.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

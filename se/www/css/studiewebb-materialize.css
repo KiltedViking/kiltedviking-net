@@ -1,0 +1,58 @@
+/* Google Material Icons font */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  /* src: url(https://kiltedviking.net/fonts/material-icons/MaterialIcons-Regular.eot); */ /* For IE6-8 */
+  /*src: local('Material Icons'),
+    local('../fonts/material-icons/MaterialIcons-Regular') ,
+    url(https://kiltedviking.net/fonts/material-icons/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://kiltedviking.net/fonts/material-icons/MaterialIcons-Regular.woff) format('woff'),
+    url(https://kiltedviking.net/fonts/material-icons/MaterialIcons-Regular.ttf) format('truetype');*/
+  src: url(../fonts/material-icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(../fonts/material-icons/MaterialIcons-Regular.woff2) format('woff2'),
+        url(../fonts/material-icons/MaterialIcons-Regular.woff) format('woff'),
+        url(../fonts/material-icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+/*** Customise Material CSS ***************************************************/
+.bg-scania-red { background-color: #E03C31; }
+/* TODO: Adjust colour - #FEDB00 - for a11y */
+.fg-scania-yellow { color: #FEDB00; }
+header.bg-scania-red { padding-top: 1em; }
+.nav-wrapper, .nav-wrapper ul a { color: #FEDB00; background-color: #E03C31; }
+.nav-wrapper ul .active a { color: #FEDB00; background-color: rgba(224,60,49,0.1); }
+.container h2 { color: #E03C31; }
+.collection a.collection-item { color: #E03C31; }
+.collection a:not(.active).collection-item:hover { background-color: #FEDB00; }
+/* footer { border-top: 1px solid gray; font-size: .9em; text-align: center; } */
+footer.page-footer { color: #FEDB00; background-color: #E03C31; padding: 1em;}
+
+.kommentar { font-size: .9em; font-style: italic; }
+td.tabellrubrik, td.tabellrubrik>a { color: #FEDB00; background-color: #E03C31; font-size: 1.3em; }
+/* td.tabellrubrik>a */

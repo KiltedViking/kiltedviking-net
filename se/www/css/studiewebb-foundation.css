@@ -1,0 +1,58 @@
+header {
+  color: #fed800;
+  background-color: #e03c31;
+  padding-top: 1em;
+}
+
+header .menu a {
+  color: #fed800;
+  background-color: #e03c31;
+}
+
+nav.navbar .menu a {
+  color: #e03c31;
+  background-color: #fed800;
+}
+
+/* TODO - find better red colour */
+header .menu li.active a, nav.navbar .menu li.active a {
+  color: #fed800;
+  background-color: red;
+}
+
+footer {
+  color: #fed800;
+  background-color: #e03c31;
+  text-align: center;
+  padding: 1em;
+}
+
+.bg-scania-red { background-color: #e03c31; }
+.fg-scania-yellow { color: #fed800; }
+.example-result { background-color: #eeff41; padding: .5em; }
+
+.collection {
+  border: 1px solid #e0e0e0;
+}
+
+ul.collection {
+  list-style: none;
+}
+
+ul.collection>li { margin: 0; }
+
+.collection-item {
+  /* border: 1px solid grey; */
+  line-height: 1.5em;
+  padding: 10px 20px;
+  display: block;
+}
+
+.collection a:not(.active).collection-item:hover {
+  background-color: #fed800;
+  color: #E03C31;
+}
+
+pre>code { display: block;}
+
+.grey { color: slategrey}

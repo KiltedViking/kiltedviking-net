@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/servlets/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/servlets/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Servlets - diverse - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+  <style>
+      .ei0290 { font-weight: bold; color: red; background-color: #ffff66 }
+  </style>
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Servlets - diverse</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>Denna sida innehåller exempel som svar på en del frågor jag fått
+        från studenter som läser kurser jag undervisar på, d.v.s. en del
+        &quot;smått och gott&quot;. Innehållet på denna sida kommer antagligen
+        struktureras upp vid ett senare tillfälle.</p>
+
+      <p>Mitt &quot;problem&quot; är att jag tycker problemlösning är roligt.
+        Och om jag får en fråga jag inte kan svara på så brukar jag (ibland)
+        vilja hitta en lösning själv. Dessa lösningar redovisar jag på denna
+        sida, delvis för att dokumentera för mig själv (till ett senare
+        tillfälle när jag kan få nytta av det).</p>
+  
+      <p><b>Observera</b> att jag har placerat servlet-exempel på denna sida i
+        ett paket (eng. <i>package</i>) med namnet &quot;bpn.diverse&quot; då jag
+        börjar få lite många servlets. Om ni ändrar namnet på paket så kom ihåg att även
+        ändra i rader som börjar på &quot;package...&quot;.</p>  
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Servlets - diverse</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+      <nav class="menu">
+        <a href="#inkludera" class="menu-item">Inkludera HTML-filer</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2 id="inkludera">Inkludera HTML-filer i servlets</h2>
+
+      <P>En intressant sak är att kunna inkludera HTML-filer (samt resultatet
+      från andra servlets och JSP-sidor) i en servlet. På så sätt kan man slippa så en
+      massa Java-kod som skriver ut HTML-kod i sina servlets. Beskrivningen nedan visar hur man kan
+      inkludera HTML-filerna SIDHUVUD.HTML och SIDFOT.HTML.</P>
+
+      <H3>Klassen RequestDispatcher</H3>
+
+      <P>För att kunna inkludera filer måste vi hämta en instans av klassen
+      RequestDispatcher. Detta gör vi genom att anropa metoden
+      getRequestDispatcher() i request-objektet och skicka sökvägen till filen
+      vi vill inkludera. Observera att filen måste (?) ligga inom
+      webbapplikationens mappstruktur, men sökvägen behöver inte vara absolut
+      (utgå från roten på webbapplikationen, d.v.s. börja med &quot;/&quot;,
+      som i exempel på denna sida).</P>
+
+      <BLOCKQUOTE>
+        <P>String url = &quot;/diverse/include/sidhuvud.html&quot;;<BR>
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);</P>
+      </BLOCKQUOTE>
+
+      <P CLASS="kommentar">Det gamla sättet att hämta en instans av
+      RequestDispatcher var att först hämta en referens till en instans av
+      klassen ServletContext och anropa metoden getRequestDispatcher() i det
+      objektet. Detta är inte nödvändigt numera utan vi använder metoden
+      getRequestDispatcher() i vårt request-objekt, precis som i exemplet ovan.</P>
+
+      <P>Nästa steg är att att skicka en begäran om den inkluderade filen.
+      Detta gör vi genom att anropa metoden include() i vårt dispatcher-objekt
+      samt skicka objekten request och response som parametrar till metoden.</P>
+
+      <BLOCKQUOTE>
+        <P>dispatcher.include(request, response);</P>
+      </BLOCKQUOTE>
+
+      <P>Har vi fler HTML-filer som vi vill inkludera så måste vi hämta nya
+      instanser av RequestDispatcher - ett för varje fil som ska inkluderas. Vi
+      kan dock återanvända variabeln om vi vill (som exempel nedan kommer
+      visa).</P>
+
+      <P CLASS="kommentar">En instans av klass RequestDispatcher kan även
+      användas för att t.ex. låta andra servlets hantera begäran beroende
+      på om användaren är inloggad eller inte. Istället för att anropa
+      metoden include() kan vi anropa metoden forward() (med samma parametrar).
+      <B>Observera</B> dock att inget får ha skrivits till den resulterande webbsidan
+      <B>innan</B> man skickar vidare exekveringen till en annan servlet!</P>
+
+      <H3>Vad som kan inkluderas</H3>
+
+      <P>Inte bara rena HTML-filer kan inkluderas, utan även resultatet från
+      andra servlets och JSP-sidor (se <A HREF="../jsp/">Java Server Pages</A>).
+      (Jag idag, 2001-10-27, inte hittat en lösning för att inkludera
+      ASP-sidor...)</P>
+
+      <H3>Fullständig kod för HTML-filer</H3>
+
+      <P>Båda HTML-filer har placerats i en mapp med namnet INCLUDE under
+      mappen DIVERSE i roten på webbapplikationen (d.v.s. &lt;rotmapp&gt;\DIVERSE\INCLUDE\).
+      Därmed refereras de till, i servlet, med sökvägen &quot;/diverse/include/fil.html&quot;&nbsp;</P>
+
+      <H4>Filen SIDHUVUD.HTML</H4>
+
+      <P CLASS="kodlangre">&lt;!-- Denna fil inkluderas i servlet IncServlet --><BR>
+      &lt;HTML&gt;<BR>
+      &lt;HEAD&gt;<BR>
+      &nbsp; &lt;TITLE&gt;Exempel som visar inkludering fr&amp;aring;n servlets&lt;/TITLE&gt;<BR>
+      &nbsp; &lt;STYLE&gt;<BR>
+      &nbsp; &lt;!--<BR>
+      &nbsp;&nbsp;&nbsp; H1 { font-family: Verdana; }<BR>
+      &nbsp;&nbsp;&nbsp; P&nbsp;&nbsp; { font: 10pt Verdana; }<BR>
+      &nbsp; --&gt;<BR>
+      &nbsp; &lt;/STYLE&gt;<BR>
+      &lt;/HEAD&gt;<BR>
+      &lt;HTML&gt;<BR>
+      &lt;HR&gt;<BR>
+      &lt;H1&gt;Exempel som visar inkludering fr&amp;aring;n servlets&lt;/H1&gt;</P>
+
+      <H4>Filen SIDFOT.HTML</H4>
+
+      <P CLASS="kodlangre">&lt;!-- Denna fil inkluderas i servlet IncServlet --><BR>
+      &lt;HR&gt;<BR>
+      &lt;P&gt;Skapad av: Björn Persson, e-post: bjorn.persson@mdh.se.&lt;/P&gt;<BR>
+      &lt;/BODY&gt;<BR>
+      &lt;/HTML&gt;</P>
+
+      <H3>Fullständig kod för servlet IncServlet</H3>
+
+      <P CLASS="kodlangre"><B>package bpn.diverse;<BR>
+      &nbsp;<BR>
+      import java.io.*;<BR>
+      import javax.servlet.*;<BR>
+      import javax.servlet.http.*;<BR>
+      <BR>
+      public class IncServlet extends HttpServlet&nbsp;<BR>
+      {<BR>
+      &nbsp; public void doGet(HttpServletRequest request,<BR>
+      &nbsp;&nbsp;&nbsp; HttpServletResponse response)<BR>
+      &nbsp;&nbsp;&nbsp; throws ServletException, IOException<BR>
+      &nbsp; {<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Deklarera URL:er som strängar<B><BR>
+      &nbsp;&nbsp;&nbsp; String urlHuvud = "/diverse/include/sidhuvud.html";<BR>
+      &nbsp;&nbsp;&nbsp; String urlFot = "/diverse/include/sidfot.html";<BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Meddela webbserver vad som kommer skickas<B>
+      <BR>
+      &nbsp;&nbsp;&nbsp; response.setContentType(&quot;text/html&quot;);<BR>
+      <BR>
+      </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Skapa en instans av RequestDispatcher för "sidhuvud"<B>
+      <BR>
+      &nbsp;&nbsp;&nbsp; RequestDispatcher dispatcher =&nbsp;<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request.getRequestDispatcher(urlHuvud);<BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Inkl. filen som skickades som parameter till konstruktor ovan<B><BR>
+      &nbsp;&nbsp;&nbsp; dispatcher.include(request, response);<BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Hämta objekt för utskrift och skriv ut ett HTML-stycke<B>
+      <BR>
+      &nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();<BR>
+      &nbsp;&nbsp;&nbsp; out.println("&lt;P>Hello world from servlet!&lt;/P>");<BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Skapa en ny instans av RequestDispatcher för "sidfot"<B>
+      <BR>
+      &nbsp;&nbsp;&nbsp; dispatcher = request.getRequestDispatcher(urlFot);<BR>
+      &nbsp;&nbsp;&nbsp; dispatcher.include(request, response);</B>
+      <BR>
+      &nbsp; <B>}</B> //doGet()<BR>
+      <BR>
+      <B>
+      }</B> //class IncServlet</P>
+
+      <UL>
+        <LI><A HREF="../servlet/bpn.diverse.IncServlet" TARGET="_blank">Provkör</A>
+          servlet. Jag har fuskat lite i servlet som länken till vänster
+          öppnar... jag har lagt till lite kod som förklaras nedan.</LI>
+      </UL>
+
+      <H3>Skillnad mellan kod i exempel och servlet som körs ovan</H3>
+      <P>I den servlet som kan köras ovan så har jag även inkluderat
+      resultatet av en servlet med namnet bpn.diverse.IncludedServlet och en
+      JSP-sida i filen HELLOWORLD.JSP (som finns i ovannämnda mapp INCLUDED).
+      Koden som inte visas i exemplet ovan, men som finns i servlet som körs, är
+      följande (och har markerats med fet stil):</P>
+      <P CLASS="kodlangre">//... som exempel ovan<BR>
+      out.println("&lt;P>Hello world from servlet!&lt;/P>");<BR>
+      <BR>
+      <B>String urlServlet = "/servlet/bpn.diverse.IncludedServlet";<BR>
+    String urlJSP = &quot;/diverse/include/HelloWorld.jsp&quot;;</B><BR>
+      <BR>
+      &nbsp;
+      //Skapa en ny instans av RequestDispatcher för inkluderad servlet<BR>
+      <B>
+    dispatcher = request.getRequestDispatcher(urlServlet);<BR>
+    dispatcher.include(request, response);<BR>
+      </B>
+      <BR>
+      &nbsp;
+      //Skapa en ny instans av RequestDispatcher för inkluderad JSP-sida<BR>
+      <B>dispatcher = request.getRequestDispatcher(urlJSP);<BR>
+        dispatcher.include(request, response);</B><BR>
+      <BR>
+      &nbsp;
+      //Skapa en ny instans av RequestDispatcher för "sidfot"<BR>
+      //... som exempel ovan</P>
+      <P>Nedan visas koden för servlet bpn.diverse.IncludedServlet och
+      JSP-sidan HELLOWORLD.JSP. (Se sidan <A HREF="../jsp/">Java Server Pages</A>
+      för JSP:s funktion.)</P>
+      <H4>Koden för bpn.diverse.IncludedServlet</H4>
+      <P CLASS="kodlangre"><B>package bpn.diverse;<BR>
+      <BR>
+      import java.io.*;<BR>
+      import javax.servlet.*;<BR>
+      import javax.servlet.http.*;<BR>
+      <BR>
+      public class IncludedServlet extends HttpServlet&nbsp;<BR>
+      {<BR>
+      &nbsp; public void doGet(HttpServletRequest request,<BR>
+      &nbsp;&nbsp;&nbsp; HttpServletResponse response)<BR>
+      &nbsp;&nbsp;&nbsp; throws ServletException, IOException<BR>
+      &nbsp; {<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </B>//Vi ska _inte_ meddela webbserver vad som kommer skickas - det<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // görs i servlet som inkluderar denna!!<BR>
+      &nbsp;&nbsp;&nbsp; //response.setContentType(&quot;text/html&quot;);<BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Hämta objekt för utskrift och skriv ut HTML-stycken<BR>
+      <B>&nbsp;&nbsp;&nbsp; PrintWriter out = response.getWriter();<BR>
+      &nbsp;&nbsp;&nbsp; out.println();<BR>
+      &nbsp;&nbsp;&nbsp; out.println(&quot;&lt;!-- START: Servlet som inkl. i IncServlet -->");<BR>
+      &nbsp;&nbsp;&nbsp; out.println("&lt;P>Hello world from included servlet!&lt;/P>");<BR>
+      &nbsp;&nbsp;&nbsp; out.println(&quot;&lt;!-- SLUT: Servlet som inkl. i IncServlet -->");<BR>
+      &nbsp; }<BR>
+      <BR>
+      }</B> //class IncServlet</P>
+      <H4>Koden i filen HELLOWORLD.JSP</H4>
+      <P CLASS="kodlangre"><B>&lt;%@ page language="Java" %></B><BR>
+      &lt;!-- START: JSP-sida som inkluderas i servlet IncServlet --><BR>
+      <B>
+      &lt;%<BR>
+      &nbsp; java.util.Calendar idag = new java.util.GregorianCalendar();&nbsp;<BR>
+      &nbsp; int ar = idag.get(idag.YEAR);<BR>
+      &nbsp; int timme = idag.get(idag.HOUR);<BR>
+      &nbsp; int minut = idag.get(idag.MINUTE);<BR>
+      &nbsp; String tid = timme + ":" + minut;<BR>
+      %><BR>
+      &lt;H1>Hello world&lt;/H1><BR>
+      &lt;P>&lt;%="Hello from JSP"%>&lt;/P><BR>
+      &lt;P>I år är det &lt;%=ar%>&lt;/P><BR>
+      &lt;P>Tiden är &lt;%=tid%>&lt;/P></B><BR>
+      &lt;!-- SLUT: JSP-sida som inkluderas i servlet IncServlet --></P>
+
+      <hr>
+      <p>| <a href="#">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+      
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

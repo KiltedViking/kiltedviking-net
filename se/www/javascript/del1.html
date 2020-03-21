@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del1.html" />
+  <title>Grundl&auml;ggande (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      <h1>Grundl&auml;ggande (JS)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li class="active"><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Inneh&aring;ll</h2>
+        
+      <p>P&aring; denna sida behandlas grundl&auml;ggande detaljer om JavaScript som en teknologi
+        innan spr&aring;kets uppbyggnad behandlas p&aring; kommande sidor. Bl.a. vad JavaScript
+        &auml;r och varf&ouml;r man ska anv&auml;nda det, var koden skrivs samt hur man kan kommunicera
+        med bes&ouml;karen (vilket i.o.f.s. har med spr&aring;ket att g&ouml;ra :-).</p>
+
+      <p><strong>Observera</strong> att kod i JavaScript &auml;r k&auml;nsliga f&ouml;r &quot;skiftl&auml;ge&quot;,
+        d.v.s. spr&aring;ket skiljer (liksom C#, C/C++ och Java) p&aring; gemener och versaler!
+        <span class="code">JavaScript</span> &auml;r allts&aring; inte samma sak som <span
+        class="code">Javascript</span> eller <span class="code">javascript</span>
+        i kod.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#vad" class="collection-item">Vad &auml;r JavaScript?</a></li>
+        <li><a href="#varfor" class="collection-item">Varf&ouml;r anv&auml;nda JavaScript?</a></li>
+        <li><a href="#var" class="collection-item">Var koden skrivs</a></li>
+        <li><a href="#kommunicera" class="collection-item">Kommunicera med bes&ouml;kare</a></li>
+        <li><a href="#tillsist" class="collection-item">Till sist...</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="vad">Vad &auml;r JavaScript?</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript &auml;r (fr&auml;mst) en klientteknologi (eng. <em>client-side</em>), d.v.s.
+        f&ouml;rekommer i klienter (t.ex. webbl&auml;sare) och JavaScript-kod exekverar allts&aring;
+        i klienter, vilket bl.a. g&ouml;r det m&ouml;jligt att skapa ett mer interaktivt och
+        dynamiskt gr&auml;nssnitt (utan att beh&ouml;va ladda nya webbsidor fr&aring;n en webbserver
+        hela tiden). Eftersom JavaScript &auml;r en klientteknologi (liksom (X)HTML och
+        CSS) s&aring; &auml;r man allts&aring; inte beroende av en webbserver (vilket &auml;r ett sk&auml;l till
+        att denna webbplats, Bj&ouml;rns studiewebb, kan laddas ner och &auml;nd&aring; fungera).</p>
+
+      <p class="kommentar">JavaScript f&ouml;rekommer, eller har f&ouml;rekommit, i en del
+        serverteknologier (bl.a. Cauchos Resin-server), d&auml;rav &quot;fr&auml;mst&quot; i
+        parentes ovan.</p>
+
+      <p>JavaScript &auml;r <strong>inte</strong> ett alternativ till serverteknologier
+        (eng. <em>server-side</em>), s&aring; som ASP, Java eller PHP, som utf&ouml;r exekvering
+        p&aring; en webbserver innan webbsidor skickas till bes&ouml;kares klient. JavaScript
+        &auml;r allts&aring; ett komplement till eventuella serverteknologier.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="varfor">Varf&ouml;r anv&auml;nda JavaScript?</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript b&ouml;r anv&auml;ndas f&ouml;r att ut&ouml;ka upplevelsen av ett bes&ouml;k p&aring; en webbplats
+        (inte styra vad som kan g&ouml;ras under bes&ouml;k). Hur detta kan g&ouml;ras beskrivs p&aring;
+        (vad jag antar finns) tusentals webbplatser p&aring; Internet. I denna underwebb
+        hoppas jag p&aring; att ge en introduktion till JavaScript s&aring; att du kan f&ouml;rst&aring;
+        inneh&aring;llet p&aring; dessa tusentals webbplatser. :-) Nedan ges exempel p&aring;
+        n&aring;gra saker som JavaScript kan anv&auml;ndas till.</p>
+
+      <ul>
+        <li>Kontrollera (validera) data i formul&auml;r <strong>innan</strong> det skickas,
+          d.v.s. ger m&ouml;jlighet att ge bes&ouml;kare snabbare respons p&aring; eventuella fel
+          samt sparar bandbredd (se alternativet Formul&auml;r i meny f&ouml;r mer information).</li>
+        <li>Hantera spr&aring;k som webbsidor ska visas med.</li>
+        <li>Skapa expanderbara/nedrullningsbara menyer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="var">Var koden skrivs</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript-kod kan skrivs (n&auml;stan) var som helst i ett (X)HTML-dokument,
+        men exempel p&aring; var koden kan placeras ges nedan:</p>
+
+      <ul>
+        <li>d&auml;r den ska exekveras</li>
+        <li>i funktioner</li>
+        <li>i h&auml;ndelsehanterare (<i>event handlers</i>)</li>
+        <li>i separata (externa) filer.</li>
+      </ul>
+
+      <p>I de tv&aring; f&ouml;rsta fallen m&aring;ste koden skrivas inom (X)HTML-taggen SCRIPT f&ouml;r
+        att tala om f&ouml;r webbl&auml;sare att det &auml;r just JavaScript-kod (och inte (X)HTML-kod).
+        I SCRIPT-taggen anv&auml;nds ett attribut TYPE (eller, det &auml;ldre,  LANGUAGE) f&ouml;r
+        att tala om vilket programspr&aring;k som skriptet inneh&aring;ller.</p>
+
+      <p>I det tredje fallet anv&auml;nds den grundl&auml;ggande funktionen i grafiska gr&auml;nssnitt
+        (eng. <em>graphical user interface</em>, GUI): h&auml;ndelser (eng. <em>events</em>).
+        En h&auml;ndelse &auml;r n&aring;got som uppst&aring;r, t.ex. bes&ouml;kare klickar p&aring; en knapp och h&auml;ndelsen
+        &quot;onclick&quot; uppst&aring;r. (Se mer p&aring; sidan H&auml;ndelser.)</p>
+
+      <p>Det g&aring;r &auml;ven att placera JavaScript-kod i en extern fil och sen l&auml;nka in
+        den externa filen med attributet SRC i SCRIPT-taggen. Detta s&auml;tt &auml;r att f&ouml;redra.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Taggen SCRIPT och attributet TYPE</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I SCRIPT-taggen anv&auml;nds attributet TYPE f&ouml;r att tala om vad taggen inneh&aring;ller,
+        d.v.s. text i form av JavaScript-kod, t.ex. &quot;text/javascript&quot;.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Var kod skrivs&lt;/title&gt;
+  &lt;script&gt;
+    //T.ex. funktioner och globala variabler
+    // som anropas fr&aring;n skript nedan
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- HTML-kod --&gt;
+  &lt;script&gt;
+    //Kod f&ouml;r skript
+  &lt;/script&gt;
+  &lt;!-- Mer HTML-kod --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Attributet LANGUAGE</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Attributet LANGUAGE i SCRIPT-taggen anv&auml;ndes tidigare f&ouml;r att ange vilket
+        spr&aring;k som skriptet avs&aring;g, i detta fall &quot;JavaScript&quot;. Numera b&ouml;r
+        vi dock anv&auml;nda attributet TYPE ist&auml;llet (se ovan).</p>
+
+      <p class="kommentar">Beskrivningen av detta attribut finns med d&aring; det antagligen
+        finns &auml;ldre exempel p&aring; Internet som anv&auml;nder just detta attribut.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+&nbsp; &lt;title&gt;Var kod skrivs&lt;/title&gt;
+&lt;/head&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;!-- HTML-kod --&gt;
+  &lt;script&gt;
+    //Kod f&ouml;r skript
+  &lt;/script&gt;
+  &lt;!-- Mer HTML-kod --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h3>H&auml;ndelseattribut</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Ett typiskt exempel p&aring; h&auml;ndelser beskrevs ovan: en bes&ouml;kare klickar p&aring; en
+        knapp och h&auml;ndelsen &quot;onclick&quot; (eller bara &quot;click&quot;) uppst&aring;r.
+        Exempel nedan visar hur man kan visa en dialogruta (<em>alert</em>) n&auml;r bes&ouml;kare
+        klickar p&aring; knapp. Testa sj&auml;lv genom att klicka p&aring; knappen nedanf&ouml;r. :-)</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;form action=&quot;&quot;&gt;
+  &lt;p class=&quot;center&quot;&gt;&lt;input type=&quot;button&quot;
+    value=&quot;Klicka mig!&quot;
+    <b>onclick=&quot;alert('Du klickade mig! :-)')&quot;</b> /&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <div class="medium-12 columns">
+      <p class="center"><button class="button" onclick="alert('Du klickade mig! :-)')">Klicka mig!</button></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>L&auml;nka in extern fil (attributet SRC)</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript-kod kan, som sagt, placeras i en extern fil (oftast med fil&auml;ndelsen
+        .js) som l&auml;nkas in.
+        Externa filer &auml;r praktiska f&ouml;r att samla funktioner i en eller flera filer
+        som sen l&auml;nkas in i alla webbsidor d&auml;r funktionerna beh&ouml;vs. Den externa filen
+        beh&ouml;ver endast inneh&aring;lla JavaScript-kod, d.v.s. inga  (X)HTML-taggar s&aring; som
+        SCRIPT. Attributet SRC b&ouml;r alltid anv&auml;ndas i kombination med attributet TYPE. </p>
+
+      <p><code>script</code>-taggen m&aring;ste alltid ha den avslutande taggen ocks&aring;.
+      Filen <code>fler_funktioner.js</code> kommer (antagligen) inte laddas i exempel.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Webbsida som l&auml;nkar in extern fil&lt;/title&gt;
+  <b>&lt;script src=&quot;mina_funktioner.js&quot;&gt;&lt;/script&gt;</b>
+  <b>&lt;script src=&quot;fler_funktioner.js&quot;
+    type=&quot;text/javascript&quot; /&gt;</b>
+&lt;/head&gt;
+  ...</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>&Auml;ldre webbl&auml;sare</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Webbl&auml;sare &auml;r konstruerade f&ouml;r att ignorera (X)HTML-taggar de inte f&ouml;rst&aring;r.
+        Detta g&ouml;r det m&ouml;jligt att anv&auml;nda &auml;ldre webbl&auml;sare &auml;ven n&auml;r nyare versioner
+        av (X)HTML, med nya taggar, sl&auml;pps. Webbl&auml;sare struntar
+        dock inte i kod som finns mellan &ouml;ppnande och avslutande tagg, d.v.s.
+        d&auml;r JavaScript-kod skrivs. D&auml;rf&ouml;r brukar man d&ouml;lja koden f&ouml;r &auml;ldre webbl&auml;sare
+        genom att &quot;kommentera bort&quot; koden med en (X)HTML-kommentar. Viktigt
+        &auml;r, speciellt f&ouml;r &auml;ldre versioner av Netscape, att man &quot;kommenterar
+        bort&quot; den avslutande (X)HTML-kommentaren m.h.a. en JavaScript kommentar
+        - "--" &auml;r en operator i JavaScript. (Lite omst&auml;ndigt, men s&aring; fungerar
+        det...:-). (En typ av kommentar i JavaScript &auml;r tv&aring; snedstreck, &quot;//&quot;
+        som i C och Java, f&ouml;re kommentarens text.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  <b>&lt;script&gt;
+    &nbsp; ... sj&auml;lva koden ...
+  &lt;/script&gt;</b>
+&lt;/head&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del1/javascript1_0.html" target="_blank" class="button button-primary">Exempel 1.0 - placering</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="kommunicera">Kommunicera med bes&ouml;kare</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript kan, som sagt, anv&auml;ndas f&ouml;r att g&ouml;ra webbsidor interaktiva och
+        dynamiska. En del av detta inneb&auml;r att man kommunicerar med bes&ouml;karen, bl.a.
+        genom text. Det finns ett antal s&auml;tt att kommunicera text med bes&ouml;kare i
+        JavaScript:</p>
+
+      <ul>
+        <li>skriva till ett (X)HTML-dokument</li>
+        <li>visa meddelanderuta</li>
+        <li>visa dialogruta</li>
+        <li>visa text i statusrad (l&auml;ngst ner i webbl&auml;sare)</li>
+        <li>formul&auml;r</li>
+      </ul>
+
+      <p>Det f&ouml;rsta alternativet skedde, historiskt, fr&auml;mst n&auml;r webbsida laddades
+        medan de &ouml;vriga kan ske n&auml;r bes&ouml;kare g&ouml;r n&aring;got (d.v.s. en h&auml;ndelse uppst&aring;r
+        - se sidan H&auml;ndelser). Formul&auml;r anv&auml;nds fr&auml;mst f&ouml;r att h&auml;mta information (data)
+        fr&aring;n bes&ouml;kare (se sidan Formul&auml;r), men kan &auml;ven anv&auml;ndas f&ouml;r att visa information.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Skriva till ett (X)HTML-dokument</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Idag (2008-08-08) finns det fr&auml;mst tre s&auml;tt att skriva till dokument:</p>
+
+      <ul>
+        <li>med write-metoderna (det gamla &quot;hederliga&quot; s&auml;ttet)</li>
+        <li>egenskapen innerHtml (behandlas inte i denna underwebb)</li>
+        <li>med DOM-metoder</li>
+      </ul>
+
+      <p>write-metoderna (tv&aring; stycken) var det ursprunliga s&auml;ttet att skriva till
+        ett dokument, men de kan fr&auml;mst anv&auml;ndas n&auml;r ett dokument laddas i klient
+        (d.v.s. inte vidare dynamiskt). Microsoft lade d&auml;rf&ouml;r till en egenskap <span
+        class="code">innerHTML</span> till element i dokument f&ouml;r att komma &aring;t inneh&aring;ll
+        (text) i element i dokument (rubriker, stycken, m.m. - n&aring;got som senare &auml;ven
+        f&ouml;ljdes av andra tillverkare av webbl&auml;sare). Med denna egenskap kunde d&auml;rmed
+        inneh&aring;ll i element l&auml;sas och &auml;ndras. Men detta l&ouml;ste inte problemet med att
+        Microsoft hade sin egen dokumentmodell, d.v.s. hur man kunde &quot;adressera&quot;
+        (komma &aring;t) element i ett dokument. DOM var l&ouml;sningen p&aring; detta (och en b&auml;ttre
+        l&ouml;sning f&ouml;r &ouml;vrigt)!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h4>write-metoderna</h4>
+
+      <p>F&ouml;r att skriva till ett (X)HTML-dokument s&aring; kan man anv&auml;nda sig av en av
+        metoderna <span class="code">write()</span> eller <span class="code">writeln()</span>
+        i objektet <span class="code">document</span>
+        (se sidan Objekt f&ouml;r mer information om objekt och metoder). Detta &auml;r, som
+        sagt, fr&auml;mst ett alternativ d&aring; vi vill skriva dynamisk information till ett
+        dokument n&auml;r det laddas. Koden skrivs d&aring; (oftast) d&auml;r den dynamiska information
+        ska infogas i webbsida (som t.ex. datum som denna webbsida sist uppdaterades
+        l&auml;ngst ner p&aring; sida).</p>
+
+      <p>Metoden <span class="code">writeln(text)</span> skriver <span class="code">text</span>
+        till (X)HTML-dokument och infogar en radbrytning i resulterande (X)HTML-kod
+        (inte webbsida!) medan metoden <span class="code">write(text)</span> bara
+        skriver ut <span class="code">text</span>. Exempel nedan visar hur vi anv&auml;nder
+        de tv&aring; metoderna.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>document.write(&quot;Text att skriva till dokument&quot;);</code><br />
+      <code>document.writeln(&quot;Text att skriva till dokument&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Metoderna skriver, som sagt, ut text till (X)HTML-dokumentet, d.v.s. vi
+        m&aring;ste &auml;ven l&auml;gga till eventuella (X)HTML-taggar vid utskrift. I exempel nedan
+        skrivs &auml;ven P-taggar ut f&ouml;r att texten ska vara ett stycke.</p>
+    </div>
+   
+    <div class="medium-5 columns">
+      <code>document.write(&quot;&lt;p&gt;Text att skriva till dokument&lt;/p&gt;&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vill man s&aring; kan man kombinera b&aring;de text, tal och andra datatyper i samma
+        sats n&auml;r man skriver ut. Man anv&auml;nder sig av plustecknet (+) f&ouml;r att sl&aring;
+        samman (&quot;konkatinera&quot;) det man vill skriva ut.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>document.write(&quot;Talet &auml;r: &quot; + 3 + &quot; och udda&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p><strong>Observera</strong> att plustecknet &auml;ven anv&auml;nds f&ouml;r addition. D&auml;rf&ouml;r
+        kan det ibland uppst&aring; fel om det f&ouml;rsta man vill sl&aring;r ihop &auml;r ett tal. F&ouml;ljande
+        exempel kan t.ex. generera ett fel:</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>document.write(3 + &quot; och &quot; + 2 + &quot; &auml;r 5&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h4>DOM-metoderna</h4>
+
+      <p>N&auml;r en klient (webbl&auml;sare) laddar ett (X)HTML-dokument s&aring; skapar den en s.k.
+        dokumentmodell eller elementtr&auml;d ...eller nodtr&auml;d som det heter med DOM-termer.
+        Varje nod i tr&auml;det motsvaras av en tagg, attribut i tagg eller text inom tagg.
+        (Se sidan DOM f&ouml;r mer omfattande beskrivning.)</p>
+
+      <p>DOM-gr&auml;nssnittet (API:t) inneh&aring;ller ett antal metoder f&ouml;r att manipulera
+        noderna (taggarna, attributen och texten) i ett dokuments nodtr&auml;d, d.v.s.
+        &auml;ndra existerande noder samt l&auml;gga till och ta bort noder (element).
+        <strong>Observera</strong> att dessa &auml;ndringar <strong>inte</strong> &auml;r synliga
+        om man v&auml;ljer att titta p&aring; k&auml;llkoden f&ouml;r ett (X)HTML-dokument! (F&ouml;rrvirande?
+        Ja, till att b&ouml;rja med! Se sidan DOM, som sagt. :-)</p>
+
+      <p>DOM-metoderna, eller snarare DOM-gr&auml;nssnittet, behandlas p&aring; sidan DOM (d&aring;
+        det &auml;r ett ganska stort och &quot;komplext&quot; &auml;mne).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Meddelanderutor och dialogrutor</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Andra s&auml;tt att visa och h&auml;mta information fr&aring;n bes&ouml;karen &auml;r att anv&auml;nda
+        meddelanderutor (endast visa) och dialogrutor (fr&aring;ga och erh&aring;lla enkelt svar).
+        <strong>Observera</strong> att meddelanderutor kan uppfattas som irriterande
+        och b&ouml;r reserveras f&ouml;r t.ex. allvarlig fel eller viktiga meddelande!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Meddelanderuta</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>F&ouml;r att visa en meddelanderuta anv&auml;nder man metoden <span class="code">alert()</span>,
+        vars syntax &auml;r enligt f&ouml;ljande.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>alert(&quot;Meddelande att visa&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Om man skriver kod f&ouml;r att visa en meddelanderuta/dialogruta mitt i ett
+        (X)HTML-dokument s&aring; kommer renderingen (&quot;ritandet&quot;) av webbsida att
+        stanna upp tills meddelanderuta har st&auml;ngts (d.v.s. bes&ouml;kare klickar p&aring; OK)
+        som i exempel nedan.</p>
+
+      <p class="center"><a href="del1/javascript1_1.html" target="_blank" class="button button-primary">Exempel 1.1 - Meddelanderutor</a></p>
+
+      <p><strong>Observera</strong> att meddelanderutor kan uppfattas som irriterande!
+        Man b&ouml;r d&auml;rf&ouml;r anv&auml;nda meddelanderutor med m&aring;tta och fr&auml;mst f&ouml;r att p&aring;visa
+        fel, t.ex. felaktig data i ett formul&auml;r (se sidan Formul&auml;r).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Dialogrutor</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>F&ouml;r att h&auml;mta ett positivt eller negativt svar (d.v.s. Ja eller Nej) fr&aring;n
+        bes&ouml;kare kan man anv&auml;nda en dialogruta med knapparna OK och Avbryt i. Dialogrutan
+        visas genom att anropa funktionen <span class="code">confirm()</span>. Resultatet
+        fr&aring;n funktionen &auml;r <span class="code">true</span> om bes&ouml;karen klickade p&aring;
+        knappen OK, <span class="code">false</span> om knappen Avbryt. Detta resultat
+        kan man sen anv&auml;nda f&ouml;r att avg&ouml;ra om n&aring;got ska utf&ouml;ras eller inte (se Villkorssatser
+        p&aring; sidan Spr&aring;ket).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>resultat = confirm(&quot;Fr&aring;ga att st&auml;lla&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del1/javascript1_2.html" target="_blank" class="button button-primary">Exempel 1.2 - Dialogrutan confirm</a></p>
+
+      <p>Funktionen <span class="code">prompt()</span> kan anv&auml;ndas f&ouml;r att h&auml;mta en
+        str&auml;ng fr&aring;n anv&auml;ndaren. Funktionen har tv&aring; parametrar - str&auml;ngen med uppmaning till
+        bes&ouml;karen (fr&aring;ga) och ett standardv&auml;rde som p&aring; str&auml;ngen i dialogrutans textruta.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>resultat = prompt(&quot;Uppmanande str&auml;ng&quot;, &quot;standardv&auml;rde&quot;);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del1/javascript1_3.html" target="_blank" class="button button-primary">Exempel 1.3 - Dialogrutan prompt</a></p>
+
+      <p><strong>Observera</strong> att &auml;ven dialogrutor kan vara irriterande! Man b&ouml;r d&auml;rf&ouml;r
+        anv&auml;nda meddelanderutor med m&aring;tta och fr&auml;mst f&ouml;r bekr&auml;fta saker, t.ex.
+        f&ouml;r att fr&aring;ga om man verkligen vill radera en produkt i en kundkorg.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Statusraden</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Statusraden i webbl&auml;saren (finns l&auml;ngst ner i webbl&auml;sare) &auml;r ett
+        s&auml;tt att informera bes&ouml;karen vad som &auml;r p&aring; g&aring;ng. Texten kan (oftast) &auml;ndras
+        genom att tilldela ett v&auml;rde till objektet <span class="code">status</span>
+        eller eventuellt till egenskapen <span class="code">status</span> i objektet
+        <span class="code">window</span> (... d.v.s. det varierar mellan webbl&auml;sare).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>window.status = &quot;text&quot;;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del1/javascript1_4.html" target="_blank" class="button button-primary">Exempel 1.4 - Statusrad</a></p>
+
+      <p><strong>Observera</strong> att information som visas i en statusrad l&auml;tt kan f&ouml;rbises!
+        Sk&auml;let till detta &auml;r att det kanske inte alltid &auml;r intuitivt f&ouml;r alla att
+        titta i statusraden samt att mycket annan information presenteras d&auml;r
+        (och d&auml;rmed kan &quot;skriva &ouml;ver&quot; din information). Anv&auml;nd d&auml;rf&ouml;r
+        inte statusraden som det enda s&auml;ttet att f&ouml;rmedla viktig information.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="tillsist">Till sist...</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Varf&ouml;r tenderar det alltid bli saker &ouml;ver som inte g&aring;r att kategorisera?
+        N&aring;ja, h&auml;r f&ouml;ljer n&aring;gra av dessa saker.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Pekaren <code>this</code></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>&Auml;ven i JavaScript finns en pekare (referens) som heter <code>this</code>,
+        men dess betydelse &auml;r inte riktigt samma som i andra programmeringsspr&aring;k.
+        Vad den pekar p&aring; &quot;beror p&aring; sammanhang&quot;, bl.a. 
+        p&aring; hur kod anropats. (Se sidan Formul&auml;r f&ouml;r exempel.)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan finns n&aring;gra webbsidor/-platser med mer information om &auml;mnet p&aring; denna
+        webbsida.</p>
+
+      <ul>
+        <li>Inga &auml;nnu... ;-(</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="index.html">&lt; F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="del2.html">N&auml;sta &gt;</a></li>
+        </ul>
+      </nav>
+    </div>  
+  </div>
+
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

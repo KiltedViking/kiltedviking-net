@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/ramverk/bootstrap4.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/ramverk/bootstrap4.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Exempelsida: Bootstrap 4 - Björns studiewebb</title>
+  <link rel="stylesheet" href="../../css/bootstrap-4.4.1-dist/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <div class="col-sm">
+      <h1>Exempelsida: Bootstrap (v4.4.1)</h1>
+      <p>Denna sida visar på vanliga &quot;komponenter&quot; i version 4 av ramverket 
+        Bootstrap (<a href="https://getbootstrap.com/" target="_blank" rel="noopener">https://getbootstrap.com/</a>).
+        <b>Observera</b> att design inte är min staka sida och att min brist 
+        på förståelse av ramverket båda påverkar denna sidas utseende! ;-)</p>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="col-sm bg-light">
+        <h2>Rubriker och stycken</h2>
+        <h2>Rubrik nivå 2</h2>
+        <h3>Rubrik nivå 3</h3>
+        <h4>Rubrik nivå 4</h4>
+        <h5>Rubrik nivå 5</h5>
+        <h6>Rubrik nivå 6</h6>
+        <p>Stycke text.</p>
+      </div>
+
+      <div class="col-sm">
+        <h2>Texter</h2>
+        <p class="text-primary">Text (primär)</p>
+        <p class="text-seconday">Text (sekundär)</p>
+        <p class="text-primary">Text (primär)</p>
+        <p class="text-primary">Text (primär)</p>
+      </div>
+
+      <div class="col-sm bg-light">
+        <h2>Punktlistor</h2>
+        <ul>
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+          <li>Punkt 3
+            <ul>
+              <li>Punkt 3.1</li>
+              <li>Punkt 3.2</li>
+              <li>Punkt 3.3</li>
+            </ul>
+          </li>
+          <li>Punkt 4</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <h2>Knappar</h2>
+        <a href="#" class="btn btn-default">Knapp (standard)</a>
+        <a href="#" class="btn btn-primary">Knapp (primär)</a>
+        <a href="#" class="btn btn-secondary">Knapp (sekundär)</a>
+        <a href="#" class="btn btn-success">Knapp (framgång)</a>
+        <a href="#" class="btn btn-info">Knapp (info)</a>
+        <a href="#" class="btn btn-warning">Knapp (varning)</a>
+        <a href="#" class="btn btn-danger">Knapp (fara)</a>
+        <a href="#" class="btn btn-link">Länk som länk</a>
+      </div>
+
+      <div class="col-sm bg-light">
+        <h2>Formulär</h2>
+        
+        <form action="#">
+          <div class="form-group">
+            <label for="min-text">Textruta</label>
+            <input id="min-text" placeholder="Exempel text">
+          </div>
+
+          <div class="form-group">
+            <label for="mitt-datum">Datum fält</label>
+            <input type="date" id="mitt-datum">
+          </div>
+
+          <div class="form-group">
+            <label for="mitt-kryss">
+              <input type="checkbox" id="mitt-kryss">
+              Kryssruta
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="min-radio1">
+              <input type="radio" id="min-radio1" name="min-radio" value="1">
+              Radioknapp 1
+            </label>
+            <label for="min-radio2">
+              <input type="radio" id="min-radio2" name="min-radio" value="2">
+              Radioknapp 2
+            </label>
+            <label for="min-radio3">
+              <input type="radio" id="min-radio3" name="min-radio" value="3">
+              Radioknapp 3
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="min-textyta">Textfält</label>
+            <textarea id="min-textyta" placeholder="Exempel text"></textarea>
+          </div>
+
+          <p>
+            <input type="submit" value="Skicka" onclick="return false">
+            <input type="reset" value="Rensa">
+            <button onclick="return false;">Knapp</button>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="card-title">Paneler/kort</h2>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">Kort med enbart text i</p>
+          </div>
+        </div>  
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Kortttitel</h3>
+            <p class="card-text">Kort med titel och text</p>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+    <footer class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <p>Detta fönster/denna flik är tänkt att stängas för att återgå till 
+              sidan <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+          </div>
+        </div>
+        <p><b>Skapad av:</b> Björn G. D. Persson. <b>Uppdaterad:</b> 2020-02-23.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
+  <script src="../../js/bootstrap-4.4.1-dist/bootstrap.min.js"></script>
+</body>
+</html>

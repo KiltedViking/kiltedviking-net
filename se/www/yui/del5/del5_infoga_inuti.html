@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Infoga inuti - YUI - Bj&ouml;rns studiewebb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+    
+  </style>
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../../js/yui-min.js"></script>
+</head>
+<body>
+<div id="container">
+  <h1>Infoga inuti - YUI</h1>
+  <p>Detta exempel visar på hur man kan infoga något (text/HTML) inuti element. 
+    En knapp lägger till sist och en annan först i en div-tagg.</p>
+  
+  <h2>Formulär för inmatning av ny text</h2>
+  
+  <form action="#" method="get">
+    <p>Text och/eller HTML att lägga till:<br>
+      <input type="text" name="newtext" id="newtext"></p>
+    <p><input type="button" id="addtextafter" value="L&auml;gg till text sist">
+      <input type="button" id="addtextbefore" value="L&auml;gg till text först">
+      <input type="button" id="addtextafterappendto" value="L&auml;gg till text sist (appendTo())"></p>
+  </form>
+  
+  <h2>DIV-tagg för att lägga till i</h2>
+  <div id="idplaceholder" style="border: dotted 1px black; padding: 5px;">
+    <p>Lite text i div-tagg. Text som läggs till läggs till i div-tagg nedan- eller ovanför detta stycke.</p>
+  </div>
+  
+  <script type="text/javascript">
+	YUI().use("node", "form", function(Y) {
+		Y.one("#addtextafter").on("click", function(event) {
+	        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, sist
+	        Y.one("#idplaceholder").append("<p>" + Y.one("#newtext").get("value") + "</p>");
+    	});
+
+		Y.one("#addtextbefore").on("click", function(event) {
+	        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, först
+	        Y.one("#idplaceholder").prepend("<p>" + Y.one("#newtext").get("value") + "</p>");
+    	});
+
+		Y.one("#addtextafterappendto").on("click", function(event) {
+			var newP = Y.Node.create("<p>" + Y.one("#newtext").get("value") + "</p>");
+	        //Välj (selektera) först div-tagg och lägg till innehåll i textruta, som också väljs, sist
+	        newP.appendTo(Y.one("#idplaceholder"));
+    	});
+	});
+  </script>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="sidfot" style="margin-top: 5px; border-top: solid 1px gray;">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-22.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

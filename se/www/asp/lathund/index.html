@@ -1,0 +1,693 @@
+<html>
+<head>
+  <title>ASP - VBScript lathund (del 1) - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrehogra.gif" width="20" height="20"></td>
+  </tr>
+  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+      <table border="0" width="100%">
+        <tr>
+          <td width="30%"><a href="../../index.html">
+          <img border="0" src="../../bilder/logony1.jpg" alt="Till startsida för Björns studiewebb" width="155" height="54"></a></td>
+          <td width="70%" class="rubrik">VBScript lathund</td>
+        </tr>
+        <tr valign="top">
+          <td width="30%" bgcolor="#ffffaa">
+            <h4>Innehåll - del 1</h4>
+            <p>
+            <a href="#grundlaggande" class="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Grundläggande</a><BR>
+            <A HREF="#variabler" CLASS="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Variabler och&nbsp;<BR>
+            &nbsp;&nbsp;&nbsp;datatyper</A><BR>
+            <a href="#utskrift" class="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Utskrifter</a><BR>
+            <a href="#operatorer" class="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Operatorer</a><BR>
+            <A HREF="#kontrollstrukturer" CLASS="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Kontrollstrukturer</A><BR>
+            <A HREF="#loopar" CLASS="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Loopar</A></p>
+            <p>
+            <A HREF="lathund2.html" CLASS="lank">Del 2</A>
+            <A HREF="lathund2.html" CLASS="lank">
+            <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            </A></p>
+            <p><A HREF="../index.html" CLASS="lank">
+            <img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Tillbaka</A> till ASP<br>
+            <a href="../../index.html" class="lank">
+            <img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Till startsida</a> för studiewebb</p>
+          </td>
+          <td width="70%">
+
+            <p align="center">[ <b>UNDER UPPBYGGNAD</b> ]</p>
+            <p>Denna sida innehåller första delen av lathunden för VBScript i ASP 3.
+            Här beskrivs det grundläggande om placering av ASP-kod och
+            VBScripts syntax. VBScript påminner mycket om Visual Basic och
+            därför kommer referenser göras till skillnader (och likheter)
+            mellan de två språken.</p>
+            <p>För en komplett beskrivning av VBScript i ASP rekommenderas <B>Beginning
+            Active Server Pages 3.0</B> från <A HREF="http://www.wrox.com/">Wrox
+            Press</A>. Se även <A HREF="http://msdn.microsoft.com/">MSDN</A>
+            (Microsoft Developer Network) eller, för er som äger/har tillgång
+            till Microsoft Visual InterDev 6, MSDN i hjälpen (sök på &quot;VBScript,
+            language reference&quot;).</p>
+          </td>
+        </tr>
+      </table>
+
+      <hr>
+      <P>Tanken med denna sida var att göra en referenslista för VBScript -
+      det har blivit en lite väl omfattande sida. :-) Därför har lathunden
+      delats i två delar. Framöver kommer jag (antagligen) att göra exempel för de olika sakerna
+      som finns på denna sida. (För den vetgiriga så innehöll denna webbsida
+      650 rader med HTML-kod den 9/12-01.)</P>
+      <P><B>Observera</B> att exemplen endast fungerar om denna webbplats finns
+      på en webbserver som stödjer ASP!&nbsp;Se sidan Om på <A HREF="../../index.html">Björns
+      studiewebb</A>.</P>
+      <hr>
+      <H2><A NAME="grundlaggande"></A>Grundläggande</H2>
+      <P>ASP-kod &quot;bäddas in&quot; (eng. <I>is embedded</I>) i HTML-kod
+      mellan den öppnande taggen &lt;% och den avslutande taggen %&gt;.
+      ASP-taggarna kan förekomma flera gånger i HTML-koden, d.v.s. vi kan dela
+      upp ASP-koden i flera olika delar.</P>
+      <blockquote>
+        <P>&lt;!-- Utanför ASP-taggar är det ren HTML-kod --&gt;<br>
+        <SPAN CLASS="kod">&lt;%</SPAN><br>
+        &nbsp; Här placeras koden<br>
+        <SPAN CLASS="kod">%&gt;</SPAN><br>
+        &lt;!-- Utanför ASP-taggar är det ren HTML-kod --&gt;</P>
+      </blockquote>
+      <P>
+      ASP-koden mellan taggarna tolkas och exekveras (av den s.k. ASP-motorn) varje gång
+      som en webbläsare begär ASP-sidan. Resultatet från exekveringen kommer
+      infogas på den plats (i den resulterande webbsidan) där ASP-koden
+      finns.&nbsp;</P>
+      <P>I exemplet nedan har ASP-koden markerats med gul bakgrund.</P>
+      <BLOCKQUOTE>
+        <P>&lt;P&gt;Detta är ren HTML-kod&lt;/P&gt;<BR>
+        &lt;P&gt;</P>
+        <P><SPAN CLASS="kod">&lt;%<BR>
+        &nbsp; str = &quot;Detta är ASP-kod&quot;<BR>
+        &nbsp; Response.Write str<BR>
+        %&gt;</SPAN></P>
+        <P>&lt;/P&gt;<BR>
+        &lt;P&gt;Detta är mer HTML-kod&lt;/P&gt;</P>
+      </BLOCKQUOTE>
+      <P>Resultatet från exekveringen ovan blir följande HTML-kod som skickas
+      till besökarens webbläsare:</P>
+      <BLOCKQUOTE>
+        <P>&lt;P&gt;Detta är ren HTML-kod&lt;/P&gt;<BR>
+        &lt;P&gt;<BR>
+        Detta är ASP-kod<BR>
+        &lt;/P&gt;<BR>
+        &lt;P&gt;Detta är mer HTML-kod&lt;/P&gt;</P>
+      </BLOCKQUOTE>
+      <H3>Kommentarer</H3>
+      <P>VBScript använder endast enradiga kommentarer och kommentaren skrivs
+      efter ett enkelt citattecken ('). Allt på raden efter ett
+      kommentarstecken kommer att bortses från av ASP-motorn.</P>
+      <P>I exemplet nedan så har kommentarer markerats med fet stil.</P>
+      <BLOCKQUOTE>
+        <P>&lt;%<BR>
+        &nbsp; tal = 1 + 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <B>'Addition av två tal</B><B> - 1 + 2<BR>
+        </B><B>&nbsp; </B>strang = &quot;En tuff sträng&quot;&nbsp; <B>'En kommentar till...<BR>
+        </B>%&gt;</P>
+      </BLOCKQUOTE>
+      <HR>
+      <H2><A NAME="variabler"></A>Variabler och datatyper</H2>
+      <H3>Variabler</H3>
+
+      <P>Variabler deklareras med det reserverade ordet <B>Dim</B>. Till
+      skillnad mot Visual Basic så anger man ingen datatyp när man deklarerar
+      en variabel.</P>
+
+      <P><SPAN CLASS="kod">Dim Tal1, Text1</SPAN></P>
+
+      <P>ASP kräver
+      inte att variabler deklareras, men det är att rekommendera att göra det
+      ändå. Man bör även använda direktivet <B>Option Explicit</B> för att
+      ASP-motorn ska kontrollera att variabler är deklarerade (det kan spara
+      timmar med felsökning!).</P>
+
+      <P><SPAN CLASS="kod">&lt;% Option Explicit %&gt;</SPAN><BR>
+      &lt;HTML&gt;<BR>
+      &lt;HEAD&gt;<BR>
+      &nbsp; &lt;TITLE&gt;Titel på webbsida&lt;/TITLE&gt;<BR>
+      &lt;/HEAD&gt;<BR>
+      &lt;BODY&gt;<BR>
+      <SPAN CLASS="kod">&lt;%<BR>
+      &nbsp; Dim Tal1, Text1<BR>
+      &nbsp;<BR>
+      &nbsp; Tal1 = 1<BR>
+      &nbsp; Text1 = &quot;Detta är en sträng&quot;<br>
+      &nbsp;&nbsp;Text2 = &quot;En sträng till&quot;&nbsp;&nbsp;
+      'Genererar fel - ej deklarerarad!<BR>
+      %&gt;</SPAN><BR>
+      &lt;/BODY&gt;<BR>
+      &lt;/HTML&gt;</P>
+
+      <H3>Datatyper och undertyper</H3>
+
+      <P>VBScript har bara en datatyp: Variant. Och när en variabel deklareras
+      så blir den alltså av datatypen Variant. En Variant kan lagra värden av
+      alla datatyper som finns i t.ex. Visual Basic.</P>
+
+      <P>Men variabler av typen Variant kan sägas lagra data av viss
+      &quot;undertyp&quot;, t.ex. värdet 3.14 är av undertypen Single och
+      &quot;lite text&quot; av undertypen String. Dessa undertyper är de samma
+      som datatyperna i Visual Basic.</P>
+
+      <P>För att underlätta läsandet av ASP-kod så bör man använda prefix
+      för att tala om vilken datatyp (undertyp) som lagras (eller är tänkt att lagras) i
+      variabeln. Nedan visas en tabell med exempel på prefix och vilken
+      undertyp den avser.</P>
+
+      <TABLE BORDER="1" WIDTH="100%">
+        <TR>
+          <TD WIDTH="17%" CLASS="gulfet"><B>Prefix</B></TD>
+          <TD WIDTH="83%" CLASS="gulfet"><B>Undertyp</B></TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">str</TD>
+          <TD WIDTH="83%" CLASS="tabell">sträng (string)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">int</TD>
+          <TD WIDTH="83%" CLASS="tabell">heltal (integer)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">sng</TD>
+          <TD WIDTH="83%" CLASS="tabell">decimaltal (single)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">dbl</TD>
+          <TD WIDTH="83%" CLASS="tabell">decimaltal (double)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">bln</TD>
+          <TD WIDTH="83%" CLASS="tabell">boolesk (boolean)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="17%" CLASS="tabell">obj</TD>
+          <TD WIDTH="83%" CLASS="tabell">objekt (object)</TD>
+        </TR>
+      </TABLE>
+
+      <P>Nedan beskrivs undertyperna lite mer ingående samt en del
+      &quot;fallgropar&quot; påpekas.</P>
+
+      <H4>Strängar</H4>
+
+      <P>Strängar innesluts mellan dubbla citattecken (&quot;), t.ex.
+      &quot;Detta är en sträng&quot;. <B> Observera</B> att enkla citattecken (')
+      används för kommentarer!</P>
+
+      <H4>Tal</H4>
+      <P>När vi jobbar med tal i ASP så behöver vi inte tänka på att
+      deklarera en variabel med tillräcklig kapacitet (t.ex. Integer eller
+      Long) för att lagra talet i fråga. Det sköter ASP åt oss.</P>
+      <P>Decimaltal skrivs i ASP-kod (enligt amerikansk standard) med punkt,
+      t.ex. 3.14. Vid utskrift kommer dock talet att
+      skrivas ut enligt landspecifikt format, t.ex. med ett kommatecken (3,14)
+      på en svensk webbserver.&nbsp;</P>
+      <P><B> Observera</B> att besökare med
+      svenska webbläsare ska fylla i decimaltal med komma när dom fyller i ett
+      formulär!</P>
+      <H4>Boolean</H4>
+      <P>Booleska variabler kan tilldelas något av de reserverade orden True eller
+      False.</P>
+
+      <H4>Objekt</H4>
+
+      <P>Objekt måste, liksom i Visual Basic, tilldelas till en variabel med
+      det reserverade ordet Set - man säger att man tilldelar en <B>referens</B>
+      till objektet (d.v.s. en &quot;pekare&quot;). I nedanstående exempel
+      tilldelas variabeln objBil en referens objektet objPersons bil.</P>
+
+      <BLOCKQUOTE>
+        <P>Set objBil = objPerson.Bil</P>
+
+      </BLOCKQUOTE>
+      <P>När vi jobbar med databaskopplingar (ADO) så använder vi objekt
+      (bl.a. Connection och Recordset) och då måste vi använda Set.&nbsp;</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><A NAME="utskrift"></A>Utskrifter</h2>
+
+      <P>Utskrifter till den resulterande webbsidan (HTML-dokumentet) kan ske
+      på två sätt:</P>
+
+      <UL>
+        <LI>i längre stycken med Response.Write</LI>
+        <LI>eller som enstaka variabler (eller satser).</LI>
+      </UL>
+      <H3>Utskrift med Response.Write</H3>
+
+      <P>Det vanligaste sättet att skriva till den resulterande webbsidan är
+      att använda metoden Write() i objektet Response. Som enda parameter tar
+      metoden en sträng - strängen kan sammanfogas av både strängar och
+      andra värden. ASP kommer automatiskt konvertera t.ex. tal till strängar
+      för utskrift.</P>
+
+      <BLOCKQUOTE>
+        <P><SPAN CLASS="kod">&lt;%<BR>
+        &nbsp; Response.Write &quot;Hej hela världen. &quot;<BR>
+        &nbsp; Response.Write &quot;Klockan är nu: &quot; &amp; Time<BR>
+        %&gt;</SPAN></P>
+
+      </BLOCKQUOTE>
+      <P>Resultatet från de två raderna ovan kommer bli &quot;Hej hela
+      världen. Klokan är nu XX:XX:XX&quot;. (Se <A HREF="utskrifter/ex1_1.asp" TARGET="_blank">resultatet</A>
+      - fungerar endast om webbserver stödjer ASP!)</P>
+
+      <H3>Utskrift av enstaka variabler eller satser</H3>
+
+      <P>Ibland vill vi bara skriva ut ett värde (i t.ex. en variabel) samt resultatet från ett
+      funktionsanrop eller en sats. Då kan vi använda en
+      &quot;genväg&quot; (kallat <I>inline</I> på engelska). Vi använder oss
+      av likhetstecknet för att skriva ut enligt följande exempel:</P>
+
+      <blockquote>
+
+      <P>Lite text <SPAN CLASS="kod">&lt;% =sats %&gt;</SPAN> och mer text</P>
+
+      </blockquote>
+
+      <P><B>Observera</B>
+      att endast ett värde kan skrivas ut åt gången! Vill vi skriva ut flera
+      värden så måste vi innesluta respektive sats med ASP-taggar eller
+      använda Response.Write. Värdet kan vara en
+      variabel, ett funktionsanrop eller en hel sats.</P>
+
+      <BLOCKQUOTE>
+        <P>&lt;HEAD&gt;<BR>
+        <SPAN CLASS="kod">&lt;%<BR>
+        &nbsp; Dim intTal<BR>
+        &nbsp; intTal = 5<BR>
+        %&gt;</SPAN><BR>
+        &lt;/HEAD&gt;<BR>
+        &lt;BODY&gt;<BR>
+        &lt;P&gt;Talet är <SPAN CLASS="kod">&lt;%=intTal%&gt;</SPAN>.&lt;/P&gt;<BR>
+        &lt;/BODY&gt;</P>
+
+      </BLOCKQUOTE>
+      <P>Resultatet (i webbläsare) från dessa rader ovan blir &quot;Talet är 5&quot;. (Se <A HREF="utskrifter/ex1_1.asp" TARGET="_blank">resultatet</A>
+      - fungerar endast om webbserver stödjer ASP!)</P>
+
+      <P>Det kan ibland vara praktiskt att samla all exekvering i början på en
+      webbsida och spara eventuella resultat i variabler och skriva ut dem med
+      denna genväg. Detta brukar göra både ASP- och HTML-koden lättare att läsa
+      samt underhålla.</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><A NAME="operatorer"></A>Operatorer</h2>
+
+      <P>Nedan listas de olika typerna av operatorer som finns i VBScript. Sist
+      i detta avsnitt visas en tabell med operatorprioritet.</P>
+
+      <H3>Tilldelning</H3>
+
+      <p>Tilldelning sker med likhetstecknet (&quot;<B>=</B>&quot;)</p>
+
+      <BLOCKQUOTE>
+
+      <p>Dim intTal1<BR>
+      intTal1 =&nbsp;5</p>
+
+      </BLOCKQUOTE>
+
+      <H3>Aritmetiska operator</H3>
+
+      <P>Operatorerna är de samma som i Visual Basic, d.v.s. följande:</P>
+
+      <UL>
+        <LI><B>+</B>, <B>-</B>, <B>*</B>, <B>/</B> - de fyra räknesätten</LI>
+        <LI><B>\</B> - heltalsdivision; returnerar hur många gånger nämnare
+          går i täljare</LI>
+        <LI><B>Mod</B> - modulusdivision; returnerar resten efter
+          heltalsdivision.</LI>
+        <LI><B>^</B> - exponent; returnerar ett tal upphöjt till ett annat.</LI>
+        <LI><B>-</B> - negering (unärt minus).</LI>
+      </UL>
+      <BLOCKQUOTE>
+        <P>Dim intTal1<BR>
+        intTal1 = 1 + 2 * 3 / 4</P>
+      </BLOCKQUOTE>
+      <P>Operatorerna har den &quot;vanliga&quot; prioriteten som i de flesat
+      språk (se nedan).</P>
+      <H3>Sammanfogning av strängar</H3>
+
+      <p>För att sammanfoga två strängar (konkatinera) kan vi använda två operatorer</p>
+
+      <UL>
+        <LI><B>&amp;</B> och <B>+</B></LI>
+      </UL>
+      <p>Plusoperatorn bör undvikas då ASP-motorn ibland kan försöka addera
+      en sträng till ett tal (när den borde konvertera talet till en sträng
+      och sammanfoga med den andra strängen).</p>
+
+      <BLOCKQUOTE>
+      <p>Dim strText1, strText2<BR>
+      strText1 = &quot;Lite text&quot; &amp; &quot; och lite text till&quot;<BR>
+      strText2 = 1 + &quot; mer
+      text&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      'Kommer generera ett fel!</p>
+
+      </BLOCKQUOTE>
+
+      <H3>Jämförelse operatorer</H3>
+
+      <UL>
+        <LI><B>=</B> - likhetsjämförelse</LI>
+        <LI><B>&lt;&gt;</B> - skilt från; jämför om operanderna inte är lika</LI>
+        <LI><B>&lt;</B> - mindre än</LI>
+        <LI><B>&gt;</B> - större än</LI>
+        <LI><B>&lt;=</B> - mindre än eller lika</LI>
+        <LI><B>&gt;=</B> - större än eller lika</LI>
+      </UL>
+      <BLOCKQUOTE>
+        <P>1 &lt;&gt; 2&nbsp;&nbsp; 'Ger resultatet True</P>
+      </BLOCKQUOTE>
+      <H3>Logiska operatorer</H3>
+
+      <UL>
+        <LI><B>And</B> - logiskt och</LI>
+        <LI><B>Or</B> - logiskt eller</LI>
+        <LI><B>Not</B> - logiskt icke; returnerar motsatsen (sant om falskt och
+          tvärtom)</LI>
+      </UL>
+      <BLOCKQUOTE>
+        <P>1 &lt;&gt; 2 And 1 &lt; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        'Ger resultatet True</P>
+      </BLOCKQUOTE>
+      <H3>Operatorprioritet</H3>
+
+      <p>Nedan visas en tabell med operatorernas prioritet. Operatorer överst
+      tar prioritet över de nedanför och de längst till vänster på samma
+      rad har högre prioritet än de längre till höger.</p>
+
+      <TABLE BORDER="1" WIDTH="100%">
+        <TR>
+          <TD WIDTH="14%" CLASS="normal">högst</TD>
+          <TD WIDTH="86%" CLASS="tabell">^, - (unär), *, /, \, Mod, +, - (binär)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="14%" CLASS="normal">&nbsp;</TD>
+          <TD WIDTH="86%" CLASS="tabell">&amp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="14%" CLASS="normal">&nbsp;</TD>
+          <TD WIDTH="86%" CLASS="tabell">=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="14%" CLASS="normal">lägst</TD>
+          <TD WIDTH="86%" CLASS="tabell">Not, And, Or</TD>
+        </TR>
+      </TABLE>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="kontrollstrukturer"></A>Kontrollstrukturer</H2>
+      <P>If- och Case-satser fungerar precis som i Visual Basic medan procedurer
+      och funktioner skiljer sig en aning. Loopar presenteras i nästa avsnitt.</P>
+      <H3>If-satser</H3>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">If villkor Then<BR>
+      &nbsp; satser<BR>
+      [ ElseIf villkor2 Then<BR>
+      &nbsp; satser<BR>
+      &nbsp; ...<BR>
+      &nbsp;&nbsp;&nbsp; ... ]<BR>
+      [Else<BR>
+      &nbsp; satser ]<BR>
+      End If</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+
+      <BLOCKQUOTE>
+        <P CLASS="kodlangre">Dim intTimme<BR>
+        intTimme = Hour(Time)<BR>
+        <BR>
+        If intTimme &lt; 12 Then<BR>
+        &nbsp; Response.Write &quot;God morgon&quot;<BR>
+        ElseIf intTimme &lt; 18 Then<BR>
+        &nbsp; Response.Write &quot;God middag&quot;<BR>
+        Else<BR>
+        &nbsp; Response.Write &quot;God kväll&quot;<BR>
+        End If</P>
+      </BLOCKQUOTE>
+      <H3>Case-satser</H3>
+      <H4>Syntax</H4>
+
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Select Case (värde_att_jämföra)<BR>
+      &nbsp; Case värde1<BR>
+      &nbsp;&nbsp;&nbsp; satser<BR>
+      &nbsp; Case värde2<BR>
+      &nbsp; ...<BR>
+      &nbsp;&nbsp;&nbsp; ...<BR>
+      [ Case Else<BR>
+      &nbsp;&nbsp;&nbsp; satser ]<BR>
+      End Select</P>
+
+      </BLOCKQUOTE>
+
+      <H4>Exempel</H4>
+
+      <BLOCKQUOTE>
+        <P CLASS="kodlangre">Dim intTimme<BR>
+        intTimme = Hour(Time)<BR>
+        <BR>
+        Select Case (intTimme)<BR>
+      &nbsp; Case 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11<BR>
+      &nbsp;&nbsp;&nbsp; Response.Write &quot;God morgon&quot;<BR>
+      &nbsp; Case 12, 13, 14, 15, 16, 17<BR>
+      &nbsp;&nbsp;&nbsp; Response.Write &quot;God middag&quot;<BR>
+        &nbsp; Case Else<BR>
+      &nbsp;&nbsp;&nbsp; Response.Write &quot;God kväll&quot;<BR>
+      End Select</P>
+
+      </BLOCKQUOTE>
+
+      <H3>Procedurer</H3>
+
+      <P>I motsats till Visual Basic så anger man inga datatyper för
+      eventuella parametrar till proceduren (d.v.s. inget As datatyp efter
+      parametern).</P>
+
+      <h4>Syntax</h4>
+
+      <P>Sub Procedure_namn [ (parameter1, parameter2, .... ) ]</P>
+
+      <P>&nbsp; satser</P>
+
+      <P>End Sub</P>
+
+      <h4>Exempel</h4>
+
+      <P>&nbsp;</P>
+
+      <H3>Funktioner</H3>
+
+      <P>Precis som med procedurer så anger vi inga inte heller datatyper för
+      parametrar till funktioner - inte heller för returvärdet från
+      funktionen.</P>
+
+      <P>För att returnera returvärdet så tilldelare vi returvärdet till
+      funktionens namn.</P>
+
+      <h4>Syntax</h4>
+
+      <P>Function Funktionsnamn( [ parameter1, parameter2, ... ] )</P>
+
+      <P>&nbsp; satser</P>
+
+      <P>&nbsp; Funktionsnamn = returvärde</P>
+
+      <P>End Function</P>
+
+      <h4>Exempel</h4>
+
+      <P>&nbsp;</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="loopar"></A>Loopar (iteration)</H2>
+      <P>Loopar egentligen också de kontrollstrukturer, men p.g.a. avsnittens
+      (detta och föregåendes) omfattning så har det fått ett eget avsnitt.&nbsp;</P>
+      <P CLASS="kommentar"><B>Observera</B> att det är extra noga att du kontrollera att
+      villkoret som avbryter loopar verkligen kommer att bli sant. Det finns
+      nämligen inget sätt att avbryta exekveringen av oändliga loopar annat
+      än att låta den tillåtna tiden för ASP-sidor ta slut (ligger mellan 1-3
+      minuter). Skälet till detta är att ASP-sidan exekverar på servern som
+      utvecklare inte brukar ha tillgång till. Under tiden som loopen exekverar
+      så är det ganska troligt att graden av CPU-utnyttjande
+      uppgår till 100% (i.a.f. i ett system med bara en CPU)!</P>
+      <H3>For...Next</H3>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">For varTal = startvärde To slutvärde [ By antalsteg ]<BR>
+      &nbsp; satser<BR>
+      Next [varTal]</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim varTal</P>
+      <P CLASS="kodlangre">For varTal = 1 To 10 By 1<BR>
+      &nbsp; Response.Write &quot;Talet är: &quot; &amp; varTal &amp;
+      &quot;&lt;BR&gt;&quot;<BR>
+      Next</P>
+      </BLOCKQUOTE>
+      <H3>For Each...Next</H3>
+      <P>For Each...Next-loopen används för att loopa över en vektor, d.v.s.
+      att utföra loopen en gång för varje position i vektorn.</P>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">For Each variabel In vektor<BR>
+      &nbsp; satser<BR>
+      Next</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim varTemp, arrVektor</P>
+      <P CLASS="kodlangre">&nbsp; 'Fyll vektorn med innehåll</P>
+      <P CLASS="kodlangre">Response.Write &quot;| &quot;</P>
+      <P CLASS="kodlangre">
+      For Each varTemp In arrVektor<BR>
+      &nbsp; Response.Write varTemp &amp; &quot; | &quot;<BR>
+      Next</P>
+      </BLOCKQUOTE>
+      <H3>Do While...Loop</H3>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Do While villkor<BR>
+      &nbsp; satser<BR>
+      Loop</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim intTal<BR>
+      intTal = 0<BR>
+      <BR>
+      Do While intTal &lt; 10<BR>
+      &nbsp; Response.Write &quot;Talet är: &quot; &amp; intTal &amp;
+      &quot;&lt;BR&gt;&quot;<BR>
+      &nbsp; intTal = intTal + 1<BR>
+      Loop</P>
+      </BLOCKQUOTE>
+      <H3>While...Wend</H3>
+      <P>Denna loop är endast en enklare form av Do While...Loop. Den fungerar
+      på samma sätt.</P>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">While villkor<BR>
+      &nbsp; satser<BR>
+      Wend</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim intTal<BR>
+      intTal = 0<BR>
+      <BR>
+      While intTal &lt; 10<BR>
+      &nbsp; Response.Write &quot;Talet är: &quot; &amp; intTal &amp;
+      &quot;&lt;BR&gt;&quot;<BR>
+      &nbsp; intTal = intTal + 1<BR>
+      Wend</P>
+      </BLOCKQUOTE>
+      <H3>Do...Loop While</H3>
+      <P>Denna loop loopar så länge villkoret på sista raden är sant.
+      Skillnaden mellan Do...Loop While och Do While...Loop (samt While...Wend)
+      är att den första utförs minst en gång och den senare endast om
+      villkoret är sant från början.</P>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Do<BR>
+      &nbsp; satser<BR>
+      Loop While villkor</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim intTal<BR>
+      intTal = 0<BR>
+      <BR>
+      Do<BR>
+      &nbsp; Response.Write &quot;Talet är: &quot; &amp; intTal &amp;
+      &quot;&lt;BR&gt;&quot;<BR>
+      &nbsp; intTal = intTal + 1<BR>
+      Loop While intTal &lt; 10</P>
+      </BLOCKQUOTE>
+      <H3>Do...Until</H3>
+      <P>Do...Until-loopen exekveras minst en gång och avslutas först när
+      villkoret blir sant.</P>
+      <H4>Syntax</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Do<BR>
+      &nbsp; satser<BR>
+      Until villkor</P>
+      </BLOCKQUOTE>
+      <H4>Exempel</H4>
+      <BLOCKQUOTE>
+      <P CLASS="kodlangre">Dim intTal<BR>
+      intTal = 0<BR>
+      <BR>
+      Do<BR>
+      &nbsp; Response.Write &quot;Talet är: &quot; &amp; intTal &amp;
+      &quot;&lt;BR&gt;&quot;<BR>
+      &nbsp; intTal = intTal + 1<BR>
+      Until intTal &gt; 10</P>
+      </BLOCKQUOTE>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |
+        <A HREF="lathund2.html">Till</A> del 2 |
+        <A HREF="../index.html">Tillbaka</A> till ASP |</p>
+      <hr>
+
+      <p align="center">
+      <b>Skapad av:</b> Björn Persson. <b>Uppdaterad:</b> 2005-05-01.</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitnedrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitnedrehogra.gif" width="20" height="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

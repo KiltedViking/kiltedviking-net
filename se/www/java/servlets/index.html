@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/servlets/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/servlets/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Servlets - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Servlets</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>Denna sida beskriver hur man skapar en servlet (med Java) som exekverar på en
+        webbserver (med t.ex. Tomcat från <a href="http://www.apache.org/" target="_blank">Apache</a>
+        eller Resin från <a href="http://www.caucho.com/" target="_blank">Caucho</a> installerad). Resultatet av exekveringen
+        kan antingen vara en genererad HTML-sida eller att servlet dirigerar
+        webbläsaren till en existerande HTML-/JSP-sida (dirigeringen behandlas inte här).</p>
+      <p>Innehållet på denna hemsida behandlar <b>grundläggande om servlets</b>
+        - hur man skapar en servlet, var servlet ska placeras på webbserver och hur man anropar den
+        från en webbläsare.&nbsp;Sidan behandlar även hur man <b>skapar en enkel servlet</b>
+        och <b>nackdelar med servlets</b>.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Servlets</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+      <nav class="menu">
+        <a href="#grundlaggande" class="menu-item">Grundläggande</a>
+        <a href="#enkla" class="menu-item">Enkel servlet</a>
+        <a href="#nackdelar" class="menu-item">Nackdelar</a>
+      </nav>
+
+      <nav class="menu">
+        <a href="dbkoppling.html" class="menu-item">Databaskopplingar</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2 id="grundlaggande">Grundläggande om servlets</h2>
+
+      <p>Att skapa en servlet &quot;består&quot; av fyra steg</p>
+      <ul>
+        <li>skapa en Java-klass</li>
+        <li>kompilerar</li>
+        <li>kopierar till webbserver</li>
+        <li>testa (anropa)</li>
+      </ul>
+      <h3>Skapa en Java-klass</h3>
+      <p>Hur Java-klassen ska se ut beskrivs under bl.a. rubriken &quot;Enkel
+      servlet...&quot; nedan, vilket skiljer sig beroende på vilken typ av servlet (samt
+      vad den ska göra). Men gemensamt för alla servlet är de övriga tre
+      stegen, vilka beskrivs här nedan.</p>
+      <p>För att få tillgång till de klasser som behövs för att kommunicera
+      med servern måste vi importera ett antal paket. Nedan visas hur vi
+      importerar paketen och vilka som behövs.</p>
+
+      <pre><code><b>import javax.servlet.*;</b>       //servlet
+<b>import javax.servlet.http.*;</b>  //servlet
+<b>import java.io.*;</b>             //I/O</code></pre>
+
+      <h3>Kompilera</h3>
+      <p>När vi skapar en servlet så importerar vi klasser så att servlet kan
+        kommunicera med webbservern (bl.a. för att få tillgång till innehåll
+        från formulär och ett objekt, motsvarande ASP:s Response, som skickar
+        utskrifter till webbläsaren). Så när vi
+        kompilerar servlet så måste vi ange sökvägen till dessa importerade
+        klasser. Detta gör vi lättast genom att ange sökvägen till filen SERVLET.JAR
+        som innehåller dessa klasser (eller filen J2EE.JAR som innehåller samma
+        klasser som filen SERLVET.JAR).</p>
+
+      <h4>Kompilera i kommandotolken med javac</h4>
+
+      <p>Om vi kompilerar vår servlet i kommandotolken så
+        skriver vi något i stil med</p>
+
+      <p><code>javac -classpath .;C:\Java\servlet.jar ServletNamn.java</code></p>
+
+      <p>för att ange sökvägen till filen SERVLET.JAR i mappen C:\JAVA eller bara</p>
+
+      <p><code>javac -classpath .;servlet.jar ServletNamn.java</code></p>
+
+      <p>om filen ligger i samma mapp som klassen för din servlet. (Punkter innan
+      semikolonet anger att kompilator ska leta efter klasser (inte JAR-filer!)
+      i samma mapp om vi t.ex. använder oss av egna klasser i servlet.)</p>
+
+      <h4>Kompilera i kommandotolken med javac</h4>
+
+      <p>Det är oftast (eller kan vara) lättare att använda en Java-editor/-IDE
+      som <a href="http://www.jcreator.com/" target="_blank" rel="noopener">JCreator</a>
+      där man (en gång för alla) anger sökvägen till filen SERVLET.JAR (eller
+      J2EE.JAR). En annan fördel är att man slipper växla mellan olika fönster, för att
+      kompilera och korrigera eventuella fel som kompilatorn hittade, då t.ex. JCreator visar
+      resultatet av kompileringen längst ner i programmet. (JCreator, den editor/IDE
+      som jag rekommenderar för &quot;hobbyprogrammerare&quot;, har givetvis
+      även andra fördelar...)</p>
+
+      <p>[ <b>ATT GÖRA:</b> Gör en beskrivning för hur man använder<br>
+      JCreator och lägger till sökvägar till JAR-filer]</p>
+
+      <h3>Kopiera till webbserver</h3>
+      <p>De flesta servrar för servlets brukar definera en mapp WEB-INF (och dess
+      undermappar) som den mapp där klassfilen för, och filer relaterade till, servlets ska placeras.
+      Klassfiler för servlets brukar då placeras i mappen CLASSES under WEB-INF.
+      (Om du satt upp din egna Resin server kan du se hur man konfigurerar dessa
+      mappar på din server på sidan <a href="../resin/#webapp">Konfigurerar
+      Resin-server...</a>.)</p>
+
+      <h3>Testa (anropa)</h3>
+      <p>För att testa servlet så öppnar man en URL som liknar följande</p>
+
+      <p><code>https://server-namn:8080/servlet/ServletNamn</code></p>
+
+      <p>eller bara</p>
+
+      <p><code>https://server-namn/servlet/ServletNamn</code></p>
+
+      <p>om server för servlets (t.ex. Resin eller Tomcat) har
+        &quot;integrerats&quot; med ordinarie webbserver.</p>
+
+      <p>Man utelämnar alltså filändelsen (.CLASS). Tänk på att det flesta
+      servrar kan skilja på gemener och versaler, d.v.s. du måste ange rätt
+      skiftläge för namnet på din servlet (om din klass heter &quot;HelloWorldServlet&quot;
+      så kanske inte &quot;helloworldservlet&quot; fungerare).</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2 id="enkla">Enkel servlet</h2>
+      <p>Klasser för servlets bör ärver från superklassen HttpServlet - det
+      finns m.a.o. andra klasser att ärva från (se <i>Mer om implementation av
+      servlets</i> nedan). Klassen måste då implementera
+      en av, eller helst båda, metoderna doGet() och/eller doPost(). Vilken av de två metoderna
+      som behöver implementeras beror på hur man vill anropa sin servlet.
+      Skulle man välja att inte implementera den ena metoden så kommer alla
+      anrop av metoden att generera ett fel (dock inget allvarligt!). För
+      att förstå hur och när vilken metod anropas i servlet måste vi förstå
+      hur hemsidor begärs av en webbläsare från en webbserver.</p>
+      <p>Generellt sätt så begär en webbläsare en fil (t.ex. en hemsida
+      eller en servlet) från
+      webbservern med metoden HTTP-GET (inte att förväxlas med metoder i en
+      Java-klass!!). Men en webbläsare kan även begära en fil från
+      webbservern med metoden HTTP-POST, t.ex. då innehållet från ett
+      formulär skickas (<scode>&lt;FORM METHOD=&quot;post&quot; ...&gt;</scode>).
+      Vill man att servlet ska hantera begäran som sker med
+      HTTP-GET så måste man implementera metoden doGet() i servlet. Och vill
+      man, på motsvarande sätt, att servlet ska hantera begäran som sker med HTTP-POST så måste man
+      implementera metoden doPost(). Följdaktligen så måste man
+      implementera båda metoder om man vill att servlet ska svara på bägge
+      typer av begäran.<p>Nedan visas ett exempel på en klass som ärver från
+      klassen HttpServlet och som implementerar både metoden doGet() och metoden
+      doPost(). Metoderna skriver ut texten
+      &quot;Hello world!&quot; och vilken metod som anropades
+      - doGet() eller doPost().
+
+      <!-- **********************************************************************
+      *** EXEMPEL - Enkel servlet (HttpServlet)
+      *********************************************************************** -->
+      <h3>En enkel servlet som skriver ut &quot;Hello world!&quot;</h3>
+
+      <p>Först importerar vi paketen (enligt ovan). Nästa steg är att
+      påbörja klassen och tala om vilken servlet-klass vi vill ärva ifrån.
+      Här kallar vi klassen för HelloWorldServletHttp och vi ärver/utökar (<i>extends</i>)
+      klassen HttpServlet.</p>
+
+      <p><code>public class HelloWorldServletHttp extends HttpServlet {</code></p>
+
+      <p>Efter som vi ärver från HttpServlet så måste vi implementera
+      metoderna doGet() och/eller doPost(). Metodernas signatur är enligt
+      följande (ersätt &quot;doGet&quot; med &quot;doPost&quot; nedan om du
+      implementerar metoden doPost() istället).</p>
+
+      <p><code>public void doGet(HttpServletRequest request,<br>
+      &nbsp; HttpServletResponse response) throws IOException<br>
+      {</code></p>
+
+      <p>Nästa steg är att tala om för servern (som meddelar webbläsaren)
+      vilken typ av data som kommer skickas - i vårt fall &quot;vanlig&quot;
+      text (text/html). Det gör vi genom att anropa metoden setContentType() i
+      Response-objektet och skicka med typen av data som en sträng
+      (&quot;text/html&quot; i vårt fall).</p>
+
+      <p><code>response.setContentType(&quot;text/html&quot;);</code></p>
+
+      <p>Därefter hämtar vi ett PrintWriter-objekt som vi ska skriva data (HTML-kod)
+      till och placerar objektet i variabeln out - servern
+      kommer att skicka denna data till besökarens webbläsare. För att hämta
+      PrintWriter-objektet använder vi metoden getWriter() i Response-objektet.</p>
+
+      <p><code>PrintWriter out = response.getWriter();</code></p>
+
+      <p>Därefter är det bara att börja skriva ut HTML-koden som det
+      resulterande HTML-dokumentet ska innehålla. Vi kan välja mellan att
+      använda metoden println(), som ger en radbrytning i HTML-koden, och
+      println() som finns i PrintWriter-objektet.</p>
+
+      <p><code>out.println(&quot;&lt;HTML&gt;&quot;);</code></p>
+
+      <p class="kommentar">Även om man genererar HTML-kod i en servlet (eller ASP) så bör man
+      försöka göra den resulterande HTML-koden så lättläst som möjligt (för att underlätta felsökningen av
+      HTML-koden). Därför bör man försöka se till att infoga radbrytningar&nbsp;
+      i HTML-koden (m.h.a. metoden println()) så att strukturen för den
+      resulterande HTML-koden blir så lättläst som möjligt. I exemplet nedan
+      har HTML-koden delats upp så att varje tagg/element skrivs ut en i taget
+      med metoden println() och därmed hamnar på varsin rad i HTML-dokumentet.</p>
+
+      <p>Sist av allt så avlutar vi metode och klassen.</p>
+
+      <p><code><b>
+        }</b> // doGet()
+        <br>
+        <b>}</b>  //class HelloWorldServletHttp</code></p>
+
+      <p>Nedan visas den fullständiga koden för klassen HelloWorldServletHttp
+      som implementerar båda metoderna doGet() och doPost().&nbsp;Om vi
+      jämför de båda metodernas kod så ser vi att de är den samma utom en
+      rad - den rad som skriver ut texten <code>&lt;h1&gt;Hello World!
+      ...&lt;/h1&gt;</code>.</p>
+
+      <h4>Filen HelloWorldServletHttp.class</h4>
+
+      <pre><code>/*
+* Java Servlet som genererar en hemsida som skriver ut &quot;Hello
+world!&quot;.
+* Björn Persson, EkI, MdH - 2001-04-29.
+* bjorn.persson@mdh.se
+*/
+
+//Importera paket för...
+<b>import javax.servlet.*;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//servlet<b>
+import javax.servlet.http.*; &nbsp;</b>//servlet<b>
+import java.io.*;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//I/O
+
+<b>public class HelloWorldServletHttp extends HttpServlet
+{</b>
+&nbsp;&nbsp;&nbsp;/***************************************************
+&nbsp;&nbsp;* Implementation av metoden doGet() som anropas av webbserver då
+&nbsp;&nbsp;* webbläsare begär servlet med metoden HTTP-GET
+&nbsp;&nbsp;****************************************************/
+
+<b>public void doGet(HttpServletRequest request,
+&nbsp; HttpServletResponse response) throws IOException
+{</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Tala om för webbserver vad som kommer att skickas (d.v.s.
+&nbsp;&nbsp;&nbsp;&nbsp; // HTML-kod)
+&nbsp;&nbsp;&nbsp;<b>response.setContentType(&quot;text/html&quot;);</b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Hämta objekt för &quot;output&quot; för att kunna skriva till den
+&nbsp;&nbsp;&nbsp;&nbsp; // genererade hemsidan
+&nbsp;&nbsp;&nbsp;<b>PrintWriter out = response.getWriter();</b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Skriv ut HTML-kod
+<b>&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HTML&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HEAD&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&nbsp; &lt;TITLE&gt;Hello world&lt;/TITLE&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HEAD&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;BODY&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;H1&gt;Hello world! med doGet()&lt;/H1&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/BODY&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HTML&gt;&quot;);
+} </b>// doGet()
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;/***************************************************
+&nbsp;&nbsp;* Implementation av metoden doPost() som anropas av webbserver då
+&nbsp;&nbsp;* webbläsare begär servlet med metoden HTTP-POST
+&nbsp;&nbsp;
+****************************************************/
+
+<b>public void doPost(HttpServletRequest request,
+&nbsp; </b><b>HttpServletResponse response)
+throws IOException
+{</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Tala om för webbserver vad som kommer att skickas (d.v.s.
+&nbsp;&nbsp;&nbsp;&nbsp; // HTML-kod)
+&nbsp;&nbsp;&nbsp;<b>response.setContentType(&quot;text/html&quot;);</b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Hämta objekt för &quot;output&quot; för att kunna skriva till den
+&nbsp;&nbsp;&nbsp;&nbsp; // genererade hemsidan
+&nbsp;&nbsp;&nbsp;<b>PrintWriter out = response.getWriter();</b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Skriv ut HTML-kod
+<b>&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HTML&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HEAD&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&nbsp; &lt;TITLE&gt;Hello world&lt;/TITLE&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HEAD&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;BODY&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;H1&gt;Hello world! med doPost()&lt;/H1&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/BODY&gt;&quot;);
+&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HTML&gt;&quot;);
+}</b> // doPost()
+
+&nbsp;
+<b>}</b> //class HelloWorldServletHttp</code></pre>
+
+      <h3>Andra sätt att implementera doGet() och doPost()</h3>
+      <p>Om man vill att servlets metoder ska göra samma sak, oavsett om doGet() eller
+      doPost() anropas, så kan man i t.ex. implementera doGet() och sen anropa
+      den metoden i doPost(). Koden för doPost() (i exemplet ovan) blir då</p>
+
+      <pre>
+      <code>//...
+<b>public void doPost(ServletRequest request, ServletResponse response) throws IOException
+{
+&nbsp;&nbsp;&nbsp; </b>//Anropa egen implementation av doPost() - skicka med inparametrarna
+     <b>doGet(request, response);
+}</b> //doPost()
+&nbsp; //...</code></pre>
+
+      <h3>Mer om implementation av servlets</h3>
+      <p>I viss litteratur så visas hur servlets ärver från klassen
+        GenericServlet istället för HttpServlet.
+        <a href="meromservlets.html#genericservlet">Läs mer om varför...</a></p>
+
+      <h2 id="nackdelar">Nackdelar med servlets</h2>
+      <p>Den största nackdelen med servlets är synlig i exemplet ovan - all
+      HTML-kod måste skrivas ut till den resulterande hemsidan m.h.a. metoderna print() eller println().
+      Detta gör att man blandar logik (funktion) med presentation, vilket bl.a. gör det
+      svårare att läsa koden. Detta gör det även svårare att ändra sidans design - servlet måste
+      kompileras om då HTML-koden ändras. Av den anledningen
+      så har en annan teknologi kallad Java Server Pages (JSP) skapats.</p>
+      <p>Tanken är att JSP-sidorna ska innehålla presentationsskiktet (i
+      HTML) samt serlvets och Java Beans ska hantera logiken. Kommunikationen mellan JSP-sida
+      och servlet sker med&nbsp; speciella JSP-taggar. Personer
+      som är bra på design, men kanske inte är programmerare, kan då skapa
+      JSP-sidorna och programmerare (som inte brukar vara bra på design :-) kan
+      hantera logiken i servlets (och Java Beans).</p>
+      <p class="kommentar">Rekommenderad läsning är <b>JavaServer Pages</b> av Hans Bergsten
+      (<a href="https://www.ora.com/" target="_blank" rel="noopener">O'Reilly</a>) för en inledande inblick i
+      hur JSP fungerar. Boken visar att JSP inte är riktigt samma sak som Microsofts Active Server Pages
+      (ASP) utan är, enligt andras och min mening, bättre genomtänkt. Det ska
+      nämnas att det finns andra liknande teknologier som enligt vissa är
+      bättre än JSP.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |
+        <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+          2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

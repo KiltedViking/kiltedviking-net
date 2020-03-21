@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/php/formular/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/php/formular/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>PHP och formulär - Björns studiewebb</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
+  <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
+  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
+  <script type="text/javascript" src="../../studiewebb.js"></script> -->
+</head>
+<body>
+<header class="container">
+  <div class="row">
+    <div class="column column-100">
+      <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1 id="title">Formulär i PHP</h1>
+    </div>
+  </div>
+</header>
+  
+<div class="container">
+  <div class="row">
+    <div class="column column-66">
+      <h2>Inledning</h2>
+    
+      <p>Denna sida innehåller beskrivningar av hur man hämtar data från
+        formulär i PHP.</p>
+      
+      <p>För en komplett beskrivning av PHP och formulär rekommenderas <b>PHP-dokumentation</b> 
+        på adressen <a href="http://www.php.net/" target="_blank" rel="noopener">www.php.net</a>. 
+        Den finns att ladda ner som bl.a. en Windows-hjälpfil (.CHM).</p>
+  
+      <p><b>Observera</b> att exemplen endast fungerar om denna webbplats finns
+        på en webbserver som stödjer PHP! Se sidan Om på <a href="../../">Björns
+        studiewebb</a>.</p>
+    </div>  
+  
+    <div class="column column-33">
+      <h2>Innehåll</h2>
+
+      <ul class="intern">
+        <li><a href="#grundlaggande">Grundläggande</a></li>
+        <li><a href="#globala">Globala variabler</a></li>
+        <li><a href="#utan_globala">Utan globala variabler</a></li>
+      </ul>
+      
+      <ul class="tillbakalista flerradiglista">
+        <li><a href="../">Tillbaka</a> till PHP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column column-66">
+      <!-- *** Innehall ******************************************************** -->
+      <h2 id="grundlaggande">Grundläggande</h2>
+      
+      <p>Formulär är sättet som webbutvecklare kan kommunicera med besökaren. I
+        PHP kan formulärhantering ske på två sätt, bl.a. beroende på hur
+        PHP-motorn konfigurerats: med globala variabler registreade eller utan.</p>
+        
+      <p class="kommentar">Att registrera globala variabler introducerar en
+        säkerhetsrisk och görs därför inte på alla webbservrar. Risken är att
+        någon skapar egna formulär för att utforska felaktigt skriven kod (t.ex.
+        hur verifiering av inloggning sker).</p>
+      
+      <p>En viktig detalj är att PHP skiljer på gemener och versaler i namn på
+        variabler och index i vektorer. Det är alltså <b>viktigt</b> att stava
+        rätt till variabler/index jämfört med kontrollers namn i formulär.
+        För en mer omfattande beskrivning av hur man skapar formulär, se
+        underwebben <a href="../../html/">HTML</a>.</p>
+
+      <p><a href="#">Till början</a> på sida</p>
+
+      <h2 id="globala">Om globala variabler registrerats</h2>
+
+      <p>I PHP kan (globala) variabler, med samma namn som namnen på formulärs
+        kontroller, skapas. Detta, vilket behandlas i detta avsnitt, kräver att
+        globala variabler registreras.</p>
+        
+      <p class="kommentar">Om globala variabler inte fungerar (d.v.s. ett fel
+        i stil med &quot;Notice:  Undefined variable:  {variabelnamn} in ...&quot;
+        visas) eller om vi vill att PHP-sidor ska fungera på de flesta
+        webbservrar (oavsett hur PHP-motorn konfigurerats),
+        <a href="#utan_globala" class="externallink">se beskrivning nedan</a>.</p>
+
+      <p>I nedanstående formulär skapas en textruta med namnet Fornamn och en
+        knapp för att skicka formuläret. (Formuläret kommer skickas med HTTP GET
+        eftersom attributet METHOD saknas i FORM-taggen, vilket är irrelevant om
+        vi använder globala variabler.:-)</p>
+
+      <pre><code>&lt;form&gt;
+&nbsp; &lt;input type=&quot;text&quot; name=&quot;Fornamn&quot;&gt;
+&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;
+&lt;/form&gt;</code></pre>
+
+      <p>I PHP-koden kan vi hämta data som skickas från formuläret samt skriva
+        ut data med nedanstående kod. Vi använder en variabel med samma namn som
+        kontrollen i formuläret, Fornamn i detta exempel.</p>
+
+        <pre><code>print &quot;Ditt namn är $Fornamn&quot;;</code></pre>
+
+      <p>I exemplet ovan använder vi möjligheten att kunna skriva ut variabler
+        inuti strängar (istället för att slå samman den statiska texten med
+        variabeln). <b>Observera</b> att vi inte kan kan stava variabelnamnet
+        <span class="kod">$fornamn</span> utan <b>måste</b> stava det
+        <span class="kod">$Fornamn</span> som namnet på formulärets textkontroll.</p>
+
+      <p>För att kontrollera om ett värde är satt i en variabel (d.v.s. har
+        skickats från formulär) kan vi använda funktionern isset().</p>
+
+      <pre><code>if(isset($Fornamn))
+          &nbsp; print &quot;Ditt namn är $Fornamn&quot;;</code></pre>
+
+      <p><a href="ex_globala.php" class="externallink">Exempel</a></p>
+
+      <p class="tillborjan"><a href="borjan">Till början</a> på sida</p>
+
+      <h2 id="utan_globala">Om INTE globala variabler registrerats</h2>
+
+      <p>Om globala variabler inte registrerats kan vi använda någon av de tre
+        vektorerna $_GET, $_POST eller $_REQUEST för att hämta värden från
+        formulär, beroende på om formulär skickats med HTTP GET, HTTP POST eller
+        någondera. Variabler som börjar med &quot;$_&quot; är systemvariabler
+        (eller pseudovariabler) som PHP exponerar. Dessa variabler finns alltså
+        alltid tillgängliga, om än utan innehåll.</p>
+        
+      <p>Om vi stavar fel på index i dessa tre vektorer, eller om t.ex. formulär
+        inte skickats, så genereras ett fel i stil med &quot;Notice:  Undefined
+        index:  {variabelnamn} in ...&quot;. Kontrollera att stavning på index
+        är rätt innan ni börjar söka fel i konfiguration av PHP-motorn. :-)
+        Ett annat praktiskt tips är att testa om värde satts för ett visst index
+        i vektorer (med funktion isset()) innan värden läses från vektorerna (se
+        exempel nedan).</p>
+
+      <h3>Använda vektorn $_GET</h3>
+
+      <p>I nedanstående formulär skapas en textruta med namnet Fornamn och en
+        knapp för att skicka formuläret (d.v.s. samma som i exempel ovan).
+        Formuläret kommer skickas med HTTP GET eftersom attributet METHOD saknas i
+        FORM-taggen, vilket gör att vi kan hämta värden från kontroller med vektorn
+        $_GET.</p>
+
+        <pre><code>&lt;FORM&gt;
+&nbsp; &lt;INPUT TYPE=&quot;text&quot; NAME=&quot;Fornamn&quot;&gt;
+&nbsp; &lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Skicka&quot;&gt;
+&lt;/FORM&gt;</code></pre>
+
+      <p>I PHP-koden kan vi hämta data som skickas från formuläret samt skriva
+        ut data enligt följande.</p>
+
+      <pre><code>print &quot;Ditt namn är &quot; . $_GET['Fornamn'];</code></pre>
+
+      <p>I exemplet ovan kan vi inte använda möjligheten att kunna skriva ut variabler
+        inuti strängar. Istället måste vi slå samman den statiska texten med
+        värdet från vektorn $_GET.</p>
+
+      <p>För att kontrollera om ett värde är satt i en variabel eller för ett
+        visst index i en vektor (d.v.s. har skickats från formulär) kan vi använda
+        funktionern isset().</p>
+
+      <pre><code>if(isset($_GET['Fornamn']))
+&nbsp; print &quot;Ditt namn är &quot; . $_GET['Fornamn'];</code></pre>
+
+      <p><a href="ex_vektorn_get.php" class="externallink">Exempel</a></p>
+
+      <h3>Använda vektorn $_POST</h3>
+
+      <p>I nedanstående formulär skapas en textruta med namnet Fornamn och en
+        knapp för att skicka formuläret. Formuläret kommer skickas med HTTP POST
+        genom att attributet METHOD i FORM-taggen ges värdet &quot;post&quot;,
+        vilket gör att vi kan hämta värden från kontroller med vektorn $_POST.</p>
+
+      <pre><code>&lt;FORM METHOD=&quot;post&quot;&gt;
+          &nbsp; &lt;INPUT TYPE=&quot;text&quot; NAME=&quot;Fornamn&quot;&gt;
+          &nbsp; &lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Skicka&quot;&gt;
+          &lt;/FORM&gt;</code></pre>
+
+      <p>I PHP-koden kan vi hämta data som skickas från formuläret samt skriva
+        ut data enligt följande.</p>
+
+      <pre><code>print &quot;Ditt namn är &quot; . $_POST['Fornamn'];</code></pre>
+
+      <p>I exemplet ovan kan vi inte använda möjligheten att kunna skriva ut variabler
+        inuti strängar. Istället måste vi slå samman den statiska texten med
+        värdet från vektorn $_POST.</p>
+
+      <p>För att kontrollera om ett värde är satt i en variabel (d.v.s. har
+        skickats från formulär) kan vi använda funktionern isset().</p>
+
+      <pre><code>if(isset($_POST['Fornamn']))
+&nbsp; print &quot;Ditt namn är &quot; . $_POST['Fornamn'];</code></pre>
+
+      <p><a href="ex_vektorn_post.php" class="externallink">Exempel</a></p>
+
+      <h3>Använda vektorn $_REQUEST</h3>
+
+      <p>I nedanstående formulär skapas en textruta med namnet Fornamn och en
+        knapp för att skicka formuläret. Formuläret kommer skickas med HTTP GET
+        eftersom attributet METHOD saknas i FORM-taggen, vilket gör att vi kan
+        hämta värden från kontroller även med vektorn $_REQUEST. Vektorn
+        $_REQUEST kan även användas om formulär skickas med HTTP POST.</p>
+
+      <pre><code>&lt;FORM&gt;
+&nbsp; &lt;INPUT TYPE=&quot;text&quot; NAME=&quot;Fornamn&quot;&gt;
+&nbsp; &lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Skicka&quot;&gt;
+&lt;/FORM&gt;</code></pre>
+
+      <p>I PHP-koden kan vi hämta data som skickas från formuläret samt skriva
+        ut data enligt följande.</p>
+
+      <pre><code>print &quot;Ditt namn är &quot; . $_REQUEST['Fornamn'];</code></pre>
+
+      <p>I exemplet ovan kan vi inte använda möjligheten att kunna skriva ut
+        variabler inuti strängar. Istället måste vi slå samman den statiska texten
+        med värdet från vektorn $_REQUEST.</p>
+
+      <p>För att kontrollera om ett värde är satt i en variabel (d.v.s. har
+        skickats från formulär) kan vi använda funktionern isset().</p>
+
+      <pre><code>if(isset($_REQUEST['Fornamn']))
+&nbsp; print &quot;Ditt namn är &quot; . $_REQUEST['Fornamn'];</code></pre>
+
+      <p><a href="ex_vektorn_request.php" class="externallink">Exempel</a></p>
+
+      <h3>Använda $_REQUEST resp. någon av $_GET eller $_POST</h3>
+      
+      <p>Använd vektorn $_REQUEST om det inte gör någon skillnad om formulär
+        skickas med HTTP GET eller POST. I de flesta fall gör det ingen skillnad
+        hur formulär skickas., d.v.s. är du osäker - använd $_REQUEST.</p>
+        
+      <p>Två skäl att alltid kräva HTTP POST är om vi inte vill att data skickas
+        synligt som en del av URL eller </p>
+
+      <p><a href="#">Till början</a> på sida | <a href="../">Tillbaka</a> till PHP</p>
+    </div>
+  
+    <div class="column column-33">
+      <h2>Länkar</h2>
+      <p>(Kommer... eller???)</p>
+    </div>
+  </div>
+</div>
+
+<footer class="container">
+  <div class="row">
+    <div class="column column-100">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-01.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

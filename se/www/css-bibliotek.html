@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Exempel på CSS-bibliotek." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: CSS-bibliotek och -ramverk" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css-bibliotek.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css-bibliotek.html" />
+	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+  <title>CSS-bibliotek och -ramverk - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/studiewebb.css" />
+</head>
+<body>
+  <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
+  <div class="container">
+    <!-- *** START: Navbar *************************************************** -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Knapp for nar meny kollapsar -->
+          <button type="button" class="navbar-toggle collapsed" 
+            data-target="#main-navbar" data-toggle="collapse">
+            <!-- TODO 2017-09-20 - Lagg till ARIA-relaterat -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./">
+            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
+            <li><a href="html/">HTML</a></li>
+            <li><a href="css3/">CSS</a></li>
+            <li><a href="javascript/">JavaScript</a></li>
+            <li class="active"><a href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li><a href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li><a href="exempel/">Exempel</a></li>
+            <li><a href="seo/">SEO</a></li>
+
+            <li class="dropdown">
+              <a href="./" class="dropdown-toggle" data-toggle="dropdown">
+                  Mer... <i class="caret"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="lankar.html">L&auml;nkar</a></li>
+                <li><a href="om.html">Om</a></li>
+                <li><a href="gammalt.html">&Auml;ldre material</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- *** SLUT: Navbar ************************************************** -->
+
+    <div class="row">
+      <!-- *** Kolumn med huvudinnehall ************************************ -->
+      <div class="col-sm-8">
+        <h1>CSS-bibliotek och -ramverk</h1>
+
+        <p>P&aring; denna webbsida finns länkar till webbplatser/-sidor med mer 
+          information om CSS-bibliotek och -ramverk (även kallat <em>frontend frameworks</em>).
+          Här finns också mina synpunkter angående ramverken samt anpassningar jag
+          gjort om jag använt ramverk på min webbplats (kiltedviking.net) eller i
+          Björns studiewebb.
+        </p>
+
+        <h2 id="ramverk-el-bibliotek">Bibliotek eller ramverk?</h2>
+
+        <p>Ett <b>bibliotek</b> brukar definieras som en samling av verktyg (funktioner, 
+          klasser, metoder, m.m.) som löser olika typer av problem och ett <b>ramverk</b>
+          som en bas/plattform med grundläggande funktionalitet som byggs vidare från
+          eller utökas.</p>
+
+        <p>En bra början kan vara att titta på Bootstrap, bl.a. då det det är ett
+          väl använt ramverk och det finns gott om exempel.</p>
+
+        <p>De flesta ramverken nedan bygger på CSS, men om man vill utnyttja
+          mer avancerade &quot;komponenter&quot; så behöver man även inkludera
+          JavaScript - ibland även bibliotek så som jQuery. Något ramverk, så
+          som UIkit, kräver i stort sett JavaScript. Vissa ramverk är också ganska
+          rudimentära, så som Bulma, och kräver en hel del anpassningar för att vara
+          användbara.
+        </p>
+
+        <h3>Tvingande ramverk och inte</h3>
+        <p>En del ramverk är s.k. tvingande (<em>opinionated</em>) och eventuell
+          design appliceras på de flesta elementen i sidor utan att använda attributet
+          <code>class</code>. Ett typiskt exempel är ramverket Paper CSS.
+        </p>
+        
+        <p>Med icke-tvingande ramverk så måste man t.ex. använda attributet <code>class</code>
+          för att applicera ramverkets stil(-ar).
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h2>Innehåll</h2>
+        <ul>
+          <li><a href="#ramverk-el-bibliotek">Ramverk eller bibliotek?</a></li>
+          <li><a href="#synpunkter">Synpunkter på ramverk</a>
+            <ul>
+              <li><a href="#bootstrap">Bootstrap</a></li>
+              <li><a href="#bulma">Bulma</a></li>
+              <li><a href="#foundation">Foundation</a></li>
+              <li><a href="#materialize">Materialize</a></li>
+              <li><a href="#milligram">Milligram</a></li>
+              <li><a href="#muicss">MUI CSS</a></li>
+              <li><a href="#papercss">Paper CSS</a></li>
+              <li><a href="#picnic">Picnic</a></li>
+              <li><a href="#primer">Primer CSS</a></li>
+              <li><a href="#purecss">Pure CSS</a></li>
+              <li><a href="#semanticui">Semantic UI</a></li>
+              <li><a href="#skeleton">Skeleton CSS</a></li>
+              <li><a href="#tailwind">Tailwind</a></li>
+              <li><a href="#uikit">UIkit</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-8">
+        <h2 id="synpunkter">Synpunkter på ramverk</h2>
+        <p>I detta avsnitt har jag gett uttryck för några av mina reaktioner på ramverken,
+          t.ex. spontana reaktioner på vad jag tycker är bra eller dåligt med dem.
+          Observera att jag <b>inte</b> är något bra på design! ;-) Så några av mina
+          synpunkter nedan kan vara baserade på mina bristande kunskaper i design
+          och CSS, eller att jag inte lärt mig/förstått hur ramverk ska användas.
+        </p>
+
+        <p>Jag ämnar att göra exempelsidor som visar på vanligt förekommande &quot;komponenter&quot; 
+          så att de olika ramverken kan jämföras,
+          t.ex. stycken, rubriker, kolumner, paneler och andra type av &quot;komponenter&quot;.
+        </p>
+
+        <p><a href="css3/ramverk/utan-ramverk.html" class="btn btn-default" target="_blank">Exempel 
+          utan ramverk <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="bootstrap">Bootstrap</h3>
+        <img src="bilder/bootstrap.png" alt="Bootstrap-logotyp" width="32" height="32" title="Bootstrap"
+          style="float: right;">
+
+        <p>Bootstrap var det första ramverket jag kom i kontakt med, vilket bl.a.
+          innebär att jag ofta jämför andra ramverk med det. Det som lockade mig
+          mest med detta ramverk var dess &quot;rutnät&quot; (<i>grid</i>), vilket
+          de utvecklade långt innan CSS specificerade <i>flexbox</i>, m.m., men också
+          att val av typsnitt och färgtema (på t.ex. knappar).
+        </p>
+
+        <p>Min webbplats, kiltedviking.net, har designats med Bootstrap, liksom &quot;huvudwebben&quot;
+          för Björns studiewebb (i vilken denna sida ingår). Det jag främst har anpassat 
+          är färgen på rubriker (#800000) och typsnittet (Georgia) för brödtext.
+          (Bakgrundsbilder har jag anpassat med ren CSS, d.v.s. har inte med Bootstrap
+          att göra. ;-))
+        </p>
+
+        <p>Ramverket finns idag (2020-02-20) i två vanligt förekommande version - 3
+          och 4. Nedan finns exempelsidor för respektive version.
+        </p>
+
+        <p><a href="css3/ramverk/bootstrap3.html" class="btn btn-default" target="_blank">Exempelsida 
+            (v3) <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="css3/ramverk/bootstrap4.html" class="btn btn-default" target="_blank">Exempelsida 
+            (v4) <i class="glyphicon glyphicon-new-window"></i></a>
+
+          <a href="../../" class="btn btn-default" target="_blank">Besök kiltedviking.net 
+            <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="./" class="btn btn-default" target="_blank">Besök Björns studiewebb 
+            <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="bulma">Bulma</h3>
+        <a href="https://bulma.io">
+          <img src="bilder/made-with-bulma.png" alt="Made with Bulma" width="128" 
+            height="24" style="float: right;">
+        </a>
+
+        <p>Jag har valt att inte använda detta ramverk då jag uppfattade det som att
+          man behöver göra egna anpassningar för att kunna använda. Och eftersom
+          jag inte är vidare bra på design så har jag valt att inte använda detta 
+          ramverk. Men bortsett från avsaknad av mellanrum, m.m. så var det ganska enkelt att komma igång
+          med. ;-)
+        </p>
+
+        <p><a href="css3/ramverk/bulma.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="foundation">Foundation</h3>
+        <p>När jag började titta på ramverken så fick jag uppfattningen att det fanns
+          två läger - Bootstap- och Foundation-&quot;fantasterna&quot;, d.v.s. man
+          valde mellan dessa två ramverk.
+        </p>
+
+        <p>Detta ramverk användes för att designa (om) underwebben JavaScript och
+          den huvudsakliga anpassningen jag gjort är att använda mina profilfärger
+          (röda och gula färgerna från skånska flaggan) i bl.a. meny, knappar och 
+          länklistor (<i>collections</i>).
+        </p>
+
+        <p><a href="css3/ramverk/foundation.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="javascript/" class="btn btn-default" target="_blank">Besök underwebben 
+            JavaScript <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="materialize">Materialize</h3>
+        <p>Ramverket Materialize bygger på Google's design koncept Material, d.v.s.
+          har ett mycket &quot;platt&quot; utseende.
+        </p>
+
+        <p><a href="css3/ramverk/materialize.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="html/" class="btn btn-default" target="_blank">Besök underwebben HTML 
+            <i class="glyphicon glyphicon-new-window"></i></a></p>
+        
+        <h3 id="milligram">Milligram</h3>
+        <p>Milligram är ett mycket litet ramverk, men på dess officiella webbplats
+          finns förslag på hur man anpassar eller utökar CSS för egen webbplats.
+        </p>
+
+        <p><a href="css3/ramverk/milligram.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="php/" class="btn btn-default" target="_blank">Besök underwebben PHP 
+            <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="muicss">MUI CSS</h3>
+        <p>Även MUI bygger på Googles design koncept Material med sitt &quot;platta&quot; 
+          utseende. Ramverket har en del tilltalande effekter, t.ex. &quot;flytande
+          etiketter&quot; i formulär - när ett fält får fokus så &quot;flyter&quot;
+          etiketten undan.
+        </p>
+        <p>Om man inte är nöjd med de fyra (?) färgerna så behöver man sinne för design 
+          (och kunskap om SASS?) för att anpassa.
+        </p>
+        
+        <p><a href="css3/ramverk/muicss.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="papercss">Paper CSS</h3>
+        <p>Mitt första intryck av detta ramverk är att det är ganska enkelt att komma
+          igång med, om man har en grundläggande förståelse av ramverk, och jag tycker
+          om känslan av serietidning. ;-) 
+        </p>
+        
+        <p><a href="css3/ramverk/papercss.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="picnic">Picnic</h3>
+        <p>Ramverket är myckel enkelt och bör anpassas för bäst resultat</p>
+        
+        <p><a href="css3/ramverk/picnic.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+  
+        <h3 id="primer">Primer CSS</h3>
+        <p>Ett mycket kapabelt ramverk! Dock så tycker jag att de bygger en del av
+          designen på att använda HTML-element på ett felaktigt sätt, t.ex. &quot;formulärgrupper&quot;
+          med listruta i (där de använder <code>dl</code>).
+        </p>
+        
+        <p><a href="css3/ramverk/primer.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="java/" class="btn btn-default" target="_blank">Besök underwebben 
+            Java <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="purecss">Pure CSS</h3>
+        <p>För de som gillar en avskalad design så är detta ramverk något att titta på.</p>
+        
+        <p><a href="css3/ramverk/purecss.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="semanticui">Semantic UI</h3>
+        <p>Som namnet på ramverket ämnar anspela på så ska namn på CSS-klasser tydligt
+          visa på vad dess effekt är, d.v.s. inte vara kryptiska (så som <code>.s4</code> 
+          eller <code>.column-1-3</code> i andra ramverk). 
+        </p>
+        
+        <p><a href="css3/ramverk/semanticui.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="jquery/" class="btn btn-default" target="_blank">Besök underwebben 
+            jQuery <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+        <h3 id="skeleton">Skeleton</h3>
+        <p>Som det låter på ramverkets namn så är detta ett ganska rudimentärt ramverk,
+          d.v.s. tänkt som en bas att bygga vidare på.
+        </p>
+
+        <p>P.S. Det faktum att den officiella webbplats idag (2020-02-20) inte använder
+          HTTPS och version av ramverk är samma som i oktober 2017 tolkar jag som 
+          att utvecklingen av ramverket stannat upp. ;-(
+        </p>
+ 
+        <p><a href="css3/ramverk/skeleton.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a> 
+          <a href="css3/" class="btn btn-default" target="_blank">Besök underwebben 
+            Stilmallar (CSS) <i class="glyphicon glyphicon-new-window"></i></a></p>
+       
+        <h3 id="tailwind">Tailwind</h3>
+
+        <p>Ramverket bygger ger många byggstenar för att skapa egen design, d.v.s.
+          är inte för nybörjare eller personer som mig som saknar sinne för design.
+        </p>
+
+        <p><a href="css3/ramverk/tailwind.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a></p>
+        
+        <h3 id="uikit">UIkit</h3>
+        <p>En sak som talar för ramverket UIkit är dess &quot;automatiska kolumner&quot;,
+          d.v.s. att det kan sprida ut löpande text jämt över kolumner. Men en potentiell
+          nackdel är att många &quot;komponenter&quot; - även den &quot;vanligare&quot;
+          - kräver ramverkets egna JavaScript-kod.
+        </p>
+        <p>På det hela taget så är jag, som icke-designer, nöjd med ramverket och
+          kunde med ganska enkla medel (några CSS-klasser) anpassa till mina profilfärger
+          (röda och gula i skånska flaggan). Det enda jag inte tyckte om var att
+          rubriker (t.ex. <code>h1</code>) inte var responsiva.
+        </p>
+
+        <p><a href="css3/ramverk/uikit.html" class="btn btn-default" target="_blank">Exempelsida 
+          <i class="glyphicon glyphicon-new-window"></i></a>
+          <a href="seo/" class="btn btn-default" target="_blank">Besök underwebben 
+            SEO <i class="glyphicon glyphicon-new-window"></i></a></p>
+
+      </div>
+      
+      <!-- *** Kolumn med nyheter ****************************************** -->
+      <aside class="col-sm-4">
+        <h2>L&auml;nkar</h2>
+        <p>Nedan är länkar till officiella webbplatser för några bibliotek och ramverk. 
+          Om jag använt ramverk i någon av mina underwebbar så har det angivits efter
+          dess namn (inom fyrkantsparenteser).</p>
+
+        <ul>
+          <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://bulma.io/" target="_blank" rel="noopener">Bulma <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://foundation.zurb.com/" target="_blank" rel="noopener">Foundation <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://materializecss.com/" target="_blank" rel="noopener">Materialize <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://milligram.io/" target="_blank" rel="noopener">Milligram <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://www.muicss.com/" target="_blank" rel="noopener">MUI CSS <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://www.getpapercss.com/" target="_blank" rel="noopener">Paper CSS <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://picnicss.com/" target="_blank" rel="noopener">Picnic <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://primer.style/" target="_blank" rel="noopener">Primer CSS <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://purecss.io/" target="_blank" rel="noopener">Pure CSS <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://semantic-ui.com/" target="_blank" rel="noopener">Semantic UI <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="http://getskeleton.com/" target="_blank" rel="noopener">Skeleton <i class="glyphicon glyphicon-new-window"></i></a> [ingen HTTPS!]</li>
+          <li><a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind <i class="glyphicon glyphicon-new-window"></i></a></li>
+          <li><a href="https://getuikit.com/" target="_blank" rel="noopener">UIkit <i class="glyphicon glyphicon-new-window"></i></a></li>
+        </ul>
+      </aside>  
+    </div>
+    
+    <!-- *** Rad med sidfot ************************************************ -->
+    <footer class="row">
+      <div class="col-sm-12">
+        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2020-03-14.</p>
+      </div>
+    </footer>
+  </div>
+  <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

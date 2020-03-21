@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/tankpa.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/tankpa.html" />
+  <title>T&auml;nk p&aring; ... (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>T&auml;nk p&aring; ... (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li class="active"><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+
+          <p>Innan man designar webbsidor b&ouml;r man t&auml;nka sig f&ouml;r. Nedan n&auml;mns n&aring;gra saker,
+            men inte allt, man b&ouml;r t&auml;nka p&aring;.</p>
+          <p class="kommentar">H&aring;ll i tanken att jag &auml;r v&auml;rdel&ouml;s p&aring; design (vilket min
+            webbplats &auml;r ett bevis p&aring; :-)) - jag anpassar fr&auml;mst andras designer. Detta
+            &auml;r ocks&aring; sk&auml;let till att de flesta saker som n&auml;mns nedan &auml;r andras tankar/ideer
+            och inte mina (se bl.a. referenser).</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#allmant" class="collection-item">Allm&auml;nt om design</a></li>
+            <li><a href="#diverse" class="collection-item">Diverse</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="allmant">Allm&auml;nt om design</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Det finns olika skolor liksom olika extremer vad g&auml;ller design. En herre
+            som f&ouml;rordar enkel design heter Jacob Nielsen (<a href="http://www.useit.com/" 
+            class="externallink" target="_blank" rel="noopener">www.useit.com</a>)
+            och, p&aring; andra &auml;nden av skalan, finns David Siegel (tidigare www.killersites.com). Din design
+            kanske b&ouml;r ligga n&aring;gonstans d&auml;remellan. :-)</p>
+          <p>Anpassa webbplatsen till &ouml;nskad m&aring;lgrupp, d.v.s. om m&aring;lgruppen &auml;r ovana surfare s&aring; b&ouml;r
+            kanske navigeringen f&ouml;lja ett standardm&ouml;nster medan du kan ta ut sv&auml;ngarna
+            om du v&auml;nder dig till en m&aring;lgrupp som s&ouml;ker n&aring;got h&auml;ftigt.</p>
+          <p>Testa i flera olika webbl&auml;sare - g&auml;rna &auml;ven p&aring; olika operativsystem (Windows,
+            MacOS, Linux, m.fl.). De vanligaste webbl&auml;sarna &auml;r Internet Explorer, Firefox/SeaMonkey,
+            Opera och Safari. Firefox och Opera finns till ett antal olika operativsystem
+            samt Safari f&ouml;r b&aring;de Windows och MacOS.</p>
+        </div>
+      </div>
+
+      <h2 id="diverse">Diverse</h2>
+      
+      <h3>Degradering</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Man b&ouml;r utveckla webbplatser s&aring; att de fungerar &auml;ven om inte klienten st&ouml;djer
+            all funktionalitet (t.ex. senaste versionen av CSS eller JavaScript). Detta
+            kallas bl.a. f&ouml;r <em>graceful degradation</em> (????). [Keith05]</p>
+        </div>
+      </div>
+
+      <h3>Responsiv design</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Man b&ouml;r utveckla webbplatser s&aring; att de fungerar i olika typer
+            av enheter och uppl&ouml;sningar, d.v.s. med s.k. responsiv design.
+          </p>
+        </div>
+      </div>
+
+      <h3>Bara f&ouml;r att man kan...</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>...s&aring; ska man inte. Bara f&ouml;r att n&aring;got ser fr&auml;ckt ut s&aring; kanske man inte b&ouml;r
+            anv&auml;nda det.</p>
+        </div>
+      </div>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns n&aring;gra b&ouml;cker med intressant information om CSS och andra webbteknologier
+            (se &quot;m&auml;rkning&quot; efter &aring;rtal f&ouml;r teknologi). Se &auml;ven L&auml;nkar f&ouml;r andra
+            webbplatser om &auml;mnet.</p>
+
+          <ul>
+            <li>Keith, Jeremy, DOM Scripting - Web Design with JavaScript and the Document
+              Object Model, Friends of Ed, 2005. [JS/DOM]</li>
+            <li>Siegel, David, Killer Web Sites, Prentice-Hall, 1998. [HTML]</li>
+            <li>Tittel, Ed, m.fl., Hip Pocket Guide to HTML 4, IDG Books, 1998. [HTML]</li>
+            <li>?, ?, Beginning CSS, Wrox, 200?. [CSS]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

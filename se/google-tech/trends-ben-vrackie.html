@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Trends data - Ben Vrackie</title>
+  <style>
+  body { font-family: Arial, Helvetica, sans-serif; }
+  .comment { font-size: 80%; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>Google Trends data: Ben Vrackie</h1>
+  <p>Exempel som infogar diagram från Google Trends i en HTML-tagg (DIV) med bredden 50 %.</p>
+  <div style="width: 50%">
+    <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+    <script type="text/javascript"> 
+      trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"ben vrackie","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=ben%20vrackie&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); 
+    </script> 
+  </div>
+
+  <!-- <div style="width: 50%">
+    <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2051_RC11/embed_loader.js"></script> 
+    <script type="text/javascript"> 
+      trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"ben vrackie","geo":"","time":"2019-01-19 2020-01-19"}],"category":0,"property":""}, {"exploreQuery":"q=ben%20vrackie&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); 
+    </script>
+  </div> -->
+
+  <p class="comment">(Ben Vrackie, eller Ben-y-Vrackie, är ett berg om 850 meter utanför Pitlochry, Skottland.)</p>
+</body>
+</html>

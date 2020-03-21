@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Verktyg för sökmotoroptimering (SEO)." />
+  <link rel="canonical" href="https://www.kiltedviking.net/se/www/exempel/nyttfonster/index.html" />
+  <title>Öpnna länk i nytt fönster - Bj&ouml;rns studiewebb</title>
+  <link href="../../stilar/css2.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../../../addLoadEvent.js"></script>
+  <script type="text/javascript" src="../../../../kiltedviking.js"></script>
+</head>
+<body>
+<div id="container">
+  <div id="ovremarginal">
+    <!-- Denna tagg finns for att skapa den ovre marginalen -->
+  </div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <!-- Logotyp och tillika lank till startsida for webbplats -->
+    <div id="logotyp">
+      <a href="../../index.html"><img src="../../bilder/logony1.jpg"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+    </div>
+
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Tillbaka</a> till exempel</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <h1>Exempel: Öppna länk i nytt fönster</h1>
+
+    <p>Denna webbsida visar på hur man, med JavaScript, &quot;automatiskt&quot;
+      kan öppna länkens sida i ett nytt fönster (nåja, lösning 2 nedan i.a.f. :-).</p>
+
+    <h2>Problem</h2>
+  
+    <p>I XHTML så har attributet <code>target</code> tagits bort i länkar, d.v.s.
+      i taggen &lt;a&gt;. Därmed är det inte längre möjligt att m.h.a. länken
+      öppna ett nytt fönster om man vill att XHTML-dokument ska innehålla korrekt
+      XHTML-kod.</p>
+      
+    <p>Koden nedan är alltså inte längre giltig i XHTML 1.0 (Strict).</p>
+    
+    <div class="exempel">
+      <p>&lt;a href=&quot;http://www.kiltedviking.net/&quot; target=&quot;_blank&quot;&gt;Öppna&lt;/a&gt;</p>
+    </div>
+      
+    <h2>Lösning(ar)</h2>
+    
+    <p>Lösningar bygger på principen <em>graceful degradation</em>, d.v.s. att om
+      besökares webbläsare stödjer JavaScript, och besökare aktiverat JavaScript,
+      så får besökaren ett mer interaktivt besök. Men om JavaScript inte fungerar,
+      eller är aktiverat, i besökares webbläsare så fungerar ändå webbsidan (om
+      än något mindre upplevelserikt).</p>
+    
+    <h3>Lösning 1</h3>
+    
+    <p>En lösning är att använda JavaScript i attributet <code>onclick</code> i
+      taggen &lt;a&gt;, d.v.s. för att öppna fönster och sen avbryta klickhändelsen
+      i länken. Nedan visas ett exempel med JavaScript-koden och sen länken som 
+      ska öppnas i nytt fönster.</p>
+      
+    <p>Som parametrar till metoden window.open() skickas tre parametrar:</p>
+    
+    <ul>
+      <li>URL som ska öppnas - finns i argumentet <code>url</code> till funktionen
+        oppna()</li>
+      <li>namn på fönster som öppnas (detta namn kan användas för att öppna webbsidor
+        i samma fönster)</li>
+      <li>egenskaper för fönster som öppnas - i exempel ska fönster ha rullningslister,
+        tillåta ändring av storlek samt ha en bredd och höjd av 830 resp. 400 pixlar
+        (några egenskaper är bevisligen standard, t.ex. adressfältet, medan andra
+        inte är det, t.ex. verktygsfältet [eng. <em>toolbar</em>] - testa genom
+        att lägga till &quot;toolbar&quot; i tredje parametern :-)</li>
+    </ul>
+      
+    <div class="exempel">
+      <p>&lt;script type="text/javascript"&gt;<br />
+        function oppna(url)<br />
+        {<br />
+        &nbsp; window.open(url, &quot;fonsternamn&quot;,<br />
+        &nbsp;&nbsp;&nbsp; &quot;scrollbars,resizable,width=830,height=400&quot;);<br />
+        &nbsp;  return false; //Avbryt a-taggens öppnande av webbsida<br />
+        }<br />
+        &lt;/script&gt;</p>
+      <p>&lt;a href=&quot;http://www.kiltedviking.net&quot;<br />
+        &nbsp; onclick=&quot;oppna(this.href)&quot;&gt;Öppna&lt;/a&gt;</p>
+    </div>
+    
+    <script type="text/javascript">
+      //Funktion för att öppna ett nytt fönster med JavaScript utan att fönster
+      // med länk navigerar till länkens adress, d.v.s. avbryter händelsen.
+      function oppna(url)
+      {
+        window.open(url, "fonsternamn", "scrollbars,resizable,width=830,height=400");
+        return false;
+      }
+    </script>
+    
+    <p>Nedan är en länk som demonstrerar funktionen i koden ovan.</p>
+    
+    <p style="padding-left: 10px"><a href="http://www.kiltedviking.net" onclick="return oppna(this.href)">Öppna</a></p>
+    
+    <h3>Lösning 2</h3>
+    
+    <p>Men en snyggare lösning är antagligen att använda en klass i länkens attribut
+      <code>class</code>.</p>
+
+    <p class="kommentar">(Lösningen är längre men ger, om den används i flera sidor,
+      mindre kod i längden. Jag använder t.ex. denna lösning för alla länkar, som
+      ska öppnas i nytt fönster, genom att lägga till två rader plus attributet
+      <code>class</code> i alla länkar som ska öppnas i nytt fönster.)</p>
+
+    <p>Lösningen består av tre steg - de två fösta som görs en gång och det sista
+      som görs i alla sidor med länkar som ska öppnas i nytt fönster:</p>
+    
+    <ul>
+      <li>JavaScript-fil för att "aktivera" funktion vid sidans laddning</li>
+      <li>JavaScript-fil med funktioner</li>
+      <li>länka in JavaScript-kod och lägg till attributet <code>class</code> i
+        aktuella länkar</li>
+    </ul>
+    
+    <h4>Steg 1 - addLoadEvent.js</h4>
+    
+    <p>Denna fil innehåller en funktion för att koppla (ytterligare) en funktion
+      till webbsidans laddningshändelse (&quot;OnLoad&quot;). (Se referenser för
+      en fullständig beskrivning av funktionen.)</p>
+      
+    <p>Skapa en fil addLoadEvent.js och fyll i koden nedan.</p>
+      
+    <div class="exempel">
+      <p>function addLoadEvent(func)<br />
+        {<br />
+        &nbsp; var oldonload = window.onload;<br />
+        &nbsp; if (typeof window.onload != 'function')<br />
+        &nbsp; {<br />
+        &nbsp;&nbsp;&nbsp; window.onload = func;<br />
+        &nbsp; }<br />
+        &nbsp; else<br />
+        &nbsp; {<br />
+        &nbsp;&nbsp;&nbsp; window.onload = function()<br />
+        &nbsp;&nbsp;&nbsp; {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oldonload();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; func();<br />
+        &nbsp;&nbsp;&nbsp; }<br />
+        &nbsp; }<br />
+        }</p>
+    </div>
+    
+    <h4>Steg 2 - webbplats.js</h4>
+    
+    <p>Denna fil kommer innehålla alla funktioner (utom den i fil ovan) som behövs
+      för lösning.</p>
+    
+    <p class="kommentar">Namnet på denna fil kan vara vad som helst - i mitt fall
+      heter den t.ex. <code>kiltedviking.js</code> och i den har jag placerat all
+      JavaScript-kod som ska vara tillgänglig i alla webbplatsens sidor.</p>
+      
+    <p>Skapa en fil med namnet <code>webbplats.js</code> (eller vad du vill, så länge den slutar
+      på .js - anpassa då även namnet i steg 3 :-) och fyll i kod nedan. Ändra eventuellt 
+      text som ska läggas till efter länk samt namnet på klass (markerade med röd 
+      text i kod nedan) som ska användas för länkar som ska öppnas i nytt fönster.</p>
+      
+    <p>I koden anropas först funktionen, i fil ovan, för att lägga till funktioner
+      som ska anropas när sida laddas - i detta fall funktionen nedanför. Därefter
+      deklareras variabler för text som ska läggas till efter länk samt namn på
+      klass som ska användas för att avgöra om länk ska öppnas i nytt fönster. Sen
+      hämtas alla länkar i dokument samt ett objekt för regulära uttryck (eng.
+      <em>regular expression</em>).</p>
+      
+    <p>I nästa steg så loopas det över alla länkar och om en länk är markerad med
+      klass (för externa länkar) så läggs ett em-element till sist i länken samt
+      funktion för att öppna nytt fönster kopplas till länkens klickhändelse (OnClick).
+      Sist av allt så sätts variabel med em-element till null för att förstöra
+      objektet och frigöra minne.</p>
+      
+    <p>Sist i koden finns funktionen som ska anropas när besökare klickar på länk
+      som ska öppnas i nytt fönster.</p>
+      
+    <div class="exempel">
+      <p>//Koppla metod nedan till laddning av sida<br />
+        addLoadEvent(setupExternalLinks);</p>
+      
+      <p>function setupExternalLinks()<br />
+        {<br />
+        &nbsp; var strNewWindowAlert = "<span class="rod"> &gt;&gt;</span>";  
+        //Text att lägga till efter länk<br />
+        &nbsp; var strNewWindowClass = "<span class="rod">externallink</span>"; 
+        //Klass som ska ändras<br />
+        &nbsp; var objWarningText;<br />
+        &nbsp; var strWarningText;<br />
+        &nbsp; var link;<br />
+        &nbsp; // Hitta alla länkar i sida<br />
+        &nbsp; var links = document.getElementsByTagName('a');<br />
+        &nbsp; var pattern = new RegExp(strNewWindowClass);</p>
+          
+      <p>&nbsp; for (var i = 0; i &lt; links.length; i++)<br />
+        &nbsp; {<br />
+        &nbsp;&nbsp;&nbsp; link = links[i];<br />
+        &nbsp;&nbsp;&nbsp; if (link.className.match(pattern)) <br />
+        &nbsp;&nbsp;&nbsp; {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Skapa ett em-element att infoga efter länk<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objWarningText = document.createElement("em");<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strWarningText = document.createTextNode(strNewWindowAlert);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objWarningText.appendChild(strWarningText);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; link.appendChild(objWarningText);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; link.onclick = openInNewWindow;<br />
+        &nbsp;&nbsp;&nbsp; }<br />
+        &nbsp; }</p>
+          
+      <p>&nbsp; objWarningText = null;<br />
+        }</p>
+        
+      <p>function openInNewWindow()<br />
+        {<br />
+        &nbsp; var newWindow =<br />
+        &nbsp;&nbsp;&nbsp; window.open(this.getAttribute('href'), 'externallinks');<br />
+        &nbsp; newWindow.focus();<br />
+        &nbsp; return false;<br />
+        }</p>
+    </div>
+    
+    <h4>Steg 3 - länka in filer ovan + lätt till attributet class</h4>
+    
+    <p>Lägg till de två översta raderna i webbsidas tagg &lt;head&gt; - anpassa
+      eventuellt namn på, och sökväg till, JavaScript-filer.</p>
+      
+    <p>Lägg sen till attributet <code>class</code> i alla länkar som ska öppnas 
+      i nytt fönster. Ändra eventuellt namnet på klassen (markerat med röd text i
+      exempel nedan) så att det matchar namn i metoden <code>setupExternalLinks()</code>
+      i kod ovan.</p>
+    
+    <div class="exempel">
+      <p>&lt;script type=&quot;text/javascript&quot; src=&quot;addLoadEvent.js&quot;&gt;&lt;/script&gt;<br />
+        &lt;script type=&quot;text/javascript&quot; src=&quot;webbplats.js&quot;&gt;&lt;/script&gt;</p>
+      <p>&lt;a href=&quot;http://www.kiltedviking.net/&quot;<br />
+        &nbsp; class=&quot;<span class="rod">externallink</span>&quot;&gt;Öppna&lt;/a&gt;</p>
+    </div>
+    
+    <p>Länk som demonstrerar hur kod ovan fungerar. (Övriga länka på sida, som jag
+      vill ska öppnas i nytt fönster, använder samma kod - t.ex. länkar i referenser.)</p>
+    
+    <p style="padding-left: 10px;"><a href="http://www.kiltedviking.net/" 
+      class="externallink">Öppna</a></p>
+    
+    <h2>Referenser</h2>
+    
+    <p>Lösning 1 ovan bygger på kod jag hittat på följande ställen:</p>
+    
+    <ul>
+      <li>Webbplats: <a href="http://www.openjs.com/articles/prevent_default_action/"
+         class="externallink">Prevent the Default Action for an Event</a> (OpenJS).</li>
+    </ul>
+    
+    <p>Lösning 2 ovan bygger på kod jag hittat på följande ställen:</p>
+    
+    <ul>
+      <li>Bok: Web Design with JavaScript and the Document Object Model, D. Keith. (Medlem 
+        i <a href="https://www.webstandards.org/" target="_blank" rel="noopener">Web Standards 
+        Project</a>)</li>
+      <li>Blogg: <a href="https://www.456bereastreet.com/archive/200605/using_javascript_instead_of_target_to_open_new_windows/"
+        target="_blank" rel="noopener">Using JavaScript instead of target to open new windows</a></li>
+    </ul>
+    
+    <p>(Code in examples on this page are based on code found in references above. 
+      Thanks go out to authors of those materials!)</p>
+    
+    <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+    <div id="sidfot">
+      <p><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+        <strong>Uppdaterad:</strong> 2010-07-12.</p>
+    </div>
+  </div>
+
+  <!-- *** Sidfot *** -->
+  <div id="nedremarginal">
+  </div>
+</div>
+</body>
+</html>

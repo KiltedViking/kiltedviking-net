@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Informationssida till ramsida</title>
+  <style type="text/css">
+  <!--
+    H1 {font-family: Verdana }
+    P  {font: 10pt Verdana }
+  -->
+  </style>
+</head>
+<body>
+<h1>Informationssida</h1>
+<p><i>Välkommen till vår webbplats...</i></p>
+<p>Prova att klicka på länkarna Välkommen och Om till vänster i menyn.</p>
+<p>Filen som används för att skapa ramarn heter DEFAULT.HTM. Koden visas i
+exemplet nedan. Observera avsaknaden av taggen &lt;BODY&gt;!</p>
+
+<!-- START: Exempelkod -->
+<blockquote>
+  <p>&lt;HTML&gt;<br />
+  &lt;HEAD&gt;<br />
+  &nbsp; &lt;TITLE&gt;En ramsida&lt;/TITLE&gt;<br />
+  &lt;/HEAD&gt;<br />
+  &nbsp; &lt;FRAMESET  cols="175,*" BORDER="0" FRAMEBORDER="0"&gt;<br />
+  &nbsp;&nbsp;&nbsp; &lt;FRAME NAME="MENY" SRC="meny.htm"&gt;<br />
+  &nbsp;&nbsp;&nbsp; &lt;FRAME NAME="INFO" SRC="info.htm"&gt;<br />
+  <br />
+  &nbsp;&nbsp;&nbsp; &lt;!-- Information som visas om webbläsare inte kan
+    visa ramar --&gt;<br />
+  &nbsp;&nbsp;&nbsp; &lt;NOFRAMES&gt;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;P>Din webbläsare kan inte visa sidan
+    då den använder ramar.&lt;BR&gt;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vi rekommenderar att du
+    uppgraderar till en senare version av webbläsaren.&lt;/P&gt;<br />
+  &nbsp;&nbsp;&nbsp; &lt;/NOFRAMES&gt;<br />
+  <br />
+  &lt;/FRAMESET&gt;<br />
+  &lt;/HTML&gt;</p>
+</blockquote>
+<!-- SLUT: Exempelkod -->
+
+<p style="text-align: center">[Denna fil heter INFO.HTM]</p>
+</body>
+</html>

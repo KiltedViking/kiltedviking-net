@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Effekter - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+      
+    <script type="text/javascript">
+		YUI().use("node", "event", "transition", function(Y) {
+			Y.one("#codefadein").ancestor("fieldset").on("click", function(e) {
+				Y.one("#codefadein").transition({
+				    easing: 'ease-in-out',
+				    duration: 0.75, // seconds
+				    width: '0px',
+				    height: '0px'
+				});
+			});
+		});
+//      $("document").ready(function() {
+//        $("#codefadein").parents("fieldset").click(function(){
+//          $("#codefadein").slideToggle("slow");
+//        });
+//      });
+    </script>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Effekter</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Utsökning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+      <li><a href="del6.html">Effekter</a></li>
+      <li><a href="del7.html">Händelser</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+	<p style="text-align: center; border: dotted 2px red;">Jag måste lära mig effekter i YUI innan denna sida blir klar...</p>
+	
+    <p>P&aring; denna sida beskrivs man kan dölja eller visa element med olika effekter,
+      eller animeringar. Metoder nedan kan användas för att dölja eller visa element,
+      men även ändra elements position.</p>
+			
+	<h2>Sidans innehåll</h2>
+		
+	<ul>
+	  <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#metoder">Metoder</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+	</ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p>För att göra sidor mer tilltalande kan man animera visande och döljande av
+      element.</p>
+    
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="metoder">Metoder</h2>
+
+    <p>I detta avsnitt beskrivs metoder för att dölja/visa element med effekter,
+      t.ex. genom att gradvis dölja ett element.</p>
+    
+    <table class="tableproperties">
+      <caption>Effektmetoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Beskrivning</th>
+      </tr>
+      <tr>
+        <td class="code">.transition(vektor)</td>
+        <td>Utför en animering av element m.h.a. egenskaper i vektor</td>
+      </tr>
+    </table>
+    
+    <fieldset>
+      <legend>Exempel [ATT GÖRA: Skriv om för YUI]</legend>
+      <p>Detta exempel visar på hur man kan dölja och sen visa element när något 
+        klickas på (eng. toggle). Först väljs div-tagg ut med hjälp av dess id codefadein, 
+        sen dess förfader som är fieldset, för att koppla funktion till dess klickhändelse.
+        I klickhändelse kopplas animeringsmetoden slideToggle() till div-taggen.</p>
+        
+      <p>Klicka i denna ruta (fieldset) för att först dölja kod nedan och sen igen 
+        för att visa den igen.</p>
+					
+      <div class="code">
+        <p id="codefadein">Y.one("#codefadein").parents("fieldset").click(function(){<br />
+			&nbsp; $("#codefadein").slideToggle("slow");<br />});</p>
+      </div>
+    </fieldset>
+		
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/Node.html" class="externallink">Klassen Node</a>
+        (YUI-dokumentation).</li>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/NodeList.html" class="externallink">Klassen NodeList</a>
+        (YUI-dokumentation).</li>
+    </ul>
+
+    <ul class="foregaendenasta">
+      <li><a href="del5.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del7.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-22.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

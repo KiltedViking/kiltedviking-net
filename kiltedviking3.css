@@ -1,0 +1,341 @@
+/*******************************************************************************
+* Filename:     klitedviking2.css
+* Purpose:      Styles (CSS) for kiltedviking.net (v3)
+* Created by:   Bjorn G. D. Persson
+* Created:      2008-07-21
+* Uppdated:     2011-03-27 for new HTML 5 design
+*******************************************************************************/
+/*** Common styles ************************************************************/
+/* Set standard font and size */
+body, .normaltext
+{
+  font-family: Georgia, Palatino, "URW Palladio L", serif;
+  font-size: 13px;
+}
+/* Set colors for page body */
+body
+{
+  color: black;
+  background-color: #800000;
+}
+
+h1
+{
+  font-family: Verdana, Arial, Helvetica, "URW Gothic L", sans-serif;
+  font-size: 30px;
+  color: #800000;
+  background-color: white;
+  text-align: center;
+}
+
+h1#title
+{
+  clear: right;         /* Position below right corner */
+  margin-right: 165px;  /* For "centering" heading, i.e. compensate for logo */
+}
+
+h2.contentsheader
+{
+  color: gray;
+  background-color: white;
+  font-weight: normal;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+h3
+{
+  font-family: Verdana, Arial, Helvetica, "URW Gothic L", sans-serif;
+  text-align: center;
+  background-color: white;
+  color: #800000;
+}
+
+h4
+{
+  color: gray;
+  background-color: white;
+  font-family: Verdana, Arial, Helvetica, "URW Gothic L", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+hr  /* TODO: Check what works... */
+{
+  color: #800000;
+  background-color: #800000;
+  border-color: #800000;
+}
+
+th  /* Table headers should be "inverted" */
+{
+  font-family: Verdana, Arial, Helvetica, "URW Gothic L", sans-serif;
+  font-size: 12px;
+  background-color: #800000;
+  color: white;
+}
+
+.centre { text-align: center; } /* For centering elements */
+
+.instructions
+{
+  font-size: 10px;
+  text-align: justify;
+}
+
+/*** Container styles *********************************************************/
+/* Container to center "page" and for the white background of "page" */
+div#page
+{
+  margin: 0px auto;          /* Center "page" */
+	border-radius: 20px;
+  width: 800px;               /* Width of "page" */
+  color: black;
+  background-color: white;    /* Change to white background for "page" */
+}
+
+#content
+{
+	clear: both;
+  color: black;
+  background-color: white;    /* Change to white background for "page" */
+}
+
+/*** Header and footer styles *************************************************/
+header, footer, div#header, div#footer
+{
+  margin: 0px;
+  border: 0px;
+  /* padding: 0px; */
+  color: black;
+  background-color: white;
+}
+
+header, div#header
+{
+	padding: 20px 20px 1px;
+	/* Need to not 'overwrite' #page corners */
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+footer, div#footer
+{
+  /* width: 800px; */               /* Width of "page" */
+  clear: both;  /* Start footer on new row */
+	padding: 5px 20px 20px;
+	/* Need to not 'overwrite' #page corners */
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+footer>p, div#footer>p
+{
+	font-size: 10px;
+  background-color: white;
+  color: #800000;
+  text-align: center;
+}
+
+img#logo
+{
+  clear: both;        /* Position below both corners */
+  float: left;
+  margin-left: 20px;  /* Move right of border */
+  border: 0px;        /* Remove blue border added by link */
+}
+
+/*** Menu styles **************************************************************/
+div#menu
+{
+  clear: both;        /* Start menu on new line */
+  float: left;
+  width: 150px;
+  margin: 0px;
+	padding: 0px 20px;
+}
+
+div#menu ul
+{
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0px;
+  padding: 0px 3px;
+  font-family: Verdana, Arial, Helvetica, "URW Gothic L", sans-serif;
+  font-size: 12px;
+}
+
+div#menu ul li
+{
+  margin: 1px 0px;            /* Add a "divider" between list items */
+  padding: 1px 2px;
+  color: white;
+  background-color: #800000;  /* Add coloured background */
+}
+
+div#menu li a
+{
+  text-decoration: none;      /* Remove underlining */
+  color: white;
+  background-color: #800000;
+}
+
+div#menu a.menuitem:hover, div#menu a.menuitem:focus { color: #e0e0e0; }
+
+div#menu hr /* Divider between sections in menu */
+{
+  margin: 3px 7px;
+  width: 90%;
+}
+
+div#menu ul.menulistnext
+{
+  margin-top: 5px; 
+  border-top: solid 2px; 
+  padding-top: 5px;
+}
+
+/*** Contents styles **********************************************************/
+div#contents
+{
+  float: left;
+  width: 450px;
+	height: 100%;
+}
+
+div#contents p { text-align: justify;  /* Justify contents text */ }
+div#contents h2#note { margin-top: 4em;  /* Add some distance above note */ }
+
+td.tablecolumn63
+{
+  width: 63px;
+  vertical-align: top;
+}
+
+td.tablecolumnnext { vertical-align: top; }
+td.tablecolumn85proc { width: 85%; }
+td.tablecolumn15proc { width: 15%; }
+
+.hruletop
+{
+  margin: 5px 0px 0px; 
+  border-top: solid 2px; 
+  padding-top: 5px;
+}
+
+#contents>p.morelink 
+{ 
+  text-align: right; 
+  margin-top: -10px;
+  padding-top: 0px;
+}
+
+.normaltexteven
+{
+  color: black;
+  background-color: #FFC0C0;
+}
+
+/*** News styles **************************************************************/
+div#news
+{
+  float: left;
+  width: 120px;
+  margin: 0px;
+	padding: 0px 20px;
+	/*
+  color: black;
+  background-color: white;
+	*/
+}
+
+/* Position text to the right (opposite to menu) */
+div#news h2, div#news p { text-align: right; }
+
+div#news h3
+{
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-family: Georgia, Palatino, "URW Palladio L", serif;
+  text-align: right;
+  background-color: white;
+  color: black;
+}
+
+div#news p
+{
+  margin-top: 2px;
+  background-color: white;
+  color: black;
+}
+
+div#news .newstextfull
+{
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.smallertextlight /* Show actual error in very light text */
+{
+  font-size: 10px;
+  background-color: white;
+  color: #DCDCDC;
+}
+
+/*** Unsorted styles **********************************************************/
+.comment
+{
+  font-size: 10px;
+  background-color: white;
+  color: black;
+  margin-right: 0.5cm;
+  margin-left: 0.5cm;
+}
+.centeredcomment {
+  font-size: 10px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  margin-left: 1cm;
+  margin-right: 1cm;
+}
+.contentcell
+{
+  background-color: white;
+  color: #800000;
+  font-size: 1px;
+}
+
+.continuedcolumn
+{
+  text-align: right;
+  vertical-align: bottom;
+  background-color: white;
+  color: black;
+}
+
+.description
+{
+  font-size: 10px;
+  background-color: white;
+  color: #800000;
+  text-align: center;
+}
+
+.summary
+{
+  font-size: 13px;
+  background-color: #FFB3B3;
+  color: black;
+}
+
+/* Types of ??? */
+.uppercase { text-transform: uppercase; }
+.uppercasegrey
+{
+  color: gray;
+  background-color: white;
+  text-transform: uppercase;
+}

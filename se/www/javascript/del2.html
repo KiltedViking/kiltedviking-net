@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2.html" />
+  <title>Spr&aring;ket (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      <h1>Spr&aring;ket (JS)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li class="active"><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Inneh&aring;ll</h2>
+        
+      <p>P&aring; denna sida beskrivs syntax f&ouml;r JavaScript, d.v.s. regler f&ouml;r hur man skriver
+        JavaScript-kod samt anv&auml;nder variabler, datatyper, programkonstruktioner
+        (selektion, loopar, m.m.), m.m..</p>
+
+      <p class="kommentar">JavaScript som spr&aring;k p&aring;minner mycket om C/C++, C# och Java.
+        M&aring;nga av de operatorer som finns i C/C++/C#/Java &auml;r de samma som i JavaScript.
+        S&aring; kan du C#, C/C++, C# eller Java s&aring; &auml;r du p&aring; god v&auml;g mot att f&ouml;rst&aring; spr&aring;ket
+        JavaScript. (Hur man anv&auml;nder JavaScript &auml;r en annan sak...)</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#kommentarer" class="collection-item">Kommentarer</a></li>
+        <li><a href="#satser" class="collection-item">Satser</a></li>
+        <li><a href="#datatyper" class="collection-item">Datatyper och variabler</a></li>
+        <li><a href="#operatorer" class="collection-item">Operatorer (aritmetiska, tilldelning,
+          upp- och nedr&auml;kning, j&auml;mf&ouml;relse och logiska)</a></li>
+        <li><a href="#villkorssatser" class="collection-item">Villkorssatser (if och case)</a></li>
+        <li><a href="#loopar" class="collection-item">Loopar (for, while och do...while)</a></li>
+        <li><a href="#vektorer" class="collection-item">Vektorer</a></li>
+        <li><a href="#funktioner" class="collection-item">Funktioner</a></li>
+        <li><a href="#rackvidd" class="collection-item">R&auml;ckvidd f&ouml;r variabler</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="kommentarer">Kommentarer</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Kommentarer &auml;r mycket anv&auml;ndbara f&ouml;r att f&ouml;rklara kod s&aring; att man vid ett
+        senare tillf&auml;lle (eller n&aring;gon annan &auml;n skaparen) kan f&ouml;rst&aring;
+        vad kodens uppgift &auml;r. Kommentarer kommer anv&auml;ndas flitigt i denna
+        introduktion till JavaScript f&ouml;r att f&ouml;rklara vad som sker i exempel.</p>
+
+      <p>Kommentarer kan vara enradiga eller flerradiga. En enradig kommentar
+        b&ouml;rjar med dubbla snedsteck (<code>//</code>) och allt till h&ouml;ger om snedstrecken p&aring;
+        raden kommer betraktas som en kommentar. En flerradig kommentar
+        p&aring;b&ouml;rjas med ett snedstreck och en asterisk (<code>/*</code>) samt avslutas med en
+        asterisk och snedstreck (<code>*/</code>). Allt mellan de &ouml;ppnande och avslutande
+        kommentartecken kommer betraktas som en kommentar.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>//En enradig kommentar
+/* En fler-
+   radig kommentar */
+/*
+  alert('Hello world!');  //&quot;Bortkommenterad&quot; kod
+*/</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Den flerradiga kommentaren kan &auml;ven anv&auml;ndas f&ouml;r att "kommentera bort" en
+        eller flera rader med kod som i det tredje exemplet ovan.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="satser">Satser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En sats &auml;r en av de mest grundl&auml;ggande delarna av programmering. Att addera
+        tv&aring; tal och spara dem i en variabel eller att anropa en funktion &auml;r exempel
+        p&aring; satser. Vanligen brukar man skriva en sats per rad. Satser avslutas i JavaScript
+        med ett semikolon (<code>;</code>). I exempel nedan visas p&aring; tv&aring; satser.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var min_variabel = 1 + 2;         //sats 1
+min_variabel = min_variabel / 3;  //sats 2</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Satser man vill ska exekvera som ett s.k. block, d.v.s. som &quot;en sats&quot;,
+        innesluts mellan "v&aring;giga hakparenteser" (<code>{</code> och
+        <code>}</code>). Block anv&auml;nds bl.a.
+        n&auml;r man utf&ouml;r villkorssatser (om dessa l&auml;ngre fram). Efter ett block utel&auml;mnas
+        (oftast?) semikolon. Exempel nedan visar p&aring; ett block (se &auml;ven nedan).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>{
+  var min_pi = 3.14;
+  var r = 1;
+  var area = min_pi * r * r;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="kommentar">Semikolon kan ibland utel&auml;mnas, men jag rekommenderar
+        emot det!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="datatyper">Datatyper och variabler</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Variabler i JavaScript &auml;r vad man kallar &quot;l&ouml;st/svagt typade&quot; (eng.
+        <em>weakly-typed</em>), d.v.s. man beh&ouml;ver inte ange datatyp f&ouml;r variablerna
+        (som i m&aring;nga andra programmeringsspr&aring;k). Variabler beh&ouml;ver inte heller deklareras
+        innan de anv&auml;nds, vilket dock rekommenderas. F&ouml;r att deklarera en
+        variabel anv&auml;nder man sig av det reserverade ordet <code>var</code>,
+        som dock inte &auml;r obligatoriskt, samt tilldelar variabel ett initialt
+        v&auml;rde. Genom att anv&auml;nda det reserverade ordet <code>var</code> s&aring;
+        blir deklarationer av variabler tydligare samt man undviken en del problem
+        (se nedan).</p>
+
+      <p>Variabler kan vara av datatyperna:</p>
+
+      <ul>
+        <li><strong>Tal</strong> - heltal eller decimaltal (flyttal), ex. <code>34</code> 
+          eller <code>-215</code> resp. <code>0.75</code> eller <code>3.1415</code>. <strong>Observera</strong>
+          att man anv&auml;nder punkt och <strong>komma</strong> i decimaltal!</li>
+        <li><strong>Str&auml;ngar</strong> - text som inneslutits inom citationstecknen
+          (") eller apostrofer ('), ex. <code>"En bil har en motor"</code> resp.
+          <code>'Volvo rullar'</code>.</li>
+        <li><strong>Boolean</strong> - sant eller falskt, ex. <code>true</code>
+          resp. <code>false</code>.</li>
+        <li><strong>Null</strong> -&nbsp;det v&auml;rde en oinitierad variabel har.</li>
+        <li><strong>Objekt</strong> -&nbsp;en &quot;container&quot; som inneh&aring;ller b&aring;de data och
+          metoder f&ouml;r att bearbeta datan med (se sidan Objekt).</li>
+      </ul>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var min_variabel = 1;  //inneh&aring;ller heltalet 1
+var minvariabel = "1"; //inneh&aring;ller str&auml;ngen 1&nbsp;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="operatorer">Operatorer</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Operatorer anv&auml;nds f&ouml;r att bl.a. utf&ouml;ra ber&auml;kningar med tal samt
+        f&ouml;r att j&auml;mf&ouml;ra olika v&auml;rden.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Aritmetiska</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>De fyra r&auml;knes&auml;tten: <code>+</code> (addition), <code>-</code>
+        (subtraktion), <code>*</code> (multiplikation) och <code>/</code>
+        (division).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>1 + 2;
+3 - 1;
+2 * 3;
+9 / 3;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Tilldelning</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Tilldelning sker med likhetstecknet (<code>=</code>).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var min_pi = 3.14;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Upp- och nedr&auml;kning</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Precis som i C/C++ (samt C# och Java) s&aring; kan man anv&auml;nda operatorerna
+        <code>++</code> f&ouml;r att &ouml;ka en variabels v&auml;rde med 1 och
+        <code>--</code> f&ouml;r att minska variabelns v&auml;rde med 1.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>i = 1; //tilldela 1 till variabeln i
+i++;   //&ouml;ka variabeln i med 1, d.v.s. i &auml;r nu 2
+i--;   //minska variabeln i med 1, d.v.s. i &auml;r nu 1.</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>J&auml;mf&ouml;relse</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>&lt;</code> - mindre &auml;n</li>
+        <li><code>&gt;</code> - st&ouml;rre &auml;n</li>
+        <li><code>&lt;=</code> - mindre &auml;n eller lika med</li>
+        <li><code>&gt;=</code> - st&ouml;rre &auml;n eller lika med</li>
+        <li><code>==</code> - lika med</li>
+        <li><code>===</code> - ekvivalent , d.v.s. att det &auml;r samma objekt
+          (se sidan Objekt)</li>
+        <li><code>!=</code> - skilt fr&aring;n (inte lika med)</li>
+        <li><code>!==</code> - icke ekvivalent (se sidan Objekt)</li>
+      </ul>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>'a' &lt; 'b'   //sant
+1 &gt; 2       //falskt
+2 * 3 == 6  //sant
+4 / 2 != 4  //falskt</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Logiska</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><code>!</code> - negation, om operand &auml;r sann s&aring; blir testet falskt och tv&auml;rtom</li>
+        <li><code>||</code> - eller, endast en av operanderna beh&ouml;ver vara sann f&ouml;r att
+          testet ska bli sant</li>
+        <li><code>&amp;&amp;</code> - och, b&auml;gge operander m&aring;ste vara sanna f&ouml;r att
+          testet ska bli sant</li>
+      </ul>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var vinter = true;
+var sommar = false;
+!vinter           //falskt
+vinter || sommar  //sant
+vinter &amp;&amp; sommar  //falskt</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="villkorssatser">Villkorssatser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Villkorssatser anv&auml;nds f&ouml;r att testa villkor och, beroende p&aring;
+        resultatet av villkor, s&aring; kan olika programsatser utf&ouml;ras. T.ex. kan
+        man testa om en bes&ouml;kare av en hemsida (med JavaScript-kod) klickade
+        p&aring; Ja eller Nej i en dialogruta.</p>
+
+      <p>Det finns tv&aring; typer av villkorssatser i JavaScript: if och case.
+        If-satser anv&auml;nds oftast d&aring; man man har f&aring; alternativ att v&auml;lja p&aring;
+        och case-satser d&aring; man har ett st&ouml;rre antal alternativ.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>If-satser</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>If-satser kommer i tv&aring; versioner: den (vanligare) som kan ha fler
+        &auml;n tv&aring; alternativ och den som endast kan hantera tv&aring; alternativ. Vi
+        b&ouml;rjar med den "st&ouml;rre" varianten.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>if(villkor)</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I sin enklaste form s&aring; kan if-satser anv&auml;ndas f&ouml;r att avg&ouml;ra om satser ska
+        utf&ouml;ras eller inte, d.v.s. om villkor &auml;r sant utf&ouml;rs satser. Vi kan &auml;ven
+        ha en s.k. else-sats om vi vill g&ouml;ra olika saker beroende p&aring; om villkor &auml;r
+        sant respektive falskt. Else-block kan &auml;ven inneh&aring;lla en ny if-sats, men
+        man brukar &auml;nd&aring; skriva som i exempel 3 nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>if( villkor ) { 
+  satser 
+}</code></pre>
+
+      <pre><code>if( villkor ) { 
+  satser 
+}
+else { 
+  satser 
+}</code></pre>
+
+      <pre><code>if( villkor1 ) { 
+  satser 
+}
+else if( villkor2 ) { 
+  satser 
+}
+else { 
+  satser 
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Observera att man <strong>inte</strong> skriver ett semikolon efter
+        blocken (hakparenteserna)! D&auml;remot b&ouml;r alla satser i respektive block avslutas
+        med semikolon.</p>
+
+      <p>Om block endast inneh&aring;ller en sats s&aring; kan man utel&auml;mna hakparenteserna,
+        d.v.s. f&ouml;ljande form f&ouml;r if-sats &auml;r ocks&aring; korrekt.</p>
+    </div>
+    
+    <div class="medium-5 columns">
+      <pre><code>if( villkor1 )
+  sats;
+else
+  sats;</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan visas tv&aring; varianter p&aring; if-sats med else-block, d.v.s. vi testar om
+        variabeln min_var multiplicerat med tv&aring; blir sex.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var min_var = 3;
+if( min_var * 2 == 6) {
+  min_text = "Villkoret var sant";
+}
+else {
+  min_text = "Villkoret var falskt";
+}
+if( min_var * 2 == 6)
+  min_text = "Villkoret var sant";
+else
+  min_text = "Villkoret var falskt";</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>villkor ? om_sant : om_falskt</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Den "mindre" varianten ser ut enligt nedan och skrivs oftast p&aring; en rad.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>(villkor) ? v&auml;rde om sant : v&auml;rde om falskt</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Exempel ovan med if-sats ovavn kan skrivas om enligt nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>min_text = (min_var*2 == 6) ? "Villkoret &auml;r sant" : "Villkoret &auml;r falskt";</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del2/javascript2_1.html" target="_blank" class="button button-primary">Exempel 2.1 - If-satser</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Case-satser</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Case-satser anv&auml;nds som sagt d&aring; man har ett st&ouml;rre antal
+        alternativ att v&auml;lja fr&aring;n. Formen (syntaxen) f&ouml;r case-satser &auml;r
+        f&ouml;ljande.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>switch(uttryck)
+{
+  case v&auml;rde1:
+    satser;
+    break;
+  case v&auml;rde2:
+    satser;
+    break;
+  default:
+    satser;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>N&auml;r vi anv&auml;nder case-satser s&aring; anv&auml;nder vi inte block (hakparenteser), utan
+        vi avslutar &quot;block&quot; genom att skriva <code>break;</code>.
+        Sk&auml;let till detta &auml;r att vi skulle kunna ha tv&aring; v&auml;rden (f&ouml;r uttryck) som skulle
+        kunna g&ouml;ra samma sak. D.v.s. nedanst&aring;ende form av case-sats &auml;r till&aring;ten, d.v.s
+        v&auml;rde1 och v&auml;rde2 kommer inneb&auml;r att samma satser utf&ouml;rs.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>switch(uttryck)
+{
+&nbsp; case v&auml;rde1:
+&nbsp; case v&auml;rde2:
+&nbsp;&nbsp;&nbsp; satser;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; case v&auml;rde3:
+&nbsp;&nbsp;&nbsp; satser;
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; default:
+&nbsp;&nbsp;&nbsp; satser;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p><strong>Observera</strong> att ett vanligt fel n&auml;r man anv&auml;nder case-satser
+        &auml;r att man gl&ouml;mmer satsen <code>break;</code>! G&ouml;r man det
+        kommer efterf&ouml;ljande alternativ (<em>case</em>) att utf&ouml;ras tills en
+        break-sats p&aring;tr&auml;ffas.</p>
+
+      <p>Exempel med if-satser ovan kan skrivas om (n&aring;got &quot;krystat&quot;) enligt
+        f&ouml;ljande.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>switch(min_var * 2)
+{
+  case 6:
+    min_text = "Villkoret var sant"
+    break;
+  default:
+    min_text = "Villkoret var falskt"
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del2/javascript2_2.html" target="_blank" class="button button-primary">Exempel 2.2 - Case-satser</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="loopar">Loopar</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Loopar (iterationer) anv&auml;nds f&ouml;r att utf&ouml;ra en eller flera satser ett visst
+        antal g&aring;nger eller tills ett visst villkor &auml;r uppfyllt. I JavaScript finns
+        det tre typer av loopar: <code>for</code>, <code>while</code>
+        och <code>do...while</code>. Syntaxen f&ouml;r looparna &auml;r enligt
+        nedan.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>for</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>For-loopen anv&auml;nds (oftast) d&aring; man vill loopa ett visst antal g&aring;nger.
+        Man anv&auml;nder sig av en r&auml;knare f&ouml;r att avg&ouml;ra om loopen ska
+        avbrytas.</p>
+
+      <p>I for-loopar s&aring; b&ouml;rjar man med att tilldela ett startv&auml;rde till
+        r&auml;knaren (i = 0). Sen anger man det v&auml;rde som r&auml;knaren f&ouml;r uppn&aring;
+        innan loopen avbryts (i &lt; 10). Och sist anger man hur r&auml;knaren ska
+        &ouml;kas p&aring; (i++ i exemplet).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>var i;
+for(i = 0; i &lt; 10; i++)
+{
+  satser;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Genom att utel&auml;mna de tre satserna (som det faktiskt &auml;r) i
+        for-loopens parentes s&aring; skapar man en o&auml;ndlig loop, d.v.s. en loop som
+        sker tills den avbryts p&aring; n&aring;got annat s&auml;tt. L&auml;ngre ner f&ouml;rklaras hur man
+        kan avbryta loopar.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>while</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>While-loopen loopar s&aring; l&auml;nge som ett villkor &auml;r sant.</p>
+
+      <p>Med while-loopar s&aring; anger man ett villkor f&ouml;rst som anger hur
+        l&auml;nge loopen ska utf&ouml;ras. S&aring; l&auml;nge villkoret &auml;r sant s&aring; kommer
+        loppen att utf&ouml;ras. Eftersom villkoret skrivs f&ouml;rst s&aring; kan det
+        t&auml;nkas att loopen aldrig utf&ouml;r om villkoret &auml;r falskt fr&aring;n b&ouml;rjan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>while( villkor )
+{
+  satser;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>do...while</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Do...while-loopen fungerar som while-loopen men med den skillnaden att
+        den alltid genomf&ouml;rs minst en g&aring;ng d&aring; villkoret testas f&ouml;rst efter
+        att loopen genomf&ouml;rts.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>do
+{
+  satser
+} while( villkor );</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Avbryta loop med break och continue</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Om man vill avbryta en loop d&aring; ett villkor, annat &auml;n det f&ouml;r
+        loopen, har skett s&aring; kan man anv&auml;nda det reserverade ordet
+        <code>break</code>. Loopen kommer d&aring; avbrytas i f&ouml;rtid och exekveringen
+        kommer forts&auml;tta med f&ouml;rsta satsen efter loopen.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>for(i = 0; i &lt; 10; i++)
+{
+  //satser
+  if(i / 5 == 1)  //om talet j&auml;mt delbart med 5...
+    break;        //... avbryt loop
+  //satser
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vill man inte vara s&aring; &quot;drastisk&quot;, d.v.s. man vill bara avbryta
+        just det &quot;varvet&quot; i loopen, anv&auml;nder man det reserverade ordet
+        <code>continue</code>. D.v.s. resten av satserna i loopen skippas och man
+        forts&auml;tter exekveringen vid f&ouml;rsta satsen i loopen. Givetvis efter att
+        ha unders&ouml;kt att loopens eventuella villkor &auml;r sant.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>while(i &lt; 10)
+{
+  //satser
+  if(i % 2 == 0)  //om talet j&auml;mt delbart med 2
+    continue;     //... forts&auml;tt med n&auml;sta loop
+  //satser som exekverar om if-sats ger falskt
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del2/javascript2_3.html" target="_blank" class="button button-primary">Exempel 2.3 - Loopar</a></p>
+
+      <p>Det finns &auml;ven n&aring;got som kallas etiketter (eng. <em>label</em>) som
+        kan anv&auml;ndas f&ouml;r att att "hoppa" till vid exekvering. Det
+        rekommenderas (jag rekommenderar) inte att man anv&auml;nder dessa d&aring; det
+        g&ouml;r koden sv&aring;rare att l&auml;sa (kan finnas en anledning att spr&aring;ket
+        BASIC - inte Visual Basic - har f&ouml;rlorat i betydelse...:-)).&nbsp;</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2 id="vektorer">Vektorer (<i>arrays</i>)</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>N&auml;r man har flera v&auml;rden man vill spara, kanske ett ok&auml;nt antal,
+        s&aring; &auml;r det inte vidare praktiskt att skapa en (enkel) variabel f&ouml;r varje
+        v&auml;rde. Man kan d&aring; anv&auml;nda sig av en s.k. vektor (eng. <em>array</em>).
+        En vektor kan s&auml;gas vara ett (variabel-)namn som refererar till flera
+        v&auml;rden. V&auml;rden lagras i vektorn p&aring; fasta positioner (kallat index)
+        som kan vara fr&aring;n noll (0) till storleken p&aring; vektorn minus ett. D.v.s. vektor
+        i JavaScript &auml;r vad man kallar nollbaserad.</p>
+
+      <p class="kommentar">En vektor &auml;r egentligen ett objekt av klassen Array men
+        behandlas h&auml;r d&aring; vektorer brukar klassas som en del av programmeringsspr&aring;k
+        (mer om objekt senare). I motsats till de flesta andra spr&aring;k s&aring; beh&ouml;ver man
+        inte, i JavaScript, ange storleken p&aring; vektorer n&auml;r de skapas.</p>
+
+      <p>F&ouml;r att anv&auml;nda en vektor m&aring;ste man f&ouml;rst skapa objektet den och f&ouml;r att
+        skapa en vektor (av obest&auml;md storlek) s&aring; skriver man enligt nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var enVektor = new Array;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Om man vet hur m&aring;nga positioner man vill ha i vektor s&aring; skriver man enligt
+        nedan. I exempel skapas en vektor med 20 positioner,</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var enVektor = new Array(20);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>F&ouml;r att l&auml;gga till (placera) ett v&auml;rde i vektorn s&aring; anger man index f&ouml;r den
+        position man vill lagra v&auml;rdet p&aring;. Man s&auml;ger att man &quot;indexerar&quot;
+        i vektorn och man anv&auml;nder d&aring; &quot;fyrkantsparenteser&quot; (<code>[</code>
+        och <code>]</code>).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>enVektor1[0] = "F&ouml;rsta position"; //Lagra p&aring; pos. 1
+var str = enVektor[0];      //H&auml;mta v&auml;rde p&aring; pos. 1</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vektorer kan &auml;ven skapas och tilldelas ursprungliga v&auml;rden samtidigt. D&aring;
+        skriver man de ursprungliga v&auml;rdena inom parentes efter ordet Array.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>  //Ex.1: Skapa vektorobjektet av ok&auml;nd storlek
+var enVektor1 = new Array;
+enVektor1[0] = "F&ouml;rsta position"; //Lagra p&aring; pos. 1
+enVektor1[1] = "Andra position";  //Lagra p&aring; pos. 2
+enVektor1[99] = "99:e position";  //Position 100
+  //Ex.2: Skapa vektorobjektet av storlek 20
+var enVektor2 = new Array(20);
+enVektor2[0] = "F&ouml;rsta position"; //Lagra p&aring; pos. 1
+enVektor2[1] = "Andra position";  //Lagra p&aring; pos. 2
+enVektor2[19] = "20:e position";  //Lagra pos. 20
+  //Ex.3: Skapa vektor och ange v&auml;rden samtidigt
+var enVektor3 = new Array(&quot;F&ouml;rsta&quot;, &quot;Andra&quot;);</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del2/javascript2_4.html" target="_blank" class="button button-primary">Exempel 2.4 - Vektorer</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="funktioner">Funktioner</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>En funktion &auml;r en samling av satser som kan &quot;refereras till&quot;
+        med ett namn. Funktionerer anv&auml;nds ocks&aring; f&ouml;r att bryta ut kod som anv&auml;nds
+        p&aring; flera st&auml;llen i ett program (eller JavaScript). F&ouml;r att anropa
+        funktionen i ett JavaScript s&aring; skriver man helt enkelt namnet p&aring; funktionen
+        (f&ouml;ljt av parenteser med eventuella argument).</p>
+
+      <p>F&ouml;r att skapa en funktion s&aring; anv&auml;nder man f&ouml;ljande syntax:</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function funktionsnamn(parameter1, parameter2, ...)
+{
+  //satser
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>F&ouml;r att anropa (utf&ouml;ra) funktionen s&aring; skriver funktionens namn f&ouml;ljt av argument
+        (v&auml;rden), som ska skickas till funktion, inom parenteser (enligt nedan).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>funktionsnamn(argument1, argument2, ...);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Funktionen ovan returnerar inget resultat (och &auml;r, vad som i vissa
+        programmeringsspr&aring;k kallas f&ouml;r en procedur). Om man vill ha tillbaka
+        ett resultat fr&aring;n en funktion (d.v.s. den ska fungera som, vad som kallas,
+        en funktion) s&aring; anv&auml;nder man sig av det reserverade <code>return</code>
+        f&ouml;r att returnera ett resultat fr&aring;n funktionen.</p>
+
+      <p class="kommentar">Observera, k&auml;ra kunniga programmerare, att man inte skriver
+        n&aring;gon typ f&ouml;r returv&auml;rdet i funktionens signatur! :-) Kom ih&aring;g, spr&aring;ket &auml;r
+        otypat.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function funktionsnamn(parameter1, parameter2, ...)
+{
+  //satser
+  return returv&auml;rde;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Genom att returnera ett v&auml;rde s&aring; avbryts exekveringen av funktionen. Man
+        kan m.a.o. anv&auml;nda det reserverade ordet <code>return</code>
+        utan ett returv&auml;rde f&ouml;r att avbryta en funktions exekvering (utan att returnera
+        ett resultat). F&ouml;r att ta vara p&aring; (f&aring;nga upp) ett returv&auml;rde fr&aring;n en funktion
+        skriver man enligt nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var min_var = funktionsnamn(arg1, arg2, ...);</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Funktioner b&ouml;r deklareras (skrivas) inom HTML-dokumentets HEAD-tagg,
+        d.v.s. i b&ouml;rjan p&aring; dokumentet, eller l&auml;nkas in i ett externt dokument s&aring; att
+        de finns tillg&auml;ngliga f&ouml;r hela dokumentet. (Externa dokument rekommenderas.)</p>
+
+      <p>Nedan deklareras en funktion addera som, just, adderar tv&aring; tal som skickas
+        som argument till funktionen. Funktionen anropas sen och tilldelar resultatet
+        (returv&auml;rdet) till en variabel.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function addera(tal1, tal2) {
+  return tal1 + tal2;
+}
+
+var summa = addera(1, 2);  //Anropa funktionen</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="center"><a href="del2/javascript2_5.html" target="_blank" class="button button-primary">Exempel 2.5 - Funktioner</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Inbyggda funktioner</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>JavaScript har ett antal "f&ouml;rdefinerade" funktioner som
+        alltid finns tillg&auml;ngliga. Bland annat f&ouml;ljande:</p>
+
+      <ul>
+        <li><code>parseInt(<em>str&auml;ng</em>)</code> - returnerar ett heltal om str&auml;ngen inneh&aring;ller
+          ett tal som str&auml;ng.</li>
+        <li><code>parseFloat(<em>str&auml;ng</em>)</code> - returnerar ett decimaltal om
+          str&auml;ngen inneh&aring;ller ett tal som str&auml;ng.</li>
+      </ul>
+
+      <p>Om str&auml;ngen som skickas till ovanst&aring;ende funktioner inte inneh&aring;ller
+        ett tal s&aring; returneras ett v&auml;rde kallat NaN (<em>Not-a-Number</em>).</p>
+
+      <ul>
+        <li><code>isNaN(<em>v&auml;rde</em>)</code> - kan anv&auml;ndas f&ouml;r att
+          testa om ett v&auml;rde &auml;r NaN eller inte.</li>
+      </ul>
+
+      <p>F&ouml;r att <code>isNaN(<em>v&auml;rde</em>)</code> ska returnerar sant
+        s&aring; m&aring;ste <em>v&auml;rde</em> b&ouml;rja p&aring; en siffra. Om <em>v&auml;rde</em>
+        b&ouml;rjar p&aring; ett annat tecken s&aring; returnerar funktionen falskt.</p>
+
+      <p class="center"><a href="del2/javascript2_6.html" target="_blank" class="button button-primary">Exempel 2.6 - Inbyggda funktioner</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="rackvidd">R&auml;ckvidd p&aring; variabler</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Variabler kan deklareras var som helst i SCRIPT-taggar. Men det
+        rekommenderas i de flesta programmeringsspr&aring;k att variabler deklareras
+        i b&ouml;rjan av kod.</p>
+
+      <p>Om en variabel deklareras utanf&ouml;r alla block kommer att vara, vad man kallar,
+        global. En global variabel kan n&aring;s fr&aring;n var som helst i skriptkod (som finns
+        efter den rad som variabeln har deklarerats p&aring;). Om en variabel ist&auml;llet deklareras
+        (med det reserverade ordet <code>var</code>) i ett block (t.ex.
+        en funktion), s&aring; kommer variabeln endast vara giltig inom blocket (funktionen).
+        R&auml;ckvidden f&ouml;r variabeln s&auml;gs vara lokal f&ouml;r blocket (funktionen).</p>
+
+      <p>Ett sk&auml;l till att alltid anv&auml;nda det reserverade ordet
+        "var" n&auml;r man deklarerar en variabeln &auml;r f&ouml;r att undvika
+        eventuella missf&ouml;rst&aring;nd. T.ex om man vill anv&auml;nda en variabel i ett
+        block, och det finns en global variabel med samma namn, s&aring; m&aring;ste man anv&auml;nda
+        det reserverade ordet <code>var</code> n&auml;r man deklarerar den
+        lokala variabeln. Om inte s&aring; kan den globala variabeln &auml;ndras av misstag vid
+        en eventuell tilldelning till variabel inom blocket.</p>
+
+      <p class="kommentar">Det h&auml;r med globala variabler och hur de fungerar i JavaScript
+        kan vara mycket f&ouml;rvirrande f&ouml;r oss som programmerar i &quot;vanliga&quot;
+        programmeringsspr&aring;k s&aring; som Java och VB.NET!</p>
+
+      <p class="center"><a href="del2/javascript2_7.html" target="_blank" class="button button-primary">Exempel 2.7 - Variablers r&auml;ckvidd</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan finns n&aring;gra webbsidor/-platser med mer information om &auml;mnet p&aring; denna
+        webbsida.</p>
+
+      <ul>
+        <li>Inga &auml;nnu...</li>
+      </ul>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="del1.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="del3.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

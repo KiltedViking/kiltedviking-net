@@ -1,0 +1,711 @@
+<html>
+<head>
+  <title>ASP - VBScript lathund (del 2) - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
+  </tr>
+  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+      <table border="0" width="100%">
+        <tr>
+          <td width="30%"><a href="../../index.html"><img border="0"
+            src="../../bilder/logony1.jpg" alt="Till startsida för Björns studiewebb"
+            width="155" height="54"></a></td>
+          <td width="70%" class="rubrik">VBScript lathund</td>
+        </tr>
+        <tr valign="top">
+          <td width="30%" bgcolor="#ffffaa">
+            <h4>Innehåll - del 2</h4>
+            <p>
+            <A HREF="index.html" CLASS="lank">Del 1 <img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            </A></p>
+            <p>
+            <A HREF="#funktioner" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Funktioner</A><BR>
+            <A HREF="#inbyggda-objekt" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Inbyggda objekt</A><BR>
+            <A HREF="#skriptobjekt" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
+            Skriptobjekt</A></p>
+            <p><A HREF="../index.html" CLASS="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Tillbaka</A> till ASP<br>
+            <a href="../../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
+            Till startsida</a> för studiewebb</p>
+          </td>
+          <td width="70%">
+
+            <p align="center">[ <b>UNDER UPPBYGGNAD</b> ]</p>
+            <p>Denna sida innehåller andra delen av lathund för VBScript i ASP 3.
+            Denna del behandlar de funktioner och objekt (både inbyggda och de
+            som kan skapas) som finns tillgängliga i VBScript. Listan på
+            funktioner är inte
+            komplett då funktioner för t.ex. geometri (sin, cos och tan) har utelämnats då dessa inte är frekvent använda i ASP.</p>
+            <p>För en komplett beskrivning av VBScript i ASP rekommenderas <B>Beginning
+            Active Server Pages 3.0</B> från <A HREF="http://www.wrox.com/">Wrox
+            Press</A>. Se även <A HREF="http://msdn.microsoft.com/">MSDN</A>
+            (Microsoft Developer Network) eller, för er som äger/har tillgång
+            till Microsoft Visual InterDev 6, MSDN i hjälpen (sök på &quot;VBScript,
+            language reference&quot;).</p>
+          </td>
+        </tr>
+      </table>
+
+      <hr>
+      <P>Tanken med denna sida var att göra en referenslista för VBScript -
+      det har blivit en lite väl omfattande sida. :-) Därför har lathunden
+      delats i två delar. Framöver kommer jag (antagligen) att göra exempel för de olika sakerna
+      som finns på denna sida. (För den vetgiriga så innehöll denna webbsida
+      ca. 700 rader med HTML-kod den 9/12-01.)</P>
+      <P><B>Observera</B> att exemplen endast fungerar om denna webbplats finns
+      på en webbserver som stödjer ASP!&nbsp;Se sidan Om på <A HREF="../../index.html">Björns
+      studiewebb</A>.</P>
+      <hr>
+
+      <H2><A NAME="funktioner"></A>Funktioner (och relaterade konstanter)</H2>
+
+      <P>Nedan visas bara funktionerna, dess obligatoriska parametrar och en
+      förklaring till vad dom gör. Några funktioner kan ta emot fler
+      parametrar än som visas här. (Funktionerna presenteras på detta sätt
+      för att t.ex. visa på vilka funktioner som finns. Se MSDN för en mer
+      komplett beskrivning av funktionerna.) Funktionerna har delats upp i följande kategorier:</P>
+
+      <UL>
+        <LI><A HREF="#funktioner-datum">Datum och tid</A></LI>
+        <LI><A HREF="#funktioner-konvertering">Konvertering</A></LI>
+        <LI><A HREF="#funktioner-matematiska">Matematiska</A></LI>
+        <LI><A HREF="#funktioner-strangar">Strängar</A></LI>
+        <LI><A HREF="#funktioner-vektorer">Vektorer</A>&nbsp;</LI>
+      </UL>
+
+      <H3><A NAME="funktioner-datum"></A>Datum och tid</H3>
+
+      <P>Det finns tre olika sätt att returnera dagens datum och/eller tiden
+      nu.</P>
+
+      <UL>
+        <LI><B>Date</B> - returnerar dagens datum (med tiden satt till 00:00:00).</LI>
+        <LI><B>Now</B> - returnerar dagens datum och tiden nu.</LI>
+        <LI><B>Time</B> - returnerar tiden nu (med datum satt till dagens datum).</LI>
+      </UL>
+      <P>Skillnaden mellan funktionerna Date, Now och Time är att tid och datum
+      brukar betraktas som två olika saker (trots att de lagras tillsammans). Endast funktionen Now returnerar (egentligen) båda.
+      (Se <A HREF="funktioner/datum1_1.asp" TARGET="_blank">exempel</A>.)</P>
+      <P>Nedan visas alla funktioner som kan användas för att manipulera
+      datum/tid och för att &quot;skapa&quot; datum/tid.</P>
+
+      <UL>
+        <LI><B>DateAdd(&quot;intervall&quot;, antal_intervall, datum) </B> - adderar
+          ett antal av intervall till ett datum.</LI>
+        <LI><B>DateDiff(&quot;intervall&quot;, datum1, datum2)</B> - returnerar antal intervall mellan två datum.</LI>
+        <LI><B>DatePart(&quot;intervall&quot;, datum)</B> - returnerar en del
+          (intervall) av ett datum.</LI>
+        <LI><B>DateSerial(år, månad, dag)</B> - returnerar datumet för året,
+          månaden och dagen.</LI>
+        <LI><B>DateValue(&quot;datum&quot;)</B> - returnerar datumet för strängen
+          &quot;datum&quot;.</LI>
+        <LI><B>Day(datum)</B> - returnerar ett tal mellan 1 och 31 som motsvarar dag i
+          månaden i datum.</LI>
+        <LI><B>Hour(datum)</B> -&nbsp;returnerar ett tal mellan 0 och 23 som
+          motsvarar timme i datum.</LI>
+        <LI><B>IsDate(variabel)</B> -&nbsp;returnerar sant om variabel är av
+          undertypen Date.</LI>
+        <LI><B>Minute(datum)</B> -&nbsp;minuter in på timme i datum.</LI>
+        <LI><B>Month(datum)</B> -&nbsp;månadsnummer i datum.</LI>
+        <LI><B>MonthName(månadsnr)</B> -&nbsp;returnerar namnet på månadsnr.</LI>
+        <LI><B>Second(datum)</B> -&nbsp;sekunder in på minut i datum.</LI>
+        <LI><B>TimeSerial(timme, minuter, sekunder)</B> -&nbsp;returnerar tiden
+          för timme, minuter och sekunder.</LI>
+        <LI><B>TimeValue(&quot;tid&quot;)</B> -&nbsp;returnerar datumet för
+          strängen &quot;tid&quot;.</LI>
+        <LI><B>Weekday(datum)</B> -&nbsp;returnerar ett tal mellan 1 och 7 som
+          motsvarar dag i veckan (<B>OBS!</B> söndag är dag 1 som standard!).</LI>
+        <LI><B>WeekdayName(dag_i_vecka)</B> -&nbsp;returnerar namnet på
+          dag_i_vecka.</LI>
+        <LI><B>Year(datum)</B> -&nbsp;returnerar år i datum.</LI>
+      </UL>
+      <P>Intervall ovan kan vara något av följande</P>
+
+      <TABLE BORDER="1" WIDTH="100%">
+        <TR>
+          <TD WIDTH="13%" CLASS="gulfet">Värde&nbsp;</TD>
+          <TD WIDTH="87%" CLASS="gulfet">Förklaring</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;yyyy&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">år</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;q&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">kvartal</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;m&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">månad</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;y&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">dag i året</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;d&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">dag (i månad)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;w&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">veckodag (1 brukar vara söndag och 7 lördag)</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;ww&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">vecka i året</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;h&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">timme</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;n&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">minuter</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="13%" CLASS="normal">&quot;s&quot;</TD>
+          <TD WIDTH="87%" CLASS="normal">sekunder</TD>
+        </TR>
+      </TABLE>
+      <P>Några konstanter som kan vara användbara i samband med datum är
+      följande</P>
+
+      <TABLE BORDER="1" WIDTH="100%">
+        <TR>
+          <TD WIDTH="21%" CLASS="gulfet">Konstant</TD>
+          <TD WIDTH="11%" CLASS="gulfet">Värde</TD>
+          <TD WIDTH="68%" CLASS="gulfet">Förklaring</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbSunday</TD>
+          <TD WIDTH="11%" CLASS="normal">1</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbMonday</TD>
+          <TD WIDTH="11%" CLASS="normal">2</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbTuesday</TD>
+          <TD WIDTH="11%" CLASS="normal">3</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbWednesday</TD>
+          <TD WIDTH="11%" CLASS="normal">4</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbThursday</TD>
+          <TD WIDTH="11%" CLASS="normal">5</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbFriday</TD>
+          <TD WIDTH="11%" CLASS="normal">6</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+        <TR>
+          <TD WIDTH="21%" CLASS="normal">vbSaturday</TD>
+          <TD WIDTH="11%" CLASS="normal">7</TD>
+          <TD WIDTH="68%" CLASS="normal">&nbsp;</TD>
+        </TR>
+      </TABLE>
+      <P><B>Observera</B> att datum brukar kunna ställa till problem!
+      Datumformaten är olika i olika länder, t.ex. Sverige ([YY]YY-MM-DD),
+      Storbritannien (DD/MM/YY) och USA (MM/DD/YY). Kontrollera därför hur
+      datumen fungerar (vilket format dom har) på datorn du ska placera
+      ASP-sidorna på!</P>
+
+      <H3><A NAME="funktioner-konvertering"></A>Konvertering</H3>
+
+      <UL>
+        <LI><B>Asc(sträng)</B> / <B>AscB(sträng)</B> / <B>AscW(sträng)</B> -&nbsp;returnerar
+          ANSI-/byte-/Unicode-värdet på första bokstaven i sträng.</LI>
+        <LI><B>CBool(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Boolean.</LI>
+        <LI><B>CByte(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Byte.</LI>
+        <LI><B>CCur(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Currency.</LI>
+        <LI><B>CDate(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Date.</LI>
+        <LI><B>CDbl(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Double.</LI>
+        <LI><B>Chr(värde)</B> / <B> ChrB(värde)</B> / <B>ChrW(värde)</B> -&nbsp;returnerar
+          bokstaven motsvarande (ANSI-/byte-/Unicode-)värde.</LI>
+        <LI><B>CInt(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Integer.</LI>
+        <LI><B>CLng(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Long.</LI>
+        <LI><B>CSng(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen Single.</LI>
+        <LI><B>CStr(uttryck)</B> -&nbsp;returnerar uttryck konverterat till en
+          Variant av undertypen String.</LI>
+        <LI><B>Hex(tal)</B>, <B>Oct(tal)</B> -&nbsp;returnerar tal konverterat
+          till hexadecimalt respektive oktalt tal.</LI>
+      </UL>
+      <P>Datumfunktionerna DateSerial(), DateValue(), TimeSerial() och TimeValue()
+      kan även de ses som konverteringsfunktioner om man vill.</P>
+
+      <H3><A NAME="funktioner-matematiska"></A>Matematiska</H3>
+
+      <UL>
+        <LI><B>Abs(tal)</B> - returnerar det absoluta (positiva) värdet på ett tal.</LI>
+        <LI><B>Fix(tal)</B> - returnerar heltalsdelen av ett tal.</LI>
+        <LI><B>Int(tal)</B> - returnerar heltalsdelen av ett tal.</LI>
+        <LI><B>Randomize</B> - initialiserar slumptalsgeneratorn. Bör anropas
+          före första anropet av Rnd.</LI>
+        <LI><B>Rnd</B> - returnerar nästa slumptal.</LI>
+        <LI><B>Round(tal)</B> - avrundar ett tal.</LI>
+        <LI><B>Sgn(tal)</B> - returnerar ett heltal med samma tecken som talet (-1, 0 eller
+          1).</LI>
+        <LI><B>Sqr(tal)</B> - returnerar talet i kvadrat.</LI>
+      </UL>
+
+      <H3><A NAME="funktioner-strangar"></A>Strängar</H3>
+
+      <P>Strängar lagras som Unicode, d.v.s. två byte för varje tecken.
+      Några av funktionerna nedan har även en motsvarande funktion som
+      &quot;jobbar&quot; på bytenivå (ges prefixet B, t.ex. InStrB() - se MSDN
+      för mer information).</P>
+
+      <P>Strängfunktionerna har delats upp i tre kategorier:</P>
+
+      <UL>
+        <LI><B>Formatering</B> - påverkar hur strängen presenteras.</LI>
+        <LI><B>Sökfunktioner och jämförelse</B> - funktioner som används
+          för att söka i sträng, returnera delar av sträng eller jämföra
+          två strängar.&nbsp;</LI>
+        <LI><B>Strängmanipulation</B> - funktioner som returnerar strängar
+          manipulerade på ett eller anant sätt.</LI>
+      </UL>
+      <P>Alla funktioner returnerar en ny sträng, d.v.s. påverkar inte
+      eventuell variabel med sträng i.</P>
+      <H4>Formatering</H4>
+
+      <UL>
+        <LI><B>FormatCurrency(uttryck)</B> -&nbsp;returnerar uttryck formaterat
+          till regionalt valutaformat på webbserver.<BR>
+          &nbsp;</LI>
+        <LI><B>FormatDateTime(datum)</B> -&nbsp;returnerar datum formaterat till
+          regionalt datumformat på webbserver.<BR>
+          &nbsp;</LI>
+        <LI><B>FormatNumber(uttryck)</B> -&nbsp;returnerar uttryck formaterat
+          till regionalt nummerformat på webbserver.<BR>
+          &nbsp;</LI>
+        <LI><B>FormatPercent(uttryck)</B> -&nbsp;returnerar uttryck formaterat
+          till procentformat (multiplicerat med 100) och ett %-tecken.</LI>
+      </UL>
+
+      <H4>Sökfunktioner och jämförelse</H4>
+
+      <UL>
+        <LI><B>InStr(sträng, sträng_att_söka)</B> -&nbsp;returnerar ett tal
+          motsvarande första positionen av sträng_att_söka i sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>InStrRev(sträng, sträng_att_söka)</B> -&nbsp;som InStr(), fast
+          söker från slutet.<BR>
+          &nbsp;</LI>
+        <LI><B>Left(sträng, antal)</B> -&nbsp;returnerar antal tecken från
+          början på sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>Len(sträng)</B> -&nbsp;returnerar antal tecken i sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>Mid(sträng, start[, antal])</B> -&nbsp;returnera antal tecken
+          från sträng med början på position start. Om antal utelämnas så
+          returneras alla tecken från start till slutet (d.v.s. samma som Right()).<BR>
+          &nbsp;</LI>
+        <LI><B>Right(sträng, antal)</B> -&nbsp;returnerar antal tecken i slutet
+          på sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>StrComp(sträng1, sträng2[, jmfr])</B> -&nbsp;jämför sträng1
+          och sträng2 samt returnerar -1 om sträng1 &lt; sträng2, 0 om
+          strängar lika eller 1 om sträng1 &gt; sträng2. För att jämföra
+          strängar oavsett skriftläge använder vi konstanten vbTextCompare
+          som värde på jmfr.&nbsp;</LI>
+      </UL>
+
+      <H4>Stängmanipulation</H4>
+
+      <UL>
+        <LI><B>Join(vektor)</B> -&nbsp;returnerar värden i vektor sammansatt
+          till en sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>LCase(sträng)</B> -&nbsp;returnerar sträng konverterat till
+          gemener.<BR>
+          &nbsp;</LI>
+        <LI><B>LTrim()</B> -&nbsp;tar bort inledande mellanslag.<BR>
+          &nbsp;</LI>
+        <LI><B>Replace(sträng, strErsätt, strNy[, start[, antal[, jmfr]]])</B> -&nbsp;ersätter
+          strErsätt med strNy i sträng. Funktionen börjar vid start och
+          ersätter strängar antal gånger. Vill vi ersätta ersätta strängar
+          oavsett skiftläge (d.v.s. om gemener eller versaler) använder vi
+          konstanten vbTextCompare som värde för jmfr (vbBinaryCompare är
+          standard).<BR>
+          &nbsp;</LI>
+        <LI><B>RTrim()</B> -&nbsp;tar bort &quot;släpande&quot; (eng. <I>trailing</I>)
+          mellanslag, d.v.s. i slutet på sträng.<BR>
+          &nbsp;</LI>
+        <LI><B>Space(antal)</B> -&nbsp;infogar antal mellanslag i HTML-koden.
+          Användbar för att göra den resulterande HTML-koden mer lättläst.<BR>
+          &nbsp;</LI>
+        <LI><B>Split(sträng[, tkn[, antal[, jmfr]]])</B> -&nbsp;returnerar en
+          vektor med &quot;substrängar&quot;. tkn är ett tecken som anger
+          vilket tecken som ska användas för att dela sträng och antal hur
+          många substrängar som ska returneras. Vill vi dela sträng oavsett
+          skiftläge använder vi konstanten vbTextCompare som värde för jmfr.<BR>
+          &nbsp;</LI>
+        <LI><B>String(antal, tecken)</B> -&nbsp;returnerar en sträng fylld med
+          antal av tecken.<BR>
+          &nbsp;</LI>
+        <LI><B>StrReverse(sträng)</B> -&nbsp;returnerar sträng reverserad.<BR>
+          &nbsp;</LI>
+        <LI><B>Trim()</B> -&nbsp;tar bort inledande och &quot;släpande&quot;
+          mellanslag, d.v.s. mellanslag både i början och slutet på sträng.
+          (Samma effekt som att använda både LTrim() och RTrim().)<BR>
+          &nbsp;</LI>
+        <LI><B>UCase(sträng)</B> -&nbsp;returnerar sträng konverterat till
+          versaler.</LI>
+      </UL>
+
+      <P>(Se <A HREF="funktioner/strangar1_1.asp" TARGET="_blank">exempel</A>)</P>
+
+      <H3><A NAME="funktioner-vektorer"></A>Vektorer</H3>
+
+      <UL>
+        <LI><B>Array(värdelista)</B> -&nbsp;returnerar en vektor från en
+          kommaseparerad värdelista.</LI>
+        <LI><B>IsArray(variabel)</B> -&nbsp;returnerar sant om variabel är en
+          vektor.</LI>
+        <LI><B>LBound(vektor)</B> -&nbsp;returnerar 0 (de lägsta index för
+          vektorn).</LI>
+        <LI><B>UBound(vektor)</B> -&nbsp;returnerar högst index i vektorn.</LI>
+      </UL>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="inbyggda-objekt"></A>ASP:s inbyggda objekt</H2>
+      <P>ASP innehåller ett antal objekt som alltid finns tillgängliga.
+      Objekten används bl.a. (av webbserver) för att lagra information om en
+      webbläsares begäran om webbsida och den resulterande webbsidan på
+      begäran. Objekten är:</P>
+
+      <UL>
+        <LI><B>Request </B>- motsvarar webbläsarens begäran om webbsida</LI>
+        <LI><B>Response </B>- motsvarar den resulterande webbsida som skickas
+          som svar på en begäran.</LI>
+        <LI><B>Session </B>- skapas ett objekt för varje besökare. Kan
+          användas för att bl.a. lagra, för besökaren, lokala
+          variabler.&nbsp;</LI>
+        <LI><B>Application </B>- skapas ett objekt för varje webbapplikation.
+          Kan användas för att bl.a. lagra, för webbapplikationen, globala
+          variabler.</LI>
+        <LI><B>Server </B>- innehåller information om webbserver och metoder
+          som inte passade i de övriga objekten.</LI>
+        <LI><B>ASPError </B>- innehåller det sista felet som uppstod i webbsidans
+          ASP-kod.</LI>
+      </UL>
+      <P>De flesta av objekten innehåller egenskaper, både som enkla värden
+      och som vektorer, samt metoder som beskrivs nedan. Egenskaperna har delats
+      i enkla (under rubriken Egenskaper) och egenskaper som består av vektorer
+      (under rubriken Vektorer). Vektorerna är av typen (klassen) Collection
+      och kan därmed nås med en nyckel (i form av en sträng).</P>
+      <P>En del objekt (Session och Application) svara även på händelser
+      (eng. <I>events</I>).&nbsp;</P>
+      <H3>Request</H3>
+
+      <H4>Egenskaper</H4>
+
+      <UL>
+        <LI><B>TotalBytes</B> -&nbsp;</LI>
+      </UL>
+
+      <H4>Vektorer</H4>
+
+      <UL>
+        <LI><B>ClientCertificate</B> -&nbsp;</LI>
+        <LI><B>Cookies</B> - innehåller alla cookies som skrivits av
+          webbservern. (Observera att en webbserver endast kan läsa cookies som
+          skrivits av webbserver eller annan webbserver i samma domän.)</LI>
+        <LI><B>Form</B> - innehåller värdena från fälten i ett formulär som
+          skickats till ASP-sidan med metoden POST. (Se <A HREF="../formular/index.html">ASP
+          och formulär</A> för mer information.)</LI>
+        <LI><B>QueryString</B> - innehåller värdena från fälten i ett
+          formulär som skickats till ASP-sidan med metoden GET. (Se <A HREF="../formular/index.html">ASP
+          och formulär</A> för mer information.)</LI>
+        <LI><B>ServerVariables</B> - innehåller information om klientens
+          webbläsare, webbläsarens begäran och webbservern.</LI>
+      </UL>
+
+      <H4>Metoder</H4>
+
+      <UL>
+        <LI><B>BinaryRead(antal)</B> -&nbsp;</LI>
+      </UL>
+
+      <p>&nbsp;</p>
+
+      <H3>Response</H3>
+
+      <H4>Egenskaper</H4>
+
+      <UL>
+        <LI><B>Buffer</B> - används för att ange om webbserver ska buffra
+          resulterande HTML-kod eller skicka efterhand. Giltiga värden är True
+          och False.</LI>
+        <LI><B>CacheControl</B> -&nbsp;</LI>
+        <LI><B>Charset</B> -&nbsp;</LI>
+        <LI><B>ContentType</B> -&nbsp;</LI>
+        <LI><B>Expires</B> - datum som webbsida gäller till.</LI>
+        <LI><B>ExpiresAbsolute</B> -&nbsp;</LI>
+        <LI><B>IsClientConnected</B> -&nbsp;</LI>
+        <LI><B>PICS</B> -&nbsp;</LI>
+        <LI><B>Status</B> -&nbsp;</LI>
+      </UL>
+
+      <H4>Vektorer</H4>
+
+      <UL>
+        <LI><B>Cookies</B> - används för att skriva cookies i klientens
+          webbläsare. Observera att denna vektor endast kan skrivas till!</LI>
+      </UL>
+
+      <H4>Metoder</H4>
+
+      <UL>
+        <LI><B>AddHeader(namn, innehåll) </B>-&nbsp;</LI>
+        <LI><B>AppendToLog(sträng)</B> -&nbsp;</LI>
+        <LI><B>BinaryWrite(vektor)</B> -&nbsp;</LI>
+        <LI><B>Clear()</B> - rensar bufferten utan att skicka dess innehåll.</LI>
+        <LI><B>End()</B> - avslutar exekveringen av ASP-koden.</LI>
+        <LI><B>Flush()</B> - tömmer bufferten och skickar dess innehåll till
+          webbläsaren.</LI>
+        <LI><B>Redirect(url)</B> - meddelar webbläsare att den ska ladda en
+          annan webbsida med URL:en url.</LI>
+        <LI><B>Write(sträng)</B> - skriver till den resulterande webbsidan.</LI>
+      </UL>
+
+      <p>&nbsp;</p>
+
+      <H3>Session</H3>
+
+      <P>För varje webbläsare som begär en första webbsida på webbservern
+      skapas ett Session-objekt. Endast de efterföljande webbsidor som begärs
+      av webbläsaren kan använda informationen i just det Session-objektet. En
+      session består så länge som</P>
+
+      <UL>
+        <LI>webbläsare begär webbsidor från webbserver</LI>
+        <LI>tiden för sessioner inte tagit slut (vanligen 20 minuter - kan
+          ändras)</LI>
+        <LI>eller tills session avbryts med ett anrop till Abandon().&nbsp;</LI>
+      </UL>
+
+      <H4>Egenskaper</H4>
+
+      <UL>
+        <LI><B>CodePage</B> -&nbsp;</LI>
+        <LI><B>LCID</B> -&nbsp;</LI>
+        <LI><B>SessionID</B> - ett unikt nummer som ges till varje
+          Session-objekt. Kan lämpligen användas för att lagra temporär data
+          i databaser.</LI>
+        <LI><B>Timeout</B> - anger hur länge session ska vara för webbläsare.</LI>
+      </UL>
+
+      <H4>Vektorer</H4>
+
+      <UL>
+        <LI><B>Contents</B> - används för att lagra värden
+          (&quot;sessionsvariabler&quot;) lokala till webbläsare (d.v.s. som
+          endast gäller för en webbläsare). För att lagra ett värde
+          används en nyckel (som sträng). Värden kan både skrivas och läsas
+          från vektorn.</LI>
+      </UL>
+
+      <H4>Metoder</H4>
+
+      <UL>
+        <LI><B>Contents.Remove(nyckel)</B> - tar bort värdet bakom nyckeln
+          nyckel.</LI>
+        <LI><B>Contents.RemoveAll() </B>- tar bort alla värden i vektorn.</LI>
+        <LI><B>Abandon()</B> - avbryter sessionen. Alla värden i vektorn
+          Contents tas bort.</LI>
+      </UL>
+      <H4>Händelser</H4>
+
+      <UL>
+        <LI><B>onStart</B> - sker då webbläsare begär första webbsidan</LI>
+        <LI><B>onEnd</B> - sker då session avbryts (med Abandon()) eller tiden
+          för session tar slut. Kan bl.a. användas för att tömma temporära
+          tabeller från poster som inte &quot;bekräftats&quot; (t.ex. en
+          kundvagn där besökare inte bekräftat köp).</LI>
+      </UL>
+
+      <H3>Application</H3>
+
+      <P>Application-objektet är gemensamt för alla webbläsare som begär
+      webbsidor i en webbapplikation. Om data ska ändras i Application-objektet
+      bör objektet först låsas (med Lock()) och sen låsas upp (Unlock())
+      för att undvika fel.</P>
+
+      <P>En <B>webbapplikation</B> är alla webbsidor i en mapp och dess
+      undermappar samt inte ingår i en annan webbapplikation. Det finns alltid
+      minst en webbapplikation och som är den som gäller från roten på
+      webbservern. Fler webbapplikationer kan skapas med
+      Internet-tjänstehanteraren, Microsoft FrontPage (FP) eller Microsoft
+      Visual InterDev (VID). (För att skapa webbapplikationer med FP och VID
+      behöver du administratörsrättigheter på webbserver eller i
+      webbapplikation som ny webbapplikation ska skapas under!)</P>
+
+      <H4>Vektorer</H4>
+
+      <UL>
+        <LI><B>Contents</B> - innehåller värden
+          (&quot;applikationsvariabler&quot;) globala för alla webbläsare som
+          begär webbsidor i webbapplikation. För att lagra ett värde används
+          en nyckel (som sträng). Värden kan både skrivas och läsas från
+          vektorn.</LI>
+      </UL>
+
+      <H4>Metoder</H4>
+
+      <UL>
+        <LI><B>Contents.Remove(nyckel)</B> - tar bort värde med nyckeln nyckel
+          i Contents.</LI>
+        <LI><B>Contents.RemoveAll()</B> - tar bort alla värden i vektorn
+          Contents.</LI>
+        <LI><B>Lock()</B> - låser Application-objektet för webbapplikation.</LI>
+        <LI><B>Unlock()</B> - låser upp Application-objektet för
+          webbapplikation.</LI>
+      </UL>
+      <H4>Händelser</H4>
+
+      <UL>
+        <LI><B>onStart</B> - sker då webbapplikation startas, d.v.s. när
+          webbserver startas.</LI>
+        <LI><B>onEnd</B> - sker då webbapplikation avslutas, d.v.s. när
+          webbserver stoppas.</LI>
+      </UL>
+
+      <H3>Server</H3>
+
+      <P>Objektet Server innehåller en blandning av egenskaper och metoder.
+      Här har bl.a. de metoder som gäller för webbservern eller som inte
+      passade i övriga objekt samlats.</P>
+
+      <H4>Egenskaper</H4>
+
+      <UL>
+        <LI><B>ScriptTimeout</B> - anger tid som ASP-sida ska få lov att
+          exekvera innan ASP-motorn avbryter exekveringen. Vid utveckling bör
+          detta värde var lågt (t.ex. för att avbryta oändliga loopar så
+          fort som möjligt). Standard är 90 sekunder.</LI>
+      </UL>
+
+      <H4>Metoder</H4>
+
+      <UL>
+        <LI><B>CreateObject(ProgID) </B>- skapar en instans av ASP:s
+          skriptobjekt eller komponenter. ProgID är namnet på skriptobjekt
+          eller komponent (på formen COMserver.Komponent).&nbsp; (Se
+          <A HREF="../komponenter/index.html">ASP
+          och komponenter</A> för mer information.)</LI>
+        <LI><B>Execute(url)</B> - exekverar koden i en annan ASP-sida med URL:en
+          url. Efter att ASP-sidan exekverat klart återfår den första
+          ASP-sidan kontroller och kan fortsätta att exekvera.</LI>
+        <LI><B>GetLastError() </B>- returnerar ett ASPError-objekt med
+          information om det senaste felet i ASP-sidan (se nedan).</LI>
+        <LI><B>HTMLEncode(sträng)</B> - konverterar sträng till HTML-kod.
+          Användbart om man t.ex. har en anslagstavla där användaren kan mata
+          in fritext.</LI>
+        <LI><B>MapPath(url)</B> - översätter URL:en url till sökväg i
+          webbservers filsystem.</LI>
+        <LI><B>Transfer(url)</B> - exekverar koden i en annan ASP-sida med
+          URL:en url. Efter att ASP-sidan exekverat klart avbryts exekveringen
+          och den första ASP-sidan återfår <B>inte</B> kontroller.</LI>
+        <LI><B>URLEncode(sträng) </B>- konverterar sträng till URL-format
+          (ersätter bl.a. mellanslag och andra &quot;specialtecken&quot; till
+          URL:ers motsvarighet).</LI>
+      </UL>
+
+      <p>&nbsp;</p>
+
+      <H3>ASPError</H3>
+
+      <P>Ett ASPError-objekt innehåller information om det senaste felet från
+      exekvering i en ASP-sida. Exekvering av en ASP-sida avbryts vanligen
+      omedelbart då ett fel uppstår. För att ändra detta beteende kan man
+      använda VBScripts (och Visual Basics) felhanteringsmekanism. (Bl.a. kan
+      man använda <B>On Error Resume Next</B> för att exekvering ska
+      fortsätta med nästa sats om ett fel uppstår.)</P>
+
+      <H4>Egenskaper</H4>
+
+      <UL>
+        <LI><B>ASPCode</B> -&nbsp;</LI>
+        <LI><B>ASPDescription</B> -&nbsp;</LI>
+        <LI><B>Category</B> -&nbsp;</LI>
+        <LI><B>Column</B> -&nbsp;</LI>
+        <LI><B>Description</B> -&nbsp;</LI>
+        <LI><B>File</B> -&nbsp;</LI>
+        <LI><B>Line</B> -&nbsp;</LI>
+        <LI><B>Number</B> -&nbsp;</LI>
+        <LI><B>Source</B> -&nbsp;</LI>
+      </UL>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <H2><A NAME="skriptobjekt"></A>ASP:s skriptobjekt</H2>
+
+      <H3>Scripting.Dictionary</H3>
+      <P>Scripting.Dictionary kan användas för att lagra information i en
+      lätthanterlig vektor.</P>
+
+      <H3>Scripting.FileSystemObject</H3>
+      <P>Scripting.FileSystemObject (FSO) kan användas för att hämta
+      information om filsystemet.</P>
+
+      <H3>Scripting.TextStream</H3>
+      <P>Scripting.TextStream kan användas för att läsa och skriva till
+      textfiler i webbserverns filssystem. Används tillsammans med
+      FileSystemObject ovan.</P>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida |
+        <A HREF="../index.html">Tillbaka</A> till ASP |</p>
+      <hr>
+
+      <p align="center">
+      <b>Skapad av:</b> Björn Persson. <b>Uppdaterad:</b> 2005-05-01.</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

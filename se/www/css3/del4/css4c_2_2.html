@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css4/del4/css4c_2_2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4/css4c_2_2.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 4c.2.2 - Bakgrundsbilder, repeterade - Bj&ouml;rns studiewebb</title>
+  
+  <!-- Stilmallar för att applicera bakgrundsbild för sida, utan repetition samt 
+      vertikalt resp. horisontellt i div-taggar -->
+  <style>
+    body
+    {
+      background-image: url(bjorns_studiewebb.jpg);
+      background-repeat: no-repeat;
+      color: white;
+      background-color: #0000ff;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    div#horisontell
+    {
+      background-image: url(bjorns_studiewebb.jpg);
+      background-repeat: repeat-x;
+      color: black;
+      background-color: white;
+      margin-right: 10px;
+      float: left;
+      width: 500px;
+      height: 500px;
+    }
+
+    div#vertikal
+    {
+      background-image: url(bjorns_studiewebb.jpg);
+      background-repeat: repeat-y;
+      color: black;
+      background-color: yellow;
+      float:left;
+      width: 500px;
+      height: 500px;
+    }
+
+    form
+    {
+      clear: both;                /* borja pa ny rad */
+      margin-top: 20px;           /* marginal till element ovan */
+      border: 1px solid #0000ff;  /* en fix sa att marginalen blir till */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bakgrundsbilder</h1>
+
+  <p>Denna webbsida visar p&aring; vad som h&auml;nder n&auml;r man l&auml;gger till en bakgrundsbild
+    och anv&auml;nder egenskapen repeat med v&auml;rdet no-repeat (bild ovan till v&auml;nster).</p>
+
+  <p>Webbsidan visar &auml;ven hur man kan anv&auml;nda bakgrundsbilder (och -f&auml;rg) i DIV-taggar
+    (tv&aring; fyrkanter nedan). I den f&ouml;rsta fyrkanten (DIV-taggen med vit bakgrund)
+    anv&auml;nds egenskapen repeat med v&auml;rdet repeat-x (d.v.s. horisontellt) och i den
+    andra fyrkanten (DIV-taggen med gul bakgrund) anvï¿½nds egenskapen repeat med
+    v&auml;rdet repeat-y (d.v.s. vertikalt).</p>
+
+  <div id="horisontell">
+    <p>En DIV-tagg med horisontell upprepning av bild.</p>
+  </div>
+
+  <div id="vertikal">
+    <p>En DIV-tagg med vertikal upprepning av bild.</p>
+  </div>
+
+  <form action="">
+    <p><input type="button" value="St&auml;ng f&ouml;nster" onclick="window.close()" /></p>
+  </form>
+</body>
+</html>

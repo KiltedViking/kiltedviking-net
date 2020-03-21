@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_1.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>If-satser i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+  <h1>If-satser i JavaScript</h1>
+  <!-- *************************************************************************
+  ******************** EXEMPEL 1 ***********************************************
+  ************************************************************************** -->
+  <hr />
+  <h3>Version 1 - "fullst&auml;ndig" "st&ouml;rre" if-sats</h3>
+
+  <h5>Kod:</h5>
+  <blockquote>
+    <pre><code>&lt;script&gt;
+  var min_var = 4;   //deklarera variabler
+  var min_text;
+
+  if(min_var * 2 == 6) { //Testa i if-sats om sant...
+    min_text = "Villkoret (" + min_var + " * 2 == 6) var sant";
+  }
+  else {                 //...annars &auml;r det falskt
+    min_text = "Villkoret (" + min_var + " * 2 == 6) var falskt";
+  }
+
+  document.writeln(min_text);  //Skriv ut resultatet till hemsida
+&lt;/script&gt;</code></pre>
+  </blockquote>
+
+  <h5>Resultat:</h5>
+  <blockquote>
+    <p>
+    <!-- ********************************************************************************
+    *********************** START KOD ***************************************************
+    ********************************************************************************* -->
+    <script>
+      var min_var = 4;   //deklarera variabel
+      var min_text;
+    
+      if(min_var * 2 == 6) { //Testa i if-sats om sant...
+        min_text = "Villkoret (" + min_var + " * 2 == 6) var sant";
+      }
+      else {               //...annars är det falskt
+        min_text = "Villkoret (" + min_var + " * 2 == 6) var falskt";
+      }
+    
+      document.writeln(min_text);  //Skriv ut resultatet till hemsida
+    </script>
+    </p>
+  </blockquote>
+
+  <!-- *************************************************************************
+  ******************** EXEMPEL 2 ***********************************************
+  ************************************************************************** -->
+  <hr />
+  <h3>Version 2 - kortare version av "st&ouml;rre" if-sats</h3>
+  <h5>Kod:</h5>
+  <blockquote>
+    <pre><code>&lt;script&gt;
+  var min_var = 2;   //deklarera variabler
+  var min_text;
+
+  if(min_var * 2 == 6) //Testa i if-sats om sant...
+    min_text = "Villkoret (" + min_var + " * 2 == 6) var sant";
+  else               //...annars &auml;r det falskt
+    min_text = "Villkoret (" + min_var + " * 2 == 6) var falskt";
+
+  document.writeln(min_text);  //Skriv ut resultatet till hemsida
+&lt;/script&gt;</code></pre>
+  </blockquote>
+
+  <h5>Resultat:</h5>
+  <blockquote>
+    <p>
+    <!-- ********************************************************************************
+    *********************** START KOD ***************************************************
+    ********************************************************************************* -->
+    <script>
+      var min_var = 2;   //deklarera variabel
+      var min_text;
+    
+      if(min_var * 2 == 6) //Testa i if-sats om sant...
+        min_text = "Villkoret (" + min_var + " * 2 == 6) var sant";
+      else               //...annars �r det falskt
+        min_text = "Villkoret (" + min_var + " * 2 == 6) var falskt";
+    
+      document.writeln(min_text);  //Skriv ut resultatet till hemsida
+    </script>
+    </p>
+  </blockquote>
+
+  <!-- *************************************************************************
+  ******************** EXEMPEL 3 ***********************************************
+  ************************************************************************** -->
+  <hr />
+  <h3>Version 3 - "mindre" version av if-sats</h3>
+  <h5>Kod:</h5>
+  <blockquote>
+    <pre><code>&lt;script&gt;
+  var min_var = 3;   //deklarera variabler
+  var min_text1, min_text2;
+
+  min_text1 = "Villkoret (" + min_var + " * 2 == 6) var &quot;;
+  min_text2 = (min_var * 2 == 6) ? &quot;sant" : &quot;falskt";
+
+  document.writeln(min_text1 + min_text2);  //Skriv ut resultatet till hemsida
+&lt;/script&gt;</code></pre>
+  </blockquote>
+
+  <h5>Kod:</h5>
+  <blockquote>
+    <p>
+    <!-- ********************************************************************************
+    *********************** START KOD ***************************************************
+    ********************************************************************************* -->
+    <script>
+      var min_var = 3;   //deklarera variabel
+      var min_text1, min_text2;
+      
+      min_text1 = "Villkoret (" + min_var + " * 2 == 6) var ";
+      min_text2 = (min_var * 2 == 6) ? "sant" : "falskt";
+    
+      document.writeln(min_text1 + min_text2);  //Skriv ut resultatet till hemsida
+    </script>
+    </p>
+  </blockquote>
+  <hr />
+  <p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn G. D. Persson
+  <b>Uppdaterad:</b> 2017-10-29</p>
+  <div style="text-align: center">
+    <form action="post">
+      <p><input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" /></p>
+    </form>
+  </div>
+</body>
+</html>

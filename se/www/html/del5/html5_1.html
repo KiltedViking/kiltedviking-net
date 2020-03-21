@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ett enkelt formul&auml;r</title>
+  <style>
+    body { font-family: Verdana, Helvetica, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Ett enkelt formul&auml;r</h1>
+
+  <p>(Fungerar endast om denna sida, <code>html5_1.html</code>, och behandlande 
+    fil, <code>html5_1_behandlat.php</code>, finns på en webbserver som stödjer 
+    PHP. Innehållet i formuläret skickas till den behandlande filen som skriver 
+    ut vad som skickades.)</p>
+
+  <form method="post" action="html5_1_behandlat.php">
+    <p>Fyll i ditt namn:<br />
+      <input type="text" name="txtNamn" /></p>
+
+    <p><input type="submit" value="Skicka" name="btnSubmit" /></p>
+  </form>
+</body>
+</html>

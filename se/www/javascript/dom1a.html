@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/dom1a.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/dom1a.html" />
+  <title>DOM-objekt (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1>DOM-objekt (JavaScript)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li class="active"><a href="dom1.html">DOM</a></li>
+        <li><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Innehåll</h2>
+
+      <p>På den webbsidan behandlas de vanligaste (mest användbara?) objekttyperna
+        (klasserna) i DOM. Jag redovisar här alla egenskaper och metoder, men beskriver
+        endast en del av dem (markeras med fet stil -se Referenser för kompletta
+        beskrivningar). För att kunna skilja på ursprung för egenskaper och metoder
+        (DOM Core eller DOM HTML), så redovisas de, för respektive typ av objekt,
+        under rubrikerna DOM Core respektive DOM HTML.</p>
+
+      <p class="kommentar">Innehållet i denna webbsida kan verka överväldigande vid
+        första anblick, men fokusera på egenskaper och metoder markerade med fet stil
+        så märker du antagligen hur &quot;lite&quot; du behöver lära dig för att
+        komma igång. :-)</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#objekt_document" class="collection-item">Dokumentobjekt</a></li>
+        <li><a href="#objekt_node" class="collection-item">Nodobjektet</a></li>
+        <li><a href="#objekt_element" class="collection-item">Elementobjekt</a></li>
+        <li><a href="#objekt_fler" class="collection-item">Fler objekttyper</a></li>
+        <li><a href="#referenser" class="collection-item">Referenser</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="objekt_document">Dokumentobjekt</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Dokumentobjektet (eller -gränssnittet, om vi ska följa DOM-specifikationens
+        termer) innehåller ett antal egenskaper och metoder. Det kan endast finnas
+        ett sådant här objekt och dess variabel har, ganska bekvämt, namnet <span
+        class="code">document</span>. :-) Vi använder detta objekt för att bl.a. skapa
+        nya element- och textnoder (attributnoder skapar vi m.h.a. elementnoder) samt
+        för att hämta olika typer av element (t.ex. stycken [P] eller rubriker [Hx]).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM Core</h3>
+
+      <p>Nedan visas egenskaper i dokumentobjekt som specificerats i DOM Core.</p>
+
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="kommentar">Dessa egenskaper behandlas inte i denna underwebb (ännu
+        - de finns med för att göra referens komplett - se Referenser nedan).</p>
+
+      <ul>
+        <li>doctype - dokumentypsdeklaration.</li>
+        <li>documentElement - elementnod för HTML-tagg.</li>
+        <li>implementation - objekt som hanterar detta dokument.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Dokumentobjekt (eller, snarare, dokumentobjektet - singular) innehåller främst
+        tre metoder av intresse och de har markerats med fet stil i lista nedan.</p>
+
+      <p class="kommentar">Det finns en metod i listan nedan för att skapa en
+        attributnod, men jag fokuserar i denna underwebb på hur man skapar dem m.h.a.
+        metoder i elementnoder (se nedan).</p>
+
+      <ul>
+        <li>createAttribute(<em>namn</em>) - skapar attributnod med namnet <em>namn</em>.</li>
+        <li>createCDATASection(<em>data</em>) - skapar CDATA-nod med innehåll <em>data</em>.</li>
+        <li>createComment(<em>data</em>) - skapar kommentarnod med innehåll <em>data</em>.</li>
+        <li>createDocumentFragment() - skapar en tom dokumentfragmentsnod.</li>
+        <li><strong>createElement(<em>taggnamn</em>)</strong> - skapar elementnod
+          med namnet <em>taggnamn</em> (t.ex. &quot;p&quot;, &quot;h1&quot; eller
+          &quot;a&quot;).</li>
+        <li>createEntityReference(<em>namn</em>) - skapar entitetsreferensnod.</li>
+        <li>createProcessingInstruction(<em>mål</em>, <em>data</em>) - skapar
+          processinstruktonsnod.</li>
+        <li><strong>createTextNode(<em>data</em>)</strong> - skapar en textnod innehållande
+          <em>data</em>.</li>
+        <li><strong>getElementsByTagName(<em>taggnamn</em>)</strong> - returnerar
+          lista med alla element med <em>taggnamn</em> (t.ex. &quot;p&quot;, &quot;h1&quot;
+          eller &quot;a&quot;). <strong>Observera</strong> S:et (plural), d.v.s. att
+          flera noder returneras!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM HTML</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan visas egenskaper och metoder i dokumentobjekt som specificerats i DOM
+        HTML, d.v.s i HTML-dokumentobjekt. Dessa egenskaper och metoder är unika för
+        (X)HTML-dokument (gäller inte för XML och andra typer av dokument).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan visas alla egenskaper för dokumentobjektet i DOM HTML-specifikationen
+        (men inga, förutom eventuellt body, förklaras närmare i denna underwebb -
+        ännu).</p>
+
+      <ul>
+        <li>URL - komplett adress (URI) till dokument.</li>
+        <li>anchors - lista med länkar (A) i dokument.</li>
+        <li>applets - lista med applets (OBJECT och APPLETS) i dokument.</li>
+        <li>body - &quot;genväg&quot; till taggen BODY.</li>
+        <li>cookie - lista med cookies som klient skickat.</li>
+        <li>domain - domän för webbserver som dokument hämtats från, eller null om
+          ej kan avgöras.</li>
+        <li>forms - lista med formulär (FORM) i dokument.</li>
+        <li>images - lista med bilder (IMG) i dokument.</li>
+        <li>links - lista med länkar (AREA och A) i dokument.</li>
+        <li>referrer - adress (URI) till webbsida som länkade till detta dokument.</li>
+        <li>title - titel (TITLE) för dokument.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan finns främst en metod som vi är intresserade av och den har markerats
+        med fet stil.</p>
+
+      <ul>
+        <li>close() - stänger ström (<em>stream</em>) öppnad med open() (se Referenser).</li>
+        <li><strong>getElementById(<em>elemId</em>)</strong> - returnerar nod med värdet <em>elemId</em>
+          på attributet ID. <strong>Observera</strong> avsaknaden av S:et (singular),
+          d.v.s. returnerar endast en nod (värde på ID-attribut ska vara unika
+          i ett och samma dokument)!</li>
+        <li>getElementsByName(<em>namn</em>) - returnerar lista med noder för
+          element med värdet <em>namn</em> på attributet NAME. Denna metod ska
+          <strong>inte</strong> förväxlas med metoden getElementsByTagName() i DOM
+          Core!</li>
+        <li>open() - öppnar en ström (<em>stream</em>) (se Referenser).</li>
+        <li>write(<em>text</em>) - skriver till ström (<em>stream</em>) öppnad med
+          open() (se Referenser).</li>
+        <li>writeln(<em>text</em>) - skriver till ström (<em>stream</em>) öppnad med
+          open() (se Referenser).</li>
+      </ul>
+
+      <p>I DOM HTML-specifikationen är vi främst intresserad av metoden getElementByID()
+        som returnerar den nod vars värde på attributet ID skickas som argument till
+        metoden. Detta används frekvent tillsammans med DIV-taggar för att hämta
+        referenser till olika delar av dokument.</p>
+
+      <p class="kommentar">I ett och samma (X)HTML-dokument måste alla element ha unika värden
+        på eventuella ID-attribut.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="objekt_node">Nodobjekt</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nodobjektet (eller gränssnittet, om vi ska följa specifikationens termer)
+        innehåller även det ett antal egenskaper och metoder.</p>
+
+      <p>Nodobjekt (element, attribut eller text) är en generell beskrivning av noder,
+        d.v.s. se även Elementobjekt nedan för fler egenskaper och funktioner för
+        elementnoder (för andra typer av objekt, se Referenser).</p>
+
+      <p class="kommentar">Gränssnittet innehåller även ett antal konstanter som
+        inte behandlas i denna underwebb (ännu).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM Core</h3>
+
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan listas egenskaper i nodobjekt. <strong>Observera</strong> att vissa
+        egenskaper innehåller olika värden beroende på typ av nod (element, attribut
+        eller text)!</p>
+
+      <ul>
+        <li>attributes - lista med alla attribut i nod.</li>
+        <li><strong>childNodes</strong> - lista med alla barnnoder i nod.</li>
+        <li><strong>firstChild</strong> - första barnnoden i nod.</li>
+        <li><strong>lastChild</strong> - sista barnnoden i nod.</li>
+        <li>nextSibling - nästa nod på samma nivå som nod.</li>
+        <li>nodeName - taggnamn om elementnod, attributnamn om attributnod eller
+          strängen &quot;#text&quot; om textnod.</li>
+        <li>nodeType - nummer motsvarande typ av nod (se ovan).</li>
+        <li><strong>nodeValue</strong> - null om elementnod, värde på attribut om attributnod eller
+          innehåll om textnod.</li>
+        <li>ownerDocument - dokumentnod som nod finns i.</li>
+        <li><strong>parentNode</strong> - föräldernod till nod.</li>
+        <li>previousSibling - föregående nod på samma nivå som nod.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><strong>appendChild(<em>nod</em>)</strong> - lägg till nod</li>
+        <li>cloneNode(<em>deep</em>) - skapa en kopia av nod - om deep är sant så
+          klonas även barnnoder.</li>
+        <li><strong>hasChildNodes()</strong> - returnerar sant om nod har barnnoder.</li>
+        <li><strong>insertBefore(<em>nynod</em>, <em>ref.nod</em>)</strong> - inforga <em>nynod</em>
+          före <em>ref.nod</em> i nodträd.</li>
+        <li><strong>removeChild(<em>nod</em>)</strong> - ta bort <em>nod</em> från nodträd.</li>
+        <li>replaceChild(<em>nynod</em>, <em>gammalnod</em>) - ersätt <em>gammalnod</em>
+          med <em>nynod</em>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM HTML</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Inga extra egenskaper eller metoder för nodobjekt definieras i specifikation.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="objekt_element">Elementnodsobjekt</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Elementnoder har några fler egenskaper än övriga nodtyper, vilket beskrivs
+        här. (Se även Nodobjekt ovan.)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM Core</h3>
+
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li>tagName - namn (med versaler) på element (t.ex. &quot;BODY&quot;, &quot;P&quot;,
+          &quot;H1&quot; eller &quot;A&quot;).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li><strong>getAttribute(<em>namn</em>)</strong> - returnerar attribut med
+          namnet <em>namn</em>.</li>
+        <li>getAttributeNode(<em>namn</em>) - returnerar attributnod med namnet
+          <em>namn</em>.</li>
+        <li><strong>getElementsByTagName(<em>namn</em>)</strong> - returnerar alla
+          barnnoder med namnet <em>namn</em>.</li>
+        <li>normalize() - &quot;normaliserar&quot; dokument under nod (se Referenser).</li>
+        <li><strong>removeAttribute(<em>namn</em>)</strong> - tar bort attributnod
+          med namnet <em>namn</em>.</li>
+        <li>removeAttributeNode(<em>attr.nod</em>) - tar bort attributnod <em>attr.nod</em>.</li>
+        <li><strong>setAttribute(<em>namn</em>, <em>värde</em>)</strong> - anger värdet
+          <em>värde</em> (som sträng) för attributet <em>namn</em>. Om attribut redan
+          existerar så ersätts dess värde, annars skapas en ny attributnod.</li>
+        <li>setAttributeNode(<em>attr.nod</em>) - lägger till attributnod <em>attr.nod</em>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM HTML</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>DOM HTML-specifikationen utökar med en HTMLElementnod som bara utökar med
+        egenskaper, vilka visas nedan.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Egenskaper</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Det är främst en egenskap som är av intresse (ur min synvinkel :-) här.</p>
+
+      <ul>
+        <li><strong>className</strong> - värdet på attributet CLASS i nod.</li>
+        <li>dir - värde på attributet DIR i nod (anv. om t.ex. arabiska).</li>
+        <li>id - värde på attributet ID i nod.</li>
+        <li>lang - värde på attributet LANG i nod (anv. om annat språk).</li>
+        <li>title - värde på attributet TITLE i nod.</li>
+      </ul>
+
+      <p><strong>Observera</strong> att egenskapen för elements attribut CLASS har
+        döpts om till className för att undvika konflikter i språk som brukar ha
+        en egenskap med det namnet i alla objekt (klasser - t.ex. Java). <strong>Observera</strong>
+        även att egenskapen className kan innehålla flera HTML-klasser, d.v.s. vill
+        vi ändra presentation, med stilmallar (CSS), för element som tillhör flera
+        klasser så måste vi ta hänsyn till detta. I exempel nedan så tillhör stycke
+        (P) flera klasser, separerade med mellanslag.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>&lt;p class="stor gul nyttig"&gt;Ett stycke tillhörande klasserna stor,
+          gul och nyttig.&lt;/p&gt;</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Metoder</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <ul>
+        <li>Inga...</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="objekt_fler">Fler objekttyper</h2>
+
+      <h3>DOM Core</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Det finns fler objekt (gränssnitt) än vad som beskriver ovan, bl.a.
+        NodeList, NamedNodeMap, CharacterData, Attr, Text och Comment.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>DOM HTML</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Respektive (X)HTML-element har ett motsvarande objekt (gränssnitt) men namn
+        som HTML&lt;tagg&gt;Element (ersätt &lt;tagg&gt; med elementets tagg, t.ex.
+        HTMLBodyElement för taggen BODY).</p>
+
+      <p>Om (X)HTML-element innehåller attribut (t.ex. HREF i länkar [A]) så kan dess värde
+        nås som om det vore en egenskap i elementnod (se exempel nedan). <strong>Observera</strong>
+        dock att om attributet har samma namn som t.ex. ett reserverat ord, t.ex.
+        attributet FOR i taggen LABEL, så ges egenskapen ett prefix &quot;html&quot;
+        och första bokstaven i &quot;attributets namn&quot; blir versal (se exempel
+        nedan).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var adress = elemA.href;&nbsp; //HREF-attribut i länk (A)</code><br />
+      <code>var kontroll = elemLabel.htmlFor;&nbsp;  //FOR-attr. i etikett (LABEL)</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Vad gäller metoder så finns det en hel del intressanta metoder för att lägga
+        till rader i t.ex. tabeller (se Referenser).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till början</a> på sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+    
+      <p>Nedan finns några webbsidor/-platser med mer information om ämnet på denna
+        webbsida.</p>
+
+      <ul>
+        <li><a href="https://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/level-one-core.html" 
+          target="_blank" rel="noopener">DOM Core</a> hos <a href="https://www.w3.org/" 
+          target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+        <li><a href="https://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/level-one-html.html" 
+          target="_blank" rel="noopener">DOM HTML</a> hos <a href="https://www.w3.org/" 
+          target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+      </ul>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="dom1.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (JS)</a></li>
+          <li><a href="ajax1.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

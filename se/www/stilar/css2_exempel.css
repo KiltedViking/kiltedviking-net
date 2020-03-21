@@ -1,0 +1,101 @@
+/*******************************************************************************
+* Filnamn:      css2_exempel.css
+* Syfte:        Stilmallar for exempel i ny design av "underwebbar" pa Bjorns
+*               studiewebb.
+* Skapad av:    Bjorn Persson (bjgu0005), bjorn(at)kiltedviking.net.nospam.
+* Skapad:       2008-08-16
+* Andrad:       2008-08-??
+* Kommentarer:  (se filen css2.css).
+*******************************************************************************/
+
+/*** Overgripande stilar ******************************************************/
+/* Dessa stilar ar generella, dvs galler inte i en speciell div-tagg el. likn. */
+body
+{
+  font-size: 13px;  /* Ursprunglig storlek for typsnitt, d.v.s absolut storlek -
+                       Verdana ser bast ut i 13 pixlars storlek (enl. mig), men
+                       kan andras av de som ser lite daligt. Resterande typsnitts-
+                       storlekar kommer vara relativ till denna. */
+  font-family: Verdana, Arial, Helvetica, sans-serif; /* Standardtypsnitt */
+}
+
+/* Stilar med standardvarden for rubriker */
+h1, h2
+{
+  font-family: "Copperplate Gothic Bold", Copperplate, Impact, Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1  /* Storsta rubriken ska aven vara rod och nagot storre an standard */
+{
+  color: red;
+  background-color: white;
+  font-size: 2.5em;
+}
+
+/* Aven ovriga rubriker ska vara nagot storre... */
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+
+
+/*** Stilar for innehall ******************************************************/
+
+#dokumentinfo         /* Stil for dokumentinfo langst ner pa sidor */
+{
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.kommentar    /* Stil for kommentarer i sidor */
+{
+  font-size: 0.8em;
+  color: blue;
+  background-color: white;
+  margin: 0px 10px;         /* Indrag till vanster och hoger */
+}
+
+.center     /* Stil for centrering av enskilda stycken */
+{
+  text-align: center;
+}
+
+.rightalign     /* Stil for centrering av enskilda stycken */
+{
+  text-align: right;
+}
+
+span.highlight, p.highlight   /* Stil for fargkodning markerad text */
+{
+  color: blue;
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Typsnitt och farg for kodexempel */
+.code
+{
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  background-color: #ff9;
+}
+
+/* Marginaler for kodexempel i block */
+div.code  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+}
+
+div.exempel  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+  color: black;
+  background-color: #ff9;
+}
+
+
+/* Exempelkod ska inte ha rak vanster- och hogermarginal */
+div.code p
+{
+  text-align: left;
+}

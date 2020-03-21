@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del2.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del2.html" />
+  <title>Placering (CSS2) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Placering av stilmallar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li class="active"><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+
+          <p>P&aring; denna webbsida diskuteras var egenskaperna f&ouml;r stilmallar kan
+            placeras och hur stilmallarna kan appliceras p&aring; (X)HTML-taggar.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#grundlaggande" class="collection-item">Grundl&auml;ggande</a></li>
+            <li><a href="#inline" class="collection-item">Stilmall i attributet STYLE (<em>inline</em>)</a></li>
+            <li><a href="#inbaddat" class="collection-item">Inb&auml;ddade stilmallar (<em>embedded</em>)</a></li>
+            <li><a href="#lankat" class="collection-item">Inl&auml;nkade stilmallar (<em>linked</em>)</a></li>
+            <li><a href="#komplett" class="collection-item">Ett &quot;komplett&quot; exempel</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="grundlaggande">Grundl&auml;ggande</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskaperna f&ouml;r de olika stilmallarna kan placeras p&aring; tre olika st&auml;llen i,
+            eller utanf&ouml;r, ett (X)HTML-dokument:</p>
+
+          <ul>
+            <li>i en (X)HTML-taggs attribut STYLE (eng. <em>inline</em>)</li>
+            <li>inb&auml;ddat (eng. <em>embedded</em>) i (X)HTML-dokumentets HEAD-tagg</li>
+            <li>i en separat (extern) fil som l&auml;nkas (eng. <em>link</em>) in i (X)HTML-dokument</li>
+          </ul>
+
+          <p>I de två senare fallen använder man bl.a. taggars namn (t.ex. H1, P och OL)
+            f&ouml;r att applicera stilmallar (se vidare namngivning av stilmallar), men
+            vi kan även använda attribut i taggar för att applicera stilmallar. Allt taggar
+            i (X)HTML har tre attribut (d.v.s. som alla taggar har gemensamt) som bl.a.
+            kan anv&auml;ndas f&ouml;r att applicera stilmallar:</p>
+
+          <ul>
+            <li>CLASS</li>
+            <li>ID</li>
+            <li>och STYLE.</li>
+          </ul>
+
+          <p>Attributet CLASS anv&auml;nds f&ouml;r att ange att taggar tillh&ouml;r
+            en viss grupp (eller klass) av taggar och kan anv&auml;nds f&ouml;r att applicera
+            stilmallar p&aring; alla element i gruppen. Observera att taggar av olika
+            typer (t.ex. H1, P och IMG) kan tillhöra samma klass. Detta innebär även att
+            visa egenskaper i en stilmall kanske inte gäller för några av taggarna i klassen.
+            T.ex. så har inte bilder (IMG) en egenskap typsnitt som stycken och rubriker
+            (P resp. Hx)</p>
+
+          <p>I motsats till attributet CLASS s&aring; anv&auml;nds
+            attributet ID f&ouml;r att skilja p&aring; taggar i ett (X)HTML-dokument,
+            d.v.s. g&ouml;ra taggarna unika (ge dem identitet). Det får alltså <strong>inte</strong>
+            finnas två taggar i samma dokument med samma värde på attributet id, men däremot
+            i två olika dokument. Detta är praktiskt för att t.ex. identifiera ett sidhuvud
+            eller en sidfot i respektive (X)HTML-dokument. Hur man anv&auml;nder
+            attributen CLASS och ID, i samband med stilmallar, beskrivs l&auml;ngre ner
+            p&aring; denna hemsida och p&aring; hemsidan om <a href="del3.html">namngivning
+            av stilmallar</a>.</p>
+
+          <p>Utnyttjande av attributet STYLE beskrivs h&auml;rn&auml;st.</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="inline">Stilmall i attributet STYLE</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Att anv&auml;nda attribut STYLE &auml;r vad man p&aring; engelska kallar
+            <em>inline</em>. Detta  s&auml;tt  &auml;r mindre vanligt att man anv&auml;nder
+            f&ouml;r ett helt dokument, men anv&auml;ndbart om man endast vill &auml;ndra
+            stil f&ouml;r ett enda element. (Stilmallar kan &auml;ven appliceras p&aring;
+            enstaka taggar med attributet ID - se ovan och <a href="del3.html#idn">namngivning
+            av stilmallar med ID:n</a>.) Stilen
+            f&ouml;r en tagg placeras i taggens attribut STYLE (markerat med blå text i
+            exempel nedan). Stilen p&aring;verkar endast det element vars attributet
+            inneh&aring;ller stilen, d.v.s. inte första och sista stycket.</p>
+        </div>
+
+        <div class="five columns">
+          <code>&lt;p&gt;Text med standard typsnitt...&lt;/p&gt;</code>
+          <code>&lt;p <span class="highlight">style=&quot;font-family: Verdana&quot;</span>
+            &gt;Text med typsnittet Verdana&lt;/p&gt;</code>
+          <code>&lt;p&gt;Text med standard typsnitt igen...&lt;/p&gt;</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exempel 2.1 s&aring; &auml;ndras typsnittet f&ouml;r f&ouml;rsta rubriken
+            (<code>&lt;h1&gt;</code>) genom att lägga till stilmallen i taggens attribut STYLE. Övrig
+            text i dokumentet är opåverkat (d.v.s. Times New Roman i Windows).</p>
+        </div>
+
+        <div class="five columns">
+          <code>&lt;h1 <span class="highlight">style=&quot;font-family: Verdana&quot;</span>&gt;</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del2/css2_1.html" target="_blank" class="button button-primary">Exempel 2.1 - Stil i attribut STYLE</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="inbaddat">Inb&auml;ddade stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Stilar kan samlas p&aring; ett st&auml;lle i ett HTML-dokument och &auml;r d&aring;,
+            vad man kallar, inb&auml;ddade (eng. <em>embedded</em>). Stilmallarna placeras
+            mellan &ouml;ppnande och avslutande taggen &lt;STYLE&gt; i dokumentets tagg
+            &lt;HEAD&gt; (markerat med blå text i exempel nedan). Man använder attributet
+            TYPE i STYLE-taggen för att tala om vad taggen innehåller, i vårt fall &quot;text/css&quot;
+            för att tala om att det är stilmallar (CSS). Stilmallarna g&auml;ller
+            endast f&ouml;r det dokument som stilmallarna finns i men alla &quot;berörda&quot;
+            element i dokumentet (se vidare <a href="del3.html">namngivning av stilmallar</a>).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Titeln...&lt;/title&gt;
+<span class="highlight">&nbsp; &lt;style type=&quot;text/css&quot;&gt;
+    p { font-family: Verdana }
+  &lt;/style&gt;</span>
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- sj&auml;lva dokumentet... --&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Eftersom webbl&auml;sare &auml;r konstruerade att bortse fr&aring;n taggar dom
+            inte f&ouml;rst&aring;r (d.v.s. inte ing&aring;r i den HTML-standard som webbl&auml;saren
+            gjorts f&ouml;r) s&aring; kan &auml;ldre webbl&auml;sare tolka texten inom
+            STYLE-taggen som &quot;vanlig&quot; text. Detta kommer inneb&auml;ra att dessa
+            (&auml;ldre) webbl&auml;sare kommer att skriva ut stilarna som &quot;vanlig&quot;
+            text. F&ouml;r att undvika detta brukar man &quot;kommentera bort&quot; stilmallarna
+            (markerat med blå text i exempel nedan).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;style type=&quot;text/css&quot;&gt;
+<span class="highlight">&lt;!--</span>
+&nbsp; p { font-family: Verdana }
+<span class="highlight">--&gt;</span>
+&lt;/ &gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exempel 2.2 s&aring; har en stilmall gjorts f&ouml;r att p&aring;verka rubriker
+            av niv&aring; 1 (&lt;H1&gt;) som ges typsnittet Verdana. F&ouml;ljande stilmall har
+            angivits i dokumentets &lt;HEAD&gt;.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+  <span class="highlight">h1 { font-family: Verdana }</span>
+--&gt;
+&lt;/style&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del2/css2_2.html" target="_blank" class="button button-primary">Exempel 2.2 - Stil i taggen STYLE</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="lankat">Inl&auml;nkade stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Att l&auml;nka in stilmallarna inneb&auml;r att man skriver stilmallarna i en
+            separat (extern) fil (med fil&auml;ndelsen .CSS) som man sen l&auml;nkar in med
+            taggen &lt;LINK&gt; i dokumentets &lt;HEAD&gt;. Genom att l&auml;nka in
+            filer med stilmallar s&aring; beh&ouml;ver stilmallarna endast defineras p&aring; ett
+            st&auml;lle f&ouml;r t.ex. en hel webbplats. Stilmallarna kan allts&aring; g&auml;lla
+            f&ouml;r flera dokument och &auml;r det s&auml;tt man b&ouml;r anv&auml;nda.
+            <strong>Observera</strong> att CSS-filen endast ska innehålla stilmallarna
+            och inga (X)HTML-taggar (se filen STIL.CSS i exempel nedan).</p>
+
+          <p>Givetvis kan man l&auml;nka in flera filer i samma dokument - det beh&ouml;vs
+            en &lt;LINK&gt;-tagg f&ouml;r varje fil. D.v.s. man kan anv&auml;nda sig av en
+            upps&auml;ttning av filer med stilmallar och l&auml;nka in just de filer som beh&ouml;vs i ett
+            visst dokument.</p>
+
+          <p class="kommentar">Detta, att länka in externa dokument med LINK-taggen, är
+            inget som är unikt för CSS utan är en &quot;funktion&quot; i (X)HTML. Det
+            går alltså att knyta andra externa filer till ett (X)HTML-dokument eller andra
+            dokument med en speciell betydelse (t.ex. innehållsförteckning eller copyright).<br />
+            (Man använder inte taggen STYLE i HEAD-taggen, d.v.s. det finns ingen analogi
+            med hur JavaScript-filer bäddas in resp. länkas in/importeras med SCRIPT-taggen.
+            Detta hade dock varit logiskt eller i.a.f. konsekvent. :-)</p>
+
+          <p>Stilmallsfilens (CSS-filens) namn, och eventuell sökväg (URI), anges i attributet
+            HREF (d.v.s. på samma sätt som med länkar, A-taggen). (Detta dokument hämtar
+            t.ex. sina stilmallar från filen css2.css i mappen stilar en nivå upp från
+            mappen med denna webbsida, d.v.s. sökvägen/URI:n är &quot;../stilar/css2.css&quot;.)
+            Man använder attributet REL för att tala om vad det inlänkade dokumentets
+            relation är till (X)HTML-dokumentet - stilmall (eng. <em>stylesheet</em>)
+            i vårt fall. Sista attributet, TYPE, talar om vad den inlänkade filen innehåller
+            (d.v.s. samma som för inbäddade stilmallar) - &quot;text/css&quot; i vårt
+            fall då stilmallar (CSS).</p>
+
+          <p>I exemplet nedan l&auml;nkas filen STIL.CSS (i samma mapp som HTML-dokumentet)
+            in (markerat med blå text). Denna rad (mall) kan kopieras in alla dokument
+            där vi vill använda stilmallar i en extern fil samt anpassa eventuell sökväg/URI
+            till CSS-filen.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;head&gt;
+  &lt;title&gt;Titeln...&lt;/title&gt;
+  <span class="highlight">&lt;link href=&quot;stil.css&quot; rel=&quot;stylesheet&quot;&gt;</span>
+&lt;/head&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Precis, som de tv&aring; tidigare exemplen, s&aring; p&aring;verkar &auml;ven stilmallen
+            i exempel 2.3 endast rubriker av niv&aring; 1. I exemplet l&auml;nkas filen
+            STIL.CSS in (som kan ses genom att klicka p&aring; nedersta knappen).</p>
+          <p class="center"><a href="del2/css2_3.html" target="_blank" class="button button-primary">Exempel 2.3 - L&auml;nka in stilmallar</a></p>
+
+          <p class="center"><a href="del2/stilmall.txt" target="_blank" class="button button-primary">Filen STIL.CSS</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="komplett">Ett &quot;komplett&quot; exempel</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan visas ett &quot;komplett&quot; exempel där alla tre sätt att applicera
+            stilmallar används, d.v.s. inlänkat, inbäddat och i attributet STYLE.
+            I exempel nedan länkas CSS-filen från förra exemplet in, d.v.s. rubrik av
+            nivå 1 (H1) kommer att ges typsnittet Verdana. Sen skapas en inbäddad stilmall
+            för dokumentets alla stycken (P) som gör texten blå. Sist av allt, i det
+            tredje stycket (P), ändras färgen till röd med stilmall i styckets attribut
+            STYLE. Exempel visar även hur en stil kan åsidosätta/överskugga (eng. <em>override</em>)
+            en annan, d.v.s. att stilen i taggen gäller istället för den inbäddade. (Mer
+            om detta i kommande sidor.)</p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;sv&quot;&gt;
+&lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;
+    charset=iso-8859-1&quot; /&gt;
+  &lt;title>Exempel 2.4 - Ett &quot;komplett&quot; exempel&lt;/title&gt;
+<span class="highlight">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;stilmall.css&quot; /&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+  &lt;!--
+    p { color: blue; background-color: white; }
+  //--&gt;
+  &lt;/style&gt;</span>
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Rubrik nivå 1 (inlänkad)&lt;/h1&gt;
+
+  &lt;p&gt;Rubrik ovan hämtar sin stilmall från extern fil (samma som
+    förra exemplet). Alla stycken har blå text, som ges av
+    inbäddad stilmall i detta dokument, utom ett som är rött
+    p.g.a. stilmall i styckets attribut STYLE.&lt;/p&gt;
+
+  &lt;p&gt;Ett stycke med meingslös text. Ett stycke med
+    meingslös text. Ett stycke med meingslös text. Ett stycke
+    med meingslös text. Ett stycke med meingslös text. Ett
+    stycke med meingslös text. Ett stycke med meingslös text.
+    Ett stycke med meingslös text. Ett stycke med meingslös
+    text. Ett stycke med meingslös text.&lt;/p&gt;
+
+  &lt;p <span class="highlight">style=&quot;color: red; background-color: white;&quot;</span>&gt;Ytterligare
+    ett stycke med meingslös text. Ytterligare ett stycke med
+    meingslös text. Ytterligare ett stycke med meingslös text.
+    Ytterligare ett stycke med meingslös text. Ytterligare ett
+    stycke med meingslös text. Ytterligare ett stycke med
+    meingslös text. Ytterligare ett stycke med meingslös text.
+    Ytterligare ett stycke med meingslös text.&lt;/p&gt;
+
+  &lt;h2&gt;Rubrik nivå 2 (opåverkad)&lt;/h2&gt;
+
+  &lt;p>Ett tredje stycke med meingslös text. Ett tredje stycke med
+    meingslös text. Ett tredje stycke med meingslös text. Ett
+    tredje stycke med meingslös text. Ett tredje stycke med
+    meingslös text. Ett tredje stycke med meingslös text. Ett
+    tredje stycke med meingslös text. Ett tredje stycke med
+    meingslös text.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <p class="center"><a href="del2/css2_4.html" target="_blank" class="button button-primary">Exempel 2.4 - &quot;Komplett&quot; exempel</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <nav class="navbar center">
+        <ul class="foregaendenasta">
+          <li><a href="del1.html">&lt; F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del3.html">N&auml;sta &gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer class="row">
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

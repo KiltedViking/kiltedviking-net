@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Klickhändelse - jQuery - Bj&ouml;rns studiewebb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+  </style>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+</head>
+<body>
+<div id="container">
+  <h1>Klickhändelse - jQuery</h1>
+  
+  <p>Detta exempel visar på hur man kan hämta koordinater för musklick när besökare
+    klickar i dokument eller kod för tangent som trycks ner på tangentbord.</p>
+  
+  <ul>
+    <li>Klicka någonstans i dokument för att visa koordinater. Håll även ner Ctrl-/Meta-tangent 
+      för att se resultat.</li>
+    
+    <li>Tryck på en tangent på tangentbordet för att se kod för tangent. Håll även 
+      ner Shift, Ctrl/Meta och/eller Alt för att se resultat.</li>
+  </ul>
+  
+  <p>Observera att ingen meny visas om man högerklickar (utom 
+    om man &quot;dubbelklickar&quot; med höger musknapp... jag har inte kommit på 
+    varför...).</p>
+  
+  <p>Observera även att om man håller ner en modifierartangent (Shift, Ctrl/Meta 
+    och/eller Alt) så sker två händelser, vilket är &quot;korrekt&quot;.</p>
+  
+  <!-- DIV-tagg där koordinater kommer att läggas till -->
+  <div id="clicks">
+  </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //Koppla händelse till första knappen (sist)
+      $(document).bind("click keydown", function(event) {
+        //Välj (selektera) div-tagg med id clicks och lägg till data fran handelseobjekt
+        $("#clicks").append("<p><b>Händelse:</b> " + event.type 
+          + " <b>Knapp:</b> " + event.which 
+          + " <b>X:</b> " + event.pageX 
+          + " <b>Y:</b> " + event.pageY 
+          + " <b>Tidpunkt:</b> " + event.timeStamp 
+          + " <b>Metakey</b>: " + event.metaKey + "</p>");
+          
+        //Om hoger musknapp (3) eller tangent på tangentbord 
+        // - forhindra att meny visas eller sökning påbörjas (om t.ex. Firefox) genom att forhindra standardhandelse
+        if(event.which === 3 || event.type === "keydown")
+          event.preventDefault();
+      });
+    });
+  </script>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="sidfot" style="margin-top: 5px; border-top: solid 1px gray;">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-01-14.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

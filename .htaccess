@@ -1,0 +1,33 @@
+#Rewrite everything to https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#Redirect /se/www/js_dom/ to new directory /se/www/javascript/
+RewriteRule ^se/www/js_dom/(.*)$ /se/www/javascript/$1 [R=301,NC,L]
+
+#Redirect /se/www/js_lib/ to new directory /se/www/js-bibliotek.html
+RewriteRule ^se/www/js_lib/(.*)$ /se/www/js-bibliotek.html [R=301,NC,L]
+
+#To fix when renaming files from *.htm to *.html
+#https://httpd.apache.org/docs/2.4/rewrite/remapping.html
+#RewriteRule "^(.*).htm$" "$1.html"
+RewriteRule ^cv/(.*).htm$ /cv/$1.html
+RewriteRule ^se/(.*).htm$ /se/$1.html
+RewriteRule ^se/sammanfattningar/(.*).htm$ /se/sammanfattningar/$1.html
+#Redirect from old CSS2 folder to new CSS3
+RewriteRule ^se/www/css2 /se/www/css3/ [L,R=301]
+RewriteRule ^se/www/css2/(.*) /se/www/css3/$1 [L,R=301]
+
+# -FrontPage-
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css4/del4/css4a_1_3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4/css4a_1_3.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Exempel 4a.1.3 - Typsnittsfamiljer - Bj&ouml;rns studiewebb</title>
+
+  <!-- Stilmallar för att applicera de olika typsnittsfamiljerna -->
+  <style type="text/css">
+    .stycke1 { font-family: serif }
+    .stycke2 { font-family: sans-serif }
+    .stycke3 { font-family: cursive }
+    .stycke4 { font-family: fantasy }
+    .stycke5 { font-family: monospace }
+    
+    .snyggare {font-family: Verdana; font-size: 10pt }
+  </style>
+</head>
+<body>
+  <h1>Olika typsnittsfamiljer</h1>
+
+  <p class="snyggare">P&aring; denna hemsida skrivs texten 'Text med egenskapen
+    font-family satt till xxx' i fem stycken - ers&auml;tt xxx med n&aring;gon av de
+    fem typsnittsfamiljerna serif, sans-serif, cursive, fantasy eller monospace.
+    Varje stycke anv&auml;nder en egen formatmallsklass (p1 till p5) som endast
+    &auml;ndrar egenskapen font-family till de fem generiska typsnittsfamiljerna.</p>
+
+  <p class="snyggare">Sist finns ett stycke med samma stilmall som detta
+    stycke (med typsnittet Verdana). I detta nedersta stycke har stilmallen
+    &auml;ndrats (m.h.a. taggen &lt;SPAN&gt;) f&ouml;r tv&aring; ord ('n&aring;gra' 
+    och 'ord') f&ouml;r att visa att stilmallar med egenskapen font-family satt till 
+    serif fungerar (d.v.s. att inte webbl&auml;saren &quot;fuskar&quot; och anv&auml;nder
+    standardtypsnittet).</p>
+
+  <hr />
+
+  <h2>Stycken med stilmallar</h2>
+
+  <p class="stycke1">Text med egenskapen font-family satt till serif</p>
+  <p class="stycke2">Text med egenskapen font-family satt till sans-serif</p>
+  <p class="stycke5">Text med egenskapen font-family satt till monospace</p>
+  <p class="stycke3">Text med egenskapen font-family satt till cursive</p>
+  <p class="stycke4">Text med egenskapen font-family satt till fantasy</p>
+
+  <h2>Stycken med blandade stilmallar</h2>
+
+  <p class="snyggare">I denna text finns <span class="stycke1">n&aring;gra
+    ord</span> med font-family satt till serif</p>
+
+  <form action="">
+    <p><input type="button" value="St&auml;ng f&ouml;nster" onclick="window.close()" /></p>
+  </form>
+</body>
+</html>

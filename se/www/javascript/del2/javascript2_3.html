@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del2/javascript2_3.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Loopar i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Loopar i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>For-loop</h3>
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"&gt;<br />
+  &lt;!--<br />
+  &nbsp; var i = 0;   //deklarera variabel<br />
+  <br />
+  &nbsp; for(i = 0; i &lt; 10; i++) //Loopa tills i n&auml;r 10<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("R&auml;knaren i &auml;r nu: " + i + "&lt;BR&gt;");  //Skriv ut till
+  hemsida<br />
+  &nbsp; }<br />
+  --&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var i = 0;   //deklarera variabel
+  
+    for(i = 0; i < 10; i++) //Loopa tills i n&auml;r 10
+    {
+      document.writeln("R&auml;knaren i &auml;r nu: " + i + "<br />");  //Skriv ut resultatet till hemsida
+    }
+  </script>
+  </p>
+</blockquote>
+
+<!-- *************************************************************************
+******************** EXEMPEL 2 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>While-loop</h3>
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"&gt;<br />
+  &lt;!--<br />
+  &nbsp; var i = 0;   //deklarera variabel<br />
+  <br />
+  &nbsp; while(i &lt; 10) //Loopa s&aring; l&auml;nge villkor &auml;r sant<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("R&auml;knaren i &auml;r nu: " + i + "&lt;BR&gt;");  //Skriv ut till hemsida<br />
+  &nbsp; i++;<br />
+  &nbsp; }<br />
+  --&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var i = 0;   //deklarera variabel
+  
+    while(i < 10) //Loopa så länge villkor är sant
+    {
+      document.writeln("R&auml;knaren i &auml;r nu: " + i + "<br />");  //Skriv ut resultatet till hemsida
+      i++;
+    }
+  </script>
+  </p>
+</blockquote>
+
+<!-- *************************************************************************
+******************** EXEMPEL 3 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>Do...while-loop</h3>
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"&gt;<br />
+  &lt;!--<br />
+  &nbsp; var i = 0;   //deklarera variabel<br />
+  <br />
+  &nbsp; do<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("R&auml;knaren i &auml;r nu: " + i + "&lt;BR&gt;");  //Skriv ut till hemsida<br />
+  &nbsp;&nbsp;&nbsp; i++<br />
+  &nbsp; }while(i &lt; 10) //Loopa tills i blir 10<br />
+  --&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var i = 0;   //deklarera variabel
+  
+    do
+    {
+      document.writeln("R&auml;knaren i &auml;r nu: " + i + "<br />");  //Skriv ut resultatet till hemsida
+      i++
+    }while(i < 10) //Loopa tills i blir 10
+  </script>
+  </p>
+</blockquote>
+
+<!-- *************************************************************************
+******************** EXEMPEL 4 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>For-loop och break</h3>
+<p>Loopen kommer avbrytas d&aring; r&auml;knaren &auml;r j&auml;mnt delbar med 5.</p>
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"&gt;<br />
+  &lt;!--<br />
+  &nbsp; var i = 0;   //deklarera variabel<br />
+  <br />
+  &nbsp; for(i = 0; i &lt; 10; i++) //Loopa tills i n&auml;r 10<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("R&auml;knaren i &auml;r nu: " + i + "&lt;BR&gt;");  //Skriv ut till hemsida<br />
+  &nbsp;&nbsp;&nbsp; if(i/5 == 1) //Om j&auml;mt delbar med 5...<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;&nbsp;&nbsp;&nbsp;&nbsp; //... avsluta
+  loop<br />
+  &nbsp; }<br />
+  --&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var i = 0;   //deklarera variabel
+  
+    for(i = 0; i < 10; i++) //Loopa tills i n&auml;r 10
+    {
+      document.writeln("R&auml;knaren i &auml;r nu: " + i + "<br />");  //Skriv ut resultatet till hemsida
+      if(i/5 == 1)
+        break;
+    }
+  </script>
+  </p>
+</blockquote>
+
+<!-- *************************************************************************
+******************** EXEMPEL 5 ***********************************************
+************************************************************************** -->
+<hr />
+<h3>While-loop och continue</h3>
+<p>Om r&auml;knarens n&auml;sta v&auml;rde inte &auml;r j&auml;mnt (d.v.s. udda) s&aring; kommer programmet forts&auml;tta 
+  med n&auml;sta loop. Annars kommer en extra rad med text skrivas ut. Logiken i denna loop
+  &auml;r lite omst&auml;ndig f&ouml;r att exemplet ska fungera. (Ska fundera p&aring; ett b&auml;ttre exempel -
+  01-01-01.)</p>
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">  &lt;script type="text/javascript"&gt;<br />
+  &lt;!--<br />
+  &nbsp; var i = 0;   //deklarera variabel<br />
+  <br />
+  &nbsp; while(i &lt; 10) //Loopa s&aring; l&auml;nge villkor &auml;r sant<br />
+  &nbsp; {<br />
+  &nbsp;&nbsp;&nbsp; document.writeln("R&auml;naren i &auml;r nu: " + i + "&lt;BR&gt;");  //Skriv ut till hemsida<br />
+  &nbsp;&nbsp;&nbsp; i++;<br />
+  &nbsp;&nbsp;&nbsp; if(i%2)  //Om "n&auml;sta" v&auml;rde p&aring; r&auml;knaren &auml;r j&auml;mnt...<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;   //... forts&auml;tt med n&auml;sta loop<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //N&auml;sta sats kommer endast exekvera om
+  &quot;n&auml;sta&quot; tal &auml;r j&auml;mnt<br />
+  &nbsp;&nbsp;&nbsp; document.writeln(&quot;&amp;nbsp;&amp;nbsp;&amp;nbsp;Talet ovan &auml;r udda&lt;BR&gt;");<br />
+  &nbsp; }<br />
+  --&gt;<br />
+  &lt;/script&gt;</p>
+</blockquote>
+
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var i = 0;   //deklarera variabel
+  
+    while(i < 10) //Loopa så länge villkor är sant
+    {
+      document.writeln("R&auml;knaren i &auml;r nu: " + i + "<br />");  //Skriv ut resultatet till hemsida
+      i++;
+      if(i%2)  //Om "nästa" värde på räknaren är jämnt...
+        continue;   //... fortsätt med nästa loop
+        //Nästa sats kommer endast exekvera om talet inte är jämnt
+      document.writeln("&nbsp;&nbsp;&nbsp;Talet ovan &auml;r udda<br />");
+    }
+  </script>
+  </p>
+</blockquote>
+
+<hr />
+<p style="text-align: center"><b>Skapad av:</b> Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth() + 1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="window.close()" />
+	</div>
+</form>
+</body>
+</html>

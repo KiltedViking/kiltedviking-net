@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <title>JavaScript namespace</title>
+  <style type="text/css">
+    html { font-family: Verdana, Helvetica, sans-serif; }
+    header, footer { text-align: center; }
+    footer { clear: both; border-top: solid 1px gray; font-size: .8em; }
+    #page { width: 1000px; margin: 0 auto; }
+    .divBlock { width: 470px; float: left; padding: 0 5px;}
+  </style>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="../../studiewebb2.js"></script>
+  <script type="text/javascript">
+    var bpn = bpn || {};        //Skapa namnutrymmet bpn
+    bpn.code = bpn.code || {};  //Lägg till code till namnutrymmet bpn
+      
+    //Koppla en funktion till namnet helloWorld i nyskapade namnutrymmet
+    bpn.code.helloWorld = function() {
+      var divOutput = document.getElementById("output");
+      var newP = document.createElement("p");
+      newP.innerHTML = "Hello World! (from bpn)";
+      divOutput.appendChild(newP);
+    }
+
+    /*************************************************************************/
+    //Function for defining namespaces from 
+    //  http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces/
+    function namespace(namespaceString) {
+      //Split namespace in argument into parts, i.e. words separated by dot
+      var parts = namespaceString.split('.'),
+          parent = window,
+          currentPart = '';    
+
+      //For each part in namespace - add to namespace
+      for(var i = 0, length = parts.length; i < length; i++) {
+          currentPart = parts[i];
+          parent[currentPart] = parent[currentPart] || {};
+          parent = parent[currentPart];
+      }
+
+      return parent;
+    }
+    /*************************************************************************/
+    
+    var kv = namespace("net.kiltedviking.code");  //Skapa namnutrymme gm att anv funktion ovan
+    
+    //Koppla en funktion till namnet helloWorld i nyskapade namnutrymmet
+    kv.helloWorld = function() {
+      var divOutput = document.getElementById("output");
+      var newP = document.createElement("p");
+      newP.innerHTML = "Hello World! (from net.kiltedviking)";
+      divOutput.appendChild(newP);
+    }
+    
+    Namespace("net.kiltedviking.code2");
+    net.kiltedviking.code2.helloWorld = function () {
+      alert("Test");
+    }
+  </script>
+</head>
+<body>
+  <div id="page">
+    <header>
+      <h1>JavaScript namespace</h1>
+    </header>
+    
+    <div class="divBlock">
+      <p>Detta exempel visar på hur man kan skapa namnutrymme i JavaScript för att
+        förhindra namnkonflikter mellan egen kod och eventuell kod från andra utvecklare.</p>
+        
+      <p>Klicka på knappar för att anropa funktionen helloWorld() i de två olika namnutrymmen.</p>
+      
+      <h2>Referenser</h2>
+      
+      <ul>
+        <li><a href="http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces/"
+          class="externallink">Basic JavaScript Part 8: Namespaces</a> - <a href="http://elegantcode.com/"
+          class="externallink">ElegantCode</a></li>
+      </ul>
+    </div>
+    
+    <div class="divBlock">
+      <form action="#">
+        <!-- Anropa funktionen helloWorld i namnutrymmet - observera att funktion 
+          namnges utan parenters men anropas med -->
+        <input type="button" value="Say Hello World (from bpn)" onclick="bpn.code.helloWorld();">
+        <input type="button" value="Say Hello World (from net.kiltedviking)" onclick="net.kiltedviking.code.helloWorld();">
+      </form>
+      
+      <div id="output"></div>
+    </div>
+    
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G.D. Persson. <b>Uppdaterad:</b> 2012-02-25.</p>
+    </footer>
+  </div>
+</body>
+</html>

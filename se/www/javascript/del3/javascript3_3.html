@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_3.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Klassen Math i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+</head>
+<body>
+<h1>Klassen Math i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"><br />
+  &lt;!--<br />
+  &nbsp; var tal1 = 2, temp;<br />
+  <br />
+  &nbsp; temp = Math.random();<br />
+  &nbsp; document.write("Slumptal 1 är: &lt;B>" + temp + "&lt;/B> och &lt;B>"<br />
+  &nbsp;&nbsp;&nbsp; + Math.round(temp*100)<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B> om multiplicerat med 100 och avrundat.&lt;BR&gt;&quot;);<br />
+  <br />
+	&nbsp; temp = Math.random();<br />
+  &nbsp; document.write("Slumptal 1 är: &lt;B>" + temp + "&lt;/B> och &lt;B>"<br />
+  &nbsp;&nbsp;&nbsp; + Math.round(temp*100)<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B> om multiplicerat med 100 och avrundat.&lt;BR&gt;&quot;);<br />
+  <br />
+	&nbsp; temp = Math.random();<br />
+  &nbsp; document.write("Slumptal 1 är: &lt;B>" + temp + "&lt;/B> och &lt;B>"&nbsp;<br />
+  &nbsp;&nbsp;&nbsp; + Math.round(temp*100)<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B> om multiplicerat med 100 och avrundat.&lt;BR&gt;&quot;);<br />
+  <br />
+	&nbsp; temp = Math.random();<br />
+  &nbsp; document.write("Slumptal 1 är: &lt;B>" + temp + "&lt;/B> och &lt;B>"&nbsp;<br />
+  &nbsp;&nbsp;&nbsp; + Math.round(temp*100)<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B> om multiplicerat med 100 och avrundat.&lt;BR&gt;&quot;);<br />
+	<br />
+  &nbsp; temp = Math.random();<br />
+  &nbsp;&nbsp;&nbsp; document.write("Slumptal 1 är: &lt;B>" + temp + "&lt;/B> och &lt;B>"&nbsp;<br />
+  &nbsp;&nbsp;&nbsp; + Math.round(temp*100)<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B> om multiplicerat med 100 och avrundat.&lt;/P>&lt;P>");<br />
+  <br />
+  &nbsp; document.write(&quot;2&lt;sup>2&lt;/sup> är: &lt;B>" + Math.pow(2,2)&nbsp;<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B>&lt;BR>");<br />
+  &nbsp; document.write("Roten ur 4 är: &lt;B>" + Math.sqrt(4) + "&lt;/B>&lt;BR>");<br />
+  &nbsp; document.write("Det absoluta talet för -5 är: &lt;B>" + Math.abs(-5)&nbsp;<br />
+  &nbsp;&nbsp;&nbsp; + "&lt;/B>&lt;/P>&lt;P>");<br />
+  <br />
+  &nbsp; document.write("Talet Pi är: &lt;B>" + Math.PI + "&lt;/B>&lt;BR>");&nbsp;<br />
+  //--><br />
+  &lt;/script></p>
+</blockquote>
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    var tal1 = 2, temp;
+    
+    temp = Math.random();
+    document.write("Slumptal 1 är: <B>" + temp + "</B> och <B>" + Math.round(temp*100)
+       + "</B> om multiplicerat med 100 och avrundat.<br />");
+    temp = Math.random();
+    document.write("Slumptal 1 är: <B>" + temp + "</B> och <B>" + Math.round(temp*100)
+       + "</B> om multiplicerat med 100 och avrundat.<br />");
+    temp = Math.random();
+    document.write("Slumptal 1 är: <B>" + temp + "</B> och <B>" + Math.round(temp*100)
+       + "</B> om multiplicerat med 100 och avrundat.<br />");
+    temp = Math.random();
+    document.write("Slumptal 1 är: <B>" + temp + "</B> och <B>" + Math.round(temp*100)
+       + "</B> om multiplicerat med 100 och avrundat.<br />");
+    temp = Math.random();
+    document.write("Slumptal 1 är: <B>" + temp + "</B> och <B>" + Math.round(temp*100)
+       + "</B> om multiplicerat med 100 och avrundat.</P><P>");
+    
+    document.write("2<sup>2</sup> är: <B>" + Math.pow(2,2) + "</B><br />");
+    document.write("Roten ur 4 är: <B>" + Math.sqrt(4) + "</B><br />");
+    document.write("Det absoluta talet för -5 är: <B>" + Math.abs(-5) + "</B></P><P>");
+    
+    document.write("Talet Pi är: <B>" + Math.PI + "</B><br />");    
+  </script>
+  </p>
+</blockquote>
+<!-- *************************************************************************
+******************** SIDFOT **************************************************
+************************************************************************** -->
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson<br />
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+	</div>
+</form>
+</body>
+</html>

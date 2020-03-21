@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/applets/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/applets/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Applets - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Applets</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>Denna sida beskriver hur man skapar en applet (med Java) som exekverar
+        i besökarens webbläsare. Beskrivning behandlar <b>grundläggande om applets</b>,
+        <b>hur man skapar en enkel applet</b> samt hur man <b>skickar parametrar
+        till applet</b> från hemsidan.</p>
+      <p class="kommentar">Denna beskrivning kan komma att kompletteras med en beskrivning av hur
+        man kommunicerar mellan en applet och en servlet.</p>
+    
+
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Applets</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+      <nav class="menu">
+        <a href="#grundlaggande" class="menu-item">Grundläggande</a>
+        <a href="#enkla" class="menu-item">Enkel applet</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2 id="grundlaggande">Grundläggande om applets</h2>
+
+      <P>I detta grundläggande avsnitt behandlas detaljer som är gemensamma
+      för alla applets. Först i nästa avsnitt visas hur koden för en enkel
+      applet ser ut.</P>
+
+      <p>Att skapa en applet &quot;består&quot; av fem steg</p>
+      <ul>
+        <li>skapa en Java-klass</li>
+        <li>kompilerar</li>
+        <li>skapa en hemsida att infoga applet i</li>
+        <li>testa</li>
+        <li>samt kopierar till webbserver (om applet ska vara tillgänglig från
+          webbserver)</li>
+      </ul>
+      <h3>Skapa en Java-klass</h3>
+      <P>En applet ärver från klassen Applet och brukar vanligen implementera
+      (omdefinera) tre metoder, dock inte alla
+      obligatoriska. Metoderna är följande (i den ordning de anropas):</P>
+      <UL>
+        <LI><B>init()</B> - körs när applet laddas. Här utförs lämpligen
+          initiering av eventuella (instans-)variabler. Kan utelämnas om det
+          inte finns någon initiering att göra. T.ex. skulle en
+          databaskoppling kunna öppnas här.</LI>
+        <LI><B>paint()</B> - körs när applet ritas upp, bl.a. varje gång
+          fönstret visas efter att ha dolts (helt eller delvis) av ett annat
+          fönster. Denna metod är obligatorisk (eller i.a.f. vettig att ha
+          :-).</LI>
+        <LI><B>destroy()</B> - körs när applet laddas ur. Kan utelämnas, men
+          om applet behöver utföra något innan den laddas ur (t.ex. stänga
+          databaskoppling) så är detta ett lämpligt ställe att göra det. ([<B>ATT GÖRA:</B>
+          Ta reda på exakt
+          när detta händer. Verkar
+          hända först när man stänger webbläsaren...])</LI>
+      </UL>
+      <P CLASS="kommentar">Det finns även två metoder som heter start() och stop() som anropas
+      efter init() respektive före destroy(), men dessa behandlas ännu inte på
+      denna sida.</P>
+
+      <P>För att få tillgång till de klasser som behövs för att få
+      grundläggande egenskaper för en applet måste vi importera ett antal
+      paket. Nedan visas hur vi importerar paketen, vilka paket som behövs och
+      hur arvet görs.</P>
+
+      <BLOCKQUOTE>
+      <P><span class="kod">import java.awt.*;<BR>
+      import java.applet.*;</span></P>
+      <P><span class="kod">public class Enkel extends Applet {<BR>
+      &nbsp; /* Definition av klass */<BR>
+      }</span></P>
+      </BLOCKQUOTE>
+
+      <h3>Kompilera</h3>
+      <p> Om vi kompilerar vår applet i kommandotolken så
+      skriver vi något i stil med</p>
+
+      <blockquote>
+      <p><span class="kod">javac AppletNamn.java</span></p>
+      </blockquote>
+
+      <p>Detta är alltså ingen större skillnad mot en vanlig
+      Java-applikation.</p>
+
+      <h3>Skapa en webbsida att infoga applet i</h3>
+
+      <P>När applet kompilerats utan fel så är det dags att skapa en en
+      webbsida som applet kan visas i. HTML-taggen för att ladda en applet är
+      &lt;APPLET&gt; och har bl.a. följande attribut (av intresse)</P>
+
+      <UL>
+        <LI>CODE - Namnet på filen med appletens klass (t.ex. &quot;AppletNamn.class&quot;).</LI>
+        <LI>WIDTH - bredden på applets visuella yta.</LI>
+        <LI>HEIGHT - höjden på applets visuella yta.</LI>
+      </UL>
+      <P>En applet kan även hämta parametrar från webbsidan och dessa skickas
+      m.h.a. PARAM-taggen, som placeras mellan öppnande och avslutande
+      APPLET-tagg. Vi återkommer till appletar och parametrar längre ner på denna sida.</P>
+
+      <P>Nedan visas koden för hur man infogar en applet (med namnet AppletNamn)
+      i en webbsida:</P>
+
+      <BLOCKQUOTE>
+        <P><SPAN CLASS="kod">&lt;HTML&gt;<BR>
+        &lt;BODY&gt;<BR>
+        &nbsp; &lt;APPLET CODE=&quot;AppletNamn.class&quot; WIDTH=&quot;600&quot;
+        HEIGHT=&quot;100&quot;&gt;<BR>
+        &nbsp; &lt;/APLET&gt;<BR>
+        &lt;/BODY&gt;<BR>
+        &lt;/HTML&gt;</SPAN></P>
+      </BLOCKQUOTE>
+
+      <P>För att skicka parametrar så skriver man istället följande:</P>
+
+      <BLOCKQUOTE>
+        <P><SPAN CLASS="kod">&lt;APPLET CODE=&quot;AppletNamn.class&quot; WIDTH=&quot;600&quot;
+        HEIGHT=&quot;100&quot;&gt;<BR>
+        &nbsp; &lt;PARAM NAME=&quot;ParameterNamn&quot; VALUE=&quot;VärdeFörParameter&quot;&gt;<BR>
+        &nbsp; &lt;!-- Eventuella fler parametrar --&gt;<BR>
+        &lt;/APLET&gt;</SPAN></P>
+      </BLOCKQUOTE>
+
+      <P>Nu när vi har vår applet och vår webbsida att visa applet i är det
+      dags att testa applet.</P>
+
+      <h3>Testa</h3>
+
+      <P>För att testa en applet så kan vi antingen ladda webbsidan i en
+      webbläsare eller använda programmet appletviewer.exe (som följer med
+      Javas SDK). För att använda appletviewer.exe så skriver vi följande
+      (ersätt &quot;webbsida.htm&quot; med filnamnet för din webbsida):</P>
+
+      <BLOCKQUOTE>
+        <P>appletviewer webbsida.htm</P>
+
+      </BLOCKQUOTE>
+      <P>(Använder du JCreator så kan du (ska du kunna) klicka på knappen <B>Execute
+      Projekt</B>, eller trycka på <B>F5</B> på tangentbordet, för att köra
+      applikationen).</P>
+
+      <h3>Kopiera till webbserver</h3>
+      <p>Om applet ska finnas tillgänglig på en webbserver så kopierar vi
+      webbsidan och klassfilen (.class) till webbservern. Klassen för applet kopieras lämpligen till samma mapp som hemsidan den
+      används i.</p>
+
+      <p CLASS="kommentar">För att testa applet så behöver vi <B>inte</B> kopiera applet till
+      någon server eftersom den ändå kommer att laddas ner till
+      webbläsaren och exekveras i webbläsaren.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><a name="enkla"></a>Enkel applet...</h2>
+
+      <P>I detta avsnitt skapar vi en enkel applet som visar hur många gånger
+      metoden paint() har anropats. I denna applet finns även metoderna init()
+      och destroy() med för att visa en &quot;komplett&quot; applet. Men dessa
+      två sista metoder gör inget.</P>
+
+      <H3>Metoden paint()</H3>
+
+      <P>Som parameter till metoden paint() skickas ett objekt av klassen
+      Graphics. Genom detta objekt kan vi skriva ut till applets
+      &quot;visuella&quot; (synliga) yta. För att skriva text, som i denna
+      applet, använder vi metoden drawString(). Parametrarna till metoden
+      drawString är följande:</P>
+
+      <UL>
+        <LI>sträng som ska skrivas ut</LI>
+        <LI>startposition i horisontellt led</LI>
+        <LI>startposition i vertikalt led</LI>
+      </UL>
+
+      <H3>Utskrifter och koordinatsystemet</H3>
+
+      <P>[<B>ATT GÖRA:</B> Skriv om nedanstående stycke på
+      &quot;riktig svenska&quot;! ]</P>
+
+      <P>Koordinatsystemet i en applet bygger på att origo (position 0,0) finns
+      i övre vänstra hörnet av applets visuella yta. Det horisontella värdet
+      ökar mot höger och det vertikala mot botten på den visuella ytan.</P>
+
+      <P>Om vi vill skriva ut texten &quot;Hej!&quot; längst upp till vänster
+      så skriver vi alltså följande:</P>
+
+      <BLOCKQUOTE>
+        <P>g.drawString(&quot;Hej!&quot;, 0, 0);</P>
+
+      </BLOCKQUOTE>
+      <P>Problemet är att texten inte kommer att synas... Vi måste nämligen
+      ta hänsyn till storleken (höjden) på typsnittet och skriva ut texten
+      lite längre ner för att den ska synas. På min dator blir hela texten
+      synlig om jag istället använder följande kod (eftersom punktstorlek 12
+      verkar vara standard):</P>
+
+      <BLOCKQUOTE>
+        <P>g.drawString(&quot;Hej!&quot;, 0, 12);</P>
+
+      </BLOCKQUOTE>
+      <H3>Variabeln antalVisningar</H3>
+
+      <P>I denna enkla applet använder jag mig även av en (instans-)variabel
+      antalVisningar för att hålla reda på hur många gånger metoden paint()
+      har anropats. Variabeln deklareras utanför alla metoder för att göra
+      den åtkomlig för alla metoder i klassen. I metoden paint() ökas
+      variabeln på med ++-operatorn. I första utskriften skrivs innehållet i
+      variabeln ut.</P>
+
+      <H3>Koden för webbsida</H3>
+
+      <P>&lt;HTML&gt;<BR>
+      &lt;HEAD&gt;<BR>
+      &nbsp; &lt;TITLE&gt;En enkel applet&lt;/TITLE&gt;<BR>
+      &lt;/HEAD&gt;<BR>
+      &lt;BODY&gt;<BR>
+      &lt;CENTER&gt;<BR>
+      &lt;H1&gt;En enkel applet&lt;/H1&gt;<BR>
+      &lt;P&gt;Denna webbsida visar en enkel applet.&lt;/P&gt;<BR>
+      &lt;HR&gt;<BR>
+      <BR>
+      <B>&lt;APPLET code = &quot;Enkel.class&quot; width = &quot;500&quot;
+      height = &quot;300&quot; &gt;<BR>
+      &lt;/APPLET&gt;<BR>
+      </B><BR>
+      &lt;HR&gt;<BR>
+      &lt;/CENTER&gt;<BR>
+      &lt;/BODY&gt;<BR>
+      &lt;/HTML&gt;</P>
+
+      <P>&nbsp;</P>
+
+      <H3>Fullständiga koden för applet Enkel</H3>
+
+      <P><SPAN CLASS="kodlangre"><B>import java.awt.*;</B><BR>
+      <B>import java.applet.*;</B><BR>
+      <BR>
+      <B>public class Enkel extends Applet {<BR>
+      </B><BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** (Instans-)variabler<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp;&nbsp; <B>int antalVisningar = 0;</B><BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** Metoden
+      init() körs när applet laddas<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>public void init() {</B><BR>
+      &nbsp;&nbsp;&nbsp; //I
+      detta exempel gör denna metod inget.<BR>
+      &nbsp; <B>}</B> //init()<BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** Metoden paint() anropas då applet ritas om, t.ex. då<BR>
+      &nbsp;&nbsp; ***&nbsp; fönster dolts<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>public void paint(Graphics g) {</B><BR>
+      &nbsp;&nbsp;&nbsp;&nbsp; <B>antalVisningar++;</B><BR>
+      &nbsp;&nbsp; <B>g.drawString(&quot;Denna applet har ritats om &quot; + antalVisningar +&nbsp;</B><BR>
+      &nbsp;&nbsp;&nbsp;&nbsp; <B>&quot; gång(er).&quot;, 0, 12 );</B><BR>
+      &nbsp;&nbsp; <B>g.drawString(&quot;För att rita om
+      applet måste fönstret delvis &quot; +&nbsp;</B><BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>&quot;döljas med ett annat
+      fönster&quot;, 50, 100);</B><BR>
+      &nbsp; <B>}</B> //paint()<BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** Metoden destroy() körs när applet laddas ur<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>public void destroy(){</B><BR>
+      &nbsp;&nbsp;&nbsp; //I detta exempel gör denna metod inget.<BR>
+      &nbsp; <B>}</B> //destroy()<BR>
+      <BR>
+      <B>}</B> //class Enkel</SPAN></P>
+
+      <UL>
+        <LI><A HREF="Enkel/Enkel.htm" TARGET="_blank">Provkör</A> applet.</LI>
+      </UL>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <!-- **********************************************************************
+      *** Infoga applet i hemsida
+      *********************************************************************** -->
+      <h2><a name="parametrar"></a>Applet som använder parametrar</h2>
+
+      <P>En applet hämtar parametrar från en webbsida med metoden
+      getParameter() och som parameter till metoden skickas parameterns namn som
+      sträng. Metoden returnerar en sträng, och som vi måste konvertera till
+      tal om det är en sådan datatyp vi förväntar oss i parametern.</P>
+
+      <BLOCKQUOTE>
+        <P>int storlek = Integer.parseInt( getParameter(&quot;Storlek&quot;) )</P>
+      </BLOCKQUOTE>
+
+      <P>I HTML-koden placerar vi lika många PARAM-taggar (som det finns
+      parametrar att skicka) mellan öppnande och avslutande APPLET-tagg. Vi
+      använder oss av attributet NAME i PARAM-taggen för att tala om namnet
+      på parametern och attributet VALUE för att ange värdet på parametern.</P>
+
+      <BLOCKQUOTE>
+        <P>&lt;PARAM NAME=&quot;Storlek&quot; VALUE=&quot;15&quot;&gt;</P>
+      </BLOCKQUOTE>
+
+      <H3>Om exemplet</H3>
+      <P>Exemplet nedan hämtar tre parametrar från webbsidan som innehåller
+      texten som ska skrivas ut, typsnitt för texten samt storleken för
+      texten. Parametrarna läses i applets metod init() och placeras i (instans-)variabler
+      så att de alltid är tillgängliga.</P>
+
+      <BLOCKQUOTE>
+        <P><SPAN CLASS="kod">meddelande = getParameter(&quot;Meddelande&quot;);<BR>
+        typsnitt = getParameter(&quot;Typsnitt&quot;);<BR>
+        storlek = Integer.parseInt(getParameter(&quot;Storlek&quot;));</SPAN></P>
+      </BLOCKQUOTE>
+      <P>Exemplet visar även hur man kan ange bakgrundsfärgen genom att anropa
+      metoden setBackground() och skicka ett Color-objekt som parameter till
+      metoden. Color-objektet skapa i metodanropet eftersom vi inte behöver
+      någon variabel att referera till objektet. Konstruktorn för Color-objekt
+      tar tre parametrar - mängden röd, grön och blå färg.</P>
+      <BLOCKQUOTE>
+      <P><SPAN CLASS="kod">setBackground(new Color(255,255,204));</SPAN></P>
+      </BLOCKQUOTE>
+      <P>I metoden paint() börjar vi med att ange vi vilket typsnitt, stil och
+      storlek texten ska ha genom att anropa metoden setFont() i
+      Graphics-objektet som skickas som parameter till metoden paint(). Stilen
+      anges genom att använda konstanten PLAIN i Font-klassen.</P>
+      <BLOCKQUOTE>
+        <P><SPAN CLASS="kod">g.setFont(new Font(typsnitt, Font.PLAIN, storlek));</SPAN></P>
+      </BLOCKQUOTE>
+      <P>När vi angett vilket typsnitt vi vill använda kan vi sen skriva ut
+      till applets visuella yta, precis som i exemplet ovan.&nbsp;</P>
+      <H3>Koden för webbsida som skickar parametrar</H3>
+      <P><SPAN CLASS="kodlangre">&lt;HTML&gt;<BR>
+      &lt;HEAD&gt;<BR>
+      &nbsp; &lt;TITLE&gt;En applet med parametrar&lt;/TITLE&gt;<BR>
+      &lt;/HEAD&gt;<BR>
+      &lt;BODY&gt;<BR>
+      &lt;CENTER&gt;<BR>
+      &lt;H1&gt;En applet med parametrar&lt;/H1&gt;<BR>
+      &lt;P&gt;Denna webbsida visar en applet som tar emot parametrar.&lt;/P&gt;<BR>
+      <BR>
+      <B>
+      &lt;APPLET CODE =&quot;Param.class&quot; WIDTH=&quot;500&quot; HEIGHT=&quot;300&quot;&gt;<BR>
+      &nbsp; &lt;PARAM NAME=&quot;Meddelande&quot; VALUE=&quot;Säg hej till
+      publiken!&quot;&gt;<BR>
+      &nbsp; &lt;PARAM NAME=&quot;Typsnitt&quot; VALUE=&quot;Verdana&quot;&gt;<BR>
+      &nbsp; &lt;PARAM NAME=&quot;Storlek&quot; VALUE=&quot;15&quot;&gt;<BR>
+      &lt;/APPLET&gt;</B><BR>
+      <BR>
+      &lt;/CENTER&gt;<BR>
+      &lt;/BODY&gt;<BR>
+      &lt;/HTML&gt;</SPAN></P>
+      <H3>Fullständiga koden för applet Param&nbsp;</H3>
+      <P><SPAN CLASS="kodlangre"><B>import java.awt.*;</B><BR>
+      <B>
+      import java.applet.*;</B><BR>
+      <BR>
+      <B>
+      public class Param extends Applet {</B><BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** (Instans-)variabler<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>private
+      String meddelande; </B> //Test att skriva ut&nbsp;<BR>
+      &nbsp; <B>private String typsnitt;</B>&nbsp;&nbsp; //Typsnitt att visa text i&nbsp;<BR>
+      &nbsp; <B>private int storlek;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</B> //Storlek att visa text i<BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** Metoden
+      init() körs när applet laddas<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>public void init() {</B><BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp; &nbsp; //Hämta text och typsnitt att visa<BR>
+      &nbsp; <B>&nbsp; meddelande = getParameter(&quot;Meddelande&quot;);</B><BR>
+      <B>
+      &nbsp;&nbsp;&nbsp; typsnitt = getParameter(&quot;Typsnitt&quot;);</B><BR>
+      <BR>
+      &nbsp; &nbsp;&nbsp;&nbsp; //Hämta storlek<BR>
+      <B>
+      &nbsp;&nbsp;&nbsp; storlek = Integer.parseInt(getParameter(&quot;Storlek&quot;));</B><BR>
+      <BR>
+      &nbsp; &nbsp; /* Eftersom alla parametrar skickas som strängar så måste de<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; konverteras till int m.h.a. parseInt() som ovan */<BR>
+      <BR>
+      &nbsp; &nbsp;&nbsp;&nbsp; //Ange bakgrundsfärg för applet<BR>
+      &nbsp; &nbsp; <B>setBackground(new Color(255,255,204));</B><BR>
+      &nbsp; <B>}</B> //init()<BR>
+      <BR>
+      &nbsp; /***********************************************************<BR>
+      &nbsp; *** Metoden paint() anropas då applet ritas om, t.ex. då<BR>
+      &nbsp;&nbsp; ***&nbsp; fönster dolts.<BR>
+      &nbsp; ***********************************************************/<BR>
+      &nbsp; <B>public void paint(Graphics g) {</B><BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Ange typsnitt, stil och storlek som ska
+      användas&nbsp;<BR>
+      <B>
+      &nbsp;&nbsp;&nbsp; g.setFont(new Font(typsnitt, Font.PLAIN, storlek));</B><BR>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Skriv ut texten<BR>
+      <B>
+      &nbsp;&nbsp;&nbsp; g.drawString(meddelande, 50, 50);</B><BR>
+      <BR>
+      &nbsp; <B>}</B> //paint()<BR>
+      <BR>
+      <B>
+      }</B> //class Param</SPAN></P>
+
+      <UL>
+        <LI><A HREF="Param/Param.htm" TARGET="_blank">Provkör</A> applet.</LI>
+      </UL>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del5/javascript5_3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del5/javascript5_3.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Händelser i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  <style type="text/stylesheet">
+    .markering { background: yellow }
+  </style>
+  
+  <script type="text/javascript">
+      /************************************************************************
+      * validera() - kontrollerar att textfält i formularet har fyllts i.
+      * Om ett faltet inte fyllts i sa returneras false sa att sandning av form-
+      * ular kan avbrytas. Funktionen visar även ett meddelande om felet.
+      ************************************************************************/
+    function validera(f)
+    {
+      var str = f.Ort.value;  //Hämta innehåll i textfältet
+      
+      if( str.length == 0 )
+      {
+        alert("Du måste fylla i ett ortsnamn!");
+        return false;
+      }
+      
+         /* Alla falt ar ifyllda - returnera true sa att formular skickas */
+      return true;
+    }
+  </script>
+</head>
+<body>
+<h1>Ett enkelt exempel på händelsen OnSubmit</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<p>Detta exempel kontrollerar att textfältet i formuläret fyllts i
+och om textfältet är tomt visas en meddelanderuta om att så är fallet.</p>
+
+<form method="get" action="#" id="TestForm" onsubmit="return validera(this)">
+  <p>Fyll i ett ortsnamn: <input type="text" name="Ort" size="20" /></p>
+  <p><input type="submit" value="Skicka" name="B1" />
+    <input type="reset" value="Återställ" name="B2" /></p>
+</form>
+
+<p>&nbsp;</p>
+
+<h5>Kod:</h5>
+<blockquote>
+  <p class="kod">asdf</p>
+</blockquote>
+<h5>Resultat:</h5>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+
+  </script>
+  </p>
+</blockquote>
+<!-- *************************************************************************
+******************** SIDFOT **************************************************
+************************************************************************** -->
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+  <div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+	</div>
+</form>
+</body>
+</html>

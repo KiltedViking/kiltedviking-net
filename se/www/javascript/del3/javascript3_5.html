@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_5.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del3/javascript3_5.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Objektet window i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  <script type="text/javascript">
+    function laddas(){alert("Dokumentet laddas"); }
+    function laddasur(){alert("Hej då!"); }
+    function farfokus(){alert("Fönstret blev aktivt"); }
+    function forlorarfokus(){alert("Fönstret blev inaktivt"); }
+  </script>
+</head>
+<body onload="laddas()" onunload="laddasur()">
+<!--  Händelser som också kan användas i BODY är:
+  onFocus="farfokus()" onBlur="forlorarfokus()" -->
+<h1>Objektet window i JavaScript</h1>
+<!-- *************************************************************************
+******************** EXEMPEL 1 ***********************************************
+************************************************************************** -->
+<hr />
+
+<p>Koden har delats upp i två &lt;SCRIPT&gt;-taggar. Den första placeras i
+	taggen &lt;head&gt; och den andra i &lt;body&gt; (precis som tidigare exempel).
+	Även taggen &lt;body&gt; måste ändras genom att lägga till attributen för
+	att hantera händelser för de fyra händelserna onload, onunload, onfocus och
+	onblur.</p>
+
+<h5>Kod:</h5>
+<p>Skriptet i &lt;head&gt;:</p>
+<blockquote>
+  <p class="kod">&lt;script type="text/javascript"><br />
+    &lt;!--<br />
+    function laddas(){alert("Dokumentet laddas"); }<br />
+    function laddasur(){alert("Hej då!"); }<br />
+    function farfokus(){alert("Fönstret blev aktivt"); }<br />
+    function forlorarfokus(){alert("Fönstret blev inaktivt"); }<br />
+  //--><br />
+  &lt;/Script&gt;</p>
+</blockquote>
+  <p>Ändringen till taggen &lt;body&gt;:</p>
+<blockquote>
+  <p class="kod">&lt;body onload=&quot;laddas()&quot; onunload=&quot;laddasur()&quot;&gt;</p>
+</blockquote>
+<p>Att använda även händelserna onFocus och onBlur samtidigt kan leda till en
+oändlig loop, d.v.s. dom bör kanske inte förekomma samtidigt...:-) Om dom
+skulle finnas med skulle det kunna se ut enligt följande:</p>
+<blockquote>
+  <p>&lt;body&nbsp; onfocus=&quot;farfokus()&quot; onblur=&quot;forlorarfokus()&quot;&gt;</p>
+</blockquote>
+  <p>Skriptet i &lt;body&gt;:</p>
+<blockquote>
+  <p class="kod">&lt;script language="JavaScript"><br />
+  &lt;!--<br />
+  &nbsp; document.write("Öppnare av detta fönster är: &lt;b>"<br />
+  &nbsp;&nbsp;&nbsp; + window.opener.name + "&lt;/b>&lt;br>");<br />
+  &nbsp; document.write("Förälder till detta fönster är: &lt;b>"<br />
+  &nbsp;&nbsp;&nbsp; + window.parent.name + "&lt;/b>&lt;br>");<br />
+  &nbsp; document.write("Detta fönster är: &lt;b>"<br />
+  &nbsp;&nbsp;&nbsp; + window.self.name + "&lt;/b>&lt;br>");<br />
+  &nbsp; document.write("Status för detta fönster är: &lt;b>"<br />
+  &nbsp;&nbsp;&nbsp; + window.status + "&lt;/b>&lt;br>");<br />
+  //--><br />
+  &lt;/script>&nbsp;</p>
+</blockquote>
+<h5>Resultat:</h5>
+<p>Lite av resultatet ses i meddelanderutor som visar vad som händer.
+Händelserna onBlur (inaktivering av fönster) och onFocus (aktivering av
+fönster) tenderar till att ske även när meddelanderutorna dyker upp. När
+dokumentet laddas ur, d.v.s. när fönstret stängs, så visas en meddelanderuta
+med texten &quot;Hej då&quot;.</p>
+<blockquote>
+  <p>
+  <!-- ********************************************************************************
+  *********************** START KOD ***************************************************
+  ********************************************************************************* -->
+  <script type="text/javascript">
+    document.write("Öppnare av detta fönster är: <b>"
+      + window.opener.name + "</b><br />");
+    document.write("Förälder till detta fönster är: <b>"
+      + window.parent.name + "</b><br />");
+    document.write("Detta fönster är: <b>"
+      + window.self.name + "</b><br />");
+    document.write("Status för detta fönster är: <b>"
+      + window.status + "</b><br />");
+  </script>
+  </p>
+</blockquote>
+<!-- *************************************************************************
+******************** SIDFOT **************************************************
+************************************************************************** -->
+<hr />
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getFullYear() + "-" + (modDate.getMonth()+1) + "-" + modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+	</div>
+</form>
+</body>
+</html>

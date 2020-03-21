@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/servlets/formular.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/servlets/formular.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Servlets och formulär - Björns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Servlets &amp; formulär</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>Denna sida beskriver hur man från en servlet (med Java) kan läsa
+        data från ett HTML-formulär.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Servlets &amp; formulär</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h3>Innehåll</h3>
+      <nav class="menu">
+        <a class="menu-item" href="#grundlaggande" class="lank">Grundläggande</a>
+        <a class="menu-item" href="#enkla" class="lank">Enkel servlet</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2><a name="grundlaggande"></a>Grundläggande om formulär</h2>
+
+      <p>Nedan visas HTML-koden för ett enkelt formulär med en textruta och en
+        &quot;skickaknapp&quot; (submit-knapp).</p>
+
+      <pre><code><b>&lt;form method=&quot;get&quot; action=&quot;/servlet/EnkeltFormularServlet</b>
+  <b>&lt;input type=&quot;text&quot; name=&quot;namn&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;</b>
+<b>&lt;/form&gt;</b></code></pre>
+
+      <p class="kommentar">(Anpassa sökväg i ACTION-attributet för att passa den
+        sökväg där era servlets finns.)</p>
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><a name="enkla"></a>Enkel servlet</h2>
+      <p>Vår servlet-klass bör ärva från superklassen HttpServlet.</p>
+
+      <h4>Filen EnkelFormularServlet.class</h4>
+
+      <p><span class="kodlangre">/*<br>
+      * Java Servlet som genererar en hemsida som skriver ut namnet som<br>
+      * besökare fyller i ett formulär.<br>
+      * Björn Persson, EkI, MdH - 2004-01-26.<br>
+      * bjorn.persson@mdh.se<br>
+      */<br>
+      <br>
+      //Importera paket för...<br>
+      <b>import javax.servlet.*;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//servlet<b><br>
+      import javax.servlet.http.*; &nbsp;</b>//servlet<b><br>
+      import java.io.*;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//I/O<br>
+      <br>
+      <b>public class EnkelFormularServlet extends HttpServlet<br>
+      {</b><br>
+      &nbsp;&nbsp;&nbsp;/***************************************************<br>
+      &nbsp;&nbsp;* Implementation av metoden doGet() som anropas av webbserver då<br>
+      &nbsp;&nbsp;* webbläsare begär servlet med metoden HTTP-GET<br>
+      &nbsp;&nbsp;****************************************************/
+      <br>
+      <b>public void doGet(HttpServletRequest request,<br>
+      &nbsp; HttpServletResponse response) throws IOException<br>
+      {</b><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Tala om för webbserver vad som kommer att skickas (d.v.s.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; // HTML-kod)<br>
+      &nbsp;&nbsp;&nbsp;<b>response.setContentType(&quot;text/html&quot;);</b><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Hämta objekt för &quot;output&quot; för att kunna skriva till den<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; // genererade hemsidan<br>
+      &nbsp;&nbsp;&nbsp;<b>PrintWriter out = response.getWriter();<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; </b>//Hamta text från textruta med namnet 'namn'<b><br>
+      &nbsp;&nbsp; String strNamn = request.getParameter(&quot;namn&quot;);</b><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Skriv ut HTML-kod<br>
+      <b>&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HTML&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HEAD&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&nbsp; &lt;TITLE&gt;Hello &quot; + strNamn
+      + &quot;&lt;/TITLE&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HEAD&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;BODY&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;H1&gt;Hello &quot; + strNamn + &quot;&lt;/H1&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/BODY&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HTML&gt;&quot;);<br>
+      } </b>// doGet()
+      &nbsp;<br>
+      &nbsp;<br>
+      &nbsp;<br>
+      &nbsp;&nbsp;&nbsp;/***************************************************<br>
+      &nbsp;&nbsp;* Implementation av metoden doPost() som anropas av webbserver då<br>
+      &nbsp;&nbsp;* webbläsare begär servlet med metoden HTTP-POST<br>
+      &nbsp;&nbsp;
+      ****************************************************/
+      <br>
+      <b>public void doPost(HttpServletRequest request,<br>
+      &nbsp; </b></span><span class="kodlangre"><b>HttpServletResponse response)
+      throws IOException<br>
+      {</b><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Anropa egen impl. av doPost() - skicka
+      med inparametrarna<br>
+      &nbsp;&nbsp;&nbsp;<b>doGet(request, response);<br>
+      }</b> // doPost()
+      <br>
+      &nbsp;<br>
+      <b>}</b> //class EnkelFormularServlet</span>
+      </p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |
+        <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

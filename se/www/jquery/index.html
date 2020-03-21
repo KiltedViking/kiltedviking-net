@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/" />
+  <title>jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>jQuery</h1>
+
+      <div class="ui compact stackable menu">
+        <a class="item active" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Inneh&aring;ll</h2>
+          
+        <p>P&aring; denna underwebb beskrivs hur man kan ut&ouml;ka webbsidors funktionalitet
+          med jQuery - ett JavaScript-ramverk.</p>
+
+        <p>Exempelsidor i denna underwebb anv&auml;nder HTML version 5, men JavaScript b&ouml;r
+          &auml;ven fungera med HTML 4 och XHTML 1. D&auml;rf&ouml;r skrivs &quot;(X)HTML&quot; 
+          ist&auml;llet f&ouml;r &quot;HTML och/eller XHTML&quot; f&ouml;r att spara plats och 
+          tid. :-)<br />
+          <strong>Observera</strong> att denna underwebb anv&auml;nder JavaScript! :-) F&ouml;r att
+          kunna anv&auml;nda underwebbens funktion (fr&auml;mst &ouml;ppna nya f&ouml;nster med exempel) kr&auml;vs
+          att din webbl&auml;sare st&ouml;djer JavaScript samt att JavaScript <strong>inte</strong> 
+          har inaktiverat! Din webbl&auml;sare b&ouml;r &auml;ven st&ouml;dja CSS version 3.</p>
+
+        <p class="kommentar">&Auml;ven denna underwebb (liksom CSS2 och JavaScript) &auml;r 
+          designad enbart med stilmallar, d.v.s. inga (X)HTML-tabeller anv&auml;nds f&ouml;r 
+          design. Denna webbplats &auml;r &auml;ven designad med HTML 5.</p>
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#om_jquery">Om jQuery generellt, liksom JavaScript</a>
+          <a class="item" href="#om_underwebb">Om denna underwebb</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+
+        <h3>Mer information</h3>
+        
+        <ul>
+          <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+          <li><a href="varnu.html">Var nu?</a></li>
+          <!-- <li><a href="beskrivning.html">Beskrivning av jQuery</a> p&aring; denna
+            webbplats</li> -->
+          <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2 id="om_jquery">Om jQuery generellt</h2>
+
+        <p>JavaScript har genom &aring;ren f&aring;tt ett d&aring;ligt rykte, bl.a. d&aring; folk inte litar
+          p&aring; teknologin (p.g.a. s&auml;kerhetrisker och olika funktion hos olika webbl&auml;sare)
+          samt att m&aring;nga designers har &quot;&ouml;veranv&auml;nt&quot; teknologin i tron om att
+          deras webbplatser blir &quot;hippare&quot;. St&ouml;det f&ouml;r JavaScript har
+          fungerat olika i olika webbl&auml;sare, bl.a. gick Microsoft sin egen v&auml;g
+          vilket ledde till att designers var tvungna att skriva JavaScript-kod f&ouml;r
+          tv&aring; olika &quot;modeller&quot;. I.o.m. introduktionen av <a href="../js_dom"
+          class="externallink">DOM</a> (Document Object Model; och lite tankearbete
+          fr&aring;n intelligentare &auml;n mig :-)) s&aring; finns det nu ett angreppss&auml;tt som g&ouml;r att
+          vi kan skriva kod f&ouml;r endast en &quot;modell&quot;.</p>
+
+        <p>Detta &auml;r sanning med modifikation, d.v.s. det finns fortfarande en del olikheter
+          mellan webbl&auml;sare. F&ouml;r att komma runt detta har ett antal JavaScript-ramverk
+          skapats, bl.a. jQuery, Prototype och MoJo. &Auml;mnet f&ouml;r denna underwebb &auml;r ramverket
+          jQuery.</p>
+
+        <p>JavaScript-ramverk kan ses som ett enhetligt programmeringsgr&auml;nssnitt 
+          (eng. <em>Application Programming Interface</em>, API) i webbl&auml;sare.
+          I ramverket finns ett antal f&auml;rdiga funktioner, d.v.s. saker som vi inte beh&ouml;ver 
+          skriva funktioner f&ouml;r.</p>
+          
+        <p>jQuery &auml;r utvecklat f&ouml;r att kunna ut&ouml;kas med moduler (<em>plugins</em>).
+          Idag finns en uppsj&ouml; av f&auml;rdigutvecklade moduler och det &auml;r relativt l&auml;tt
+          att skriva egna moduler - antingen f&ouml;r att dela med andra eller f&ouml;r att &aring;teranv&auml;nda
+          i andra utvecklingsprojekt.</p>
+          
+        <h3>Om JavaScript generellt</h3>
+
+        <p>Ett <strong>viktigt</strong> begrepp i samband med JavaScript &auml;r &quot;elegant
+          nedgradering&quot; (eng. <em>graceful degradation</em>), vilket inneb&auml;r att
+          en webbplats alltid ska fungera oavsett vilka teknologier bes&ouml;kares webbl&auml;sare
+          st&ouml;djer (CSS, JavaScript, m.m.). JavaScript b&ouml;r allts&aring; anv&auml;ndas f&ouml;r att
+          <strong>ut&ouml;ka</strong> upplevelsen av ett bes&ouml;k och <strong>inte</strong>
+          hindra bes&ouml;kare fr&aring;n att komma &aring;t delar av webbplatsen. Ytterligare ett intressant
+          begrepp &auml;r &quot;diskret JavaScript&quot; (eng. <em>unobtrusive JavaScript</em>),
+          d.v.s. JavaScript ska inte vara ett krav f&ouml;r att bes&ouml;ka webbplats samt ska
+          inte vara &quot;p&aring;tr&auml;ngande&quot; (reta upp bes&ouml;kare). F&ouml;r att detta ska
+          fungera s&aring; m&aring;ste vi f&ouml;rst designa webbplats utan andra teknologier (s&aring; som
+          CSS och JavaScript). F&ouml;rst n&auml;r design (eller snarare struktur) &auml;r klar s&aring;
+          &auml;ndrar vi presentationen med CSS och funktionaliteten med JavaScript (se sidan
+          DOM).</p>
+          
+        <p class="kommentar">Ett exempel p&aring; detta &auml;r (om de blir klara) de st&ouml;rre exemplen
+          som finns sist i sida. De &auml;r en del av sida som d&ouml;ljs med jQuery n&auml;r sida 
+          laddas och visas i ett &quot;pop-up&quot;-f&ouml;nster n&auml;r bes&ouml;kare klickar p&aring; 
+          en knapp.</p>
+          
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="om_underwebb">Om denna underwebb</h2>
+        
+        <p>Denna underwebb har delats upp i f&ouml;ljande sidor:</p>
+        
+        <ul>
+          <li><b>Grundl&auml;ggande</b> - kort introduktion till syntax, var man skriver koden samt
+            funktionen $() och h&auml;ndelsen <em>ready</em>.</li>
+          <li><b>Selektorer</b> - hur man v&auml;ljer ut element att manipulera.</li>
+          <li><b>Filtrering</b> - hur man filtrerar ett existerande jQuery-objekt ytterligare.</li>
+          <li><b>Uts&ouml;kning</b> - hur man s&ouml;ker fram t.ex. barn-, syskon- och f&ouml;r&auml;ldraelement.</li>
+          <li><b>Manipulation</b> - hur man manipulerar DOM-struktur, t.ex. l&auml;gger till element
+            och &auml;ndrar stilar (CSS).</li>
+          <li><b>Effekter</b> - hur man anmierar, d&ouml;ljer och visar element.</li>
+          <li><b>H&auml;ndelser</b> - hur man kopplar funktioner f&ouml;r att hantera h&auml;ndelser i element.</li>
+        </ul>
+        
+        <h3>Vad som inte behandlas</h3>
+        
+        <ul>
+          <li><b>AJAX</b> - jag har inte kommit s&aring; l&aring;ngt i jQuery &auml;nnu. :-) Men mitt m&aring;l &auml;r att 
+            &auml;ven behandla detta &auml;mne. (... och jag har sökte en Web 2.0-kurs våren 2012.)</li>
+          <li><b>Skapande av till&auml;gg</b> (<em>plugins</em>) - jag har inte kommit s&aring; 
+            h&auml;r l&aring;ngt heller. :-)</li>
+          <li><b>Mer avancerade saker</b> - just nu favoriserar jag serverteknologier 
+            &ouml;ver JavaScript. :-) (Av &auml;ven denna orsak &auml;r inte beskrivningar kompletta, d.v.s.
+            det &auml;r bara fantasin som s&auml;tter gr&auml;nser f&ouml;r vad man kan g&ouml;ra med jQuery.)</li>
+        </ul>
+        
+        <h3>Version av jQuery i denna underwebb</h3>
+        
+        <p>När denna beskrivning började skrivas så gällde version 1.6.x av jQuery,
+          d.v.s. det finns en stor risk att ny version släppts och att det finns fler
+          (men kanske även mindre) antal metoder. Några metoder kan rent av ha ändrats
+          en del, så se dessa beskrivningar som en introduktion och verifiera eventuella
+          felaktigheter på den officiella webbplatsens <a href="http://docs.jquery.com/Main_Page"
+          target="_blank" rel="noopener">dokumentation</a>.</p>
+        
+        <h3>Exempel i denna underwebb</h3>
+        
+        <p>Många exempel ändrar bakgrundsfärg m.h.a. CSS-stilar då detta är mest tydligt. 
+          Men jQuery kan användas till så mycket mer än att ändra CSS-stilar för element, 
+          så använd inte (vissa) exempel som en måttstock på vad som är möjligt.
+          :-)</p>
+          
+        <p>Några exempel är beskrivningar av faktisk funktionalitet i denna underwebb 
+          (eller webbplats) - kan det bli mer praktiskt än så? :-)</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuerys officiella webbplats</a>.</li>
+          <li><a href="https://docs.jquery.com/Main_Page" target="_blank" rel="noopener">jQuerys officiella dokumentation</a>.</li>
+          <li><a href="https://www.w3schools.com/jquery/default.asp" target="_blank" rel="noopener">W3Schools.com</a></li>
+        </ul>
+
+        <ul>
+          <li><i>Applied jQuery - Develop and design</i>, Blanchard, Jay, Peachpit Press, Berkeley, 
+            2012. ISBN: 978-0-321-77256-5.</li>
+          <li><i>jQuery - Pocket reference</i>, Flanagan, David, O'Reilly, Sebastopol, 2011. 
+            ISBN: 978-1-449-39722-7.</li>
+          <li><i>jQuery Cookbook</i>, Sharp, Jonathan, et al, O'Reilly, Sebastopol, 2010. ISBN:
+            978-0-596-15977-1.</li>
+          <li><i>Beginning JavaScript and CSS Development with jQuery</i>, York, Richard, Wiley 
+            Publishing, 2009. ISBN: 978-0-470-22779-4.</li>
+        </ul>
+
+        <div class="ui compact menu center">
+          <a href="#" class="item">&lt; F&ouml;reg&aring;ende</a>
+          <a href="#" class="item">Start</a>
+          <a href="del1.html" class="item">N&auml;sta&gt;</a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+    </footer>
+  </div>
+</body>
+</html>

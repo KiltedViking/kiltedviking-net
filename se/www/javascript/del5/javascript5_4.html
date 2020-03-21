@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- START: IGNORERA DENNA HTML-KOD -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/del5/javascript5_4.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/del5/javascript5_4.html" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <!-- SLUT: IGNORERA DENNA HTML-KOD -->
+  <title>Egenskaper för fält i JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/stilmall.css" />
+  
+  <!-- ************************************************************************
+  ************* START: FUNKTION ***********************************************
+  ************************************************************************* -->
+  <script type="text/javascript">
+      /************************************************************************
+      * Funktion som anropas med händelsen OnClick i formulärets knapp
+      ************************************************************************/
+    function visaInnehall()
+    {
+      var falt, valtIndex, valtText, valtVarde;
+      
+        //Hämta referens till fält
+      falt = document.forms[0].MinLista;
+      
+        //Hämta index för markerat alternativ (om något)
+      valtIndex = falt.selectedIndex;
+      
+        //Om något alternativ markerat så är värdet > -1
+      if( valtIndex >= 0 )
+      {
+          //Hämta text som visas och värde från attributet VALUE
+        valtText = falt.options[valtIndex].text;
+        valtVarde = falt.options[valtIndex].value;
+        
+          //Visa meddelanderuta med variablerna
+        alert("Text för markerat alternativ är: " + valtText + "\n\n"
+	          + "Värde för markerat alternativ är: " + valtVarde);
+      }
+      else
+        alert('Du har inte markerat något alternativ i listrutan!');
+    }
+  </script>  
+  <!-- ************************************************************************
+  ************* SLUT: FUNKTION ************************************************
+  ************************************************************************* -->
+</head>
+<body>
+<h1>Exempel på egenskaper i listrutor</h1>
+
+<p>Detta exempel visar en meddelanderuta med information om text för markerat
+  alternativ (option) i en listruta samt värdet för markerat alternativ.</p>
+
+<hr />
+  <!-- ************************************************************************
+  ************* START: FORMULÄR ***********************************************
+  ************************************************************************* -->
+  
+<form method="get" action="#" id="MittFormular">
+  <p>Markera ett alternativ i listan och klicka på knappen.</p>
+  <p>
+    
+    <select name="MinLista" size="8">
+      <option value="1">Ett</option>
+      <option value="2">Två</option>
+      <option value="3">Tre</option>
+      <option value="4">Fyra</option>
+      <option value="5">Fem</option>
+    </select>
+    
+    <input type="button" value="Kör funktion" onclick="visaInnehall()" />
+  </p>
+</form>
+
+  <!-- ************************************************************************
+  ************* SLUT: FORMULÄR ************************************************
+  ************************************************************************* -->
+<hr />
+  
+<!-- *************************************************************************
+******************** SIDFOT **************************************************
+************************************************************************** -->
+
+<p style="text-align: center">Sida skapad av Bj&ouml;rn Persson
+<b>Uppdaterad:</b>
+<script type="text/javascript">
+    //Skapa ett datumobjekt utifrån strängen som lastModified() returnerar
+    // d.v.s. datumet som filen sist redigerades
+  modDate = new Date(document.lastModified);
+    //Skriv ut "år-månad-dag" - januari har värdet 0!!
+  document.write(modDate.getYear() + "-" + (modDate.getMonth()+1) + "-"
+				+ modDate.getDate());
+</script>
+</p>
+<form action="post">
+	<div style="text-align: center">
+		<input type="button" value="St&auml;ng f&ouml;nstret" onclick="self.close()" />
+	</div>
+</form>
+</body>
+</html>

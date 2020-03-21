@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: JavaScript" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/javascript/ajax1.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/javascript/ajax1.html" />
+  <title>AJAX (JS) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="../css/foundation.min.css" rel="stylesheet" />
+  <link href="../css/studiewebb-foundation.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="row">
+      <a href="../index.html"><img src="../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1>AJAX (JavaScript)</h1>
+    </div>
+
+    <div class="row">
+      <ul class="vertical medium-horizontal menu">
+        <li><a href="./index.html">Hem</a></li>
+        <li><a href="del1.html">Grundl&auml;ggande</a></li>
+        <li><a href="del2.html">Spr&aring;ket</a></li>
+        <li><a href="del3.html">Objekt</a></li>
+        <li><a href="del4.html">H&auml;ndelser</a></li>
+        <li><a href="del5.html">Formul&auml;r</a></li>
+        <li><a href="dom1.html">DOM</a></li>
+        <li class="active"><a href="ajax1.html">AJAX</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div class="row">
+    <div class="medium-7 columns">
+      <h2>Inneh&aring;ll</h2>
+
+      <p>P&aring; den webbsidan behandlas AJAX med JavaScript. Beskrivningen &auml;r mycket kort
+        d&aring; det rekommenderas att man l&auml;r sig ett JavaScript-bibliotek (s&aring; som jQuery
+        eller YUI Library) och anv&auml;nder det f&ouml;r AJAX. :-)</p>
+
+      <div class="panel callout radius warning">
+        <p>2020-02-09: <b>Observera</b> att informationen - främst kodexempel - på 
+          denna sida är något föråldrad! Uppdatering av sida är planerad.</p>
+      </div>
+    </div>
+
+    <div class="medium-5 columns">
+      <ul class="collection">
+        <li><a href="#princip" class="collection-item">Principen f&ouml;r AJAX-anrop</a></li>
+        <li><a href="#XMLHttpRequest" class="collection-item">XMLHttpRequest</a></li>
+        <li><a href="#referenser" class="collection-item">Referenser</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h2 id="princip">Principen f&ouml;r AJAX-anrop</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>I detta avsnitt beskrivs den grundl&auml;ggande principen f&ouml;r AJAX-anrop. Detaljer
+        beskrivs i avsnitt nedan.</p>
+        
+      <ul>
+        <li>Skapa instans av XMLHttpRequest</li>
+        <li>Koppla funktion till h&auml;ndelsehanterare</li>
+        <li>Utf&ouml;r anrop</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Skapa instans av XMLHttpRequest</h3>
+      <h4>Funktionen <code>getXMLHttpRequest()</code></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Att skapa en instans av XMLHttpRequest kompliceras av att det m&aring;ste ske
+        p&aring; olika s&auml;tt i olika webbl&auml;sare, eller t.o.m. olika versioner av webbl&auml;sare
+        (fr&auml;mst d&aring; Internet Explorer). S&aring; vi b&ouml;r &quot;prova&quot; oss fram enligt
+        kod nedan - l&auml;mpligen genom att skriva en funktion som returnerar instans av objekt.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function getXMLHttpRequest() {
+  var xhrObject;
+
+  try { //Forsok med &quot;standard&quot; satt
+    xhrObject = new XMLHttpRequest();
+  }
+  catch(e) {  //Ej standard - forsok med IE-satt
+    try {
+      xhrObject = 
+        new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    catch(e) { //... och forsok m annat IE-satt
+      try {
+        xhrObject = 
+          new ActiveXObject("Msxml2.XMLHTTP");
+      }
+      catch(e) {}
+    }
+  }
+  return xhrObject;
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>Anropa funktionen <code>getXMLHttpRequest()</code></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Med funktion ovan klar s&aring; kan vi skapa en instans av XMLHttpRequest med kod nedan.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <code>var ajax = getXMLHttpRequest();</code>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p class="kommentar">Det verkar som om Microsoft &auml;ntligen fixat sin webbl&auml;sare,
+        i.a.f. version 9, s&aring; att man kan skapa en instans av XMLHttpRequest enligt 
+        &quot;standard&quot;, d.v.s. samma som i Firefox, Opera, m.fl..</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Koppla funktion till h&auml;ndelsehanterare</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>N&auml;r vi har en instans av XMLHttpRequest s&aring; &auml;r det dags att koppla h&auml;ndelsehanterare
+        till objektets h&auml;ndelse OnReadyStateChanged. Detta kan vi g&ouml;ra genom att t.ex. 
+        definiera en funktion och sen tilldela den till objekt (observera att parenteser
+        utel&auml;mnas vid tilldelning av en funktion!), eller genom att tilldela en anonym
+        funktion (andra exemplet).</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>function myFunction() { ... }
+ajax.onreadystatechanged = myFunction;</code></pre>
+      
+      <pre><code>ajax.onreadystatechange = function() {
+  if (ajax.readyState == 4 &amp;&amp; ajax.status == 200) {
+    //Kod att exekvera nar anrop lyckats
+  }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Utf&ouml;ra anrop</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nu &auml;r det klart att utf&ouml;ra sj&auml;lva anropet till server, vilket inneb&auml;r att
+        &ouml;ppna en f&ouml;rbindelse och skicka en beg&auml;ran till server.</p>
+    </div>
+
+    <div class="medium-5 columns">
+      <pre><code>ajax.open("GET", "{en URL}");
+ajax.send('');</code></pre>
+    </div>
+  </div>
+      
+  <div class="row">
+    <div class="medium-12 columns">
+      <h4>St&ouml;rre exempel</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p><a href="ajax1/getXMLHttpRequest.html" target="_blank" class="button">Funktion getXMLHttpRequest()</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="XMLHttpRequest">XMLHttpRequest</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>XMLHttpRequest-objekt inneh&aring;ller ett antal egenskaper och metoder (n&aring;gra
+        som visats ovan). I detta avsnitt beskrivs de olika metoderna och egenskaperna 
+        efter dess anv&auml;ndningsomr&aring;de - i beg&auml;ran eller svaret p&aring; en beg&auml;ran.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Metoder och egenskaper f&ouml;r beg&auml;ran</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <table>
+        <caption>Egenskaper i XMLHttpRequest</caption>
+        <tr>
+          <th>Egenskap</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td class="code">.timeout</td>
+          <td>Tid i millisekunder som beg&auml;ran v&auml;ntar innan den avbryts</td>
+        </tr>
+        <tr>
+          <td class="code">.withCredentials</td>
+          <td>Sant om beg&auml;ran inneh&aring;ller anv&auml;ndarnamn och l&ouml;senord, annars falsk (enbart l&auml;sbar)</td>
+        </tr>
+        <tr>
+          <td class="code">.upload</td>
+          <td></td>
+        </tr>
+      </table>
+      
+      <table>
+        <caption>Metoder i XMLHttpRequest</caption>
+        <tr>
+          <th>Metod</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td class="code">.abort()</td>
+          <td>Avbryt p&aring;b&ouml;rjade beg&auml;ran</td>
+        </tr>
+        <tr>
+          <td class="code">.open(metod, url[, async[, anvnamn, losenord]])</td>
+          <td>&Ouml;ppna anslutning f&ouml;r beg&auml;ran f&ouml;r HTTP-metod och URL. Tredje argumentet
+            &auml;r sant som standard, men kan s&auml;ttas till falskt om man vill ha synkron 
+            beg&auml;ran (v&auml;nta p&aring; svar innan kod forts&auml;tter exekvera).</td>
+        </tr>
+        <tr>
+          <td class="code">.send(data)</td>
+          <td>Skicka beg&auml;ran till server, med eventuell data  </td>
+        </tr>
+        <tr>
+          <td class="code">.setRequestHeader(header, varde)</td>
+          <td>Ange v&auml;rde f&ouml;r header i beg&auml;ran</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <h3>Metoder och egenskaper f&ouml;r svar p&aring; beg&auml;ran</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <p>Nedan beskrivs metoder och egenskaper i XMLHttpRequest som har med svar p&aring;
+        beg&auml;ran.</p>
+
+      <table>
+        <caption>Egenskaper i XMLHttpRequest</caption>
+        <tr>
+          <th>Egenskap</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td class="code">.readyState</td>
+          <td>Tillst&aring;nd f&ouml;r beg&auml;ran (se nedan)</td>
+        </tr>
+        <tr>
+          <td class="code">.response</td>
+          <td>Inneh&aring;ller hela svaret p&aring; beg&auml;ran</td>
+        </tr>
+        <tr>
+          <td class="code">.responseText</td>
+          <td>Inneh&aring;ller hela svaret p&aring; beg&auml;ran som text - eventuella taggar, m.m. exkluderat</td>
+        </tr>
+        <tr>
+          <td class="code">.responseType</td>
+          <td>Inneh&aring;ller typ p&aring; inneh&aring;ll i svar (se nedan)</td>
+        </tr>
+        <tr>
+          <td class="code">.responseXML</td>
+          <td>Inneh&aring;ller hela svaret p&aring; beg&auml;ran med eventuella taggar</td>
+        </tr>
+        <tr>
+          <td class="code">.status</td>
+          <td>HTTP-status f&ouml;r beg&auml;ran - anv&auml;nds f&ouml;r att avg&ouml;ra om beg&auml;ran lyckades eller inte</td>
+        </tr>
+        <tr>
+          <td class="code">.statusText</td>
+          <td>HTTP-status f&ouml;r beg&auml;ran som text (t.ex. OK f&ouml;r HTTP-status 200)</td>
+        </tr>
+      </table>
+
+      <table>
+        <caption>Metoder i XMLHttpRequest</caption>
+        <tr>
+          <th>Metod</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td class="code">.getAllResponseHeaders()</td>
+          <td>H&auml;mta alla headers i svar fr&aring;n server</td>
+        </tr>
+        <tr>
+          <td class="code">.getResponseHeader()</td>
+          <td>H&auml;mta en viss header i svar fr&aring;n server</td>
+        </tr>
+        <tr>
+          <td class="code">.overrideMimeType()</td>
+          <td>Ange MIME-typ f&ouml;r svar (beskrivs inte vidare...)</td>
+        </tr>
+      </table>
+      
+      <p>I tabell nedan beskrivs de olika tillst&aring;nden f&ouml;r XMLHttpRequest-objekt.</p>
+      
+      <table>
+        <caption>Tillst&aring;nd (readyState) f&ouml;r XMLHttpRequest</caption>
+        <tr>
+          <th>Status</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>Oinitierad</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Etablerat f&ouml;rbindelse med server</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Beg&auml;ran skickad</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Beg&auml;ran behandlas</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Svar erh&aring;llet</td>
+        </tr>
+      </table>
+      
+      <p>Nedan beskrivs de vanligaste typerna av svar.</p>
+      
+      <table>
+        <caption>Svarstyper</caption>
+        <tr>
+          <th>Typ</th>
+          <th>Beskrivning</th>
+        </tr>
+        <tr>
+          <td>arraybuffer</td>
+          <td>??? (Kvar att ta reda p&aring; :-))</td>
+        </tr>
+        <tr>
+          <td>blob</td>
+          <td>Binary Large Object</td>
+        </tr>
+        <tr>
+          <td>document</td>
+          <td>??? (Kvar att ta reda p&aring; :-))</td>
+        </tr>
+        <tr>
+          <td>json</td>
+          <td>JSON-objekt</td>
+        </tr>
+        <tr>
+          <td>text</td>
+          <td>Enbart text</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <p>Nedan finns n&aring;gra webbsidor/-platser med mer information om &auml;mnet p&aring; denna
+        webbsida.</p>
+
+      <ul>
+        <li><a href="https://www.w3.org/TR/XMLHttpRequest/" target="_blank"
+          rel="noopener">XMLHttpRequest</a> hos <a href="https://www.w3.org/" target="_blank"
+          rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+      </ul>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="dom1a.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Start</a></li>
+          <li><a>N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <footer>
+    <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+  </footer>
+</body>
+</html>

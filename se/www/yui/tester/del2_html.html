@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <title>HTML till del 2 - YUI - Bj&ouml;rns studiewebb</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+    body { font-family: Verdana, Arial, Helvetica, sans-serif; }
+  </style>
+  <script type="text/javascript" src="../../js/yui-min.js"></script>
+  <script type="text/javascript">
+    YUI().use("node", function(Y) {
+      //Grundläggande CSS-selektorer
+      Y.all("h1").setStyle("boxShadow", "5px 5px 5px blue");      //Alla H1-taggar
+      Y.all(".kod").setStyle("backgroundColor", "yellow");        //Alla taggar med klassen kod
+      Y.all("#sidfot").setStyle("border", "solid 1px red");       //Tagg med id sidfot
+      Y.all("h1, h2, .rubrik").setStyle("fontFamily", "'Segoe Script', 'Cooper Std', Copperplate, Impact"); //Alla H1- och H2-taggar + taggar m klassen rubrik
+
+      //Relationsselektorer
+      Y.all("div.kod p").setStyle("fontFamily", "'Courier New', Courier, monospace");  //Alla P-taggsättlingar till DIV-tagg med klassen kod
+      Y.all("div.kod>p").setStyle("fontStyle", "italic");      //Alla P-taggar som är direkta ättlingar till DIV-tagg med klassen kod
+      Y.all("h2+p").setStyle("fontFamily", "'Segoe Script', 'Cooper Std', Copperplate, Impact");  //Alla P-taggar som är syskon till, och som följer direkt efter, H2-tagg
+      Y.all("p::first-child").setStyle("color", "blue");        //P-tagg som är första barnet
+
+	  //Alla udda alternativ i lista
+      Y.all("#list0>li:nth-child(odd)").setStyle("backgroundColor", "lightgrey");
+	  //Fjärde alternativet i lsita
+      Y.all("#list0>li:nth-child(4)").setStyle("backgroundColor", "lightblue");
+	  //Första barnet
+      Y.all("#list0>li:first-child").setStyle("fontWeight", "bold");
+	  //Alternativ större än 3:e (fungerar inte i YUI)
+      //Y.all("#list0>li:gt(3)").setStyle("fontStyle", "italic");
+
+	  //Alternativ innehåller texten "två" (fungerar inte i YUI)
+      //Y.all("#list1>li:contains('två')").setStyle("backgroundColor", "lightgrey");
+	  //Tomma alternativ
+      Y.all("#list1>li:empty").setStyle("backgroundColor", "lightblue");
+	  //Alternativ innehåller taggen B (fungerar inte i YUI)
+      //Y.all("#list1>li:has(b)").setStyle("backgroundColor", "pink");
+
+      //Pseudoselektorer
+      Y.all("a:hover").setStyle("background-color", "#80000"); //A-tagg som mus förs över...
+    });
+  </script>
+</head>
+<body>
+<div id="container">
+  <!-- H1-taggar kommer ges en skugga -->
+  <h1>HTML till del 2</h1>
+  
+  <h2>Rubrik 2</h2>
+  
+  <p>Ett stycke med text som följer direkt efter en H2-rubrik som ändrats m.h.a. jQuery.</p>
+  <p>Ytterligare ett stycke som inte har ändrats (med annat än CSS :-)).</p>
+  
+  <div class="kod">
+    <div class="kommentar">
+      <!-- P-tagg som är första barnet kommer få blå text -->
+      <p>//Kod</p>
+    </div>
+    <!-- P-tagg som är dirkt ättling till DIV-tagg med klassen kod -->
+    <p>var tal = 1 + 2;</p>
+  </div>
+  
+  <!-- <ul>
+    <li><a href="#" id="ahover">För musen över länk</a></li>
+  </ul> -->
+  
+  <h2>Ordningsselektorer</h2>
+  <p>Nedan är en lista som visar hur ordningsselektorer fungerar.</p>
+  
+  <ol id="list0">
+    <li>ett</li>
+    <li>två</li>
+    <li>tre</li>
+    <li>fyra</li>
+    <li>fem</li>
+    <li>sex</li>
+  </ol>
+  
+  <h2>Villkorsselektorer</h2>
+  <p>Nedan är en lista som visar hur villkorsselektorer fungerar.</p>
+  
+  <ol id="list1">
+    <li>ett</li>
+    <li>två</li>
+    <li></li>
+    <li>fyra, och <b>fet</b> text</li>
+  </ol>
+  
+  <!-- *** Sidfot ********************************************************* -->
+  <!-- Tagg med id sidfot kommer få en röd kantlinje -->
+  <div id="sidfot">
+		<footer>
+      <!-- P-tagg som är första barnet kommer få blå text -->
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-15.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

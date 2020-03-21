@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Urval - YUI - Bj&ouml;rns studiewebb</title>
+  <link href="../stilar/css3.css" rel="stylesheet" type="text/css" />
+  <link href="../stilar/css3print.css" rel="stylesheet" type="text/css" media="print" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../js/yui-min.js"></script>
+	<script type="text/javascript" src="../studiewebb2yui.js"></script>
+    <script type="text/javascript">
+		YUI().use("node", function(Y) {
+			Y.all(".code");
+		});
+		
+      //This doesn't work...
+//      $(document).ready(function() {
+//        $(".code").click(function(event) {
+//          var $target = $(event.target);
+//            
+//          $target.toggle(
+//            function() {
+//              if($target.is("div"))
+//                $target.addClass("codeMaroon");
+//            },
+//            function() {
+//              if($target.is("div"))
+//                $target.removeClass("codeMaroon");
+//          });
+//        });
+//      });
+    </script>
+      
+  <style type="text/css">
+    /* Classes for example in page */
+    .codeMaroon { background-color: maroon; }
+  </style>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<header>
+			<!-- Logotyp och tillika lank till startsida for webbplats -->
+			<div id="logotyp">
+				<a href="../index.html"><img src="../bilder/logony1.jpg"
+					alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+			</div>
+
+			<h1>Urval</h1>
+		</header>
+	</div>
+
+  <!-- *** Meny ************************************************************ -->
+  <div id="menyram">
+    <ul class="intern">
+      <li><a href="./index.html">Inledning</a></li>
+    </ul>
+    <ul class="intern">
+      <li><a href="del1.html">Grundl&auml;ggande</a></li>
+      <li><a href="del2.html">Selektorer</a></li>
+      <li><a href="del3.html">Urval</a></li>
+      <li><a href="del4.html">Uts&ouml;kning</a></li>
+      <li><a href="del5.html">Manipulation</a></li>
+<!--      <li><a href="del6.html">Effekter</a></li> -->
+      <li><a href="del7.html">H&auml;ndelser</a></li>
+    </ul>
+<!--
+    <ul class="intern flerradiglista">
+      <li><a href="exempel.html">Exempel</a> p&aring; anv&auml;ndning</li>
+    </ul>
+    <ul class="intern">
+      <li><a href="varnu.html">Var nu?</a></li>
+    </ul>
+    <ul class="intern flerradiglista">
+      <li><a href="beskrivning.html">Beskrivning av YUI</a> p&aring; denna
+        webbplats</li>
+      <li><a href="lankar.html">L&auml;nkar</a> till andra webbplatser</li>
+    </ul>
+-->
+    <ul class="tillbakalista flerradiglista">
+      <li><a href="../index.html">Till startsida</a> f&ouml;r studiewebb</li>
+    </ul>
+  </div>
+
+  <!-- *** Innehall ******************************************************** -->
+  <div id="innehall">
+    <p>P&aring; denna sida beskrivs hur man kan väljer ut element från DOM-struktur
+		med metoderna .all() och .one().</p>
+			
+	<h2>Sidans inneh&aring;ll</h2>
+		
+	<ul>
+	  <li><a href="#inledning">Inledning</a></li>
+      <li><a href="#metoder">Metoderna .all() och .one()</a></li>
+      <li><a href="#referenser">Referenser</a></li>
+	</ul>
+
+    <h2 id="inledning">Inledning</h2>
+    
+    <p>I YUI används (främst?) det två metoderna .all() och .one(), till vilken man 
+		skickar selektorer som en sträng som argument.</p> 
+
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p>I exempel nedan s&aring; v&auml;ljs elementet med ID &quot;error&quot;, för att sen
+		ange elementets innehåll som HTML. Sen ändras stil f&ouml;r element i den filtrerade listan 
+        &auml;ndras sen till r&ouml;d (text-)f&auml;rg.</p>
+        
+      <div class="code">
+        <p>Y.one(&quot;#error&quot;).setHTML("FEL: Försök igen!").setStyle("color", "blue");</p>
+      </div>
+    </fieldset>
+      
+	<p class="kommentar">I.o.m. version 3 av YUI så ändrades strukturen av YUI-ramverket,
+		så om du programmerat med tidigare version eller hittar exempel som ser helt
+		annorlunda ut än mina, så kan det bero på att dessa exempel är för tidigare version av YUI.</p>
+      
+	<p>Många metoder returnerar det objekt som metod anropas på, vilket inneb&auml;r att metoder 
+		kan &quot;l&auml;nkas&quot; (s.k. <em>chaining</em>) - en metod kan anropas direkt efter en annan.</p>
+      
+    <h3>Strukturerande av kod</h3>
+      
+    <p>JavaScript:s syntax &auml;r mycket &quot;anpassningsbar&quot;, vilket g&ouml;r att vi kan 
+      skriva koden mer l&auml;sbar. Bl.a. s&aring; kan man infoga radbrytningar och indrag
+      d&auml;r man i andra spr&aring;k inte f&aring;r dela p&aring; koden.</p>
+      
+    <p class="kommentar">Det &auml;r dock praktiskt att alltid anv&auml;nda semikolon 
+      f&ouml;r att avsluta satser s&aring; att koden &auml;r l&auml;ttare att tolka, men &auml;ven s&aring; att 
+      den fungerar korrekt om man komprimerar koden.</p>
+      
+    <fieldset>
+      <legend>Exempel</legend>
+      
+      <p>Här har koden från föregående exempel skrivits om mer läsbar (?).</p>
+    
+      <div class="code">
+        <p>Y.all(&quot;li.red&quot;)<br>
+			&nbsp;&nbsp;.setHTML("FEL: Försök igen!")<br>
+			&nbsp;&nbsp;.setStyle("color", "blue");</p>
+      </div>
+    </fieldset>
+      
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="metoder">Metoderna .all() och .one()</h2>
+
+    <p>Till metoder nedan skickas selektorstr&auml;ng.</p>
+    
+    <table class="tableproperties">
+      <caption>Filtreringsmetoder</caption>
+      <tr>
+        <th>Metod</th>
+        <th>Element som filtreras ut</th>
+      </tr>
+      <tr>
+        <td class="code">.all(selektor)</td>
+        <td>Instans av klassen NodeList som innehåller element som matchar selektor</td>
+      </tr>
+      <tr>
+        <td class="code">.one(selektor)</td>
+        <td>Instans av klassen Node som innehåller element som matchar selektor</td>
+      </tr>
+    </table>
+    
+    <fieldset>
+      <legend>Exempel</legend>
+					
+      <p>I exempel nedan s&aring; v&auml;ljs f&ouml;rst alla punkter i listor och sen filtreras element
+        nummer 3 ut (d&aring; vektorer i JavaScript &auml;r 0-baserade).</p>
+      
+      <div class="code">
+        <p>Y.all("li:nth-child(2)"); //Listelement 2</p>
+        <p>if(Y.all(".rubrik").test("h1")) ...; //Om element &auml;r H1</p>
+      </div>
+    </fieldset>
+		
+    <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+    
+    <h2 id="referenser">Referenser</h2>
+
+    <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+      denna underwebb.</p>
+
+    <ul>
+      <li><a href="http://yuilibrary.com/yui/docs/api/classes/Node.html" class="externallink">Klassen Node</a>
+        (YUI-dokumentation).</li>
+    </ul>
+
+    <ul class="foregaendenasta">
+      <li><a href="del2.html">&lt;F&ouml;reg&aring;ende</a></li>
+      <li><a href="index.html">Inledning</a></li>
+      <li><a href="del4.html">N&auml;sta&gt;</a></li>
+    </ul>
+
+  </div>
+  <!-- *** Sidfot ********************************************************* -->
+  <div id="footer">
+		<footer>
+			<p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
+				<strong>Uppdaterad:</strong> 2012-04-15.</p>
+		</footer>
+	</div>
+</div>
+</body>
+</html>

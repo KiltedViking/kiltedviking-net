@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: jQuery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/jquery/del4.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/jquery/del4.html" />
+  <title>Uts&ouml;kning - jQuery - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/semantic.min.css" />
+  <link rel="stylesheet" href="../css/studiewebb-semantic.css" />
+</head>
+<body>
+  <header>
+    <div class="ui container page">
+      <!-- Logotyp och tillika lank till startsida for webbplats -->
+      <div class="logotyp">
+        <a href="../index.html"><img src="../bilder/logony1.jpg"
+          alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+      </div>
+
+      <h1>Uts&ouml;kning - jQuery</h1>
+      
+      <div class="ui compact stackable menu">
+        <a class="item" href="index.html">Start</a>
+        <a class="item" href="del1.html">Grundl&auml;ggande</a>
+        <a class="item" href="del2.html">Selektorer</a>
+        <a class="item" href="del3.html">Filtrering</a>
+        <a class="item active" href="del4.html">Uts&ouml;kning</a>
+        <a class="item" href="del5.html">Manipulation</a>
+        <a class="item" href="del6.html">Effekter</a>
+        <a class="item" href="del7.html">H&auml;ndelser</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="nine wide column">
+        <h2>Inneh&aring;ll</h2>
+        
+        <p>P&aring; denna sida beskrivs man kan s&ouml;ka ut relaterade element fr&aring;n ett
+        jQuery-objekts existerande samling av element, t.ex. f&ouml;r&auml;ldra- eller barnelement.</p>
+      </div>
+
+      <div class="seven wide column">
+        <div class="ui fluid vertical menu">
+          <a class="item" href="#inledning">Inledning</a>
+          <a class="item" href="#metoder">Metoder</a>
+          <a class="item" href="#referenser">Referenser</a>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <h2 id="inledning">Inledning</h2>
+      </div>
+      
+      <div class="nine wide column">
+        <p>Uts&ouml;kningsmetoderna p&aring; denna sida anv&auml;nds f&ouml;r att hitta relaterade element,
+          t.ex. barn-, syskon- och f&ouml;r&auml;ldraelement.</p>
+      </div>
+
+      <div class="sixteen wide column">
+        <h3>Metoden <code>.each()</code></h3>
+      </div>
+
+      <div class="nine wide column">
+        <p>M&aring;nga av metoderna p&aring; denna sida anv&auml;nds l&auml;mpligen i samband med metoden
+          <span class="code">.each()</span>, som loopar &ouml;ver alla element i jQuery-objekt.
+          I loop g&ouml;rs respektive DOM-element (<strong>inte</strong> jQuery-objekt) tillg&auml;ngliga 
+          genom variabeln <span class="code">this</span>. Om vi vill anv&auml;nda elementet
+          som ett jQuery-objekt m&aring;ste vi allts&aring; kapsla in element med koden <span class="code">$(this)</span>.</p>
+      </div>
+
+      <div class="nine wide column">
+        <p>I exempel nedan v&auml;ljs alla stycken fram, f&ouml;r att sen loopas &ouml;ver med <span class="code">.each()</span>.
+          Inuti loopen &auml;ndras stilen f&ouml;r bakgrundsf&auml;rg till bl&aring;.</p>
+      </div>
+      
+      <div class="seven wide column">
+          <pre><code>$(&quot;p&quot;).each(function () {
+  $(this).css(&quot;background-color&quot;, &quot;blue&quot;);
+});</code></pre>
+      </div>
+          
+      <div class="nine wide column">
+        <fieldset>
+          <legend>Exempel</legend>
+          <p>Klicka p&aring; knappen Bl&aring; f&ouml;r att f&auml;rga bakgrund f&ouml;r all kod bl&aring;. F&ouml;r att &aring;terst&auml;lla,
+            klicka p&aring; knappen &Aring;terst&auml;ll. (Saknas knappar s&aring; fungerar inte JavaScript
+            som det ska i din webbl&auml;sare - de har lagts till med just JavaScript.)</p>
+
+          <div id="eachdemo"></div>
+        </fieldset>
+
+        <p>N&auml;r knappen Bl&aring; klickas p&aring; s&aring; anropas f&ouml;rsta raden nedan och knappen &Aring;terst&auml;ll
+          den andra raden. B&auml;gge rader v&auml;ljer fram element av klassen code, f&ouml;r att 
+          sen loopa &ouml;ver alla element. I loop anges resp. avl&auml;gsnas sen stil f&ouml;r bakgrundsf&auml;rg
+          f&ouml;r respektive element.</p>
+      </div>
+
+      <div class="seven wide column">
+          <pre><code>$(&quot;.code&quot;).each(function () {
+  $(this).css(&quot;background-color&quot;, &quot;lightblue&quot;); //Ange stil
+});</code></pre>
+          <pre><code>$(&quot;.code&quot;).each(function () {
+  $(this).css(&quot;background-color&quot;, &quot;&quot;); //Avlagsna stil
+});</code></pre>
+      </div>
+        
+      <!-- 2017-12-10: Kod flyttad till sist i fil -->
+
+      <div class="nine wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="metoder">Metoder</h2>
+      </div>
+
+      <div class="nine wide column">
+        <p>Metoderna nedan utg&aring;r fr&aring;n ett existerande jQuery-objekt kan man anv&auml;nda selektorer fr&aring;n CSS f&ouml;r att v&auml;lja ut element.</p>
+        
+        <table class="ui table">
+          <caption>Fler selektorer</caption>
+          <thead>
+            <tr>
+              <th>Metod</th>
+              <th>Element som v&auml;ljs ut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.children([selektor])</code></td>
+              <td>Barn till alla element, och som ev. matchar selektor</td>
+            </tr>
+            <tr>
+              <td><code>.closest(arg[, context])</code></td>
+              <td>Element som t.ex. matchar argumentet arg, med b&ouml;rjan p&aring; aktuellt element</td>
+            </tr>
+            <tr>
+              <td><code>.find(arg)</code></td>
+              <td>&Auml;ttlingar som t.ex. matchar argumentet arg</td>
+            </tr>
+            <tr>
+              <td><code>.next([selektor])</code></td>
+              <td>N&auml;sta syskon till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.nextAll([selektor])</code></td>
+              <td>Alla n&auml;stf&ouml;ljande syskon till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.nextUntil([selektor1[, selektor2]])</code></td>
+              <td>Alla n&auml;stf&ouml;ljande syskon till alla element i nuvarande samling, och upp till element som matchar ev. selektor1 och som matchar ev. selektor2</td>
+            </tr>
+            <tr>
+              <td><code>.offsetParent()</code></td>
+              <td>F&ouml;rsta f&ouml;r&auml;lder som &auml;r positionerad (med CSS)</td>
+            </tr>
+            <tr>
+              <td><code>.parent([selektor])</code></td>
+              <td>Alla f&ouml;r&auml;ldrar till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.parents([selektor])</code></td>
+              <td>Alla f&ouml;rf&auml;der till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.parentsUntil([selektor2[, selektor2]])</code></td>
+              <td>Alla f&ouml;r&auml;ldrar till alla element i nuvarande samling, och upp till element som matchar ev. selektor1 och som matchar ev. selektor2</td>
+            </tr>
+            <tr>
+              <td><code>.prev([selektor])</code></td>
+              <td>F&ouml;reg&aring;ende syskon till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.prevAll([selektor])</code></td>
+              <td>Alla f&ouml;reg&aring;ende syskon till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+            <tr>
+              <td><code>.prevUntil([selektor1[, selektor2]])</code></td>
+              <td>Alla f&ouml;reg&aring;ende syskon till alla element i nuvarande samling, och upp till element som matchar ev. selektor1 och som matchar ev. selektor2</td>
+            </tr>
+            <tr>
+              <td><code>.siblings([selektor])</code></td>
+              <td>Alla syskon till alla element i nuvarande samling, och som matchar ev. selektor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nine wide column">
+        <p>I exempel nedan så väljs först alla tabeller (med selektorer) och sen filtreras
+          alla barn som är tabellrader (med filtrering).</p>
+      </div>
+
+      <div class="seven wide column">
+          <code>$("table").children("tr"); //Tabellers barn av typ tabellrad</code>
+      </div>
+        
+      <div class="sixteen wide column">
+        <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+        
+        <h2 id="referenser">Referenser</h2>
+
+        <p>Nedan finns n&aring;gra b&ouml;cker och webbsidor/-platser som jag anv&auml;nt f&ouml;r att skapa
+          denna underwebb.</p>
+
+        <ul>
+          <li><a href="https://api.jquery.com/category/traversing/tree-traversal/" 
+            target="_blank" rel="noopener">Tree-traversal</a> (jQuery-dokumentation).</li>
+          <li><a href="https://api.jquery.com/category/manipulation/" target="_blank"
+            rel="noopener">Manipulation</a> (jQuery-dokumentation).</li>
+        </ul>
+
+        <div class="ui compact menu">
+          <a class="item" href="del3.html">&lt; F&ouml;reg&aring;ende</a>
+          <a class="item" href="index.html">Start</a>
+          <a class="item" href="del5.html">N&auml;sta &gt;</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-29.</p>
+    </footer>
+  </div>
+  
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#eachdemo").append("<input type='button' class='ui button' id='eachbutton1' value='Bl&aring;' />");
+      $("#eachdemo").append("<input type='button' class='ui button' id='eachbutton2' value='&Aring;terst&auml;ll' />");
+      
+      $("#eachbutton1").click(function () {
+        $("code").each(function () {
+          $(this).css("background-color", "lightblue");
+        });
+      });
+      
+      $("#eachbutton2").click(function () {
+        $("code").each(function () {
+          $(this).css("background-color", "");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

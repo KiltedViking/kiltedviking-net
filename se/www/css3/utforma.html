@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/utforma.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/utforma.html" />
+  <title>Utforma HTML f&ouml;r stilmallar - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Utforma HTML f&ouml;r stilmallar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li class="active"><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+                
+          <p>P&aring; denna sida beskrivs hur man b&ouml;r utforma HTML f&ouml;r att stilmallar 
+            ska fungera b&auml;st.</p>
+
+          <p>Det finns n&aring;gra viktiga saker som m&aring;ste f&ouml;ljas f&ouml;r 
+            att CSS ska fungera korrekt.</p>
+        </div>
+      </div>
+
+      <h3>HTML-kod m&aring;ste vara korrekt</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om inte HTML-koden &auml;r korrekt s&aring; kan resultatet vara bli of&ouml;rutsett.</p>
+          
+          <ul>
+            <li>Taggar m&aring;ste ha b&aring;de &ouml;ppnande och avslutande tagg. 
+              Om tagg saknar inneh&aring;ll
+              (s&aring; som taggarna <code>br</code> och <code>img</code>), s&aring; 
+              r&auml;cker det med att tagg avslutas med ett snedstreck.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Anv&auml;nd attributen <code>class</code> och <code>id</code> i taggar</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li>Anv&auml;nd attributet <code>class</code> i HTML-taggar som ska ha samma stil.</li>
+            <li>Anv&auml;nd attributet <code>id</code> i HTML-taggar som &auml;r unika i respektive sida 
+              (t.ex. &quot;footer&quot;, &quot;menu&quot; och &quot;header&quot;) och ska ha samma stil.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sidan</p>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

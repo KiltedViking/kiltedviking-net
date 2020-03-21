@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+  <!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+  <!-- End Google Tag Manager -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Kilted Vikings tips för utveckling av webbsidor och -platser. Git är ett bibliotek för att lagra och hantera versioner av programkod." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Kilted Vikings tips för utveckling av webbsidor och -platser. Git är ett bibliotek för att lagra och hantera versioner av programkod." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://kiltedviking.net/se/tips/git.html" />
+	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
+	<link rel="canonical" href="https://kiltedviking.net/se/tips/git.html" />
+	<link rel="preload" href="../../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <title>Webbutveckingstips: Git - Kilted Viking</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../../css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../css/kiltedviking4.css" rel="stylesheet" />
+</head>
+<body>
+	<header class="image-header image-ben-vrackie">
+		<h1>Webbutvecklingstips: Git</h1>
+		<h2 class="hidden-xs">Hur jag använder Git i min utveckling</h2>
+	</header>
+	<div class="container">
+    <!-- Menubar -->
+    <nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!-- Button for when menu collapses -->
+					<button type="button" class="navbar-toggle collapsed" 
+						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
+						<!-- Add accessibility things -->
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../">Hem</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
+						<li class="active"><a href="./"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
+						<li><a href="../google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
+						<li><a href="../om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
+						<li><a href="../../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+
+						<li class="dropdown">
+							<a href="../../" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-globe"></i> In English
+								<i class="caret"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
+								<li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
+								<li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
+								<li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+    <!-- *** Contents column ************************************************* -->
+    <div class="row">
+			<div class="col-sm-6 col-sm-offset-2">
+				<h3>Inledning</h3>
+        <p>Git bygger på s.k. distribuerade bibliotek (<i>repository</i>), d.v.s. det 
+          finns inte ett huvudbibliotek utan alla bibliotek är likvärdiga. Vad det innebär
+          är att varje kopia av biblioteket är likvärdiga och kan variera. I realiteten
+          brukar varje utvecklare jobba med sin egen kopia och ladda upp till ett
+          delat bibliotek - en Git-tjänst.
+        </p>
+
+        
+				<p>På denna sida beskriver jag hur jag brukar skapa Git-bibliotek (repositories).
+				</p>
+
+        <h3>Skapa Git-bibliotek</h3>
+        <p>.
+        </p>
+
+        <ul>
+          <li>Initiera bibliotek (<i>repository</i>; <i>init</i>).</li>
+          <li>Skapa filen <code>.gitignore</code> och lägg till filer att ignorera.</li>
+          <li>Lägg till filer och mappar i bibliotek (<i>add</i>).</li>
+          <li>Checka in ändringar (<i>commit</i>).</li>
+          <li>Skapa bibliotek hos leverantör (<i>remote</i>).</li>
+          <li>Ladda upp lokalt bibliotek till Git-tjänst (<i>push</i>).</li>
+        </ul>
+
+        <h4>Initiera bibliotek</h4>
+        <p>När bibliotek initieras så skapas en mapp <code>.git</code>.</p>
+        <p><code>git init</code></p>
+
+        <h4>Skapa filen <code>.gitignore</code></h4>
+        <p>Filer som innehåller känslig information, så som användarnamn och lösenord,
+          bör inte läggas till i bibliotek och för undvika detta så kan man använda
+          en fil med namnet <code>.gitignore</code> (fil med &quot;bara filändelse&quot;
+          för Windows-användare ;-)). Det finns inget kommando för detta, så skapa 
+          en vanlig textfil med namnet <code>.gitignore</code>.
+        </p>
+
+        (Mappen <code>.git</code> behöver <b>inte</b> läggas till i <code>.gitignore</code>.)
+
+        <h5>Exempel</h5>
+        <p>I exempel nedan så ignoreras PHP-fil med datbasanslutning samt filer som
+          används av sökmotorerna Bing och Google för att validera webbplatsen. De
+          två första filerna kan finnas var som helst i webbplats, men den sista måste
+          ligga i roten på webbplatsen då den börjar med <code>/</code>. Kommentarer
+          börjar med tecknet <code>#</code>.
+        </p>
+
+        <pre><code>#Ignorera databasanslutning med anvandarnamn och losenord
+connection.php
+
+#Ignorera valideringsfiler fran sokmotorerna Bing och Google
+BingSiteAuth.xml
+/google*.html</code></pre>
+
+        <p><b>Tips:</b> Skapa gärna en kopia på känsliga filer och ersätt det känsliga
+          med exempelvärden - gärna med text som <code>EXEMPEL</code> eller <code>EXAMPLE</code> 
+          i filnamnet (ex. <code>connection_EXAMPLE.php</code>).
+        </p>
+
+        <h4>Lägg till filer och mappar i bibliotek</h4>
+        <p>För att lägga till alla filer och mappar i aktuell mapp (och undermappar)
+          kan man använda parametern <code>--all</code>.
+        </p>
+
+        <p><code>git add --all</code></p>
+
+        <h4>Checka in ändringar</h4>
+        <p>När man checkar in ändringar så är det kotym att lägga till en kort förklaring
+          (max 50 tecken) som beskriver ändringar. 
+        </p>
+
+        <p><code>git commit</code></p>
+
+        <p>Ett snabbare sätt att checka in är att skicka med kommentar som en parameter
+          till kommandot <code>commit</code> och då använder man parametern <code>-m</code>
+          följt av kommentaren. (Därmed slipper man lära sig verktyg som editorer som 
+          vi om på Un*x-baserade datorer, så som macOx och Linux. ;-))
+        </p>
+        <p><code>git commit -m &quot;Initial commit</code></p>
+
+        <h4>Skapa bibliotek hos leverantör</h4>
+        <p>Detta steg är leverantörsberoende...</p>
+
+        <p><code>git remote add origin https://&lt;url&gt;/repo.git</code></p>
+
+        <p>För att verifiera bibliotek kan kommandot <code>remote</code> kombineras 
+          med parametern <code>-v</code>.</p>
+
+        <p><code>git remote -v</code></p>
+
+        <h4>Ladda upp lokalt bibliotek till Git-tjänst</h4>
+        <p></p>
+
+        <p><code>git push origin master</code> (????)</p>
+
+        <h3>Leverantörer av Git-tjänst</h3>
+        <p>Nedan är en lista med leverantörer av Git-tjänster.</p>
+
+        <ul>
+          <li>Github</li>
+          <li>GitLab</li>
+          <li>Microsoft Azure</li>
+        </ul>
+
+        <h3>Läs mer</h3>
+        <ul>
+            <li><a href="https://github.com/" target="_blank" rel="noopener">Github</a></li>
+          <li><a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a></li>
+        </ul>
+
+        <h3>Alternativ till Git</h3>
+        <p>Exempel på andra typer av kodbibliotek är Subversion och Microsofts Team
+          Foundation Server (TFS).
+        </p>
+
+			</div>
+
+			<!-- *** News column ***************************************************** -->
+			<aside class="col-sm-3 col-sm-offset-0">
+        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
+              <span itemprop="name">Hem</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+              <span itemprop="name">Webbutvecklingstips</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="name">Git</span>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+
+				<h3>Länkar</h3>
+				<ul>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">Github</a></li>
+          <li><a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a></li>
+        </ul>
+			</aside>
+		</div>
+	
+		<!-- *** Footer row ****************************************************** -->
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<footer>
+					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 2020-03-21.</p>
+						<p><b>Foto:</b> Stig till Ben Vrackie, Pitlochry, Skottland.</p>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

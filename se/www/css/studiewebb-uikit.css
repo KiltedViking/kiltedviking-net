@@ -1,0 +1,4 @@
+/*** Customise UIkit **********************************************************/
+.bg-scania-red { background-color: #E03C31; }
+/* TODO: Adjust colour - #FEDB00 - for a11y */
+.fg-scania-yellow { color: #FEDB00; }

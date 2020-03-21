@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4.html" />
+  <title>Egenskaper (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper i stilmallar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+            
+          <p>P&aring; denna sida beskrivs hur man anger v&auml;rden p&aring; egenskaper 
+            (eng. <em>properties</em>) f&ouml;r stilmallar samt vilka m&aring;ttenheter 
+            som finns och hur man anger storlekar/l&auml;ngder.
+            M&aring;nga av egenskaperna i CSS finns beskrivna, med exempel, p&aring; sidorna
+            <a href="del4a.html">Typsnitt</a> (och stilar),
+            <a href="del4b.html">Text</a> (justering, radavst&aring;nd, m.m.),
+            <a href="del4c.html">F&auml;rger</a> (och bakgrundsbilder),
+            <a href="del4d.html">Boxar</a> (marginaler, kantlinjer och utfyllnad) och
+            <a href="del4e.html">Positionering</a>. F&ouml;r en komplett lista p&aring; egenskaper
+            - se Referenser l&auml;ngst ner p&aring; denna sida (eller under L&auml;nkar).</p>
+
+          <p class="kommentar"><strong>Observera</strong> att webbsidor med exempel 
+            p&aring; dessa webbsidor (som n&aring;s via knapparna) kan bli ganska komplexa!
+            Det &auml;r <strong>inte</strong> t&auml;nkt att dess HTML- och CSS-kod ska studeras i
+            detalj - kunskap som beh&ouml;vs beskrivs p&aring; dessa webbsidor (Egenskaper), <strong>inte</strong>
+            i exempelsidorna! Exempelsidorna anv&auml;nds f&ouml;r att visa effekten av de
+            olika egenskaperna i stilmallar.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#varden" class="collection-item">Hur man anger v&auml;rden f&ouml;r egenskaper</a></li>
+            <li><a href="#komplett" class="collection-item">Ett &quot;komplett&quot; exempel</a></li>
+            <li><a href="#storlekar" class="collection-item">Storlekar och m&aring;ttenheter</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="varden">Hur man anger v&auml;rden f&ouml;r egenskaper</h2>
+
+      <h3>Enkla v&auml;rden</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att &auml;ndra en egenskap i en stilmall s&aring; skriver 
+            man namnet p&aring; egenskapen f&ouml;ljt av ett kolon och v&auml;rdet 
+            f&ouml;r egenskapen.</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ <em>egenskap</em>: <em>v&auml;rde</em> }</code><br />
+          <code>{ font-family: Verdana }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om v&auml;rdet best&aring;r av fler &auml;n ett ord (t.ex. typsnittet 
+            Times New Roman) s&aring; m&aring;ste v&auml;rdet inneslutas i citationstecken 
+            (t.ex. &quot;Times New Roman&quot;). Detta &auml;r <strong>enda</strong> 
+            g&aring;ngen som citationstecken ska anv&auml;ndas i CSS!</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ font-family: &quot;Times New Roman&quot; }</code>
+        </div>
+      </div>
+
+      <h3>V&auml;rdelistor</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r en del egenskaper kan man ange en v&auml;rdelista, d&auml;r ibland
+            typsnitt. V&auml;rdena separeras d&aring; med komma.</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ <em>egenskap</em>: <em>v&auml;rde1</em>, <em>v&auml;rde2</em>, ... }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Principen f&ouml;r v&auml;rdelistor &auml;r att webbl&auml;sare f&ouml;rst 
+            f&ouml;rs&ouml;ker hitta f&ouml;rsta (mest v&auml;nstra) v&auml;rdet 
+            i listan (t.ex. typsnittet Verdana i exempel ovan). Om bes&ouml;kares
+            webbl&auml;sare inte har, eller st&ouml;djer, detta alternativ (t.ex. 
+            saknar typsnittet Verdana) s&aring; g&aring;r webbl&auml;saren vidare 
+            och f&ouml;rs&ouml;ka med n&auml;sta v&auml;rde i listan (typsnittet
+            Arial i exempel ovan). Detta g&ouml;rs tills inga fler v&auml;rden finns 
+            i listan (webbl&auml;sare v&auml;ljer d&aring; sitt standardtypsnitt).</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ font-family: Verdana, Arial, Helvetica, sans-serif }</code>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Om n&aring;got v&auml;rde i en v&auml;rdelista inneh&aring;ller mellanslag 
+            s&aring; m&aring;ste det v&auml;rdet inneslutas inom citationstecken, 
+            som i exempel nedan.</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ font-family: Georgia, &quot;Times New Roman&quot;, Times, serif }</code>
+        </div>
+      </div>
+
+      <h3>Separering av egenskaper</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om flera egenskaper ska &auml;ndras i en stilmall s&aring; separeras 
+            egenskaperna med semikolon.</p>
+        </div>
+
+        <div class="five columns">
+          <code>{ <em>egenskap1</em>: <em>v&auml;rde1</em>; <em>egenskap2</em>: <em>v&auml;rde2</em>; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Semikolon &auml;r inte obligatoriskt efter sista v&auml;rdet, men det 
+            kan vara en bra idé att anv&auml;nda det s&aring; att man inte gl&ouml;mmer 
+            det om man skulle l&auml;gga till fler egenskaper.</p>
+        </div>
+      </div>
+
+      <h3>Radbrytningar, tabbar och mellanslag</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Precis som med HTML-kod s&aring; p&aring;verkar inte mellanslag och 
+            radbrytningar (s.k. <em>white spaces</em>) stilmallar. Stilmallar kan 
+            m.a.o. skrivs p&aring; ett s&aring; l&auml;ttl&auml;st s&auml;tt som 
+            m&ouml;jligt. F&ouml;r l&auml;sbarhet kan vi t.ex. skriva varje
+            egenskap p&aring; en egen rad.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>{
+  <em>egenskap1: v&auml;rde1;</em>
+  <em>egenskap2: v&auml;rde2;</em>
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>&quot;Genv&auml;gar&quot; (eng. <em>shortcuts</em>)</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I vissa fall kan tv&aring; eller flera egenskaper kombineras och d&aring; 
+            separeras de olika v&auml;rdena med mellanslag (inte komma som med v&auml;rdelista 
+            - v&auml;rdelistor anv&auml;nds f&ouml;r att ange mest &ouml;nskade till 
+            minst &ouml;nskade v&auml;rde). Om vi t.ex. vill &auml;ndra nedanst&aring;ende 
+            tre egenskaper f&ouml;r typsnitt (storlek, vikt och typsnitt)
+            s&aring; kan de skrivas om som en egenskap m.h.a. en s.k. &quot;genv&auml;g&quot;,
+            d.v.s. de tv&aring; stilmallarna nedan &auml;r utbytbara (behandlas mer under sidan
+            <a href="del4a.html">Typsnitt</a>).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>{
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Verdana, Arial, 
+    Helvetica, sans-serif;
+}</code></pre>
+            <pre><code>{ font: 13px bold Verdana, Arial,
+&nbsp;&nbsp;&nbsp; Helvetica, sans-serif; }</code></pre>
+        </div>
+      </div>
+
+      <h3>Kommentarer</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vill man f&ouml;rklara hur man t&auml;nkt, eller g&ouml;ra det l&auml;ttare 
+            att hitta i en fil med m&aring;nga stilmallar, s&aring; kan (och b&ouml;r) 
+            man anv&auml;nda kommentarer. Kommentarer fungerar precis som flerradiga 
+            kommentarer i C++/Java/JavaScript, d.v.s. b&ouml;rjar med <code>/*</code> 
+            och avslutas med <code>*/</code>).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>/* En kommentar */
+{
+  /* Ytterligare kommentar */
+  <em>egenskap1: v&auml;rde1;</em>
+}</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="komplett">Ett &quot;komplett&quot; exempel</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan visas ett &quot;komplett&quot; exempel p&aring; tv&aring; stilmallar. 
+            Den f&ouml;rsta g&auml;ller f&ouml;r alla stycken och &auml;ndrar till 
+            ett typsnitt utan serifer (mer om dessa p&aring; sidan <a href="del4a.html">Typsnitt</a>). 
+            Andra stilmallen &auml;ndrar till kursivstil f&ouml;r alla stycken av 
+            klass &quot;ingress&quot;.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>p { /* Alla stycken */
+  font-family: Verdana, Arial, 
+    Helvetica, sans-serif;
+}
+p.ingress { /* Stycken av klassen ingress */
+  font-style: italic;
+}</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="storlekar">Storlekar och m&aring;ttenheter</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskaper kan antingen anges med nyckelord (eng. <em>keywords</em>, 
+            t.ex. kursiv, fet, mindre eller r&ouml;d, fast p&aring; engelska :-)) 
+            eller som storlek/l&auml;ngd och m&aring;ttenhet (t.ex. 120% eller 14px). 
+            Det finns f&ouml;ljande typer av m&aring;ttenheter, vilka kan anv&auml;ndas 
+            f&aring;r de flesta egenskaper som g&auml;ller storlek/l&auml;ngder:</p>
+
+          <ul>
+            <li>relativa</li>
+            <li>och absoluta.</li>
+          </ul>
+
+          <p><strong>Observera</strong> att v&auml;rden anges med &quot;amerikansk&quot; 
+            standard, d.v.s. eventuella decimaltal ska anv&auml;nda punkt (och inte 
+            komma), t.ex. 1.2 och 3.14. Eventuella m&aring;ttenheter ska anges utan 
+            mellanslag mellan storlek/l&auml;ngd och m&aring;ttenhet, t.ex. 12px, 
+            1.2em och 100%. (I vissa fall anges n&auml;mligen flera
+            v&auml;rden - inte v&auml;rdelistor - med mellanslag mellan, vilket inneb&auml;r att
+            felaktigt skriven storlek/l&auml;ngd skulle kunna tolkas som tv&aring; olika (och ogiltiga)
+            v&auml;rden ist&auml;llet f&aring;r ett med m&aring;ttenhet.)</p>
+
+          <p>Exempel f&ouml;r de relativa och absoluta m&aring;ttenheter ges n&auml;r relevanta 
+            egenskaper behandlas, d.v.s. egenskaper som anv&auml;nder dessa m&aring;ttenheter. </p>
+        </div>
+      </div>
+
+      <h3>Relativa m&aring;ttenheter</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>En relativ storlek &auml;r som namnet anger, relativt till n&aring;got, 
+            oftast &ouml;vergripande/omslutande element. Nedan visas n&aring;gra 
+            av de relativa m&aring;ttenheterna vi kan anv&auml;nda samt exempel p&aring;
+            hur de skrivs.</p>
+
+          <ul>
+            <li>em (1.0em) - h&ouml;jden av elementets typsnitt (egenskapen font-size)</li>
+            <li>ex (2ex) - h&ouml;jden av typsnittets bokstav x</li>
+            <li>pixlar (10px) - antalet bildpunkter p&aring; sk&auml;rmen, d.v.s. sk&auml;rmberoende</li>
+            <li>procent (90%) - procent av &ouml;vergripande/omslutande element</li>
+          </ul>
+
+          <p>M&aring;ttenheterna em och ex kr&auml;ver lite f&ouml;rst&aring;else 
+            f&ouml;r typografi och pixlar f&ouml;r datorer (eller snarare sk&auml;rmar :-)).
+            <strong>Men</strong>, &auml;ven om em och ex l&aring;ter som storlekar 
+            f&ouml;r typsnitt, s&aring; kan de anv&auml;ndas f&ouml;r alla typer 
+            av storlekar/l&auml;ngder - de &auml;r endast relaterade till storlek 
+            p&aring; typsnitt f&ouml;r element (&auml;ven om elementet inte har n&aring;gon 
+            text, d.v.s. alla element har, eller &auml;rver, en textstorlek).</p>
+
+          <p class="kommentar">M&aring;ttenheten pixlar &auml;r mycket beroende av 
+            bes&ouml;karens uppl&ouml;sning p&aring; sk&auml;rmen, d.v.s. det kan 
+            vara en v&auml;sentlig skillnad om bes&ouml;karen har en
+            uppl&ouml;sning p&aring; 640*480 eller 1024*768 p&aring; sin sk&auml;rm.</p>
+        </div>
+      </div>
+
+      <h3>Absoluta m&aring;ttenheter</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>De absoluta m&aring;ttenheterna anv&auml;nds f&ouml;r att ange &quot;exakta&quot; 
+            storlekar/avst&aring;nd, men de g&ouml;r sig b&auml;st f&ouml;r andra 
+            media &auml;n datorsk&auml;rmar (t.ex. papper/utskrift). De absoluta 
+            m&aring;ttenhterna visas nedan med exempel p&aring; hur de skrivs.</p>
+
+          <ul>
+            <li>punkter (10pt) - 1 punkt = 1/72 tum</li>
+            <li>centimeter (1cm)</li>
+            <li>millimeter (10mm)</li>
+            <li>tum (0.35in) - 1 tum = 2.54 cm</li>
+            <li>picas (1pc) - 1 pica = 12 punkter</li>
+          </ul>
+
+          <p>D&aring; bes&ouml;kare kan ha olika uppl&ouml;sningar, m.m. p&aring; 
+            sina sk&auml;rmar s&aring; &auml;r det sv&aring;rt att exakt avg&ouml;ra
+            hur n&aring;gra av de absoluta m&aring;ttenheterna kommer fungera, d.v.s.
+            om 1mm verkligen &auml;r 1 millimeter p&aring; en sk&auml;rm. Undvik 
+            d&auml;rf&ouml;r de absoluta m&aring;ttenheterna.</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns l&auml;nkar till webbplatser med mer information.</p>
+
+          <ul>
+            <li><a href="https://www.w3schools.com/cssref/default.asp" target="_blank" 
+              rel="noopener">Referens</a> (CSS)
+              hos <a href="https://w3schools.com/" target="_blank"
+              rel="noopener">W3Schools.com</a></li>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">Lista p&aring; egenskaper</a>
+              (<em>CSS Properties</em>) hos <a href="https://www.htmlhelp.com/" 
+              target="_blank" rel="noopener">Web
+              Design Group</a> (CSS version 1)</li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank"
+              rel="noopener">CSS-standarder</a> hos <a
+              href="https://www.w3.org/" target="_blank" rel="noopener">World Wide 
+              Web Consortium</a> (W3C) som &auml;r n&aring;got
+              mer sv&aring;ra innan man l&auml;rt sig tolka dokumenten</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul class="foregaendenasta">
+          <li><a href="del3.html">&lt; F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4a.html">N&auml;sta &gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

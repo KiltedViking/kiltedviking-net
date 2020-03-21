@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Kort beskrivning av XML (för webbutvecklare)." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: HTML" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/xml.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/xml.html" />
+  <title>XML - en kort beskrivning</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <style type="text/css">
+    .brodtext  { font-family: Verdana; font-size: 10pt }
+    .lista     { font-family: Verdana; font-size: 10pt; margin-top: 20px }
+    .kod       { font-family: "Courier New", Courier, Sans-serif; font-size: 9pt }
+  </style>
+</head>
+<body>
+  <header class="fg-scania-yellow bg-scania-red">
+    <div class="container ">
+      <a href="../index.html" class="right">
+        <img src="../bilder/logony1.jpg" alt="Bj&ouml;rns studiewebb logotyp">
+      </a>
+
+      <h1>XML - en kort beskrivning</h1>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+  
+          <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="del0.html">Struktur</a></li>
+            <li><a href="del1.html">Grundläggande</a></li>
+            <li><a href="del2.html">Text &amp; tecken</a></li>
+            <li><a href="del3.html">Länkar</a></li>
+            <li><a href="del4.html">Listor &amp; tabeller</a></li>
+            <li><a href="del5.html">Formulär</a></li>
+            <li><a href="del6.html">Mer...</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+    
+  <div class="container">
+    <div id="columnleft">
+      <div class="row">
+        <div class="col l7 s12">
+          <h2>Inneh&aring;ll</h2>
+            
+          <p>P&aring; denna hemsida beskrivs kort vad XML &auml;r. H&auml;r visas &auml;ven ett
+            enkelt exempel p&aring; hur ett XML-dokument ser ut och hur man kan applicera
+            stilmallar (CSS) p&aring; ett XML-dokument f&ouml;r att visa inneh&aring;llet p&aring; ett
+            mer intressant s&auml;tt.</p>
+
+          <p>Hemsidan kommer s&aring; sm&aring;ningom att ut&ouml;kas med mer ing&aring;ende
+            information om hur man skapar XML-dokument.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <ul class="collection">
+            <li><a href="#vad" class="collection-item">Vad &auml;r XML?</a></li>
+            <li><a href="#delar" class="collection-item">XML-dokuments delar</a></li>
+            <li><a href="#valutformade" class="collection-item">V&auml;lutformade och giltiga XML-dokument</a></li>
+            <li><a href="#forsta" class="collection-item">Ett f&ouml;rsta exempel</a></li>
+            <li><a href="#stilmallar" class="collection-item">XML och stilmallar (CSS)</a></li>
+            <li><a href="#valutformade" class="collection-item">XSL-stilmallar</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="vad">Vad &auml;r XML?</h2>
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Extensible Mark-up Language&nbsp;(XML) &auml;r den senaste &quot;hypen&quot;
+            som m&aring;nga tror ska ers&auml;tta HTML. S&aring; &auml;r inte riktigt fallet - XHTML
+            &auml;r ers&auml;ttaren till HTML (eller, om man s&aring; vill, uppf&ouml;ljaren). (Se <a href="xhtml.html" TARGET="_self">hemsidan
+            om XHTML</a>.)
+          </p>
+
+          <p>Som namnet s&auml;ger, Extensible Markup Language, s&aring; &auml;r XML t&auml;nkt att
+            vara ett spr&aring;k d&auml;r <b>antalet taggar ska kunna ut&ouml;kas</b>. D.v.s.
+            skaparen (av dokumentet) ska kunna avg&ouml;ra vilka taggar som ska ing&aring; i
+            dokumentet och dess betydelse. Betydelsen, och syntaxen f&ouml;r data i
+            taggarna, kan skaparen styra med en <b>DTD</b> (Document Type
+            Definition), en fil som beskriver data i taggarna.
+          </p>
+
+          <p>XML &auml;r ocks&aring; t&auml;nkt att <b>m&auml;rka upp data</b>, inte att m&auml;rka upp
+            element f&ouml;r presentation som HTML. Vi m&auml;rker allts&aring; endast upp v&aring;r
+            data med taggar - sj&auml;lva tolkningen av denna data ing&aring;r inte i
+            XML-dokumentet. F&ouml;r att presentera (d.v.s. tolka) inneh&aring;llet i ett
+            XML-dokument kan vi t.ex. anv&auml;nda stilmallar (CSS).
+          </p>
+
+          <p>En f&ouml;rdel med XML &auml;r att ett XML-dokument endast inneh&aring;ller text,
+            vi &auml;r allts&aring; inte beroende av vilket operativsystem eller vilken
+            applikation som dokumentet skapades i. XML kan m.a.o. med f&ouml;rdel
+            anv&auml;ndas f&ouml;r att <b>utbyta data</b> mellan olika applikationer och
+            organisationer.&nbsp;
+          </p>
+        </div>
+      </div>
+
+      <h2 id="delar">XML-dokuments delar</h2>
+      <h3>XML-prologen</h3>
+    <div class="row">
+      <div class="col l7 s12">
+      <p>Alla XML-dokument m&aring;ste b&ouml;rja med en rad, <b>XML-prologen</b>, som
+        visar p&aring; att dokumentet &auml;r ett XML-dokument samt vilken version av XML
+        som anv&auml;nds (endast version 1 finns idag - 2001-09-01). Inget, inte ens
+        mellanslag eller en tom rad, f&aring;r f&ouml;rekomma framf&ouml;r XML-prologen.
+        XML-prologen ser, i sitt enklaste utf&ouml;rande, ut enligt f&ouml;ljande:
+      </p>
+    </div>
+
+    <div class="col l5 s12">
+      <blockquote>
+        <p>&lt;?xml version="1.0"?></p>
+      </blockquote>
+    </div>
+
+    <div class="col l7 s12">
+      <p>Andra saker (attribut) som kan ing&aring; i XML-prologen &auml;r spr&aring;kkoden
+        (attributet <i>encoding</i>) som dokumentet &auml;r skrivet i (t.ex.
+        &quot;iso-8859-1&quot; f&ouml;r Latin 1 - V&auml;steuropa och Latinamerika).&nbsp;
+      </p>
+    </div>
+  </div>
+
+  <h3>Rotelementet och &ouml;vriga element</h3>
+
+  <div class="row">
+    <div class="col l7 s12">
+      <p>Efter XML-prologen f&ouml;ljer alla element i dokumentet. Elementen i ett
+        XML-dokument brukar &quot;defineras&quot; i niv&aring;er och det m&aring;ste
+        alltid finnas minst en niv&aring; - det s.k. <b>rotelementet</b> (markeras
+        med taggen &lt;niva1&gt; i exemplen nedan). Det enklaste t&auml;nkbara
+        XML-dokumentet skulle allts&aring; kunna ha ett utseende liknande f&ouml;ljande
+        kod.
+      </p>
+    </div>
+
+    <div class="col l5 s12">
+      <blockquote>
+        <p>&lt;?xml version="1.0"?><br />
+          &lt;niva1><br />
+          &lt;/niva1></p>
+      </blockquote>
+    </div>
+
+    <div class="col l7 s12">
+      <p>Rotelementet kan i sig inneh&aring;lla data, eller <b>teckendata</b> som
+        det kallas, men brukar fr&auml;mst inneh&aring;lla andra element, s.k. <b>n&auml;stlade
+        element</b> (som bildar en andra niv&aring;).
+      </p>
+
+      <h3>Fler delar</h3>
+
+      <p>Ut&ouml;ver XML-prologen, rotelementet och de n&auml;stlade elementen kan
+        XML-dokument inneh&aring;lla
+      </p>
+
+      <ul>
+        <li>attribut</li>
+        <li>entiteter</li>
+        <li>CDATA-sektioner</li>
+        <li>kommentarer</li>
+        <li>processinstruktioner</li>
+      </ul>
+
+      <p class="center">[ <b>ATT G&Ouml;RA:</b> Utvecklar ovanst&aring;ende delar ]</p>
+      
+      <h2 id="valutformade">V&auml;lutformade och giltiga XML-dokument</h2>
+
+      <p>I ett <b>v&auml;lutformat dokument</b>, ett dokument som r&auml;ttar sig
+        efter XML-specifikationen, kan alla element antingen inneh&aring;lla tecken
+        data eller andra element, d.v.s. n&auml;stlade element. Rotelementets namn
+        m&aring;ste ocks&aring; vara unikt och alla element m&aring;ste ha n&auml;stlats p&aring; ett
+        riktigt s&auml;tt (inga &ouml;verlappande taggar) f&ouml;r att dokumentet ska vara
+        v&auml;lutformat.&nbsp;
+      </p>
+
+      <p>Ett <b>giltigt dokument</b> r&auml;ttar sig &auml;ven efter en DTD (Document
+        Type Definition).
+      </p>
+
+      <p class="center">[<b>ATT G&Ouml;RA:</b> Utveckla DTD:er f&ouml;r XML.]</p>
+    </div>
+  </div>
+
+  <h2 id="forsta">Ett f&ouml;rsta exempel</h2>
+
+  <div class="row">
+    <div class="col l7 s12">
+      <p>Nedan visas ett f&ouml;rsta, och mycket enkelt, exempel p&aring; ett
+        XML-dokument. Dokumentet har tre niv&aring;er, d&auml;r den l&auml;gsta niv&aring;n
+        (niva31 och niva32) inneh&aring;ller dokumentets data. De &ouml;vriga tv&aring;
+        niv&aring;erna anv&auml;nds f&ouml;r att innesluta &ouml;vriga niv&aring;er.
+      </p>
+
+      <p><a href="xml/xml1_1.xml">Se resultatet</a> (fungerar fr&auml;mst bara i
+        Microsoft Internet Explorer och andra webbl&auml;sare s&aring; kan hantera
+        XML-kod).
+      </p>
+    </div>
+
+    <div class="col l5 s12">
+      <blockquote>
+        <p>&lt;?xml version="1.0"?><br />
+        &lt;niva1><br />
+        &nbsp; &lt;niva2><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva31>Niva 3-1 - nr 1&lt;/niva31><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva32>Niva 3-2 - nr 1&lt;/niva32><br />
+        &nbsp; &lt;/niva2><br />
+        &nbsp; &lt;niva2><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva31>Niva 3-1 - nr 2&lt;/niva31><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva32>Niva 3-2 - nr 2&lt;/niva32><br />
+        &nbsp; &lt;/niva2><br />
+        &lt;/niva1></p>
+      </blockquote>
+    </div>
+  </div>
+
+  <h2 id="stilmallar">XML och stilmallar (CSS)</h2>
+
+  <div class="row">
+    <div class="col l7 s12">
+      <p>Stilmallar f&ouml;r XML-dokument fungerar precis som de f&ouml;r
+        HTMl-dokument (se underwebben <a href="../css3/">Stilmallar (CSS)</a>),
+        med en liten skillnad - anv&auml;ndandet av egenskapen &quot;display&quot;.
+      </p>
+
+      <h3>Egenskapen display i stilmallar</h3>
+
+      <p>Egenskapen display anv&auml;nds fr&auml;mst f&ouml;r att avg&ouml;ra om en ny rad ska
+        p&aring;b&ouml;rjas f&ouml;re (och efter?) element. Giltiga (och fungerande) v&auml;rden
+        f&ouml;r egenskapen &auml;r &quot;block&quot; och &quot;inline&quot;. Genom att
+        anv&auml;nda &quot;block&quot; kommer elementet att visas p&aring; en egen rad
+        (som elementet &lt;rubrik1&gt; i exemplet nedan). V&auml;rdet &quot;inline&quot;
+        &auml;r standard, d.v.s. egentligen on&ouml;dig information, och betyder att
+        elementet kommer att visas p&aring; samma rad som f&ouml;rra elementet (om inte
+        f&ouml;reg&aring;ende element anv&auml;nder v&auml;rdet &quot;block&quot; f&ouml;r
+        egenskapen!).</p>
+
+      <h3>Exempel med en enkel stilmall</h3>
+
+      <p>Exemplet nedan bygger p&aring; det f&ouml;rsta exemplet ovan. F&ouml;r att ge
+        dokumentet mer data s&aring; har taggen &lt;rubrik1&gt; introducerats p&aring;
+        tredje niv&aring;n. En annan skillnad &auml;r andra raden d&auml;r filen med
+        stilmallar har l&auml;nkats in.
+      </p>
+      
+      <h4>XML-dokumentet (XML1_2.XML)</h4>
+
+      <blockquote>
+        <p>&lt;?xml version="1.0" ?><br />
+        &lt;?xml-stylesheet href="xmlstil1_1.css"&nbsp;<br />
+        &nbsp; type=&quot;text/css&quot; ?><br />
+        &lt;niva1><br />
+        &nbsp; &lt;niva2><br />
+        &nbsp;&nbsp;&nbsp; &lt;rubrik1>Rubrik 1 - nr 1&lt;/rubrik1><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva31>Niva 3-1 - nr 1&lt;/niva31><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva32>Niva 3-2 - nr 1&lt;/niva32><br />
+        &nbsp; &lt;/niva2><br />
+        &nbsp; &lt;niva2><br />
+        &nbsp;&nbsp;&nbsp; &lt;rubrik1>Rubrik 1 - nr 2&lt;/rubrik1><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva31>Niva 3-1 - nr 2&lt;/niva31><br />
+        &nbsp;&nbsp;&nbsp; &lt;niva32>Niva 3-2 - nr 2&lt;/niva32><br />
+        &nbsp; &lt;/niva2><br />
+        &lt;/niva1></p>
+      </blockquote>
+
+      <h4>Filen (XMLSTIL1_1.CSS) med stilmallar</h4>
+
+      <p>Endast element med taggen &lt;rubrik1&gt; kommer att visas p&aring; en
+        egen rad d&aring; egenskapen display f&aring;tt v&auml;rdet &quot;block&quot;. &Ouml;vriga
+        element, &lt;niva31&gt; och &lt;niva32&gt;, kommer att visas p&aring; samma
+        rad.
+      </p>
+
+      <p>F&ouml;r att visa skillnaden p&aring; elementen kommer texten i elementen
+        &lt;rubrik1&gt; att visas med fet stil och n&aring;got st&ouml;rre teckenstorlek
+        (16pt) med typsnittet Verdana. De andra tv&aring; elementen kommer &auml;ven de
+        visas med typsnittet Verdana, fast med teckenstorlek 10pt och med
+        antingen r&ouml;d eller bl&aring; f&auml;rg.
+      </p>
+
+      <blockquote>
+        <p>rubrik1 {<br />
+        &nbsp; display: block;<br />
+        &nbsp; font: bold 16pt Verdana;<br />
+        }<br />
+        <br />
+        niva31 {<br />
+        &nbsp; display: inline;<br />
+        &nbsp; font: bold 10pt Verdana;<br />
+        &nbsp; color: red;<br />
+        }<br />
+        <br />
+        niva32 {<br />
+        &nbsp; display: inline;<br />
+        &nbsp; font: 10pt Verdana;<br />
+        &nbsp; color: blue;<br />
+        }</p>
+      </blockquote>
+
+      <p><a href="xml/xml1_2.xml">Se resultatet</a> (fungerar fr&auml;mst bara i
+        Microsoft Internet Explorer och andra webbl&auml;sare s&aring; kan hantera
+        XML-kod).
+      </p>
+      
+      <h2 id="xsl">XSL - formatmallar f&ouml;r XML</h2>
+
+      <p>XML &auml;r inte alltid ett praktiskt format. D&auml;rf&ouml;r har <a href="https://www.w3c.org/" 
+        target="_blank" rel="noopener">W3C</a>
+        (World Wide Web Consortium) tagit fram en speciell form av formatmallar
+        som kan anv&auml;ndas f&ouml;r att bl.a. omvandla (transformera) XML till andra format
+        (t.ex. HTML). Dessa formatmallar kallas XSL (Extensible Style sheet
+        Language). XSLT &auml;r den del av XSL som anv&auml;nds f&ouml;r att omvandla XML:en
+        till ett annat format. (Se <a href="https://www.w3c.org/" target="_blank" rel="noopener">W3C</a> f&ouml;r mer
+        information.)
+      </p>
+
+      <div class="card-panel">
+        <p class="kommentar">Jag &ouml;versatte CSS till stilmallar (eng. <i>style
+          sheets</i>) d&aring; det p&aring;verkar HTML:s och XML:s utseende (stil). Men jag har
+          valt att kalla XSL f&ouml;r formatmallar, och inte stilmallar, d&aring; XSL
+          fr&auml;mst &auml;r t&auml;nkt att omvandla XML fr&aring;n ett format (XML) till ett
+          annat format (t.ex. HTML). Detta trots h&auml;nvisningen till <i>style
+          sheets</i> i XSL:s namn.
+        </p>
+      </div>
+
+      <footer class="page-footer center-align">
+        <div class="container">
+          <div class="row">
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-16.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script>
+    $(".sidenav").sidenav();
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+********************************************************************************
+*** Om filer i denna mapp
+********************************************************************************
+
+Filerna i denna mapp är Björn Perssons (bjgu0005) inlämningsuppgift 4 på kurserna
+"CSS-baserad webbdesign" och "Webbdesign med JavaScript och Document Object Model".
+De innehåller alltså HTML-filer *samt* CSS-fil för första kursen och JS-filer för
+andra kursen. Se sidorna "Om CSS" och "Om JavaScript" för respektive kurs.
+
+*** För CSS-uppgift, aktivera JavaScript för att se effekten av interna länkar.
+
+*Observera* att webbsida ser något annorlunda ut i Micro$oft Internet Explorer
+(7) och att JavaScript *inte* fungerar i sagda webbläsare.
+
+Webbsidor har testats i Firefox 3 (och 2, innan 3:an installerades), Opera 9.51
+och Safari 3.1.
+
+Webbsidorna finns även publicerade på följande adress:
+  http://www.kiltedviking.net/se/www/exempel/trekolumn/
+(med länkar till W3C:s validatorer. :-)
+
+Björn Persson (bjgu0005)
+bjorn(at)kiltedviking.net.nospam.
+2008-08-23

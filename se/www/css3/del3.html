@@ -1,0 +1,715 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del3.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del3.html" />
+  <title>Selektorer (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Selektorer (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li class="active"><a href="del3.html">Selektorer</a></li>
+          <li><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        <!--
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        -->
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+                
+          <p>Stilmallar m&aring;ste appliceras p&aring; (X)HTML-element p&aring; n&aring;got s&auml;tt. Ett s&auml;tt att se
+            det p&aring; &auml;r att man anv&auml;nder namn (f&ouml;r taggar, klasser och ID:n), eller selektorer
+            (eng. <em>selectors</em>) som &auml;r ett b&auml;ttre tekniskt namn. Denna sida beskriver
+            hur man &quot;namnger&quot; stilmallar (anv&auml;nder selektorer) f&ouml;r att applicera
+            stilmallar p&aring; taggar.</p>
+
+          <p class="kommentar">De flesta exempel anv&auml;nder inb&auml;ddade stilmallar s&aring; att (X)HTML-
+            och CSS-kod finns i ett och samma dokument, d.v.s. f&ouml;r att g&ouml;ra det enklare
+            att studera koden i exempel.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li>
+              <a href="#satt" class="collection-item">Olika s&auml;tt att namnge stilmallar</a>
+              <!-- <ul>
+                <li><a href="#taggnamn" class="collection-item">Taggnamn</a></li>
+                <li><a href="#klassnamn" class="collection-item">Klass</a></li>
+                <li><a href="#idn" class="collection-item">Id</a></li>
+                <li><a href="#pseudoklasser" class="collection-item">Pseudoklass</a> (och -element)</li>
+              </ul> -->
+            </li>
+            <li><a href="#taggnamn" class="collection-item">Taggnamn</a></li>
+            <li><a href="#klassnamn" class="collection-item">Klass</a></li>
+            <li><a href="#idn" class="collection-item">Id</a></li>
+            <li><a href="#pseudoklasser" class="collection-item">Pseudoklass (och -element)</a></li>
+            <li><a href="#kombinera" class="collection-item">Kombination av olika typer av namn</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="satt">Olika s&auml;tt att namnge stilmallar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Att &quot;namnge&quot; en stilmall inneb&auml;r i stort sett att man talar om vilka
+            taggar, eller grupper/klasser av taggar, som man vill ska p&aring;verkas av mallen.
+            Ska man vara korrekt, d.v.s. anv&auml;nda r&auml;tt termer, s&aring; anv&auml;nder man selektorer
+            (eng. <em>selectors</em>) f&ouml;r att ange vilka taggar som stilmall ska g&auml;lla
+            f&ouml;r. Sj&auml;lv tycker jag b&auml;ttre om uttrycket &quot;att namnge&quot; en stilmall
+            (d.v.s. namnet &auml;r selektorn), vilket &auml;r sk&auml;let till att jag kommer
+            forts&auml;tta anv&auml;nda detta uttryck. Stilmallar namnges endast d&aring; man anv&auml;nder
+            inb&auml;ddade eller inl&auml;nkade stilmallar (anv&auml;nder man attributet STYLE s&aring;
+            har p&aring;verkad tagg redan angivits :-). S&aring; i resten av denna underwebb
+            &auml;r det underf&ouml;rst&aring;tt att inb&auml;ddade eller inl&auml;nkade stilmallar anv&auml;nds.</p>
+
+          <p>Det finns fr&auml;mst fyra s&auml;tt att namnge stilar:</p>
+
+          <ul>
+            <li>med taggars namn</li>
+            <li>med klasser</li>
+            <li>med id:n</li>
+            <li>eller med pseudoklasser</li>
+            <li>eller med kombinationer av ovanst&aring;ende</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="taggnamn">Taggnamn</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Att anv&auml;nda taggens namn f&ouml;r att applicera stilmallar &auml;r ett av de
+            vanligaste s&auml;tten. Genom att anv&auml;nda just taggens namn kommer alla taggar
+            med namnet att automatiskt anv&auml;nda stilmallen. I exemplet nedan s&aring; kommer
+            alla stycken (P) i dokumentet att anv&auml;nda typsnittet Verdana och alla rubriker
+            av niv&aring; 1 (H1) typsnittet Arial d&aring; jag &quot;namngivit&quot; stilmallarna &quot;h1&quot;
+            respektive &quot;p&quot; (markerat med bl&aring; text). (Observera att rubriken
+            av niv&aring; 2 &auml;r op&aring;verkad.) Efter namnet listas egenskaper
+            som ska &auml;ndras inom &quot;hakparenteser&quot;, d.v.s. { och }. I exempel nedan
+            &auml;ndras typsnittsfamiljen i respektive stilmall, men vi kan &auml;ven &auml;ndra egenskaper
+            som f&ouml;r- och bakgrundsf&auml;rg, typsnittsstorlek, marginaler och kantlinjer (vilket
+            &auml;r &auml;mnet f&ouml;r n&auml;sta sida, <a href="del4.html">Egenskaper</a> ).</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1 { font-family: Arial }</code><br />
+          <code>p { font-family: Verdana }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_1_1.html" target="_blank" class="button button-primary">Exempel 3.1.1 - Namngivning m.h.a. taggars namn</a></p>
+
+          <p class="kommentar">Exempel visar &auml;ven att typsnittet Verdana inte tar sig
+            s&aring; bra ut i normal  storlek (ca. 12 pt), enligt mig, utan b&ouml;r minskas n&aring;got,
+            som p&aring; denna webbplats (men inte detta stycke :-).</p>
+        </div>
+      </div>
+
+      <h4>Samma egenskaper f&ouml;r flera stilmallar</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi kan &auml;ven undvika att upprepa kod om vi har tv&aring; stilmallar som ska ha
+            samma egenskaper. F&ouml;r att anv&auml;nda samma egenskaper f&ouml;r tv&aring;
+            stilmallar s&aring; skriver vi dem b&auml;gge f&ouml;re egenskaperna
+            ({}-parenteserna) separerade med komma. I nedanst&aring;ende exempel s&aring;
+            kommer de b&aring;da taggarna H1 och H2 att anv&auml;nda samma egenskap -
+            typsnittet Verdana.</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1, h2 { font-family: Verdana; }</code>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="klassnamn">Klass</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om man namnger en stil med ett klassnamn s&aring; kan man &auml;ndra
+            egenskaper f&ouml;r vissa taggar av ett (eller flera) element. Denna typ av namngivning &auml;r
+            ocks&aring; ganska vanlig d&aring; man kanske vill skilja ut endast ett f&aring;tal
+            taggar som ska ha andra egenskaper &auml;n vad stilmallen f&ouml;r taggens namn
+            har.
+            Stilmallens namn f&aring;s genom att kombinera taggens namn, en punkt och
+            klassens namn. Exemplet nedan visar klassen &quot;litenrubrik&quot; f&ouml;r
+            taggen &lt;h1&gt;.</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1.litenrubrik { font-size: 6pt }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att applicera stilmallen p&aring; rubriken s&aring; anv&auml;nder man sig av
+            taggens attribut CLASS. I exempel 3.2.1 nedan som visar att klassen
+            litenrubrik endast p&aring;verkar rubriker med taggen H1 och inte stycken (P), trots
+            att de tillh&ouml;r samma klass.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;h1 <span class="highlight">class=&quot;litenrubrik&quot;</span>&gt;Mindre rubrik&lt;/h1&gt;
+&lt;p <span class="highlight">class=&quot;litenrubrik&quot;</span>&gt;Ett
+  stycke op&aring;verkad text&lt;/p&gt;
+          </code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_2_1.html" target="_blank" class="button button-primary">Exempel 3.2.1 - B&aring;de taggnamn och klass</a></p>
+        </div>
+      </div>
+
+      <h4>Generella klasser</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Man kan &auml;ven namnge en stilmall med en klass utan att ange en viss
+            tagg. P&aring; s&aring; s&auml;tt kan taggar av flera olika typer p&aring;verkas med en och samma
+            stilmall. (Kom dock ih&aring;g att stilar &auml;ven &auml;rvs fr&aring;n &ouml;vergripande/omslutande taggar!) Exemplet
+            nedan visar hur man namnger en stil med ett klass namn genom att placera
+            en punkt framf&ouml;r namnet.</p>
+        </div>
+
+        <div class="five columns">
+          <code>.storrubrik { font-size: 72pt }</code><br />
+          <code>.kod { font-family: &quot;Courier New&quot; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;r att anv&auml;nda denna typ av stilmall s&aring; anv&auml;nder man &auml;ven h&auml;r attributet
+            CLASS. I exempel nedan s&aring; anv&auml;nds t.ex. klassen &quot;storrubrik&quot; f&ouml;r
+            f&ouml;rsta rubriken (H1) och klassen &quot;kod&quot; f&ouml;r stycken (P) med exempelkod
+            s&aring; att koden visas med ett typsnitt med fast teckenbredd (Courier New).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;h1 class=&quot;storrubrik&quot;&gt;Var
+  JavaScript-kod skrivs&lt;/h1&gt;
+  &lt;p&gt;JavaScript-koden kan skrivs ... &lt;/p&gt;
+...
+&lt;blockquote&gt;
+  &lt;p <span class="highlight">class=&quot;kod&quot;</span>&gt;&amp;lt;HTML&amp;gt;&lt;br /&gt;
+    &amp;lt;HEAD&amp;gt;&lt;/p&gt;&gt;
+  ...</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_2_2.html" target="_blank" class="button button-primary">Exempel 3.2.2 - Endast klass</a></p>
+        </div>
+      </div>
+
+      <h4>Ange stil med taggarna SPAN och DIV</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Ett vanligt anv&auml;ndningsomr&aring;de f&ouml;r taggarna SPAN och DIV &auml;r att innesluta
+            delar av ett element respektive flera element f&ouml;r att t.ex. applicera stilmallar.
+            DIV &auml;r ocks&aring; mycket anv&auml;ndbart f&ouml;r att bygga upp en webbsidas (eller snarare
+            en hel webbplats) design med (se <a href="del4e.html">Positionering</a>).</p>
+
+          <p>I exemplet nedan s&aring; anv&auml;nds stilmallarna rod och bla f&ouml;r att &auml;ndra f&auml;rgen
+            p&aring; texten till motsvarande f&auml;rg (r&ouml;d resp. bl&aring;). (N&auml;r man &auml;ndrar antingen
+            f&ouml;r-/text- eller bakgrundsf&auml;rg s&aring; ska man <strong>alltid</strong> ange den
+            andra! I exempel nedan anges d&auml;rf&ouml;r &auml;ven bakgrundsf&auml;rgen som vit i b&aring;da
+            stilmallar. Se <a href="del4c.html">F&auml;rg</a>.)</p>
+        </div>
+
+        <div class="five columns">
+          <code>.rod { color: red; background-color: white; }</code><br />
+          <code>.bla { color: blue; background-color: white; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>DIV-taggen anv&auml;nds f&ouml;r att markera (omsluta) tre stycken som kommer visas
+            med r&ouml;d f&auml;rg. SPAN-taggen anv&auml;nds f&ouml;r att markera (omsluta) texten &quot;b&aring;de
+            av DIV och SPAN&quot;, i andra stycket, och kommer visas som bl&aring;. (DIV- och
+            SPAN-taggarna har markerats med bl&aring;tt i exempel nedan.)</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;div class=&quot;rod&quot;&gt;
+  &lt;p&gt;Ett stycke p&aring;verkad text&lt;/p&gt;
+  &lt;p&gt;Ett stycke till med p&aring;verkad text -
+    &lt;span class=&quot;bla&quot;&gt;b&aring;de
+     av DIV och SPAN&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;Ett stycke p&aring;verkad text till&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_2_3.html" target="_blank" class="button button-primary">Exempel 3.2.3 - DIV- och SPAN-taggarna</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="idn">Id</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Alla taggar har attributet ID gemensamt och det anv&auml;nds f&ouml;r att unikt
+            identifiera ett element i ett (X)HTML-dokument, d.v.s. tv&aring; taggar i samma
+            dokument f&aring;r inte ha samma v&auml;rde p&aring; attributet ID (d&auml;remot i olika dokument).
+            Detta kan t.ex. anv&auml;ndas f&ouml;r ett stycke som ska agera &quot;sidfot&quot;/dokumentinformation
+            n&aring;got som kanske bara ska f&aring; f&ouml;rekomma en g&aring;ng i ett dokument (s&aring; som mitt
+            namn och ett datum l&auml;ngst ner p&aring; denna webbsida). F&ouml;r att namnge stillmallen
+            f&ouml;r ett id s&aring; f&ouml;reg&aring;s stilmallens namn av #-tecknet och i exempel nedan s&aring;
+            har id-stilen f&aring;tt en storlek p&aring; typsnitt som &auml;r n&aring;got mindre (eng. <em>smaller</em>).</p>
+        </div>
+
+        <div class="five columns">
+          <code>#dokumentinfo { font-size: smaller }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan visar hur attributet ID anv&auml;nds i ett stycke f&ouml;r att applicera stilmall
+            ovan. L&auml;ngst ner i exemplets sida s&aring; syns dokumentinformationen med n&aring;got
+            mindre storlek.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;p id="dokumentinfo"&gt;&lt;strong>Skapad 
+  av:&lt;/strong&gt; Bj&ouml;rn G. D. Persson.
+  &lt;strong&gt;Uppdaterad:&lt;/strong&gt; 
+  2017-10-22.&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="five columns">
+          <p class="center"><a href="del3/css3_3_1.html" target="_blank" class="button button-primary">Exempel 3.3.1 - ID:s stilmall</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h3 id="pseudoklasser">Pseudoklasser (och -element)</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="anfang">Det finns inte s&aring; m&aring;nga pseudoklasser (eller pseudoelement,
+            som en del kallas numera), vilket g&ouml;r att stilmallar f&ouml;r dem inte &auml;r s&aring; vanligt
+            f&ouml;rekommande. Men stilmallar f&ouml;r pseudoklasser (och -element) markeras med
+            ett kolon (:) framf&ouml;r.  Nedan visas exempel p&aring; n&aring;gra taggar som har pseudoklasser (och -element).</p>
+
+          <ul>
+            <li><code>a</code> - link, visited, active, hover, focus</li>
+            <li><code>hX</code> och <code>p</code> - first-line, first-letter, first-child</li>
+          </ul>
+
+          <p class="anfang">Det var fr&auml;mst pseudoklasserna f&ouml;r l&auml;nkar (A) som tidigare
+            fungerarde, men idag fungerar dessa pseudoklass (och -element) f&ouml;r fler taggar
+            (utom link och visited som &auml;r specifika f&ouml;r l&auml;nkar :-). Ta inte dessa som
+            sj&auml;lvklara, d.v.s. att de fungerar, utan prova om de fungerar i webbl&auml;sare
+            du vill st&ouml;dja (vilket b&ouml;r vara de flesta :-). Denna typ av stilmallar f&ouml;rklaras
+            b&auml;st med exempel, vilket g&ouml;rs nedan (se referenser l&auml;ngst ner f&ouml;r mer information).</p>
+
+          <p class="anfang">Exempel nedan visar hur man kan &auml;ndra f&auml;rg p&aring; obes&ouml;kta l&auml;nkar (<em>link</em>), bes&ouml;kta
+            l&auml;nkar (<em>visited</em>), aktiva l&auml;nkar (<em>active</em> - den l&auml;nk man klickar p&aring; med mus),
+            l&auml;nk under musmark&ouml;r (<em>hover</em>) och l&auml;nk med fokus (<em>focus</em> - prova att trycka
+            p&aring; tabb-tangenten tills fokus finns p&aring; en l&auml;nk). H&auml;r visas &auml;ven hur man kan
+            &auml;ndra f&ouml;rsta raden i alla stycken till fet, &ouml;ka storleken p&aring; f&ouml;rsta bokstaven
+            till 32 pixlar samt hur f&ouml;rsta barnet (vilket det finns tre av i dokument)
+            visas med bl&aring; text (se kommande sidor f&ouml;r mer om egenskaperna).</p>
+
+          <p class="kommentar">F&ouml;rsta raden, med l&auml;nkar, &auml;r f&ouml;rsta barnet till taggen
+            BODY, vilket g&ouml;r att den f&auml;rgas bl&aring;. I b&aring;da kodexempel har de f&ouml;rsta styckena
+            f&auml;rgats bl&aring; d&aring; de &auml;r f&ouml;rsta barnet till taggarna BLOCKQUOTE (som det finns tv&aring;
+            av).</p>
+        </div>
+
+        <div class="five columns">
+          <div class="code">
+            <code>a:link { color: green }</code><br />
+            <code>a:visited { color: red }</code><br />
+            <code>a:active { color: yellow }</code><br />
+            <code>a:hover, p:hover { background-color: cyan; }</code><br />
+            <code>a:focus { background-color: yellow; }</code><br />
+            <code>p:first-line { font-weight: bold; }</code><br />
+            <code>p:first-letter { font-size: 32px; }</code><br />
+            <code>p:first-child {<br />
+              &nbsp; color: blue;<br />
+              &nbsp; background-color: white;<br />
+            }</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="kommentar">Exempel visar p&aring; hur fel det kan bli... :-) Men &auml;ven p&aring;
+            hur man <strong>inte</strong> b&ouml;r g&ouml;ra, d.v.s. ange f&ouml;r- eller bakgrundsf&auml;rg
+            utan den andra! Forts&auml;ttningsvis visar &auml;ven exempel p&aring; hur ordning p&aring; stilmallar
+            kan avg&ouml;ra vilken som vinner, vilket kan ses f&ouml;r stycken vars bakgrund inte
+            f&auml;rgas n&auml;r musmark&ouml;r f&ouml;rs &ouml;ver dem. Om man tittar p&aring; exempel i olika webbl&auml;sare
+            s&aring; visar det &auml;ven p&aring; hur implementation av CSS kan skilja sig i olika webbl&auml;sare
+            (fr&auml;mst f&ouml;r hover och first-letter). Kort och gott: CSS &auml;r kraftfull men kan
+            &auml;ven bli komplext! :-)</p>
+
+          <p class="center"><a href="del3/css3_4_1.html" target="_blank" class="button button-primary">Exempel 3.4.1 - Pseudoklasser</a></p>
+
+          <p class="anfang">F&ouml;r stycken i detta avsnitt anv&auml;nds klassen &quot;anfang&quot;
+            och pseudoklassen &quot;first-letter&quot; f&ouml;r att (f&ouml;rhoppningsvis) visa
+            f&ouml;rsta bokstaven i varje stycke med en storlek som &auml;r 300% av styckenas typsnittet.
+            Stilmallen ser ut enligt nedan och s&auml;ger att f&ouml;r stycken med klassen anfang
+            ska f&ouml;rsta bokstaven ha denna stil (dessa egenskaper behandlas i kommande
+            sidor).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>p.anfang:first-letter {
+  font-size: 300%;
+  float: left;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="kommentar">Detta, d.v.s. anfangerna, ser hyfsat bra ut i Firefox 2
+            och IE 7, men konstigt ut Opera 9 och Safari 3. &Aring; andra sidan s&aring; ser det
+            dumt ut att helt pl&ouml;tsligt anv&auml;nda en annan standard f&ouml;r stycken. Men
+            det har gjorts f&ouml;r att exemplifiera, s&aring; kanske jag blir f&ouml;rl&aring;ten. :-)</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="kombinera">Kombination av olika typer av namn</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>De olika s&auml;tten att namnge stilmallar ovan kan kombineras f&ouml;r att avse ganska
+            specifika taggar (utan att anv&auml;nda attributet <code>id</code>) samt grupper eller klasser
+            av taggar. Nedan visas n&aring;gra exempel, som i sin tur kan kombineras med andra
+            namn eller kombinationer. :-)</p>
+
+          <ul>
+            <li><strong>&Auml;ttlingar</strong> (eller &quot;viss tagg inuti annan tagg&quot;),
+              t.ex. <code>ul em</code> - vilket s&auml;ger &quot;endast kursiv
+              stil i onumrerad lista&quot;.<br />
+              <span class="kommentar">H&auml;r f&aring;r vi inte gl&ouml;mma att varje alternativ i en
+              lista innesluts av taggen <code>li</code>, vilket skulle g&ouml;ra <code>em</code> till barnbarn till <code>ul</code>
+              (d.v.s. <code>ul &gt; em</code>, som i n&auml;sta punkt,
+              skulle aldrig fungera).</span></li>
+            <li><strong>Barn</strong> (eller &quot;endast barntagg till annan tagg&quot;), t.ex.
+              <code>p&gt;em</code> - vilket s&auml;ger &quot;endast kursiv
+              stil i stycken, men inte om i andra element&quot; (s&aring; som barnbarn).</li>
+            <li><strong>F&ouml;rsta syskon till</strong> (eller &quot;endast om tagg som kommer efter
+              viss annan tagg&quot;), t.ex. <code>h1+p</code> - vilket
+              s&auml;ger &quot;endast stycken som kommer efter niv&aring; 1 av rubriker&quot;.</li>
+          </ul>
+
+          <p class="kommentar">Observera att vissa &quot;webbsidesprogram&quot; kanske
+            <strong>inte</strong> klarar av vissa kombinationer av &quot;namn&quot;! D&aring;
+            f&aring;r man hacka CSS-filer f&ouml;r hand och hoppas p&aring; att program inte f&ouml;rst&ouml;r.</p>
+        </div>
+      </div>
+
+      <h3>&Auml;ttlingar</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om vi vill att en tagg endast ska anv&auml;nda stilmall n&auml;r den finns i en viss
+            annan tag s&aring; anv&auml;nder vi nedanst&aring;ende form f&ouml;r att namnge tagg. Vi b&ouml;rjar
+            med &ouml;vergripande tagg f&ouml;ljt av ett mellanslag och underliggande tagg.</p>
+        </div>
+
+        <div class="five columns">
+          <code>ul em { ... }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi skulle t.ex. vilja att all betonad (EM) text i rubriker ska markeras med
+            bl&aring; f&auml;rg. Stilmallarna nedan kommer ge alla rubriker av niv&aring; 1 (H1) typsnittet
+            Verdana och de delar av rubrikerna som markerats med taggen EM &auml;ven bl&aring;
+            text. F&ouml;r att visa p&aring; exempel i lista ovan s&aring; visar jag &auml;ven att man kan ha
+            samma stilmall f&ouml;r tv&aring; olika &auml;ttlingar, d.v.s. att betonad stil i &auml;ven onumrerade
+            listor ska vara bl&aring;.</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1 { font-family: Verdana; }</code><br />
+          <code>h1 em, ul em { color: blue; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;ljande (X)HTML skulle visa p&aring; resultatet av ovanst&aring;ende stilmallar.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;h1&gt;Viss del av rubrik ska vara 
+  &lt;em&gt;bl&aring;&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;Men denna text ska &lt;em&gt;inte vara 
+  bl&aring;&lt;/em;&gt;, endast kursiv.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Betonad text i onumrerad lista 
+    &lt;em&gt;ska vara bl&aring;&lt;/em&gt;.
+&lt;/ul&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_5_1.html" target="_blank" class="button button-primary">Exempel 3.5.1 - Endast g&auml;lla vissa &auml;ttlingelement</a></p>
+        </div>
+      </div>
+
+      <h3>Barn</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi kan begr&auml;nsa &auml;ttlingar ovan till att endast g&auml;lla barn. Vi b&ouml;rjar
+            med &ouml;vergripande tagg f&ouml;ljt av ett "st&ouml;rre &auml;n"-tecken (&gt;) och underliggande
+            tagg (vill vi, f&ouml;r l&auml;sbarhetens skull, ha mellanslag f&ouml;re och efter &gt;-tecknet
+            s&aring; g&aring;r det bra :-).</p>
+        </div>
+
+        <div class="five columns">
+          <code>ul &gt; em { ... }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Precis som med exempel med &auml;ttling ovan s&aring; skapar vi stilmall f&ouml;r att f&auml;rga
+            betonad (<code>em</code>) text i rubriker och lister med bl&aring; f&auml;rg. Skillnaden &auml;r de tv&aring;
+            &gt;-tecknen.</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1 { font-family: Verdana; }</code><br />
+          <code>h1 &gt; em, ul &gt; em { color: blue; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;ljande HTML skulle visa p&aring; resultatet av ovanst&aring;ende stilmallar. I detta
+            fall fungerar endast stilmallen f&ouml;r rubriken d&aring; <code>em</code> i listan &auml;r barnbarn.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;h1&gt;Viss del av rubrik ska vara 
+  &lt;em&gt;bl&aring;&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;Men denna text ska &lt;em&gt;inte vara 
+  bl&aring;&lt;/em&gt;, endast kursiv.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Betonad text i onumrerad lista 
+    &lt;em&gt;blir inte bl&aring;&lt;/em&gt;.
+&lt;/ul&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_5_2.html" target="_blank" class="button button-primary">Exempel 3.5.2 - Endast barnelement</a></p>
+        </div>
+      </div>
+
+      <h3>F&ouml;rsta syskon till</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>&quot;F&ouml;rsta syskon till-namnet&quot; &auml;r praktiskt f&ouml;r att t.ex. skapa ingresser
+            efter en rubrik. F&ouml;r att namnge stilmallen b&ouml;rjar vi med &quot;f&ouml;reg&aring;ende&quot;
+            tagg f&ouml;ljt av ett plustecken (+) och efterf&ouml;ljande tagg (vill vi, f&ouml;r l&auml;sbarhetens
+            skull, ha mellanslag f&ouml;re och efter plustecknet s&aring; g&aring;r det bra :-).</p>
+        </div>
+
+        <div class="five columns">
+          <code>h2 + p { ... }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I detta exempel ges &quot;f&ouml;rsta syskonet&quot; kursiv stil.</p>
+        </div>
+
+        <div class="five columns">
+          <code>h1 + p { font-style: italic; }</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>F&ouml;ljande (X)HTML skulle visa p&aring; resultatet av ovanst&aring;ende stilmallar. H&auml;r
+            kommer f&ouml;rsta stycket efter rubriken att vara kursiv.</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;h1&gt;En rubrik&lt;/h1&gt;
+&lt;p&gt;Stycke med kursiv stil.&lt;/p&gt;
+&lt;p&gt;Vanligt stycke, dvs ej kursiv stil.&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del3/css3_5_3.html" target="_blank" class="button button-primary">Exempel 3.5.3 - Endast f&ouml;rsta syskon</a></p>
+        </div>
+      </div>
+    
+      <h3>Annat osorterat...</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan &auml;r n&aring;gra saker som jag inte lyckats sortera in under en annan rubrik
+            p&aring; n&aring;got bra s&auml;tt.</p>
+        </div>
+      </div>
+
+      <h4>Pseudoklasser kombinerade med klasser</h4>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Pseudoklasser ska kunna kombineras med klasser f&ouml;r taggar. F&ouml;ljande
+            stilmallar skulle kunna anv&auml;ndas om vi vill ha olika egenskaper f&ouml;r
+            l&auml;nkar i en meny och i &ouml;vriga delar av dokumentet.</p>
+        </div>
+
+        <div class="five columns">
+          <code>a:link { color: yellow; }</code><br />
+          <pre><code>a.meny:link {
+  color: white;
+  background-color: blue;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exemplet nedan visas hur attributet <code>class</code> anv&auml;nds f&ouml;r att
+          anv&auml;nda stilmallen meny f&ouml;r f&ouml;rsta l&auml;nken och den andra &auml;r en
+          &quot;vanlig&quot; l&auml;nk (dock &auml;ndrad med stilmall ovan).&nbsp;</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>&lt;p&gt;&lt;a href=&quot;start.htm&quot;
+  class=&quot;meny&quot;&gt;Start&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Se v&aring;rt 
+  &lt;a href=&quot;bokslut.htm&quot;&gt;bokslut&lt;/a&gt;
+  som finns tillg&auml;ngligt p&aring; v&aring;ra 
+  hemsidor.&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns l&auml;nkar med mer information (i ingen speciell ordning).</p>
+
+          <ul>
+            <li><a href="https://w3schools.com/css/default.asp" class="externallink"
+              target="_blank" rel="noopener">CSS</a>  
+              hos <a href="https://w3schools.com/" class="externallink"
+              target="_blank" rel="noopener">W3Schools.com</a></li>
+            <li><a href="https://www.htmlhelp.com/reference/css/" class="externallink"
+              target="_blank" rel="noopener">CSS Reference</a> hos
+              <a href="https://www.htmlhelp.com/" class="externallink"
+              target="_blank" rel="noopener">Web Design Group</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/" class="externallink"
+              target="_blank" rel="noopener">Cascading Style Sheets</a> hos
+              <a href="https://www.w3.org/" class="externallink"
+              target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del2.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4c.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4c.html" />
+  <title>Egenskaper: F&auml;rger (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - F&auml;rger (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li class="active"><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Inneh&aring;ll</h2>
+                                    
+          <p>P&aring; denna hemsida beskrivs egenskaper f&ouml;r f&auml;rger och bakgrundsbilder.</p>
+
+          <p class="kommentar">Design och multimedia &auml;r tyv&auml;rr inte min &quot;grej&quot;... s&aring;
+            det finns inte s&aring; m&aring;nga (bra) exempel f&ouml;r alla dessa egenskaper
+            (&auml;nnu?; jag har inte gjort n&aring;gra under de 7 f&ouml;rsta &aring;ren webbsidan funnits...).
+            D&auml;remot har jag f&ouml;rs&ouml;kt l&auml;gga till s&aring; m&aring;nga referenser som m&ouml;jligt. :-)</p>
+
+          <p>Egenskaper som behandlas p&aring; denna webbsida, och exempel p&aring; dess v&auml;rden,
+            &auml;r: </p>
+
+          <ul>
+            <li>color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</li>
+            <li>background-color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</li>
+            <li>background-image: none | <em>&lt;uri&gt;</em></li>
+            <li>background-repeat: repeat | repeat-x | repeat-y | no-repeat</li>
+            <li>background-attachment: scroll | fixed</li>
+            <li>background-position: <em>l&auml;ngd l&auml;ngd</em> (5px 5px) | ...</li>
+            <li>background: <em>kombination av bakgrundsegenskaper ovan</em></li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#farger" class="collection-item">F&ouml;r- och bakgrundsf&auml;rger</a></li>
+            <li><a href="#bakgrundsbilder" class="collection-item">Bakgrundsbilder</a></li>
+            <li><a href="#genvagar" class="collection-item">&quot;Genv&auml;gar&quot;</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="farger">F&ouml;r- och bakgrundsf&auml;rger</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Vi kan &auml;ndra f&auml;rger genom att ange f&ouml;rgrunds-/textf&auml;rg (color) och/eller
+            bakgrundsf&auml;rg (background-color), b&aring;da med amerikansk stavning av f&auml;rg (d.v.s.
+            <em>color</em> och inte <em>colour</em>). V&auml;rde f&ouml;r egenskaperna kan vara
+            n&aring;got av nedanst&aring;ende.</p>
+
+          <ul>
+            <li>f&ouml;rdefinerad f&auml;rg (17 enligt standard, inofficiellt ett antal fler)</li>
+            <li>hexadecimal kod (#33CC66)</li>
+            <li>RGB-kod</li>
+          </ul>
+
+          <p><strong>Observera</strong> att vi alltid b&ouml;r ange <strong>b&aring;de</strong> f&ouml;r-
+            och bakgrundsf&auml;rg samtidigt! Ni b&ouml;r allts&aring; banka in nedanst&aring;ende &quot;m&ouml;nster&quot;
+            i ert huvud, d.v.s. att alltid l&auml;gga till egenskaperna color och backgrund-color
+            samtidigt. I exempel nedan s&aring; anges f&ouml;rgrundsf&auml;rg som svart och bakgrundsf&auml;rg
+            som vit (vilket vi b&ouml;r anv&auml;nda f&ouml;r st&ouml;rre textmassor).</p>
+        </div>
+
+        <div class="five columns">
+          <pre><code>{
+  color: black;
+  background-color: white;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>F&ouml;rdefinierade f&auml;rger</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I CSS-standard finns (idag) 17 f&ouml;rdefinerade f&auml;rger, d.v.s. f&auml;rger som vi
+            kan referera till med namn. Men, som med m&aring;nga standarder f&ouml;r webbl&auml;sare,
+            s&aring; har tillverkare av webbl&auml;sare sprungit i f&ouml;rv&auml;g och lagt till st&ouml;d f&ouml;r
+            ett antal fler f&auml;rger (som kommer vara en del av CSS version 3).</p>
+          <p>Om ni anv&auml;nder
+            dessa (&auml;nnu) icke-standardiserade f&auml;rgnamn s&aring; m&aring;ste ni r&auml;kna med att sidan,
+            f&ouml;r en del, inte kommer presenteras som ni vill! (CSS kommer inte heller att
+            valideras korrekt.)</p>
+          <p>I tabell nedan visas de 17 f&ouml;rdefinerade f&auml;rgnamnen (samt deras motsvarighet
+            i hexadecimal kod - se n&auml;sta avsnitt). De visas som bakgrundsf&auml;rger med antingen
+            svart eller vit f&ouml;rgrundsf&auml;rg (beroende p&aring; hur m&ouml;rk f&auml;rgen &auml;r).</p>
+        </div>
+
+        <div class="five columns">
+          <table style="margin-left: auto; margin-right: auto;">
+            <caption>F&ouml;rdefinerade f&auml;rger i CSS</caption>
+            <tr>
+              <th style="width: 25%">F&auml;rgnamn</th>
+              <th style="width: 25%">Hex</th>
+              <th style="width: 25%">F&auml;rgnamn</th>
+              <th style="width: 25%">Hex</th>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: aqua;">aqua</td>
+              <td>#00ffff</td>
+              <td style="color: white; background-color: olive;">olive</td>
+              <td>#808000</td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: black;">black</td>
+              <td>#000000</td>
+              <td style="color: black; background-color: orange;">orange</td>
+              <td>#ffa500</td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: blue;">blue</td>
+              <td>#0000ff</td>
+              <td style="color: white; background-color: purple;">purple</td>
+              <td>#800080</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: fuchsia;">fuchsia</td>
+              <td>#ff00ff</td>
+              <td style="color: black; background-color: red;">red</td>
+              <td>#ff0000</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: gray;">gray</td>
+              <td>#808080</td>
+              <td style="color: black; background-color: silver;">silver</td>
+              <td>#c0c0c0</td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: green;">green</td>
+              <td>#008000</td>
+              <td style="color: black; background-color: teal;">teal</td>
+              <td>#008080</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: lime;">lime</td>
+              <td>#00ff00</td>
+              <td style="color: black; background-color: white;">white</td>
+              <td>#ffffff</td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: maroon;">maroon</td>
+              <td>#800000</td>
+              <td style="color: black; background-color: yellow;">yellow</td>
+              <td>#ffff00 </td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: navy;">navy</td>
+              <td>#000080</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Som ett (d&aring;ligt?) exempel p&aring; stilmall f&ouml;r varningstext skulle vi t.ex. kunna
+            anv&auml;nda nedanst&aring;ned kod.</p>
+
+          <p>Resultatet av stilmallen visas nedan. Observera hur bakgrundsf&auml;rgen sp&auml;nner
+            &ouml;ver hela kolumnen, d.v.s. den vita ytan, minus lite marginal.<br />
+            <span class="kommentar">Detta har att g&ouml;ra med den s.k. boxmodellen, vilket
+            &auml;r &auml;mnet f&ouml;r n&auml;sta sida. Men, n&aring;got f&ouml;renklat, s&aring; ska bakgrundsf&auml;rger fylla
+            upp hela m&ouml;jliga bredden, d.v.s. tills n&aring;got stoppar, s&aring; som de gula kolumnerna
+            p&aring; vardera sida h&auml;r. (En effekt som kallas <em>expand to fit</em>. Motsatsen,
+            <em>shrink to fit</em>, exemplifieras i tabellen ovan d&auml;r cellerna endast
+            &auml;r s&aring; pass breda att bredaste inneh&aring;llet f&aring;r plats - texten &quot;F&auml;rgnamn&quot;.)</span></p>
+    
+        </div>
+
+        <div class="five columns">
+          <pre><code>p.varning
+{
+  color: red;
+  background-color: yellow;
+}</code></pre>
+
+          <p style="color: red; background-color: yellow;">Detta skulle kunna vara varningstext.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="kommentar">Ut&ouml;ver detta g&aring;r det att anv&auml;nda s.k. systemf&auml;rger, d.v.s.
+            de f&auml;rger som operativsystemet (t.ex. Windows eller MacOS) anv&auml;nder f&ouml;r olika
+            delar av f&ouml;nster (t.ex. ButtonFace och WindowFrame). Detta behandlas inte
+            i denna underwebb (f&ouml;r nu).</p>
+        </div>
+      </div>
+
+      <h3>Hexadecimal kod</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Ett hexadecimalt tal bygger p&aring; talbasen 16, d.v.s. att det finns 16 siffror
+            (0 till 9 samt A, B, C, D, E och F f&ouml;r 10, 11, 12, 13, 14 resp. 15). N&auml;r vi
+            anger en hexadecimal kod f&ouml;r f&auml;rger i CSS s&aring; anv&auml;nder vi en &quot;br&auml;dg&aring;rd&quot;
+            (#-tecknet, eng. <em>hash</em>) f&ouml;ljt av antingen tre eller sex hexadecimala
+            siffror, t.ex. #36C eller #3366CC. Bokst&auml;verna i koden kan antingen vara
+            gemener eller versaler, d.v.s. det spelar ingen roll (&auml;ven om jag i l&ouml;pande
+            text kommer anv&auml;nda versaler men gemener i kodexempel :-).</p>
+
+          <p class="kommentar">&quot;Men&quot;, s&auml;ger en del av er, &quot;det &auml;r ju bara
+            15 siffror!&quot; Inte om man &auml;ven r&auml;knar nollan! :-) Det decimala talsystemet,
+            d.v.s. det vi m&auml;nniskor anv&auml;nder, bygger p&aring; tio siffror (0 till 9). I datorv&auml;rlden
+            anv&auml;nds ofta det hexadecimala talsystemet d&aring; tv&aring; hexadecimala siffror motsvarar
+            en byte (8 bitar, d.v.s. 8 nollor och ettor - som i sin tur bygger p&aring; det bin&auml;ra
+            talsystemet, d.v.s. endast tv&aring; siffror; det bin&auml;ra talet 00000101 &auml;r 5 decimalt
+            [4+1=5] men &auml;ven 5 hexadecimalt och det bin&auml;ra talet 00001101 &auml;r 13 decimalt
+            [8+4+1=13] men D hexadecimalt.) Fast denna n&ouml;rdighet beh&ouml;ver ni inte l&auml;gga
+            allt f&ouml;r mycket vikt i. :-)</p>
+
+          <p>F&auml;rger, med hexadecimal kod, bygger p&aring; att vi anger hur mycket r&ouml;tt, gr&ouml;nt
+            och bl&aring;tt en f&auml;rg ska inneh&aring;lla. Total avsaknad av alla f&auml;rger (d.v.s. noll,
+            eller snarare talet 0 eller talet 00) &auml;r svart och maximal f&auml;rg (styrka) av
+            alla f&auml;rger (d.v.s. talet F eller FF) &auml;r vit (se tabell nedan). En f&auml;rg i
+            den f&ouml;rkortade versionen (tre siffror) s&aring; kan &quot;expanderas&quot; till
+            den l&aring;nga versionen (sex siffror) genom att &quot;dubbla p&aring;&quot; siffrorna,
+            t.ex. blir #f00 (r&ouml;d f&auml;rg) #ff0000. Vissa f&auml;rger i den l&aring;nga versionen g&aring;r
+            dock inte att konvertera till den f&ouml;rkortade versionen (se tabell nedan f&ouml;r
+            exempel).</p>
+
+          <p>I tabell nedan visas exempel p&aring; f&auml;rgers hexadecimala kod. (Se &auml;ven tabell
+            med f&ouml;rdefinerade f&auml;rger ovan f&ouml;r fler exempel samt referenser f&ouml;r listor,
+            eng. <em>charts</em>, med fler f&auml;rger och f&auml;rgprov.)</p>
+        </div>
+
+        <div class="five columns">
+          <table style="margin-left: auto; margin-right: auto;">
+            <caption>Exempel p&aring; f&auml;rger i hexadecimal kod</caption>
+            <tr>
+              <th>F&auml;rg</th>
+              <th>Kort kod</th>
+              <th>L&aring;ng kod</th>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: #000000">Svart</td>
+              <td>#000</td>
+              <td>#000000</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: #ff0000">R&ouml;d</td>
+              <td>#f00</td>
+              <td>#ff0000</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: #00ff00">Gr&ouml;n</td>
+              <td>#0f0</td>
+              <td>#00ff00</td>
+            </tr>
+            <tr>
+              <td style="color: white; background-color: #0000ff">Bl&aring;</td>
+              <td>#00f</td>
+              <td>#0000ff</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: #fafad2"><em>LightGoldenRodYellow</em></td>
+              <td>-</td>
+              <td>#fafad2</td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: #fafad2"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td style="color: black; background-color: #ffffff">Vit</td>
+              <td>#fff</td>
+              <td>#ffffff</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>I exempel nedan visas hur vi v&auml;ljer svart text mot r&ouml;d resp. gr&ouml;n bakgrundsf&auml;rg
+            och vit text mot bl&aring; bakgrundsf&auml;rg. I alla tre stycken anv&auml;nds den korta versionen,
+            d.v.s. endast tre siffror.</p>
+        </div>
+
+        <div class="five columns">
+          <div style="margin: 0px 10px">
+            <p style="color: #000; background-color: #f00">Detta &auml;r
+              svart text mot r&ouml;d bakgrund (inte b&auml;sta valet...).<br />
+              Stilmall: color: #000; background-color: #f00</p>
+            <p style="color: #000; background-color: #0f0">Detta &auml;r
+              svart text mot gr&ouml;n bakgrund (inte b&auml;sta valet...).<br />
+              Stilmall: color: #000; background-color: #0f0</p>
+            <p style="color: #fff; background-color: #00f">Detta &auml;r
+              vit text mot bl&aring; bakgrund (b&auml;ttre val, men &auml;nd&aring;...).<br />
+              Stilmall: color: #fff; background-color: #00f</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="seven columns">
+          <p>I mina exempel p&aring; denna underwebbs sidor (utom n&aring;gra p&aring; denna :-) har jag anv&auml;nt nedanst&aring;ende
+            stilmall som ger svart text mot gul bakgrund (samt typsnitt med fast teckenbredd
+            och lite indrag p&aring; sidorna). Koden, d.v.s. exempel nedan, visar &auml;ven p&aring; resultatet. :-)</p>
+        </div>
+
+        <div class="five columns">
+          <div class="code">
+            <p>div.code<br />
+              {<br />
+              &nbsp; color: black;<br />
+              &nbsp; background-color: #ff9; /* ljusare gul */<br />
+              &nbsp; margin: 0px 10px;<br />
+              &nbsp; font-family: "Courier New", Courier, monospace;<br />
+              }</p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="seven columns">
+          <p class="kommentar">OK, OK, OK, jag &auml;r inte konsekvent d&aring; jag blandar f&ouml;rdefinierade
+            f&auml;rger och hexadecimal kod. :-) Men jag &auml;r konsekvent d&aring; jag anv&auml;nder f&ouml;rdefinierade
+            f&auml;rger n&auml;r de finns och annars hexadecimal kod (men aldrig RGB-kod).</p>
+        </div>
+      </div> -->
+
+      <h3>RGB-koder</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>RGB-koder fungerar egentligen som hexadecimal kod f&ouml;r f&auml;rger, d.v.s. vi
+            anger hur mycket r&ouml;tt, gr&ouml;nt och bl&aring;tt som f&auml;rgen ska best&aring; av, men vi anv&auml;nder
+            decimala tal ist&auml;llet f&ouml;r hexadecimala. (V&auml;lj vilken form ni tycker b&auml;st om
+            och h&aring;ll er till den formen, d.v.s. var konsekvent! Ha dock i bakhuvudet att
+            m&aring;nga exempel p&aring; f&auml;rger p&aring; Internet brukar ges hexadecimalt.)</p>
+
+          <p>I exempel nedan upprepas exempel fr&aring;n hexadecimala koder, fast denna g&aring;ng
+            med RGB-koder ist&auml;llet.</p>
+        </div>
+
+        <div class="five columns">
+          <div style="margin: 0px 10px">
+            <p style="color: rgb(0, 0, 0); background-color: rgb(255, 0, 0)">Detta &auml;r
+              svart text mot r&ouml;d bakgrund (inte b&auml;sta valet...).<br />
+              Stilmall: color: rgb(0, 0, 0); background-color: rgb(255, 0, 0)</p>
+            <p style="color: rgb(0, 0, 0); background-color: rgb(0, 255, 0)">Detta &auml;r
+              svart text mot gr&ouml;n bakgrund (inte b&auml;sta valet...).<br />
+              Stilmall: color: rgb(0, 0, 0); background-color: rgb(0, 255, 0)</p>
+            <p style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255)">Detta &auml;r
+              vit text mot bl&aring; bakgrund (b&auml;ttre val, men &auml;nd&aring;...).<br />
+              Stilmall: color: rgb(255, 255, 255); background-color: rgb(0, 0, 255)</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Viktigt att t&auml;nka p&aring; med f&auml;rger!</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Om man &auml;ndrar antingen f&ouml;r- eller bakgrundsf&auml;rg s&aring; b&ouml;r man &auml;ven
+            &auml;ndra den andra! Eftersom bes&ouml;kare kan ha egna stilmallar, som dom
+            angett i webbl&auml;saren, s&aring; kan man av misstag v&auml;lj samma f&auml;rg p&aring;
+            f&ouml;rgrunden (textf&auml;rgen) som bes&ouml;karen valt p&aring; bakgrunden. Resultatet
+            blir att texten inte kommer att synas eftersom det inte finns n&aring;gon kontrast mellan
+            f&ouml;r- och bakgrund. CSS-validatorer brukar varna f&ouml;r detta, vilket &auml;r
+            ytterligare ett sk&auml;l till anv&auml;nda CSS-validatorer. (Se webbsidan
+            <a href="del1.html#validering">Funktion</a>
+            f&ouml;r adresser till CSS-validatorer.)</p>
+
+          <p>V&auml;lj &auml;ven f&ouml;r- och bakgrundsf&auml;rger s&aring; att kontrasten (skillnaden)
+            mellan dem &auml;r tillr&auml;cklig f&ouml;r att texten ska synas. Exempel med olika 
+            bakgrundsf&auml;rger ovan visar hur otydligt (eller tydligt) texten kan synas om 
+            kontrasterna mellan f&auml;rgerna &auml;r f&ouml;r d&aring;liga (eller tillr&auml;ckligt god).</p>
+
+          <p>T&auml;nk ocks&aring; p&aring; att om man anv&auml;nder en m&ouml;rk bakgrundsf&auml;rg och en ljus
+            f&ouml;rgrundsf&auml;rg s&aring; syns texten s&auml;mre. Man b&ouml;r d&auml;rf&ouml;r v&auml;lja tv&aring; f&auml;rger med
+            tillr&auml;ckligt god kontrast och/eller anv&auml;nda fet stil f&ouml;r texten. (Det
+            finns allts&aring; sk&auml;l till att man brukar anv&auml;nda vit papper med svart
+            tryck. :-)</p>
+
+          <p>Precis som f&ouml;r HTML s&aring; b&ouml;r man anv&auml;nda f&auml;rger i multipler av 33
+            hexadecimalt (00, 33, 66, 99, CC eller FF) eller 51 decimalt (0, 51,
+            102, 153, 204 eller 255) f&ouml;r att vara (relativt) s&auml;ker p&aring; hur f&auml;rgen kommer
+            visas i bes&ouml;karens webbl&auml;sare. (Idag &auml;r det inte bes&ouml;karens datorsk&auml;rm som
+            kan vara problemet utan handdatorers och mobiltelefoners sk&auml;rmar. :-)</p>
+      <!--
+          <form action="#">
+            <p class="center"><input type="button" value="Exempel 4c 1.1 - Egenskaper f&ouml;r f&auml;rger"
+              onclick="oppna('del4/css4c_1_1.html')" /></p>
+          </form>
+      -->
+          <p>Webbläsaren Firefox innehåller (sedan 2019) ett utvecklarverktyg för
+            att utvärdera tillgängligheten (eng. <i>accessibility</i>, A11Y) för en webbsida.
+          </p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="bakgrundsbilder">Bakgrundsbilder</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li>background-image: URL</li>
+            <li>background-repeat: repeat | repeat-x | repeat-y | no-repeat</li>
+            <li>background-attachment: scroll | fixed</li>
+            <li>background-position: ...</li>
+            <li>background: ...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Bakgrundsbilder kan l&auml;ggas till i b&aring;de webbsida och enstaka element
+            (t.ex. en DIV-tagg - se Exempel 4c 2.2 nedan). F&ouml;r att l&auml;gga till en bild
+            anv&auml;nds &quot;funktionen&quot; url(), och som parameter till &quot;funktionen&quot;
+            anges bildens filnamn och eventuella s&ouml;kv&auml;g. I f&ouml;rsta exemplet nedan finns
+            bilden i samma mapp som den fil som stilen finns i och i det andra exemplet
+            finns bilden i en mapp bilder p&aring; samma niv&aring;.</p>
+        </div>
+
+        <div class="five columns">
+          <code>background-image: url(bjorns_studiewebb.jpg);</code><br />
+          <code>background-image: url(../bilder/bjorns_studiewebb.jpg);</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del4/css4c_2_1.html" target="_blank" class="button button-primary">Exempel 4c 2.1 - Bakgrundsbilder</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Bakgrundsbilder kan repeteras horisontellt (X-led) och vertikalt (Y-led). 
+            T.ex. kan man skapa bakgrundsf&auml;rgen till en vertikal meny genom att repetera 
+            en bild vertikalt (i Y-led). I exempel nedan repeteras f&ouml;rst inte bild och
+            sen horisontellt (i X-led)</p>
+        </div>
+
+        <div class="five columns">
+          <code>background-repeat: no-repeat;</code><br />
+          <code>background-repeat: repeat-x;</code>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del4/css4c_2_2.html" target="_blank" class="button button-primary">Exempel 4c 2.2 - Bakgrundsbilder, repeat</a></p>
+
+          <p>Bilder kan &auml;ven positioneras s&aring; att de alltid finns p&aring; en viss position p&aring; 
+            webbsida oavsett om bes&ouml;kare skrollar upp eller ner p&aring; webbsida. Vid positionering
+            s&aring; kan bilder &auml;ven positioners i djupled (Z-led), d.v.s. vilken av tv&aring; (eller
+            fler) bilder som ska vara &ouml;verst (eller underst :-). (Detta behandlas inte
+            p&aring; denna webbsida f&ouml;r nu...)</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="genvagar">&quot;Genv&auml;gar&quot;</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Det finns en &quot;genv&auml;g&quot; f&ouml;r bakgrund, d.v.s. bakgrundsf&auml;rg och -bild.
+            I exempel nedan s&aring; anges bakgrundsf&auml;rg som vit samt bakgrundsbild och att
+            den inte ska repeteras.</p>
+        </div>
+
+        <div class="five columns">
+          <code>background: white url(bjorns_studiewebb.jpg) no-repeat;</code>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan finns l&auml;nkar med mer information (i ingen speciell ordning).</p>
+
+          <ul>
+            <li><a href="https://www.hscripts.com/tutorials/css/backp3.php" target="_blank"
+              rel="noopener">HIOX CSS Tutorial</a> (exempel p&aring; hur man anv&auml;nder 
+              bakgrundsbilder) hos <a href="https://www.hscripts.com/" target="_blank" rel="noopener">Hscripts.com</a></li>
+            <li><a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank"
+              rel="noopener">CSS Color Names</a> (CSS3-namn samt hexadecimala koder) 
+              hos <a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a></li>
+            <li><a href="http://html-color-codes.com/" target="_blank" rel="noopener">Web 
+              Color Chart</a> [ej HTTPS!] (exempel p&aring; f&auml;rger med hexadecimala koder) 
+              hos <a href="http://www.visibone.com/" target="_blank" rel="noopener">VisiBone</a> [ej HTTPS!]
+              (se Free Online Services l&auml;nst ner p&aring; deras startsida f&ouml;r mer anv&auml;ndbart
+              referensmaterial)</li>
+              <li><!-- <a href="https://www.learningwebdesign.com/webpalette.html" target="_blank"
+              rel="noopener">-->Web Palette Colors<!--</a>--> (f&auml;rgkoder, f&ouml;r webbs&auml;kra
+              f&auml;rger, hexadecimalt och i RGB-koder) fr&aring;n boken <a href="https://www.learningwebdesign.com/" 
+              target="_blank" rel="noopener">Learning Web Design</a> (O'Reilly)</li>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">CSS Reference</a> hos <a href="https://www.htmlhelp.com/" 
+              target="_blank" rel="noopener">Web Design Group</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener">Cascading 
+              Style Sheets</a> hos <a href="https://www.w3.org/" target="_blank"
+              rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul class="foregaendenasta">
+          <li><a href="del4b.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4d.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2017-10-29.</p>
+    </footer>
+  </div>
+</body>
+</html>

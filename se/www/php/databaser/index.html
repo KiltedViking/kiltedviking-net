@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/php/databaser/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/php/databaser/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>PHP och databaser (MySQL) - Björns studiewebb</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
+  <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
+  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
+  <script type="text/javascript" src="../../studiewebb.js"></script> -->
+</head>
+<body>
+<header class="container">
+  <div class="row">
+    <div class="column column-100">
+      <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
+        alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+        <h1>PHP och MySQL</h1>
+    </div>
+  </div>
+</header>
+  
+<div class="container">
+  <div class="row">
+    <div class="column column-66">
+      <h2>Inledning</h2>
+
+      <p>Denna sida innehåller beskrivningar av hur man ansluter till
+        databaser (främst MySQL) samt hämtar, lägger till, uppdaterar och raderar
+        poster.</p>
+      
+      <p>För en komplett beskrivning av PHP och databaser rekommenderas <b>PHP-dokumentation</b> 
+        på adressen <a href="https://www.php.net/" target="_blank" rel="noopener">www.php.net</a>. 
+        Den finns att ladda ner som bl.a. en Windows-hjälpfil (.CHM).</p>
+        
+      <p>Lathunden kommer göra referenser till ASP för att försöka
+        underlätta en eventuell övergång från ASP till PHP (som jag håller
+        på med :-). Det kommer också finnas referenser till språk som C/C++/C#
+        och Java eftersom mycket av PHP:s syntax påminner om syntaxer i just dessa
+        språk.</p>
+    </div>
+
+    <div class="column column-33">
+      <h2>Innehåll </h2>
+
+      <ul class="intern">
+        <li>
+          <a href="#grundlaggande" class="lank">Grundläggande</a>
+          <ul>
+            <li><a href="#oppna">Öppna databas</a></li>
+            <li><a href="#exekvera">Exekvera kommando</a></li>
+            <li><a href="#manipulera">Manipulera poster</a></li>
+            <li><a href="#stanga">Stänga databas</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="tillbakalista flerradiglista">
+        <li><a href="../">Tillbaka</a> till PHP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column column-66">
+      <!-- *** Innehall ******************************************************** -->
+      <h2 id="grundlaggande">Grundläggande</h2>
+      
+      <p>Precis som de flesta andra språk så bygger även databaskopplingar i PHP
+        på 3 eller 4 steg.</p>
+        
+      <ul>
+        <li>anslut till databas</li>
+        <li>utför kommando (SQL-sats)</li>
+        <li>eventuellt manipulera poster</li>
+        <li>stäng anslutning</li>
+      </ul>
+      
+      <p>Den största skillnaden på funktioner för olika databashanterare är ett
+        prefix. När vi vill ansluta till en MySQL-databas så används funktionen
+        mysql_connect() och om vi vill ansluta till en PostgreSQL-databas så heter
+        funktionen pg_connect(). Med Oracle så heter funktionen något annorlunda,
+        men ändå logiskt (ora_logon()).</p>
+
+      <p>En MySQL-server är en databashanterare, d.v.s. den kan innehålla flera
+        databaser. Detta innebär bl.a. att vi kan ansluta till flera databaser
+        i en och samma PHP-sida. (Som standard skapas två databaser när MySQL
+        installeras: mysql, som innehåller metadata, och test, som är tänkt att
+        användas för att testa MySQL. Lämpligen skapas en databas för varje
+        användare och/eller applikation samt en användaridentitet, med tillhörande
+        lösenord, för respektive databas.)</p>
+
+      <p>Nedan beskrivs hur man ansluter till <b>en</b> databas - det som blir
+        den förvalda (eller aktiva) databasen. (Det är alltså möjligt att ange
+        vilken databas, om flera öppnats, som ska vara den förvalda databasen.
+        Detta görs med funktionen mysql_select_db(). Vi kan även bifoga en
+        databasresurs [se nedan] med varje databaskommando som utförs.)</p>
+
+      <h3 id="oppna">Öppna (en) databas</h3>
+
+      <p>För att ansluta till databaser använder vi connect-funktioner (i de
+        flesta fall). Dessa funktioner har oftast ett prefix som motsvarar namnet
+        på databashanterare, t.ex. mysql_connect() för MySQL. Funktionerna
+        returnerar vad som kallas en resurs (<i>resource</i>), vad jag kallar en
+        databasresurs, som vi kan använda när vi utför ett kommando.</p>
+
+      <p>I exempel nedan deklareras variabler för respektive parameter som
+        behövs för att ansluta till en MySQL-databas, d.v.s. adress till
+        databashanterare, användaridentitet i databas och lösenord till
+        användaridentitet. Först har vi alltså adressen till databashanteraren,
+        d.v.s. servern. Som standard installeras MySQL på port 3306 (därav &quot;:3306&quot;
+        sist i strängen). Om MySQL installerats lokalt så kan vi använda localhost
+        som adress.</p>
+
+      <pre><code>$strServer = &quot;server.example.com:3306&quot;;
+$strAnvId = &quot;mysql_anvid&quot;;
+$strLosenord = &quot;mysql_losenord&quot;;
+&nbsp;
+$db = mysql_connect($strServer, $strAnvId, $strLosenord);</code></pre>
+      
+      <p>Variabeln $db innehåller nu databasresursen som refererar till databasen. Om
+        vi inte öppnar flera databaser så behöver vi (antagligen) endast variabeln
+        för att stänga databasförbindelsen. Den första databasen som öppnas är den
+        förvalda databasen, d.v.s. den som kommando kommer att utföras mot.</p>
+
+      <p class="kommentar">Om vi öppnar flera databaser så kan vi t.ex. använda funktionen 
+        mysql_select_db() för att gör databas av intresse den förvalda.</p>
+
+      <h3 id="exekvera">Exekvera kommando (SQL-sats)</h3>
+
+      <p>Med MySQL använder vi funktionen mysql_query() för att utföra ett
+        kommando. Den &quot;enda&quot; viktiga parametern är SQL-sats som ska utföras. 
+        Funktionen returnerar olika värden - allt beroende på vilken typ av
+        kommando som utförs: hämta poster (SELECT) eller uppdatera poster
+        (INSERT, UPDATE eller DELETE).</p>
+
+      <p class="kommentar">Funktion som visas nedan utför kommando mot den
+        förvalda databasen. Om vi endast öppnat en databas så är den den förvalda.
+        Men om vi öppnat flera databaser så kan vi skicka databasresursen för
+        databas av intresse (variabeln $db i exempel ovan) som andra parameter
+        till funktionen.</p>
+
+      <h4>Hämta poster (SELECT)</h4>
+
+      <p>När vi hämtar poster så returnerar funktionen mysql_query() posterna i
+        en resurs, vad jag kallar postresurs. Denna postresurs kan vi sen loopa
+        över för att hämta värdena (se <i>Manipulera poster</i> nedan). Om SQL-sats
+        misslyckas så kommer funktionen returnera FALSE.</p>
+
+      <p>Även här använder jag en variabel för parametern.</p>
+
+      <pre><code>$strSql = &quot;SELECT * FROM studenter&quot;;
+$resultat = mysql_query($strSql);</code></pre>
+      
+      <p>Variabeln $resultat innehåller nu alla poster från tabellen studenter
+        om SQL-sats utfördes - annars innehåller variabeln FALSE. Nästa steg är
+        att manipulera posterna, d.v.s. skriva ut innehållet i posterna. (Se nästa
+        avsnitt för detta.)</p>
+
+      <h4>Uppdatera poster (INSERT, UPDATE och DELETE)</h4>
+
+      <p>Även när vi uppdaterar poster så använder vi funktionen mysql_query().
+        Skillnaden mot att hämta poster är att funktionen returnerar TRUE om
+        SQL-sats utfördes och FALSE om den misslyckades.</p>
+
+      <pre><code>$strSql = &quot;INSERT INTO studenter (persnr, namn) VALUES('12', 'Ola')&quot;;
+$resultat = mysql_query($strSql);</code></pre>
+      
+      <p>Variabeln $resultat kommer som sagt att innehålla TRUE eller FALSE,
+        allt beroende på om SQL-sats lyckades eller inte. För att ta reda på hur
+        många poster som påverkades av (senaste) SQL-sats så kan vi använda
+        funktionen mysql_num_rows().</p>
+
+      <pre><code>$intAntal = mysql_num_rows();
+print &quot;Antal påverkade poster: $intAntal&quot; ;</code></pre>
+      
+      <h3 id="manipulera">Manipulera poster</h3>
+
+      <p>Med manipulera poster så menar jag hämta poster för att visa och för
+        att uppdatera poster. Att hämta poster har förklarats i stycke ovan liksom
+        uppdatering av poster. Så i detta avsnitt beskrivs hur vi kan använda data
+        i hämtade poster och skriva ut dessa data.</p>
+
+      <p>För att hämta data från resultatresursen så kan vi använda flera olika
+        sätt. Ett av de vanligaste sättet är att hämta en post åt gången. Nedan
+        beskrivs hur vi använder funktionen mysql_fetch_array() för att hämta en
+        post som en vektor - en vektor där index i vektor motsvarar namn på
+        kolumner i SQL-satsen. När funktionen anropas så flyttas postpekaren (den
+        till aktuell post) till nästa post. När vi nått sista posten så kommer
+        funktionen returnera falskt - ett faktum som vi kan använda för att loopa
+        med en while-sats.</p>
+
+      <p>Om vi hämtar poster ur en tabell studenter med kolumnerna &quot;persnr&quot; och
+        &quot;namn&quot; så skulle koden kunna se ut enligt följande:</p>
+
+      <pre><code>while($rad = mysql_fetch_array($resultat, MYSQL_ASSOC) {
+&nbsp; print &quot;studentdata: &quot;&nbsp; //Skriv ut ledtext
+&nbsp; print $rad['persnr'];&nbsp; //Skriv ut innehåll i kolumnen persnr
+&nbsp; print &quot;                //Skriv ut ett mellanslag
+&nbsp; print $rad['namn'];&nbsp;&nbsp;&nbsp; //Skriv ut innehåll i kolumnen namn
+&nbsp; print &quot;&lt;br&gt;&quot;;          //Skriv ut en radbrytning i HTML
+}</code></pre>
+      
+      <p>Konstanten MYSQL_ASSOC är det som gör att index i vektorn $rad kommer
+        heta samma som kolumnerna i tabellen som SQL-sats hämtade poster från.</p>
+
+      <p>Resultatet av koden ovan skull kunna se ut något liknande:</p>
+
+      <pre><code>studentdata: 12 Ola
+studentdata: 24 Benkt</code></pre>
+      
+      <h3 id="stanga">Stäng databas</h3>
+
+      <p>Egentligen behöver vi inte stänga anslutning till databas - det sker
+        automatiskt när all kod i webbsida har exekverat färdigt. <b>Men</b> precis som i
+        många andra språk så är det <b>god sed</b> att alltid stänga databasförbindelser
+        och det bör ske för att <b>spara resurser</b> på webbservern (bl.a.
+        minne och antalet anslutningar till databas, vilka brukar vara
+        begränsade).</p>
+
+      <p>För att stänga en förbindelse så använder vi funktionen mysql_close()
+        och som parameter skickar vi databasresursen som returnerades från
+        funktionen mysql_connect().</p>
+
+      <pre><code>mysql_close($db);</code></pre>
+      
+      <p class="tillborjan"><a href="#">Till början</a> på sida |
+        <a href="../">Tillbaka</a> till PHP</p>
+    </div>
+  
+    <div id="column column-33">
+      <h2>Länkar</h2>
+      <p>(Kommer... eller???)</p>
+    </div>
+  </div>
+</div>
+
+<footer class="container">
+  <div class="row">
+    <div class="column column-100">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-01.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

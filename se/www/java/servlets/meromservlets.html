@@ -1,0 +1,148 @@
+<html>
+<head>
+  <title>Java Servlets - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
+  <style>
+    <!--
+      .ei0290 { font-weight: bold; color: red; background-color: #ffff66 }
+    -->
+  </style>
+</head>
+<body bgcolor="#ffff99">
+<div align="center">
+<center>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
+    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
+  </tr>
+  <!-- Rad med rubrik -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff" class="rubrik"> Mer om Java Servlets</td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <!-- Rad med information -->
+  <tr>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">
+      <!-- **********************************************************************
+      *** Skapa servlets
+      *********************************************************************** -->
+
+      <p>På denna sida presenteras mer information om hur man implementerar och
+      använder servlets. Informationen på denna sida är dock inte nödvändig
+      men har redovisats för att eventuellt reda ut en del frågetecken som kan
+      uppstå. Bl.a. beskrivs varför</p>
+      <ul>
+        <li><a href="#genericservlet">vissa servlets ärver från klassen
+          GenericServlet</a> och inte HttpServlet.</li>
+      </ul>
+
+      <h2><a name="genericservlet"></a>Ärva från klassen GenericServlet</h2>
+
+      <p>En del litteratur anser/visar på hur man ärver från klassen
+      GenericServlet. Det är inget fel i att göra det, men om man istället
+      ärver ifrån klassen HttpServlet så får man bl.a. mer funktionalitet.
+      Klassen HttpServlet ärver nämligen från klassen GenericServlet samt
+      utökar med mer funktionalitet.&nbsp;</p>
+      <p>En skillnad är att en servlet som ärver från GenericServlet kan
+      användas utan HTTP-protokollet. På dessa hemsidor fokuserar jag dock på
+      webbaserade lösningar och använder därför HttpServlet som superklass
+      till <b>alla</b> min serlvets. En annan skillnad är hur man implementerar sin klass och hur servern
+      (t.ex. Resin eller Tomcat) använder (anropar metoder i) objekt av klasserna.&nbsp;</p>
+      <p>Klasser för servlets
+      implementeras genom att definera om (eller
+      &quot;överlagra&quot;, eng. <i>override</i>)
+      metoden service() från klassen GenericServlet eller metoderna doGet() och
+      doPost() från klassen HttpServlet. När en webbläsare, vid exekvering, begär en servlet
+      från servern kommer servern att anropa metoden service() i
+      klassen (eller snarare ett objekt av klassen). Servlet som ärver från
+      GenericServlet kommer alltså att göra allt i sin metod service(). Men om
+      servlet istället ärver
+      från klassen HttpServlet så kommer metoden service() endast att anropar någon av
+      metodern doGet() eller doPost(), allt beroende på vilket sätt som
+      servlet begärdes av webbläsare.</p>
+      <p class="kommentar">Servern (som hanterar servlets och JSP-sidor) kallas <i>servlet
+      container</i> (tidigare även för <i>servlet engine</i>).</p>
+
+      <h3>Enkel serlvet igen</h3>
+      <p>Att låta sin servlet ärva från klassen GenericServlet är ett lättare
+      sätt att skapa en servlet. Man behöver endast
+      implementera en metod: service().</p>
+      <p>Denna servlet börjar med att tala om för webbserver (och webbläsare)
+      vilken typ av information som kommer skickas - &quot;text/html&quot; i
+      detta exempel. Därefter hämtas ett PrintWriter-objekt för att kunna
+      skriva till den resulterande HTML-sidan. Återstående rader skriver ut
+      själva HTML-koden, komplett med taggar för HTML, HEAD, TITLE och BODY.
+      Det blir därför en del rader med kod för en sån enkel HTML-sida.</p>
+
+      <!-- **********************************************************************
+      *** EXEMPEL - Enkel servlet (GenericeServlet)
+      *********************************************************************** -->
+
+      <p class="kodlangre">/*<br>
+      * Java Servlet som genererar en hemsida som skriver ut &quot;Hello
+      world!&quot;.<br>
+      * Björn Persson, EkI, MdH - 2001-04-29.<br>
+      * bjorn.persson@mdh.se<br>
+      */<br>
+      <br>
+      //Importera paket för...<br>
+      <b>import javax.servlet.*;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//servlet<b><br>
+      import javax.servlet.http.*; &nbsp;&nbsp;&nbsp;</b>//servlet<b><br>
+      import java.io.*;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>//I/O<br>
+      <br>
+      <b>public class HelloWorldServlet extends GenericServlet<br>
+      {</b><br>
+      &nbsp;&nbsp;/***************************************************<br>
+      &nbsp;&nbsp;* Implementation av metoden service() som anropas av<br>
+      &nbsp;&nbsp;* webbserver då webbläsare begär servlet<br>
+      &nbsp;&nbsp;***************************************************/<br>
+      <b>public void service(ServletRequest request, ServletResponse response)<br>
+      &nbsp;&nbsp;throws IOException<br>
+      {</b><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Tala om för webbserver vad som kommer att skickas (d.v.s.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; // HTML-kod)<br>
+      &nbsp;&nbsp;&nbsp;<b>response.setContentType(&quot;text/html&quot;);</b><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Hämta objekt för &quot;output&quot; för att kunna skriva till den<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; // genererade hemsidan<br>
+      &nbsp;&nbsp;&nbsp;<b>PrintWriter out = response.getWriter();</b><br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Skriv ut HTML-kod<br>
+      <b>&nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HTML&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;HEAD&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&nbsp; &lt;TITLE&gt;Hello world&lt;/TITLE&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HEAD&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;BODY&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;H1&gt;Hello world!&lt;/H1&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/BODY&gt;&quot;);<br>
+      &nbsp;&nbsp;&nbsp;out.println(&quot;&lt;/HTML&gt;&quot;);<br>
+      } </b>// service()<br>
+      <b>
+      } </b>//class HelloWorldServlet
+      </p>
+
+      <hr>
+      <p align="center">| <a href="#borjan">Till början</a> på sida | <a href="./">Tillbaka</a>
+      till Java Servlets |</p>
+      <hr>
+
+      <p align="center"><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2001-09-09</p>
+    </td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
+    <td bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
+  </tr>
+</table>
+</center>
+</div>
+</body>
+</html>

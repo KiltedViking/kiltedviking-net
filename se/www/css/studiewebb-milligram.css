@@ -1,0 +1,24 @@
+/*** Customise Milligram **********************************************************/
+.bg-scania-red { background-color: #E03C31; }
+/* TODO: Adjust colour - #FEDB00 - for a11y */
+.fg-scania-yellow { color: #FEDB00; }
+
+
+header.container, footer.container { background-color: #E03C31; color: #FEDB00; }
+
+.container  a { color: #E03C31; }
+
+.button-red, a.button-red { background-color: #E03C31; color: #FEDB00; }
+.button-red:hover, a.button-red:hover { background-color: #FEDB00; color: #E03C31; }
+ 
+
+.panel {
+  color: black;
+  background-color: khaki;
+  border-color: goldenrod;
+  border-radius: 5px;
+  margin: 1rem 0 2rem 0;
+  padding: 1rem;
+}
+
+

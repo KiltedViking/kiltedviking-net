@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, serverts och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, serverts och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <title>Java - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../css/primer.css" />
+  <link rel="stylesheet" href="../css/studiewebb-primer.css" />
+	<!-- <script type="text/javascript" src="../addLoadEvent.js"></script>
+  <script type="text/javascript" src="../studiewebb.js"></script> -->
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../">
+        <img src="../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+      <p>På dessa sidor beskrivs hur man använder Java som en webbteknologi,
+        bl.a. <b>Java Servlets</b>, <b>Java Applets</b>, <b>Java Server
+        Pages</b> (JSP) och <b>Java Beans</b>. De två senare är under uppbyggnad.
+        Nedanstående beskrivningar utgår från att ni har en förståelse för
+        grundläggande (däribland objektorienterad) programmering i Java.</p>
+
+      <div class="Box">
+        <div class="Box-body bg-blue-light">
+          <p><b>Observera</b> att beskrivningarna på dessa hemsidor använder jag
+            för att sammanfatta och dokumentera det jag (än så länge?) lärt mig
+            om dessa teknologier. Det är på detta sätt jag studerar bäst, d.v.s.
+            lär mig och (försöker) komma ihåg sånt jag lärt mig. Därför kan
+            det förekomma sakfel och andra felaktigheter! (som jag rättar då jag
+            hittar dem eller får dem påpekade av andra). All kod har dock provkörts
+            och fåtts att fungera under Windows NT4/2000/XP i servern Resin.</p>
+        </div>
+      </div>
+      <p>Hemsidorna används även för att försöka förklara och visa för studenter,
+        som läser kurser jag undervisar på, hur de ska gå till väga. Se mer under
+        Om på startsidan för min <a href="../">studiewebb</a>.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item" aria-current="page">Java</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h3>Innehåll</h3>
+      <nav class="menu">
+        <a class="menu-item" href="#servlets">Java Servlets</a>
+        <a class="menu-item" href="#applets">Java Applets</a> 
+        <a class="menu-item" href="#jsp">Java Server Pages</a>
+        <a class="menu-item" href="#beans">Java Beans</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2 id="servlets">Java Servlets</h2>
+      <p>Java Servlets exekverar på en server och skickar endast HTML-kod
+      till webbläsaren. Fördelen med detta är att besökaren kan använda vilken
+      webbläsare som helst (som stödjer den HTML-version som den
+      resulterande HTML-koden är).</p>
+
+      <dl>
+        <dt><a href="servlets/">Skapa servlets</a></dt>
+        <dd>Grundläggande om serlvets och hur man skapar en enkel servlet.</dd>
+
+        <dt><a href="servlets/formular.html">Servlets och formulär</a></dt>
+        <dd>Hur man läser data från HTML-formulär.</dd>
+
+        <dt><a href="servlets/dbkoppling.html">Servlets och databaskopplingar</a></dt>
+        <dd>Hur man använder databaskopplingar i servlets.</dd>
+
+        <dt><a href="servlets/diverse.html">Diverse</a></dt>
+        <dd>Bl.a. svar på frågor från studenter, t.ex. om hur man inkluderar HTML-filer 
+          (och resultatet från andra servlets) i en servlet.</dd>
+        <!-- <dt>Servlets och Java Beans</dt>
+        <dd>Visar hur man kan använda Java Beans i
+          en servlet samt hur dessa delas med andra servlets (och JSP-sidor).</dd>
+        <dt>Webbapplikationer och filen WEB.XML</dt>
+        <dd>Hur man kan skapa alias för
+          servlet och anger vilka sökvägar/filändelser som ska hanteras av
+          servlets och vilken.</dd>
+        <dt>Servlets mer ingående</dt>
+        <dd>Mer om bl.a. fler metoder som
+          finns/används i servlets och hur servlets egentligen exekverar
+          (trådar).</dd> -->
+        </dl>
+
+      <h3>Boktips</h3>
+      <ul>
+        <li>Hunter, Jason, <b>Java Servlet Programming</b> (2nd edition),
+          O'Reilly, 2001.</li>
+      </ul>
+
+      <hr />
+      <p style="text-align: center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr />
+
+      <h2 id="applets">Java Applets</h2>
+
+      <p>Java applets exekverar i besökarens webbläsare. Detta leder till att
+        besökarens webbläsare måste stödja Java applets (d.v.s. ha en Java virtuell
+        maskin installerad). Men fördelen, jämfört med servlets, är att gränssnittet
+        kan göras rikare då man inte är begränsad till bara HTML.</p>
+      <dl>
+        <dt><a href="applets/">Skapa Java applets</a></dt>
+        <dd>Grundläggande
+          om Java applets, hur man infogar en Java applet i en hemsida samt hur
+          man skickar parametrar till en applet.</dd>
+      </dl>
+
+      <hr />
+      <p style="text-align: center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr />
+
+      <h2 id="jsp">Java Server Pages</h2>
+
+      <p>Java Server Pages (JSP) kan användas som ett gränssnitt åt Java Servlets
+        (samt Java Beans och/eller Enterprise Java Beans, EJB). JSP-sidor kompileras
+        (automatiskt) till Java Servlets då de begärs första gången av en webbläsare
+        - för efterföljande anrop så används den redan kompilerade servleten. Detta
+        bör göra JSP-sidor mer effektivt än Microsofts Active Server Pages (ASP)
+        (dock inte ASP.NET).</p>
+
+      <p>JSP uppskattas dock inte av alla i Java-världen och det finns ett
+        antal alternativ till JSP, bl.a. <a href="http://opensource.go.com/"
+        target="_blank" rel="noopener">Tea</a> (som, tro det eller ej, görs av Walt Disney
+        Internet Group).</p>
+
+      <dl>
+        <dt><a href="jsp/">Skapa JSP-sidor</a></dt>
+        <dd>Grundläggande om JSP-sidor.</dd>
+        <!-- <dt>JSP och formulär</dt>
+        <dd>Hur data från ett HTML-formulär hämtas</dd> -->
+        <dt><a href="jsp/jsp_javabeans.html">JSP och Java Beans</a></dt>
+        <dd>Beskrivning av hur man använder Java Beans i en JSP-sida.</dd>
+        <dt><a href="jsp/jsp_servlets.html">JSP och servlets</a></dt>
+        <dd>Beskrivning av hur man använder Java Servlets från en JSP-sida.</dd>
+      </dl>
+
+      <hr />
+      <p style="text-align: center">| <a href="#borjan">Till början</a> på sida |</p>
+      <hr />
+
+      <h2 id="beans">Java Beans</h2>
+
+      <p style="text-align: center">[ <b>UNDER UPPBYGGNAD</b> ]</p>
+      <p>Java Beans används för att kapsla in data och/eller funktionalitet
+        i klasser/objekt som är tänkta att kunna återanvändas samt
+        manipuleras med s.k. Bean-verktyg.</p>
+
+      <dl>
+        <dt><a href="beans/">Skapa Java Beans</a></dt>
+        <dd>Grundläggande om Java Beans, hur man skapar en enkel Java Beans samt 
+          hur man använder en Java Beans från både en Java-appliation och från JSP-sidor.</dd>
+      </dl>
+
+      <hr />
+      <p style="text-align: center">| <a href="#borjan">Till början</a> på sida |
+        <a href="../">Till</a> startsida för studiewebb |</p>
+      <hr />
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <h2>Länkar</h2>
+      <h3>Utvecklarverktyg</h3>
+      <nav class="menu">
+        <a class="menu-item" href="http://www.jcreator.com/"
+        target="_blank" rel="noopener">JCreator [ej HTTPS!]</a>
+        <a class="menu-item" href="https://netbeans.org/"
+        target="_blank" rel="noopener">NetBeans</a>
+      </nav>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2011-05-01.</p>
+    </div>
+  </footer>
+</body>
+</html>

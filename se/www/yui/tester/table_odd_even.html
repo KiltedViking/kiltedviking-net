@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Tabell med j&auml;mna och udda rader - Bj&ouml;rns studiewebb</title>
+  <link href="../../stilar/css2.css" rel="stylesheet" type="text/css" />
+	<!-- For production -->
+	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
+	<!-- For local development -->
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript" src="../studiewebb2.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#mytable tr").filter(":odd").css("background-color", "yellow").filter(":even").css("background-color", "blue");
+		});
+	</script>
+</head>
+<body>
+<div id="container">
+	<div id="innehall">
+		<table id="mytable">
+			<tr>
+				<th>h1</th>
+				<th>h2</th>
+			</tr>
+			<tr>
+				<td>d11</td>
+				<td>d12</td>
+			</tr>
+			<tr>
+				<td>d21</td>
+				<td>d22</td>
+			</tr>
+			<tr>
+				<td>d31</td>
+				<td>d32</td>
+			</tr>
+			<tr>
+				<td>d41</td>
+				<td>d42</td>
+			</tr>
+			</thead>
+		</table>
+	</div>
+	
+	<div id="nedremarginal"></div>
+</div>
+</body>
+</html>

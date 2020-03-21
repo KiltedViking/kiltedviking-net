@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till Java, servlets och JSP." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Java, servlets och JSP" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/java/beans/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/java/beans/" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" />
+  <title>Java Beans - Bj&ouml;rns studiewebb</title>
+  <link rel="stylesheet" href="../../css/primer.css" />
+  <link rel="stylesheet" href="../../css/studiewebb-primer.css" />
+</head>
+<body>
+  <header class="container-lg">
+    <div class="col-12 p-3">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" class="float-right"
+          alt="Till startsida för Björns studiewebb" width="155" height="54" />
+      </a>
+      <h1>Java Beans</h1>
+    </div>
+  </header>              
+
+  <div class="container-lg clearfix">
+    <div class="col-7 p-3 float-left">
+      <h2>Inledning</h2>
+
+      <p>[ <b>UNDER UPPBYGGNAD</b> ]</p>
+
+      <p>Denna sida beskriver hur man skapar Java Beans som ska användas i
+        JSP-sidor. Denna sida behandlar bl.a. <b>grundläggande om Beans</b> och <b>hur
+        man skapar en enkel Java Beans</b>.</p>
+
+      <p class="kommentar">Java Beans är inte bara till för JSP utan kan även
+        användas i
+        &quot;vanliga&quot; Java-applikationer. Java Beans var från början tänkta att
+        använda som visuella komponenter, som bl.a. kunde manipuleras av verktyg
+        för att skapa grafiska gränssnitt. Användningsområdet för Java Beans
+        har dock förändrats något och de används idag även för icke-visuella
+        objekt som kan använda i bl.a. JSP-sidor och servlets.</p>
+    </div>
+
+    <div class="col-5 p-3 float-left">
+      <div class="Box">
+        <div class="Box-body bg-gray-light">
+          <nav aria-label="Breadcrumb">
+            <ol>
+              <li class="breadcrumb-item"><a href="../../">Björns studiewebb</a></li>
+              <li class="breadcrumb-item"><a href="../">Java</a></li>
+              <li class="breadcrumb-item" aria-current="page">Java Beans</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <h4>Innehåll</h4>
+
+      <nav class="menu">
+        <a href="#grundlaggande" class="menu-item">Grundläggande</a>
+        <a href="#enkla" class="menu-item">Enkel Java Beans</a>
+      </nav>
+    </div>
+
+    <div class="col-7 p-3 float-left">
+      <h2 id="grundlaggande">Grundläggande om Java Beans</h2>
+
+      <p>Java Beans är en Java-klass som uppfyller vissa krav. Annars skiljer
+        sig inte klassen för en Java Beans så mycket från en
+        &quot;vanlig&quot; Java-klass.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida |</p>
+      <hr>
+
+      <h2><a name="enkla"></a>Enkel Java Beans...</h2>
+
+      <p>Denna enkla klass, SimpleBean, innehåller en egenskap - Count. För
+      att implementera egenskapen som både läs- och skrivbar måste vi
+      implementera båda accessmetoder, d.v.s. både Set- och Get-metod.</p>
+
+      <p>Vi börjar med att deklarera en variabel för att lagra värder för
+      egenskapen och som vi initierar till 0.
+      Därefter implementerar vi Get- och Set-metoderna.</p>
+
+      <h3>Filen SimpleBean.class</h3>
+
+      <p class="kodlangre">
+        public class SimpleBean<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp; <b>//Deklarera variabel för egenskapen Count</b><br>
+        &nbsp; int count = 0;<br>
+      </p>
+
+      <p class="kodlangre">&nbsp;&nbsp;&nbsp; <b>//Get-funktion</b><br>
+      &nbsp; public int getCount()<br>
+      &nbsp; {<br>
+      &nbsp;&nbsp;&nbsp; return count;<br>
+      &nbsp; }
+      </p>
+
+      <p class="kodlangre">&nbsp;&nbsp;&nbsp; <b>//Set-funktion<br>
+      </b>&nbsp; public void setCount(int newValue)<br>
+      &nbsp; {<br>
+      &nbsp;&nbsp;&nbsp; count = newValue;<br>
+      &nbsp; }<br>
+        } //class SimpleBean
+      </p>
+
+      <p>För exempel på hur man använder klassen - se <A HREF="../jsp/jsp_javabeans.html">JSP
+      och Java Beans</A>.</p>
+
+      <hr>
+      <p>| <a href="#borjan">Till början</a> på sida
+        | <a href="../">Tillbaka</a> till Java |</p>
+      <hr>
+    </div>
+  </div>
+
+  <footer class="container-lg">
+    <div class="col-12 p-3">
+      <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
+        2005-05-07.</p>
+    </div>
+  </footer>
+</body>
+</html>

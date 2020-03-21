@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del4d.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del4d.html" />
+  <title>Stilmallar (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Boxar (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li class="active"><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Innehåll</h2>
+                                                
+          <p>På denna hemsida beskrivs egenskaper för boxar. Alla element i
+          webbsidor befinner sig i &quot;osynliga&quot; boxar som består av tre
+          delar:</p>
+
+          <ul>
+            <li>marginal - avståndet från kantlinjen till andra element.</li>
+            <li>kantlinje (eng. <em>border</em>) - eventuell linje utanför utfyllnad, men
+              innanför marginal (d.v.s. är <strong>inte</strong> en del av den innersta
+              boxen eller marginalen).</li>
+            <li>utfyllnad (eng. <em>padding</em>) - avståndet från elementets
+              visuella del till kantlinjen.</li>
+          </ul>
+
+          <p class="kommentar"><strong>Observera</strong> att webbsidor med exempel som refereras till från
+          dessa webbsida (genom knapparna för exempel) kan bli ganska komplexa!
+          Det är <strong>inte</strong> tänkt att de ((X)HTML- och CSS-kod) ska studeras i
+          detalj - den kunskap som behövs beskrivs på denna webbsida eller i
+          exempelsidornas text, <strong>inte</strong>
+          i exempelsidornas kod! Exempelsidorna används för att visa effekten av de
+          olika egenskaperna i stilmallar.</p>
+
+          <p>Egenskaper (en himla massa :-) som behandlas på denna webbsida är: </p>
+          
+          <ul>
+            <li>margin-top, margin-right, margin-bottom, margin-left, margin</li>
+            <li>padding-top, padding-right, padding-bottom, padding-left, padding</li>
+            <li>border-top-width, border-right-width, border-bottom-width,
+              border-left-width, border-width, border-color, border-style</li>
+            <li>border-top, border-right, border-bottom, border-left, border</li>
+          </ul>
+
+          <p><strong>Observera</strong> att värden för dessa egenskaper kan vara negativa,
+            d.v.s. inkräkta på omkringliggande elements boxar.</p>
+
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#generellt" class="collection-item">Generellt om egenskaper för boxar</a></li>
+            <li><a href="#marginaler" class="collection-item">Marginaler</a></li>
+            <li><a href="#utfyllnad" class="collection-item">Utfyllnad</a></li>
+            <li><a href="#kantlinjer" class="collection-item">Kantlinjer</a></li>
+            <li><a href="#problem" class="collection-item">&quot;Problem&quot; och lösningar</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="generellt">Generellt om egenskaperna</h2>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskaperna för boxar är ganska många (jämfört med andra typer av
+          egenskaper), främst för kantlinjer då dessa kan vara synliga. Många av
+          dessa egenskaper är egentligen &quot;genvägar&quot;.</p>
+
+          <p>Det går att ange endast en kants värden, och då använder man någon av egenskaperna
+          på formen xxx-top, xxx-right, xxx-bottom eller xxx-left (ersätt xxx med
+          margin, border eller padding).</p>
+
+          <p>När man använder &quot;genvägarna&quot; så gäller i många fall
+          att det räcker med att ange ett eller två värden om man vill ha samma värde
+          på alla respektive motstående sidor om element. Principen för genvägarna är
+          att de börjar med den övre sidan och går medsols, d.v.s. i ordningen övre, 
+          högra, undre och sist vänstra. Om man inte anger fyra värden i en genväg så
+          påverkas sirorna enligt följande:</p>
+          
+          <ul>
+            <li>ett värde - samma värde för alla fyra sidor.</li>
+            <li>två värde - motstående sidor kommer ha samma värde (första värdet avser 
+              övre och undre sidan medan det andra värdet avser högra och vänstra sidan).</li>
+            <li>tre värde - olika värde för övre och under sidorna, men samma för höger
+              och vänster sida (första värdet avser övre sidan, andra värdet höger och
+              vänster sida samt sista värdet undre sidan).</li>
+          </ul>
+          
+          <p class="kommentar">Jag tjatar lite om detta då jag fann detta förvirrande till
+            att börja med. :-)</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan är ett (mindre bra) exempel som försöker visa på marginal (röd), kantlinje
+            (svart) och utfyllnad (gul) kring ett element (texten &quot;Innehåll&quot;).</p>
+        </div>
+
+        <div class="five columns">
+          <div style="width: 80%; height: 80px; border: dotted 1px black; margin: 0px auto; color: black; background-color: red;">
+            <div style="width: 80%; height: 30px; margin: 18px auto; border: solid 3px black; padding: 6px; text-align: center; background-color: yellow;">
+              <span style="margin: 6px; border: dotted 1px black; background-color: white; color: black;">Innehåll</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="marginaler">Marginaler</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Marginaler används som sagt för att avgöra avståndet från
+          elementets kantlinje till andra element. Värde för egenskaperna är
+          måttenheter av något slag, vilka kan vara negativa för att &quot;inkräkta&quot; på
+          kringliggande element.</p>
+
+          <ul>
+            <li>margin-top - marginal ovanför element.</li>
+            <li>margin-right - marginal till höger om element.</li>
+            <li>margin-bottom - marginal under element.</li>
+            <li>margin-left - marginal till vänster om element.</li>
+            <li>margin - genväg för att ange marginal för alla sidor om element.
+            Värdet för denna egenskap kan vara 1, 2, 3 eller 4 måttenheter (se
+            nedan).</li>
+          </ul>
+        </div>
+
+        <div class="five columns">
+          <div class="code">
+            <p>margin-top: 10px;</p>
+            <p>margin-top: -5px; /* elementets övre marginal kommer inkräkta på element
+              ovanför</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Genvägen margin kan som sagt bestå av 1 till 4 måttenheter. Vilken av
+          elementets marginaler som måttenheterna avser utgår från den övre
+          marginalen (toppen) och sedan medurs (d.v.s. topp, höger, botten resp.
+          vänster). Om måttenhet saknas för en marginal så används värdet från
+          motsvarande sida (topp/botten resp. höger/vänster). Nedan beskrivs vad
+          antalet måttenheter motsvarar.</p>
+
+          <ul>
+            <li>1 måttenhet - marginaler på alla sidor om element är de samma.</li>
+            <li>2 måttenheter - marginaler på motstående sidor, topp/botten resp.
+            höger/vänster, är de samma.</li>
+            <li>4 måttenheter - marginaler för respektive sida, med början från
+            toppen och sen medsols (topp, höger, botten resp. vänster).</li>
+            <li>3 måttenheter - marginaler för topp, höger och botten, men även
+            vänster då avsaknad av värde för vänster marginal kommer innebära att
+            vänster marginal kommer få samma värde som motstående sida (d.v.s.
+            höger marginal).</li>
+          </ul>
+
+          <p>Nedan visas generella principerna för genvägen margin, följt av exempel på
+            alla fyra marginalegenskaper och hur det skulle kunna uttryckas med genvägen
+            istället.</p>
+        </div>
+
+        <div class="five columns">
+          <div class="code">
+            <p>margin: &lt;margin-top&gt; [&lt;margin-right&gt; [&lt;margin-bottom&gt; [&lt;margin-left&gt;]]];</p>
+            <p>margin-top: 10px;<br />
+              margin-right: 20px;<br />
+              margin-bottom: 10px;<br />
+              margin-left: 20px;<br /></p>
+            <p>margin: 10px 20px; /* samma över/under resp vänster/höger */</p>
+            <p>margin-top: 10px;<br />
+              margin-right: 20px;<br />
+              margin-bottom: 30px;<br />
+              margin-left: 20px;<br /></p>
+            <p>margin: 10px 20px 30px; /* samma vänster/höger men olika över/under */</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="utfyllnad">Utfyllnad</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Utfyllnaden är som sagt avståndet från elementets visuella del
+          till dess kantlinje. Dessa egenskaper fungerar på samma sätt som
+          marginaler men på insidan av elementets kantlinje.</p>
+          
+          <ul>
+            <li>padding-top - utfyllnad ovanför element.</li>
+            <li>padding-right - utfyllnad till höger om element.</li>
+            <li>padding-bottom - utfyllnad under element.</li>
+            <li>padding-left - utfyllnad till vänster om element.</li>
+            <li>padding- genväg för att ange utfyllnad för alla sidor om element.
+            Värdet för denna egenskap kan vara 1, 2, 3 eller 4 måttenheter (se
+            nedan).</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="kantlinjer">Kantlinjer</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Kantlinjer för ett element är den visuella delen av elementets box
+          och är en fyrkantig ram kring elementet,
+          innanför elementets marginaler men utanför elementets utfyllnad.</p>
+        </div>
+      </div>
+
+      <h3>Tjocklek</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Egenskaper för kantlinjer som påverkar dess utseende, bl.a. tjocklek,
+          är:</p>
+
+          <ul>
+            <li>border-top-width - tjocklek på övre kantlinjen.</li>
+            <li>border-right-width - tjocklek på högra kantlinjen.</li>
+            <li>border-bottom-width - tjocklek på nedre kantlinjen.</li>
+            <li>border-left-width - tjocklek på vänstra kantlinjen.</li>
+            <li>border-width - genväg för att ange måttenheter för tjocklek på alla kantlinjer
+            på en gång. Antalet måttenheter kan vara 1 till 4 med början på övre
+            kantlinjen (på ett liknande sätt som för marginaler).</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Stil</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li>border-style - stil för kantlinje.</li>
+          </ul>
+          
+          <p>Stilen för kantlinjer kan vara en av nedanstående. Exempel för
+          respektive stil på kantlinje visas som undre kantlinje, d.v.s. efter
+          stilens namn (border-bottom: xxx; - ersätt xxx med stilens namn).</p>
+        </div>
+
+        <div class="five columns">
+          <ul>
+            <li>none - visas inte (standard).</li>
+            <li style="border-bottom: solid">solid - heldragen.</li>
+            <li style="border-bottom: double">double - dubbel heldragen.</li>
+            <li style="border-bottom: dotted">dotted - prickad.</li>
+            <li style="border-bottom: dashed">dashed - streckad.</li>
+            <li style="border-bottom: groove">groove - nedsänkt (3D).</li>
+            <li style="border-bottom: ridge">ridge - upphöjd (3D).</li>
+            <li style="border-bottom: inset">inset - &quot;insjunken&quot; (3D).</li>
+            <li style="border-bottom: outset">outset - &quot;uppstickande&quot; (3D).</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Färg</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li>border-color - färg på kantlinje.</li>
+          </ul>
+          <p></p>
+        </div>
+      </div>
+
+      <h3>Genvägar för kantlinjer</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Det finns ett antal genvägar för kantlinjer där värden anges i
+          ordningen tjocklek-stil-färg:</p>
+
+          <ul>
+            <li>border-top - utseende för övre kantlinjen.</li>
+            <li>border-right - utseende för högra kantlinjen.</li>
+            <li>border-bottom - utseende för nedre kantlinjen.</li>
+            <li>border-left - utseende för vänstra kantlinjen.</li>
+            <li>border - genväg för att ange utseende för <strong>alla</strong> kantlinjer på en
+            gång. Observera att vi<strong> inte </strong>kan ange värde för motstående sidor (som
+            för marginaler och utfyllnad).</li>
+          </ul>
+
+          <p>Genvägen border kan alltså <strong>inte</strong> användas på samma sätt som för
+          marginaler och utfyllnad. Vi kan dock göra följande för att slippa
+          behöva ange 4 värden på kantlinjes tjocklek. <strong>Observera</strong> dock
+          ordningen - tjockleken anges sist för att den ska fungera (i.a.f. i
+          Firefox 1.5).</p>
+        </div>
+
+        <div class="five columns">
+          <blockquote>
+            <p style="border-top: solid; border-left: dashed; border-width: 10px 3px;">border-top: solid; border-left: dashed; border-width: 10px 3px;</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Nedan visas exempel på egenskaper och dess värden.</p>
+        </div>
+
+        <div class="five columns">
+          <blockquote>
+            <p style="border-top: 2px dashed blue;">border-top: 2px dashed blue;</p>
+            <p style="border-left: 10px groove red; border-right: 5px ridge red;">border-left: 10px groove red; border-right: 5px ridge red;</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="del4/css4d_1_1.html" target="_blank" class="button button-primary">Exempel 4.4.1 - Marginaler, kantlinjer och utfyllnader</a></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="problem">&quot;Problem&quot; och lösningar</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Genom hela CSS livstid så har det alltid funnits &quot;problem&quot;, d.v.s. 
+            saker visas inte &quot;enligt standard&quot; (olika mellan olika webbläsare) 
+            eller med &quot;skumma effekter&quot;. I detta avsnitt behandlas en del problem 
+            och dess orsak samt eventuella förslag på lösningar. (Se även referenser nedan.)</p>
+        </div>
+      </div>
+
+      <h3>Kollapsande marginaler</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>När två marginaler kommer i kontakt med varandra så blir summan av de två
+            endast den största av dem, något som kallas för kollapsande marginaler. (Detta 
+            är inte ett problem i sig utan hur CSS är definierat!)</p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
+              rel="noopener">Guide to Cascading Style  Sheets</a> hos <a href="https://www.htmlhelp.com/" 
+              target="_blank" rel="noopener">Web Design Group</a>.</li>
+            <li><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener">CSS-standarder</a> hos
+              <a href="https://www.w3.org/" target="_blank" rel="noopener">World Wide Web Consortium</a> (W3C)</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del4c.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li><a href="del4e.html">N&auml;sta&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+    </footer>
+  </div>
+</body>
+</html>
