@@ -15,7 +15,7 @@
 /* Dessa stilar ar generella, dvs galler inte i en speciell div-tagg el. likn. */
 body
 {
-  font-size: 13px;  /* Ursprunglig storlek for typsnitt, d.v.s absolut storlek -
+  /* font-size: 13px;*/  /* Ursprunglig storlek for typsnitt, d.v.s absolut storlek - 
                        Verdana ser bast ut i 13 pixlars storlek (enl. mig), men
                        kan andras av de som ser lite daligt. Resterande typsnitts-
                        storlekar kommer vara relativ till denna. */

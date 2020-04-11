@@ -1,214 +1,229 @@
-<html>
+<!DOCTYPE html>
+<html lang="sv">
 <head>
-  <title>ASP och formulär (FrontPage 2000) - Bj&ouml;rns studiewebb</title>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:title" content="BjÃ¶rns studiewebb - Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/asp/formular/formularfp.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/asp/formular/formularfp.html" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <title>ASP och formulÃ¤r (FrontPage 2000) - Bj&ouml;rns studiewebb</title>
   <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
 </head>
-<body bgcolor="#ffff99">
-<div align="center">
-<center>
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
-    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
-  </tr>
-  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
-  <tr>
-    <td bgcolor="#ffffff">&nbsp;</td>
-    <td bgcolor="#ffffff">
-      <table border="0" width="100%">
-        <tr>
-          <td width="30%"><a href="../../index.html"><img border="0"
-            src="../../bilder/logony1.jpg" alt="Till startsida för Björns studiewebb"
-            width="155" height="54"></a></td>
-          <td width="70%" class="rubrik">ASP och formulär (2)</td>
-        </tr>
-        <tr valign="top">
-          <td width="30%" bgcolor="#ffffaa">
-            <h4>Innehåll</h4>
-            <p><A HREF="#formularFP" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Formulär med FP</A></p>
-            <p><A HREF="../index.html" CLASS="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
-            Tillbaka</A> till ASP<br>
-            <a href="../../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
-            Till startsida</a> för studiewebb</p>
-          </td>
-          <td width="70%">
+<div class="container">
+  <table>
+    <tr>
+      <td class="design-border"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20" alt="TL"></td>
+      <td class="design-border"><a name="borjan"></a>&nbsp;</td>
+      <td class="design-border"><img height="20" src="../../bilder/vitovrehogra.gif" width="20" alt="TR"></td>
+    </tr>
+    <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+    <tr>
+      <td class="design-border">&nbsp;</td>
+      <td class="design-content">
+        <table width="100%">
+          <tr>
+            <td width="30%"><a href="../../index.html"><img
+              src="../../bilder/logony1.jpg" alt="Till startsida fÃ¶r BjÃ¶rns studiewebb"
+              width="155" height="54"></a></td>
+            <td width="70%" class="rubrik">ASP och formulÃ¤r (2)</td>
+          </tr>
+          <tr valign="top">
+            <td width="30%" class="design-menu">
+              <h4>InnehÃ¥ll</h4>
+              <p><A HREF="#formularFP" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              FormulÃ¤r med FP</A></p>
+              <p><A HREF="../index.html" CLASS="lank"><img src="../../bilder/vpil.gif" width="8" height="10" alt="VÃ¤nsterpil">
+              Tillbaka</A> till ASP<br>
+              <a href="../../index.html" class="lank"><img src="../../bilder/vpil.gif" width="8" height="10" alt="VÃ¤nsterpil">
+              Till startsida</a> fÃ¶r studiewebb</p>
+            </td>
+            <td width="70%">
 
-            <p>Denna sida innehåller en beskrivning av hur man <b>skapar formulär</b>
-            med Microsoft FrontPage 2000 (FP).</p>
-          </td>
-        </tr>
-      </table>
+              <p>Denna sida innehÃ¥ller en beskrivning av hur man <b>skapar formulÃ¤r</b>
+              med Microsoft FrontPage 2000 (FP).</p>
+            </td>
+          </tr>
+        </table>
 
-      <HR>
-      <H2><A NAME="formularFP"></A>Formulär med FrontPage 2000</H2>
-      <H3>Skapa en ny webbsida</H3>
-      <P>Skapa en ny webbsida genom att från Arkiv-menyn välja <B>Nytt...</B>
-      och sen <B>Sida...</B> för att sist välja <B>Normal sida</B> i
-      dialogrutan som visas (eller bara trycka Ctrl-N :-). Placera eventuella
-      rubriker och ingress längst upp på webbsidan - ledtexter till fälten i
-      formuläret kan vi lägga till när vi har första fältet på plats.</P>
-      <P>Spara webbsidan som FPFORM1.HTM.</P>
-      <H3>Lägga till första fältet</H3>
-      <P>För att lägga till första fältet så väljer vi <B>Infoga-&gt;Formulär-&gt;Textruta
-      med en rad</B>. FrontPage lägger då till en textruta och två knappar
-      på samma rad - den streckade linje kring textrutan och knapparna är
-      gränsen för formuläret. Alla kontroller som vi lägger till måste
-      ligga inom gränsen för formuläret, bl.a. för att dom ska skickas som
-      del av formuläret (och för att dom ska synas i Netscape Navigator). De
-      två knapparna används för att skicka formuläret och för att rensa
-      alla fälten och återställa dem till de värden de hade när webbsidan
-      med formuläret laddades.</P>
-      <P>Positionera om kontrollerna så att knapparna hamnar på en egen rad
-      (genom att placera markören mellan textfältet och första knappen samt
-      trycka Enter/Retur på tangentbordet).</P>
-      <H3>Ändra egenskaper för formuläret</H3>
-      <P>Som standard så vill FrontPage att formulärets innehåll ska skickas
-      till webbservern som ska skriva innehållet till en textfil. Men eftersom
-      vi vill skicka innehållet till en ASP-sida som ska behandla informationen
-      måste vi ändra egenskaperna för formuläret. Högerklicka därför inom
-      formuläret (den streckade linjen) och välj <B>Egenskaper för
-      formulär...</B>.</P>
-      <P>Markera radiknappen Skicka till annat och kontrollera att det står <B>Anpassa
-      ... eller ASP-skript</B> i listrutan till höger om radioknappen. Klicka
-      sen på <B>Alternativ...</B> och fyll i FPFORM1.ASP (gemener eller
-      versaler spelar ingen roll med IIS som webbserver) i textrutan <B>Åtgärd</B>
-      i dialogrutan som visas. Klicka OK två gånger för att stänga de två
-      dialogrutorna (Alternativ för... och Egenskaper för...).</P>
-      <H3>Ändra egenskaper för fält i formulär</H3>
-      <P>Fälten i ett formulär får som standard namn med en bokstav och en
-      siffra (t.ex. T1 för första textfältet). Och namnet på ett fält
-      används i ASP-koden för att läsa av värdet som besökare fyllt i
-      fältet. För att ändra detta så högerklickar vi på fältet och
-      väljer <B>Egenskaper för formulärfält...</B> samt ändrar innehållet
-      i textrutan Namn. I detta exempel vill vi att besökaren fyller i sitt
-      namn så vi vill att textfältet ska heta &quot;Namn&quot;.</P>
-      <P>Eventuella etiketter (ledtext) för textfälten kan skrivas som vanlig
-      text före fälten (efter fälten om radioknapp eller kryssruta). Vi
-      skriver därför &quot;Ange ditt namn:&quot; för textfältet namn.</P>
-      <P>Nedan beskrivs de olika egenskaperna som kan ändras för
-      formulärfält i FrontPage samt en kort beskrivning av de olika fältens
-      funktion (mening).</P>
-      <H4>Gemensamt för alla fält</H4>
-      <UL>
-        <LI><B>Tabbordning</B> - fungerar endast i Microsoft Internet Explorer</LI>
-        <LI><B>Stil...</B> - denna knapp öppnar en dialogruta där stilmallar
-          kan väljas (vilket ligger utanför denna beskrivnings ämne - se
-          <A HREF="../../css/index.html">Stilmallar
-          (CSS)</A> för mer information).</LI>
-        <LI><B>Bekräfta...</B> - dialogruta som ger möjlighet att ange en del
-          valideringsregler (alternativen som anges kommer att generera
-          JavaScript-kod - detta ligger utanför denna beskrivnings ämne).</LI>
-      </UL>
-      <H4>Egenskaper för textruta</H4>
-      <UL>
-        <LI><B>Namn</B> - namnet på textfältet.</LI>
-        <LI><B>Startvärde</B> - värde som fältet ska innehålla när webbsida
-          med formulär laddas.</LI>
-        <LI><B>Bredd i antal tecken</B> - hur många teckens bredd som
-          textfältet ska vara (d.v.s. ungefär hur många tecken som ska synas
-          i textfältet).</LI>
-        <LI><B>Fält för lösenord </B>- om alternativet Ja markeras så kommer
-          webbläsare att visa asterisker (*) istället för texten som matas in
-          (lämpligt för lösenord).</LI>
-      </UL>
-      <H4>Egenskaper för rullningsbar (flerradig) textruta&nbsp;</H4>
-      <UL>
-        <LI><B>Namn</B> - namnet på textfältet.</LI>
-        <LI><B>Startvärde</B> - värde som fältet ska innehålla när webbsida
-          med formulär laddas.</LI>
-        <LI><B>Bredd i antal tecken</B> - hur många teckens bredd som
-          textfältet ska vara.</LI>
-        <LI><B>Antal rader </B>- hur många raders höjd som textfältet ska
-          vara.</LI>
-      </UL>
-      <H4>Egenskaper för kryssruta</H4>
-      <UL>
-        <LI><B>Namn</B> - namnet på textfältet.</LI>
-        <LI><B>Värde </B>- värde som ska skickas om kryssruta markerad (förbockad).
-          Standard är &quot;ON&quot;.</LI>
-        <LI><B>Starttillstånd</B> - om kryssruta ska vara markerad eller inte
-          då webbsida med formulär laddas.</LI>
-      </UL>
-      <H4>Egenskaper för alternativknapp (radioknapp)</H4>
-      <UL>
-        <LI><B>Gruppnamn</B> - namnet på grupp med radioknappar.</LI>
-        <LI><B>V</B><B>ärde</B> - värde som ska skickas om radioknapp är
-          markerad.</LI>
-        <LI><B>Starttillstånd</B> - om radioknapp ska vara markerad eller inte
-          då webbsida med formulär laddas. Endast en radioknapp i en grupp kan
-          vara markerad!</LI>
-      </UL>
-      <H4>Egenskaper för nedrullningsbar meny (listruta)</H4>
-      <UL>
-        <LI><B>Namn</B> - namnet på listruta.</LI>
-        <LI><B>Alternativ</B> - vilka alternativ som ska finnas i listruta (se
-          mer nedan).</LI>
-        <LI><B>Höjd</B> - hur många alternativ som ska visas. Om värdet är 1
-          så visas en listruta som kan &quot;rullas ner&quot; och värdet är
-          större än 1 så visas en listruta med lika många synliga alternativ
-          och rullningslist.</LI>
-        <LI><B>Tillåt flera val</B> - om besökare ska kunna välja flera
-          alternativ i listrutan (genom att hålla ner kontrolltangenten, Ctrl,
-          och klicka). Kräver att Höjd är större än 1.</LI>
-      </UL>
-      <H5>Alternativ i listrutor</H5>
-      <P>För att lägga till alternativ i listrutor så klickar man på knappen
-      <B>Lägg till...</B> till höger i dialogrutan Egenskaper för... som
-      visar dialogrutan Lägg till alternativ med följande egenskaper som kan
-      ändras:</P>
-      <UL>
-        <LI><B>Alternativ</B> - text som ska visas i listruta.</LI>
-        <LI><B>Ange värde</B> - om annat värde ska skickas istället för den
-          i Alternativ ovan. Kräver att man fyller i text i textrutan
-          nedanför.</LI>
-        <LI><B>Starttillstånd</B> - om alternativet ska vara markerad eller
-          inte då webbsida med formulär laddas. Endast ett alternativ kan vara
-          markerad!</LI>
-      </UL>
-      <H4>Egenskaper för kommandoknapp</H4>
-      <UL>
-        <LI><B>Namn</B> - namnet på textfältet</LI>
-        <LI><B>V</B><B>ärde/etikett</B> - vad som ska visas på knapp (och
-          värde som ska skickas då knapp klickas på - användbart om flera
-          Submit-knappar ska användas).</LI>
-        <LI><B>Knapptyp</B> - om knapp ska vara en &quot;normal&quot; knapp, en
-          Submit-knapp (skickar formuläret) eller en Reset-knapp.</LI>
-      </UL>
-      <H3>Resultatet</H3>
-      <P>&nbsp;</P>
-      <UL>
-        <LI><A HREF="exempel/fpform1.htm" TARGET="_blank">Se exempel</A>.</LI>
-      </UL>
-      <H3>Skapa ASP-sida som hanterar innehåll i formulär</H3>
-      <P>Det finns idag (10/12-01) inga sätt att automatiskt skapa ASP-sidor
-      som hanterar innehållet från formulär - vi måste alltså skriva
-      ASP-koden för hand. Vi kan dock, om vi vill, designa ASP-sidan i
-      FrontPage för att lägga till ASP-koden efteråt. Även om ASP-kod kan
-      skrivas i FrontPage så är Microsoft Visual InterDev är lämpligare för
-      detta ändamål (använder Intellisense och Autocompletion som i Visual
-      Basic).</P>
-      <P>Se <A HREF="#hamta">Hämta information från </A> nedan.</P>
+        <HR>
+        <H2><A NAME="formularFP"></A>FormulÃ¤r med FrontPage 2000</H2>
+        <H3>Skapa en ny webbsida</H3>
+        <P>Skapa en ny webbsida genom att frÃ¥n Arkiv-menyn vÃ¤lja <B>Nytt...</B>
+        och sen <B>Sida...</B> fÃ¶r att sist vÃ¤lja <B>Normal sida</B> i
+        dialogrutan som visas (eller bara trycka Ctrl-N :-). Placera eventuella
+        rubriker och ingress lÃ¤ngst upp pÃ¥ webbsidan - ledtexter till fÃ¤lten i
+        formulÃ¤ret kan vi lÃ¤gga till nÃ¤r vi har fÃ¶rsta fÃ¤ltet pÃ¥ plats.</P>
+        <P>Spara webbsidan som FPFORM1.HTM.</P>
+        <H3>LÃ¤gga till fÃ¶rsta fÃ¤ltet</H3>
+        <P>FÃ¶r att lÃ¤gga till fÃ¶rsta fÃ¤ltet sÃ¥ vÃ¤ljer vi <B>Infoga-&gt;FormulÃ¤r-&gt;Textruta
+        med en rad</B>. FrontPage lÃ¤gger dÃ¥ till en textruta och tvÃ¥ knappar
+        pÃ¥ samma rad - den streckade linje kring textrutan och knapparna Ã¤r
+        grÃ¤nsen fÃ¶r formulÃ¤ret. Alla kontroller som vi lÃ¤gger till mÃ¥ste
+        ligga inom grÃ¤nsen fÃ¶r formulÃ¤ret, bl.a. fÃ¶r att dom ska skickas som
+        del av formulÃ¤ret (och fÃ¶r att dom ska synas i Netscape Navigator). De
+        tvÃ¥ knapparna anvÃ¤nds fÃ¶r att skicka formulÃ¤ret och fÃ¶r att rensa
+        alla fÃ¤lten och Ã¥terstÃ¤lla dem till de vÃ¤rden de hade nÃ¤r webbsidan
+        med formulÃ¤ret laddades.</P>
+        <P>Positionera om kontrollerna sÃ¥ att knapparna hamnar pÃ¥ en egen rad
+        (genom att placera markÃ¶ren mellan textfÃ¤ltet och fÃ¶rsta knappen samt
+        trycka Enter/Retur pÃ¥ tangentbordet).</P>
+        <H3>Ã„ndra egenskaper fÃ¶r formulÃ¤ret</H3>
+        <P>Som standard sÃ¥ vill FrontPage att formulÃ¤rets innehÃ¥ll ska skickas
+        till webbservern som ska skriva innehÃ¥llet till en textfil. Men eftersom
+        vi vill skicka innehÃ¥llet till en ASP-sida som ska behandla informationen
+        mÃ¥ste vi Ã¤ndra egenskaperna fÃ¶r formulÃ¤ret. HÃ¶gerklicka dÃ¤rfÃ¶r inom
+        formulÃ¤ret (den streckade linjen) och vÃ¤lj <B>Egenskaper fÃ¶r
+        formulÃ¤r...</B>.</P>
+        <P>Markera radiknappen Skicka till annat och kontrollera att det stÃ¥r <B>Anpassa
+        ... eller ASP-skript</B> i listrutan till hÃ¶ger om radioknappen. Klicka
+        sen pÃ¥ <B>Alternativ...</B> och fyll i FPFORM1.ASP (gemener eller
+        versaler spelar ingen roll med IIS som webbserver) i textrutan <B>Ã…tgÃ¤rd</B>
+        i dialogrutan som visas. Klicka OK tvÃ¥ gÃ¥nger fÃ¶r att stÃ¤nga de tvÃ¥
+        dialogrutorna (Alternativ fÃ¶r... och Egenskaper fÃ¶r...).</P>
+        <H3>Ã„ndra egenskaper fÃ¶r fÃ¤lt i formulÃ¤r</H3>
+        <P>FÃ¤lten i ett formulÃ¤r fÃ¥r som standard namn med en bokstav och en
+        siffra (t.ex. T1 fÃ¶r fÃ¶rsta textfÃ¤ltet). Och namnet pÃ¥ ett fÃ¤lt
+        anvÃ¤nds i ASP-koden fÃ¶r att lÃ¤sa av vÃ¤rdet som besÃ¶kare fyllt i
+        fÃ¤ltet. FÃ¶r att Ã¤ndra detta sÃ¥ hÃ¶gerklickar vi pÃ¥ fÃ¤ltet och
+        vÃ¤ljer <B>Egenskaper fÃ¶r formulÃ¤rfÃ¤lt...</B> samt Ã¤ndrar innehÃ¥llet
+        i textrutan Namn. I detta exempel vill vi att besÃ¶karen fyller i sitt
+        namn sÃ¥ vi vill att textfÃ¤ltet ska heta &quot;Namn&quot;.</P>
+        <P>Eventuella etiketter (ledtext) fÃ¶r textfÃ¤lten kan skrivas som vanlig
+        text fÃ¶re fÃ¤lten (efter fÃ¤lten om radioknapp eller kryssruta). Vi
+        skriver dÃ¤rfÃ¶r &quot;Ange ditt namn:&quot; fÃ¶r textfÃ¤ltet namn.</P>
+        <P>Nedan beskrivs de olika egenskaperna som kan Ã¤ndras fÃ¶r
+        formulÃ¤rfÃ¤lt i FrontPage samt en kort beskrivning av de olika fÃ¤ltens
+        funktion (mening).</P>
+        <H4>Gemensamt fÃ¶r alla fÃ¤lt</H4>
+        <UL>
+          <LI><B>Tabbordning</B> - fungerar endast i Microsoft Internet Explorer</LI>
+          <LI><B>Stil...</B> - denna knapp Ã¶ppnar en dialogruta dÃ¤r stilmallar
+            kan vÃ¤ljas (vilket ligger utanfÃ¶r denna beskrivnings Ã¤mne - se
+            <A HREF="../../css/index.html">Stilmallar
+            (CSS)</A> fÃ¶r mer information).</LI>
+          <LI><B>BekrÃ¤fta...</B> - dialogruta som ger mÃ¶jlighet att ange en del
+            valideringsregler (alternativen som anges kommer att generera
+            JavaScript-kod - detta ligger utanfÃ¶r denna beskrivnings Ã¤mne).</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r textruta</H4>
+        <UL>
+          <LI><B>Namn</B> - namnet pÃ¥ textfÃ¤ltet.</LI>
+          <LI><B>StartvÃ¤rde</B> - vÃ¤rde som fÃ¤ltet ska innehÃ¥lla nÃ¤r webbsida
+            med formulÃ¤r laddas.</LI>
+          <LI><B>Bredd i antal tecken</B> - hur mÃ¥nga teckens bredd som
+            textfÃ¤ltet ska vara (d.v.s. ungefÃ¤r hur mÃ¥nga tecken som ska synas
+            i textfÃ¤ltet).</LI>
+          <LI><B>FÃ¤lt fÃ¶r lÃ¶senord </B>- om alternativet Ja markeras sÃ¥ kommer
+            webblÃ¤sare att visa asterisker (*) istÃ¤llet fÃ¶r texten som matas in
+            (lÃ¤mpligt fÃ¶r lÃ¶senord).</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r rullningsbar (flerradig) textruta&nbsp;</H4>
+        <UL>
+          <LI><B>Namn</B> - namnet pÃ¥ textfÃ¤ltet.</LI>
+          <LI><B>StartvÃ¤rde</B> - vÃ¤rde som fÃ¤ltet ska innehÃ¥lla nÃ¤r webbsida
+            med formulÃ¤r laddas.</LI>
+          <LI><B>Bredd i antal tecken</B> - hur mÃ¥nga teckens bredd som
+            textfÃ¤ltet ska vara.</LI>
+          <LI><B>Antal rader </B>- hur mÃ¥nga raders hÃ¶jd som textfÃ¤ltet ska
+            vara.</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r kryssruta</H4>
+        <UL>
+          <LI><B>Namn</B> - namnet pÃ¥ textfÃ¤ltet.</LI>
+          <LI><B>VÃ¤rde </B>- vÃ¤rde som ska skickas om kryssruta markerad (fÃ¶rbockad).
+            Standard Ã¤r &quot;ON&quot;.</LI>
+          <LI><B>StarttillstÃ¥nd</B> - om kryssruta ska vara markerad eller inte
+            dÃ¥ webbsida med formulÃ¤r laddas.</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r alternativknapp (radioknapp)</H4>
+        <UL>
+          <LI><B>Gruppnamn</B> - namnet pÃ¥ grupp med radioknappar.</LI>
+          <LI><B>V</B><B>Ã¤rde</B> - vÃ¤rde som ska skickas om radioknapp Ã¤r
+            markerad.</LI>
+          <LI><B>StarttillstÃ¥nd</B> - om radioknapp ska vara markerad eller inte
+            dÃ¥ webbsida med formulÃ¤r laddas. Endast en radioknapp i en grupp kan
+            vara markerad!</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r nedrullningsbar meny (listruta)</H4>
+        <UL>
+          <LI><B>Namn</B> - namnet pÃ¥ listruta.</LI>
+          <LI><B>Alternativ</B> - vilka alternativ som ska finnas i listruta (se
+            mer nedan).</LI>
+          <LI><B>HÃ¶jd</B> - hur mÃ¥nga alternativ som ska visas. Om vÃ¤rdet Ã¤r 1
+            sÃ¥ visas en listruta som kan &quot;rullas ner&quot; och vÃ¤rdet Ã¤r
+            stÃ¶rre Ã¤n 1 sÃ¥ visas en listruta med lika mÃ¥nga synliga alternativ
+            och rullningslist.</LI>
+          <LI><B>TillÃ¥t flera val</B> - om besÃ¶kare ska kunna vÃ¤lja flera
+            alternativ i listrutan (genom att hÃ¥lla ner kontrolltangenten, Ctrl,
+            och klicka). KrÃ¤ver att HÃ¶jd Ã¤r stÃ¶rre Ã¤n 1.</LI>
+        </UL>
+        <H5>Alternativ i listrutor</H5>
+        <P>FÃ¶r att lÃ¤gga till alternativ i listrutor sÃ¥ klickar man pÃ¥ knappen
+        <B>LÃ¤gg till...</B> till hÃ¶ger i dialogrutan Egenskaper fÃ¶r... som
+        visar dialogrutan LÃ¤gg till alternativ med fÃ¶ljande egenskaper som kan
+        Ã¤ndras:</P>
+        <UL>
+          <LI><B>Alternativ</B> - text som ska visas i listruta.</LI>
+          <LI><B>Ange vÃ¤rde</B> - om annat vÃ¤rde ska skickas istÃ¤llet fÃ¶r den
+            i Alternativ ovan. KrÃ¤ver att man fyller i text i textrutan
+            nedanfÃ¶r.</LI>
+          <LI><B>StarttillstÃ¥nd</B> - om alternativet ska vara markerad eller
+            inte dÃ¥ webbsida med formulÃ¤r laddas. Endast ett alternativ kan vara
+            markerad!</LI>
+        </UL>
+        <H4>Egenskaper fÃ¶r kommandoknapp</H4>
+        <UL>
+          <LI><B>Namn</B> - namnet pÃ¥ textfÃ¤ltet</LI>
+          <LI><B>V</B><B>Ã¤rde/etikett</B> - vad som ska visas pÃ¥ knapp (och
+            vÃ¤rde som ska skickas dÃ¥ knapp klickas pÃ¥ - anvÃ¤ndbart om flera
+            Submit-knappar ska anvÃ¤ndas).</LI>
+          <LI><B>Knapptyp</B> - om knapp ska vara en &quot;normal&quot; knapp, en
+            Submit-knapp (skickar formulÃ¤ret) eller en Reset-knapp.</LI>
+        </UL>
+        <H3>Resultatet</H3>
+        <P>&nbsp;</P>
+        <UL>
+          <LI><A HREF="exempel/fpform1.htm" TARGET="_blank">Se exempel</A>.</LI>
+        </UL>
+        <H3>Skapa ASP-sida som hanterar innehÃ¥ll i formulÃ¤r</H3>
+        <P>Det finns idag (10/12-01) inga sÃ¤tt att automatiskt skapa ASP-sidor
+        som hanterar innehÃ¥llet frÃ¥n formulÃ¤r - vi mÃ¥ste alltsÃ¥ skriva
+        ASP-koden fÃ¶r hand. Vi kan dock, om vi vill, designa ASP-sidan i
+        FrontPage fÃ¶r att lÃ¤gga till ASP-koden efterÃ¥t. Ã„ven om ASP-kod kan
+        skrivas i FrontPage sÃ¥ Ã¤r Microsoft Visual InterDev Ã¤r lÃ¤mpligare fÃ¶r
+        detta Ã¤ndamÃ¥l (anvÃ¤nder Intellisense och Autocompletion som i Visual
+        Basic).</P>
+        <P>Se <A HREF="#hamta">HÃ¤mta information frÃ¥n </A> nedan.</P>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |
-        <A HREF="./index.html">Tillbaka</A> till ASP och formulär|
-        <A HREF="../index.html">Tillbaka</A> till ASP |</p>
-      <hr>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |
+          <A HREF="./index.html">Tillbaka</A> till ASP och formulÃ¤r|
+          <A HREF="../index.html">Tillbaka</A> till ASP |</p>
+        <hr>
 
-      <p align="center"><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
-        2007-01-25.</p>
-    </td>
-    <td bgcolor="#ffffff">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
-    <td bgcolor="#ffffff">&nbsp;</td>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
-  </tr>
-</table>
-</center>
+        <p style="text-align: center;"><b>Skapad av:</b> BjÃ¶rn G D Persson. <b>Uppdaterad:</b>
+          2007-01-25.</p>
+      </td>
+      <td class="design-border">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="design-border"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
+      <td class="design-border">&nbsp;</td>
+      <td class="design-border"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
+    </tr>
+  </table>
 </div>
 </body>
 </html>

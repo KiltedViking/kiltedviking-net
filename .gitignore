@@ -20,7 +20,7 @@ BingSiteAuth.xml
 /travels/Urkult2006Aug/*.JPG
 /travels/Urkult2007/*.JPG
 
-#Exclude CSS library
+#Exclude source code for CSS libraries
 se/www/css/pure-release-1.0.1
 se/www/css/semantic-ui
 

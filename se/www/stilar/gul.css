@@ -109,3 +109,24 @@ H4, H5
   font-family: "Courier New", Courier, monospace;
   font-size: 11px;
 }
+
+/*** Anpassningar till HTML 5 *************************************************/
+.container { 
+  width: 600px;
+  margin: 0 auto;
+}
+
+.container>table {
+  border-spacing: 0;
+}
+.container>table td {
+  padding: 0;
+}
+
+.container>table td.design-border, .container>table td.design-content {
+  background-color: white;
+}
+
+.design-menu {
+  background-color: #ffffaa;;
+}

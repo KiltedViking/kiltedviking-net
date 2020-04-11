@@ -1,30 +1,46 @@
-<html>
+<!DOCTYPE html>
+<html lang="sv">
 <head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:title" content="BjÃ¶rns studiewebb - Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/asp/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/asp/" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
   <title>ASP - Bj&ouml;rns studiewebb</title>
   <link rel="stylesheet" type="text/css" href="../stilar/gul.css">
 </head>
-
 <body>
-<div align="center">
-<center>
-  <table border="0" width="600" cellspacing="0" cellpadding="0">
+<div class="container">
+  <table>
     <tr>
-      <td bgcolor="#FFFFFF"><img src="../bilder/vitovrevanstra.gif" width="20" height="20"></td>
-      <td bgcolor="#FFFFFF"><a name="borjan"></a>&nbsp;</td>
-      <td bgcolor="#FFFFFF"><img src="../bilder/vitovrehogra.gif" width="20" height="20"></td>
+      <td class="design-border"><img src="../bilder/vitovrevanstra.gif" width="20" height="20" alt="TL"></td>
+      <td class="design-border"><a name="borjan"></a>&nbsp;</td>
+      <td class="design-border"><img src="../bilder/vitovrehogra.gif" width="20" height="20" alt="TR"></td>
     </tr>
     <tr>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
-      <td bgcolor="#FFFFFF">
+      <td class="design-border">&nbsp;</td>
+      <td class="design-content">
 
-        <!-- Tabell för logo, rubrik, meny och ingress -->
-        <table border="0" width="100%">
+        <!-- Tabell fÃ¶r logo, rubrik, meny och ingress -->
+        <table width="100%">
           <!-- Rad med logo och rubrik -->
           <tr>
             <td width="30%">
-              <a href="../index.html"><img border="0" src="../bilder/logony1.jpg"
+              <a href="../index.html"><img src="../bilder/logony1.jpg"
                 width="155" height="54"
-                alt="Till startsida för Björns studiewebb"></a>
+                alt="Till startsida fÃ¶r BjÃ¶rns studiewebb"></a>
             </td>
             <td class="rubrik">
               Active Server Pages
@@ -35,143 +51,147 @@
           <tr valign="top">
 
             <!-- Cell med meny -->
-            <td width="30%" bgcolor="#ffffaa">
-              <h4>Innehåll</h4>
+            <td width="30%"class="design-menu">
+              <h4>InnehÃ¥ll</h4>
               <p>
-                <A HREF="#vbsref" CLASS="lank"><img border="0" src="../bilder/hpil.gif" width="8" height="10">
+                <A HREF="#vbsref" CLASS="lank"><img src="../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
                 VBScript lathund</A><BR>
-                <A HREF="#formular" CLASS="lank"><img border="0" src="../bilder/hpil.gif" width="8" height="10">
-                ASP och formulär</A><BR>
-                <A HREF="#databaser" CLASS="lank"><img border="0" src="../bilder/hpil.gif" width="8" height="10">
+                <A HREF="#formular" CLASS="lank"><img src="../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+                ASP och formulÃ¤r</A><BR>
+                <A HREF="#databaser" CLASS="lank"><img src="../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
                 ASP och databaser<BR>
                 </A>
-                <A HREF="#komponenter" CLASS="lank"><img border="0" src="../bilder/hpil.gif" width="8" height="10">
+                <A HREF="#komponenter" CLASS="lank"><img src="../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
                 ASP och komponenter</A>
               </p>
               <p>
-                <a href="../../boktips/#java" target="_blank" class="lank">Boktips
-                  <img border="0" src="../bilder/hpil.gif" width="8" height="10"></a></p>
-              <p><a href="../index.html" class="lank"><img border="0" src="../bilder/vpil.gif" width="8" height="10">
-              Till startsida</a> för studiewebb</p>
+                <a href="../../boktips/#java" target="_blank" class="lank">
+                  Boktips <img src="../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+                </a>
+              </p>
+              <p><a href="../index.html" class="lank"><img src="../bilder/vpil.gif" width="8" height="10" alt="VÃ¤nsterpil">
+              Till startsida</a> fÃ¶r studiewebb</p>
             </td>
             <td>
-              <p ALIGN="center">[ <B>UNDER UPPBYGGNAD </B>]</p>
-              <p>På dessa sidor beskrivs hur man använder några av Microsofts
+              <p style="text-align:center;">[ <b>UTVECKLAS INTE LÃ„NGRE</b> ]</p>
+              <p>PÃ¥ dessa sidor beskrivs hur man anvÃ¤nder nÃ¥gra av Microsofts
               teknologier (bl.a. ADO och COM) tillsammans med Microsofts Active
-              Server Pages (ASP). <B>ActiveX Data Objects </B>(ADO) är
-              Microsofts teknologi för <B>databaskopplingar</B> och <B>Component
-              Object Model</B> (COM) är Microsofts <B>komponentteknologi</B>.</p>
-              <p>Här finns även en <B>&quot;lathund&quot; för ASP</B>
-              som innehåller information om hur man deklarerar variabler,
-              syntaxen för kontrollstrukturer (If-/Case-satser, loopar och
+              Server Pages (ASP). <B>ActiveX Data Objects </B>(ADO) Ã¤r
+              Microsofts teknologi fÃ¶r <B>databaskopplingar</B> och <B>Component
+              Object Model</B> (COM) Ã¤r Microsofts <B>komponentteknologi</B>.</p>
+              <p>HÃ¤r finns Ã¤ven en <B>&quot;lathund&quot; fÃ¶r ASP</B>
+              som innehÃ¥ller information om hur man deklarerar variabler,
+              syntaxen fÃ¶r kontrollstrukturer (If-/Case-satser, loopar och
               procedurer/funktioner) samt vilka funktioner som finns
-              tillgängliga. Och sista av allt även en beskrivning av <B>hur
-              man använder formulär</B> med ASP.</p>
-              <p>Beskrivningarna är främst riktade för personer som ska jobba
-              med COM, d.v.s. studenter på kursen EI0230 - Komponentbaserad
+              tillgÃ¤ngliga. Och sista av allt Ã¤ven en beskrivning av <B>hur
+              man anvÃ¤nder formulÃ¤r</B> med ASP.</p>
+              <p>Beskrivningarna Ã¤r frÃ¤mst riktade fÃ¶r personer som ska jobba
+              med COM, d.v.s. studenter pÃ¥ kursen EI0230 - Komponentbaserad
               applikationsutveckling.</p>
             </td>
           </tr>
         </table>
 
-      <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td class="design-border">&nbsp;</td>
     </tr>
 
-    <!-- Rad men informationen på hemsidan -->
+    <!-- Rad men informationen pÃ¥ hemsidan -->
     <tr>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
-      <td bgcolor="#FFFFFF">
+      <td class="design-border">&nbsp;</td>
+      <td class="design-content">
         <hr>
-        <p><b>Observera</b> att beskrivningarna på dessa webbsidor använder jag
-        för att sammanfatta och dokumentera det jag (än så länge?) lärt mig
-        om dessa teknologier. Det är på detta sätt jag studerar bäst, d.v.s.
-        lär mig och (försöker) komma ihåg sånt jag lärt mig. Därför kan
-        det förekomma sakfel och andra felaktigheter! (som jag rättar då jag
-        hittar dem eller får dem påpekade av andra). All kod har dock
-        provkörts och fåtts att fungera under Windows NT4/2000.</p>
-        <p>Webbsidorna används även
-        för att försöka förklara och visa för studenter, som läser kurser
-        jag undervisar på, hur de ska gå till väga. Se mer under Om på
-        startsidan för min <a href="../index.html">studiewebb</a>.</p>
+        <p><b>Observera</b> att beskrivningarna pÃ¥ dessa webbsidor anvÃ¤nder jag
+        fÃ¶r att sammanfatta och dokumentera det jag (Ã¤n sÃ¥ lÃ¤nge?) lÃ¤rt mig
+        om dessa teknologier. Det Ã¤r pÃ¥ detta sÃ¤tt jag studerar bÃ¤st, d.v.s.
+        lÃ¤r mig och (fÃ¶rsÃ¶ker) komma ihÃ¥g sÃ¥nt jag lÃ¤rt mig. DÃ¤rfÃ¶r kan
+        det fÃ¶rekomma sakfel och andra felaktigheter! (som jag rÃ¤ttar dÃ¥ jag
+        hittar dem eller fÃ¥r dem pÃ¥pekade av andra). All kod har dock
+        provkÃ¶rts och fÃ¥tts att fungera under Windows NT4/2000.</p>
+        <p>Webbsidorna anvÃ¤nds Ã¤ven
+        fÃ¶r att fÃ¶rsÃ¶ka fÃ¶rklara och visa fÃ¶r studenter, som lÃ¤ser kurser
+        jag undervisar pÃ¥, hur de ska gÃ¥ till vÃ¤ga. Se mer under Om pÃ¥
+        startsidan fÃ¶r min <a href="../index.html">studiewebb</a>.</p>
+
         <hr>
         <h2> <a name="vbsref"></a>VBScript lathund</h2>
-        <P ALIGN="center"> [ <B>UNDER UPPBYGGNAD </B> ]</P>
-        <P>På denna webbsida finns en &quot;lathund&quot; för VBScript som
-        används i ASP. För att få mest ut av lathunden bör man ha en
-        grundläggande förståelse för programmering (och gärna då i Visual
+        <P>PÃ¥ denna webbsida finns en &quot;lathund&quot; fÃ¶r VBScript som
+        anvÃ¤nds i ASP. FÃ¶r att fÃ¥ mest ut av lathunden bÃ¶r man ha en
+        grundlÃ¤ggande fÃ¶rstÃ¥else fÃ¶r programmering (och gÃ¤rna dÃ¥ i Visual
         Basic).</P>
+
         <H3>VBScript lathund</H3>
-        <P>En&nbsp;lathund för hur
-            man skriver koden i VBScript. (Lathunden har fått delas då den
-        blev väldigt lång.)</P>
+        <P>En&nbsp;lathund fÃ¶r hur
+            man skriver koden i VBScript. (Lathunden har fÃ¥tt delas dÃ¥ den
+        blev vÃ¤ldigt lÃ¥ng.)</P>
+
         <ul>
-          <li><A HREF="lathund/index.html">Del 1</A> - innehåller bl.a. grundläggande om
+          <li><A HREF="lathund/index.html">Del 1</A> - innehÃ¥ller bl.a. grundlÃ¤ggande om
             VBScript, variabler och undertyper, utskrift, operatorer,
             kontrollstrukturer (If- och Case-satser, loopar samt procedurer och
             funktioner)</li>
-          <li><A HREF="lathund/lathund2.html">Del 2</A> - innehåller bl.a.
+          <li><A HREF="lathund/lathund2.html">Del 2</A> - innehÃ¥ller bl.a.
             funktioner, ASP:s inbyggda objekt samt ASP:s skriptobjekt.</li>
         </ul>
 
         <HR>
-        <P ALIGN="center">|<A HREF="#borjan">Till början</A> på sida |</P>
+        <P ALIGN="center">|<A HREF="#borjan">Till bÃ¶rjan</A> pÃ¥ sida |</P>
         <HR>
-        <H2><A NAME="formular"></A>ASP och formulär</H2>
-        <P>Det främsta sättet att hämta information från besökare på en
-        webbplats är via formulär. På denna sida beskrivs hur man skapar
-        formulär med HTML-kod (som t.ex. kan skickas till en ASP-sida) och hur man kommer åt
-        informationen från formulär i ASP-sidor.</P>
-        <P>Det största skälet till att lära sig HTML, som en
-        komponentutvecklare, är för att vet var man ska placera ASP-koden i
+
+        <H2><A NAME="formular"></A>ASP och formulÃ¤r</H2>
+        <P>Det frÃ¤msta sÃ¤ttet att hÃ¤mta information frÃ¥n besÃ¶kare pÃ¥ en
+        webbplats Ã¤r via formulÃ¤r. PÃ¥ denna sida beskrivs hur man skapar
+        formulÃ¤r med HTML-kod (som t.ex. kan skickas till en ASP-sida) och hur man kommer Ã¥t
+        informationen frÃ¥n formulÃ¤r i ASP-sidor.</P>
+
+        <P>Det stÃ¶rsta skÃ¤let till att lÃ¤ra sig HTML, som en
+        komponentutvecklare, Ã¤r fÃ¶r att vet var man ska placera ASP-koden i
         ett HTML-dokument.</P>
+
         <UL>
-          <LI><A HREF="formular/index.html">ASP och formulär</A></LI>
+          <LI><A HREF="formular/index.html">ASP och formulÃ¤r</A></LI>
         </UL>
+
         <HR>
-        <P ALIGN="center">|<A HREF="#borjan">Till början</A> på sida |</P>
+        <P ALIGN="center">|<A HREF="#borjan">Till bÃ¶rjan</A> pÃ¥ sida |</P>
         <HR>
+
         <H2><A NAME="databaser"></A>ASP och databaser</H2>
-
-        <P ALIGN="center">[ <B>UNDER UPPBYGGNAD </B> ]</P>
-
-        <P>De flesta informationssystem använder databaser för att lagra
-        information. På denna (dessa?) hemsida(/-or) beskrivs de olika objekten
-        i Microsofts ActiveX Data Objects (ADO) samt hur man kan hämta, infoga,
+        <P>De flesta informationssystem anvÃ¤nder databaser fÃ¶r att lagra
+        information. PÃ¥ denna (dessa?) hemsida(/-or) beskrivs de olika objekten
+        i Microsofts ActiveX Data Objects (ADO) samt hur man kan hÃ¤mta, infoga,
         uppdatera och radera poster i tabeller i en databas.</P>
 
-        <P>Som komponentutvecklare kan man fråga sig varför man ska lära sig
-        databaskopplingar i ASP. Skälet är att många komponenter som
-        använder databaser lämpligen returnera poster från en databas i form
-        av Recordset-objekt. Det viktigaste med dessa sidor är m.a.o. att
-        förstå hur man hanterar Recordset-objekt.</P>
+        <P>Som komponentutvecklare kan man frÃ¥ga sig varfÃ¶r man ska lÃ¤ra sig
+        databaskopplingar i ASP. SkÃ¤let Ã¤r att mÃ¥nga komponenter som
+        anvÃ¤nder databaser lÃ¤mpligen returnera poster frÃ¥n en databas i form
+        av Recordset-objekt. Det viktigaste med dessa sidor Ã¤r m.a.o. att
+        fÃ¶rstÃ¥ hur man hanterar Recordset-objekt.</P>
 
         <UL>
           <LI><A HREF="databaser/index.html">ASP och databaser</A></LI>
         </UL>
 
         <HR>
-        <P ALIGN="center">|<A HREF="#borjan">Till början</A> på sida |</P>
+        <P ALIGN="center">|<A HREF="#borjan">Till bÃ¶rjan</A> pÃ¥ sida |</P>
         <HR>
+
         <H2><A NAME="komponenter"></A>ASP och komponenter</H2>
+        <P>Komponenter exekverar mer effektivt Ã¤n ASP dÃ¥ de Ã¤r kompilerad kod
+        (i motsats till ASP:s kod som mÃ¥ste tolkas och kompileras varje gÃ¥ng
+        webbsida visas). HÃ¤r beskrivs hur man anvÃ¤nder komponenter frÃ¥n ASP
+        samt vad man bÃ¶r tÃ¤nka pÃ¥ nÃ¤r man gÃ¶r komponenter som ska anvÃ¤ndas
+        frÃ¥n ASP. (Som ett litet PS sÃ¥ ska det nÃ¤mnas att ADO Ã¤r
+        komponenter, d.v.s. kan du anvÃ¤nda databaser frÃ¥n ASP sÃ¥ har du redan
+        anvÃ¤nt komponenter :-)</P>
 
-        <P ALIGN="center">[ <B>UNDER UPPBYGGNAD </B> ]</P>
+        <P>I denna beskrivning visas hur man kan anvÃ¤nda ASP som ett
+        grÃ¤nssnitt (istÃ¤llet fÃ¶r t.ex. Visual Basic) och komponenter fÃ¶r att
+        hantera affÃ¤rslogiken.</P>
 
-        <P>Komponenter exekverar mer effektivt än ASP då de är kompilerad kod
-        (i motsats till ASP:s kod som måste tolkas och kompileras varje gång
-        webbsida visas). Här beskrivs hur man använder komponenter från ASP
-        samt vad man bör tänka på när man gör komponenter som ska användas
-        från ASP. (Som ett litet PS så ska det nämnas att ADO är
-        komponenter, d.v.s. kan du använda databaser från ASP så har du redan
-        använt komponenter :-)</P>
-
-        <P>I denna beskrivning visas hur man kan använda ASP som ett
-        gränssnitt (istället för t.ex. Visual Basic) och komponenter för att
-        hantera affärslogiken.</P>
-
-        <P CLASS="kommentar"><B>Observera</B> att du måste ha <B> tillgång till konsolen </B>
-        (serverns grafiska gränssnitt eller kommandotolk) på webbserver för att registrera
-        komponenten på webbservern! (Du kan även betala ditt webbhotell för
-        att registrera komponenten, men inte alla webbhotell tillåter
+        <P CLASS="kommentar"><B>Observera</B> att du mÃ¥ste ha <B> tillgÃ¥ng till konsolen </B>
+        (serverns grafiska grÃ¤nssnitt eller kommandotolk) pÃ¥ webbserver fÃ¶r att registrera
+        komponenten pÃ¥ webbservern! (Du kan Ã¤ven betala ditt webbhotell fÃ¶r
+        att registrera komponenten, men inte alla webbhotell tillÃ¥ter
         installation av egentillverkade komponenter.)</P>
 
         <UL>
@@ -180,26 +200,24 @@
 
         <hr>
 
-        <p align="center">| <a href="#borjan">Till början</a> på sida |
-          <a href="../index.html">Till</a> startsida för studiewebb |</p>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |
+          <a href="../index.html">Till</a> startsida fÃ¶r studiewebb |</p>
 
         <hr>
-        <center>
-        <p align="center"><b>Skapad av:</b>  Björn G D Persson. <b>Uppdaterad:</b>
+
+        <p style="text-align: center;"><b>Skapad av:</b>  BjÃ¶rn G D Persson. <b>Uppdaterad:</b>
           2005-05-01.</p>
-        </center>
       </td>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td class="design-border">&nbsp;</td>
     </tr>
 
-    <!-- Rad för hörn och marginaler -->
+    <!-- Rad fÃ¶r hÃ¶rn och marginaler -->
     <tr>
-      <td bgcolor="#FFFFFF"><img src="../bilder/vitnedrevanstra.gif" width="20" height="20"></td>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
-      <td bgcolor="#FFFFFF"><img src="../bilder/vitnedrehogra.gif" width="20" height="20"></td>
+      <td class="design-border"><img src="../bilder/vitnedrevanstra.gif" width="20" height="20" alt="BL"></td>
+      <td class="design-border">&nbsp;</td>
+      <td class="design-border"><img src="../bilder/vitnedrehogra.gif" width="20" height="20" alt="BR"></td>
     </tr>
   </table>
-</center>
 </div>
 </body>
 </html>

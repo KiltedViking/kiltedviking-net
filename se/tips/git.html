@@ -74,34 +74,73 @@
     <!-- *** Contents column ************************************************* -->
     <div class="row">
 			<div class="col-sm-6 col-sm-offset-2">
-				<h3>Inledning</h3>
-        <p>Git bygger på s.k. distribuerade bibliotek (<i>repository</i>), d.v.s. det 
-          finns inte ett huvudbibliotek utan alla bibliotek är likvärdiga. Vad det innebär
-          är att varje kopia av biblioteket är likvärdiga och kan variera. I realiteten
-          brukar varje utvecklare jobba med sin egen kopia och ladda upp till ett
-          delat bibliotek - en Git-tjänst.
+        <h3>Inledning</h3>
+        <p>Git är en tjänst för att skapa bibliotek (<i>repository</i>) som hanterar versioner
+          av kod och för att distribuera kod till andra. En fördel med Git, jämfört med andra
+          tjänster, är att man kan skapa en gren/kopia (<i>branch</i>) på kod för utveckling
+          och sen slå samman (<i>merge</i>) med huvudgrenen (vanligtvis med namnet <i>master</i>).
         </p>
 
-        
-				<p>På denna sida beskriver jag hur jag brukar skapa Git-bibliotek (repositories).
-				</p>
+        <p>Git bygger på s.k. distribuerade bibliotek, d.v.s. inget huvudbibliotek, 
+          vilket innebär att varje kopia av biblioteket är likvärdiga och t.o.m. kan 
+          variera i innehåll. I realiteten brukar varje utvecklare jobba med sin egen 
+          kopia och ladda upp till ett delat bibliotek hos en Git-tjänst.
+        </p>
 
-        <h3>Skapa Git-bibliotek</h3>
-        <p>.
+				<p>På denna sida beskriver jag hur jag brukar skapa Git-bibliotek (repositories)
+          och tar upp några tips på praktiska åtgärder.
+        </p>
+      </div>
+      
+      <div class="col-sm-3 col-sm-offset-0">
+        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
+              <span itemprop="name">Hem</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+              <span itemprop="name">Webbutvecklingstips</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="name">Git</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+
+        <h3>Innehåll</h3>
+        <ul>
+          <li><a href="#skapa-lokalt">Skapa nytt bibliotek lokalt</a></li>
+          <li><a href="#klona">Klona existerande bibliotek</a></li>
+          <li><a href="#alternativ">Alternativ till Git</a></li>
+          <li><a href="#tips">Tips</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-sm-offset-2">
+        <h3 id="skapa-lokalt">Skapa nytt bibliotek lokalt</h3>
+        <p>Detta sätt att skapa bibliotek kan användas för redan existerande projekt
+          som man önskar lägga till i Git-tjänst.
         </p>
 
         <ul>
           <li>Initiera bibliotek (<i>repository</i>; <i>init</i>).</li>
           <li>Skapa filen <code>.gitignore</code> och lägg till filer att ignorera.</li>
-          <li>Lägg till filer och mappar i bibliotek (<i>add</i>).</li>
-          <li>Checka in ändringar (<i>commit</i>).</li>
-          <li>Skapa bibliotek hos leverantör (<i>remote</i>).</li>
-          <li>Ladda upp lokalt bibliotek till Git-tjänst (<i>push</i>).</li>
+          <li>Registera bibliotek hos leverantör (<i>remote add</i>).</li>
         </ul>
 
         <h4>Initiera bibliotek</h4>
         <p>När bibliotek initieras så skapas en mapp <code>.git</code>.</p>
-        <p><code>git init</code></p>
+
+        <pre><code>git init</code></pre>
+
+        <p>Ett alternativ är att skapa bibliotek i Git-tjänst och sen klona biblioteket
+          till egen dator.
+        </p>
 
         <h4>Skapa filen <code>.gitignore</code></h4>
         <p>Filer som innehåller känslig information, så som användarnamn och lösenord,
@@ -133,89 +172,143 @@ BingSiteAuth.xml
           i filnamnet (ex. <code>connection_EXAMPLE.php</code>).
         </p>
 
-        <h4>Lägg till filer och mappar i bibliotek</h4>
-        <p>För att lägga till alla filer och mappar i aktuell mapp (och undermappar)
+        <h4>Registrera bibliotek från Git-tjänst</h4>
+        <p>För att kunna ladda upp kod till Git-tjänst så registerar man biblioteket
+          från Git-tjänst i det lokala biblioteket.</p> 
+
+        <p><b>Tips:</b> När bibliotek skapas lokalt först så bör man skapa ett tomt 
+          bibliotek i Git-tjänst för att undvika konflikter mellan kod i de två biblioteken. ;-)
+        </p>
+          
+        <p>Att registrera bibliotek från Git-tjänst görs med kommandot <code>remote add</code>. 
+          Som parameter till kommandot skickas namn på Git-tjänst (oftast <i>origin</i>) 
+          och adress till bibliotek.
+        </p>
+
+        <pre><code>git remote add origin https://&lt;url&gt;/repo.git</code></pre>
+
+        <p>För att verifiera bibliotek kan kommandot <code>remote</code> kombineras 
+          med parametern <code>-v</code>.</p>
+
+        <pre><code>git remote -v</code></pre>
+
+        <p>(Det går att registera flera bibliotek i Git-tjänster, vilket är varför
+          man hela tiden måste ange namn på Git-tjänst [oftast <i>origin</i>] med
+          diverse kommando.)</p>
+
+        <h3 id="klona">Klona existerande bibliotek</h3>
+        <p>Om bibliotek redan existerar i Git-tjänst så kan man klona (<i>clone</i>)
+          bibliteket till egen dator. I samband med kloningen så registeras samtidigt
+          bibliotek i Git-tjänst i det lokala biblioteket.
+        </p>
+
+        <p>Detta sätt att skapa bibliotek kan också användas för snabbare komma igång,
+          d.v.s. bibliotek skapas och initieras i Git-tjänst och vid kloning så
+          registreras bibliotek från Git-tjänst samtidigt.</p>
+
+        <h4>Klona bibliotek</h4>
+        <p>För att klona ett bibliotek så används kommandot <code>clone</code> och som
+          parameter skickas adress (URL) till bibilotek i Git-tjänst.</p>
+
+        <pre><code>git clone https://&lt;url&gt;/repo.git</code></pre>
+
+        <h3>Jobba med lokalt bibliotek</h3>
+        <p>Efter att bibliotek etablerats lokalt så består fortsatt arbete i de tre 
+          uppgifterna nedan.
+        </p>
+
+        <ul>
+          <li>Registrera filer och mappar i bibliotek (<i>add</i>).</li>
+          <li>Checka in ändringar (<i>commit</i>).</li>
+          <li>Ladda upp lokalt bibliotek till Git-tjänst (<i>push</i>).</li>
+        </ul>
+
+        <h4>Registrera filer och mappar i bibliotek</h4>
+        <p>Filer (och mappar) som ska hanteras i bibliotek registreras i bibliotek.</p>
+
+        <p>För att registrera alla filer och mappar i aktuell mapp (och undermappar)
           kan man använda parametern <code>--all</code>.
         </p>
 
-        <p><code>git add --all</code></p>
+        <pre><code>git add --all</code></pre>
+
+        <p>Kommandot <code>status</code> kan användas för att se vilka filer som lades
+        till i bibliotek (t.ex. för att verifiera att inga känsliga filer inkluderats ;-)).</p>
+
+        <pre><code>git status</code></pre>
 
         <h4>Checka in ändringar</h4>
         <p>När man checkar in ändringar så är det kotym att lägga till en kort förklaring
           (max 50 tecken) som beskriver ändringar. 
         </p>
 
-        <p><code>git commit</code></p>
+        <pre><code>git commit</code></pre>
 
         <p>Ett snabbare sätt att checka in är att skicka med kommentar som en parameter
           till kommandot <code>commit</code> och då använder man parametern <code>-m</code>
           följt av kommentaren. (Därmed slipper man lära sig verktyg som editorer som 
           vi om på Un*x-baserade datorer, så som macOx och Linux. ;-))
         </p>
-        <p><code>git commit -m &quot;Initial commit</code></p>
 
-        <h4>Skapa bibliotek hos leverantör</h4>
-        <p>Detta steg är leverantörsberoende...</p>
-
-        <p><code>git remote add origin https://&lt;url&gt;/repo.git</code></p>
-
-        <p>För att verifiera bibliotek kan kommandot <code>remote</code> kombineras 
-          med parametern <code>-v</code>.</p>
-
-        <p><code>git remote -v</code></p>
+        <pre><code>git commit -m &quot;Initial commit</code></pre>
 
         <h4>Ladda upp lokalt bibliotek till Git-tjänst</h4>
+        <p>För att dela kod med andra, d.v.s. spara till server, så måste kod laddas
+          upp till server, vilket görs med kommandot <code>push</code>. Som parametrar
+          bifogas vilken källa (ofta <code>origin</code>) och vilken gren av källkod 
+          (t.ex. <code>master</code>). Om inte tidigare inloggad i Git-tjänst från 
+          dator så lär en inloggningsruta visas.
+        </p>
+
+        <pre><code>git push origin master</code></pre>
+
+        <h4>Spårade (<i>tracked</i>) och iscensatta (<i>staging</i>) filer</h4>
+        <p>Filer som är registrerade i bibliotek kallas för spårade (<i>tracked</i>)
+          filer och kan checkas in (<i>be commited</i>). I motsats så kallas filer
+          som inte registrerats eller vars ändringar inte registrerats som ospårade 
+          (<i>untracked</i>).
+        </p>
+
         <p></p>
 
-        <p><code>git push origin master</code> (????)</p>
-
-        <h3>Leverantörer av Git-tjänst</h3>
-        <p>Nedan är en lista med leverantörer av Git-tjänster.</p>
-
-        <ul>
-          <li>Github</li>
-          <li>GitLab</li>
-          <li>Microsoft Azure</li>
-        </ul>
-
-        <h3>Läs mer</h3>
-        <ul>
-            <li><a href="https://github.com/" target="_blank" rel="noopener">Github</a></li>
-          <li><a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a></li>
-        </ul>
-
-        <h3>Alternativ till Git</h3>
-        <p>Exempel på andra typer av kodbibliotek är Subversion och Microsofts Team
+        <h3 id="alternativ">Alternativ till Git</h3>
+        <p>Exempel på andra typer av kodbibliotek är Subversion (SVN) och Microsofts Team
           Foundation Server (TFS).
         </p>
+
+        <h3 id="tips">Tips</h3>
+        <p>I detta avsnitt så tar jag upp några tips på några mindre vanliga åtgärder
+          som jag har haft användning för. (ATT GÖRA: Flytta till egen sida?)</p>
+
+        <h4>Ångra incheckning, men behåll ändringar sen senaste incheckning</h4>
+        <p>Om man gör som jag brukar göra, d.v.s. checka in kod, fortsätta ändra och
+          sen komma på att oönskade ändringar checkats in, så kan det vara praktiskt
+          att ångra incheckning utan att förlora ändringarna.
+        </p>
+
+        <pre><code>git reset --mixed</code></pre>
 
 			</div>
 
 			<!-- *** News column ***************************************************** -->
 			<aside class="col-sm-3 col-sm-offset-0">
-        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
-              <span itemprop="name">Hem</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
-              <span itemprop="name">Webbutvecklingstips</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span itemprop="name">Git</span>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
+        <h3>Läs mer</h3>
+        <ul>
+          <li><a href="https://help.github.com/github" target="_blank" rel="noopener">GitHub.com 
+            Help Documentation</a></li>
+          <li><a href="https://docs.gitlab.com/ee/README.html#repositories" target="_blank" 
+            rel="noopener">Repositories</a>, GitLab</li>
+          <li><a href="https://git-scm.com/docs/" target="_blank" rel="noopener">Reference</a>, 
+            git-scm.com (&quot;officiell&quot;)</li>
+        </ul>
 
-				<h3>Länkar</h3>
+				<h3>Länkar till Git-tjänster</h3>
 				<ul>
+          <li><a href="https://bitbucket.org/product" target="_blank" rel="noopener">Bitbucket</a></li>
           <li><a href="https://github.com/" target="_blank" rel="noopener">Github</a></li>
           <li><a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a></li>
+          <li><a href="https://azure.microsoft.com/services/devops/repos/" target="_blank" 
+            rel="noopener">Azure Repos</a>, Microsoft Azure</li>
         </ul>
 			</aside>
 		</div>

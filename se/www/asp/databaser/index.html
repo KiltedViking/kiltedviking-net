@@ -1,247 +1,262 @@
-<html>
+<!DOCTYPE html>
+<html lang="sv">
 <head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:title" content="BjÃ¶rns studiewebb - Webbutveckling pÃ¥ svenska. Introduktion till Active Server Pages (ASP)." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/asp/databaser/" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/asp/databaser/" />
+  <link rel="shortcut icon" href="../../../favicon.ico" />
   <title>ASP och databser - Bj&ouml;rns studiewebb</title>
   <link rel="stylesheet" type="text/css" href="../../stilar/gul.css">
 </head>
-<body bgcolor="#ffff99">
-<div align="center">
-<center>
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td bgcolor="#ffffff"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20"></td>
-    <td bgcolor="#ffffff"><a name="borjan"></a>&nbsp;</td>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitovrehogra.gif" width="20"></td>
-  </tr>
-  <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
-  <tr>
-    <td bgcolor="#ffffff">&nbsp;</td>
-    <td bgcolor="#ffffff">
-      <table border="0" width="100%">
-        <tr>
-          <td width="30%"><a href="../../index.html"><img border="0"
-            src="../../bilder/logony1.jpg"
-            alt="Till startsida för Björns studiewebb" width="155"
-             height="54"></a></td>
-          <td width="70%" class="rubrik">ASP och databaser</td>
-        </tr>
-        <tr valign="top">
-          <td width="30%" bgcolor="#ffffaa">
-            <h4>Innehåll</h4>
-            <p><A HREF="#ADO" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            ADO</A></p>
-            <p><A HREF="#hamta" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Hämta från tabell</A><BR>
-            <A HREF="#infoga" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Infoga i tabell</A><BR>
-            <A HREF="#uppdatera" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Uppdatera i tabell</A><BR>
-            <A HREF="#radera" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Radera från tabell</A></p>
-            <p><A HREF="#parametrar" CLASS="lank"><img border="0" src="../../bilder/hpil.gif" width="8" height="10">
-            Frågor med&nbsp;<BR>
-            &nbsp;&nbsp; parametrar</A></p>
-            <p><A HREF="../index.html" CLASS="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
-            Tillbaka</A> till ASP<br>
-            <a href="../../index.html" class="lank"><img border="0" src="../../bilder/vpil.gif" width="8" height="10">
-            Till startsida</a> för studiewebb</p>
-          </td>
-          <td width="70%">
+<body>
+  <div class="container">
+    <table>
+    <tr>
+      <td class="design-border"><img src="../../bilder/vitovrevanstra.gif" width="20" height="20" alt="TL"></td>
+      <td class="design-border"><a name="borjan"></a>&nbsp;</td>
+      <td class="design-border"><img height="20" src="../../bilder/vitovrehogra.gif" width="20" alt="TR"></td>
+    </tr>
+    <!-- Rad med meny --><!-- Rad med rubrik --><!-- Rad med information -->
+    <tr>
+      <td class="design-border">&nbsp;</td>
+      <td class="design-content">
+        <table width="100%">
+          <tr>
+            <td width="30%"><a href="../../index.html"><img
+              src="../../bilder/logony1.jpg"
+              alt="Till startsida fÃ¶r BjÃ¶rns studiewebb" width="155"
+              height="54"></a></td>
+            <td width="70%" class="rubrik">ASP och databaser</td>
+          </tr>
+          <tr valign="top">
+            <td width="30%" class="design-menu">
+              <h4>InnehÃ¥ll</h4>
+              <p><A HREF="#ADO" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              ADO</A></p>
+              <p><A HREF="#hamta" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              HÃ¤mta frÃ¥n tabell</A><BR>
+              <A HREF="#infoga" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              Infoga i tabell</A><BR>
+              <A HREF="#uppdatera" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              Uppdatera i tabell</A><BR>
+              <A HREF="#radera" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              Radera frÃ¥n tabell</A></p>
+              <p><A HREF="#parametrar" CLASS="lank"><img src="../../bilder/hpil.gif" width="8" height="10" alt="HÃ¶gerpil">
+              FrÃ¥gor med&nbsp;<BR>
+              &nbsp;&nbsp; parametrar</A></p>
+              <p><A HREF="../index.html" CLASS="lank"><img src="../../bilder/vpil.gif" width="8" height="10" alt="VÃ¤nsterpil">
+              Tillbaka</A> till ASP<br>
+              <a href="../../index.html" class="lank"><img src="../../bilder/vpil.gif" width="8" height="10" alt="VÃ¤nsterpil">
+              Till startsida</a> fÃ¶r studiewebb</p>
+            </td>
+            <td width="70%">
+              <p style="text-align: center;">[ <b>UNDER UPPBYGGNAD</b> ]</p>
+              <p>Denna sida innehÃ¥ller en beskrivning av hur man anvÃ¤nder
+              databaser med Microsofts ActiveX Data Objects (ADO) i ASP-sidor.
+              FÃ¶rst beskrivs <B>vad ADO Ã¤r och fungerar</B>, sen behandlas hur
+              man <B>hanterar data i databaser</B> (hÃ¤mtar, infogar, uppdaterar
+              och raderar data) och sist hur man <B>skickar parametrar till </B>(lagrade)
+              <B>frÃ¥gor och <I>stored procedures</I></B> (SP).</p>
+              <p>FÃ¶r att fÃ¥ mest ut av beskrivningen bÃ¶r du ha en
+              grundlÃ¤ggande fÃ¶rstÃ¥else fÃ¶r databaser och SQL. I exempel kommer
+              MS Access anvÃ¤ndas som databas dÃ¥ det Ã¤r den mest spridda
+              databashanterare hos privatpersoner.</p>
+            </td>
+          </tr>
+        </table>
 
-            <p align="center">[ <b>UNDER UPPBYGGNAD</b> ]</p>
-            <p>Denna sida innehåller en beskrivning av hur man använder
-            databaser med Microsofts ActiveX Data Objects (ADO) i ASP-sidor.
-            Först beskrivs <B>vad ADO är och fungerar</B>, sen behandlas hur
-            man <B>hanterar data i databaser</B> (hämtar, infogar, uppdaterar
-            och raderar data) och sist hur man <B>skickar parametrar till </B>(lagrade)
-            <B>frågor och <I>stored procedures</I></B> (SP).</p>
-            <p>För att få mest ut av beskrivningen bör du ha en
-            grundläggande förståelse för databaser och SQL. I exempel kommer
-            MS Access användas som databas då det är den mest spridda
-            databashanterare hos privatpersoner.</p>
-          </td>
-        </tr>
-      </table>
+        <hr>
+        <H2><A NAME="ADO"></A>ActiveX Data Objects (ADO)</H2>
+        <P>Nedan beskrivs var ADO kommer frÃ¥n samt vilka som Ã¤r de mest frekvent
+        anvÃ¤nda objekten i ADO. HÃ¤r behandlas Ã¤ven den grundlÃ¤ggande
+        funktionalitet hos ADO:s objekt.</P>
+        <H3>Bakgrund</H3>
 
-      <hr>
-      <H2><A NAME="ADO"></A>ActiveX Data Objects (ADO)</H2>
-      <P>Nedan beskrivs var ADO kommer från samt vilka som är de mest frekvent
-      använda objekten i ADO. Här behandlas även den grundläggande
-      funktionalitet hos ADO:s objekt.</P>
-      <H3>Bakgrund</H3>
+        <P>Microsoft (MS) ADO Ã¤r ersÃ¤ttaren till de Ã¤ldre teknologierna Data Access Objects
+        (DAO) och Remote Data Objects (RDO). DAO var begrÃ¤nsat till att endast
+        kunna hantera lokala databaser (via t.ex. MS Jet Engine - databasmotorn
+        fÃ¶r MS Access) medan RDO var tÃ¤nkr fÃ¶r Ã¥tkomst av avlÃ¤gsna (eng.
+        remote) databaser (via t.ex. ODBC). RDO levererades endast med MS Visual
+        Basic 5 Enterprise Edition. ADO klarar av bÃ¥de lokala och avlÃ¤gsna
+        databaser samt fler typer av datakÃ¤llor (begreppet datakÃ¤llor fÃ¶rklaras
+        nedan).</P>
 
-      <P>Microsoft (MS) ADO är ersättaren till de äldre teknologierna Data Access Objects
-      (DAO) och Remote Data Objects (RDO). DAO var begränsat till att endast
-      kunna hantera lokala databaser (via t.ex. MS Jet Engine - databasmotorn
-      för MS Access) medan RDO var tänkr för åtkomst av avlägsna (eng.
-      remote) databaser (via t.ex. ODBC). RDO levererades endast med MS Visual
-      Basic 5 Enterprise Edition. ADO klarar av både lokala och avlägsna
-      databaser samt fler typer av datakällor (begreppet datakällor förklaras
-      nedan).</P>
+        <P>Tanken med ADO Ã¤r att skapa en enhetlig modell fÃ¶r Ã¥tkomst av
+        datakÃ¤llor. Begreppet datakÃ¤llor anvÃ¤nds fÃ¶r att visa att data kan
+        vara lagrat i annat Ã¤n bara databaser. T.ex. kan e-post, katalogtjÃ¤nster
+        (som Novells NDS och Microsofts AD), Office-dokument, webbsidor, m.m.
+        Ã¤ven innehÃ¥lla data som kan vara intressant att behandla i ett
+        informationssystem.</P>
 
-      <P>Tanken med ADO är att skapa en enhetlig modell för åtkomst av
-      datakällor. Begreppet datakällor används för att visa att data kan
-      vara lagrat i annat än bara databaser. T.ex. kan e-post, katalogtjänster
-      (som Novells NDS och Microsofts AD), Office-dokument, webbsidor, m.m.
-      även innehålla data som kan vara intressant att behandla i ett
-      informationssystem.</P>
+        <P>ADO levereras med alla versioner av MS Visual Basic/Studio 6, i service
+        pack fÃ¶r Windows NT/2000 samt som en separat produkt kallad MS Data
+        Access Components (MDAC). Senaste versionen av MDAC (och mer information
+        om MDAC och ADO) kan laddas ner frÃ¥n (finns pÃ¥) Microsofts hemsidor pÃ¥
+        adressen <A HREF="http://www.microsoft.com/data/">http://www.microsoft.com/data/</A>.</P>
 
-      <P>ADO levereras med alla versioner av MS Visual Basic/Studio 6, i service
-      pack för Windows NT/2000 samt som en separat produkt kallad MS Data
-      Access Components (MDAC). Senaste versionen av MDAC (och mer information
-      om MDAC och ADO) kan laddas ner från (finns på) Microsofts hemsidor på
-      adressen <A HREF="http://www.microsoft.com/data/">http://www.microsoft.com/data/</A>.</P>
+        <H3>Objekten i ADO</H3>
 
-      <H3>Objekten i ADO</H3>
+        <P>ADO bestÃ¥r av ett antal objekt, varav nÃ¥gra Ã¤r mer frekvent anvÃ¤nda
+        Ã¤n andra. PÃ¥ denna hemsida kommer jag att beskriva hur man anvÃ¤nder de
+        tre mest anvÃ¤ndbara objekten: Connection, Recordset och Command.</P>
 
-      <P>ADO består av ett antal objekt, varav några är mer frekvent använda
-      än andra. På denna hemsida kommer jag att beskriva hur man använder de
-      tre mest användbara objekten: Connection, Recordset och Command.</P>
+        <H4>Objektet Connection</H4>
 
-      <H4>Objektet Connection</H4>
+        <P>Connection-objektet ska motsvara fÃ¶rbindelsen till datakÃ¤llan.</P>
 
-      <P>Connection-objektet ska motsvara förbindelsen till datakällan.</P>
+        <P>Det finns Ã¤ven mÃ¶jlighet att kÃ¶ra en frÃ¥ga som returnerar
+        resultatet (posterna) i ett Recordset-objekt.</P>
 
-      <P>Det finns även möjlighet att köra en fråga som returnerar
-      resultatet (posterna) i ett Recordset-objekt.</P>
+        <H4>Objektet Recordset</H4>
 
-      <H4>Objektet Recordset</H4>
+        <P>Recordset-objektet ska motsvara posterna i en tabell eller resulterande
+        poster frÃ¥n en frÃ¥ga mot en eller flera tabeller.</P>
 
-      <P>Recordset-objektet ska motsvara posterna i en tabell eller resulterande
-      poster från en fråga mot en eller flera tabeller.</P>
+        <H4>Objektet Command</H4>
 
-      <H4>Objektet Command</H4>
+        <P>Command-objektet anvÃ¤nds fÃ¶r att kÃ¶ra frÃ¥gor mot en datakÃ¤lla samt
+        fÃ¶r att exekvera lagrade frÃ¥gor och <I>stored procedures</I> (SP). Detta
+        objekt anvÃ¤nds till sammans med objektet Parameter om man ska skicka
+        parametrar till en lagrad frÃ¥ga eller SP.</P>
 
-      <P>Command-objektet används för att köra frågor mot en datakälla samt
-      för att exekvera lagrade frågor och <I>stored procedures</I> (SP). Detta
-      objekt används till sammans med objektet Parameter om man ska skicka
-      parametrar till en lagrad fråga eller SP.</P>
+        <P>Det finns Ã¤ven mÃ¶jlighet att kÃ¶ra en frÃ¥ga som returnerar
+        resultatet (posterna) i ett Recordset-objekt. Skillnaden mot
+        Connection-objektets metod Ã¤r att man kan skicka parametrar till
+        frÃ¥ga/SP.</P>
 
-      <P>Det finns även möjlighet att köra en fråga som returnerar
-      resultatet (posterna) i ett Recordset-objekt. Skillnaden mot
-      Connection-objektets metod är att man kan skicka parametrar till
-      fråga/SP.</P>
+        <H3>Generellt om databasprogrammering med ADO</H3>
 
-      <H3>Generellt om databasprogrammering med ADO</H3>
+        <P>Med ADO sÃ¥ finns det flera olika sÃ¤tt att skriva koden. Mest
+        specifikt Ã¤r dock att man kan</P>
 
-      <P>Med ADO så finns det flera olika sätt att skriva koden. Mest
-      specifikt är dock att man kan</P>
+        <UL>
+          <LI><B>ange</B> alla egenskaper, fÃ¶r fÃ¶rbindelse (till databas) eller fÃ¶r
+            tabell/frÃ¥ga, <B>innan </B>man Ã¶ppnar/kÃ¶r den.</LI>
+          <LI>eller <B>skicka</B> alla egenskaper <B>som parametrar </B>till
+            metoderna som Ã¶ppnar/kÃ¶r fÃ¶rbindelsen, tabellen eller frÃ¥ga.</LI>
+        </UL>
+        <P>Beskrivningarna pÃ¥ denna sida utgÃ¥r frÃ¤mst ifrÃ¥n det senare
+        alternativet.</P>
 
-      <UL>
-        <LI><B>ange</B> alla egenskaper, för förbindelse (till databas) eller för
-          tabell/fråga, <B>innan </B>man öppnar/kör den.</LI>
-        <LI>eller <B>skicka</B> alla egenskaper <B>som parametrar </B>till
-          metoderna som öppnar/kör förbindelsen, tabellen eller fråga.</LI>
-      </UL>
-      <P>Beskrivningarna på denna sida utgår främst ifrån det senare
-      alternativet.</P>
+        <P>Beskrivningarna nedan om hur man hÃ¤mtar, infogar, uppdaterar och
+        raderar poster i datakÃ¤llor med objekten Connection (m.h.a. SQL) och
+        Recordset.</P>
 
-      <P>Beskrivningarna nedan om hur man hämtar, infogar, uppdaterar och
-      raderar poster i datakällor med objekten Connection (m.h.a. SQL) och
-      Recordset.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
-      <hr>
+        <h2><A NAME="hamta"></A>HÃ¤mta frÃ¥n tabell</h2>
 
-      <h2><A NAME="hamta"></A>Hämta från tabell</h2>
+        <P>HÃ¤r kommer en beskrivning om hur man hÃ¤mtar poster frÃ¥n en tabell
+        och skriver ut pÃ¥ en webbsida. Exemplen visar endast ASP-koden fÃ¶r att
+        spara plats, men koden placeras lÃ¤mpligen i webbsidans kropp (d.v.s. i
+        BODY-taggen).</P>
 
-      <P>Här kommer en beskrivning om hur man hämtar poster från en tabell
-      och skriver ut på en webbsida. Exemplen visar endast ASP-koden för att
-      spara plats, men koden placeras lämpligen i webbsidans kropp (d.v.s. i
-      BODY-taggen).</P>
+        <H3>Ã–ppna databas</H3>
 
-      <H3>Öppna databas</H3>
+        <P>En (fÃ¶rbindelse till) databas kan Ã¶ppnas genom att</P>
 
-      <P>En (förbindelse till) databas kan öppnas genom att</P>
+        <UL>
+          <LI>deklarera variabler (hÃ¤r Ã¤ven fÃ¶r andra objekt)</LI>
+          <LI>skapa en ConnectString (se ovan)</LI>
+          <LI>skapa ett Connection-objekt</LI>
+          <LI>anropa metoden Open() i Connection-objektet och skicka ConnectString
+            som parameter till metoden.</LI>
+        </UL>
+        <P>&nbsp;</P>
 
-      <UL>
-        <LI>deklarera variabler (här även för andra objekt)</LI>
-        <LI>skapa en ConnectString (se ovan)</LI>
-        <LI>skapa ett Connection-objekt</LI>
-        <LI>anropa metoden Open() i Connection-objektet och skicka ConnectString
-          som parameter till metoden.</LI>
-      </UL>
-      <P>&nbsp;</P>
+        <BLOCKQUOTE>
+          <P><SPAN CLASS="kod">Dim strConn, adoConn, strSQL, adoRS<BR>
+          <BR>
+          strConn = &quot;...&quot;&nbsp;&nbsp; ' se ovan fÃ¶r exempel<BR>
+          <BR>
+          Set adoConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<BR>
+          adoConn.Open strConn</SPAN></P>
 
-      <BLOCKQUOTE>
-        <P><SPAN CLASS="kod">Dim strConn, adoConn, strSQL, adoRS<BR>
-        <BR>
-        strConn = &quot;...&quot;&nbsp;&nbsp; ' se ovan för exempel<BR>
-        <BR>
-        Set adoConn = Server.CreateObject(&quot;ADODB.Connection&quot;)<BR>
-        adoConn.Open strConn</SPAN></P>
+        </BLOCKQUOTE>
+        <H3>Ã–ppna tabell eller kÃ¶ra frÃ¥ga</H3>
 
-      </BLOCKQUOTE>
-      <H3>Öppna tabell eller köra fråga</H3>
+        <P>FÃ¶r att Ã¶ppna en tabell</P>
 
-      <P>För att öppna en tabell</P>
+        <H3>Skriva ut posterna</H3>
 
-      <H3>Skriva ut posterna</H3>
+        <P>&nbsp;</P>
 
-      <P>&nbsp;</P>
+        <H3>StÃ¤nga tabell och databas</H3>
 
-      <H3>Stänga tabell och databas</H3>
+        <H3>ASP, komponenter och databaser</H3>
 
-      <H3>ASP, komponenter och databaser</H3>
+        <P>Om vi anvÃ¤nder egenutvecklade komponenter fÃ¶r att hÃ¤mta data frÃ¥n
+        en databas sÃ¥ returnerar lÃ¤mpligen metoderna i komponenten objekt i form
+        av Recordset-objekt. DÃ¤rmed behÃ¶ver vi inte i ASP Ã¶ppna databasen och
+        tabellen, utan hÃ¤r endast skriva ut posterna och stÃ¤nga tabellen.</P>
 
-      <P>Om vi använder egenutvecklade komponenter för att hämta data från
-      en databas så returnerar lämpligen metoderna i komponenten objekt i form
-      av Recordset-objekt. Därmed behöver vi inte i ASP öppna databasen och
-      tabellen, utan här endast skriva ut posterna och stänga tabellen.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
-      <hr>
+        <h2><A NAME="infoga"></A>Infoga i tabell</h2>
 
-      <h2><A NAME="infoga"></A>Infoga i tabell</h2>
+        <P>HÃ¤r kommer en beskrivning i hur man infogar en post i en tabell.</P>
 
-      <P>Här kommer en beskrivning i hur man infogar en post i en tabell.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
-      <hr>
+        <h2><A NAME="uppdatera"></A>Uppdatera i tabell</h2>
 
-      <h2><A NAME="uppdatera"></A>Uppdatera i tabell</h2>
+        <P>HÃ¤r kommer en beskrivning om hur man uppdaterar poster i en tabell.</P>
 
-      <P>Här kommer en beskrivning om hur man uppdaterar poster i en tabell.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
-      <hr>
+        <h2><A NAME="radera"></A>Radera frÃ¥n tabell</h2>
 
-      <h2><A NAME="radera"></A>Radera från tabell</h2>
+        <P>HÃ¤r kommer en beskrivning om hur man raderar poster i en tabell.</P>
 
-      <P>Här kommer en beskrivning om hur man raderar poster i en tabell.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |</p>
-      <hr>
+        <h2><A NAME="parametrar"></A>FrÃ¥gor med parametrar</h2>
 
-      <h2><A NAME="parametrar"></A>Frågor med parametrar</h2>
+        <P>HÃ¤r kommer en beskrivning om hur man skickar parametrar till (lagrade)
+        frÃ¥gor (i t.ex. MS Access) och <I>stored procedures </I>(SP).</P>
 
-      <P>Här kommer en beskrivning om hur man skickar parametrar till (lagrade)
-      frågor (i t.ex. MS Access) och <I>stored procedures </I>(SP).</P>
+        <P>FÃ¶r att skicka parametrar till frÃ¥gor anvÃ¤nder vi objekten Command
+        och Parameter.</P>
 
-      <P>För att skicka parametrar till frågor använder vi objekten Command
-      och Parameter.</P>
+        <hr>
+        <p style="text-align: center;">| <a href="#borjan">Till bÃ¶rjan</a> pÃ¥ sida |
+          <A HREF="../index.html">Tillbaka</A> till ASP |</p>
+        <hr>
 
-      <hr>
-      <p align="center">| <a href="#borjan">Till början</a> på sida |
-         <A HREF="../index.html">Tillbaka</A> till ASP |</p>
-      <hr>
-
-      <p align="center">
-      <b>Skapad av:</b> Björn Persson. <b>Uppdaterad:</b> 2005-05-01.</p>
-    </td>
-    <td bgcolor="#ffffff">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20"></td>
-    <td bgcolor="#ffffff">&nbsp;</td>
-    <td bgcolor="#ffffff"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20"></td>
-  </tr>
-</table>
-</center>
+        <p style="text-align: center;">
+        <b>Skapad av:</b> BjÃ¶rn Persson. <b>Uppdaterad:</b> 2005-05-01.</p>
+      </td>
+      <td class="design-border">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="design-border"><img height="20" src="../../bilder/vitnedrevanstra.gif" width="20" alt="BL"></td>
+      <td class="design-border">&nbsp;</td>
+      <td class="design-border"><img height="20" src="../../bilder/vitnedrehogra.gif" width="20" alt="BR"></td>
+    </tr>
+  </table>
 </div>
 </body>
 </html>
