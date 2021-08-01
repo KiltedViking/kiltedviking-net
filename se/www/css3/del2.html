@@ -203,8 +203,13 @@
         </div>
       </div>
 
+      <h3>Äldre webbläsare och stilmallar</h3>
+
       <div class="row">
         <div class="seven columns">
+          <p><strong>2020-02-09:</strong> Denna information har inaktualiserats då 
+            alla webbläsare idag stödjer CSS eller ignorerar CSS-kod. ;-)</p>    
+
           <p>Eftersom webbl&auml;sare &auml;r konstruerade att bortse fr&aring;n taggar dom
             inte f&ouml;rst&aring;r (d.v.s. inte ing&aring;r i den HTML-standard som webbl&auml;saren
             gjorts f&ouml;r) s&aring; kan &auml;ldre webbl&auml;sare tolka texten inom
@@ -223,6 +228,8 @@
         </div>
       </div>
 
+      <h3>Exempel</h3>
+
       <div class="row">
         <div class="seven columns">
           <p>I exempel 2.2 s&aring; har en stilmall gjorts f&ouml;r att p&aring;verka rubriker
@@ -232,9 +239,7 @@
 
         <div class="five columns">
           <pre><code>&lt;style type=&quot;text/css&quot;&gt;
-&lt;!--
   <span class="highlight">h1 { font-family: Verdana }</span>
---&gt;
 &lt;/style&gt;</code></pre>
         </div>
       </div>
@@ -290,10 +295,19 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;head&gt;
+          <h3>Filen <code>min-sida.html</code></h3>
+          <pre><code>&lt;html&gt;
+&lt;head&gt;
   &lt;title&gt;Titeln...&lt;/title&gt;
   <span class="highlight">&lt;link href=&quot;stil.css&quot; rel=&quot;stylesheet&quot;&gt;</span>
-&lt;/head&gt;</code></pre>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Rubrik&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Filen <code>stil.css</code></h3>
+            <pre><code>h1 { font-family: Verdana; }</code></pre>
         </div>
       </div>
 
@@ -332,9 +346,7 @@
   &lt;title>Exempel 2.4 - Ett &quot;komplett&quot; exempel&lt;/title&gt;
 <span class="highlight">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;stilmall.css&quot; /&gt;
   &lt;style type=&quot;text/css&quot;&gt;
-  &lt;!--
     p { color: blue; background-color: white; }
-  //--&gt;
   &lt;/style&gt;</span>
 &lt;/head&gt;
 &lt;body&gt;

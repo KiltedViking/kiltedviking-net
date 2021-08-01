@@ -8,3 +8,16 @@ My site is in both English and Swedish - mostly the latter. The Swedish content 
 
 /Björn G. D. Persson
 "Kilted Viking"
+
+## CSS front-end frameworks used ##
+
+To test CSS front-end frameworks, I've designed some parts of my website using frameworks below.
+
+Bootstrap (v.3) - /
+Foundation - /se/www/javascript/
+Materialize - /se/www/html/
+Milligram - /se/www/php/
+Primer CSS - /se/www/java/
+Semantic UI - /se/www/jquery/
+Skeleton - /se/www/css/
+UIkit - /se/www/seo/

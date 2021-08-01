@@ -1,0 +1,299 @@
+/*******************************************************************************
+* Filnamn:      css2b.css
+* Syfte:        Stilmallar for ny design av "underwebbar" pa Bjorns studiewebb.
+* Skapad av:    Bjorn Persson (bjgu0005), bjorn(at)kiltedviking.net.nospam.
+* Skapad:       2008-07-08
+* Andrad:       2008-07-09-15, 2010-07-12, 2020-04-26
+* Kommentarer:  Design har aldrig varit min starka sida... Darfor forsoker jag
+*               halla min design sa enkel som mojligt. Denna design ar ocksa en
+*               fortsattning pa tidigare design pa min webbplats (Bjorns studiewebb).
+*               Jag har valt att lata lankar behalla sina farger for att inte stora
+*               "naturligt surfande" (enl. Nielsen).
+*******************************************************************************/
+
+/*** Overgripande stilar ******************************************************/
+/* Dessa stilar ar generella, dvs galler inte i en speciell div-tagg el. likn. */
+body
+{
+  /* font-size: 13px;*/  /* Ursprunglig storlek for typsnitt, d.v.s absolut storlek - 
+                       Verdana ser bast ut i 13 pixlars storlek (enl. mig), men
+                       kan andras av de som ser lite daligt. Resterande typsnitts-
+                       storlekar kommer vara relativ till denna. */
+  font-family: Verdana, Arial, Helvetica, sans-serif; /* Standardtypsnitt */
+}
+
+/* Stilar med standardvarden for rubriker */
+h1, h2
+{
+  font-family: "Copperplate Gothic Bold", Copperplate, Impact, Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1  /* Storsta rubriken ska aven vara rod och nagot storre an standard */
+{
+  color: red;
+  background-color: white;
+  font-size: 2.5em;
+}
+
+/* Aven ovriga rubriker ska vara nagot storre... */
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+
+/*** Stilar for marginaler (framst ovan och under) ****************************/
+div#ovremarginal, div#nedremarginal
+{
+  height: 20px;
+}
+
+div#nedremarginal
+{
+  clear: both;  /* Behovs for att bakgrundsfarg ska visas over hela containers bakgrund i FF */
+}
+
+/*** Stilar for container (med gul bakgrundsfarg) *****************************/
+div#container
+{
+  margin-right: auto;         /* Centrera container i fonster */
+  margin-left: auto;
+  width: 800px;               /* Bredd pa "sida" */
+  color: black;
+  background-color: #FFFF66;  /* Bakgrundsfarg for ram kring innehall */
+  border: 1px solid red;
+}
+
+/*** Stilar for menyram *******************************************************/
+/* TODO: Fixa marginal till vanster. Fixa sa att text far plats */
+div#menyram
+{
+  float: left;                /* Flyt block */
+  clear: left;                /* Se till att langst till vanster */
+  width: 185px;               /* Bredd pa menykolumn */
+  margin-right: 20px;
+}
+
+div#menyram h1                /* Stil for rubrik i meny (for gul bakgrund runt bild) */
+{
+  color: black;
+  background-color: #FFFF66;
+  text-align: center;
+}
+
+div#menyram img                /* Stil for bilder i meny */
+{
+  margin: 0px 25px;
+}
+
+div#menyram ul                /* Stil for listor i meny */
+{
+  list-style-type: none;
+  list-style-position: inside;  /* Siffror innanfor ram */
+  padding: 0px 3px;
+  width: 90%;
+}
+
+div#menyram ul.intern         /* Stil for webbsidor som visas i "innehallsram" (samma underwebb) */
+{
+  list-style-image: url('../bilder/hpil.gif');
+  padding-left: 20px;
+}
+
+div#menyram ul.flerradiglista /* Stil for menyalternativ som behover flera rader */
+{
+  text-indent: -15px;         /* Skapa ett hangande indrag innanfor pil */
+  padding-left: 35px;
+}
+
+div#menyram ul.tillbakalista  /* Stil for tillbaka-lankar i menyer */
+{
+  list-style-image: url('../bilder/vpil.gif');
+  text-indent: -15px;
+  padding-left: 35px;
+}
+
+/* TODO: Skapa en stil for "externa" lankar, dvs utanfor underwebb */
+
+div#menyram a         /* Lankar i meny ska inte vara understrukna */
+{
+  text-decoration: none;
+}
+
+div#menyram a:hover   /* ... annat an nar mus fors over dem */
+{
+  text-decoration: underline;
+}
+
+/*
+div#menyram a:visited
+{
+  color: blue;
+}
+*/
+
+/*** Stilar for innehall ******************************************************/
+div#innehall
+{
+  float: left;              /* Flyt block till hoger om foregaende */
+  width: 550px;             /* Bredd pa innehallskolumn */
+  padding: 1em;
+  color: black;
+  background-color: white;
+  border: 1px solid red;
+}
+
+div#innehall p              /* Standardstil for stycken - rak vanster- och hogermarginal */
+{
+  text-align: justify;
+}
+
+div#innehall p.tillborjan   /* Stil for lankar till borjan pa sidor */
+{
+  text-align: right;
+}
+
+/* TODO: Ersatt eventuella kvarvarande P med UL */
+div#innehall p.foregaendenasta   /* Stil for navigeringslankar langst ner pa sida */
+{
+  text-align: center;
+}
+
+/* Stil for navigeringslankar langst ner pa sida (anvander "liggande" lista) */
+div#innehall ul.foregaendenasta
+{
+  list-style: none;
+  text-align: center;   /* TODO: Finns det "battre" satt att centrera? */
+  padding-left: 0px;
+  /*
+  margin-right: auto;
+  margin-left: auto;
+  */
+}
+
+div#innehall ul.foregaendenasta  li /* Stil for alternativ i lista (navigeringslankar) */
+{
+  display: inline;
+}
+
+div#innehall p#dokumentinfo         /* Stil for dokumentinfo langst ner pa sidor */
+{
+  text-align: center;
+  font-size: 0.8em;
+  /* border-top: 1px solid red; */
+}
+
+div#innehall .kommentar    /* Stil for kommentarer i sidor */
+{
+  font-size: 0.8em;
+  color: blue;
+  background-color: white;
+  margin: 0px 10px;         /* Indrag till vanster och hoger */
+}
+
+div#innehall p.center     /* Stil for centrering av enskilda stycken */
+{
+  text-align: center;
+}
+
+div#innehall span.highlight, div#innehall p.highlight   /* Stil for fargkodning markerad text */
+{
+  color: blue;
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Typsnitt och farg for kodexempel */
+div#innehall .code
+{
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  background-color: #ff9;
+}
+
+/* Marginaler for kodexempel i block */
+/* TODO: Ersatt eventuella kvarvarande BLOCKQUOTE med DIV */
+div#innehall div.code, div#innehall blockquote.code  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+}
+
+div#innehall div.exempel  /* Stil for kodexempel */
+{
+  margin: 0px 10px;
+  color: black;
+  background-color: #ff9;
+  font-family: "Courier New", Courier, monospace;
+}
+
+div#innehall p span.rod { color: red; background-color: inherit; }
+
+/* Exempelkod ska inte ha rak vanster- och hogermarginal */
+div#innehall div.code p
+{
+  text-align: left;
+}
+
+div#innehall p.anfang:first-letter
+{
+  font-size: 300%;
+  float: left;
+}
+
+div#innehall table  /* Stil for kodexempel */
+{
+  caption-side: bottom;
+}
+
+div#innehall table caption  /* Stil for kodexempel */
+{
+  /* font-size: 0.9em; */
+  font-style: italic;
+}
+
+div#innehall blockquote[cite]  /* Stil for citat */
+{
+  margin: 0px 10px;
+  font-style: italic;
+}
+
+div#innehall .hruletop
+{
+  margin-top: 5px;
+  border-top: solid 2px #c0c0c0;
+  padding-top: 5px;
+}
+
+div#innehall .referens  /* Stil for referenser (till t.ex. citat) */
+{
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+}
+
+div#innehall .grey  /* Stil for referenser (till t.ex. citat) */
+{
+  color: #c0c0c0;   /* light grey */
+  background-color: white;
+}
+
+table.table100proc { width: 100%; }
+th.tablecolumn25proc, td.tablecolumn25proc { width: 25%; }
+th.tablecolumn75proc, td.tablecolumn75proc { width: 75%; }
+/*** Stilar for hogermarginal *************************************************/
+/* TODO: Overflodig? */
+div#hogermarginal
+{
+  float: left;
+  width: 20px;             /* Bredd pa hogermarginalsskolumn */
+}
+
+/*** Stilar for sidfot ********************************************************/
+div#sidfot p
+{
+  clear: both;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 5px;
+  border-top: solid 2px red;
+  padding-top: 5px;
+}

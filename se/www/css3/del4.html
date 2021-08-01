@@ -57,6 +57,8 @@
           <li><a href="del4c.html">F&auml;rg</a></li>
           <li><a href="del4d.html">Boxar</a></li>
           <li><a href="del4e.html">Positionering</a></li>
+          <li><a href="flexbox.html">Flexbox</a></li>
+          <li><a href="grid.html">Grid</a></li>
         </ul>
         
       </nav>
@@ -321,24 +323,50 @@ p.ingress { /* Stycken av klassen ingress */
             hur de skrivs.</p>
 
           <ul>
-            <li>em (1.0em) - h&ouml;jden av elementets typsnitt (egenskapen font-size)</li>
-            <li>ex (2ex) - h&ouml;jden av typsnittets bokstav x</li>
-            <li>pixlar (10px) - antalet bildpunkter p&aring; sk&auml;rmen, d.v.s. sk&auml;rmberoende</li>
-            <li>procent (90%) - procent av &ouml;vergripande/omslutande element</li>
+            <li><code>em</code> (<code>1.0em</code>) - h&ouml;jden av elementets typsnitt (egenskapen <code>font-size</code></code>)</li>
+            <li><code>ex</code> (<code>2ex</code>) - h&ouml;jden av typsnittets bokstav x</li>
+            <li><code>ch</code> (<code>40ch</code>) - bredden av typsnittets siffra 0</li>
+            <li><code>rem</code> (<code>2rem</code>) - typsnittsstorleken av rotelementet</li>
+            <li><code>vw</code> (<code>90vw</code>) - andel av webbläsares bredd (<em>viewport</em>)</li>
+            <li><code>vh</code> (<code>90vh</code>) - andel av webbläsares höjd (<em>viewport</em>)</li>
+            <li><code>vmin</code> (<code>90vmin</code>) - minsta värdet av <code>vw</code> och <code>vh</code></li>
+            <li><code>vmax</code> (<code>90vmax</code>) - högsta värdet av <code>vw</code> och <code>vh</code></li>
+            <li>procent (<code>90%</code>) - procent av &ouml;vergripande/omslutande element</li>
           </ul>
 
-          <p>M&aring;ttenheterna em och ex kr&auml;ver lite f&ouml;rst&aring;else 
-            f&ouml;r typografi och pixlar f&ouml;r datorer (eller snarare sk&auml;rmar :-)).
-            <strong>Men</strong>, &auml;ven om em och ex l&aring;ter som storlekar 
-            f&ouml;r typsnitt, s&aring; kan de anv&auml;ndas f&ouml;r alla typer 
-            av storlekar/l&auml;ngder - de &auml;r endast relaterade till storlek 
+          <h4>Typsnittsrelativa måttenheter</h4>
+
+          <p>M&aring;ttenheterna <code>em</code>, <code>ex</code>, <code>ch</code> 
+            och <code>rem</code> kr&auml;ver lite f&ouml;rst&aring;else 
+            f&ouml;r typografi, <strong>men</strong> &auml;ven om de l&aring;ter som storlekar 
+            f&ouml;r typsnitt s&aring; kan de anv&auml;ndas f&ouml;r alla typer 
+            av storlekar/l&auml;ngder. De &auml;r endast relaterade till storlek 
             p&aring; typsnitt f&ouml;r element (&auml;ven om elementet inte har n&aring;gon 
             text, d.v.s. alla element har, eller &auml;rver, en textstorlek).</p>
 
-          <p class="kommentar">M&aring;ttenheten pixlar &auml;r mycket beroende av 
-            bes&ouml;karens uppl&ouml;sning p&aring; sk&auml;rmen, d.v.s. det kan 
-            vara en v&auml;sentlig skillnad om bes&ouml;karen har en
-            uppl&ouml;sning p&aring; 640*480 eller 1024*768 p&aring; sin sk&auml;rm.</p>
+          <p><code>rem</code> är baserat på storleken på &quot;rotelementet&quot; 
+            - ofta <code>html</code> eller <code>body</code> - och är användbart
+            för att basera storlekar/längder på ett gemensamt värde istället för
+            omslutande element (föräldrar och förfädrar).
+          </p>
+
+          <h4>Webbläsarrelativa måttenheter</h4>
+
+          <p>De senaste tillskotten av måttenheter - vw, vh, vmin och vmax - har tillkommit för att
+            kunna anpassa storlekar på element i förhållande till storleken på webbläsares
+            storlek (<em>viewport</em>). <code>vw</code> (<em>viewport width</em>) 
+            avser procent av bredden på webbläsares fönster och <code>vh</code> (<em>viewport
+              height</em>) webbläsares höjd.
+          </p>
+
+          <p><code>vmin</code> och <code>vmax</code> är användbara för att anpassa
+            element efter proportion på webbläsares fönster, d.v.s. om besökare använder
+            dator med bredbildsskärm eller &quot;stående&quot; mobiltelefon.
+          </p>
+
+          <!-- <h4>Välja måttenhet</h4>
+
+          <p></p> -->
         </div>
       </div>
 
@@ -352,18 +380,24 @@ p.ingress { /* Stycken av klassen ingress */
             m&aring;ttenhterna visas nedan med exempel p&aring; hur de skrivs.</p>
 
           <ul>
-            <li>punkter (10pt) - 1 punkt = 1/72 tum</li>
-            <li>centimeter (1cm)</li>
-            <li>millimeter (10mm)</li>
-            <li>tum (0.35in) - 1 tum = 2.54 cm</li>
-            <li>picas (1pc) - 1 pica = 12 punkter</li>
+            <li>pixlar (<code>10px</code>) - antalet bildpunkter p&aring; sk&auml;rmen, d.v.s. sk&auml;rmberoende</li>
+            <li>punkter (<code>10pt</code>) - 1 punkt = 1/72 tum</li>
+            <li>centimeter (<code>1cm</code>)</li>
+            <li>millimeter (<code>10mm</code>)</li>
+            <li>tum (<code>0.35in</code>) - 1 tum = 2.54 cm</li>
+            <li>picas (<code>1pc</code>) - 1 pica = 12 punkter</li>
           </ul>
 
           <p>D&aring; bes&ouml;kare kan ha olika uppl&ouml;sningar, m.m. p&aring; 
             sina sk&auml;rmar s&aring; &auml;r det sv&aring;rt att exakt avg&ouml;ra
             hur n&aring;gra av de absoluta m&aring;ttenheterna kommer fungera, d.v.s.
             om 1mm verkligen &auml;r 1 millimeter p&aring; en sk&auml;rm. Undvik 
-            d&auml;rf&ouml;r de absoluta m&aring;ttenheterna.</p>
+            d&auml;rf&ouml;r de absoluta m&aring;ttenheterna, förutom pixlar.</p>
+
+          <p class="kommentar">M&aring;ttenheten pixlar &auml;r mycket beroende av 
+            bes&ouml;karens uppl&ouml;sning p&aring; sk&auml;rmen, d.v.s. det kan 
+            vara en v&auml;sentlig skillnad om bes&ouml;karen har en
+            uppl&ouml;sning p&aring; 640*480 eller 1024*768 p&aring; sin sk&auml;rm.</p>
         </div>
       </div>
 
@@ -390,6 +424,8 @@ p.ingress { /* Stycken av klassen ingress */
               href="https://www.w3.org/" target="_blank" rel="noopener">World Wide 
               Web Consortium</a> (W3C) som &auml;r n&aring;got
               mer sv&aring;ra innan man l&auml;rt sig tolka dokumenten</li>
+            <li><a href="https://www.w3.org/TR/css3-values/" target="_blank" rel="noopener">CSS 
+              Values and Units Module Level 3</a>, World Wide Web Consortium (W3C)</li>
           </ul>
         </div>
       </div>

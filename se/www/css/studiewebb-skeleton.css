@@ -96,6 +96,10 @@ footer {
 .fg-scania-yellow { color: #fed800; }
 .center { text-align: center; }
 .example-result { background-color: #eeff41; padding: .5em; }
+.highlight {
+  background-color: lemonchiffon;
+  font-weight: bold;
+}
 /* From old stydy web */
 p.anfang:first-letter
 {
@@ -126,59 +130,8 @@ p.anfang:first-letter
     nav.navbar li:last-child a {
       border-right: none;
     }
-  
-    /* header a:hover, .about a:hover {
-      box-shadow: 0 8px #f4ba04;
-    }
-  
-    header a:active, .about a:active {
-      box-shadow: 0 4px #f4ba04;
-      -webkit-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-              transform: translateY(4px);
-    }
-  
-    .about .one-third {
-      margin-top: 0;
-    }
-    
-    .about .one-third a {
-      width: 35%;  
-    }
-    
-    .contact .creator a {
-      box-shadow: none;
-    } */
-  
   }
     
-  @media (min-width: 750px) {
+  /* @media (min-width: 750px) {
   
-    /* h1 {
-      font-size: 3.5rem;
-    }
-  
-    h3 {
-      font-size: 2.8rem;
-    }
-  
-    h4 {
-      font-size: 2.4rem;
-    }
-  
-    .services a:hover {
-      box-shadow: 0 -8px white;
-      -webkit-transform: scale(1.15);
-          -ms-transform: scale(1.15);
-              transform: scale(1.15);
-    }
-    
-    .contact ul a {
-      margin-left: 45px;
-    }
-  
-    .contact ul span {
-      font-size: 3em;
-    } */
-  
-  }
+  } */
