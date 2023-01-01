@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/grid.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/grid.html" />
+  <title>Stilmallar: grid (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+  <style>
+    p.notering
+    {
+      float: right; 
+      width: 100px; 
+      margin: 0px 0px 10px 10px;
+      border: 1px solid blue; 
+      padding: 5px; 
+      color: blue; 
+      background: #ccc; 
+      font-size: 90%;
+    }
+  </style>
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Grid (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+          <li><a href="flexbox.html">Flexbox</a></li>
+          <li class="active"><a href="grid.html">Grid</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Innehåll</h2>
+
+          <p>Rutnät (<em>grids</em>) är två dimensionella samt bygger på <b>kolumner</b> och <b>rader</b>, 
+            även kallade <b>spår</b> (<em>tracks</em>) och <b>linjer</b> (<em>lines</em>).
+            Linjerna används bl.a. för att positionera innehåll i rutnät samt finns
+            mellan spåren (kolumnerna/raderna) liksom först och sist.
+            Det finns alltså en fler av linjer än det finns kolumner respektive rader.
+            Områdena innanför linjer kallas för <b>celler</b> och området mellan
+            två celler för <b>mellanrum</b> (<em>gaps</em>). En eller flera celler
+            kan kan defineras som en <b>area</b>, som också kan användas för att 
+            positionera innehåll i rutnät.
+          </p>
+
+          <p>Rutnätet byggs upp genom att definera <b>behållare</b> (<em>containers</em>)
+            och <b>delar</b> (<em>items</em>), d.v.s. vissa CSS-egenskaper appliceras
+            på behållare medan andra på delarna (och några egenskaper &quot;överlappar&quot;,
+            d.v.s. egenskaper för behållare och delar har samma/liknande funktion).
+          </p>
+          
+          <p style="text-align: center">2020-04-19: Denna webbsida är under utveckling!</p>
+          
+          <p>Egenskaper för behållare (<em>containers</em>) som behandlas på denna webbsida:</p>
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Egenskap/-er</th>
+                <th>Värden</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>display</code></td>
+                <td><code>grid</code>, <code>grid-inline</code></td>
+              </tr>
+              <tr>
+                <td><code>grid-template-columns</code>, <code>grid-template-rows</code></td>
+                <td>&lt;track-size&gt;/&lt;line-name&gt;</td>
+              </tr>
+              <tr>
+                <td><code>grid-template-areas</code></td>
+                <td>&lt;grid-area-name&gt;|<code>.</code>|<code>none</code></td>
+              </tr>
+              <tr>
+                <td><code>grid-template</code></td>
+                <td>
+                  &lt;grid-template-columns&gt; / &lt;grid-template-rows&gt;,
+                  <code>none</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>column-gap</code>, <code>row-gap</code>, <code>gap</code></td>
+                <td>&lt;line-size&gt;</td>
+              </tr>
+              <tr>
+                <td><code>justify-items</code></td>
+                <td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+              </tr>
+              <tr>
+                <td><code>align-items</code></td>
+                <td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+              </tr>
+              <tr>
+                <td><code>place-items</code></td>
+                <td>&lt;justify-items&gt;/&lt;align-items&gt;</td>
+              </tr>
+              <tr>
+                <td><code>justify-content</code></td>
+                <td>
+                  <code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code>,
+                  <code>space-around</code>, <code>space-between</code>, <code>space-evenly</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>align-content</code></td>
+                <td>
+                  <code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code>,
+                  <code>space-around</code>, <code>space-between</code>, <code>space-evenly</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>place-content</code></td>
+                <td>&lt;justify-content&gt;/&lt;align-content&gt;</td>
+              </tr>
+              <tr>
+                <td><code>grid-auto-columns</code>, <code>grid-auto-rows</code></td>
+                <td>&lt;track-size&gt;</td>
+              </tr>
+              <tr>
+                <td><code>grid-auto-flow</code></td>
+                <td><code>row</code>, <code>column</code>, <code>dense</code></td>
+              </tr>
+              <tr>
+                <td><code>grid</code></td>
+                <td>
+                  <code>none</code>,<br> 
+                  &lt;grid-template&gt;,<br>
+                  &lt;grid-template-rows&gt; / [ <code>auto-flow && dense</code>? ] &lt;grid-auto-columns&gt;?,<br>
+                  [ <code>auto-flow && dense</code>? ] &lt;grid-auto-rows&gt;? / &lt;grid-template-columns&gt;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Egenskaper för delar (<em>items</em>) som behandlas på denna webbsida:</p>
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Egenskap/-er</th>
+                <th>Värden</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>grid-column-start</code>,
+                  <code>grid-column-end</code>,
+                  <code>grid-row-start</code>,
+                  <code>grid-row-end</code></td>
+                <td>
+                  &lt;line&gt;, <code>span &lt;number&gt;</code>, <code>span &lt;name&gt;</code>,
+                  <code>auto</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>grid-column</code>, <code>grid-row</code></td>
+                <td>&lt;start-line&gt;/&lt;end-line&gt;</td>
+              </tr>
+              <tr>
+                <td><code>grid-area</code></td>
+                <td>&lt;name&gt;, &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</td>
+              </tr>
+              <tr>
+                <td><code>justify-self</code></td>
+                <td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+              </tr>
+              <tr>
+                <td><code>align-self</code></td>
+                <td><code>start</code>, <code>center</code>, <code>end</code>, <code>stretch</code></td>
+              </tr>
+              <tr>
+                <td><code>place-self</code></td>
+                <td><code>auto</code>, &lt;align-self&gt; / &lt;justify-self&gt;</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <p class="kommentar">Jag vill passa på att påminna om min mycket begränsade 
+            designförmåga. :-) Så innehållet i denna sida bör ses som en start för
+            att lära sig använda grid i CSS, så för att verkligen kunna använda rutnät
+            som det är tänkt behöver andra resurser användas (se referenser i slutet
+            på sida).</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#inledning" class="collection-item">Inledning</a></li>
+            <li><a href="#bredder" class="collection-item">Ange bredder och höjder</a></li>
+            <li><a href="#avancerade" class="collection-item">Mer avancerade rutnät</a></li>
+            <li><a href="#referenser" class="collection-item">Referenser</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="inledning">Inledning</h2>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p>I sin enklaste form så behövs bara en behållare och en eller flera delar
+            samt stil innehållande <code>display: grid</code> för behållare (se markerad
+            egenskap i stilmallar nedan). (I detta exempel har även mellanrum mellan celler
+            definerats liksom färg och storlek på delar för att göra dem synliga. ;-))
+          </p>
+
+          <pre><code>.container {
+  <span class="highlight">display: grid;</span>
+  gap: 1em;                /* Separera celler */
+}
+.item {
+  background-color: khaki; /* Gör cell synlig ...      */
+  height: 50px;            /* ... m färg o storlek ;-) */
+  width: 100px;
+}</code></pre>
+
+          <p>Med tre delar så består rutnätet av en kolumn och tre rader (se exempel).</p>
+
+          <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="five columns">
+          <hr style="color: green; border-top-width: 3px">
+          <div style="display: grid; gap: 1em;">
+            <div style="background-color: khaki; height: 50px; width: 100px;">1</div>
+            <div style="background-color: khaki; height: 50px; width: 100px;">2</div>
+            <div style="background-color: khaki; height: 50px; width: 100px;">3</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Definera flera kolumner</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          
+          <p>För att skapa ett rutnät med flera kolumner använder man egenskapen
+            <code>grid-template-columns</code>. Antalet rader kommer avgöras av 
+            hur många delar som finns i behållare och radhöjder kommer anpassas till
+            cell med &quot;högst innehållet&quot; i respektive rad.
+          </p>
+          
+          <p>I exempel nedan så defineras tre
+            kolumner om 50, 75 resp. 100 pixlar.
+          </p>
+
+          <pre><code>.container {
+  display: grid; 
+  gap: 1em; 
+  <span class="highlight">grid-template-columns: 50px 75px 100px;</span>
+}
+.item {
+  background-color: khaki; /* Gör cell synlig ;-) */
+}</code></pre>
+
+          <p>HTML-kod består sen av en behållare och en del för varje cell.</p>
+
+          <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;1 Denna cell avgör höjd på rad&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;3&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;4&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;5 Liksom denna cell&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="five columns">
+          <hr style="color: green; border-top-width: 3px">
+          <div style="display: grid; gap: 1em; grid-template-columns: 50px 75px 100px;">
+            <div style="background-color: khaki">1 Denna cell avgör höjd på rad</div>
+            <div style="background-color: khaki">2</div>
+            <div style="background-color: khaki">3</div>
+            <div style="background-color: khaki">4</div>
+            <div style="background-color: khaki">5 Liksom denna cell</div>
+            <div style="background-color: khaki">6</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="bredder">Ange kolumnbredder och radhöjder</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Bredder på kolumner och höjder på rader kan anges som explicita värden,
+            överlåtas till webbläsare att avgöra eller blandas. För att överlåta 
+            bredder/höjder till webbläsare används måttenheten fraktioner (<code>fr</code>).
+          </p>
+        </div>
+      </div>
+
+      <h3>Fraktioner</h3>
+
+      <div class="row">
+        <div class="seven columns">
+          <p>Fraktioner beräknas utifrån den bredd eller höjd som blir över när 
+            alla kolumner resp. rader med explicita värden allokerats plats och fördelas
+            sen enligt antal fraktioner som specifierats i rad/höjd.
+          </p>
+
+          <p>I exempel nedan så har tre kolumner med specifika bredder definerats
+            (50, 75, resp. 100 pixlar) samt två kolumner mellan dem om 1 resp. 2
+            fraktioner, d.v.s. kolumn 4 blir dubbelt så bred som kolumn 2. (Horisontell
+            linje med full bredd har lagts till ovanför rutnät för referens.)
+          </p>
+
+          <pre><code>.container {
+  display: grid; 
+  gap: .2em; 
+  <span class="highlight">grid-template-columns: 50px 1fr 75px 2fr 100px;</span>
+}</code></pre>
+
+        </div>
+
+        <div class="five columns">
+          <hr style="color: green; border-top-width: 3px">
+          <div style="display: grid; gap: .2em; grid-template-columns: 50px 1fr 75px 2fr 100px;">
+            <div style="background-color: khaki">1</div>
+            <div style="background-color: khaki">2</div>
+            <div style="background-color: khaki">3</div>
+            <div style="background-color: khaki">4</div>
+            <div style="background-color: khaki">5</div>
+            <div style="background-color: khaki">6</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Jämnbreda kolumner och jämnhöga rader</h3>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p>Om alla kolumner ska vara lika breda så kan man använda funktionen <code>repeat()</code>,
+            till vilken man skickar antal gånger att repetera och bredden på alla kolumner.
+          </p>
+
+          <pre><code>.container {
+  display: grid; 
+  gap: .2em; 
+  <span class="highlight">grid-template-columns: repeat(5, 50px);</span>
+}</code></pre>
+
+        </div>
+
+        <div class="five columns">
+          <hr style="color: green; border-top-width: 3px">
+          <div style="display: grid; gap: .2em; grid-template-columns: repeat(5, 50px)">
+            <div style="background-color: khaki">1</div>
+            <div style="background-color: khaki">2</div>
+            <div style="background-color: khaki">3</div>
+            <div style="background-color: khaki">4</div>
+            <div style="background-color: khaki">5</div>
+            <div style="background-color: khaki">6</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Responsivt rutnät</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p>Rutnät kan användas till att definera kolumner vars antal ändras beroende
+            på bredden på webbläsare, d.v.s. ett responsivt rutnät.
+          </p>
+
+          <p class="center"><a href="flexbox/flex1.html" target="_blank" class="button button-primary">Exempel 1 - ????</a></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="avancerade">Mer avancerade rutnät</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li><a href="https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag" target="_blank"
+              rel="noopener">Layout Land</a>, YouTube-kanal av <a href="https://jensimmons.com/" 
+              target="_blank" rel="noopener">Jen Simmons</a>.</li>
+            <lI><a href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+             target="blank" rel="noopener">A Complete Guide to Grid</a>, CSS Tricks</lI>
+          </ul>
+        </div>
+      </div>
+      
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del4d.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li>N&auml;sta&gt;</li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-04-19.</p>
+    </footer>
+  </div>
+</body>
+</html>

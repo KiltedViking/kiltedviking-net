@@ -26,10 +26,11 @@
   <link href="../css/kiltedviking4.css" rel="stylesheet" />
 </head>
 <body>
-  <header class="image-header image-beach">
+  <header class="image-header image-beach hidden-print">
     <h1>CV (brief)</h1>
     <h2 class="hidden-xs">for Bj&ouml;rn G. D. Persson</h2>
   </header>
+  <h1 class="center visible-print-block">CV for Bj&ouml;rn G. D. Persson</h1>
   <div class="container">
     <!-- Menubar -->
     <nav class="navbar navbar-inverse">
@@ -72,7 +73,7 @@
       <div class="col-sm-6 col-sm-offset-2">
         <h3>Introduction</h3>
 
-        <p>My name is Bj&ouml;rn Persson, a Southern Swede with 25+ years of experience 
+        <p>My name is Bj&ouml;rn G. D. Persson, a Southern Swede with 30+ years of experience 
           of computers - programming and administration. My main interest is computer 
           related problem solving, but I also like sharing my knowledge with others.</p>
 
@@ -147,13 +148,14 @@
           </tr>
         </table>
 
-        <h4>Computer knowledge - networking</h4>
+        <h4>Computer knowledge - clients, servers and networking</h4>
 
-        <p>I've been using PC's since 1986 and I bought my first own computer
+        <p>I've been using PC's since 1986 and I bought my first own computer with MS DOS
           in 1991. Since then I've been introduced to MacOS, UNIX and OS/2, started to 
-          learn about Linux, as well as installed and administered Novell NetWare 
-          Windows, and server software like DBMS and webservers. In 2011 I bought 
-          my first Apple Mac.
+          learn about Linux on my own. In 2011 I bought my first Apple Mac.</p>
+        <p>As part of my work (and hobbies), I've installed and administered Novell NetWare, 
+          Windows, and server software like DBMS and webservers. In later years I've
+          started taking a look at Microsoft's cloud (Azure and Office 365).
         </p>
 
         <h4>Computer knowledge - programming</h4>
@@ -163,10 +165,12 @@
             a few more languages and &quot;envirnoments&quot;.
           </p>
 
-        <p>My first databases was Oracle and Paradox, and I have seen a shift from
+        <p>My first databases were Oracle and Paradox, and I have seen a shift from
           relational (ER) to document data (NoSQL). I've seen and worked with a 
           plethora of CMS'es, frameworks and libraries.
           </p>
+
+        <p>In a project for EU Ecolabel, I published a website to Microsoft Azure.</p>
   
         <p>Below are programming languages, database systems, content
           management systems (CMS), and other
@@ -190,11 +194,13 @@
               <li>Java</li>
               <li>JavaScript</li>
               <li>Pascal</li>
+              <li>(Perl)</li>
               <li>PHP</li>
               <li>(Prolog)</li>
               <li>Python</li>
               <li>Ruby</li>
               <li>Smalltalk</li>
+              <li>TypeScript</li>
               <li>Visual Basic/VB.NET</li>
             </ul>
           </div>
@@ -206,7 +212,7 @@
               <li>CouchDB</li>
               <li>Couchbase</li>
               <li>MongoDB</li>
-              <li>MySQL</li>
+              <li>MySQL/MariaDB</li>
               <li>Oracle incl. PL/SQL</li>
               <li>Paradox</li>
               <li>SQL Server incl. T-SQL</li>
@@ -229,37 +235,82 @@
           </div>
 
           <div class="col-sm-6">
-            <h5>Frameworks, libraries and tools for web</h5>
+            <h5>CSS frameworks</h5>
             <ul>
-              <li>AngularJS [1.x]/(Angular [2+])</li>
-              <li>Backbone</li>
-              <li>Bootstrap [3]</li>
-              <li>Bower</li>
-              <li>EmberJS</li>
+              <li>Bootstrap [3+]</li>
+              <li>(Bulma)</li>
               <li>Foundation</li>
-              <li>Grunt</li>
-              <li>Gulp</li>
+              <li>Materialize</li>
+              <lI>Milligram</lI>
+              <lI>(MUI CSS)</lI>
+              <li>(Paper CSS)</li>
+              <li>(Picnic)</li>
+              <li>Primer CSS</li>
+              <li>(Pure CSS)</li>
+              <li>Semantic UI</li>
+              <li>Skeleton CSS</li>
+              <li>(Tachyons)</li>
+              <li>(Tailwind)</li>
+              <li>UIkit</li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6">
+            <h5>JS frameworks and libraries</h5>
+            <ul>
+              <li>AngularJS [1.x]/Angular [2+]</li>
+              <li>Aurelia</li>
+              <li>Backbone.js</li>
+              <li>Dojo Toolkit</li>
+              <li>Ember.js</li>
+              <li>Express</li>
               <li>Handlebars</li>
               <li>jQuery/jQuery UI</li>
               <li>KnockoutJS</li>
-              <li>npm</li>
-              <li>Semantic UI</li>
-              <li>Webpack</li>
-              <li>Yarn</li>
+              <li>Lodash</li>
+              <li>Meteor</li>
+              <li>Mustache</li>
+              <li>Node.js</li>
+              <li>Prototype</li>
+              <li>React</li>
+              <li>(Svelte)</li>
+              <li>Underscore</li>
+              <li>Vue.js</li>
               <li>YUI</li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6">
+            <h5>Tools for web development</h5>
+            <ul>
+              <li>Babel</li>
+              <li>Bower</li>
+              <li>Browserify</li>
+              <li>Chocolatey</li>
+              <li>ESLint</li>
+              <li>Grunt</li>
+              <li>Gulp</li>
+              <li>Homebrew</li>
+              <li>npm</li>
+              <li>PowerShell</li>
+              <li>Webpack</li>
+              <li>winget</li>
+              <li>Yarn</li>
             </ul>
           </div>
 
           <div class="col-sm-6">
             <h5>Other technologies</h5>
             <ul>
-              <li>.NET [1.x - 4.0]</li>
+              <li>.NET/.NET Core</li>
               <li>AJAX</li>
               <li>Apache</li>
               <li>ASP [3.0]</li>
+              <li>ASP.NET/ASP.NET Core</li>
               <li>COM/DCOM/COM+</li>
               <li>CSS</li>
               <li>DOM</li>
+              <li>Entity Framework (EF)</li>
               <li>Git</li>
               <li>HTML/XHTML</li>
               <li>IIS</li>
@@ -320,11 +371,30 @@
         </table>
 
       <p class="instructions">I haven't stopped learning - I love learning new things. ;-)</p>
+
+      <h3>Languages</h3>
+
+      <p>Swedish is my first language, having been brought up in Sweden and done 
+        all my studying there, which includes the subject Swedish all through primary 
+        and secondary schooling.</p>
+      
+      <p>My English is not far behind, having been brought up bilingual by British 
+        mother and Swedish father, spent most of my childhood summers in Scotland 
+        with grandmother, aunt and cousins, and having studied English as a second 
+        language up to level B2 at school, as well as receiving highest grade in 
+        the subject, so is equal to level C1.</p>
+
+      <p>Having spent 5 years studying German, but not really having practiced it, 
+        my level is A2.</p>
+
+      <h3>Private accomplishments</h3>
+      <p>Climbed Ben Nevis, Scotland, at 1.345 m (which took me about 4 hours to walk
+        the 8 km up and about 2 hours back down) and Ben Vrackie, Scotland, at 841 m.</p>
     </div>
 
     <!-- *** News column ***************************************************** -->
-    <aside class="col-sm-2 col-sm-offset-0">
-      <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <aside class="col-sm-2 col-sm-offset-0" class="hidden-print">
+      <ol class="breadcrumb hidden-print" itemscope itemtype="http://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
             <span itemprop="name">Home</span>
@@ -337,9 +407,9 @@
         </li>
       </ol>
 
-      <h3>Links</h3>
+      <h3 class="hidden-print">Links</h3>
       
-      <nav>
+      <nav class="hidden-print">
         <ul class="list-unstyled">
           <li><a href="cv_full.php">CV (full)</a></li>
         </ul>
@@ -351,14 +421,15 @@
         </ul>
       </nav>
 
-      <p class="description">[en] =  English<br />[se] = Swedish</p>
+      <p class="description hidden-print">[en] =  English<br />[se] = Swedish</p>
     </aside>
 
     <!-- *** Footer row ****************************************************** -->
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <footer>
-          <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b> 2019-11-09.</p>
+          <p><b>Address:</b> https://kiltedviking.net/cv/</p>
+          <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b> 2022-09-16.</p>
           <p><b>Photo:</b> Beach at Mellon Udrigle.</p>
         </footer>
       </div>

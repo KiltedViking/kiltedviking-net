@@ -342,7 +342,7 @@
               <li>Concrete5</li>
               <li>DotNetNuke</li>
               <li>Drupal</li>
-              <li>EPiServer</li>
+              <li>EPiServer/Optimizely</li>
               <li>Joomla</li>
               <li>(Sitecore)</li>
               <li>Umbraco</li>
@@ -355,13 +355,14 @@
             <ul>
               <li>AngularJS [1.x]/(Angular [2+])</li>
               <li>Backbone</li>
-              <li>Bootstrap [3]</li>
+              <li>Bootstrap [3+]</li>
               <li>Bower</li>
               <li>EmberJS</li>
               <li>Foundation</li>
               <li>Grunt</li>
               <li>Gulp</li>
               <li>Handlebars</li>
+              <li>Homebrew</li>
               <li>jQuery/jQuery UI</li>
               <li>KnockoutJS</li>
               <li>npm</li>

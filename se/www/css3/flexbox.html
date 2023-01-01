@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
+	<!-- Open Graph protocol data -->
+	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/flexbox.html" />
+	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
+	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/flexbox.html" />
+  <title>Stilmallar: flexbox (CSS3) - Bj&ouml;rns studiewebb</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
+  <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
+  <style>
+    p.notering
+    {
+      float: right; 
+      width: 100px; 
+      margin: 0px 0px 10px 10px;
+      border: 1px solid blue; 
+      padding: 5px; 
+      color: blue; 
+      background: #ccc; 
+      font-size: 90%;
+    }
+  </style>
+</head>
+<body>
+  <header class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <!-- Logotyp och tillika lank till startsida for webbplats -->
+          <div class="u-pull-right">
+            <a href="../index.html"><img src="../bilder/logony1.jpg"
+              alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
+          </div>
+          <h1>Egenskaper - Flexbox (CSS3)</h1>
+        </div>
+      </div>
+    <!-- *** Meny ************************************************************ -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="del1.html">Funktion</a></li>
+          <li><a href="del2.html">Placering</a></li>
+          <li><a href="del3.html">Selektorer</a></li>
+          <li class="active"><a href="del4.html">Egenskaper</a>
+          </li>
+        </ul>
+        <!-- Undermeny - endast visa om alternativ i huvudmeny valts eller någon av egna alternativen -->
+        
+        <ul>
+          <li><a href="del4a.html">Typsnitt</a></li>
+          <li><a href="del4b.html">Text</a></li>
+          <li><a href="del4c.html">F&auml;rg</a></li>
+          <li><a href="del4d.html">Boxar</a></li>
+          <li><a href="del4e.html">Positionering</a></li>
+          <li class="active"><a href="flexbox.html">Flexbox</a></li>
+          <li><a href="grid.html">Grid</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">     
+    <div class="section">
+      <div class="row">
+        <div class="seven columns">
+          <h2>Innehåll</h2>
+          
+          <p style="text-align: center">2020-04-19: Denna webbsida är under utveckling!</p>
+          
+          <p>Egenskaper som behandlas på denna webbsida:</p>
+          
+          <ul>
+            <li>display: flex | inline-flex | none</li>
+            <li>...</li>
+          </ul>
+          
+          <p class="kommentar">Jag vill passa på att påminna om min mycket begränsade 
+            designförmåga. :-) Så innehållet i denna sida bör ses som en start för
+            att lära sig använda flexbox i CSS.</p>
+        </div>
+
+        <div class="five columns">
+          <ul class="collection">
+            <li><a href="#inledning" class="collection-item">Inledning</a></li>
+            <li><a href="#relativ" class="collection-item">Relativ positionering</a></li>
+            <li><a href="#absolut" class="collection-item">Absolut positionering</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="inledning">Inledning</h2>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          <div>
+
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="relativ">Relativ positionering</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+
+
+        </div>
+      </div>
+
+      <h3>Grundläggande</h3>
+          
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+      </div>
+
+      <h3>Använda i design av webbsidor</h3>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p class="center"><a href="flexbox/flex1.html" target="_blank" class="button button-primary">Exempel 1 - ????</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="absolut">Absolut positionering</h2>
+      
+      <div class="row">
+        <div class="seven columns">
+          <p></p>
+        </div>
+
+        <div class="five columns">
+          
+        </div>
+      </div>
+
+      <p class="tillborjan"><a href="#">Till b&ouml;rjan</a> p&aring; sida</p>
+
+      <h2 id="referenser">Referenser</h2>
+
+      <div class="row">
+        <div class="seven columns">
+          <ul>
+            <li><a href="#" target="_blank"
+              rel="noopener">Grid-something</a> hos <a href="#" 
+              target="_blank" rel="noopener">Someone</a>.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <nav class="navbar center">
+        <ul>
+          <li><a href="del4d.html">&lt;F&ouml;reg&aring;ende</a></li>
+          <li><a href="index.html">Hem (CSS3)</a></li>
+          <li>N&auml;sta&gt;</li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-04-19.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
   <TITLE>phpinfo()</TITLE>
 </HEAD>
 <BODY>
-<?
+<?php
   phpinfo();
 
 ?>
