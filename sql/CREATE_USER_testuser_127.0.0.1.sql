@@ -1,0 +1,2 @@
+-- CREATE USER testuser@'127.0.0.1' IDENTIFIED BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE ON test.* TO testuser@127.0.0.1;

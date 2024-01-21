@@ -73,40 +73,41 @@
 	</header>
 	<div class="container">
 		<!-- Menubar -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand active" href="./">Home</a>
-        </div>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!-- Button for when menu collapses -->
+					<button type="button" class="navbar-toggle collapsed" 
+						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
+						<!-- Add accessibility things -->
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand active" href="./">Home</a>
+				</div>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="travels/"><i class="fa fa-ship"></i> Travels</a></li>
-            <!-- <li><a href="photos/"><i class="fa fa-camera"></i> Photos</a></li> -->
-            <li><a href="about_kv.php"><i class="fa fa-info"></i> About</a></li>
-            <li><a href="about_me.php"><i class="fa fa-male"></i> Me</a></li>
-            <li><a href="cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
-            <li class="dropdown">
-              <a href="se/" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i> In Swedish
-                <i class="caret"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="se/"><i class="fa fa-flag"></i> Swedish site [se]</a></li>
-                <li><a href="se/datorer.htm"><i class="fa fa-desktop"></i> Computers [se]</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+				<div class="collapse navbar-collapse" id="main-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="travels/"><i class="fa fa-ship"></i> Travels</a></li>
+						<li><a href="walks/"><i class="fa fa-map"></i> Walks</a></li>
+						<!-- <li><a href="photos/"><i class="fa fa-camera"></i> Photos</a></li> -->
+						<li><a href="about_kv.php"><i class="fa fa-info"></i> About</a></li>
+						<li><a href="about_me.php"><i class="fa fa-male"></i> Me</a></li>
+						<li><a href="cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
+						<li class="dropdown">
+						<a href="se/" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-globe"></i> In Swedish
+							<i class="caret"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="se/"><i class="fa fa-flag"></i> Swedish site [se]</a></li>
+							<li><a href="se/datorer.htm"><i class="fa fa-desktop"></i> Computers [se]</a></li>
+						</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 		
 			<!-- <ul class="menulistnext">
@@ -213,7 +214,7 @@
 		</div>
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
-	<script src="./js/jquery-3.4.1.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-3.7.1.min.js"></script>
+  	<script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

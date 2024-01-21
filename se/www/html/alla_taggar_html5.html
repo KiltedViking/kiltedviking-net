@@ -68,13 +68,15 @@
     <div id="columnleft">
       <div class="row">
         <div class="col l6 s12">
-          <p>P&aring; denna hemsida finns en lista med alla taggar i version 5 av
-            HTML-standarden. Listan &auml;r sorterad i bokstavsordning.</p>
+          <h2>Om listan</h2>
+          <p>Alfabetisk lista med alla taggar (element) i version 5 av
+            HTML-standarden, eller snarare den nyare "levande HTML-standarden" som sen
+            2004 hanteras av gruppen WHATWG.</p>
           
-          <p>D&auml;r b&aring;de en &ouml;ppnande och avslutande tagg angivits s&aring; finns b&auml;gge
-            - &ouml;vriga saknar avslutande tagg. Om avslutande tagg inneslutits mellan
+          <p>D&auml;r taggar visas med b&aring;de en &ouml;ppnande och avslutande 
+            tagg s&aring; finns b&auml;gge - &ouml;vriga saknar avslutande tagg. Om avslutande tagg inneslutits mellan
             hakparenteser (&quot;[&quot; och &quot;]&quot;) s&aring; &auml;r den inte
-            obligatorisk. Man b&ouml;r dock anv&auml;nda den f&ouml;r att t.ex. stilmallar ska
+            obligatorisk, men man b&ouml;r dock anv&auml;nda avslutande tagg f&ouml;r att t.ex. stilmallar ska
             fungera korrekt.</p>
 
             <p>De taggar som har &auml;ndrats sen version 4.01 har markerats med:</p>
@@ -89,10 +91,18 @@
         </div>
 
         <div class="col l6 s12">
-          <p>Sk&auml;let till att utg&aring;ende taggar finns med i listan &auml;r att st&ouml;det
-            f&ouml;r dessa taggar finns kvar (f&ouml;r bak&aring;tkompabilitet) och f&ouml;r att kunna se
-            vilka taggar man b&ouml;r ers&auml;ttas med andra.</p>
-          
+          <h2>Referenser</h2>
+          <dl>
+            <dt><a href="https://html.spec.whatwg.org/multipage/indices.html#elements-3" 
+              target="_blank" rel="noopener">Elements</a></dt>
+              <dd>F&ouml;rteckning &ouml;ver element i dokumentet <em>HTML, Living Standard</em>
+              fr&aring;n Web Hypertext Application Technology Working Group (WHATWG).</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
+              target="_blank" rel="noopener">HTML elements reference</a></dt>
+            <dd>F&ouml;rteckning &ouml;ver och f&ouml;rklaringar till alla HTML-taggar 
+              hos Mozilla Developer Network (MDN).
+            </dd>
+          </dl>
           <div class="card-panel">
             <p class="kommentar">Fram&ouml;ver &auml;r det t&auml;nkt att taggar i denna lista
               ska l&auml;nkas till respektive hemsida d&auml;r taggen (eller snarare dess
@@ -129,6 +139,8 @@
       
       <hr />
 
+      <h2>Aktuella taggar</h2>
+
       <table class="striped">
         <tr valign="top">
           <th>Tagg</th>
@@ -151,14 +163,8 @@
         </tr>
         <tr valign="top">
           <td class="kod">&lt;abbr&gt; &lt;/abbr&gt;</td>
-          <td>F&ouml;rkortning - nv&auml;nds f&ouml;r att skapa en popp-upp
-            beskrivning (<abbr title="Read The F*cking Manual">RTFM</abbr>)</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;acronym&gt; &lt;/acronym&gt;</s></td>
-          <td>UTG&Aring;TT: Anv&auml;nds f&ouml;r att skapa en popp-upp
-            beskrivning av akronym/f&ouml;rkortning
-            (<acronym title="Read The F*cking Manual">RTFM</acronym>)</td>
+          <td>F&ouml;rkortning - anv&auml;nds f&ouml;r att visa en f&ouml;rklaring
+            n&auml;r muspekar placeras &ouml;ver element (t.ex. <abbr title="Read The F*cking Manual :-P">RTFM</abbr>)</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;address&gt; &lt;/address&gt;</td>
@@ -166,19 +172,15 @@
             kursiv stil</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;applet&gt; &lt;/applet&gt;</s></td>
-          <td>UTG&Aring;TT: Infogar en Java-applet i hemsidan</td>
-        </tr>
-        <tr valign="top">
           <td class="kod">&lt;area&gt;</td>
           <td>&quot;Hot spot&quot; i en image-map. Anv&auml;nds i kombination med taggen map.</td>
         </tr>
         <tr valign="top">
-          <td class="kod">&lt;article&gt;</td>
+          <td class="kod">&lt;article&gt; &lt;/article&gt;</td>
           <td>NY: Element som kan existera p&aring; egen hand (t.ex. blogginl&auml;gg)</td>
         </tr>
         <tr valign="top">
-          <td class="kod">&lt;aside&gt;</td>
+          <td class="kod">&lt;aside&gt; &lt;/aside&gt;</td>
           <td>NY: Element som existerar vid &quot;sidan av&quot; inneh&aring;llet det finns i</td>
         </tr>
         <tr valign="top">
@@ -198,17 +200,14 @@
             f&ouml;r URL:er i hela webbsidan&nbsp;</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;basefont&gt;</s></td>
-          <td>UTG&Aring;TT: Font f&ouml;r hela dokumentet</td>
+          <td class="kod">&lt;bdi&gt; &lt;/bdi&gt;</td>
+          <td>NY: Anger vilket h&aring;ll (v&auml;nster-h&ouml;ger
+            el. h&ouml;ger-v&auml;nster) text ska skrivas</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;bdo&gt; &lt;/bdo&gt;</td>
           <td>Anger vilket h&aring;ll (v&auml;nster-h&ouml;ger
             el. h&ouml;ger-v&auml;nster) text ska skrivas</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;big&gt; &lt;/big&gt;</s></td>
-          <td>UTG&Aring;TT: Stor text</td>
         </tr>
         <tr valign="top">
           <td class="kod">
@@ -240,10 +239,6 @@
           <td>Rubrik f&ouml;r tabell</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;center&gt; &lt;/center&gt;</s></td>
-          <td>UTG&Aring;TT: Centrerar element</td>
-        </tr>
-        <tr valign="top">
           <td class="kod">&lt;cite&gt; &lt;/cite&gt;</td>
           <td>Kortare citat - ger inget indrag men
             ev. kursiv stil</td>
@@ -257,7 +252,7 @@
           <td>Anv&auml;nds tillsammans med &lt;colgroup&gt;</td>
         </tr>
         <tr valign="top">
-          <td class="kod">&lt;colgroup&gt;</td>
+          <td class="kod">&lt;colgroup&gt; &lt;/colgroup&gt;</td>
           <td>NY: Anger egenskaper f&ouml;r en samling med
             celler i en tabells kolumner&nbsp;</td>
         </tr>
@@ -268,6 +263,10 @@
         </tr>
         <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="d"></a>D</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod">&lt;datal&gt; &lt;/data&gt;</td>
+          <td>NY: F&ouml;r att ange ett v&auml;rde i ett format som kan tolkas av maskiner</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;datalist&gt; &lt;/datalist&gt;</td>
@@ -294,8 +293,8 @@
             stil&nbsp;</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;dir&gt; &lt;/dir&gt;</s></td>
-          <td>UTG&Aring;TT: Lista f&ouml;r korta punkter&nbsp;</td>
+          <td class="kod">&lt;dialog&gt; &lt;/dialog&gt;</td>
+          <td>NY: F&ouml;r specifikation av dialogruta som kan visas med t.ex. JavaScript.</td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del6.html#span_div">&lt;div&gt; &lt;/div&gt;</a></td>
@@ -327,7 +326,7 @@
           <td class="tabellrubrik" colspan="2"><a name="f"></a>F</td>
         </tr>
         <tr valign="top">
-          <td class="kod">&lt;fieldset&gt;</td>
+          <td class="kod">&lt;fieldset&gt; &lt;/fieldset&gt;</td>
           <td>Samlar relaterade kontroller i ett
             formul&auml;r - anv&auml;nds l&auml;mpligen med &lt;legend&gt;&nbsp;</td>
         </tr>
@@ -340,25 +339,12 @@
           <td>NY: Figur</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;font&gt; &lt;/font&gt;</s></td>
-          <td>UTG&Aring;TT: &Auml;ndrar f&auml;rg, storlek och typsnitt
-            f&ouml;r text</td>
-        </tr>
-        <tr valign="top">
           <td class="kod">&lt;footer&gt; &lt;/footer&gt;</td>
           <td>NY: Sidfot f&ouml;r sida</td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del5.html">&lt;form&gt; &lt;/form&gt;</a></td>
           <td>Formul&auml;r</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;frame&gt;</s></td>
-          <td>UTG&Aring;TT: Ram</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;frameset&gt; &lt;/frameset&gt;</s></td>
-          <td>UTG&Aring;TT: Samling med ramar</td>
         </tr>
         <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="h"></a>H</td>
@@ -411,11 +397,6 @@
           <td>Infogad text</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;isindex&gt;</s></td>
-          <td>UTG&Aring;TT: Visa textkontroll som
-            bes&ouml;kare kan fylla i f&ouml;r att t.ex. s&ouml;ka&nbsp;</td>
-        </tr>
-        <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="k"></a>K</td>
         </tr>
         <tr valign="top">
@@ -431,7 +412,7 @@
         </tr>
         <tr valign="top">
           <td class="kod">&lt;label&gt; &lt;/label&gt;</td>
-          <td>&nbsp;</td>
+          <td>Etikett f&ouml;r ett formul&auml;rf&auml;lt</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;legend&gt; &lt;/legend&gt;</td>
@@ -444,14 +425,22 @@
         </tr>
         <tr valign="top">
           <td class="kod">&lt;link&gt; &lt;/link&gt;</td>
-          <td>&nbsp;</td>
+          <td>Koppling till en extern resurs, t.ex. CSS-fil</td>
         </tr>
         <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="m"></a>M</td>
         </tr>
         <tr valign="top">
+          <td class="kod">&lt;main&gt; &lt;/main&gt;</td>
+          <td>NY: Beh&aring;llare (container) f&ouml;r mest relevanta inneh&aring;llet i sida</td>
+        </tr>
+        <tr valign="top">
           <td class="kod">&lt;map&gt; &lt;/map&gt;</td>
-          <td>&nbsp;</td>
+          <td>Specifikation av klickbara ytor i en bild</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod">&lt;math&gt; &lt;/math&gt;</td>
+          <td>NY: Behållare för matematiska formler (se MathML-standard)</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;mark&gt; &lt;/mark&gt;</td>
@@ -475,11 +464,6 @@
         <tr valign="top">
           <td class="kod">&lt;nav&gt; &lt;/nav&gt;</td>
           <td>NY: Sektion f&ouml;r navigering</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;noframes&gt; &lt;/noframes&gt;</s></td>
-          <td>UTG&Aring;TT: Text som visas om webbl&auml;sare inte
-            kan hantera ramar</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;noscript&gt; &lt;/noscript&gt;</td>
@@ -519,6 +503,12 @@
         <tr valign="top">
           <td class="kod">&lt;param&gt;</td>
           <td>Anv&auml;nds tillsammans med &lt;object&gt;</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod">&lt;picture&gt; &lt;/picture&gt;</td>
+          <td>NY: Beh&aring;llare f&ouml;r bildelement (<code>img</code>) 
+            f&auml;r att kunna specificera flera bildk&auml;llor i t.ex. olika uppl&ouml;sning.
+          </td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del2.html#textjustering">&lt;pre&gt; &lt;/pre&gt;</a></td>
@@ -567,12 +557,20 @@
           <a href="../javascript/" class="externallink">JavaScript</a>)</td>
         </tr>
         <tr valign="top">
+          <td class="kod">&lt;search&gt; &lt;/search&gt;</td>
+          <td>NY: Beh&aring;llare f&ouml;r s&ouml;kformul&auml;r</td>
+        </tr>
+        <tr valign="top">
           <td class="kod">&lt;section&gt; &lt;/section&gt;</td>
           <td>NY: Sektion i dokument (t.ex. kapitel, sidhuvud/-fot)</td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del5.html#element">&lt;select&gt; &lt;/select&gt;</a></td>
           <td>List-/komboruta</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod">&lt;slot&gt; &lt;/slot&gt;</td>
+          <td>NY: Beh&aring;llare f&ouml;r infogande av HTML-element i en webbkomponent</td>
         </tr>
         <tr valign="top">
           <td class="kod">&lt;small&gt; &lt;/small&gt;</td>
@@ -586,10 +584,6 @@
           <td class="kod"><a href="del6.html#span_div">&lt;span&gt; &lt;/span&gt;</a></td>
           <td>Anv&auml;nds f&ouml;r att gruppera t.ex. text
           (se &auml;ven &lt;DIV&gt;)</td>
-        </tr>
-        <tr valign="top">
-          <td class="kod"><s>&lt;strike&gt; &lt;/strike&gt;</s></td>
-          <td>UTG&Aring;TT: Genomstruken text</td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del2.html#visuella">&lt;strong&gt; &lt;/strong&gt;</a></td>
@@ -613,6 +607,10 @@
           <td>Upph&ouml;jd text</td>
         </tr>
         <tr valign="top">
+          <td class="kod">&lt;svg&gt; &lt;/svg&gt;</td>
+          <td>NY: Beh&aring;llare f&ouml;r SVG (se SVG-standard)</td>
+        </tr>
+        <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="t"></a>T</td>
         </tr>
         <tr valign="top">
@@ -627,6 +625,10 @@
         <tr valign="top">
           <td class="kod"><a href="del4.html#tabeller">&lt;td&gt; &lt;/td&gt;</a></td>
           <td>Cell i tabell</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod">&lt;template&gt; &lt;/template&gt;</td>
+          <td>NY: För definition av HTML-fragment</td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del5.html#element">&lt;textarea&gt; &lt;/textarea&gt;</a></td>
@@ -658,15 +660,18 @@
           <td>Rad i tabell</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;tt&gt; &lt;/tt&gt;</s></td>
-          <td>UTG&Aring;TT: Text med fast teckenbredd&nbsp;</td>
+          <td class="kod">&lt;track&gt;</td>
+          <td>NY: Koppling till textning av media (<code>audio</code> el. <code>video</code>)</td>
         </tr>
         <tr valign="top">
           <td class="tabellrubrik" colspan="2"><a name="u"></a>U</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;u&gt; &lt;/u&gt;</s></td>
-          <td>UTG&Aring;TT: Understruken text</td>
+          <td class="kod">&lt;u&gt; &lt;/u&gt;</td>
+          <td>&quot;NY&quot;: Oartikulerad anteckning (<em>unarticulated annotation</em>), 
+            t.ex. som med kinesiska namn - anv&auml;ndes tidigare f&ouml;r understykning 
+            av text
+          </td>
         </tr>
         <tr valign="top">
           <td class="kod"><a href="del4.html#listor">&lt;ul&gt; &lt;/ul&gt;</a></td>
@@ -687,21 +692,92 @@
           <td class="tabellrubrik" colspan="2"><a name="w"></a>W</td>
         </tr>
         <tr valign="top">
-          <td class="kod"><s>&lt;wbr&gt;</s></td>
+          <td class="kod">&lt;wbr&gt;</td>
           <td>NY: Avstavning - var det &auml;r OK att avstava i ett ord</td>
         </tr>
+      </table>
+
+      <h2>Taggar som utgått i HTML 5</h2>
+      <p>Taggar nedan har tagits bort fr&aring;n HTML 5, men st&ouml;d kan finnas 
+        kvar i webbl&auml;sare.</p>
+
+      <table>
+        <tr valign="top">
+          <td class="kod"><s>&lt;acronym&gt; &lt;/acronym&gt;</s></td>
+          <td>UTG&Aring;TT: Anv&auml;nds f&ouml;r att skapa en popp-upp
+            beskrivning av akronym/f&ouml;rkortning
+            (<acronym title="Read The F*cking Manual">RTFM</acronym>)</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;applet&gt; &lt;/applet&gt;</s></td>
+          <td>UTG&Aring;TT: Infogar en Java-applet i hemsidan</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;basefont&gt;</s></td>
+          <td>UTG&Aring;TT: Font f&ouml;r hela dokumentet</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;big&gt; &lt;/big&gt;</s></td>
+          <td>UTG&Aring;TT: Stor text</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;center&gt; &lt;/center&gt;</s></td>
+          <td>UTG&Aring;TT: Centrerar element</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;dir&gt; &lt;/dir&gt;</s></td>
+          <td>UTG&Aring;TT: Lista f&ouml;r korta punkter&nbsp;</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;font&gt; &lt;/font&gt;</s></td>
+          <td>UTG&Aring;TT: &Auml;ndrar f&auml;rg, storlek och typsnitt
+            f&ouml;r text</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;frame&gt;</s></td>
+          <td>UTG&Aring;TT: Ram</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;frameset&gt; &lt;/frameset&gt;</s></td>
+          <td>UTG&Aring;TT: Samling med ramar</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;isindex&gt;</s></td>
+          <td>UTG&Aring;TT: Visa textkontroll som
+            bes&ouml;kare kan fylla i f&ouml;r att t.ex. s&ouml;ka&nbsp;</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;noframes&gt; &lt;/noframes&gt;</s></td>
+          <td>UTG&Aring;TT: Text som visas om webbl&auml;sare inte
+            kan hantera ramar</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;strike&gt; &lt;/strike&gt;</s></td>
+          <td>UTG&Aring;TT: Genomstruken text</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;tt&gt; &lt;/tt&gt;</s></td>
+          <td>UTG&Aring;TT: Text med fast teckenbredd&nbsp;</td>
+        </tr>
+        <tr valign="top">
+          <td class="kod"><s>&lt;u&gt; &lt;/u&gt;</s></td>
+          <td>&quot;UTG&Aring;TT&quot;: Understruken text - ska nu anv&auml;ndas f&ouml;r
+            oartikulerad annotering, t.ex. som med kinesiska namn
+          </td>
+        </tr>
+
       </table>
 
       <footer class="page-footer center-align">
         <div class="container">
           <div class="row">
-            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-16.</p>
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2024-01-21.</p>
           </div>
         </div>
       </footer>
     </div>
   </div>
-  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
   <script>
     $(".sidenav").sidenav();

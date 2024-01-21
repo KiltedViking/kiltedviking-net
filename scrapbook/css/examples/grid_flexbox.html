@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid and flexbox</title>
+    <style>
+
+        footer {
+            border-top: solid 1px #800000;
+        }
+
+        footer > p {
+            text-align: center;
+        }
+
+        h1, h2, h3, h4, p, ul {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            background-color: #800000;
+            border-radius: 20px;
+            padding: 1em;
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+            background-color: #800000;
+            border-radius: 10px;
+            padding: .5em;
+            text-align: center;
+        }
+
+        .btn {
+            color: white;
+            background-color: #800000;
+            padding: 1em;
+        }
+
+        /*** Grid *************************************************************/
+        .grid-default {
+            display: grid;
+            border: dotted 1px green;
+        }
+
+        .grid-horisontal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: dotted 1px green;
+        }
+
+        .grid-item {
+            border: solid 1px #800000;
+        }
+
+        /*** Flexbox***********************************************************/
+        .flexbox-default {
+            display: flex;
+            /* justify-content: space-around; */
+            border: dotted 1px green;
+        }
+
+        .flexbox-vertical {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-around; */
+            border: dotted 1px green;
+        }
+
+        .flexbox-item {
+            border: solid 1px #800000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grid and flexbox</h1>
+    </header>
+
+    <section class="section-header">
+        <h2>Introduction</h2>
+        <p>Grids and flexboxes are created by defining a container and items within.</p>
+
+        <p><code>display: grid;</code></p>
+        <p><code>display: flex;</code></p>
+
+        <h2>Default behaviour</h2>
+        <h3>Grid</h3>
+        <p>Grids stack on top of each other by default, but can be made to arrange
+            horisontally too.
+        </p>
+    </section>
+
+    <section class="grid-default">
+        <div class="grid-item"><h4>A grid item</h4></div>
+        <div class="grid-item"><h4>A grid item</h4></div>
+        <div class="grid-item"><h4>A grid item</h4></div>
+    </section>
+
+    <section class="section-header">
+        <h3>Flexbox</h3>
+        <p>Flexboxes arrange horisontally by default.</p>
+    </section>
+
+    <section class="flexbox-default">
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+    </section>
+
+    <section class="section-header">
+        <p>Any block-level element can be placed in a flexbox.</p>
+    </section>
+
+    <section class="flexbox-default">
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <img src="../../../images/avatar.jpg" alt="">
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+    </section>
+
+    <section class="section-header">
+        <h2>Alternative direction</h2>
+        <h3>Grid</h3>
+        <p>Direction of grid can be changed by defining a template for column and example below
+            uses the <code>repeat()</code> function and passing how many times to
+            repeat and what to repeat (fr = fraction).
+        </p>
+        <p><code>grid-template-columns: repeat(3, 1fr);</code></p>
+    </section>
+
+    <section class="grid-horisontal">
+        <div class="grid-item"><h4>A grid item</h4></div>
+        <div class="grid-item"><h4>A grid item</h4></div>
+        <div class="grid-item"><h4>A grid item</h4></div>
+    </section>
+
+    <section class="section-header">
+        <h3>Flexbox</h3>
+        <p>Direction of flexbox can be change by setting direction to column.</p>
+        <p><code>flex-direction: column;</code></p>
+    </section>
+
+    <section class="flexbox-vertical">
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+        <div class="flexbox-item"><h4>A flexbox item</h4></div>
+    </section>
+
+    <section class="section-header">
+        <h2>References</h2>
+    </section>
+
+    <footer>
+        <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-09-10.</p>
+        <p><button class="btn" onclick="window.close()">Close window/tab</button></p>
+    </footer>
+</body>
+</html>

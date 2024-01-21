@@ -1,0 +1,25 @@
+:root {
+    --bs-primary-rgb: 128, 0,0;  /* #800000; */
+    /* Doesn't work */
+    --bs-btn-bg: #800000;
+}
+body {
+    padding-top: 5rem;
+}
+
+nav + header {
+    /* padding-top: 5rem; */
+}
+
+h1 {
+    color: var(--bs-primary-rgb);
+}
+
+main-nav {
+    display: flex;
+    /* background-color: $red-800; */
+}
+
+main-nav>li {
+    text-decoration: none;
+}

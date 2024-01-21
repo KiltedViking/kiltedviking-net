@@ -13,9 +13,11 @@
   --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
 } */
 
-/* body { border: 0; margin: 0; } */
+:root {
+  --bs-navbar-brand-color: white;
+}
+
 header {
-  /* background-image: url("../images/thistle.jpg"); */
   background-position: center;
   background-size: cover;
   display: flex;
@@ -26,7 +28,7 @@ header {
   text-align: center;
 }
 header h1 { letter-spacing: 10px; }
-.nav .fa { font-size: 1.5em; }
+/* .nav .fa { font-size: 1.5em; } */
 header.image-header>h1, header.image-header>h1>small,
 header.image-header>h2 {
   color: #FFD600;  
@@ -55,8 +57,10 @@ header.image-header.image-paradiset-tower { background-image: url("../images/Hud
 header.image-header.image-jacobite-express { background-image: url("../images/JacobiteExpress.jpg"); }
 header.image-header.image-cuillin-mountains { background-image: url("../images/CuillinMountains.jpg"); }
 header.image-header.image-newtonmore { background-image: url("../images/Newtonmore.jpg"); }
+header.image-header.image-ben-vrackie-path { background-image: url("../images/ben-vrackie-path.jpg"); }
 .row .h3-padding { margin-top: 20px !important; }
-a, a:hover, a:visited { color: #B71C1C; }
+/* a, a:hover, a:visited { color: #B71C1C; } */
+
 footer {
   border-top: 1px solid gray;
   text-align: center;

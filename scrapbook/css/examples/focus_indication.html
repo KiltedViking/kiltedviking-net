@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus indication</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /*** If element has focus *********************************************/
+        :focus {
+            background-color: pink;
+            /* Use outline instead of bordet to avoid adding to width and height */
+            outline: auto;
+        }
+
+        /*** If an element within current element has focus *******************/
+        .input-focus-within:focus-within {
+            outline: red solid 1px;
+            background-color: pink;
+        }
+
+        /* Show if focus from keyboard but not mouse click, and some more... ;-) */
+        :focus-visible {
+            /* TODO: Make a better example! */
+            outline: red solid 1px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Focus indication</h1>
+        <p></p>
+    </header>
+
+    <section class="form-focus">
+        <h2><code>:focus</code></h2>
+        <p>If element has focus.</p>
+
+        <form action="#">
+            <div class="input-focus">
+                <label for="username1">Username</label>
+                <input type="text" name="username1" id="username1">
+            </div>
+
+            <div class="input-focus">
+                <label for="password1">Password</label>
+                <input type="password" name="password1" id="password1">
+            </div>
+
+            <button type="button">Log in</button>
+        </form>
+    </section>
+
+    <section class="form-focus-within">
+        <h2><code>:focus-within</code></h2>
+        <p>If element within has focus, like <code>input</code> element within <code>div</code>.</p>
+        <form action="#">
+            <div class="input-focus-within">
+                <label for="username2">Username</label>
+                <input type="text" name="username2" id="username2">
+            </div>
+
+            <div class="input-focus-within">
+                <label for="password2">Password</label>
+                <input type="password" name="password2" id="password2">
+            </div>
+
+            <button type="button">Log in</button>
+        </form>
+    </section>
+
+    <section class="form-focus-visible">
+        <h2><code>:focus-visible</code></h2>
+        <p>Show focus when using keyboard to navigate but not mouse click, and other
+            occations, as defined in browser.
+        </p>
+
+        <form action="#">
+            <div class="input-focus-visible">
+                <label for="username3">Username</label>
+                <input type="text" name="username3" id="username3">
+            </div>
+
+            <div class="input-focus-visible">
+                <label for="password3">Password</label>
+                <input type="password" name="password3" id="password3">
+            </div>
+
+            <button type="button">Log in</button>
+        </form>
+    </section>
+</body>
+</html>

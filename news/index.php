@@ -55,7 +55,7 @@
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="nav navbar-nav">
             <li><a href="../travels/"><i class="fa fa-ship"></i> Travels</a></li>
-            <!-- <li class="active"><a href="photos/"><i class="fa fa-camera"></i> Photos</a></li> -->
+            <li><a href="../walks/"><i class="fa fa-map"></i> Walks</a></li>
             <li><a href="../about_kv.php"><i class="fa fa-info"></i> About</a></li>
             <li><a href="../about_me.php"><i class="fa fa-male"></i> Me</a></li>
             <li><a href="../cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
@@ -237,7 +237,7 @@ else
     </div>
   </div>
   <!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
-  <script src="../js/jquery-3.1.1.min.js"></script>
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

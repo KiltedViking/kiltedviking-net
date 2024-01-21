@@ -351,38 +351,84 @@
           </div>
 
           <div class="col-sm-6">
-            <h5>Frameworks, libraries and tools for web</h5>
+            <h5>CSS frameworks</h5>
             <ul>
-              <li>AngularJS [1.x]/(Angular [2+])</li>
-              <li>Backbone</li>
               <li>Bootstrap [3+]</li>
-              <li>Bower</li>
-              <li>EmberJS</li>
+              <li>(Bulma)</li>
               <li>Foundation</li>
-              <li>Grunt</li>
-              <li>Gulp</li>
+              <li>Materialize</li>
+              <lI>Milligram</lI>
+              <lI>(MUI CSS)</lI>
+              <li>(Paper CSS)</li>
+              <li>(Picnic)</li>
+              <li>Primer CSS</li>
+              <li>(Pure CSS)</li>
+              <li>Semantic UI</li>
+              <li>Skeleton CSS</li>
+              <li>(Tachyons)</li>
+              <li>(Tailwind)</li>
+              <li>UIkit</li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6">
+            <h5>JS frameworks and libraries</h5>
+            <ul>
+              <li>AngularJS [1.x]/Angular [2+]</li>
+              <li>Aurelia</li>
+              <li>Backbone.js</li>
+              <li>Dojo Toolkit</li>
+              <li>Ember.js</li>
+              <li>Express</li>
               <li>Handlebars</li>
-              <li>Homebrew</li>
               <li>jQuery/jQuery UI</li>
               <li>KnockoutJS</li>
-              <li>npm</li>
-              <li>Semantic UI</li>
-              <li>Webpack</li>
-              <li>Yarn</li>
+              <li>Lodash</li>
+              <li>Meteor</li>
+              <li>Mustache</li>
+              <li>Next.js</li>
+              <li>Node.js</li>
+              <li>Nuxt.js</li>
+              <li>Prototype</li>
+              <li>React</li>
+              <li>(Svelte)</li>
+              <li>Underscore</li>
+              <li>Vue.js</li>
               <li>YUI</li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6">
+            <h5>Tools for web development</h5>
+            <ul>
+              <li>Babel</li>
+              <li>Bower</li>
+              <li>Browserify</li>
+              <li>Chocolatey</li>
+              <li>ESLint</li>
+              <li>Grunt</li>
+              <li>Gulp</li>
+              <li>Homebrew</li>
+              <li>npm</li>
+              <li>PowerShell</li>
+              <li>Webpack</li>
+              <li>winget</li>
+              <li>Yarn</li>
             </ul>
           </div>
 
           <div class="col-sm-6">
             <h5>Other technologies</h5>
             <ul>
-              <li>.NET [1.x - 4.0]</li>
+              <li>.NET/.NET Core</li>
               <li>AJAX</li>
               <li>Apache</li>
               <li>ASP [3.0]</li>
+              <li>ASP.NET/ASP.NET Core</li>
               <li>COM/DCOM/COM+</li>
               <li>CSS</li>
               <li>DOM</li>
+              <li>Entity Framework (EF)</li>
               <li>Git</li>
               <li>HTML/XHTML</li>
               <li>IIS</li>

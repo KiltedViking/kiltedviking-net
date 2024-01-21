@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image reset - Kilted Viking's Scrapbook</title>
+    <style>
+        body { font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reset-basic {
+            display: block;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .reset-better {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;         /* Instead of display: block; */
+            font-style: italic;         /* Set alt text apart from text aroung */
+            background-repeat: no-repeat;   /* To handle low res version */
+            background-size: cover;         /* To handle low res version */
+            shape-margin: .75rem;           /* Should image be floated */
+        }
+
+        .text-center { text-align: center; }
+    </style>
+
+    <!-- Preload low res version of images to display while original image loads -->
+    <link rel="preload" as="image" href="../../../images/tyresta-lowres.jpg" fetchpriority="high" />
+</head>
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="column">
+                <h1>Image reset</h1>
+                <p>Example showing how to do &quot;image resets&quot; created while
+                    watching Kevin Powell's YouTube video &quot;A better image reset
+                    for you CSS&quot;.
+                </p>
+            </div>
+        </header>
+
+        <section class="row">
+            <div class="column">
+                <h2>Basic image reset</h2>
+                <p></p>
+            </div>
+        </section>
+    </div>
+
+    <img src="../../../images/60007-Sir-Nigel-Gresley.jpg" 
+        height="1285" width="1920"
+        alt="Steam engine 60 007 Sir Nigel Gresley" />
+    
+    <div class="container">
+        <section class="row">
+            <div class="column">
+                <h2>A better image reset (?)</h2>
+                <p>TO DO: Resize image (as it displays outside page...)</p>
+
+                <img src="../../../images/tyresta.jpg" 
+                    style="background-image: url(../../../images/tyresta-lowres.jpg)"
+                    height="1285" width="1920"
+                    alt="Steam engine 60 007 Sir Nigel Gresley" />
+            </div>
+        </section>
+
+        <footer class="row text-center">
+            <div class="column">
+                <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-11-11.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

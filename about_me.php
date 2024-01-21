@@ -15,10 +15,10 @@
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="About Kilted Viking, the person" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://kiltedviking.net/" />
+	<meta property="og:url" content="https://kiltedviking.net/about_me.php" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 
-	<link rel="canonical" href="https://kiltedviking.net/" />
+	<link rel="canonical" href="https://kiltedviking.net/about_me.php" />
 	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <title>About me (Kilted Viking)</title>
   <link rel="shortcut icon" href="favicon.ico" />
@@ -182,7 +182,7 @@
 		</div>
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
-	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

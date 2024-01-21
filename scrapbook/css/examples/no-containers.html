@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No containers - Kilted Viking's Scrapbook</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /*** Layout classes ***************************************************/
+        .content-grid, 
+        .full-width {
+            --padding-inline: 2rem;
+            --content-max-width: 70ch;
+            --breakout-max-width: 85ch;
+
+            --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+            display: grid;
+            /* grid-template-columns: 1fr [content-start] 1fr [content-end] 1fr; */
+            grid-template-columns: 
+                [full-width-start] minmax(var(--padding-inline), 1fr)
+                [breakout-start] minmax(0, var(--breakout-size))
+                [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] 
+                minmax(0, var(--breakout-size)) [breakout-end] 
+                minmax(var(--padding-inline), 1fr) [full-width-end];
+        }
+
+        /* .content-grid > *, 
+        .full-width > * {
+            grid-column: content;
+        } */
+
+        .content-grid > :not(.breakout, .full-width), 
+        .full-width > :not(.breakout, .full-width) {
+            grid-column: content;
+        }
+
+        .content-grid > .breakout {
+            grid-column: breakout;
+        }
+
+        .content-grid > .full-width {
+            grid-column: full-width;
+        }
+
+        /*** Design classes ***************************************************/
+        .primary-section {
+            background-color: #800000;
+            color: white;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="flow content-grid">
+        <h1>No containers</h1>
+        <p>An example developed while watching Kevin Powell's YouTube video &quot; A
+            new approach to container and wrapper classes&quot;.
+        </p>
+    </header>
+
+    <main class="flow content-grid">
+        <section>
+            <h2>A content section</h2>
+            <p>Some text</p>
+        </section>
+        <section class="breakout">
+            <h2>A breakout section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ut repellat cupiditate consequatur tempore sequi aperiam libero quod repellendus facere mollitia provident esse vel molestias architecto ipsum asperiores rerum in cumque, perspiciatis animi sed. Pariatur alias ullam quaerat voluptas commodi.</p>
+        </section>
+        <section class="primary-section">
+            <h2>Another content section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt est odio debitis iure esse cum dicta praesentium minima ut laborum, exercitationem fugiat dignissimos repellendus harum ipsa rem tempore! Odio, assumenda saepe quasi modi inventore ut dolor rem temporibus aspernatur sit ipsum sint recusandae tempora ratione aliquam libero sapiente porro molestiae quidem, provident voluptatibus voluptates. Vero quibusdam natus quos officiis! Doloribus soluta sed esse itaque natus vel beatae molestiae? Nemo, debitis saepe magnam tempore doloremque aspernatur repellendus eos ut nostrum vitae quos totam error in eveniet enim eius officiis consectetur ex sint nulla sapiente inventore quia et voluptatum. Illo, veritatis totam?</p>
+        </section>
+        <p>A paragraph without any class or section.</p>
+        <section class="full-width primary-section">
+            <h2>A full width section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae non, quibusdam laudantium amet aut incidunt autem quos molestias ipsam quod nisi velit, fuga nostrum aperiam voluptates magni ut minus mollitia quae. Incidunt quasi impedit maiores iure vitae voluptates, reiciendis non. Consequatur vero nobis quidem porro, neque perferendis aspernatur amet quo mollitia odio labore debitis eveniet, et, nam vitae illum. Ab quia similique non tenetur nihil saepe dicta minima voluptates unde atque, commodi sit aperiam voluptate? Perferendis magni accusantium rerum tenetur numquam id, enim ullam, vero dolorem facere quo minus ea omnis? Facilis quas assumenda fuga, quis tenetur amet. Minima, quasi.</p>
+        </section>
+    </main>
+</body>
+</html>

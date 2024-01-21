@@ -1,6 +1,8 @@
 #Exclude database connection - see EXAMPLE file for content
 /db_kiltedviking.php
+/db_test.php
 /news/item*.php
+/walks/item*.php
 
 #Exclude Bing and Google verification file
 BingSiteAuth.xml
@@ -16,16 +18,33 @@ BingSiteAuth.xml
 /travels/RoadTrip2004Jul/*/*.JPG
 /travels/Scotland2006/*.JPG
 /travels/Scotland2007/*.JPG
+/travels/Scotland2019/*.JPG
 /travels/Urkult2005Aug/*.JPG
 /travels/Urkult2006Aug/*.JPG
 /travels/Urkult2007/*.JPG
 
 #Exclude source code for CSS libraries
+css/bootstrap*.*
+css/bootstrap5/*
+css/fonts/*
+css/font-awe*.*
+css/ekko*.*
+css/jquery*.*
+fonts
+images/bootstrap-icons-1.11.1
+js/bootstrap5/*
+js/jquery-*.*
 se/www/css/pure-release-1.0.1
 se/www/css/semantic-ui
-
+se/www/css/bootstrap*.*
+se/www/css/bootstrap4
+se/www/css/bootstrap5
 #Exclude YUI library's source code (minified version included from js folder)
+/se/www/js/bootstrap4
+/se/www/js/bootstrap5
 /se/www/js/yui/*
+/se/www/js/jquery*.*
+/se/www/js/npm.js
 
 # Exclude OS generated files
 .DS_Store
@@ -33,8 +52,12 @@ se/www/css/semantic-ui
 ._*
 .Spotlight-V100
 .Trashes
+.vscode
 ehthumbs.db
 Thumbs.db
+
+# Exclude IDE tools add-on files
+localhost*session.sql
 
 # Exclude binary files
 *.com
@@ -43,3 +66,4 @@ Thumbs.db
 *.exe
 *.o
 *.so
+
