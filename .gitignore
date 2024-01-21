@@ -18,6 +18,8 @@ BingSiteAuth.xml
 /travels/RoadTrip2004Jul/*/*.JPG
 /travels/Scotland2006/*.JPG
 /travels/Scotland2007/*.JPG
+/travels/Scotland2012/*.jpg
+/travels/Scotland2013/*.jpg
 /travels/Scotland2019/*.JPG
 /travels/Urkult2005Aug/*.JPG
 /travels/Urkult2006Aug/*.JPG
@@ -25,14 +27,16 @@ BingSiteAuth.xml
 
 #Exclude source code for CSS libraries
 css/bootstrap*.*
-css/bootstrap5/*
+css/bootstrap5
+css/ekko*.*
 css/fonts/*
 css/font-awe*.*
-css/ekko*.*
 css/jquery*.*
 fonts
 images/bootstrap-icons-1.11.1
+js/bootstrap*.*
 js/bootstrap5/*
+js/ekko*.*
 js/jquery-*.*
 se/www/css/pure-release-1.0.1
 se/www/css/semantic-ui
