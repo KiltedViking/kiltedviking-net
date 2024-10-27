@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/se/datorer.html" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/se/datorer.html" />
-	<link rel="preload" href="../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <title>Datorer (Kilted Viking)</title>
   <link rel="shortcut icon" href="../favicon.ico" />
-	<link href="../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/kiltedviking5.css" />
 </head>
 <body>
 	<header class="image-header image-visby">
@@ -32,38 +31,35 @@
 	</header>
   <div class="container">
     <!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<!-- Button for when menu collapses -->
-					<button type="button" class="navbar-toggle collapsed" 
-						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-						<!-- Add accessibility things -->
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="./">Hem</a>
-				</div>
+        <a class="navbar-brand" href="./">Hem</a>
+        <!-- Button for when menu collapses -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="./datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
-						<li><a href="./tips/"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
-						<li><a href="./google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
-						<li><a href="./om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
-						<li><a href="../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active" href="./datorer.html"><i class="bi bi-display"></i> Datorer</a></li>
+						<li class="nav-item"><a class="nav-link" href="./tips/"><i class="bi bi-pencil"></i> Webbutvecklingstips</a></li>
+						<li class="nav-item"><a class="nav-link" href="./google-tech/"><i class="bi bi-google"></i> Google-teknologier</a></li>
+						<li class="nav-item"><a class="nav-link" href="./om_mig.html"><i class="bi bi-person-standing"></i> Om mig</a></li>
+						<li class="nav-item"><a class="nav-link" href="../cv/"><i class="bi bi-mortarboard"></i> CV [en]</a></li>
 
-						<li class="dropdown">
-							<a href="../" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-globe"></i> In English
-								<i class="caret"></i>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+                data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="bi bi-globe"></i> In English
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
-								<li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
-								<li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
-								<li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+								<li><a class="dropdown-item" href="../"><i class="bi bi-flag"></i> Start [en]</a></li>
+								<li><a class="dropdown-item" href="../travels/"><i class="bi bi-backpack2"></i> Travels [en]</a></li>
+								<li><a class="dropdown-item" href="../walks/"><i class="bi bi-map"></i> Walks [en]</a></li>
+								<li><a class="dropdown-item" href="../about_kv.php"><i class="bi bi-info-square"></i> About [en]</a></li>
+								<li><a class="dropdown-item" href="../about_me.php"><i class="bi bi-person-standing"></i> Me [en]</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -73,8 +69,8 @@
     
     <!-- *** Contents row ************************************************* -->
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
-        <h3>Introduktion</h3>
+			<div class="col-md-6 offset-md-2">
+        <h3 class="mt-4">Introduktion</h3>
 
         <p>H&auml;r sammanfattar jag lite av mina kunskaper och erfarenheter f&ouml;r att kunna 
           &aring;terv&auml;nda till n&auml;r jag beh&ouml;ver en uppfriskning. (Jag har 
@@ -83,20 +79,23 @@
           &quot;min studiewebb&quot; och sammanfattningar, vilka uppdateras
           lite d&aring; och d&aring;.</p>
 
-        <h3>Mitt material</h3>
+        <h3 class="mt-4">Mitt material</h3>
         <h4>Min studiewebb</h4>
         
         <p>Ett projekt om webbteknologier (bl.a. HTML, CSS och JavaScript) som utvecklades
           som en inl&auml;mningsuppgift p&aring; en kurs jag l&auml;ste &aring;r 2000. Projektet
           har fortsatts att utvecklas efter kursens slut (med bl.a. till&auml;gg
-          av JSP/servlets och PHP).<br />
-          <span class="instructions">[&Ouml;ppnas i ett nytt f&ouml;nster och kan laddas ner f&ouml;r
-          att anv&auml;ndas hemma (utan webbserver).]</span></p>
+          av JSP/servlets och PHP).</p>
 
-        <h4>Sammanfattningar</h4>
+        <div class="text-center">
+          <a class="btn btn-primary text-center" href="www/" target="_blank">Öppna <i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+
+        <h4 class="mt-4">Sammanfattningar</h4>
 
         <div class="alert alert-warning text-center">
-          <b>Observera</b> att dessa är något daterade just nu...</div>
+          <b>Observera</b> att dessa är något daterade just nu...
+        </div>
         
         <p>Sammanfattningar jag skrivit f&ouml;r att sammanfatta f&ouml;r mig sj&auml;lv 
           och f&ouml;r att hj&auml;lpa
@@ -104,16 +103,29 @@
           behandlar bl.a. J2EE, .NET, ASP.NET samt &auml;ven installation
           av diverse mjukvara som beh&ouml;vs/kan beh&ouml;vas f&ouml;r att utveckla
           applikationer med sammanfattade teknologier.</p>
+
+        <div class="text-center">
+          <a class="btn btn-primary" href="sammanfattningar/">Öppna</a>
+        </div>
         
-        <h4>Webbutvecklingstips</h4>
-        <p>På dessa sidor beskriver några tips jag testat själv.</p>
+        <h4 class="mt-4">Webbutvecklingstips</h4>
+        <p>På dessa sidor beskriver några tips jag testat själv och saker jag dokumenterat
+          när de behövs igen.</p>
+
+        <div class="text-center">
+          <a class="btn btn-primary" href="tips/">Öppna</a>
+        </div>
 
         <h4>Google-teknologier</h4>
         <p>På dessa sidor beskriver jag några av de Google-verktyg och -tjänster
           jag tittat på.
         </p>
 
-        <h3>Meriter</h3>
+        <div class="text-center">
+          <a class="btn btn-primary" href="google-tech/">Öppna</a>
+        </div>
+
+        <h3 class="mt-4">Meriter</h3>
         
         <p>Jag b&ouml;rjade min karri&auml;r inom datorv&auml;rlden som CoSysOp p&aring;
           en BBS (som v&auml;xte till 6 telefonlinjer och ett antal CD-ROM-v&auml;xlare).
@@ -127,27 +139,24 @@
           programmering och databaser till webbaserad programmering och
           komponentbaserad programmering. Som datatekniker installerade jag och underh&ouml;ll 
           datorer samt agerade anv&auml;ndarst&ouml;d f&ouml;r b&aring;de personal och studenter.
-          Jag installerade &auml;ven servrar samt underh&ouml;ll och utvecklade en institutions 
+          Jag installerade &auml;ven servrar samt underh&ouml;ll och utvecklade institutionens 
           webbplats.</p>
 
-        <p class="instructions">I m&aring;n av tid svarar jag g&auml;rna p&aring; fr&aring;gor
-          (studera helst mitt material f&ouml;rst) och min e-postadress hittar
-          ni p&aring; webbplatsens startsida (&quot;Hem&quot;) - ers&auml;tt &quot;(at)&quot;
-          med &quot;@&quot; och ta bort &quot;.nospam&quot; p&aring; slutet. Synpunkter
-          om material, som bara kan g&ouml;ra materialet b&auml;ttre, tas &auml;ven tacksamt
-          emot via e-post. :-)</p>
+        <p>Den senaste tiden har jag utvecklat och underhållit ett antal webbplats
+          och -applikationer samt agerat resurs för webbredaktörer.
+        </p>
       </div>
 
       <!-- *** News column ***************************************************** -->
-      <aside class="col-sm-2 col-sm-offset-0">
+      <aside class="col-md-2 col-sm-offset-0">
         <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
               <span itemprop="name">Hem</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span itemprop="name">Datorer</span>
             <meta itemprop="position" content="2" />
           </li>
@@ -157,7 +166,7 @@
         <nav>
           <ul>
             <li><a href="sammanfattningar/">Sammanfattningar</a></li>
-            <li><a href="www/" target="_blank">Min studiewebb</a> <i class="fa fa-external-link"></i></li>
+            <li><a href="www/" target="_blank">Min studiewebb <i class="bi bi-box-arrow-up-right"></i></a></li>
             <li><a href="tips/">Webbutcklingstips</a></li>
             <li><a href="google-tech/">Google-teknologier</a></li>
           </ul>
@@ -167,10 +176,10 @@
 
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-md-12 text-center">
 				<footer>
           <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. 
-            <b>Sist uppdaterad:</b> 2023-08-19.</p>
+            <b>Sist uppdaterad:</b> 2024-10-27.</p>
             <p><b>Foto:</b> Visbys ringmur.</p>
         </footer>
       </div>
@@ -178,6 +187,6 @@
   </div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="../js/jquery-3.7.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

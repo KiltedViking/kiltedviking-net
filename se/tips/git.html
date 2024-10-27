@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/se/tips/git.html" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/se/tips/git.html" />
-	<link rel="preload" href="../../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <link rel="shortcut icon" href="../favicon.ico" />
   <title>Webbutveckingstips: Git - Kilted Viking</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../../css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../css/kiltedviking5.css" />
 </head>
 <body>
 	<header class="image-header image-ben-vrackie">
@@ -32,38 +31,35 @@
 	</header>
 	<div class="container">
     <!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<!-- Button for when menu collapses -->
-					<button type="button" class="navbar-toggle collapsed" 
-						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-						<!-- Add accessibility things -->
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../">Hem</a>
-				</div>
+        <a class="navbar-brand" href="../">Hem</a>
+        <!-- Button for when menu collapses -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="nav navbar-nav">
-						<li><a href="../datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
-						<li class="active"><a href="./"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
-						<li><a href="../google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
-						<li><a href="../om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
-						<li><a href="../../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="../datorer.html"><i class="bi bi-display fs-4"></i> Datorer</a></li>
+						<li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-pencil fs-4"></i> Webbutvecklingstips</a></li>
+						<li class="nav-item"><a class="nav-link" href="../google-tech/"><i class="bi bi-google fs-4"></i> Google-teknologier</a></li>
+						<li class="nav-item"><a class="nav-link" href="../om_mig.html"><i class="bi bi-person-standing fs-4"></i> Om mig</a></li>
+						<li class="nav-item"><a class="nav-link" href="../../cv/"><i class="bi bi-mortarboard fs-4"></i> CV [en]</a></li>
 
-						<li class="dropdown">
-							<a href="../../" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-globe"></i> In English
-								<i class="caret"></i>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-globe fs-4"></i> In English
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
-								<li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
-								<li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
-								<li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+								<li><a class="dropdown-item" href="../"><i class="bi bi-flag fs-4"></i> Start [en]</a></li>
+								<li><a class="dropdown-item" href="../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels [en]</a></li>
+								<li><a class="dropdown-item" href="../travels/"><i class="bi bi-map fs-4"></i> Walks [en]</a></li>
+								<li><a class="dropdown-item" href="../about_kv.php"><i class="bi bi-info-square fs-4"></i> About [en]</a></li>
+								<li><a class="dropdown-item" href="../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me [en]</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -73,8 +69,8 @@
 	
     <!-- *** Contents column ************************************************* -->
     <div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
-        <h3>Inledning</h3>
+			<div class="col-md-6 offset-md-2">
+        <h3 class="mt-4">Inledning</h3>
         <p>Git är en tjänst för att skapa bibliotek (<i>repository</i>) som hanterar versioner
           av kod och för att distribuera kod till andra. En fördel med Git, jämfört med andra
           tjänster, är att man kan skapa en gren/kopia (<i>branch</i>) på kod för utveckling
@@ -94,19 +90,19 @@
       
       <div class="col-sm-3 col-sm-offset-0">
         <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
               <span itemprop="name">Hem</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
               <span itemprop="name">Webbutvecklingstips</span>
             </a>
             <meta itemprop="position" content="2" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span itemprop="name">Git</span>
             <meta itemprop="position" content="3" />
           </li>
@@ -121,8 +117,8 @@
         </ul>
       </div>
 
-      <div class="col-sm-6 col-sm-offset-2">
-        <h3 id="skapa-lokalt">Skapa nytt bibliotek lokalt</h3>
+      <div class="col-md-6 offset-md-2">
+        <h3 class="mt-4" id="skapa-lokalt">Skapa nytt bibliotek lokalt</h3>
         <p>Detta sätt att skapa bibliotek kan användas för redan existerande projekt
           som man önskar lägga till i Git-tjänst.
         </p>
@@ -133,7 +129,7 @@
           <li>Registera bibliotek hos leverantör (<i>remote add</i>).</li>
         </ul>
 
-        <h4>Initiera bibliotek</h4>
+        <h4 class="mt-4">Initiera bibliotek</h4>
         <p>När bibliotek initieras så skapas en mapp <code>.git</code>.</p>
 
         <pre><code>git init</code></pre>
@@ -142,7 +138,7 @@
           till egen dator.
         </p>
 
-        <h4>Skapa filen <code>.gitignore</code></h4>
+        <h4 class="mt-4">Skapa filen <code>.gitignore</code></h4>
         <p>Filer som innehåller känslig information, så som användarnamn och lösenord,
           bör inte läggas till i bibliotek och för undvika detta så kan man använda
           en fil med namnet <code>.gitignore</code> (fil med &quot;bara filändelse&quot;
@@ -150,7 +146,7 @@
           en vanlig textfil med namnet <code>.gitignore</code>.
         </p>
 
-        (Mappen <code>.git</code> behöver <b>inte</b> läggas till i <code>.gitignore</code>.)
+        <p>(Mappen <code>.git</code> behöver <b>inte</b> läggas till i <code>.gitignore</code>.)</p>
 
         <h5>Exempel</h5>
         <p>I exempel nedan så ignoreras PHP-fil med datbasanslutning samt filer som
@@ -196,7 +192,7 @@ BingSiteAuth.xml
           man hela tiden måste ange namn på Git-tjänst [oftast <i>origin</i>] med
           diverse kommando.)</p>
 
-        <h3 id="klona">Klona existerande bibliotek</h3>
+        <h3 class="mt-4" id="klona">Klona existerande bibliotek</h3>
         <p>Om bibliotek redan existerar i Git-tjänst så kan man klona (<i>clone</i>)
           bibliteket till egen dator. I samband med kloningen så registeras samtidigt
           bibliotek i Git-tjänst i det lokala biblioteket.
@@ -212,7 +208,7 @@ BingSiteAuth.xml
 
         <pre><code>git clone https://&lt;url&gt;/repo.git</code></pre>
 
-        <h3>Jobba med lokalt bibliotek</h3>
+        <h3 class="mt-4">Jobba med lokalt bibliotek</h3>
         <p>Efter att bibliotek etablerats lokalt så består fortsatt arbete i de tre 
           uppgifterna nedan.
         </p>
@@ -269,14 +265,12 @@ BingSiteAuth.xml
           (<i>untracked</i>).
         </p>
 
-        <p></p>
-
-        <h3 id="alternativ">Alternativ till Git</h3>
+        <h3 class="mt-4" id="alternativ">Alternativ till Git</h3>
         <p>Exempel på andra typer av kodbibliotek är Subversion (SVN) och Microsofts Team
           Foundation Server (TFS).
         </p>
 
-        <h3 id="tips">Tips</h3>
+        <h3 class="mt-4" id="tips">Tips</h3>
         <p>I detta avsnitt så tar jag upp några tips på några mindre vanliga åtgärder
           som jag har haft användning för. (ATT GÖRA: Flytta till egen sida?)</p>
 
@@ -287,7 +281,6 @@ BingSiteAuth.xml
         </p>
 
         <pre><code>git reset --mixed</code></pre>
-
 			</div>
 
 			<!-- *** News column ***************************************************** -->
@@ -315,16 +308,16 @@ BingSiteAuth.xml
 	
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-md-12 text-center">
 				<footer>
-					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 2020-03-21.</p>
-						<p><b>Foto:</b> Stig till Ben Vrackie, Pitlochry, Skottland.</p>
+					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 2024-10-27.</p>
+          <p><b>Foto:</b> Stig till Ben Vrackie, Pitlochry, Skottland.</p>
 				</footer>
 			</div>
 		</div>
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="../../js/jquery-3.7.1.min.js"></script>
-	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>
