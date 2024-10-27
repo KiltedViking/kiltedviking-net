@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walks by Kilted Viking</title>
-    <link href="../css/bootstrap5/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/bootstrap-icons.min.css">
-	<link href="/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../css/kiltedviking5.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/kiltedviking5.css" />
 </head>
 <body>
     <header class="image-header image-ben-vrackie-path">
@@ -16,7 +15,6 @@
     </header>
 
 <div class="container">
-    
     <!-- Menubar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
         <div class="container-fluid">
@@ -29,19 +27,18 @@
 
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item"><a href="/travels/" class="nav-link"><i class="fa fa-ship fs-4"></i> Travels</a></li>
-                    <li class="nav-item"><a href="/walks/" class="nav-link"><i class="fa fa-map fs-4"></i> Walks</a></li>
-                    <li class="nav-item"><a href="/about_kv.php" class="nav-link"><i class="fa fa-info fs-4"></i> About</a></li>
-                    <li class="nav-item"><a href="/about_me.php" class="nav-link"><i class="fa fa-male fs-4"></i> Me</a></li>
-                    <li class="nav-item"><a href="/cv/" class="nav-link"><i class="fa fa-mortar-board fs-4"></i> CV</a></li>
+                    <li class="nav-item"><a href="/travels/" class="nav-link"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
+                    <li class="nav-item"><a href="/walks/" class="nav-link active"><i class="bi bi-map fs-4"></i> Walks</a></li>
+                    <li class="nav-item"><a href="/about_kv.php" class="nav-link"><i class="bi bi-info-square fs-4"></i> About</a></li>
+                    <li class="nav-item"><a href="/about_me.php" class="nav-link"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+                    <li class="nav-item"><a href="/cv/" class="nav-link"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
                     <li class="nav-item dropdown">
                         <a href="/se/" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-globe fs-4"></i> In Swedish
-                            <i class="caret"></i>
+                            <i class="bi bi-globe fs-4"></i> In Swedish
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/se/" class="dropdown-item"><i class="fa fa-flag fs-4"></i> Swedish site [se]</a></li>
-                            <li><a href="/se/datorer.htm" class="dropdown-item"><i class="fa fa-desktop fs-4"></i> Computers [se]</a></li>
+                            <li><a href="/se/" class="dropdown-item"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
+                            <li><a href="/se/datorer.htm" class="dropdown-item"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -51,24 +48,26 @@
 
         <section class="row">
             <div class="col-lg-12">
-                <h2>Introduction</h2>
+                <h3>Introduction</h3>
             </div>
             <div class="col-lg-6">
                 <p class="lead">I spend a bit of time walking for exercise and I 
                     enjoy varying were I walk to keep me motivated and 
-                    to enjoy new views.
+                    to enjoy new views. Below are information about short walks
+                    I've taken.
                 </p>
             </div>
             <div class="col-lg-6">
                 <p>I use photos, videos, handhelp navigator and mobile phone for
                     information about &quot;when, what and how&quot; my walks were 
                     taken, and this page was created to help me keep track of where 
-                    I've been and help me locate my photos, but also hoping others 
+                    I've been and help me locate my photos and videos, but also hoping others 
                     might find some inspiration.
                 </p>
             </div>
+            <!-- *** List of walks ***************************************** -->
             <div class="col-lg-12">
-                <h2>Walks</h2>
+                <h3>Walks</h3>
             </div>
         </section>
 <?php
@@ -99,7 +98,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3><?=$arr['place']?></h3>
+                        <h4><?=$arr['place']?></h4>
                     </div>
                     <div class="card-body">
                         <div class="row">

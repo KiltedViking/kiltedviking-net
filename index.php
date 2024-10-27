@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/" />
-	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
 	<title>Kilted Viking</title>
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link href="/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="/css/kiltedviking5.css" />
 	<!-- schema.org data -->
 	<script type="application/ld+json">
 	{
@@ -66,36 +65,32 @@
 	</header>
 	<div class="container">
 		<!-- Menubar -->
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<!-- Button for when menu collapses -->
-					<button type="button" class="navbar-toggle collapsed" 
-						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-						<!-- Add accessibility things -->
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand active" href="./">Home</a>
-				</div>
+				<a class="navbar-brand" href="./">Home</a>
+				<!-- Button for when menu collapses -->
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          			aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="nav navbar-nav">
-						<li><a href="travels/"><i class="fa fa-ship"></i> Travels</a></li>
-						<li><a href="walks/"><i class="fa fa-map"></i> Walks</a></li>
-						<li><a href="about_kv.php"><i class="fa fa-info"></i> About</a></li>
-						<li><a href="about_me.php"><i class="fa fa-male"></i> Me</a></li>
-						<li><a href="cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
-						<li class="dropdown">
-						<a href="se/" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-globe"></i> In Swedish
-							<i class="caret"></i>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="se/"><i class="fa fa-flag"></i> Swedish site [se]</a></li>
-							<li><a href="se/datorer.htm"><i class="fa fa-desktop"></i> Computers [se]</a></li>
-						</ul>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="travels/"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
+						<li class="nav-item"><a class="nav-link" href="walks/"><i class="bi bi-map fs-4"></i> Walks</a></li>
+						<li class="nav-item"><a class="nav-link" href="about_kv.php"><i class="bi bi-info-square fs-4"></i> About</a></li>
+						<li class="nav-item"><a class="nav-link" href="about_me.php"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+						<li class="nav-item"><a class="nav-link" href="cv/"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-globe fs-4"></i> In Swedish
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="se/"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
+								<li><a class="dropdown-item" href="se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
+							</ul>
 						</li>
 					</ul>
 				</div>
@@ -104,8 +99,8 @@
 		
 		<!-- *** Contents row ************************************************* -->
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
-				<h2 class="contentsheader">Introduction</h2>
+			<div class="col-md-6 offset-md-2">
+				<h3 class="contentsheader">Introduction</h3>
 
 				<p>These web pages (<abbr title="See 'About me' for explanation of the name">Kilted
 					Viking</abbr>) are now more about me, myself, than my interests. I mainly use these
@@ -115,7 +110,7 @@
 
 				<p>And please, read with humour in mind. :-)</p>
 				
-				<h3 class="contentsheader" id="note">Please note</h3>
+				<h4 class="contentsheader" id="note">Please note</h4>
 
 				<p class="instructions">... that I&lsquo;m not a linguist, i.e. my
 					spelling and grammar might be a bit bad. :-)</p>
@@ -123,7 +118,7 @@
 
 			<!-- *** News column ***************************************************** -->
 			<div class="col-sm-2 col-sm-offset-0">
-				<h2>News</h2>
+				<h3>News</h3>
 
 			<!-- START: Code generated from PHP -->
 	<?php
@@ -173,7 +168,7 @@
 		</div>
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-      		<div class="col-sm-8 col-sm-offset-2">
+      		<div class="col-md-12 text-center">
 				<footer>
 					<p><strong>Created by:</strong> Bj&ouml;rn G. D. Persson, <strong>e-mail:</strong>
 						bjorn(at)kiltedviking.net.nospam. <strong>Last updated:</strong>
@@ -187,6 +182,6 @@
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="./js/jquery-3.7.1.min.js"></script>
-  	<script src="./js/bootstrap.min.js"></script>
+  	<script src="./js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>
