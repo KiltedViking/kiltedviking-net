@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramverket Bulma - Bj&ouml;rns studiewebb</title>
+  <!-- <link rel="style" href="../../css/bulma.min.css" /> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+    <link rel="stylesheet" href="../../css/studiewebb-bulma.css">
+</head>
+<body>
+  <section class="section bg-scania-red fg-scania-yellow">
+    <div class="container">
+      <a href="../../">
+        <img src="../../bilder/logony1.jpg" style="float: right;">
+      </a>
+      <h1 class="title fg-scania-yellow">Ramverket Bulma</h1>
+      <p class="subtitle fg-scania-yellow">Ett ramverk för gränssnitt</p>
+    </div>
+  <!-- </section>
+  <section class="section"> -->
+    <!-- <div class="container"> -->
+    <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- START: Navbar brand -->
+        <!-- <a class="navbar-item" href="https://bulma.io">
+          <img src="../../bilder/logony1.jpg" width="155" height="54">
+        </a> -->
+        <!-- END: Navbar brand -->
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item has-text-weight-bold">
+            Hem
+          </a>
+    
+          <a class="navbar-item">
+            Grundläggande
+          </a>
+    
+          <!-- START: Drop-down menu-->
+          <!-- <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div> -->
+          <!-- END: Drop-down menu-->
+        </div>
+    
+        <!-- START: Right positioned menu-->
+        <!-- <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div> -->
+        <!-- END: Right positioned menu-->
+      </div>
+    </nav>
+    <!-- </div> -->
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="is-size-2">Varför jag låter detta ramverk vara för nu</h2>
+      <p>Ramverket lämnar det till användare att ange utseende, t.ex. avstånd mellan 
+        element (exempel nedan visa på inget avstånd mellan stycken samt storleken
+        på rubriker av nivå 4).</p>
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <h3 class="is-size-3">Första kolumnen</h3>
+          <p>Denna kolumn är två tredjedelar bred.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae efficitur ante. Proin ultricies ante vitae leo sollicitudin, fermentum dapibus sapien dictum. Fusce tincidunt massa a odio sagittis, quis aliquam felis ornare. Duis a rutrum ex. Phasellus fermentum ultrices diam, id condimentum lectus. Aenean blandit purus vel turpis vehicula mollis. Vestibulum eget ultrices nisi. Phasellus et tincidunt lacus. Aenean et blandit felis, a porta dolor. Vivamus pellentesque ante nunc, consequat tincidunt diam scelerisque at. Vestibulum condimentum, urna sit amet rhoncus pellentesque, neque eros hendrerit ligula, et molestie risus purus sit amet augue. Curabitur odio est, ullamcorper ac odio gravida, venenatis aliquet mauris. Morbi finibus nisi in maximus sodales. Suspendisse a posuere quam. Morbi lobortis lacinia libero, eu dictum elit condimentum sit amet. </p>
+          <h4>En rubrik av nivå 4</h4>
+          <p> Sed cursus viverra mauris eu tempus. Etiam commodo at nulla et ullamcorper. Cras malesuada, ex in posuere porttitor, ligula dui laoreet felis, quis venenatis lectus quam et mi. Nulla id risus eu orci tincidunt suscipit. Maecenas eget dictum nisi. In hac habitasse platea dictumst. Vivamus eu ex commodo, convallis diam fermentum, tempor orci. Suspendisse sagittis diam quis sapien laoreet, sit amet vulputate velit tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas porttitor, orci at semper elementum, augue lorem egestas justo, vitae pulvinar elit nisi quis arcu. Aliquam nulla neque, malesuada sit amet nunc ut, consectetur ultrices odio. </p>
+          <h4>En rubrik av nivå 4</h4>
+          <p> Sed lectus mauris, dapibus sed velit a, pulvinar imperdiet orci. Cras eget efficitur est, vel dictum orci. Proin pulvinar lacinia erat quis tincidunt. Ut volutpat felis id augue rutrum tempor. Aliquam finibus non turpis sit amet suscipit. Curabitur sit amet massa varius, consectetur tortor sed, luctus purus. Sed non ligula sodales, posuere nulla in, lacinia quam. Mauris luctus porta metus, ac euismod tortor placerat ut. Aliquam non libero libero. Nunc ut augue nulla. Duis dictum rhoncus feugiat. </p>
+          <p> Integer mollis eros non lacinia consequat. Praesent blandit lorem sed semper condimentum. Sed vitae dui venenatis augue porta faucibus. Morbi odio massa, maximus sit amet vulputate quis, tempus ac orci. Suspendisse potenti. Proin vulputate mauris et sagittis ullamcorper. Nunc euismod diam sit amet ante tempus, in scelerisque sapien feugiat. Vestibulum et accumsan purus. </p>
+          <h4>En rubrik av nivå 4</h4>
+          <p> Aenean blandit est lobortis tellus sagittis ultrices. Aenean efficitur erat enim. Maecenas molestie justo vitae orci molestie, eget convallis enim finibus. Donec sapien neque, ultrices nec mi euismod, posuere suscipit quam. Aliquam accumsan, arcu vel porta commodo, justo dui faucibus justo, eget cursus velit nibh sit amet dolor. Nam risus augue, cursus nec imperdiet a, sagittis quis nibh. Proin at molestie quam. </p>
+        
+        </div>
+        <div class="column is-one-third">
+          <h3 class="is-size-3">Andra kolumnen</h3>
+          <p>Denna kolumn är en tredjedel bred.</p>
+          <h4>En rubrik av nivå 4</h4>
+          <p> Sed lectus mauris, dapibus sed velit a, pulvinar imperdiet orci. Cras eget efficitur est, vel dictum orci. Proin pulvinar lacinia erat quis tincidunt. Ut volutpat felis id augue rutrum tempor. Aliquam finibus non turpis sit amet suscipit. Curabitur sit amet massa varius, consectetur tortor sed, luctus purus. Sed non ligula sodales, posuere nulla in, lacinia quam. Mauris luctus porta metus, ac euismod tortor placerat ut. Aliquam non libero libero. Nunc ut augue nulla. Duis dictum rhoncus feugiat. </p>
+          <h4>En rubrik av nivå 4</h4>
+          <p> Integer mollis eros non lacinia consequat. Praesent blandit lorem sed semper condimentum. Sed vitae dui venenatis augue porta faucibus. Morbi odio massa, maximus sit amet vulputate quis, tempus ac orci. Suspendisse potenti. Proin vulputate mauris et sagittis ullamcorper. Nunc euismod diam sit amet ante tempus, in scelerisque sapien feugiat. Vestibulum et accumsan purus. </p>
+
+        </div>
+        <!-- <div class="column">Tredje kolumnen</div>
+        <div class="column">Fjärde kolumnen</div>
+        <div class="column">Femte kolumnen</div> -->
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Skapad av:</strong> Björn G. D. Persson.
+        <strong>Uppdaterad:</strong> 2020-02-16.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* Allow toggling menu using hamburger menu button */
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
+  </script>
+  
+</body>
+</html>

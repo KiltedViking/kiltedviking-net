@@ -12,9 +12,17 @@
   --bs-nav-tabs-link-active-bg: #5f0000;
   --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
 } */
-
+/* Modify colours in Bootstrap 5 */
 :root {
   --bs-navbar-brand-color: white;
+  /* --bs-link-hover-color: #800000; */
+  --bs-link-color: #800000;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-bg: rgb(245,245,245);
+  --bs-breadcrumb-padding-x: 15px;
+  --bs-breadcrumb-padding-y: 8px;
 }
 
 header {
@@ -58,6 +66,7 @@ header.image-header.image-jacobite-express { background-image: url("../images/Ja
 header.image-header.image-cuillin-mountains { background-image: url("../images/CuillinMountains.jpg"); }
 header.image-header.image-newtonmore { background-image: url("../images/Newtonmore.jpg"); }
 header.image-header.image-ben-vrackie-path { background-image: url("../images/ben-vrackie-path.jpg"); }
+header.image-header.image-muckle-flugga { background-image: url("../images/muckle-flugga.jpg"); }
 .row .h3-padding { margin-top: 20px !important; }
 /* a, a:hover, a:visited { color: #B71C1C; } */
 

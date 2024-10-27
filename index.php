@@ -8,24 +8,22 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
 	<!-- End Google Tag Manager -->
-  <meta charset="utf-8" />
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Kilted Viking's home page, who likes Scotland, music, and tries to take good photos." />
+	<meta name="description" content="Kilted Viking - a nerd who likes Scotland, music, walking, and takes a lot of photos, when not working with computers." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Kilted Viking - Peace loving nerd that wishes for sustainability" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://kiltedviking.net/" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
-
 	<link rel="canonical" href="https://kiltedviking.net/" />
 	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <title>Kilted Viking</title>
-  <link rel="shortcut icon" href="favicon.ico" />
+	<title>Kilted Viking</title>
+	<link rel="shortcut icon" href="favicon.ico" />
 	<link href="/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="/css/kiltedviking4.css" rel="stylesheet" />
-	
 	<!-- schema.org data -->
 	<script type="application/ld+json">
 	{
@@ -62,11 +60,6 @@
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5M3PC2"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-	<!-- START: Facebook Share button -->
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" 
-			src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
-	<!-- END: Facebook Share button -->
 	<header class="image-header image-thistle">
 		<h1>Kilted Viking</h1>
 		<h2 class="hidden-xs">Peace loving nerd that wishes for sustainability</h2>
@@ -91,7 +84,6 @@
 					<ul class="nav navbar-nav">
 						<li><a href="travels/"><i class="fa fa-ship"></i> Travels</a></li>
 						<li><a href="walks/"><i class="fa fa-map"></i> Walks</a></li>
-						<!-- <li><a href="photos/"><i class="fa fa-camera"></i> Photos</a></li> -->
 						<li><a href="about_kv.php"><i class="fa fa-info"></i> About</a></li>
 						<li><a href="about_me.php"><i class="fa fa-male"></i> Me</a></li>
 						<li><a href="cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
@@ -110,12 +102,6 @@
 			</div>
 		</nav>
 		
-			<!-- <ul class="menulistnext">
-        		<li><a href="http://www.facebook.com/kiltedviking" class="menuitem externallink">Some Facebook</a></li>
-        		<li><a href="https://plus.google.com/u/0/105935581254730520751/" class="menuitem externallink">Some Google+</a></li>
-				<li><a href="http://picasaweb.google.com/kiltedviking.net" class="menuitem externallink" id="somePhotos">Some Photos</a></li>
-			</ul> -->
-			
 		<!-- *** Contents row ************************************************* -->
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-2">
@@ -149,21 +135,17 @@
 		//Get the last three items of news
 		$strSql = "SELECT ndate, npreamble, ncategory FROM news ORDER BY ndate DESC LIMIT 0, 3";
 
-		// if($res = mysql_query($strSql))
 		if($res = $link->query($strSql))
 		{
 			$i = 0; //Counter for number of news items to show
 
-				//While more news items or counter less than 4
-			// while(($arr = mysql_fetch_assoc($res)) && ($i < 4))
+			//While more news items or counter less than 4
 			while(($arr = $res->fetch_assoc()) && ($i < 4))
 			{
 				print("<h3>".$arr['ndate']."</h3>\n");
 				print("<p>".$arr['npreamble']."</p>\n");
 				$i++; //Increase counter
 			}
-
-			// mysql_free_result($res);
 
 			$blnNewsAvailable = true;
 		}
@@ -191,24 +173,14 @@
 		</div>
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      		<div class="col-sm-8 col-sm-offset-2">
 				<footer>
-						<p><strong>Created by:</strong> Bj&ouml;rn G. D. Persson, <strong>e-mail:</strong>
-							bjorn(at)kiltedviking.net.nospam. <strong>Last updated:</strong>
-							<?php
-								date_default_timezone_set("Europe/Stockholm");
-								print date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) 
-							?>.</p>
-
-						<div class="fb-share-button" data-href="https://www.kiltedviking.net/" 
-							data-layout="button" data-size="small"><a target="_blank" 
-							href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.kiltedviking.net%2F&amp;src=sdkpreparse" 
-							class="fb-xfbml-parse-ignore">Share</a></div>
-							<div style="display:inline-block;">
-							<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
-								data-show-count="false">Tweet</a>
-							</div>
-							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<p><strong>Created by:</strong> Bj&ouml;rn G. D. Persson, <strong>e-mail:</strong>
+						bjorn(at)kiltedviking.net.nospam. <strong>Last updated:</strong>
+						<?php
+							date_default_timezone_set("Europe/Stockholm");
+							print date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) 
+						?>.</p>
 				</footer>
 			</div>
 		</div>

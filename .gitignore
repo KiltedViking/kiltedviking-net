@@ -21,19 +21,22 @@ BingSiteAuth.xml
 /travels/Scotland2012/*.jpg
 /travels/Scotland2013/*.jpg
 /travels/Scotland2019/*.JPG
+/travels/Scotland2024/images
+/travels/Scotland2024/strips
 /travels/Urkult2005Aug/*.JPG
 /travels/Urkult2006Aug/*.JPG
 /travels/Urkult2007/*.JPG
 
 #Exclude source code for CSS libraries
 css/bootstrap*.*
-css/bootstrap5
+css/bootstrap5/*
 css/ekko*.*
 css/fonts/*
 css/font-awe*.*
 css/jquery*.*
 fonts
 images/bootstrap-icons-1.11.1
+images/desktop.ini
 js/bootstrap*.*
 js/bootstrap5/*
 js/ekko*.*
