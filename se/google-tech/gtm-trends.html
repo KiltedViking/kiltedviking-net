@@ -78,13 +78,31 @@
 				<h3>Introduktion</h3>
 
 				<p>Detta exempel infoga diagram som visar hur ofta söktermen "kilted viking"
-          matas in i Googles sökmotor. Webbsida är samma som landningssida för 
-          Google-teknologier så att resultatet av infogade av HTML-kod kan studeras.
-        </p>
+					matas in i Googles sökmotor. Webbsida är samma som landningssida för 
+					Google-teknologier så att resultatet av infogade av HTML-kod kan studeras.
+				</p>
 			</div>
 
 			<!-- *** News column ***************************************************** -->
 			<aside class="col-sm-2 col-sm-offset-0">
+				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
+							<span itemprop="name">Hem</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+							<span itemprop="name">Google-teknologier</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<span itemprop="name">Google Tag Manager & Trends</span>
+						<meta itemprop="position" content="3" />
+					</li>
+				</ol>
 				<!-- <h3>Nyheter</h3>
 				
 				<p class="newstext">(Se engelsk startsida)</p> -->
@@ -93,9 +111,10 @@
 	
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-md-12 text-center">
 				<footer>
-					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 2020-01-19.</p>
+					<p><strong>Skapad av:</strong> Björn G. D. Persson. <strong>Uppdaterad:</strong> 
+						2024-11-02.</p>
 						<p><b>Foto:</b> Utsiktstorn i Paradiset, Huddinge.</p>
 				</footer>
 			</div>
@@ -103,6 +122,6 @@
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="../../js/jquery-3.7.1.min.js"></script>
-	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>
