@@ -18,53 +18,48 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/lankar.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/lankar.html" />
-	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <title>L&auml;nkar - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../favicon.ico" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/studiewebb.css" />
+  <link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/studiewebb5.css" />
 </head>
 <body>
   <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
   <div class="container">
     <!-- *** START: Navbar *************************************************** -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Knapp for nar meny kollapsar -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse">
-            <!-- TODO 2017-09-20 - Lagg till ARIA-saker -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">
-            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
-            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
-          </a>
-        </div>
+        <a class="navbar-brand" href="./">
+          <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+          width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+        </a>
+        <!-- Knapp for nar meny kollapsar -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
-            <li><a href="html/index.html">HTML</a></li>
-            <li><a href="css3/index.html">CSS</a></li>
-            <li><a href="javascript/index.html">JavaScript</a></li>
-            <li><a href="css-bibliotek.html">CSS-bibliotek</a></li>
-            <li><a href="js-bibliotek.html">JS-bibliotek</a></li>
-            <li><a href="exempel/index.html">Exempel</a></li>
-            <li><a href="seo/">SEO</a></li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="html/index.html">HTML</a></li>
+            <li class="nav-item"><a class="nav-link" href="css3/index.html">CSS</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript/index.html">JavaScript</a></li>
+            <li class="nav-item"><a class="nav-link" href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="exempel/index.html">Exempel</a></li>
+            <li class="nav-item"><a class="nav-link" href="seo/">SEO</a></li>
 
-            <li class="dropdown">
-              <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">
-                  Mer... <i class="caret"></i>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+                  Mer... 
               </a>
               <ul class="dropdown-menu">
-                <li class="active"><a href="lankar.html">L&auml;nkar</a></li>
-                <li><a href="om.html">Om</a></li>
-                <li><a href="gammalt.html">&Auml;ldre material</a></li>
+                <li><a class="dropdown-item active" href="lankar.html">L&auml;nkar</a></li>
+                <li><a class="dropdown-item" href="om.html">Om</a></li>
+                <li><a class="dropdown-item" href="gammalt.html">&Auml;ldre material</a></li>
               </ul>
             </li>
           </ul>
@@ -75,7 +70,7 @@
 
     <div class="row">
       <!-- *** Kolumn med huvudinnehall ************************************ -->
-      <div class="col-sm-8">
+      <div class="col-sm-7 offset-sm-1">
         <h1>Länkar - Björns studiewebb</h1>
 
         <p>På denna hemsida finns länkar till andra webbplatser med mer information om
@@ -84,38 +79,33 @@
           med webbplats, d.v.s. du kan stänga fönstret för att återgå till denna hemsida.</p>
 
         <div class="alert alert-warning">
-          2017-12-10: Länkar nedan har inte uppdaterats på ett antal år...
+          Länkar kontrollerades senast 2024-11-03, men övergivna internetdomäner
+          tenderar till att tas över av oseriösa aktörer, så besök med försiktighet!
         </div>
         <!-- TODO 2020-01-26 - Ga igenom lankar! -->
       </div>
 
-      <div class="col-sm-4">
-        <h2>Innehåll</h2>
-        <nav>
-          <ul>
-            <li><a href="#html">HTML, CSS och JavaScript</a></li>
-            <li><a href="#program">program som jag använder</a>
-              (gratisversioner) för utveckling på bl.a. webb.</li>
-            <li><a href="#aldre">Äldre material</a> (bl.a. ASP/ASP.NET, JSP och PHP)</li>
-          </ul>
-        </nav>
+      <div class="col-sm-3">
+        
+        <div class="card">
+          <div class="card-header"><h2>Innehåll</h2></div>
+          <nav>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="#html">HTML, CSS och JavaScript</a></li>
+              <li class="list-group-item"><a href="#program">Program som jag använder</a>
+                för utveckling (gratisversioner)</li>
+                <li class="list-group-item"><a href="#aldre">Äldre material</a> (bl.a. ASP/ASP.NET, JSP och PHP)</li>
+              </ul>
+            </nav>
+        </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-7 offset-sm-1">
         <h2 id="html">HTML, CSS och JavaScript</h2>
 
         <ul class="luftigt">
-            <li><a href="http://www.atiger.pp.se/" target="_blank" rel="noopener">Annica Tiger</a> 
-              [se] - förklarar begrepp på Internet och hur man skapar hemsidor med olika 
-              tekniker.</li>
-            <li><a href="http://www.devshed.com/" target="_blank" rel="noopener">Developer Shed</a> 
-              - artiklar/tutorials om både server- och klienttekniker.</li>
-            <li><a href="http://www.javascript.nu/" target="_blank" rel="noopener">Omids nybörjarkurser i
-              HTML och JavaScript</a> [se] - &quot;introduktionskurser&quot; till HTML, JavaScript, DHTML och Perl.</li>
-            <li><a href="http://vonpepel.com/ref/" target="_blank" rel="noopener">Referensböcker</a> 
-              [se] för SGML, HTML, XHTML, CSS och XML (Eva von Pepel).</li>
             <li><a href="http://www.htmlhelp.com/" target="_blank" rel="noopener">Web Design Group</a> 
               - webbplatsen innehåller information om HTML, CSS samt en <a href="http://www.htmlhelp.com/cgi-bin/color.cgi" target="_blank" rel="noopener">tabell
               med färger</a> för referens. Innehåller även en sida med <a href="http://www.htmlhelp.com/reference/css/all-properties.html" target="_blank" rel="noopener">egenskaper
@@ -151,13 +141,11 @@
           praktiskt att ha de vanligaste webbläsarna installerade. :-)</p>
 
         <ul>
-          <li><a href="http://www.w3.org/Amaya/" target="_blank" rel="noopener">Amaya</a> (från W3C)</li>
-          <li><a href="http://www.mozilla.com/" target="_blank" rel="noopener">Firefox</a> (och SeaMonkey från Mozilla)</li>
-          <li><a href="http://www.google.com/chrome/" target="_blank" rel="noopener">Google Chrome</a></li>
-          <li><a href="http://www.microsoft.com/windows/internet-explorer/download-ie.aspx" target="_blank" rel="noopener">Internet
-            Explorer</a> (från Microsoft)</li>
-          <li><a href="http://www.opera.com/" target="_blank" rel="noopener">Opera</a> (från Opera Software)</li>
-          <li><a href="http://www.apple.com/safari/download/" target="_blank" rel="noopener">Safari</a> (från Apple)</li>
+          <li><a href="https://www.mozilla.com/firefox" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://www.google.com/chrome/" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://microsoft.com/edge" target="_blank" rel="noopener">Microsoft Edge</a> (från Microsoft)</li>
+          <li><a href="https://www.opera.com/" target="_blank" rel="noopener">Opera</a> (från Opera Software)</li>
+          <li>(<a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Apple Safari</a> - ingår på Apple-enheter)</li>
         </ul>
 
         <h3>Programmeringsmiljöer/text-editorer</h3>
@@ -169,15 +157,13 @@
           hemsidor.</p>
 
         <ul>
-          <li><a href="http://www.crimsoneditor.com/" target="_blank" rel="noopener">Crimson Editor</a> -
+          <li><a href="http://www.crimsoneditor.com/" target="_blank" rel="noopener">Crimson Editor</a> [ej HTTPS!] -
             text-editor som färgkodar bl.a. kod skriven i ASP, CSS, HTML, Java, JSP,
             PHP och SQL.</li>
-          <li><a href="http://www.jcreator.com/" target="_blank" rel="noopener">JCreator</a> -
-            Java-programmeringsmiljö. Användbart för &quot;vanliga&quot; Java-program,
-            servlets och JSP.</li>
-          <li><a href="http://notepad-plus-plus.org/" target="_blank" rel="noopener">Notepad++</a>
+          <li><a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">Notepad++</a>
             - text-editor som färgkodar bl.a. kod skriven i CSS, HTML, Java, JSP, PHP 
             och SQL.</li>
+            <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> - text-editor från Microsoft.</li>
         </ul>
 
         <h3>Servrar</h3>
@@ -190,21 +176,17 @@
           Server</i>] - den finns inte XP Home Edition!)</p>
 
         <ul>
-          <li><a href="http://httpd.apache.org/" target="_blank" rel="noopener">Apache</a> - 
+          <li><a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a> - 
             webbserver (men här hittar du även servlet/JSP-motorn Tomcat).</li>
-          <li><a href="http://www.jboss.org/" target="_blank" rel="noopener">JBoss</a> - J2EE-server 
-            (JSP/servlets, EJB, m.m.).</li>
-          <li><a href="http://dev.mysql.com/downloads/" target="_blank" rel="noopener">MySQL</a> 
+          <li><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">MySQL</a> 
             - databashanterare samt klienter (Java [Connector/J] och .NET [Connector/Net]
             samt administrations- och frågeverktyg [Administrator resp. Query Browser]).</li>
-          <li><a href="http://www.caucho.com/" target="_blank" rel="noopener">Resin</a> - servlet/JSP-motor 
-            (men även webbserver) som kan kopplas samman med Apache (och IIS).</li>
         </ul>
 
-        <h4>Tillåggspaket (add-ons)</h4>
+        <h4>Tilläggspaket (add-ons)</h4>
 
         <ul>
-          <li><a href="http://www.php.net/" target="_blank" rel="noopener">PHP</a> - tillägg till 
+          <li><a href="https://www.php.net/" target="_blank" rel="noopener">PHP</a> - tillägg till 
             webbservrar som Apache (och IIS) för att kunna använda PHP-sidor.</li>
         </ul>
 
@@ -217,7 +199,7 @@
           resp. .NET SDK.</p>
 
         <ul>
-          <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank" rel="noopener">Java</a> 
+          <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/" target="_blank" rel="noopener">Java</a> 
             - utvecklingspaket för Java,Standard Edition (SE) och Enterprise Edition (EE). Java SE
             behövs för &quot;vanliga&quot; Java-applikationer medan Java EE behövs för servlets/JSP
             (och EJB - <i>Enterprise JavaBeans</i>). Här finns även dokumentation i
@@ -231,62 +213,23 @@
           av dessa ämnen. ;-)
         </p>
 
-        <h3>Active Server Pages (ASP) och ASP.NET</h3>
-
-        <ul>
-          <li><a href="http://www.4guysfromrolla.com/" target="_blank" rel="noopener">4 Guys from Rolla.com</a> -
-            en mycket bra webbplats för ASP och ASP.NET.</li>
-          <li><a href="http://www.asp.net/" target="_blank" rel="noopener">ASP.net</a> - Microsofts webbplats om/för
-            ASP.NET. Studera speciellt tutorials under länken Learn.</li>
-          <li><a href="http://www.asp101.com/" target="_blank" rel="noopener">ASP 101</a> - frågor och svar,
-            exempel och artiklar om ASP och relaterade teknologier.</li>
-        </ul>
-
-        <h3 id="jsp">Java Server Pages (JSP)</h3>
-
-        <ul>
-          <li><a href="http://www.codango.com/jsp/" target="_blank" rel="noopener">The JSP Resource Index</a> - tutorials,
-            referensmaterial, m.m. (Codango - även ASP/ASP.NET och PHP)</li>
-        </ul>
-
-        <h3 id="php">PHP</h3>
-        
-        <ul>
-          <li><a href="http://www.codango.com/php/" target="_blank" rel="noopener">The PHP Resource Index</a> - tutorials,
-            referensmaterial, m.m. (Codango - även ASP/ASP.NET och JSP)</li>
-        </ul>
-
-        <h3>Programmeringsmiljöer/text-editorer</h3>
-
-        <ul>
-          <li><a href="http://www.sharpdevelop.com/" target="_blank" rel="noopener">SharpDevelop</a> - (eller #develop)
-            .NET-utvecklingsmiljö.</li>
-        </ul>
-
         <h3>Utvecklingspaket</h3>
 
         <ul>
-          <li><a href="http://www.msdn.microsoft.com/netframework/" target="_blank" rel="noopener">.NET</a> -
+          <li><a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener">.NET</a> -
             utvecklingspaket för .NET.</li>
-        </ul>
-        
-        <h3>Webbplatser</h3>
-        
-        <ul>
-          <li><a href="http://www.brinkster.com/FreePkgLanding.aspx" target="_blank" rel="noopener">Brinkster</a> 
-            - webbhotell som bl.a. tillåter ASP, ASP.NET och databaser.</li>
-        </ul>
+        </ul>        
       </div>
     </div>
 
     <footer class="row">
       <div class="col-sm-12">
-        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2020-01-26.</p>
+        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2024-11-03.</p>
       </div>
     </footer>
   </div>
   <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/bootstrap5/bootstrap.bundle.js"></script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+/* Uppdaterad för Bootstrap v5
+/* body { border: 0; margin: 0; }
+.nav .fa { font-size: 1.5em; }
+*/
+footer {
+  border-top: 1px solid gray;
+  text-align: center;
+} 
+/* Forstora logotyp till full storlek nar markor over den - animera i 1 sekund */
+#logo-image { transition-duration: 1s; }
+#logo-image:hover { height: 54px; width: 155px; transition-duration: 1s; }

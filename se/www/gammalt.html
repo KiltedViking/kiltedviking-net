@@ -18,53 +18,48 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/gammalt.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/gammalt.html" />
-	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <title>&Auml;ldre material - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../favicon.ico" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/studiewebb.css" />
+  <link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/studiewebb5.css" />
 </head>
 <body>
   <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
   <div class="container">
     <!-- *** START: Navbar *************************************************** -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Knapp for nar meny kollapsar -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse">
-            <!-- TODO 2017-09-20 - Lagg till ARIA-saker -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">
-            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
-            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
-          </a>
-        </div>
+        <a class="navbar-brand" href="./">
+          <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+          width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+        </a>
+        <!-- Knapp for nar meny kollapsar -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
-            <li><a href="html/index.html">HTML</a></li>
-            <li><a href="css3/index.html">CSS</a></li>
-            <li><a href="javascript/index.html">JavaScript</a></li>
-            <li><a href="css-bibliotek.html">CSS-bibliotek</a></li>
-            <li><a href="js-bibliotek.html">JS-bibliotek</a></li>
-            <li><a href="exempel/index.html">Exempel</a></li>
-            <li><a href="seo/">SEO</a></li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="html/index.html">HTML</a></li>
+            <li class="nav-item"><a class="nav-link" href="css3/index.html">CSS</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript/index.html">JavaScript</a></li>
+            <li class="nav-item"><a class="nav-link" href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="exempel/index.html">Exempel</a></li>
+            <li class="nav-item"><a class="nav-link" href="seo/">SEO</a></li>
 
-            <li class="dropdown">
-              <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">
-                  Mer... <i class="caret"></i>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+                data-bs-toggle="dropdown" aria-expanded="false">
+                  Mer... 
               </a>
               <ul class="dropdown-menu">
-                <li><a href="lankar.html">L&auml;nkar</a></li>
-                <li><a href="om.html">Om</a></li>
-                <li class="active"><a href="gammalt.html">&Auml;ldre material</a></li>
+                <li><a class="dropdown-item" href="lankar.html">L&auml;nkar</a></li>
+                <li><a class="dropdown-item" href="om.html">Om</a></li>
+                <li><a class="dropdown-item active" href="gammalt.html">&Auml;ldre material</a></li>
               </ul>
             </li>
           </ul>
@@ -75,8 +70,8 @@
 
     <div class="row">
       <!-- *** Kolumn med huvudinnehall ************************************ -->
-      <div class="col-sm-7">
-        <h1>&Auml;ldre material</h1>
+      <div class="col-sm-6 offset-sm-1">
+        <h1 class="mt-4">&Auml;ldre material</h1>
         <p>P&aring; denna webbsida finns l&auml;nkar till &auml;ldre material, d.v.s. material
           som jag slutat uppdatera (av diverse olika sk&auml;l).</p>
 
@@ -93,8 +88,8 @@
         </ul>
       </div>
 
-      <div class="col-sm-5">
-        <h2>Om dessa material</h2>
+      <div class="col-sm-4">
+        <h2 class="mt-4">Om dessa material</h2>
         <p>2017 beslöt jag mig för att fokusera mina privata utvecklingsprojekt till
           JavaScript och andra klientteknologier. Detta innebar att jag lade ner
           mina visioner om att vidareutveckla material om bl.a. ASP.NET, Java (servlets
@@ -105,12 +100,12 @@
 
     <footer class="row">
       <div class="col-sm-12">
-        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2020-01-26.</p>
+        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2024-11-03.</p>
       </div>
     </footer>
   </div>
   <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

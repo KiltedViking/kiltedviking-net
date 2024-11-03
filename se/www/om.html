@@ -18,53 +18,48 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/om.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/om.html" />
-	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <title>Om Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../favicon.ico" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/studiewebb.css" />
+  <link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/studiewebb5.css" />
 </head>
 <body>
   <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
   <div class="container">
     <!-- *** START: Navbar *************************************************** -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Knapp for nar meny kollapsar -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse">
-            <!-- TODO 2017-09-20 - Lagg till ARIA-saker -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">
-            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
-            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
-          </a>
-        </div>
+        <a class="navbar-brand" href="./">
+          <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+          width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+        </a>
+        <!-- Knapp for nar meny kollapsar -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
-            <li><a href="html/index.html">HTML</a></li>
-            <li><a href="css3/index.html">CSS</a></li>
-            <li><a href="javascript/index.html">JavaScript</a></li>
-            <li><a href="css-bibliotek.html">CSS-bibliotek</a></li>
-            <li><a href="js-bibliotek.html">JS-bibliotek</a></li>
-            <li><a href="exempel/index.html">Exempel</a></li>
-            <li><a href="seo/">SEO</a></li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="html/index.html">HTML</a></li>
+            <li class="nav-item"><a class="nav-link" href="css3/index.html">CSS</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript/index.html">JavaScript</a></li>
+            <li class="nav-item"><a class="nav-link" href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="exempel/index.html">Exempel</a></li>
+            <li class="nav-item"><a class="nav-link" href="seo/">SEO</a></li>
 
-            <li class="dropdown">
-              <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">
-                  Mer... <i class="caret"></i>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+                data-bs-toggle="dropdown" aria-expanded="false">
+                  Mer...
               </a>
               <ul class="dropdown-menu">
-                <li><a href="lankar.html">L&auml;nkar</a></li>
-                <li class="active"><a href="om.html">Om</a></li>
-                <li><a href="gammalt.html">&Auml;ldre material</a></li>
+                <li><a class="dropdown-item" href="lankar.html">L&auml;nkar</a></li>
+                <li><a class="dropdown-item active"href="om.html">Om</a></li>
+                <li><a class="dropdown-item" href="gammalt.html">&Auml;ldre material</a></li>
               </ul>
             </li>
           </ul>
@@ -75,53 +70,52 @@
 
     <div class="row">
       <!-- *** Kolumn med huvudinnehall ************************************ -->
-      <div class="col-sm-7">
+      <div class="col-sm-7 offset-sm-1">
     
-        <h1><a name="borjan"></a>Om Björns studiewebb</h1>
+        <h1 class="mt-4"><a name="borjan"></a>Om Björns studiewebb</h1>
         <p>Denna webbplats, Björns studiewebb, har utvecklats som en inlämningsuppgift
           på kursen Interaktiv WWW-hantering (avslutad höstterminen 2000). Nedan följer
           dokumentationen av webbplatsen. Namnet Björns studiewebb kommer sig av
           att jag började utveckla webbplatsen för inlämningsuppgiften och att jag
           idag använder den för att sammanfatta nya saker jag lär mig.</p>
 
-        <p>(010429) Underhåll av webbplatsen har fortsatts efter kursens slut!
+        <h2>2001-04-29</h2>
+        <p>Underhåll av webbplatsen har fortsatts efter kursens slut!
           Tillägg i denna hemsida har markerats med datum inom parentes då det
           skedde (som detta stycke).</p>
 
-        <p>(070124) I november 2006 publicerade jag min privata webbplats på adressen
+        <h2>2007-01-24</h2>
+        <p>I november 2006 publicerade jag min privata webbplats på adressen
           <a href="https://www.kiltedviking.net/">www.kiltedviking.net</a>.
-          På webbplatsens startsida finner ni min e-postadress. (E-postadressen har
-          tagits bort från denna webbplats alla hemsidor för att undvika skräppost
-          [SPAM] samt då den bevisligen ändras ibland, d.v.s. jag har gjort det lättare
-          för mig att ändra e-postadress.)</p>
-
-        <p>På denna sida beskrivs</p>
+        </p>
       </div>
 
-      <div class="col-sm-5">
-        <ul class="collection">
-          <li><a href="#syfte">Syfte</a> med webbplats</li>
-          <li><a href="#innehall">Innehållet</a> på webbplatsen</li>
-          <li><a href="#malgrupp">Målgrupp</a> för webbplatsen</li>
-          <li><a href="#utformning">Utformning</a> av webbplatsen</li>
-          <li><a href="#replikering">&quot;Replikeringen&quot;</a> av webbplatsen</li>
-          <li><a href="#litteratur">Litteraturförteckning</a> för utvecklingen
-            av webbplatsen</li>
-          <li><a href="#mig">Om mig</a>. Vem är Björn och vad gör han</li>
-          <li><a href="#observera">Observera!</a> Webbplatsens &quot;dementi&quot;
-            (eng. <i>disclaimer</i>)</li>
-        </ul>
+      <div class="col-sm-3">
+        <div class="card mt-4">
+          <div class="card-header"><h2>Innehåll</h2></div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#syfte">Syfte</a> med webbplats</li>
+            <li class="list-group-item"><a href="#innehall">Innehållet</a> på webbplatsen</li>
+            <li class="list-group-item"><a href="#malgrupp">Målgrupp</a> för webbplatsen</li>
+            <li class="list-group-item"><a href="#utformning">Utformning</a> av webbplatsen</li>
+            <li class="list-group-item"><a href="#replikering">&quot;Replikeringen&quot;</a> av webbplatsen</li>
+            <li class="list-group-item"><a href="#litteratur">Litteraturförteckning</a> för utvecklingen
+              av webbplatsen</li>
+              <li class="list-group-item"><a href="#mig">Om mig</a>. Vem är Björn och vad gör han</li>
+              <li class="list-group-item"><a href="#observera">Observera!</a> Webbplatsens &quot;dementi&quot;
+                (eng. <i>disclaimer</i>)</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="col-sm-7">
+      <div class="col-sm-7 offset-sm-1">
         <h2><a name="syfte"></a>Syfte</h2>
         <p>Syftet med webbplatsen är att sprida information om HTML-kod och
           JavaScript. Detta val har gjorts utifrån två kriterier:
           inlämningsuppgift att skapa en webbplats och mitt eget sätt att studera.</p>
         <ol>
           <li>Inlämningsuppgiften innebär att man ska skapa en webbplats med
-          motiverad design och syfte.<br>
-            &nbsp;</li>
+          motiverad design och syfte.</li>
           <li>Det sätt som passar mig att studera är att skriva sammanfattningar
           med egna ord. Och att utveckla en webbplats som förklarar innehållet på
           kursen är en form av sammanfattning. Samtidigt så finns det inte ett
@@ -132,7 +126,7 @@
 
         <h3>Tillägg till syfte</h3>
 
-        <p>(010429) Efter avslutad kurs (höstterminen 2000) har jag beslutat att
+        <p>Efter avslutad kurs (höstterminen 2000) har jag beslutat att
           fortsätta utveckla denna webbplats. Som tillägg till webbplatsen syfte
           tänker jag använda webbplatsen för att sammanfatta det jag lär mig om
           nya teknologier och för att förklara/ge exempel åt studenter (på kurser
@@ -140,7 +134,7 @@
           webbplatsen sker när jag får lust/tid eller har behov av att
           förstå/förklara något nytt.</p>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <hr>
 
@@ -152,10 +146,12 @@
           hemsidan i några olika webbläsare och/eller versioner av webbläsare för bäst
           förståelse.</p>
 
-        <p>(010429) Tillägg av innehåll kommer ske då behövligt men begränsas
+        <h3>2001-04-29 Utökat innehåll</h3>
+        <p>Tillägg av innehåll kommer ske då behövligt men begränsas
           till webbrelaterade teknologier.</p>
 
-        <p>(010708) Innehållet har begränsats till att främst förklara hur de
+        <h3>2001-07-08 Begränsning av innehåll</h3>
+        <p>Innehållet har begränsats till att främst förklara hur de
           olika teknikerna fungerar. D.v.s. jag ger verktygen men (oftast) inte hur
           verktygen kan kombineras för att ge resultatet som önskas. I de fall då
           jag har några åsikter om design, och jag har fått min teori bekräftad,
@@ -165,7 +161,7 @@
           - Björns studiewebb är designad för att vara stilren men har blivit
           ganska tråkig layoutmässigt.</p>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <hr>
 
@@ -174,11 +170,12 @@
           förhoppningar om att andra besökare som vill lära sig skapa hemsidor
           ska kunna få användning av min webbplats.</p>
 
-        <p>(010429) Även studenter på kurser jag undervisar på ska kunna använda
+        <h3>2001-04-29 Utökad målgrupp</h3>
+        <p>Även studenter på kurser jag undervisar på ska kunna använda
           webbplatsen för att hitta exempel (och/eller länkar till fler exempel) på hur
           man löser saker relaterade till deras projekt.</p>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <hr>
 
@@ -199,25 +196,32 @@
           Jag använder mig av menyn till vänster som en marginal (om än färgad och
           inte vit).</p>
 
-        <p>(010429) En del underwebbar kommer få en ny utformning utan ramar.
+        <h3>2001-04-29 Ändring av sidutformning för nya sidor</h3>
+        <p>En del underwebbar kommer få en ny utformning utan ramar.
           Planer finns även på att eventuellt forma om de underwebbar som idag
-          (010429) har ramar.</p>
+          har ramar.</p>
 
-        <p>(080613) Underwebbar kommer få en ny utformning utan ramar med design
+        <h3>2008-06-13 Övergång från HTML-tabeller till CSS</h3>
+        <p>Underwebbar kommer få en ny utformning utan ramar med design
           baserad enbart på stilmallar (CSS), d.v.s. ut åker (X)HTML-tabellerna. :-)</p>
 
         <h3>Utvecklingsprocessen</h3>
         <p>Efter att jag funnit ett syfte med webbplatsen satte jag mig ner och
           skissade på hur hierarkin för webbplatsen skulle fungera.</p>
-        <p align="center">[ BILD som visar hierarkin ]</p>
+
+        <p class="text-center">[ BILD som visar hierarkin ]</p>
+
         <p>Och eftersom jag hade två (idag) distinkta underdelar - HTML och
           JavaScript - så bestämde jag mig för att bryta ut dem så att de fick
           en egen hierarki. Därmed fick jag en ganska platt hierarki vilket gjorde
           det praktiskt att använda ramar.</p>
+
         <p>Jag har använt mig av Microsoft FrontPage 2000 för att generera kod
           som jag var osäker på hur den fungera (ser ut). Därefter har jag klippt
           in eller skrivit av koden i mina dokument.</p>
-        <p>(010429) Numera används FrontPage 2000 (och Visual InterDev 6) för
+
+        <h3>2001-04-29 Nytt verktyg för utveckling</h3>
+        <p>Numera används FrontPage 2000 (och Visual InterDev 6) för
           produktion/underhåll av hemsidorna för att snabba upp processerna.
           Bägge programvaror tillåter att man redigerar HTML-koden direkt (vilket
           sker ganska ofta) på ett enkelt sätt. Bl.a. sker hanteringen av datum,
@@ -225,11 +229,13 @@
           JavaScript för detta datum falerade då Netscape Navigator och Microsoft
           Internet Explorer representerade datum på olika sätt. Netscape Navigator
           var för övrigt inte 2000-säkert och visade 100 istället för 00.</p>
+          
         <p>Test av webbsidor har skett i både Internet Explorer 5.0/5.5 och
           Netscape Navigator 4.08/4.75 då jag lever i tron om att dessa versioner
           av webbläsare är dominerande på Internet.</p>
 
-        <p>(070124) Numera använder jag främst programmet <a href="http://www.crimsoneditor.com/"
+        <h3>2007-01-24 Nytt verktyg för utveckling (igen)</h3>
+        <p>Numera använder jag främst programmet <a href="https://www.crimsoneditor.com/"
           target="_blank" rel="noopener">Crimson Editor</a> för att redigera mina hemsidor. Redigering
           sker därmed främst som kod.</p>
 
@@ -244,6 +250,7 @@
           byter ramsida). De länkar där pilen pekar till vänster återvänder
           till startsidan (&quot;startwebben&quot;).</p>
 
+        <h4>2001-06-10 Ändrad användning av ikoner</h4>
         <p>(010610) I de hemsidor som har fått ny design, utan ramar, så betyder
           pilen framför, och som pekar till höger, att det är en länk inom
           hemsidan. De andra placeringarna (och riktningar) av pilarna har samma
@@ -255,12 +262,14 @@
           sätt gör jag kod mer lättläst då jag separerar innehåll från
           design. All CSS-kod har placerats i en fil med namnet STILMALL.CSS och
           länkas in i alla mina HTML-dokument.</p>
-        <p>(010610) Hemsidor med den nya designen använder istället filen
+
+        <h4>2001-06-10 Nytt typsnitt och CSS-stilar</h4>
+        <p>Hemsidor med den nya designen använder istället filen
           GUL.CSS som placerats i mappen STILAR (tillsammans med filen STIL.CSS).</p>
         <p>Valet att använda Verdana som typsnitt har gjorts då detta typsnitt
           tar sig ganska väl ut på skärmen (dock inte lika bra i utskrift).</p>
 
-        <p>(010610) Exempelkod ges stilmallen &quot;kod&quot; eller &quot;kodlangre&quot;
+        <p>Exempelkod ges stilmallen &quot;kod&quot; eller &quot;kodlangre&quot;
           för att ändra typsnittet till ett typsnitt med fast teckenbredd (t.ex.
           <span class="kod">Courier New</span>) i hopp om att koden ska bli lättare att läsa.</p>
 
@@ -278,12 +287,13 @@
         <p>Detta har jag gjort mot de påpekande som framgår av litteraturen på
           kursen (Siegel[98]).</p>
 
-        <p>(010610) Numera har jag även börjat använda horisontella linjer för
+        <h4>2001-06-10 Fler horisontella linjer</h4>
+        <p>Numera har jag även börjat använda horisontella linjer för
           att skilja olika avsnitt i sidor åt. På detta sätt hoppas jag att det
           ska bli lättare att uppfatta de olika avsnitten på sidor som är lite
           längre (kanske längre än vad dom borde vara).</p>
 
-        <h3>Icke-användandet av SSI (050507)</h3>
+        <h3>Icke-användandet av SSI (2005-05-07)</h3>
         <p><i>Server-Side Includes</i> (SSI) är något som kan underlätta uppdatering av
           webbplatser. Bland annat kan kod, gemensam för flera webbsidor, inkluderas
           för att slippa behöva upprepa den i flera sidor. Att slippa behöva upprepa
@@ -299,11 +309,11 @@
           som ZIP-fil skapades. På så sätt slipper jag uppdatera denna enda webbsida
           varje gång jag packar webbplatsen i ZIP-fil. :-)</p>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <hr>
         <h2><a name="replikering"></a>&quot;Replikering&quot; av webbplatsen
-        (010505)</h2>
+        (2001-05-05)</h2>
         <p>Denna webbplats har &quot;replikerats&quot; (kopierats) till
           flera webbservrar för att kunna utnyttja olika egenskaper på de olika
           webbservrarna.</p>
@@ -318,7 +328,9 @@
             - en version från 2006 finns här (jag jobbar inte längre för högskolan
             så jag förväntar mig att denna version kommer försvinna inom kort).</li>
         </ul>
-        <p>(050306) Jag har inte varit vidare aktiv på andra webbservrar än den
+
+        <h3>2005-03-06 Minskad replikering</h3>
+        <p>Jag har inte varit vidare aktiv på andra webbservrar än den
           med min officiella webbsida, d.v.s. antalet servrar med &quot;repliker&quot;
           (eller uppdaterade sådana) har minskat. :-(</p>
         <hr>
@@ -335,26 +347,26 @@
             David Siegel, Prentice Hall, 1998.</li>
           <li>Tittel[98]: <i>Hip Pocket Guide to HTML 4</i>, Ed Tittel, m.fl., IDG
             Books, 1998.</li>
-          <li>York[07]: <i>Beginnin CSS: Cascading Style Sheets for Web Design, 2nd
+          <li>York[07]: <i>Beginning CSS: Cascading Style Sheets for Web Design, 2nd
             Edition</i>, Richard York, Wiley Publishing (Wrox), 2007.</li>
         </ul>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <!-- Dokumentinformation -->
         <hr>
-        <h2><a name="mig"></a>Om mig (070124)</h2>
+        <h2><a name="mig"></a>Om mig (2007-01-24)</h2>
         <p>Se min webbplats, <a target="_blank" href="https://www.kiltedviking.net/">www.kiltedviking.net</a>,
           för information om mina intressen (och kort introduktion av mig samt min CV).
           (Mitt fulla namn är Björn Gustaf David Persson om ni undrar vad G:et och
           D:et gör i mitt namn längst ner på alla hemsidor. Dessa har lagts till för
           att, förhoppningsvis, göra mitt namn lite mer unikt - det fanns t.ex. fyra
           Björn Persson i Eskilstunas telefonkatalog. :-)</p>
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
 
         <!-- Dokumentinformation -->
         <hr>
-        <h2><a name="observera"></a>Observera! (010524)</h2>
+        <h2><a name="observera"></a>Observera! (2001-05-24)</h2>
         <p>Denna webbplats är <b>inte</b> byggd 100% på vetenskaplig grund! Det
           kan m.a.o. finnas sakfel och antaganden utan vetenskaplig förankring.
           Sakfelen försöker jag åtgärda då jag lär mig mer om teknologin
@@ -362,6 +374,9 @@
           att fungera under Windows NT4/2000/XP/2003. Antaganden är oftast mina egna och
           <b>behöver inte</b> reflektera min (tidigare) arbetsgivares samt kan ändras
           då jag lär mig mer och/eller får mer erfarenhet.</p>
+
+        <p>Verifiera alltid information med flera källor!</p>
+
         <p>Webbplatsens hemsidor innehåller beskrivningar om hur teknologierna används och
           fungerar. Hemsidorna använder jag för att sammanfatta och dokumentera det jag (än så
           länge?)
@@ -371,19 +386,18 @@
           inte alla exempel på alla webbservrar då de eventuellt inte stödjer alla
           teknologier.</p>
 
-        <p align="center">| Till <a href="#borjan">början</a> på denna sida |</p>
-
+        <p class="text-center">| Till <a href="#">början</a> på denna sida |</p>
       </div>
     </div>
 
     <footer class="row">
       <div class="col-sm-12">
-        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2020-01-26.</p>
+        <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b> 2024-11-03.</p>
       </div>
     </footer>
   </div>
   <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>
