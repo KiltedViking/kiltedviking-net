@@ -99,14 +99,14 @@
 		
 		<!-- *** Contents row ************************************************* -->
 		<div class="row">
-			<div class="col-md-6 offset-md-2">
+			<div class="col-md-6 offset-lg-2 offset-md-1">
 				<h3 class="contentsheader">Introduction</h3>
 
-				<p>These web pages (<abbr title="See 'About me' for explanation of the name">Kilted
-					Viking</abbr>) are now more about me, myself, than my interests. I mainly use these
-					pages to distributed things to others (my whereabouts, my photos, and some
-					knowledge about web development). See Swedish version of site for computer 
-					related topics.</p>
+				<p>These web pages, <abbr title="see 'About me' for explanation of the name">Kilted
+					Viking</abbr>, are used to share things with others (where I've been and some
+					knowledge about web development).</p> 
+					
+				<p>See Swedish version of site for computer related topics.</p>
 
 				<p>And please, read with humour in mind. :-)</p>
 				
@@ -114,54 +114,20 @@
 
 				<p class="instructions">... that I&lsquo;m not a linguist, i.e. my
 					spelling and grammar might be a bit bad. :-)</p>
+
+				<h4>Kakor (cookies)</h4>
+				<p>Denna webbplats använder tjänster från Google för att hålla reda
+					på antalet besökare och vilka sidor som besöks.
+				</p>
 			</div>
 
 			<!-- *** News column ***************************************************** -->
-			<div class="col-sm-2 col-sm-offset-0">
+			<div class="col-md-3 col-sm-12 offset-sm-0">
 				<h3>News</h3>
 
 			<!-- START: Code generated from PHP -->
 	<?php
-	require('db_kiltedviking.php'); 
-	$blnNewsAvailable = false;
-	/*** Print news ***************************************************************/
-	if($link)
-	{
-		//Get the last three items of news
-		$strSql = "SELECT ndate, npreamble, ncategory FROM news ORDER BY ndate DESC LIMIT 0, 3";
-
-		if($res = $link->query($strSql))
-		{
-			$i = 0; //Counter for number of news items to show
-
-			//While more news items or counter less than 4
-			while(($arr = $res->fetch_assoc()) && ($i < 4))
-			{
-				print("<h3>".$arr['ndate']."</h3>\n");
-				print("<p>".$arr['npreamble']."</p>\n");
-				$i++; //Increase counter
-			}
-
-			$blnNewsAvailable = true;
-		}
-		else
-		{
-			print("<p>Sorry, no news available...<br />");
-			print("<span class=\"smallertextlight\">(can't find table)</span></p>\n");
-		}
-	}
-	else
-	{
-		print("<p>Sorry, no news available...<br />");
-		if(!$link)
-			print("<span class=\"smallertextlight\">(can't connect to server)</span>");
-		if($blnNoDb)
-			print("<span class=\"smallertextlight\">(can't connect to database)</span>");
-		print("</p>\n");
-	}
-	
-	if($blnNewsAvailable)
-		print("<p><a href=\"news/\">More news ...</a></p>\n");
+	require('indexnews.php'); 	// Include code for news
 	?>
 			<!-- END: Code generated from PHP -->
 			</div>
@@ -170,8 +136,7 @@
 		<div class="row">
       		<div class="col-md-12 text-center">
 				<footer>
-					<p><strong>Created by:</strong> Bj&ouml;rn G. D. Persson, <strong>e-mail:</strong>
-						bjorn(at)kiltedviking.net.nospam. <strong>Last updated:</strong>
+					<p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b>
 						<?php
 							date_default_timezone_set("Europe/Stockholm");
 							print date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) 

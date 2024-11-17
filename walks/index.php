@@ -82,7 +82,7 @@
 
     if($link)
     {
-        $strSqlWalks = "SELECT w.wdate, w.country, w.region, w.place, w.wdescription, w.distance, w.duration, w.thumbnail, w.start, w.end, GROUP_CONCAT( CONCAT(wl.url, ';', wl.linktext, ';', wl.extratext) SEPARATOR '|' ) AS links FROM walks w LEFT OUTER JOIN walklinks wl ON w.id = wl.walkid GROUP BY w.wdate, w.country, w.region, w.place, w.wdescription, w.distance, w.duration, w.thumbnail ORDER BY w.wdate DESC";
+        $strSqlWalks = "SELECT w.wdate, w.country, w.region, w.place, w.wdescription, w.distance, DATE_FORMAT(w.duration, '%h:%i') AS duration, w.thumbnail, w.start, w.end, GROUP_CONCAT( CONCAT(wl.url, ';', wl.linktext, ';', wl.extratext) SEPARATOR '|' ) AS links FROM walks w LEFT OUTER JOIN walklinks wl ON w.id = wl.walkid GROUP BY w.wdate, w.country, w.region, w.place, w.wdescription, w.distance, w.duration, w.thumbnail ORDER BY w.wdate DESC";
 
         if($res = $link->query($strSqlWalks))
         {
@@ -105,14 +105,14 @@
                             <div class="col-lg-3">
                                 <p><b>Date:</b> <?=$arr['wdate']?><br />
                                 <b>Location:</b> <?=$arr['region']?>, <?=$arr['country']?><br />
-                                <b>Duration:</b> <?=$arr['duration']?><br />
+                                <b>Duration:</b> <?=$arr['duration']?> hours<br />
                                 <b>Distance:</b> <?=$arr['distance']?> km</p>
                             </div>
 
                             <div class="col-lg-6">
                                 <p><?=$arr['wdescription']?></p>
-                                <p><b>Start:</b> <?=$arr['start']?></p>
-                                <p><b>End:</b> <?=$arr['end']?></p>
+                                <p><b>Start:</b> <?=$arr['start']?><br />
+                                    <b>End:</b> <?=$arr['end']?></p>
                             </div>
 
                             <div class="col-lg-3">
@@ -149,10 +149,13 @@
 ?>
 
         <footer>
-            <p>I only have one advice: use good footware with two pairs of socks 
+            <p>I have only one advice: use good footware with two pairs of socks 
                 - one liner (inner) and one thicker. ;-)</p>
-            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-11-18.</p>
-            <p><a href="../">Back</a> to Kilted Viking.</p>
+            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 
+            <?php
+							date_default_timezone_set("Europe/Stockholm");
+							print date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) 
+            ?>.</p>
         </footer>
     </div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->

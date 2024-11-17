@@ -108,7 +108,7 @@
 				<p>I usually steal ideas from home pages I visit. :-) Sometimes I manage to make these ideas
 					work in my own pages and sometimes I don't. I have also spent the
 					last 30+ years as webmaster (editing, <strong>not</strong> designing
-					the sites! :-)) and developting websites, giving me some experience.</p>
+					the sites! :-)) and developing websites, giving me some experience.</p>
 				
 				<img src="images/Arran.jpg" alt="Arran island" title="Arran island" 
 					class="img-fluid rounded mx-auto d-block" />
