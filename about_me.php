@@ -17,61 +17,55 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://kiltedviking.net/about_me.php" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
-
 	<link rel="canonical" href="https://kiltedviking.net/about_me.php" />
-	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <title>About me (Kilted Viking)</title>
-  <link rel="shortcut icon" href="favicon.ico" />
-	<link href="/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="/css/kiltedviking4.css" rel="stylesheet" />
+	<title>About me (Kilted Viking)</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" href="/css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="/css/kiltedviking5.css" />
 </head>
 <body>
-  <header class="image-header image-bastad-pier">
+	<header class="image-header image-bastad-pier">
 		<h1 id="title">About me (Kilted Viking)</h1>
-		<h2 class="hidden-xs">Who am I</h2>
-  </header>
+		<h2 class="hidden-xs">Who I am</h2>
+	</header>
 
 	<div class="container">
 		<!-- Menubar -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">Home</a>
-        </div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="./">Home</a>
+				<!-- Button for when menu collapses -->
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+					data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="travels/"><i class="fa fa-ship"></i> Travels</a></li>
-            <li><a href="about_kv.php"><i class="fa fa-info"></i> About</a></li>
-            <li class="active"><a href="about_me.php"><i class="fa fa-male"></i> Me</a></li>
-            <li><a href="cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
-            <li class="dropdown">
-              <a href="se/" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i> In Swedish
-                <i class="caret"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="se/"><i class="fa fa-flag"></i> Swedish site [se]</a></li>
-                <li><a href="se/datorer.htm"><i class="fa fa-desktop"></i> Computers [se]</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-		</nav>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="travels/"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
+						<li class="nav-item"><a class="nav-link" href="walks/"><i class="bi bi-map fs-4"></i> Walks</a></li>
+						<li class="nav-item"><a class="nav-link" href="about_kv.php"><i class="bi bi-info-square fs-4"></i> About</a></li>
+						<li class="nav-item"><a class="nav-link active" href="about_me.php"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+						<li class="nav-item"><a class="nav-link" href="cv/"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fa fa-globe fs-4"></i> In Swedish
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="se/"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
+								<li><a class="dropdown-item" href="se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		<!-- *** Contents row ************************************************** -->
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
-				<h3>About me</h3>
+			<div class="col-md-6 offset-md-2">
+				<h3 class="mt-4">About me</h3>
 				<p>My name is Bj&ouml;rn (<em>bear</em> in Swedish), or
 					&quot;Bj&quot; for short, and I presently live in Sweden.
 					The name 'Kilted Viking' was coined by a cousin and refers to
@@ -93,17 +87,17 @@
 					to work for <strong>Ecolabelling Sweden</strong>.</p>
 
 				<img src="images/CairnCree.jpg" alt="Cairn south of Cree" title="Cairn south of Cree" 
-					class="img-responsive center-block"/>
+					class="rounded mx-auto d-block"/>
 
-				<h3>Work experience</h3>
+				<h3 class="mt-4">Work experience</h3>
 				
 				<p>I have spent about 11 years working as a system administrator,
 					lecturer, and what ever needed to be done at (former) <strong>School 
 					of Business</strong>, <strong>M&auml;lardalen University</strong>. 
 					Before that I sold, and supported, multimedia
-					products (when CD-ROMs where new). During summer breaks (in
-					studies and work) and during military service I worked at a camp
-					site for four seasons.</p>
+					products (when CD-ROMs where new) at (former) Buller Data AB. During summer 
+					breaks (in studies and work) and during military service I worked 
+					at a (former) DomänTurist camp site for four seasons.</p>
 					
 				<p>Since 2008 I work as a system administrator and developer at Ecolabelling
 					Sweden (and Nordic Ecolabelling, which Ecolabelling Sweden is a
@@ -113,12 +107,12 @@
 					web based development. I love learning new things, something one
 					needs to do when working with computers. For awhile I
 					enjoyed studying Sun's J2EE and how well it is designed, but I
-					have now 'turned back' to Microsoft's web technologies.</p>
+					now focus on web technologies, both standard and Microsoft's.</p>
 
 				<img src="images/LochDoon.jpg" alt="Loch Doon" title="Loch Doon" 
-					class="img-responsive center-block" />
+					class="rounded mx-auto d-block" />
 
-				<h3>Private interests</h3>
+				<h3 class="mt-4">Private interests</h3>
 				
 				<p>Private interests are archeology, history, trains, and
 					computers. Lately, since I bought a good digital camera, I have
@@ -131,48 +125,43 @@
 					especially, the area is a beautiful place to be with all it's colours.</p>
 
 				<img src="images/SunsetCulzean.jpg" alt="Sunset at Culzean" title="Sunset at Culzean" 
-					class="img-responsive center-block" />
-
-				<h3>Contacting me</h3>
-				
-				<p>Barring lack of time, I usually answer e-mails I receive. You
-					can find my address on my start page (Home) - exchange '(at)'
-					with an at-sign (@) and remove '.nospam' at the end.</p>
+					class="rounded mx-auto d-block mb-4" />
 			</div>
 			
 			<!-- *** News column ***************************************************** -->
 			<div class="col-sm-2 col-sm-offset-0" id="news">
 				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <a itemprop="item" itemtype="http://schema.org/WebPage" href="../../">
-              <span itemprop="name">Home</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span itemprop="name">About me</span>
-            <meta itemprop="position" content="2" />
-          </li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemprop="item" itemtype="http://schema.org/WebPage" href="../../">
+						<span itemprop="name">Home</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<span itemprop="name">About me</span>
+						<meta itemprop="position" content="2" />
+					</li>
 				</ol>
 				
 				<h3>Links</h3>
 				<h4>Places</h4>
-				<p><a href="http://www.stockholm.se/?omrade=Bromma" class="externallink" rel="noopener">Bromma</a> [se]</p>
-				<p><a href="http://www.bastad.se/" class="externallink" rel="noopener">B&aring;stad</a> [se]</p>
-				<p><a href="http://www.eskilstuna.se/" class="externallink" rel="noopener">Eskilstuna</a> [se]</p>
-				<p><a href="http://www.huddinge.se/Engelska-startsidan/In-English/" class="externallink" rel="noopener">Huddinge</a></p>
-				<p><a href="http://www.nacka.se/" class="externallink" rel="noopener">Saltsj&ouml;baden (Nacka)</a> [se]</p>
+				<p><a href="http://www.stockholm.se/?omrade=Bromma" target="_blank" rel="noopener">Bromma</a> [se]</p>
+				<p><a href="http://www.bastad.se/" target="_blank" rel="noopener">B&aring;stad</a> [se]</p>
+				<p><a href="http://www.eskilstuna.se/" target="_blank" rel="noopener">Eskilstuna</a> [se]</p>
+				<p><a href="http://www.huddinge.se/Engelska-startsidan/In-English/" target="_blank" rel="noopener">Huddinge</a></p>
+				<p><a href="http://www.nacka.se/" target="_blank" rel="noopener">Saltsj&ouml;baden (Nacka)</a> [se]</p>
 
 				<h4>Employers</h4>
-				<p><a href="https://www.svanen.se/en/" class="externallink" rel="noopener">Ecolabelling Sweden</a></p>
-				<p><a href="https://www.mdh.se/" class="externallink" rel="noopener">M&auml;lardalen University</a></p>
-
+				<p>Buller Data AB</p>
+				<p>DomänTurist</p>
+				<p><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a></p>
+				<p><a href="https://www.mdu.se/" target="_blank" rel="noopener">M&auml;lardalen University</a></p>
 			</div>
 		</div>
 	
   	<!-- *** Footer row **************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-md-12 text-center">
 				<footer>
 					<p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b>
 						<?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
@@ -183,6 +172,6 @@
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="./js/jquery-3.7.1.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

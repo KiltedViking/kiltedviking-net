@@ -78,3 +78,21 @@ footer {
 @media (max-width: 600px) {
   h1 { font-size: 18px;}
 }
+
+/* Based on https://modernweb.com/enhancing-the-html-abbr-element-on-mobile/ */ 
+abbr[title]:after {
+   content: " (" attr(title) ")";
+}
+
+@media screen and (min-width: 1025px) {
+  /* abbr[title]
+   {
+      border-bottom: 1px dashed #ADADAD;
+      cursor:help;
+   } */
+
+   abbr[title]:after
+   {
+      content: "";
+   }
+}

@@ -3,28 +3,26 @@
 <head>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5M3PC2');</script>
-  <!-- End Google Tag Manager -->
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5M3PC2');</script>
+	<!-- End Google Tag Manager -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Om Kilted Viking, webbplatsen" />
+	<meta name="description" content="Om Kilted Viking, webbplatsen" />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Om Kilted Viking, webbplatsen" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://kiltedviking.net/se/about_kv.php" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
-
 	<link rel="canonical" href="https://kiltedviking.net/se/about_kv.php" />
-	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <title>Om Kilted Viking (webbplatsen)</title>
-  <link rel="shortcut icon" href="favicon.ico" />
-	<link href="/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/css/kiltedviking4.css" rel="stylesheet" />
+	<title>Om Kilted Viking (webbplatsen)</title>
+	<link rel="shortcut icon" href="../favicon.ico" />
+	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="../css/kiltedviking5.css" />
 </head>
 <body>
 	<header class="image-header image-bass-rock">
@@ -33,48 +31,45 @@
 	</header>
 	<div class="container">
 		<!-- Menubar -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">Hem</a>
-        </div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="./">Hem</a>
+				<!-- Button for when menu collapses -->
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+					data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-            <ul class="nav navbar-nav">
-                <li><a href="./datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
-                <li><a href="./tips/"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
-                <li><a href="./google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
-                <li class="active"><a href="./about_kv.php"><i class="fa fa-info"></i> Om</a></li>
-                <li><a href="./om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
-                <li><a href="../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="./datorer.html"><i class="bi bi-display fs-4"></i> Datorer</a></li>
+						<li class="nav-item"><a class="nav-link" href="./tips/"><i class="bi bi-pencil fs-4"></i> Webbutvecklingstips</a></li>
+						<li class="nav-item"><a class="nav-link" href="./google-tech/"><i class="bi bi-google fs-4"></i> Google-teknologier</a></li>
+						<li class="nav-item"><a class="nav-link" href="./about_kv.php"><i class="bi bi-info-square fs-4"></i> Om</a></li>
+						<li class="nav-item"><a class="nav-link" href="./om_mig.html"><i class="bi bi-person-standing fs-4"></i> Om mig</a></li>
+						<li class="nav-item"><a class="nav-link" href="../cv/"><i class="bi bi-mortarboard fs-4"></i> CV [en]</a></li>
 
-                <li class="dropdown">
-                    <a href="../" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i> In English
-                        <i class="caret"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
-                        <li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
-                        <li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
-                        <li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-      </div>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+				                data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-globe fs-4"></i> In English
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="../"><i class="bi bi-flag fs-4"></i> Start [en]</a></li>
+								<li><a class="dropdown-item" href="../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels [en]</a></li>
+								<li><a class="dropdown-item" href="../walks/"><i class="bi bi-map fs-4"></i> Walks [en]</a></li>
+								<li><a class="dropdown-item" href="../about_kv.php"><i class="bi bi-info-square fs-4"></i> About [en]</a></li>
+								<li><a class="dropdown-item" href="../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me [en]</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 		<!-- *** Content row *************************************************** -->
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
+			<div class="col-md-6 offset-md-2">
 				<h3>Namnet (Kilted Viking)</h3>
 
 				<p>Namnet <b>Kilted Viking</b> myntades av min kusin och referrerar till
@@ -85,7 +80,7 @@
 					- en &quot;internationell&quot; adress.</p>
 					
 				<img src="../images/AnnanBeach.jpg" alt="Annan beach" title="Annan beach" 
-					class="img-responsive center-block" />
+					class="rounded mx-auto d-block" />
 
 				<h3>Designen</h3>
 
@@ -111,7 +106,7 @@
 					sitt. ;-)</p>
 
 				<img src="../images/Arran.jpg" alt="Arran island" title="Arran island" 
-					class="img-responsive center-block" />
+					class="rounded mx-auto d-block" />
 
 				<h3>The technologies used</h3>
 
@@ -123,7 +118,7 @@
 					page). I also started using FavIcon (as the web hotel supports it - see below).</p>
 
 				<img src="../images/CulzeanCastle.jpg" alt="Culzean castle" title="Culzean castle" 
-					class="img-responsive center-block"/>
+					class="rounded mx-auto d-block"/>
 
 				<h3>Logo and FavIcon</h3>
 
@@ -146,18 +141,18 @@
 			</div>
 			
 			<!-- *** News column ***************************************************** -->
-			<div class="col-sm-2 col-sm-offset-0">
+			<div class="col-sm-2 offset-sm-0">
 				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <a itemprop="item" itemtype="http://schema.org/WebPage" href="../../">
-              <span itemprop="name">Hem</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span itemprop="name">Om</span>
-            <meta itemprop="position" content="2" />
-          </li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+						<span itemprop="name">Hem</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<span itemprop="name">Om</span>
+						<meta itemprop="position" content="2" />
+					</li>
 				</ol>
 				
 				<h3>Länkar</h3>
@@ -181,7 +176,7 @@
 		
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-sm-12 text-center">
 				<footer>
 					<p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Senast uppdaterad:</b>
 						<?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
@@ -192,6 +187,6 @@
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="../js/jquery-3.7.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

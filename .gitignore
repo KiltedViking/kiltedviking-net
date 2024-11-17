@@ -41,17 +41,23 @@ js/bootstrap*.*
 js/bootstrap5/*
 js/ekko*.*
 js/jquery-*.*
-se/www/css/pure-release-1.0.1
-se/www/css/semantic-ui
 se/www/css/bootstrap*.*
 se/www/css/bootstrap4
 se/www/css/bootstrap5
+se/www/css/bulma1
+se/www/css/pure-release-1.0.1
+se/www/css/semantic-ui
+se/www/css/semantic*.css
+se/www/css/semantic-ui-2.5.0
+se/www/css/uikit*.css
 #Exclude YUI library's source code (minified version included from js folder)
 /se/www/js/bootstrap4
 /se/www/js/bootstrap5
 /se/www/js/yui/*
 /se/www/js/jquery*.*
 /se/www/js/npm.js
+/se/www/js/semantic*.js
+/se/www/js/uikit*.js
 
 # Exclude OS generated files
 .DS_Store

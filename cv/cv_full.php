@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/cv/cv_full.php" />
-	<link rel="preload" href="../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <link rel="shortcut icon" href="../favicon.ico" />
   <title>CV, Full (Kilted Viking)</title>
-	<link href="../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../css/font-awesome.min.css" rel="stylesheet" />
-	<link href="../css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/kiltedviking5.css" />
 	<style>
     header {
       background-image: none;
@@ -31,43 +30,43 @@
       display: block;
       font-weight: bold;
       height: auto;
-    }    
+    }
+    header h1 {
+      letter-spacing: 0;
+    }
     .footnote { font-size: 75%; vertical-align: super; }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white d-print-none" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../">Home</a>
-        </div>
+        <a class="navbar-brand" href="../">Home</a>
+        <!-- Button for when menu collapses -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="../travels/"><i class="fa fa-ship"></i> Travels</a></li>
-            <li><a href="../about_kv.php"><i class="fa fa-info"></i> About</a></li>
-            <li><a href="../about_me.php"><i class="fa fa-male"></i> Me</a></li>
-            <li class="active"><a href="./"><i class="fa fa-mortar-board"></i> CV</a></li>
-            <li class="dropdown">
-              <a href="../se/" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i> In Swedish
-                <i class="caret"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="../se/"><i class="fa fa-flag"></i> Swedish site</a></li>
-                <li><a href="../se/datorer.htm"><i class="fa fa-desktop"></i> Computers</a></li>
-              </ul>
-            </li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
+          <li class="nav-item"><a class="nav-link" href="../walks/"><i class="bi bi-map fs-4"></i> Walks</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about_kv.php"><i class="bi bi-info-square fs-4"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
+          <li class="nav-item dropdown">
+            <a href="../se/" class="nav-link dropdown-toggle" role="button" 
+              data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-globe fs-4"></i> In Swedish
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../se/"><i class="bi bi-flag fs-4"></i> Swedish site</a></li>
+              <li><a class="dropdown-item" href="../se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers</a></li>
+            </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -77,8 +76,11 @@
     </header>
     <!-- *** Contents row ************************************************* -->
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-2">
-        <h3>Contents</h3>
+      <div class="col-md-6 offset-md-2">
+        <img src="MeInKilt__cropped_145x300.jpg" alt="Kilted Viking in his kilt" 
+        class="rounded float-end p-4" />
+        
+        <h3 class="mt-4">Contents</h3>
 
         <nav>
           <ul>
@@ -91,7 +93,7 @@
           </ul>
         </nav>
 
-        <h4><a id="who_is">Who is Bj&ouml;rn?</a></h4>
+        <h4 class="mt-4"><a id="who_is">Who is Bj&ouml;rn?</a></h4>
         
         <p>I was born in B&aring;stad in the south of Sweden in 1970 by a Swedish father and
           a Scottish mother. Most of my summers were spent in Scotland
@@ -118,7 +120,7 @@
           helping others, seeing them smile when the understand or things
           work, is gratifying for me.</p>
 
-        <h4><a name="education">Education</a></h4>
+        <h4 class="mt-4"><a name="education">Education</a></h4>
         
         <p>Compulsory school in Sweden is (or was when I went to school)
           nine years, preparing you for 'optional' (upper) secondary school
@@ -171,7 +173,7 @@
           platforms (PC, Mac, and UNIX computers) using different operating
           systems (DOS, Windows, OS/2, MacOS, Linux, and UNIX).</p>
 
-        <h4><a name="work_experience">Work experience</a></h4>
+        <h4 class="mt-4"><a name="work_experience">Work experience</a></h4>
 
         <table class="table table-striped">
           <tr>
@@ -288,7 +290,7 @@
           different CMS (Concrete5, Drupal, Joomla, Tikiwiki, Umbraco, 
           Website Baker, and WordPress) for other organisations and persons.</p>
 
-        <h4><a name="languages">Programming languages, technologies, and tools</a></h4>
+        <h4 class="mt-4"><a name="languages">Programming languages, technologies, and tools</a></h4>
         
         <p>Below are programming languages, database systems, content
           management systems (CMS), and other
@@ -440,7 +442,7 @@
           </div>
         </div>
         
-        <h4><a name="interests">Interests</a></h4>
+        <h4 class="mt-4"><a name="interests">Interests</a></h4>
         
         <p>I find problem solving the most interesting. It's a way of learning
           more and it's gratifying to solve a problem. Helping others is
@@ -457,7 +459,7 @@
           and Perl - two thing I feel other people are more competent at
           handling (as I believe my homepage proves :-).</p>
 
-        <h4><a name="projects">Private projects</a></h4>
+        <h4 class="mt-4"><a name="projects">Private projects</a></h4>
 
         <p>I have some private computer-related projects, which I started
           to develop as part of a course at &Ouml;rebro University (2000), and
@@ -479,57 +481,50 @@
           knowledge about web development and to share things with my
           friends. (It also gave me a reason to register the domain and
           an e-mail address I enjoy and can keep, regardless
-          of any employer. :-)</p>
+          of any employer. :-))</p>
       </div>
 
       <!-- *** News column ***************************************************** -->
       <aside class="col-sm-3 col-sm-offset-0">
-        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <ol class="breadcrumb d-print-none" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="../">
               <span itemprop="name">Home</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
               <span itemprop="name">CV</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span itemprop="name">CV (full)</span>
             <meta itemprop="position" content="2" />
           </li>
         </ol>
 
-        <h3>Images</h3>
-        <img src="MeInKilt__cropped_145x300.jpg" 
-          alt="Kilted Viking in his kilt" class="img-responsive center-block" />
-
-        <h3>Links</h3>
+        <h3 class="mt-4 d-print-none">Links</h3>
       
-        <nav>
+        <nav class="d-print-none">
           <ul class="list-unstyled">
             <li><a href="https://www.mdh.se/" target="_blank" rel="noopener">M&auml;lardalen University</a> 
-              <i class="fa fa-link"></i> [se/en]</li>
+              <i class="bi bi-link"></i> [se/en]</li>
             <li><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a> 
-              <i class="fa fa-link"></i> [en]</li>
-          </ul>
-          <ul class="list-unstyled">
-            <li><a href="./">Back</a> to Brief CV</li>
+              <i class="bi bi-link"></i> [en]</li>
           </ul>
         </nav>
 
-        <p class="description">[en] =  English<br />[se] = Swedish</p>
+        <p class="description d-print-none">[en] =  English<br />[se] = Swedish</p>
       </aside>
     </div>
     
       <!-- *** Footer row ****************************************************** -->
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-md-12 text-center">
         <footer>
-          <p class="pagefooter">Created by: Bj&ouml;rn G. D. Persson. Last updated:
+          <p class="pagefooter"><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b>
             <?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
         </footer>
       </div>
@@ -537,6 +532,6 @@
   </div>
   <!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
   <script src="../js/jquery-3.4.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>
