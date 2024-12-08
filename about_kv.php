@@ -75,6 +75,12 @@
 				<img src="images/AnnanBeach.jpg" alt="Annan beach" title="Annan beach" 
 					class="img-fluid rounded mx-auto d-block" />
 
+				<h3 class="mt-4"><i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> 
+					Cookies <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i></h3>
+				<p>This website uses services from Google to keep track of number 
+					of visitors and what pages are visited.
+				</p>
+
 				<h3 class="mt-4">The design</h3>
 
 				<p>Multimedia has never been my thing... so I usually try to make
@@ -83,10 +89,10 @@
 				<h4>Original design (2006)</h4>
 				<p>This site consists of a bunch
 					of home pages with 5 images (logo and four corners in all home pages,
-					not counting photos from my travels, etc. :-). The home pages are
+					not counting photos from my travels, etc. :-)). The home pages are
 					usually edited as text (nowadays in <strong>Notepad++</strong>, but previously 
 					in <strong>Crimson Editor</strong>), as to
-					not destroy any design features (what design you might ask? :-)
+					not destroy any design features (what design you might ask? :-))
 					and to make sure they work as I want them to. My home pages are then viewed
 					(tested) in <strong>Mozilla Firefox</strong> (and, if I remember/can be
 					bothered, M$ Internet Explorer). The <strong>Web Design Group's</strong> 

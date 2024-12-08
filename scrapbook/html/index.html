@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML - Kilted Viking's Scrapbook</title>
-    <link href="../../css/bootstrap5/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap-icons.min.css">
-    <link href="../scrapbook.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../scrapbook.css" />
 </head>
 <body id="top">
     <nav class="navbar navbar-expand-lg fixed-top bg-primary text-white">
         <div class="container-fluid">
             <a href="/scrapbook/" class="navbar-brand text-white">Scrapbook</a>
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -30,7 +32,8 @@
         <header class="row">
             <div class="col">
                 <h1>HTML - Kilted Viking's Scrapbook</h1>
-                <p>Miscellaneous test of HTML.</p>
+                <p>Miscellaneous test of HTML and links to Mozilla Developer Network 
+                    (MDN) and/or Can I Use?.</p>
             </div>
         </header>
 
@@ -39,16 +42,26 @@
                 <div class="card">
                     <div class="card-header"><h2>Examples</h2></div>
                     <div class="card-body">
-                        <h3>New elements</h3>
+                        <h3>New(er) elements</h3>
                         <ul>
-                            <li><a href="examples/datalist.html" target="_blank">datalist <i class="bi-box-arrow-up-right"></i></a> 
+                            <li><a href="examples/datalist.html" target="_blank">datalist 
+                                <i class="bi-box-arrow-up-right"></i></a> 
                                 - <a href="https://caniuse.com/datalist"
                                 rel="noopener" target="_blank">Can I use <i class="bi-box-arrow-up-right"></i></a></li>
-                            <li><a href="examples/dialog.html" target="_blank">dialog <i class="bi-box-arrow-up-right"></i></a> 
+                            <li><a href="examples/dialog.html" target="_blank">dialog 
+                                <i class="bi-box-arrow-up-right"></i></a> 
                                 - <a href="https://caniuse.com/dialog"
                                 rel="noopener" target="_blank">Can I use <i class="bi-box-arrow-up-right"></i></a></li>
-                            <li><a href="examples/selectlist.html" target="_blank">selectlist <i class="bi-box-arrow-up-right"></i></a> 
-                                <i class="bi-ban"></i></li>
+                            <li><a href="examples/selectlist.html" target="_blank">selectlist 
+                                <i class="bi-box-arrow-up-right"></i></a></li>
+                        </ul>
+
+                        <h3>Elements (&quot;old&quot;)</h3>
+                        <ul>
+                            <li><a href="examples/textarea.html" target="_blank">textarea 
+                                <i class="bi-box-arrow-up-right"></i></a>
+                                - <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"
+                                rel="noopener" target="_blank">MDN <i class="bi-box-arrow-up-right"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,8 +76,6 @@
                             <li>showPicker() for input 
                                 - <a href="https://caniuse.com/mdn-api_htmlinputelement_showpicker"
                                 rel="noopener" target="_blank">Can I use <i class="bi-box-arrow-up-right"></i></a></li>
-                            
-                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -72,11 +83,11 @@
         </div>
 
         <footer class="text-center border-top border-2 mt-5">
-            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-09-09.</p>
+            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2024-12-08.</p>
             <p><a href="../">Back to Kilted Viking's Scrapbook</a> | <a href="#top">To top</a></p>
         </footer>
     </div>
-    <script src="../../js/bootstrap5/bootstrap.min.js"></script>
-
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

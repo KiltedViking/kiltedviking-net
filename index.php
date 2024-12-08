@@ -100,7 +100,7 @@
 		<!-- *** Contents row ************************************************* -->
 		<div class="row">
 			<div class="col-md-6 offset-lg-2 offset-md-1">
-				<h3 class="contentsheader">Introduction</h3>
+				<h3 class="contentsheader mt-4">Introduction</h3>
 
 				<p>These web pages, <abbr title="see 'About me' for explanation of the name">Kilted
 					Viking</abbr>, are used to share things with others (where I've been and some
@@ -109,15 +109,16 @@
 				<p>See Swedish version of site for computer related topics.</p>
 
 				<p>And please, read with humour in mind. :-)</p>
-				
-				<h4 class="contentsheader" id="note">Please note</h4>
 
-				<p class="instructions">... that I&lsquo;m not a linguist, i.e. my
-					spelling and grammar might be a bit bad. :-)</p>
+				<h4>YouTube channel</h4>
 
-				<h4>Kakor (cookies)</h4>
-				<p>Denna webbplats använder tjänster från Google för att hålla reda
-					på antalet besökare och vilka sidor som besöks.
+				<p>Recordings from some of of my walks can be found at my YouTube
+					channel: <a href="https://youtube.com/@kiltedviking" target="_blank" rel="noopener">https://youtube.com/@kiltedviking</a>.</p>
+
+				<h4><i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> 
+					Cookies <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i></h4>
+				<p>This website uses services from Google to keep track of number 
+					of visitors and what pages are visited.
 				</p>
 			</div>
 

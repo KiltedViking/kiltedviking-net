@@ -56,3 +56,8 @@ footer.page-footer { color: #FEDB00; background-color: #E03C31; padding: 1em;}
 .kommentar { font-size: .9em; font-style: italic; }
 td.tabellrubrik, td.tabellrubrik>a { color: #FEDB00; background-color: #E03C31; font-size: 1.3em; }
 /* td.tabellrubrik>a */
+
+label.browser-default {
+  font-size: 1em;
+  color: black;
+}
