@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Enkel tabell</title>
+  <title>HTML - Tabeller - Bj&ouml;rns studiewebb</title>
   <style>
     /* Stilar för att visa storlek på tabell och dess celler */
-    table { border: solid 1px red; }
-    td { border: solid 1px blue; }
+    table.kantlinjer { border: solid 1px red; }
+    table.kantlinjer td { border: solid 1px blue; }
   </style>
 </head>
 <body>
-  <h1>Enkel tabell</h1>
+  <h1>Tabeller</h1>
+  <p>Exempel på tabeller med och utan formatering.</p>
+  
+  <h2>Enkel tabell</h2>
   <table>
     <tr>
       <td>[Rad 1 - kol. 1]</td>
@@ -23,6 +26,27 @@
       <td>[Rad 2 - kol. 2]</td>
     </tr>
   </table>
-  <p>(Kantlinje har applicerats för att visa storlek på celler.)</p>
+
+  <h2>Enkel tabell med kantlinjer applicerade</h2>
+  <p>Kantlinje har applicerats på tabell nedan för att visa storlek på tabell (röda 
+    kantlinjer) och celler (blåa kantlinjer).</p>
+
+  <table class="kantlinjer">
+    <tr>
+      <td>[Rad 1 - kol. 1]</td>
+      <td>[Rad 1 - kolumn 2]</td>
+    </tr>
+    <tr>
+      <td>[Rad 2 - kolumn 1]</td>
+      <td>[Rad 2 - kol. 2]</td>
+    </tr>
+  </table>
+  
+<!-- START: Allt mellan denna och nästa kommentar är sidfoten med dokumentinformation -->
+<hr />
+<p class="center"><b>Skapad av:</b> Björn G.D. Persson.
+  <b>Uppdaterad:</b> 2025-01-12.</p>
+<!-- SLUT: Dokumentinformation -->
+
 </body>
 </html>

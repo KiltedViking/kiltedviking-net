@@ -14,53 +14,69 @@
 <form method="post" action="html5_3_behandlat.asp">
   <table style="width: 600px;">
     <tr>
-      <td style="width: 27%"><b>Namn:</b></td>
-      <td style="width: 73%"><input type="text" name="txtNamn" size="40" /></td>
+      <td style="width: 27%"><label for="txtNamn">Namn:</label></td>
+      <td style="width: 73%"><input type="text" name="txtNamn" size="40" title="En titel" /></td>
     </tr>
     <tr>
-      <td><b>E-post:</b></td>
+      <td><label for="txtEpost">E-post:</label></td>
       <td>
-        <input type="text" name="txtEpost" size="40" /></td>
+        <input type="text" name="txtEpost" size="40" title="En titel" /></td>
     </tr>
     <tr>
       <td valign="top">
         <hr />
-        <b>Jag använder Internet (ange ett alternativ):</b></td>
+        Jag använder Internet (ange ett alternativ):
+      </td>
       <td valign="top">
         <hr />
-        <input type="radio" name="radInternet" value="hemma" checked="checked" />Hemma<br />
-        <input type="radio" name="radInternet" value="jobbet" />På jobbet<br />
-        <input type="radio" name="radInternet" value="bada" />Både hemma och på jobbet</td>
+        <label>
+          <input type="radio" name="radInternet" value="hemma" checked="checked" />Hemma<br />
+        </label>
+        <label>
+          <input type="radio" name="radInternet" value="jobbet" />På jobbet<br />
+        </label>
+        <label>
+          <input type="radio" name="radInternet" value="bada" />Både hemma och på jobbet
+        </label>
+      </td>
     </tr>
     <tr>
       <td valign="top">
         <hr />
-        <p><b>Jag vill ha information om (ange ett eller flera alternativ):</b></p></td>
+        Jag vill ha information om (ange ett eller flera alternativ):
+      </td>
       <td valign="top">
         <hr />
-        <p><input type="checkbox" name="chkInternet" value="Ja" />Programvara för
-          Internet<br />
-          <input type="checkbox" name="chkSpel" value="Ja" />Spel<br />
-          <input type="checkbox" name="chkMultimedia" value="Ja" />Multimedia
-          program<br />
-          <input type="checkbox" name="chkKontor" value="Ja" />Kontorspaket
-          (ordbehandling, kalkyl, presentation och databaser)</p></td>
+        <label><input type="checkbox" name="chkInternet" value="Ja" />Programvara för
+          Internet</label><br />
+        <label><input type="checkbox" name="chkSpel" value="Ja" />Spel</label><br />
+        <label><input type="checkbox" name="chkMultimedia" value="Ja" />Multimedia
+          program</label><br />
+        <label><input type="checkbox" name="chkKontor" value="Ja" />Kontorspaket
+          (ordbehandling, kalkyl, presentation och databaser)</label>
+        </td>
     </tr>
     <tr>
-      <td valign="top"><b>Synpunkter om vår webbplats:</b></td>
+      <td valign="top"><label for="txtSynpunkter">Synpunkter om vår webbplats:</label></td>
       <td valign="top">
-        <textarea rows="3" name="txtSynpunkter" cols="50"></textarea></td>
+        <textarea rows="3" name="txtSynpunkter" cols="50" title="En titel"></textarea></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Skicka" name="B1" />
+        <input type="reset" value="Återställ" name="B2" /></td>
     </tr>
   </table>
-  <p>&nbsp;</p>
-  <p><input type="submit" value="Skicka" name="B1" />
-    <input type="reset" value="Återställ" name="B2" /></p>
 </form>
 
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <form action="">
   <p><input type="button" value="Stäng fonster" onclick="javascript:window.close()" /></p>
 </form>
+
+<hr />
+<p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2024-12-08.</p>
 </body>
 </html>

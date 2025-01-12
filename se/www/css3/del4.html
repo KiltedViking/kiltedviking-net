@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
@@ -23,6 +22,7 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
 </head>
@@ -112,8 +112,8 @@
         </div>
 
         <div class="five columns">
-          <code>{ <em>egenskap</em>: <em>v&auml;rde</em> }</code><br />
-          <code>{ font-family: Verdana }</code>
+          <pre><code class="language-css"><em>egenskap</em>: <em>v&auml;rde</em></code></pre>
+          <pre><code class="language-css">font-family: Verdana</code></pre>
         </div>
       </div>
 
@@ -126,7 +126,7 @@
         </div>
 
         <div class="five columns">
-          <code>{ font-family: &quot;Times New Roman&quot; }</code>
+          <pre><code class="language-css">font-family: &quot;Times New Roman&quot;</code></pre>
         </div>
       </div>
 
@@ -139,7 +139,7 @@
         </div>
 
         <div class="five columns">
-          <code>{ <em>egenskap</em>: <em>v&auml;rde1</em>, <em>v&auml;rde2</em>, ... }</code>
+          <pre><code class="language-css"><em>egenskap</em>: <em>v&auml;rde1</em>, <em>v&auml;rde2</em>, ... </code></pre>
         </div>
       </div>
 
@@ -156,7 +156,7 @@
         </div>
 
         <div class="five columns">
-          <code>{ font-family: Verdana, Arial, Helvetica, sans-serif }</code>
+          <pre><code class="language-css">font-family: Verdana, Arial, sans-serif</code></pre>
         </div>
       </div>
       
@@ -168,7 +168,7 @@
         </div>
 
         <div class="five columns">
-          <code>{ font-family: Georgia, &quot;Times New Roman&quot;, Times, serif }</code>
+          <pre><code class="language-css">font-family: Georgia, &quot;Times New Roman&quot;</code></pre>
         </div>
       </div>
 
@@ -181,7 +181,7 @@
         </div>
 
         <div class="five columns">
-          <code>{ <em>egenskap1</em>: <em>v&auml;rde1</em>; <em>egenskap2</em>: <em>v&auml;rde2</em>; }</code>
+          <pre><code class="language-css"><em>egenskap1</em>: <em>v&auml;rde1</em>; <em>egenskap2</em>: <em>v&auml;rde2</em>;</code></pre>
         </div>
       </div>
 
@@ -205,10 +205,8 @@
         </div>
 
         <div class="five columns">
-          <pre><code>{
-  <em>egenskap1: v&auml;rde1;</em>
-  <em>egenskap2: v&auml;rde2;</em>
-}</code></pre>
+          <pre><code class="language-css"><em>egenskap1: v&auml;rde1;</em>
+<em>egenskap2: v&auml;rde2;</em></code></pre>
         </div>
       </div>
 
@@ -227,14 +225,12 @@
         </div>
 
         <div class="five columns">
-          <pre><code>{
-  font-size: 13px;
+          <pre><code class="language-css">font-size: 13px;
   font-weight: bold;
   font-family: Verdana, Arial, 
-    Helvetica, sans-serif;
-}</code></pre>
-            <pre><code>{ font: 13px bold Verdana, Arial,
-&nbsp;&nbsp;&nbsp; Helvetica, sans-serif; }</code></pre>
+    Helvetica, sans-serif;</code></pre>
+            <pre><code class="language-css">font: 13px bold Verdana, Arial,
+  Helvetica, sans-serif;</code></pre>
         </div>
       </div>
 
@@ -250,11 +246,8 @@
         </div>
 
         <div class="five columns">
-          <pre><code>/* En kommentar */
-{
-  /* Ytterligare kommentar */
-  <em>egenskap1: v&auml;rde1;</em>
-}</code></pre>
+          <pre><code class="language-css">/* En kommentar */
+<em>egenskap1: v&auml;rde1;</em></code></pre>
         </div>
       </div>
 
@@ -272,11 +265,11 @@
         </div>
 
         <div class="five columns">
-          <pre><code>p { /* Alla stycken */
+          <pre><code class="language-css">p { /* Alla stycken */
   font-family: Verdana, Arial, 
     Helvetica, sans-serif;
 }
-p.ingress { /* Stycken av klassen ingress */
+p.ingress { /* Stycke av klassen ingress */
   font-style: italic;
 }</code></pre>
         </div>
@@ -440,8 +433,9 @@ p.ingress { /* Stycken av klassen ingress */
     </div>
   
     <footer>
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

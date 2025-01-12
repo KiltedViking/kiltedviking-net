@@ -18,53 +18,48 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/" />
-	<link rel="preload" href="fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <link rel="shortcut icon" href="../../favicon.ico" />
   <title>Bj&ouml;rns studiewebb</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/studiewebb.css" />
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/studiewebb5.css" />
 </head>
 <body>
   <!-- Bootstrap-klass som begransar sidas bredd och gor sida responsiv -->
   <div class="container">
     <!-- *** START: Navbar *************************************************** -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Knapp for nar meny kollapsar -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse">
-            <!-- TODO 2017-09-20 - Lagg till ARIA-saker -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./">
-            <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
-            width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
-          </a>
-        </div>
+        <a class="navbar-brand" href="./">
+          <img src="bilder/logony1.jpg" alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb"
+          width="72" height="25" id="logo-image" /> <!-- width="155" height="54" -->
+        </a>
+        <!-- Knapp for nar meny kollapsar -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active"><a href="./index.html">Start</a></li> -->
-            <li><a href="html/index.html">HTML</a></li>
-            <li><a href="css3/index.html">CSS</a></li>
-            <li><a href="javascript/index.html">JavaScript</a></li>
-            <li><a href="css-bibliotek.html">CSS-bibliotek</a></li>
-            <li><a href="js-bibliotek.html">JS-bibliotek</a></li>
-            <li><a href="exempel/index.html">Exempel</a></li>
-            <li><a href="seo/">SEO</a></li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="html/index.html">HTML</a></li>
+            <li class="nav-item"><a class="nav-link" href="css3/index.html">CSS</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript/index.html">JavaScript</a></li>
+            <li class="nav-item"><a class="nav-link" href="css-bibliotek.html">CSS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="js-bibliotek.html">JS-bibliotek</a></li>
+            <li class="nav-item"><a class="nav-link" href="exempel/index.html">Exempel</a></li>
+            <li class="nav-item"><a class="nav-link" href="seo/">SEO</a></li>
 
-            <li class="dropdown">
-              <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown">
-                  Mer... <i class="caret"></i>
-              </a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Mer...
+							</a>
               <ul class="dropdown-menu">
-                <li><a href="lankar.html">L&auml;nkar</a></li>
-                <li><a href="om.html">Om</a></li>
-                <li><a href="gammalt.html">&Auml;ldre material</a></li>
+                <li><a class="dropdown-item" href="lankar.html">L&auml;nkar</a></li>
+                <li><a class="dropdown-item" href="om.html">Om</a></li>
+                <li><a class="dropdown-item" href="gammalt.html">&Auml;ldre material</a></li>
               </ul>
             </li>
           </ul>
@@ -76,7 +71,7 @@
     <div class="row">
       <!-- *** Kolumn med huvudinnehall ************************************ -->
       <div class="col-sm-8">
-        <h1>V&auml;lkommen till Bj&ouml;rns studiewebb</h1>
+        <h1 class="mt-4">V&auml;lkommen till Bj&ouml;rns studiewebb</h1>
 
         <p>P&aring; denna webbplats presenterar jag information om webbrelaterade
           teknologier och den best&aring;r idag av nedanst&aring;ende huvudsakliga delar,
@@ -85,7 +80,7 @@
 
         <ul>
           <li><b>HTML</b> - HTML 5 (&auml;ven kort om HTML 4, XHTML, XML och DHTML)</li>
-          <li><b>Stilmallar (CSS)</b> -  CSS upp till version 3</li>
+          <li><b>Stilmallar (CSS)</b> -  den levande standarden ("version 3+")</li>
           <li><b>JavaScript</b> - introduktion till JavaScript och Document Object Model (DOM)</li>
         </ul>
         <ul>
@@ -97,13 +92,8 @@
         </ul>
         <ul>
           <li><b>SEO</b> - sökmotoroptimering (SEO) och strukturerad data (för &quot;tekniker&quot;)
-            samt hur jag optimerat mina webbsidor.</li>
+            samt hur jag (försöker ;-)) optimerat mina webbsidor.</li>
         </ul>
-
-        <p>Har du n&aring;gra synpunkter om webbplatsen,
-          kommentarer, till&auml;gg, ev. hittade fel, m.m. &auml;r du v&auml;lkommen att skicka dina
-          kommentarer via e-post (adressen finns l&auml;ngst ner p&aring; min webbplats
-          startsida - se <a href="om.html">Om</a> f&ouml;r adress till webbplats).</p>
 
         <p>Se <b>L&auml;nkar</b> (under Mer...) f&ouml;r verktyg samt f&ouml;r fler
           webbsidor/-platser med information i dessa &auml;mnen.</p>
@@ -117,7 +107,15 @@
       
       <!-- *** Kolumn med nyheter ****************************************** -->
       <aside class="col-sm-4">
-        <h2>Nyheter</h2>
+        <h2 class="mt-4">Nyheter</h2>
+
+        <p><b>2025-01-12</b><br />
+          Uppdaterat design och innehåll av underwebbarna HTML och CSS.
+        </p>
+
+        <p><b>2024-11-02</b><br />
+          Påbörjat uppdatering av CSS- och JavaScript-bibliotek använda i studiewebb.
+        </p>
 
         <p><b>2020-03-01</b> och <b>2020-03-08</b><br />
           Åtgärdat mobila versioner av sidor, bl.a. jQuery och PHP, och SEO-relaterat.</p>
@@ -149,13 +147,13 @@
 
     <!-- *** Rad med sidfot ************************************************ -->
     <footer class="row">
-      <div class="col-sm-12">
-        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2020-03-08.</p>
+      <div class="col-sm-12 text-center">
+        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2024-11-02.</p>
       </div>
     </footer>
   </div>
   <!-- Inkludera JavaScript från Bootstrap och dess beroende -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,33 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dialog - HTML - Kilted Viking's Scrapbook</title>
+    <link rel="stylesheet" href="/css/prism/prism.css" />
+    <link rel="stylesheet" href="../../scrapbook-examples.css" />
 </head>
 <body>
-    <header class="row">
-        <div class="col">
-            <h1>dialog</h1>
-            <p>Example showing how to use the element <code>dialog</code>.
-            </p>
-        </div>
-    </header>
+    <div class="container">
+        <header class="row">
+            <div class="col">
+                <h1>dialog</h1>
+                <p>Example showing how to use the HTML element <code>dialog</code>.
+                </p>
+            </div>
+        </header>
 
-    <h2>Example</h2>
-    <!-- START example -->
+        <h2>Code</h2>
 
+        <pre><code class="language-html">&lt;dialog open&gt;
+    &lt;p&gt;Greetings, one and all!&lt;/p&gt;
+    &lt;form method=&quot;dialog&quot;&gt;
+        &lt;button type=&quot;button&quot;&gt;OK&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
 
-    <dialog open>
-        <p>Greetings, one and all!</p>
-        <form method="dialog">
-            <button>OK</button>
-        </form>
-    </dialog>
-      
-    <!-- END example -->
+        <h2>Result</h2>
+        <!-- START example -->
+        <p>(The dialog should show when page is loaded. Reload page to display again. ;-))</p>
 
-    <footer class="row">
-        <div class="col">
-            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-10-01.</p>
-        </div>
-    </footer>
+        <dialog open>
+            <p>Greetings, one and all!</p>
+            <form method="dialog">
+                <button type="button">OK</button>
+            </form>
+        </dialog>
+        
+        <!-- END example -->
+
+        <footer class="row">
+            <div class="col">
+                <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-10-01.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="/js/prism/prism.js"></script>
 </body>
 </html>

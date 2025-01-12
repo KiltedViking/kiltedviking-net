@@ -34,7 +34,7 @@ css/ekko*.*
 css/fonts/*
 css/font-awe*.*
 css/jquery*.*
-css/prism
+css/prism/*.css
 fonts
 images/bootstrap-icons-1.11.1
 images/desktop.ini
@@ -42,21 +42,19 @@ js/bootstrap*.*
 js/bootstrap5/*
 js/ekko*.*
 js/jquery-*.*
-js/prism
-se/www/css/uikit*.css
 se/www/css/pure-release-1.0.1
 se/www/css/semantic-ui
-se/www/css/semantic-ui-2.5.0
 se/www/css/bootstrap*.*
 se/www/css/bootstrap4
 se/www/css/bootstrap5
-se/www/css/bulma1
 #Exclude YUI library's source code (minified version included from js folder)
 /se/www/js/bootstrap4
 /se/www/js/bootstrap5
 /se/www/js/yui/*
 /se/www/js/jquery*.*
 /se/www/js/npm.js
+/se/www/js/semantic*.js
+/se/www/js/uikit*.js
 
 # Exclude OS generated files
 .DS_Store

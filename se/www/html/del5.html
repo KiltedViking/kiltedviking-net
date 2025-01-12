@@ -20,8 +20,9 @@
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del5.html" />
   <title>HTML - Formul&auml;r i HTML</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
-  <link rel="stylesheet" href="../css/materialize.min.css">
-  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <link rel="stylesheet" href="../css/materialize.min.css" />
+  <link rel="stylesheet" href="/css/prism/prism.css" />
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css" />
 </head>
 <body>
   <header class="fg-scania-yellow bg-scania-red">
@@ -102,16 +103,16 @@
             <li><a href="#element" class="collection-item">Element</a>
 
               <ul class="collection">
-                <li><a href="#type-text" class="collection-item">Enradig textruta</a></li>
-                <li><a href="#type-textarea" class="collection-item">Flerradig textruta</a></li>
-                <li><a href="#type-password" class="collection-item">Textruta f&ouml;r l&ouml;senord</a></li>
-                <li><a href="#type-hidden" class="collection-item">Dold textruta</a></li>
-                <li><a href="#type-checkbox" class="collection-item">Kryssruta</a></li>
-                <li><a href="#type-radio" class="collection-item">Radioknapp</a></li>
-                <li><a href="#type-submit" class="collection-item">Submit-knapp</a></li>
-                <li><a href="#type-reset" class="collection-item">Reset-knapp</a></li>
-                <li><a href="#type-button" class="collection-item">Kommandoknapp</a></li>
-                <li><a href="#type-select" class="collection-item">Listrutor</a></li>
+                <li><a href="#type-text" class="collection-item">- Enradig textruta</a></li>
+                <li><a href="#type-textarea" class="collection-item">- Flerradig textruta</a></li>
+                <li><a href="#type-password" class="collection-item">- Textruta f&ouml;r l&ouml;senord</a></li>
+                <li><a href="#type-hidden" class="collection-item">- Dold textruta</a></li>
+                <li><a href="#type-checkbox" class="collection-item">- Kryssruta</a></li>
+                <li><a href="#type-radio" class="collection-item">- Radioknapp</a></li>
+                <li><a href="#type-submit" class="collection-item">- Submit-knapp</a></li>
+                <li><a href="#type-reset" class="collection-item">- Reset-knapp</a></li>
+                <li><a href="#type-button" class="collection-item">- Kommandoknapp</a></li>
+                <li><a href="#type-select" class="collection-item">- Listrutor</a></li>
               </ul>
 
             </li>
@@ -126,46 +127,55 @@
         <div class="col l7 s12">
           <p>Ett formul&auml;r best&aring;r fr&auml;mst av tre delar</p>
           
-          <ul class="collection">
-            <li class="collection-item">taggen <code>&lt;form&gt;</code> som visar 
-              var formul&auml;ret b&ouml;rjar och slutar.</li>
-
-            <li class="collection-item">kontroller som bes&ouml;kare fyller i - skapas 
-              med en eller flera av taggarna <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> 
-              och/eller <code>&lt;select&gt;</code>.</li>
-
-            <li class="collection-item">Submit-knappen, som ocks&aring; den skapas 
-              med taggen <code>&lt;input&gt;</code></li>
-          </ul>
+          <dl>
+            <dt>taggen <code>&lt;form&gt;</code></dt>
+            <dd>Tagg som visar var formulär börjar och slutar samt där destination 
+              och HTML-metod (GET eller POST) att skicka formulär med.</dd>
+            <dt>kontroller (fält)</dt>
+            <dd>skapas med en eller flera av taggarna <code>&lt;input&gt;</code>, 
+              <code>&lt;textarea&gt;</code> och/eller <code>&lt;select&gt;</code>.</dd>
+            <dt>skicka knapp (submit)</dt>
+            <dd>Knapp för att skicka formulär.</dd>
+          </dl>
         </div>
       </div>
 
-      <h3>Taggen &lt;form&gt;</h3>
+      <h3>Taggen <code>&lt;form&gt;</code></h3>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Taggen &lt;form&gt; &auml;r, som n&auml;mnt ovan, den tagg som visar var
-            formul&auml;ret b&ouml;rjar och slutar. M.h.a. taggens attribut talar man om var
-            och hur formul&auml;rets inneh&aring;ll ska skickas.</p>
+          <p>Taggen <code>&lt;form&gt;</code> &auml;r, som n&auml;mnt ovan, den tagg 
+            som visar var formul&auml;ret b&ouml;rjar och slutar samt dess attribut 
+            används för att tala om var och hur formul&auml;rets inneh&aring;ll ska skickas.</p>
           
-          <p>Var inneh&aring;llet ska skickas
-            anges i attributet action som en URL. URL:en kan peka p&aring; ett
-            CGI-program, en (Java-)servlet eller en skriptsida (t.ex. JSP eller PHP).</p>
-          
-          <p>Formul&auml;r kan skickas med metoderna GET eller POST, vilket anges
-            genom att ge attributet <code>method</code> v&auml;rdet &quot;get&quot; respektive
-            &quot;post&quot;. (Mer om GET och POST finns i n&auml;sta avsnitt.)</p>
+          <h4>Attribut</h4>
+
+          <p>De mest använda attributen är:</p>
+
+          <dl>
+            <dt><code>action</code></dt>
+            <dd>Var formulärets inneh&aring;llet ska skickas, t.ex. <code>/minsida.php</code>
+              eller <code>https://kiltedviking.net/minsida.php</code>.</dd>
+            <dt><code>method</code></dt>
+            <dd>Hur formul&auml;r ska skickas - med någon av HTTP-metoderna GET eller POST.
+              (Mer om GET och POST finns i avsnitt nedan.)</dd>
+          </dl>
+
+          <h5>Fler attribut</h5>
+
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Friviliigt namn på formulär - användbart om flera formulär i sida
+              eller om man önskar manipulera formulär med JavaScript.
+            </dd>
+          </dl>
         </div>
+
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p>&lt;h1&gt;Ett enkelt formul&amp;auml;r&lt;/h1&gt;</p>
-              <p>&lt;form method=&quot;post&quot;<br />
-                &nbsp; action=&quot;html5_1_behandlat.php&quot;&gt;</p>
-              <p>...</p>
-              <p>&lt;/form&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;h1&gt;Ett enkelt formul&amp;auml;r&lt;/h1&gt;
+&lt;form method=&quot;post&quot; action=&quot;behandla.php&quot;&gt;
+  ...
+&lt;/form&gt;</code></pre>
         </div>
       </div>
 
@@ -173,37 +183,41 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>I ett (X)HTML-formul&auml;r kan finnas de flesta typer av (enkla) kontroller
-            som kan finnas i ett Windows-program. Exempel p&aring; n&aring;gra &auml;r textrutor
-            (enkelradiga och flerradiga), listrutor, kombinationsrutor, kryssrutor,
+          <p>I ett HTML-formul&auml;r kan finnas de flesta typer av (enkla) kontroller
+            som kan finnas i ett program p&aring; dator. Exempel p&aring; n&aring;gra &auml;r textrutor
+            (enkelradiga och flerradiga), listrutor, nedrullningsbara listrutor, kryssrutor,
             radioknappar och &quot;vanliga&quot; knappar. (Kontrollerna beskrivs
             l&auml;ngre ner p&aring; hemsidan.)</p>
+
+            <form>
+              <label for="forsta-text" class="browser-default">Fyll i ditt namn:</label>
+              <input type="text" name="forsta-text" title="Fält för namn" class="browser-default" />
+            </form>
         </div>
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p class="kod">&lt;p&gt;Fyll i ditt namn:&lt;br /&gt;<br />
-                &nbsp; &lt;input type=&quot;text&quot; name=&quot;txtNamn&quot;&gt;&lt;/p&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;mintext&quot;&gt;Fyll i namn:&lt;/label&gt;
+&lt;input type=&quot;text&quot; name=&quot;mintext&quot;&gt;&lt;/p&gt;</code></pre>
         </div>
       </div>
 
-      <h3>Submit-knappen</h3>
+      <h3>Skickaknapp (<code>submit</code>)</h3>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Submit-knappen &auml;r det som g&ouml;r att formul&auml;rets inneh&aring;ll skickas
-            iv&auml;g n&auml;r bes&ouml;karen klickar p&aring; knappen. Ofta brukar Submit-knappen
-            finnas i par med Reset-knappen, men det &auml;r inte obligatoriskt.</p>
+          <p>Skickaknappen &auml;r det som g&ouml;r att formul&auml;rets inneh&aring;ll skickas
+            iv&auml;g n&auml;r bes&ouml;karen klickar p&aring; knappen och kan
+            kompletteras med återställningsknapp (<code>reset</code>) för att tömma
+            formulärets innehåll.</p>
+
+            <form>
+              <p><input type="submit" /></p>
+              <p><input type="submit" value="Skicka" /></p>
+            </form>
         </div>
+
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p class="kod">&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;&lt;/p&gt;</p>
-              <p class="kod">&lt;/form&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;submit&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;</code></pre>
         </div>
       </div>
 
@@ -225,9 +239,6 @@
               för att visa exempel och studera dess bakomliggande kod.
             </div>
           </div>
-
-          <p><b>Observera</b> att exempel ovan kr&auml;ver en webbserver med st&ouml;d f&ouml;r
-            PHP f&ouml;r att resultatet ska behandlas!</p>
         </div>
       </div>
 
@@ -327,12 +338,6 @@
           <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
             för att visa exempel och studera dess bakomliggande kod.
           </div>
-
-          <div class="card-panel orange">
-          <p><b>Observera</b> att exemplen kr&auml;ver en webbserver (t.ex. IIS) med st&ouml;d f&ouml;r ASP!
-            (Exempel 5.1. &auml;r samma som ovan - det &auml;r m.a.o. inte ett misstag att
-            exemplet visas igen! :-)</p>
-          </div>
         </div>
       </div>
 
@@ -361,27 +366,27 @@
         </div>
       </div>
 
-      <h3 id="type-text">Enradig textruta - <code>TYPE=&quot;text&quot;</code></h3>
+      <h3 id="type-text">Enradig textruta - <code>type=&quot;text&quot;</code></h3>
       
       <div class="row">
         <div class="col l7 s12">
           <form action="">
             <h4>Utseende</h4> 
-            <p><input type="text" size="25" maxlength="25" name="MinText" 
-              value="Startvarde" class="browser-default" /></p>
-            <p><input type="text" size="25" maxlength="25" name="MinText" 
-              placeholder="Startvarde" class="browser-default" /></p>
+            <label for="MinText">Etikett för textruta med värde</label><br />
+            <input type="text" size="25" maxlength="25" name="MinText" 
+              value="Startvarde" placeholder="" title="Fält med startvärde" class="browser-default" /><br />
+            <label for="MinText1">Etikett för textruta med platshållare</label><br />
+            <input type="text" size="25" maxlength="25" name="MinText1" 
+              value="" placeholder="Startvarde" title="Fält med platshållare" class="browser-default" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
-              maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code><br />
-            <code>&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
-              maxlength=&quot;25&quot; placeholder=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
+  maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;
+&lt;input type=&quot;text&quot; name=&quot;MinText1&quot; size=&quot;25&quot;
+  maxlength=&quot;25&quot; placeholder=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -389,15 +394,25 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
-              &auml;n en kontroll i formul&auml;ret.</li>
-            <li><code>size</code> - bredden p&aring; kontrollen i tecken.</li>
-            <li><code>maxlength</code> - antal tecken som bes&ouml;karen till&aring;ts fylla i.</li>
-            <li><code>placeholder</code> - text som kommer visas i kontrollen d&aring;
-              hemsidan laddas, men som tas bort n&auml;r f&auml;ltet f&aring;r fokus.</li>
-            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt i formul&auml;ret.</dd>
+            <dt><code>size</code></dt>
+            <dd>Antal teckens bredd p&aring; kontrollen i tecken.</dd>
+            <dt><code>maxlength</code></dt>
+            <dd>Max antal tecken som bes&ouml;karen till&aring;ts fylla i.</dd>
+            <dt><code>placeholder</code></dt>
+            <dd>Text som kommer visas när fältet är tomt, men som tas bort n&auml;r f&auml;ltet fylls i (eller f&aring;r fokus).</dd>
+            <dt><code>value</code></dt>
+            <dd>Text som kommer visas i kontrollen d&aring; hemsidan laddas.</dd>
+          </dl>
+
+          <h5>Fler attribut</h5>
+          <dl>
+            <dt><code>title</code></dt>
+            <dd>Beskrivning av elementets (fältets) betydelse - brukar visas när
+              musmarkör vilar över element (fält).</dd>
+          </dl>
         </div>
       </div>
 
@@ -413,16 +428,15 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-              <textarea rows="5" cols="25" name="sture">Startvarde</textarea>
+            <label for="MinArea">Flerradig textruta:</label>
+            <textarea rows="5" cols="25" name="MinArea" title="En flerradig textruta">Startvarde</textarea>
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-          <code>&lt;textarea name=&quot;MinArea&quot; rows=&quot;5&quot; 
-            cols=&quot;25&quot;&gt;Startvarde&lt;/textarea&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;textarea name=&quot;MinArea&quot; rows=&quot;5&quot; 
+  cols=&quot;25&quot;&gt;Startvarde&lt;/textarea&gt;</code></pre>
         </div>
       </div>
 
@@ -430,12 +444,22 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
-              &auml;n en kontroll i formul&auml;ret.</li>
-            <li><code>rows</code> - h&ouml;jden p&aring; kontrollen i antalet rader.</li>
-            <li><code>cols</code> - bredden p&aring; kontrollen i antal tecken.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</dd>
+            <dt><code>rows</code></dt>
+            <dd>H&ouml;jden p&aring; kontrollen i antalet rader.</dd>
+            <dt><code>cols</code></dt>
+            <dd>Bredden p&aring; kontrollen i antal tecken.</dd>
+          </dl>
+
+          <h5>Fler attribut</h5>
+          <dl>
+            <dt><code>placeholder</code></dt>
+            <dd>Text som kommer visas när fältet är tomt, men som tas bort när fältet 
+              fylls i (eller får fokus).</dd>
+          </dl>
         </div>
       </div>
 
@@ -453,17 +477,16 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-            <input type="password" size="25" maxlength="25" name="MinText" 
-              value="Startvarde" class="browser-default" />
+            <label for="mittLosenord">L&ouml;senord:</label>
+            <input type="password" size="25" maxlength="25" name="mittLosenord" 
+              value="Startvarde" title="En lösenordsruta" class="browser-default" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;password&quot; name=&quot;MittLosenord&quot;
-              size=&quot;25&quot; maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;password&quot; name=&quot;MittLosenord&quot;
+ size=&quot;25&quot; maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -471,13 +494,17 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
-              &auml;n en kontroll i formul&auml;ret.</li>
-            <li><code>size</code> - bredden p&aring; kontrollen i tecken.</li>
-            <li><code>maxlength</code> - antal tecken som bes&ouml;karen till&aring;ts fylla i.</li>
-            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</dd>
+            <dt><code>size</code></dt>
+            <dd>Bredden p&aring; kontrollen i tecken.</dd>
+            <dt><code>maxlength</code></dt>
+            <dd>Antal tecken som bes&ouml;karen till&aring;ts fylla i.</dd>
+            <dt><code>value</code></dt>
+            <dd>Text som kommer visas i kontrollen d&aring; hemsidan laddas.</dd>
+          </dl>
         </div>
       </div>
 
@@ -514,10 +541,8 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;hidden&quot; name=&quot;MinDold&quot; 
-              value=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;hidden&quot; name=&quot;MinDold&quot; 
+  value=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -525,11 +550,13 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
-              &auml;n en kontroll i formul&auml;ret.</li>
-            <li><code>value</code> - text som kommer visas i kontrollen d&aring; hemsidan laddas.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</dd>
+            <dt><code>value</code></dt>
+            <dd>Text som kommer visas i kontrollen d&aring; hemsidan laddas.</dd>
+          </dl>
         </div>
       </div>
 
@@ -562,14 +589,18 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code><p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss0&quot; name=&quot;MittKryss0&quot; 
-              value=&quot;Kryssad0&quot; /&gt;<br />
-              &lt;label for=&quot;MittKryss0&quot;&gt;MittKryss0&lt;/label&gt;</p>
-              <p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss1&quot; name=&quot;MittKryss1&quot; 
-                value=&quot;Kryssad1&quot; checked="checked" /&gt;<br />
-                &lt;label for=&quot;MittKryss1&quot;&gt;MittKryss1&lt;/label&gt;</p></code>
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;MittKryss0&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;MittKryss0&quot;
+    name=&quot;MittKryss0&quot; value=&quot;Kryssad0&quot; /&gt;
+  MittKryss0
+&lt;/label&gt;
+
+&lt;label for=&quot;MittKryss1&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;MittKryss1&quot;
+    name=&quot;MittKryss1&quot; value=&quot;Kryssad1&quot;
+    checked="checked" /&gt;
+  MittKryss1
+&lt;/label&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -584,14 +615,18 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
-              &auml;n en kontroll i formul&auml;ret.</li>
-            <li><code>value</code> - v&auml;rde som ska skickas om kryssruta &auml;r ifylld. Om attributet
-              inte anv&auml;nds s&aring; skickas v&auml;rdet "on".</li>
-            <li><code>checked</code> -&nbsp;om kryssruta ska vara ifylld eller inte n&auml;r
-              webbsida laddas. Detta attribut saknar v&auml;rde.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn b&ouml;r vara unikt om fler
+              &auml;n en kontroll i formul&auml;ret.</dd>
+            <dt><code>value</code></dt>
+            <dd>V&auml;rde som ska skickas om kryssruta &auml;r ifylld. Om attributet
+              inte anv&auml;nds s&aring; skickas v&auml;rdet "on".</dd>
+            <dt><code>checked</code></dt>
+            <dd>Om kryssruta ska vara ifylld eller inte n&auml;r
+              webbsida laddas. Detta attribut saknar v&auml;rde (men ibland ser man
+              att attribut har samma värde som dess namn, d.v.s. <code>disabled=&quot;disabled&quot;</code>).</dd>
+          </dl>
         </div>
       </div>
 
@@ -607,8 +642,15 @@
           <form action="">
             <p>
               <label>
-                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad0" checked="checked" />
-                <span>MinRadio0</span>
+                <input type="radio" id="MinRadio00" name="MinRadio00" value="Markerad00" />
+                <span>MinRadio00</span>
+              </label>
+            </p>
+
+            <p>
+              <label>
+                <input type="radio" id="MinRadio01" name="MinRadio01" value="Markerad01" checked="checked" />
+                <span>MinRadio01</span>
               </label>
             </p>
           </form>
@@ -616,11 +658,12 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;radio&quot; id=&quot;MinRadio&quot; name=&quot;MinRadio&quot; 
-              value=&quot;Markerad0&quot; checked="checked" /&gt;<br />
-              &lt;label for=&quot;MinRadio&quot;&gt;MinRadio0&lt;/label&gt;</code> 
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;MinRadio&quot;&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;MinRadio&quot;
+    name=&quot;MinRadio&quot; value=&quot;Markerad0&quot;
+    checked="checked" /&gt;
+  MinRadio0
+&lt;/label&gt;</code></pre>
         </div>
       </div>
 
@@ -628,13 +671,16 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>name</code> - kontrollens namn [obl.]. Detta namn beh&ouml;ver inte vara unikt
-              - men grupper av radioknappar m&aring;ste vara (se exempel nedan).</li>
-            <li><code>value</code> - v&auml;rde som ska skickas om radioknapp &auml;r markerad.</li>
-            <li><code>checked</code> - om radioknapp ska vara ifylld eller inte n&auml;r
-              webbsida laddas. Detta attribut saknar v&auml;rde.</li>
-          </ul>
+          <dl>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn [obl.]. Detta namn beh&ouml;ver inte vara unikt
+              - men grupper av radioknappar m&aring;ste vara (se exempel nedan).</dd>
+            <dt><code>value</code></dt>
+            <dd>V&auml;rde som ska skickas om radioknapp &auml;r markerad.</dd>
+            <dt><code>checked</code></dt>
+            <dd>Om radioknapp ska vara ifylld eller inte n&auml;r
+              webbsida laddas. Detta attribut saknar v&auml;rde.</dd>
+          </dl>
         </div>
       </div>
 
@@ -656,71 +702,67 @@
 
           <form action="">
             <p>Grupp 1</p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad0" checked="checked" />
-                <span>MinRadio0</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad1" />
-                <span>MinRadio1</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio" name="MinRadio" value="Markerad2" />
-                <span>MinRadio2</span>
-              </label>
-            </p>
+            <label>
+              <input type="radio" id="MinRadio11" name="MinRadio1" value="Markerad0" checked="checked" />
+              <span>MinRadio0</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio12" name="MinRadio1" value="Markerad1" />
+              <span>MinRadio1</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio13" name="MinRadio1" value="Markerad2" />
+              <span>MinRadio2</span>
+            </label>
+
             <p>Grupp 2</p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad0" checked="checked" />
-                <span>MinRadio0</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad1" />
-                <span>MinRadio1</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio2" name="MinRadio2" value="Markerad2" />
-                <span>MinRadio2</span>
-              </label>
-            </p>
+            <label>
+              <input type="radio" id="MinRadio21" name="MinRadio2" value="Markerad0" checked="checked" />
+              <span>MinRadio0</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio22" name="MinRadio2" value="Markerad1" />
+              <span>MinRadio1</span>
+            </label>
           </form>
         </div>
+
         <div class="col l5 s12">
-          <blockquote>
-            <p><code>&lt;form&gt;</code></p>
-            <p><code>&lt;p&gt;Grupp 1&lt;/P&gt;<br />
-              &lt;p&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a1&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;1&quot; checked="checked" /&gt;<br />
-              &nbsp; &lt;label for=&quot;a1&quot;&gt;Alternativ 1&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a2&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;2&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;a2&quot;&gt;Alternativ 2&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a3&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;3&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;a3&quot;&gt;Alternativ 3&lt;/label&gt;<br />
-              &lt;/p&gt;</code></p>
-            <p><code>&lt;p&gt;Grupp 2&lt;/p&gt;</code></p>
-            <p><code>&lt;p&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b1&quot; name=&quot;grupp2&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;Ja&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;b1&quot;&gt;Ja&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b2&quot; name=&quot;grupp2&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;Nej&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;b2&quot;&gt;Nej&lt;/label&gt;<br />
-              &lt;/p&gt;</code></p>
-            <p><code>&lt;/form&gt;</code></p>
-          </blockquote>
+          <pre><code class="language-html">&lt;form&gt;
+  &lt;p&gt;Grupp 1&lt;/p&gt;
+
+  &lt;label for=&quot;a1&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a1&quot; name=&quot;grupp1&quot;
+      value=&quot;1&quot; checked="checked" /&gt;
+    Alternativ 1
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;a2&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a2&quot; name=&quot;grupp1&quot;
+      value=&quot;2&quot; /&gt;
+    Alternativ 2
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;a3&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a3&quot; name=&quot;grupp1&quot;
+      value=&quot;3&quot; /&gt;
+    Alternativ 3
+  &lt;/label&gt;
+
+  &lt;p&gt;Grupp 2&lt;/p&gt;
+
+  &lt;label for=&quot;b1&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;b1&quot; name=&quot;grupp2&quot;
+      value=&quot;Ja&quot; /&gt;
+    Ja
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;b2&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;b2&quot; name=&quot;grupp2&quot;
+      value=&quot;Nej&quot; /&gt;
+    Nej
+  &lt;/label&gt;
+&lt;/form&gt;</code></pre>
         </div>
       </div>
 
@@ -736,16 +778,16 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
+            <input type="submit" name="MittSubmit" onclick="return false;" /><br />
             <input type="submit" name="MittSubmit" value="Skicka" onclick="return false;" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot; 
-              name=&quot;MinSubmit&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;submit&quot; name=&quot;MinSubmit&quot; /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot; 
+  name=&quot;MinSubmit&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -753,17 +795,19 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>value</code> - text som komer synas p&aring; knapp. Om detta attribut
+          <dl>
+            <dt><code>value</code></dt>
+            <dd>Text som komer synas p&aring; knapp. Om detta attribut
               utel&auml;mnas kommer webbl&auml;saren visa text i stil med &quot;Skicka&quot; (eller 
-              &quot;Submit&quot; om engelsk version av webbl&auml;sare).</li>
-            <li><code>name</code> - kontrollens namn. Detta namn b&ouml;r vara unikt om fler
+              &quot;Submit&quot; om engelsk version av webbl&auml;sare).</dd>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn. Detta namn b&ouml;r vara unikt om fler
               &auml;n en kontroll i formul&auml;ret. Att ange namnet p&aring; en Submit-knapp kan vara anv&auml;ndbart
               om man vill ha tv&aring; Submit-knappar i samma formul&auml;r d&auml;r de tv&aring;
               knapparna ska utf&ouml;r olika saker. &quot;Mottagande&quot; servlet
               eller skriptsida kan kontrollera vilken knapp som klickats p&aring; f&ouml;r
-              att avg&ouml;ra vad som ska g&ouml;ras, t.ex. uppdatera eller l&auml;gga till.</li>
-          </ul>
+              att avg&ouml;ra vad som ska g&ouml;ras, t.ex. uppdatera eller l&auml;gga till.</dd>
+          </dl>
         </div>
       </div>
 
@@ -778,16 +822,17 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-            <input type="reset" name="MinReset" value="&Aring;terst&auml;ll" />
+            <input type="reset" name="MinReset1" /><br />
+            <input type="reset" name="MinReset2" value="&Aring;terst&auml;ll" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;reset&quot; value=&quot;&amp;Aring;terst&amp;auml;ll&quot;
-              name=&quot;MinReset&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;reset&quot; name=&quot;MinReset1&quot; /&gt;
+&lt;input type=&quot;reset&quot;
+  value=&quot;&amp;Aring;terst&amp;auml;ll&quot;
+  name=&quot;MinReset2&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -795,13 +840,15 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>value</code> - text som kommer synas p&aring; knapp. Om detta attribut
+          <dl>
+            <dt><code>value</code></dt>
+            <dd>Text som kommer synas p&aring; knapp. Om detta attribut
               utel&auml;mnas kommer webbl&auml;saren visa text i stil med
               &quot;&Aring;terst&auml;ll&quot; (eller &quot;Reset&quot; om engelsk version
-              av webbl&auml;sare).</li>
-            <li><code>name</code> - kontrollens namn. Fr&auml;mst anv&auml;ndbart i samband med JavaScript.</li>
-          </ul>
+              av webbl&auml;sare).</dd>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn. Fr&auml;mst anv&auml;ndbart i samband med JavaScript.</dd>
+          </dl>
         </div>
       </div>
 
@@ -818,17 +865,15 @@
           <h4>Utseende</h4>
           <form action="">
             <input type="button" name="MittKnapp" value="Klicka mig!"
-              onclick="javascript:alert('Du klickade p&aring; mig')" />
+              onclick="javascript:alert('Du klickade')" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;button&quot; value=&quot;Klicka mig!&quot;
-              name=&quot;MinKnapp&quot; onclick=&quot;javascript:alert(&apos;Du klickade
-              p&aring; mig&apos;)&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;button&quot; value=&quot;Klicka mig!&quot;
+  name=&quot;MinKnapp&quot; 
+  onclick=&quot;javascript:alert(&apos;Du klickade&apos;)&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -836,11 +881,14 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <ul>
-            <li><code>value</code> - text som kommer synas p&aring; knapp.</li>
-            <li><code>name</code> - kontrollens namn.</li>
-            <li><code>onclick</code> - (h&auml;ndelse-)attribut d&auml;r (JavaScript-)logik kan kopplas.</li>
-          </ul>
+          <dl>
+            <dt><code>value</code></dt>
+            <dd>Text som kommer synas p&aring; knapp.</dd>
+            <dt><code>name</code></dt>
+            <dd>Kontrollens namn.</dd>
+            <dt><code>onclick</code></dt>
+            <dd>(h&auml;ndelse-)attribut d&auml;r (JavaScript-)logik kan kopplas.</dd>
+          </dl>
         </div>
       </div>
 
@@ -874,7 +922,8 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-            <select size="1" name="MinListruta" class="browser-default">
+            <label for="MinListruta">Nedrullningsbar listruta:</label>
+            <select size="1" name="MinListruta" title="En nedrullningsbar listruta" class="browser-default">
                 <option>Alternativ 1</option>
                 <option>Alternativ 2</option>
                 <option>Alternativ 3</option>
@@ -901,15 +950,13 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;select size="1" name="MinListruta"&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
-              &nbsp;&nbsp;&nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size="1" name="MinListruta"&gt;
+  &lt;option&gt;Alternativ 1&lt;/option&gt;
+  &lt;option&gt;Alternativ 2&lt;/option&gt;
+  &lt;option&gt;Alternativ 3&lt;/option&gt;
+  &lt;option&gt;Alternativ 4&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
       </div>
 
@@ -923,7 +970,8 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-            <select size="5" name="MinListruta" multiple="multiple" class="browser-default">
+            <select size="5" name="MinListruta" multiple="multiple" 
+              title="Listruta för flera val" class="browser-default">
                 <option>Alternativ 1</option>
                 <option>Alternativ 2</option>
                 <option>Alternativ 3</option>
@@ -950,15 +998,14 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;select size=&quot;5&quot; name=&quot;MinListruta&quot; multiple="multiple"&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
-              &nbsp;&nbsp;&nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;5&quot; name=&quot;MinListruta&quot;
+  multiple="multiple"&gt;
+    &lt;option&gt;Alternativ 1&lt;/option&gt;
+    &lt;option&gt;Alternativ 2&lt;/option&gt;
+    &lt;option&gt;Alternativ 3&lt;/option&gt;
+    &lt;option&gt;Alternativ 4&lt;/option&gt;
+      ...
+&lt;/select&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -986,13 +1033,11 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;select size=&quot;5&quot; name=&quot;MinLista&quot;&gt;<br />
-              &nbsp; &lt;option value=&quot;1&quot;&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option value=&quot;2&quot;&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;5&quot; name=&quot;MinLista&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Alternativ 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Alternativ 2&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -1016,25 +1061,25 @@
             attributet <code>selected</code>. F&ouml;ljande kod</p>
 
           <form action="">
-            <p>
-              <select size="1" name="MinKombo">
+              <label for="MinKombo99">Välj ett alternativ:</label><br />
+              <select name="MinKombo99" title="En nedrullningsbar listruta" class="browser-default">
                 <option>Alternativ 1</option>
                 <option selected="selected">Alternativ 2</option>
                 <option>Alternativ 3</option>
                 <option>Alternativ 4</option>
               </select>
-            </p>
           </form>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;select size=&quot;1&quot; name=&quot;MinKombo&quot;&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option selected="selected"&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;1&quot; name=&quot;MinKombo&quot;&gt;
+  &lt;option&gt;Alternativ 1&lt;/option&gt;
+  &lt;option 
+    selected=&quot;selected&quot;&gt;Alt. 2&lt;/option&gt;
+  &lt;option&gt;Alternativ 3&lt;/option&gt;
+  &lt;option&gt;Alternativ 4&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
       </div>
 
@@ -1071,14 +1116,15 @@
       <footer class="page-footer center-align">
         <div class="container">
           <div class="row">
-            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-15.</p>
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2024-11-24.</p>
           </div>
         </div>
       </footer>
     </div>
   </div>
-  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

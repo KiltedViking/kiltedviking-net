@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/se/sammanfattningar/" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/se/sammanfattningar/" />
-	<link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <link rel="shortcut icon" href="../../favicon.ico" />
   <title>Mina sammanfattningar (Kilted Viking)</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../../css/kiltedviking4.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="../../favicon.ico" />
+	<link rel="stylesheet" href="../../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/bootstrap-icons.min.css" />
+  	<link rel="stylesheet" href="../../css/kiltedviking5.css" />
 </head>
 <body>
   <header class="image-header image-raukar">
@@ -32,38 +31,35 @@
   </header>
   <div class="container">
     <!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse" aria-label="Hem">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../">Hem</a>
-        </div>
+        <a class="navbar-brand" href="../">Hem</a>
+        <!-- Button for when menu collapses -->
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+            aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="../datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
-						<li><a href="../tips/"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
-						<li><a href="../google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
-            <li><a href="../om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
-            <li><a href="../../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="../datorer.html"><i class="bi bi-display fs-4"></i> Datorer</a></li>
+						<li class="nav-item"><a class="nav-link" href="../tips/"><i class="bi bi-pencil fs-4"></i> Webbutvecklingstips</a></li>
+						<li class="nav-item"><a class="nav-link" href="../google-tech/"><i class="bi bi-google fs-4"></i> Google-teknologier</a></li>
+            <li class="nav-item"><a class="nav-link" href="../om_mig.html"><i class="bi bi-person-standing fs-4"></i> Om mig</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../cv/"><i class="bi bi-mortarboard fs-4"></i> CV [en]</a></li>
 
-            <li class="dropdown">
-              <a href="../../" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i> In English
-                <i class="caret"></i>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-globe fs-4"></i> In English
               </a>
               <ul class="dropdown-menu">
-                <li><a href="../../"><i class="fa fa-flag"></i> Home [en]</a></li>
-                <li><a href="../../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
-                <li><a href="../../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
-                <li><a href="../../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+                <li><a class="dropdown-item" href="../../"><i class="bi bi-flag fs-4"></i> Home [en]</a></li>
+                <li><a class="dropdown-item" href="../../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels [en]</a></li>
+                <li><a class="dropdown-item" href="../../walks/"><i class="bi bi-map fs-4"></i> Walks [en]</a></li>
+                <li><a class="dropdown-item" href="../../about_kv.php"><i class="bi bi-info-square fs-4"></i> About [en]</a></li>
+                <li><a class="dropdown-item" href="../../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me [en]</a></li>
               </ul>
             </li>
           </ul>
@@ -73,7 +69,7 @@
 
     <!-- *** Contents row ************************************************* -->
 		<div class="row">
-      <div class="col-sm-6 col-sm-offset-2">
+      <div class="col-sm-6 offset-sm-2">
         <h2>Introduktion</h2>
 
         <p>Sammanfattningarna har skrivits f&ouml;r att just sammanfatta
@@ -83,15 +79,16 @@
           
         <div class="alert alert-warning">
           <p><b>Observera</b>
-          att sammanfattningarna <b>inte</b> &auml;r en ers&auml;ttning till litteratur utan mer
-          ett komplement (och eventuellt en annan synvinkel).</p>
+            att sammanfattningarna <b>inte</b> &auml;r en ers&auml;ttning till litteratur utan mer
+            ett komplement (och eventuellt en annan synvinkel). De är nu också något
+            daterade...
+          </p>
         </div>
 
         <div class="alert alert-warning">
           <p class="instructions"><b>Observera</b> att e-postadress samt
             adress till personlig hemsida i nedanst&aring;ende sammanfattningar
-            inte (eller kanske inte) fungerar l&auml;ngre! Ny adress till personlig
-            hemsida (d&auml;r e-postadress &auml;ven finns) &auml;r <code>https://www.kiltedviking.net/</code>.</p>
+            inte (eller kanske inte) fungerar l&auml;ngre!.</p>
         </div>  
 
         <table class="table table-striped">
@@ -219,19 +216,19 @@
       <!-- *** News column ***************************************************** -->
       <aside class="col-sm-4 col-sm-offset-0">
         <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
               <span itemprop="name">Hem</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <a itemprop="item" itemtype="http://schema.org/WebPage" href="../datorer.html">
               <span itemprop="name">Datorer</span>
             </a>
             <meta itemprop="position" content="1" />
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span itemprop="name">Sammanfattningar</span>
             <meta itemprop="position" content="2" />
           </li>
@@ -249,7 +246,7 @@
             [en]</p>
         <p>
           <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener">
-            Visual Studio (Community), Visual Studio Code och Visual Studio for Mac
+            Visual Studio
           </a> 
           [en]
         </p>
@@ -261,10 +258,10 @@
     
     <!-- *** Footer row ****************************************************** -->
 		<div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-12 text-center">
         <footer>
           <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. 
-          <b>Sist uppdaterad:</b> 2019-11-09.</p>
+          <b>Sist uppdaterad:</b> 2024-11-02.</p>
           <p><b>Foto:</b> Raukar på Fårö, Gotland.</p>
         </footer>
       </div>
@@ -272,6 +269,6 @@
   </div>
   <!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
   <script src="../../js/jquery-3.7.1.min.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

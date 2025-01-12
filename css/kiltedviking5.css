@@ -1,21 +1,6 @@
-/* --#{$prefix}nav-tabs-border-width: #{$nav-tabs-border-width};
---#{$prefix}nav-tabs-border-color: #{$nav-tabs-border-color};
---#{$prefix}nav-tabs-border-radius: #{$nav-tabs-border-radius};
---#{$prefix}nav-tabs-link-hover-border-color: #{$nav-tabs-link-hover-border-color};
---#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-link-active-color};
---#{$prefix}nav-tabs-link-active-bg: #{$nav-tabs-link-active-bg};
---#{$prefix}nav-tabs-link-active-border-color: #{$nav-tabs-link-active-border-color}; */
-
-/* .nav-tabs {
-  --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
-  --bs-nav-tabs-link-active-color: #fff;
-  --bs-nav-tabs-link-active-bg: #5f0000;
-  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
-} */
 /* Modify colours in Bootstrap 5 */
 :root {
   --bs-navbar-brand-color: white;
-  /* --bs-link-hover-color: #800000; */
   --bs-link-color: #800000;
 }
 
@@ -36,7 +21,6 @@ header {
   text-align: center;
 }
 header h1 { letter-spacing: 10px; }
-/* .nav .fa { font-size: 1.5em; } */
 header.image-header>h1, header.image-header>h1>small,
 header.image-header>h2 {
   color: #FFD600;  
@@ -68,7 +52,6 @@ header.image-header.image-newtonmore { background-image: url("../images/Newtonmo
 header.image-header.image-ben-vrackie-path { background-image: url("../images/ben-vrackie-path.jpg"); }
 header.image-header.image-muckle-flugga { background-image: url("../images/muckle-flugga.jpg"); }
 .row .h3-padding { margin-top: 20px !important; }
-/* a, a:hover, a:visited { color: #B71C1C; } */
 
 footer {
   border-top: 1px solid gray;
@@ -76,5 +59,22 @@ footer {
 }
 /* Handle long page names/level 1 headings, i.e. Sammanfattningar */
 @media (max-width: 600px) {
-  h1 { font-size: 18px;}
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  header h1 { letter-spacing: 3px;}
+}
+/* Based on https://modernweb.com/enhancing-the-html-abbr-element-on-mobile/ */ 
+abbr[title]:after {
+   content: " (" attr(title) ")";
+}
+
+@media screen and (min-width: 1025px) {
+  /* abbr[title] {
+      border-bottom: 1px dashed #ADADAD;
+      cursor:help;
+   } */
+
+   abbr[title]:after {
+      content: "";
+   }
 }

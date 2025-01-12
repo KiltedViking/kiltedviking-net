@@ -107,6 +107,9 @@ p.anfang:first-letter
   float: left;
 }
 
+/* Compensate for CSS framework Skeleton and Prism */
+pre > code { border: 0; padding: 0 0; }
+
 @media (min-width: 550px) {
   
     nav.navbar li {

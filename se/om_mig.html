@@ -18,12 +18,11 @@
 	<meta property="og:url" content="https://kiltedviking.net/se/om_mig.html" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/se/om_mig.html" />
-	<link rel="preload" href="../fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <link rel="shortcut icon" href="../favicon.ico" />
-  <title>Om mig (Kilted Viking)</title>
-	<link href="../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="../favicon.ico" />
+	<title>Om mig (Kilted Viking)</title>
+	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="../css/kiltedviking5.css" />
 </head>
 <body>
 	<header class="image-header image-tyresta">
@@ -32,38 +31,35 @@
 	</header>
 	<div class="container">
 		<!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+	    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<!-- Button for when menu collapses -->
-					<button type="button" class="navbar-toggle collapsed" 
-						data-target="#main-navbar" data-toggle="collapse" aria-label="Home">
-						<!-- Add accessibility things -->
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="./">Hem</a>
-				</div>
+				<a class="navbar-brand" href="./">Hem</a>
+				<!-- Button for when menu collapses -->
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" 
+					data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="nav navbar-nav">
-						<li><a href="./datorer.html"><i class="fa fa-desktop"></i> Datorer</a></li>
-						<li><a href="./tips/"><i class="fa fa-pencil"></i> Webbutvecklingstips</a></li>
-						<li><a href="./google-tech/"><i class="fa fa-cog"></i> Google-teknologier</a></li>
-						<li class="active"><a href="./om_mig.html"><i class="fa fa-male"></i> Om mig</a></li>
-						<li><a href="../cv/"><i class="fa fa-mortar-board"></i> CV [en]</a></li>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="./datorer.html"><i class="bi bi-display fs-4"></i> Datorer</a></li>
+						<li class="nav-item"><a class="nav-link" href="./tips/"><i class="bi bi-pencil fs-4"></i> Webbutvecklingstips</a></li>
+						<li class="nav-item"><a class="nav-link" href="./google-tech/"><i class="bi bi-google fs-4"></i> Google-teknologier</a></li>
+						<li class="nav-item"><a class="nav-link active" href="./om_mig.html"><i class="bi bi-person-standing fs-4"></i> Om mig</a></li>
+						<li class="nav-item"><a class="nav-link" href="../cv/"><i class="bi bi-mortarboard fs-4"></i> CV [en]</a></li>
 
-						<li class="dropdown">
-							<a href="../" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-globe"></i> In English
-								<i class="caret"></i>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-globe fs-4"></i> In English
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="../"><i class="fa fa-flag"></i> Start [en]</a></li>
-								<li><a href="../travels/"><i class="fa fa-ship"></i> Travels [en]</a></li>
-								<li><a href="../about_kv.php"><i class="fa fa-info"></i> About [en]</a></li>
-								<li><a href="../about_me.php"><i class="fa fa-male"></i> Me [en]</a></li>
+								<li><a class="dropdown-item" href="../"><i class="bi bi-flag fs-4"></i> Start [en]</a></li>
+								<li><a class="dropdown-item" href="../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels [en]</a></li>
+								<li><a class="dropdown-item" href="../walks/"><i class="bi bi-map fs-4"></i> Walks [en]</a></li>
+								<li><a class="dropdown-item" href="../about_kv.php"><i class="bi bi-info-square fs-4"></i> About [en]</a></li>
+								<li><a class="dropdown-item" href="../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me [en]</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -73,8 +69,8 @@
 	
 		<!-- *** Contents row ************************************************* -->
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-2">
-				<h2>Jag privat</h2>
+			<div class="col-md-6 offset-md-2">
+				<h3 class="mt-4">Jag privat</h3>
 				
 				<p>Mitt namn är Bj&ouml;rn och f&ouml;r n&auml;rvarande bor jag i Stockholm 
 					(Saltsj&ouml;baden) d&auml;r jag jobbar f&ouml;r <strong>Milj&ouml;m&auml;rkning 
@@ -92,9 +88,9 @@
 					föregående ort även för jobb.</p>
 
 				<img src="../images/SunsetLuce.jpg" alt="Sunset at Luce" title="Sunset at Luce"
-				  class="img-responsive center-block" />
+				  class="rounded mx-auto d-block" />
 					
-				<h2>Arbetslivserfarenhet</h2>
+				<h3 class="mt-4">Arbetslivserfarenhet</h3>
 				
 				<p>Under ca. 11 års tid jobbade jag som systemadministratör,
 					föreläsare och 'allt-i-allo' vid f.d. <strong>Ekonomihögskolan</strong>,
@@ -112,12 +108,12 @@
 				<p>För mer detaljer, se <a href="../cv/" target="_blank">min CV</a> (på engelska).</p>
 
 				<img src="../images/LochFyne.jpg" alt="Loch Fyne" title="Loch Fyne"
-					class="img-responsive center-block" />
+					class="rounded mx-auto d-block" />
 					
-				<h2>Privata intressen</h2>
+				<h3 class="mt-4">Privata intressen</h3>
 				
 				<p>På senare tid har ett intresse för arkeologi och historia lagts till
-					mitt tidigare intresse för tåg och datorer. Området
+					mina tidigare nördiga intressen för tåg och datorer. Området
 					kring M&auml;laren är ett bra ställe att lära mer om vikingar
 					och medeltiden. Mälardalen är också en vacker plats, speciellt
 					på hösten med alla dess färger.</p>
@@ -127,28 +123,22 @@
 					resa till Mariefred kan man ta ångbåten från Stockholm.</p>
 
 				<img src="../images/LochLomond.jpg" alt="Loch Lomond" title="Loch Lomond"
-					class="img-responsive center-block" />
-					
-				<h2>Kontakta mig</h2>
-				
-				<p>I mån av tid så svarar jag vanligtvis på all e-post jag får.
-					Min e-postadress finns på startsidan (Hem/Home) - ersätt &quot;(at)&quot;
-					med ett @tecken och ta bort &quot;.nospam&quot; på slutet.</p>
+					class="rounded mx-auto d-block mb-4" />
 			</div>
 
 			<!-- *** News column ***************************************************** -->
 			<aside class="col-sm-2 col-sm-offset-0">
-        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
-              <span itemprop="name">Hem</span>
-            </a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span itemprop="name">Om mig</span>
-            <meta itemprop="position" content="2" />
-          </li>
+				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemprop="item" itemtype="http://schema.org/WebPage" href="./">
+						<span itemprop="name">Hem</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<span itemprop="name">Om mig</span>
+						<meta itemprop="position" content="2" />
+					</li>
 				</ol>
 				
 				<nav>
@@ -163,10 +153,10 @@
 		
 		<!-- *** Footer row ****************************************************** -->
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-md-12 text-center">
 				<footer>
 					<p><strong>Skapad av:</strong> Björn G. D. Persson. 
-						<strong>Uppdaterad:</strong> 2020-03-07.</p>
+						<strong>Uppdaterad:</strong> 2024-10-27.</p>
 					<p><b>Foton:</b> Brandomr&aring;det i Tyresta nationalpark, solnedgång,
 						Loch Fyne från Inveraray i Skottland och Loch Lomond från Luss i Skottland.</p>
 				</footer>
@@ -175,6 +165,6 @@
 	</div>
 	<!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
 	<script src="../js/jquery-3.7.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

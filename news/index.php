@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="News about site of Kilted Viking - a nerd who likes Scotland, music, walking, and takes a lot of photos, when not working with computers." />
   <title>News (Kilted Viking)</title>
   <link rel="shortcut icon" href="../favicon.ico" >
-	<link href="../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../css/kiltedviking4.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="../css/kiltedviking5.css" />
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-16929788-1']);
@@ -19,54 +19,39 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
-	<!-- Hotjar Tracking Code for www.kiltedviking.net -->
-	<script>
-		(function(h,o,t,j,a,r){
-				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-				h._hjSettings={hjid:634269,hjsv:5};
-				a=o.getElementsByTagName('head')[0];
-				r=o.createElement('script');r.async=1;
-				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-				a.appendChild(r);
-		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>
 </head>
 <body>
   <header class="image-header image-tyresta">
       <h1>News</h1>
-      <h2 class="hidden-xs">And rants(?)</h2>
+      <h2 class="hidden-xs">What I've done</h2>
   </header>
   <div class="container">
       <!-- Menubar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <!-- Button for when menu collapses -->
-          <button type="button" class="navbar-toggle collapsed" 
-            data-target="#main-navbar" data-toggle="collapse">
-            <!-- Add accessibility things -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../">Start</a>
-        </div>
+        <a class="navbar-brand" href="../">Home</a>
+				<!-- Button for when menu collapses -->
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+          			aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="../travels/"><i class="fa fa-ship"></i> Travels</a></li>
-            <li><a href="../walks/"><i class="fa fa-map"></i> Walks</a></li>
-            <li><a href="../about_kv.php"><i class="fa fa-info"></i> About</a></li>
-            <li><a href="../about_me.php"><i class="fa fa-male"></i> Me</a></li>
-            <li><a href="../cv/"><i class="fa fa-mortar-board"></i> CV</a></li>
-            <li class="dropdown">
-              <a href="../se/" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i> In Swedish
-                <i class="caret"></i>
-              </a>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
+            <li class="nav-item"><a class="nav-link" href="../walks/"><i class="bi bi-map fs-4"></i> Walks</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about_kv.php"><i class="bi bi-info-square fs-4"></i> About</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="../cv/"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" 
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-globe fs-4"></i> In Swedish
+							</a>
               <ul class="dropdown-menu">
-                <li><a href="../se/"><i class="fa fa-flag"></i> Start</a></li>
-                <li><a href="../se/datorer.htm"><i class="fa fa-desktop"></i> Computers</a></li>
+                <li><a class="dropdown-item" href="../se/"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
+                <li><a class="dropdown-item" href="../se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
               </ul>
             </li>
           </ul>
@@ -76,12 +61,12 @@
       
       <!-- *** Contents row ************************************************* -->
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-2"> <!-- START: Main contents column -->
-          <h3>All news (so far)</h3>
+        <div class="col-md-6 offset-lg-2 offset-md-1"> <!-- START: Main contents column -->
+          <h3 class="contentsheader mt-4">All news (so far)</h3>
 <?php
 require('../db_kiltedviking.php');
 
-$rowsPerPage = 6;   // how many rows to show per page
+$rowsPerPage = 10;   // how many rows to show per page
 $pageNum = 1;       // by default we show first page
 
 // if $_GET['page'] defined, use it as page number
@@ -97,13 +82,12 @@ if($link)
   $strSql = "SELECT ndate, npreamble, ntext, ncategory FROM news ORDER BY ndate DESC "
     ."LIMIT $offset, $rowsPerPage";
 
-  // if($res = mysql_query($strSql))
   if($res = $link->query($strSql))
   {
     while($arr = $res->fetch_assoc())
     {
-      print("<p><b>".$arr['ndate'].":</b> <span class=\"contentsheader\">"
-        .$arr['ncategory'].":</span> ".$arr['npreamble']."</p>\n");
+      print("<h4 class=\"mt-4\">".$arr['ndate']." ".$arr['npreamble']." <small class=\"text-body-secondary\">["
+        .$arr['ncategory']."]</small></h4>\n");
       if(isset($arr['ntext']))
         print("<p class=\"newstextfull\">".$arr['ntext']."</p>\n");
     }
@@ -129,9 +113,7 @@ else
 
 // how many rows we have in database
 $query   = "SELECT COUNT(id) AS numrows FROM news";
-// $result  = mysql_query($query) or die('Error, query failed');
 $result  = $link->query($query) or die('Error, query failed');
-// $row     = mysql_fetch_array($result, MYSQL_ASSOC);
 $row     = $result->fetch_array();
 $numrows = $row['numrows'];
 
@@ -144,9 +126,9 @@ $nav  = '';
 
 for($page = 1; $page <= $maxPage; $page++)
    if ($page == $pageNum)
-      $nav .= " <td class=\"menuitemselected\">$page</td>"; // no need to create a link to current page
+      $nav .= " <td><a href=\"#\" class=\"btn btn-outline-success disabled\">$page</a></td>"; // no need to create a link to current page
    else
-      $nav .= "<td class=\"menuitem\"><a href=\"$self?page=$page\" class=\"menuitem\">$page</a></td>";
+      $nav .= "<td><a href=\"$self?page=$page\" class=\"btn btn-success\">$page</a></td>";
 
 // creating previous and next link plus the link to go straight to
 // the first and last page
@@ -154,39 +136,38 @@ for($page = 1; $page <= $maxPage; $page++)
 if ($pageNum > 1)
 {
    $page  = $pageNum - 1;
-   $prev  = "<td class=\"menuitem\">[<a href=\"$self?page=$page\" class=\"menuitem\">Prev</a>]</td>";
+   $prev  = "<td><a href=\"$self?page=$page\" class=\"btn btn-info\">Prev</a></td>";
 
-   $first = "<td class=\"menuitem\">[<a href=\"$self?page=1\" class=\"menuitem\">First</a>]</td>";
+   $first = "<td><a href=\"$self?page=1\" class=\"btn btn-primary\">First</a></td>";
 }
 else
 {
-   $prev  = "<td class=\"menuitemselected\">[Prev]</td>"; // we're on page one, don't print previous link
-   $first = "<td class=\"menuitemselected\">[First]</td>"; // nor the first page link
+   $prev  = "<td><a href=\"#\" class=\"btn btn-outline-primary disabled\">Prev</a></td>"; // we're on page one, don't print previous link
+   $first = "<td><a href=\"#\" class=\"btn btn-outline-info disabled\">First</a></td>"; // nor the first page link
 }
 
 if ($pageNum < $maxPage)
 {
    $page = $pageNum + 1;
-   $next = "<td class=\"menuitem\">[<a href=\"$self?page=$page\" class=\"menuitem\">Next</a>]</td>";
+   $next = "<td><a href=\"$self?page=$page\" class=\"btn btn-primary\">Next</a></td>";
 
-   $last = "<td class=\"menuitem\">[<a href=\"$self?page=$maxPage\" class=\"menuitem\">Last</a>]</td>";
+   $last = "<td><a href=\"$self?page=$maxPage\" class=\"btn btn-info\">Last</a></td>";
 }
 else
 {
-   $next = "<td class=\"menuitemselected\">[Next]</td>"; // we're on the last page, don't print next link
-   $last = "<td class=\"menuitemselected\">[Last]</td>"; // nor the last page link
+   $next = "<td><a href=\"#\" class=\"btn btn-outline-primary disabled\">Next</a></td>"; // we're on the last page, don't print next link
+   $last = "<td><a href=\"#\" class=\"btn btn-outline-info disabled\">Last</a></td>"; // nor the last page link
 }
 
 // print the navigation link
-//print "<p class=\"centre\">".$first . $prev . $nav . $next . $last . "</p>\n";
-print "<center><div align=\"center\"><table><tr>";
+print "<div class=\"text-center mt-4\"><table><tr>";
 print $first . $prev . $nav . $next . $last;
-print "</tr></table></div></center>";
+print "</tr></table></div>";
 ?>
     </div> <!-- END: Main contents column -->
 
-    <aside class="col-sm-2 col-sm-offset-0">
-      <h3>News categories</h3>
+    <aside class="col-md-3 col-sm-12 offset-sm-0">
+      <h3 class="mt-4">News categories</h3>
 <?php
 /*** Print instructions about news ********************************************/
 if($link)
@@ -194,16 +175,17 @@ if($link)
   //Get the news categories (sorted by name)
   $strSql = "SELECT ncategory, ncdescription FROM newscategories ORDER BY ncategory";
 
-  // if($res = mysql_query($strSql))
   if($res = $link->query($strSql))
   {
-    // while($arr = mysql_fetch_assoc($res))
+    print("<dl>");
+    
     while($arr = $res->fetch_assoc())
     {
-      print("<b><span class=\"uppercasegrey\">".$arr['ncategory'].":</span></b> "
-        .$arr['ncdescription'].".<br>\n");
+      print("<dt><span class=\"uppercasegrey\">".$arr['ncategory'].":</span></dt><dd>"
+        .$arr['ncdescription'].".</dd>\n");
     }
 
+    print("</dl>");
     // mysql_free_result($res);
   }
   else
@@ -227,8 +209,8 @@ else
   </div>
   
     <!-- *** Footer row ****************************************************** -->
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
         <footer>
           <p>Created by: Bj&ouml;rn G. D. Persson. Last updated:
             <?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
@@ -238,6 +220,6 @@ else
   </div>
   <!-- Include JavaScript for Bootstrap navbar and its requirement jQuery -->
   <script src="../js/jquery-3.7.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap5/bootstrap.bundle.min.js"></script>
 </body>
 </html>

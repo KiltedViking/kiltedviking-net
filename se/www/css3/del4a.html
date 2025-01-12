@@ -23,6 +23,7 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
   <style type="text/css">
@@ -214,10 +215,10 @@
         </div>
 
         <div class="five columns">
-          <code>.fet { font-weight: bold; }</code><br />
-          <code>.ejfet { font-weight: normal; }</code>
+          <pre><code class="language-css">.fet { font-weight: bold; }
+.ejfet { font-weight: normal; }</code></pre>
 
-          <pre><code>&lt;p class=&quot;fet&quot;&gt;Lite
+          <pre><code class="language-html">&lt;p class=&quot;fet&quot;&gt;Lite
   &lt;span class=&quot;ejfet&quot;&gt;icke fet&lt;/span&gt; 
   text i ett stycke fet text.&lt;/p&gt;</code></pre>
 
@@ -329,10 +330,10 @@
         </div>
 
         <div class="five columns">
-          <code>body { font-size: 17px; }</code><br />
-          <code>p.minklass { font-size: 0.8em; }</code>
+          <pre><code class="language-html">body { font-size: 17px; }
+p.minklass { font-size: 0.8em; }</code></pre>
 
-          <pre><code>&lt;body&gt;
+          <pre><code class="language-html">&lt;body&gt;
   &lt;p&gt;Stycke &auml;rver storlek fr&aring;n BODY.&lt;/p&gt;
   &lt;p class=&quot;minklass&quot;&gt;Stycke som anv&auml;nder 
   storlek i klass.&lt;/p&gt;
@@ -395,8 +396,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>p.ingress
-{
+          <pre><code class="language-css">p.ingress {
   line-height: 2em;
   font-style: italic;
 }</code></pre>
@@ -466,8 +466,8 @@
         </div>
 
         <div class="five columns">
-          <code>{ font-family: Verdana; }</code><br />
-          <code>{ font-family: &quot;Times New Roman&quot;; }</code>
+          <pre><code class="language-css">{ font-family: Verdana; }
+{ font-family: &quot;Times New Roman&quot;; }</code></pre>
         </div>
       </div>
 
@@ -481,8 +481,8 @@
         </div>
 
         <div class="five columns">
-          <code>{ font-family: Verdana, Arial, sans-serif; }</code><br />
-          <code>{ font-family: "Times New Roman", Times, serif; }</code>
+          <pre><code class="language-css">font-family: Verdana, Arial, sans-serif;
+font-family: "Times New Roman", serif;</code></pre>
         </div>
       </div>
 
@@ -550,7 +550,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>.utanserifer {
+          <pre><code class="language-css">.utanserifer {
   font-family: Verdana, Arial, 
     Helvetica, sans-serif;
 }
@@ -733,11 +733,15 @@
         </div>
 
         <div class="five columns">
-          <code>text-shadow: 2px 2px 2px;</code><br />
-          <code>text-shadow: 2px 2px 10px red;</code>
+          <pre><code class="language-css">text-shadow: 2px 2px 2px;</code></pre>
           
           <div class="example-result">
             <p style="text-shadow: 2px 2px 2px;">Detta stycke har en skugga med &quot;längden&quot; 2px.</p>
+          </div>
+          
+          <pre><code class="language-css">text-shadow: 2px 2px 10px red;</code></pre>
+
+          <div class="example-result">
             <p style="text-shadow: 2px 2px 10px red;">Detta stycke har en röd skugga med &quot;längden&quot; 10px.</p>
           </div>
         </div>
@@ -773,7 +777,7 @@
             Radavst&aring;nd (line-height) f&ouml;ljer efter typsnittsstorlek (font-size) efter ett
             snedstreck (/), t.ex. 14px/2em f&ouml;r storlek 14px och radavst&aring;nd 2em (&quot;dubbelt&quot;).</p>
         
-          <pre><code>font: [&lt;font-style&gt;] |
+          <pre><code class="language-css">font: [&lt;font-style&gt;] |
       [&lt;font-variant&gt;] |
       [&lt;font-weight&gt;]
       | &lt;font-size&gt;[/&lt;line-height&gt;] | 
@@ -784,13 +788,13 @@
         </div>
 
         <div class="five columns">
-          <pre><code>.minstil {
+          <pre><code class="language-css">.minstil {
   font-weight: bold;
   font-size: 11pt;
   font-family: Verdana;
 }</code></pre>
 
-          <code>.minstil { font: bold 11pt Verdana; }</code>
+          <pre><code class="language-css">.minstil { font: bold 11pt Verdana; }</code></pre>
         </div>
       </div>
 
@@ -803,7 +807,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>.minstil {
+          <pre><code class="language-css">.minstil {
   <b>font-style: normal;</b>
   <b>font-variant: normal;</b>
   font-weight: bold;
@@ -823,11 +827,11 @@
           <p>Nedan finns l&auml;nkar med mer information.</p>
 
           <ul>
-            <li><a href="http://www.apaddedcell.com/web-fonts/" target="_blank"
-              rel="noopener">Exempel p&aring; typsnitt</a> [ej HTTPS!]
-              i Windows, MacOS och Linux hos <a href="http://www.apaddedcell.com/" 
+            <li><a href="https://www.apaddedcell.com/web-fonts/" target="_blank"
+              rel="noopener">Exempel p&aring; typsnitt</a>
+              i Windows, MacOS och Linux hos <a href="https://www.apaddedcell.com/" 
               target="_blank" rel="noopener">A Padded
-              Cell</a> [ej HTTPS!]</li>
+              Cell</a></li>
             <li><a href="https://www.htmlhelp.com/reference/css/" target="_blank"
               rel="noopener">CSS Reference</a> hos
               <a href="https://www.htmlhelp.com/" target="_blank" rel="noopener">Web Design Group</a></li>
@@ -849,8 +853,9 @@
     </div>
 
     <footer>
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

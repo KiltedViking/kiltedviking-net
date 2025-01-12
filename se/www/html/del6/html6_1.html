@@ -4,60 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Fler (X)HTML-taggar</title>
+  <title>Fler HTML-taggar</title>
   <style>
-    body { font-family: Verdana, Helvetica, sans-serif; }
+    body { font-family: Calibri, Verdana, Helvetica, sans-serif; }
+    .container { margin: 0 auto; max-width: 1000px; }
   </style>
 </head>
 <body>
-  <h1>Fler (X)HTML-taggar</h1>
+  <div class="container">
+    <h1>Fler HTML-taggar</h1>
 
-  <h2>Taggarna &lt;abbr&gt; och &lt;acronym&gt;</h2>
-  
-  <p>Nedan visas exempel på de två typerna av förkortningar/akronymer - den första 
-    med taggen &lt;abbr&gt; och den andra med taggen &lt;acronym&gt;. För musen
-    över förkortningarna för att se förklaring av förkortningen.</p>
-  
-  <p><abbr title="Read The F*cking Manual">RTFM</abbr></p>
-  
-  <p><acronym title="biltillverkare">SAAB</acronym></p>
-  
-  <hr />
-  
-  <h2>Taggen &lt;address&gt;</h2>
-  
-  <p>Nedan visas exempel på två adresser - den första på en rad och den andra delad
-    på flera rader med &lt;br /&gt;-tagg. Som exempel visar så går det att använda
-    <code>address</code>-taggen utan varken <code>p</code>- eller <code>div</code>-taggar
-    och att taggen inte infogar en rads avstånd (så som <code>p</code>-taggen).</p>
-  
-  <address>Björn Persson, Nygatan 1, 123 45  NYSTAD</address>
+    <h2>Taggarna &lt;abbr&gt; och &lt;acronym&gt;</h2>
     
-  <address>Björn Persson<br />
-    Nygatan 1<br />
-    123 45  NYSTAD</address>
+    <p>Nedan visas exempel på de två typerna av förkortningar/akronymer - den första 
+      med taggen &lt;abbr&gt; och den andra med taggen &lt;acronym&gt;. För musen
+      över förkortningarna för att se förklaring av förkortningen.</p>
+    
+    <p><abbr title="Read The F*cking Manual">RTFM</abbr></p>
+    
+    <p><acronym title="biltillverkare">SAAB</acronym></p>
+    
+    <hr />
+    
+    <h2>Taggen &lt;address&gt;</h2>
+    
+    <p>Nedan visas exempel på två adresser - den första på en rad och den andra delad
+      på flera rader med &lt;br /&gt;-tagg. Som exempel visar så går det att använda
+      <code>address</code>-taggen utan varken <code>p</code>- eller <code>div</code>-taggar
+      och att taggen inte infogar en rads avstånd (så som <code>p</code>-taggen).</p>
+    
+    <address>Björn Persson, Nygatan 1, 123 45  NYSTAD</address>
+      
+    <address>Björn Persson<br />
+      Nygatan 1<br />
+      123 45  NYSTAD</address>
 
-  <hr />
-  
-  <h2>Taggen &lt;cite&gt;</h2>
-  
-  <p>Frasen &quot;I'll be back&quot; är ett citat i mening nedan. För musen över
-    frasen för att se referensen.</p>
-  
-  <p>Om vill verka tuff så kan man säga <cite title="Terminator">I'll be back</cite>,
-    men det kräver nog solglasögon och en hel del muskler.</p>
-  
-  <hr />
-  
-  <h2>Taggen &lt;code&gt;</h2>
-  
-  <p>Frasen &quot;var summa = talA + talB;&quot; är ett stycke kod i mening nedan.</p>
-  
-  <p>JavaScript kod kan se ut enligt följande <code title="Addition och tilldelning i JavaScript">var 
-    summa = talA + talB;</code>.</p>
-  
-  <hr />
-  
-   <p><a href="javascript:window.close();">Stäng</a> fönster</p>
+    <hr />
+    
+    <h2>Taggen &lt;cite&gt;</h2>
+    
+    <p>Frasen &quot;I'll be back&quot; är ett citat i mening nedan. För musen över
+      frasen för att se referensen.</p>
+    
+    <p>Om vill verka tuff så kan man säga <cite title="Terminator">I'll be back</cite>,
+      men det kräver nog solglasögon och en hel del muskler.</p>
+    
+    <hr />
+    
+    <h2>Taggen &lt;code&gt;</h2>
+    
+    <p>Frasen &quot;var summa = talA + talB;&quot; är ett stycke kod i mening nedan.</p>
+    
+    <p>JavaScript kod kan se ut enligt följande <code title="Addition och tilldelning i JavaScript">var 
+      summa = talA + talB;</code>.</p>
+    
+    <hr />
+    
+    <p><a href="javascript:window.close();">Stäng</a> fönster</p>
+  </div>
 </body>
 </html>

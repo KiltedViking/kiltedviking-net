@@ -1,52 +1,192 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <!-- Rekommenderade meta-taggar för att dokument ska tolkas rätt -->
   <meta charset="utf-8" />
+  <!-- Rekommenderade meta-taggar för att dokument ska tolkas rätt -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Numrerade listor</title>
+  <title>HTML - Numrerade listor - Bj&ouml;rns studiewebb</title>
+  <style>
+    /* Stilar for att andra stil pa punktlistor */
+    .list-armenian { list-style-type: armenian;}
+    .list-circle { list-style-type: circle;}
+    .list-decimal { list-style-type: decimal;}
+    .list-decimal-leading-zero { list-style-type: decimal-leading-zero;}
+    .list-disc { list-style-type: disc;}
+    .list-georgian { list-style-type: georgian;}
+    .list-lower-alpha { list-style-type: lower-alpha;}
+    .list-lower-greek { list-style-type: lower-greek;}
+    .list-lower-latin { list-style-type: lower-latin;}
+    .list-lower-roman { list-style-type: lower-roman;}
+    .list-none { list-style-type: none;}
+    .list-square { list-style-type: square;}
+    .list-upper-alpha { list-style-type: upper-alpha;}
+    .list-upper-latin { list-style-type: upper-latin;}
+    .list-upper-roman { list-style-type: upper-roman;}
+  </style>
 </head>
 <body>
 <h1>Numrerade listor</h1>
-<p>Numrerad lista utan några attribut&nbsp;&nbsp;</p>
+<h2>Listor med och utan attribut</h2>
 
+<h3>Numrerad lista utan några attribut</h3>
 <ol>
   <li>Punkt ett.</li>
   <li>Punkt två.</li>
 </ol>
-<p>Lista med arabiska siffror som b&ouml;rjar p&aring; 3.</p>
 
+<h3>Lista med arabiska siffror som b&ouml;rjar p&aring; 3</h3>
 <ol start="3">
   <li>Punkt ett med v&auml;rde 3.</li>
   <li>Punkt tv&aring; med v&auml;rde 4.</li>
 </ol>
 
-<p>Lista med romerska siffror.</p>
-
+<h3>Lista med romerska siffror</h3>
 <ol type="i">
   <li>Punkt ett.</li>
   <li>Punkt tv&aring;.</li>
 </ol>
 
-<p>Lista med små bokstäver</p>
-
+<h3>Lista med små bokstäver</h3>
 <ol type="a">
   <li>Punkt ett.</li>
   <li>Punkt två.</li>
 </ol>
 
-<p>Lista med stora bokstäver</p>
-
+<h3>Lista med stora bokstäver</h3>
 <ol type="A">
   <li>Punkt ett.</li>
   <li>Punkt två.</li>
 </ol>
 
+<h3>Nästlade listor med olika typer av numrering</h3>
+<ol>
+  <li>Punkt 1
+    <ol type="a">
+      <li>Punkt 1.1
+        <ol type="i">
+          <li>Punkt 1.1.1</li>
+        </ol>
+      </li>
+      <li>Punkt 1.2</li>
+    </ol>
+  </li>
+  <li>Punkt 2</li>
+</ol>
+
+<!-- START: CSS - punkter andrade med CSS ********************************** -->
+<h2>Numrerade listor ändrade med CSS</h2>
+<p>Som exempel nedan visasr så går det att ange punktstil för numrerad lista.</p>
+
+<h3><code>list-style-type: armenian;</code></h3>
+<ol class="list-armenian">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: circle;</code></h3>
+<ol class="list-circle">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: decimal;</code></h3>
+<ol class="list-decimal">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: decimal-leading-zero;</code></h3>
+<ol class="list-decimal-leading-zero">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: disc;</code></h3>
+<ol class="list-disc">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: georgian;</code></h3>
+<ol class="list-georgian">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: lower-alpha;</code></h3>
+<ol class="list-lower-alpha">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: lower-greek;</code></h3>
+<ol class="list-lower-greek">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: lower-latin;</code></h3>
+<ol class="list-lower-latin">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: lower-roman;</code></h3>
+<ol class="list-lower-roman">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: none;</code></h3>
+<ol class="list-none">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: square;</code></h3>
+<ol class="list-square">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: upper-alpha;</code></h3>
+<ol class="list-upper-alpha">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: upper-latin;</code></h3>
+<ol class="list-upper-latin">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+
+<h3><code>list-style-type: upper-roman;</code></h3>
+<ol class="list-upper-roman">
+  <li>Punkt ett ändrad med CSS</li>
+  <li>Punkt två ändrad med CSS</li>
+  <li>Punkt tre ändrad med CSS</li>
+</ol>
+<!-- SLUT: CSS -->
+
 <!-- START: Allt mellan denna och nästa kommentar är sidfoten med dokumentinformation -->
 <hr />
 <p style="text-align: center"><b>Skapad av:</b> Björn G.D. Persson.
-  <b>Uppdaterad:</b> 2011-04-25.</p>
+  <b>Uppdaterad:</b> 2025-01-12.</p>
 <!-- SLUT: Dokumentinformation -->
 
 </body>
