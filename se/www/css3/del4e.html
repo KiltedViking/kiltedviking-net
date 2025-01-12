@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
@@ -23,6 +22,7 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
   <style>
@@ -87,9 +87,9 @@
           <p>Egenskaper som behandlas på denna webbsida:</p>
           
           <ul>
-            <li>float: left | right | none</li>
-            <li>clear: none | left | right| both</li>
-            <li>position: static | relative | absolute | fixed</li>
+            <li><code>float: left | right | none</code></li>
+            <li><code>clear: none | left | right| both</code></li>
+            <li><code>position: static | relative | absolute | fixed</code></li>
           </ul>
           
           <p class="kommentar">Positionering för mig har alltid varit något krångligt, 
@@ -167,8 +167,8 @@
           <p>För relativ positionering används följande egenskaper:</p>
           
           <ul>
-            <li>float - anger hur element ska &quot;flytas&quot;</li>
-            <li>clear - anger hur andra element får &quot;flytas&quot; relativt aktuellt element</li>
+            <li><code>float</code> - anger hur element ska &quot;flytas&quot;</li>
+            <li><code>clear</code> - anger hur andra element får &quot;flytas&quot; relativt aktuellt element</li>
           </ul>
         </div>
       </div>
@@ -195,8 +195,8 @@
         </div>
 
         <div class="five columns">
-          <pre><code><strong>float: right; /* Flyt till hoger */
-width: 100px; /* Ange bredd - ett maste */</strong>
+          <pre><code class="language-css">float: right; /* Flyt till hoger */
+width: 100px; /* Ange bredd - ett maste */
 margin: 0px 0px 10px 10px;
 border: 1px solid blue;
 padding: 5px;
@@ -214,7 +214,7 @@ font-size: 90%;</code></pre>
         </div>
 
         <div class="five columns">
-          <code>clear: both;</code>
+          <pre><code class="language-css">clear: both;</code></pre>
         </div>
       </div>
 
@@ -251,7 +251,7 @@ font-size: 90%;</code></pre>
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;div id=&quot;sida&quot;&gt;
+          <pre><code class="language-html">&lt;div id=&quot;sida&quot;&gt;
   &lt;div id=&quot;sidhuvud&quot;&gt;
     ...
   &lt;/div&gt;
@@ -292,10 +292,11 @@ font-size: 90%;</code></pre>
         </div>
 
         <div class="five columns">
-          <pre><code>body {
+          <pre><code class="language-css">body {
   color: black;
   background-color: yellow;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, 
+    sans-serif;
 }
 
 #sida {
@@ -395,7 +396,7 @@ font-size: 90%;</code></pre>
         </div>
 
         <div class="five columns">
-          <pre><code>position: absolute;
+          <pre><code class="language-css">position: absolute;
 margin-left: auto; 
 margin-right: 10px; 
 width: 100px; 
@@ -429,8 +430,9 @@ border: 1px solid blue;</code></pre>
     </div>
 
     <footer>
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

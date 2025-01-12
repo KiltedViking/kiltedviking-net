@@ -18,10 +18,14 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del1.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del1.html" />
-  <title>HTML - Grundl&auml;ggande HTML</title>
+  <title>Grundl&auml;ggande HTML - HTML - Björns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <style>
+    h2.svartrubrik { color: black; }
+  </style>
 </head>
 <body>
   <header class="fg-scania-yellow bg-scania-red">
@@ -95,37 +99,36 @@
       <h3>Element som b&ouml;r finnas med i ett dokument</h3>
 
       <div class="row">
-        <div class="col l7 s12">    
+        <div class="col l7 s12">
           <p>Det finns fem element som b&ouml;r (m&aring;ste) vara med i ett (X)HTML-dokument
             f&ouml;r att det ska vara en giltig hemsida. Webbl&auml;sare brukar dock vara
             &quot;f&ouml;rl&aring;tande&quot; och visa hemsidan &auml;nd&aring;, dock utan garanti om
             hur. Nedan visas taggarna f&ouml;r elementen och vad de betyder.</p>
           
-          <!-- <blockquote> -->
-            <dl>
-              <dt><code>&lt;!DOCTYPE ...&gt;</code></dt>
-              <dd>Anger f&ouml;r webbl&auml;sare vilken typ av
-                HTML-kod som dokument inneh&aring;ller. Anv&auml;nds bl.a. f&ouml;r hur taggar ska tolkas
-                (och presdenteras). Denna tagg ska <strong>inte</strong> skrivas med gemener! 
-                <br />
-                <span class="kommentar">(Denna tagg kommer utel&auml;mnas i exempel f&ouml;r att minska 
-                kod.)</span></dd>
-              <dt><code>&lt;html&gt;</code></dt>
-              <dd>Start och slut f&ouml;r (X)HTML-kod. De &auml;r allts&aring;
-                avgr&auml;nsningarna f&ouml;r dokumentet.</dd>
-              <dt><code>&lt;head&gt;</code></dt>
-              <dd>Start och slut av dokumentinformation (s&aring; som
-                titel, f&ouml;rfattare, m.m.).</dd>
-              <dt><code>&lt;title&gt;</code></dt>
-              <dd>Titel p&aring; dokumentet. Visas oftast i
-                webbl&auml;sarens titelrad (raden ovanf&ouml;r menyraden) och anv&auml;nds &auml;ven som etikett/namn f&ouml;r
-                bokm&auml;rken/favoriter. Placeras inom elementet &lt;head&gt; ovan.</dd>
-              <dt><code>&lt;body&gt;</code></dt>
-              <dd>Start och slut p&aring; visuella delen av
-                (X)HTML-dokumentet. Text och andra element som placeras i denna del
-                kommer synas i webbl&auml;sarens f&ouml;nster.</dd>
-            </dl>
-          <!-- </blockquote> -->
+          <dl>
+            <dt><code>&lt;!DOCTYPE html&gt;</code></dt>
+            <dd>Anger f&ouml;r webbl&auml;sare hur dokument ska tolkas. Order <code>DOCTYPE</code> 
+              brukar skrivas med gemener, bl.a. för bakåtkompabilitet, och följs av
+              <code>html</code> för att ange HTML version 5 (som numera är standard;
+              se mer nedan).
+              <br />
+              <span class="kommentar">(Denna tagg kommer utel&auml;mnas i exempel f&ouml;r att minska 
+              kod.)</span></dd>
+            <dt><code>&lt;html&gt;</code></dt>
+            <dd>Start och slut f&ouml;r (X)HTML-kod. De &auml;r allts&aring;
+              avgr&auml;nsningarna f&ouml;r dokumentet.</dd>
+            <dt><code>&lt;head&gt;</code></dt>
+            <dd>Start och slut av dokumentinformation (s&aring; som
+              titel, f&ouml;rfattare, m.m.).</dd>
+            <dt><code>&lt;title&gt;</code></dt>
+            <dd>Titel p&aring; dokumentet. Visas oftast i
+              webbl&auml;sarens titelrad (raden ovanf&ouml;r menyraden) och anv&auml;nds &auml;ven som etikett/namn f&ouml;r
+              bokm&auml;rken/favoriter. Placeras inom elementet &lt;head&gt; ovan.</dd>
+            <dt><code>&lt;body&gt;</code></dt>
+            <dd>Start och slut p&aring; visuella delen av
+              (X)HTML-dokumentet. Text och andra element som placeras i denna del
+              kommer synas i webbl&auml;sarens f&ouml;nster.</dd>
+          </dl>
         </div>
 
         <div class="col l5 s12">
@@ -133,58 +136,183 @@
             elementen) ska placeras i
             dokumentet och hur de f&ouml;rh&aring;ller sig till varandra.</p>
 
-          <blockquote class="kod">
-            <p><code>&lt;!DOCTYPE html&gt;<br />
-              &lt;html&gt;<br />
-              &lt;head&gt;<br />
-              &nbsp; &lt;title&gt;&lt;/title&gt;<br />
-              &lt;/head&gt;<br />
-              &lt;body&gt;<br />
-              &lt;/body&gt;<br />
-              &lt;/html&gt;</code></p>
+          <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;...&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <div class="col l7 s12 center-align">
+          <p class="kommentar">Högerklicka i webbsida och välj Visa sidälla (View 
+            page source).</p>
+            
+          <p><a href="del1/html1_1.html" class="btn bg-scania-red fg-scania-yellow"
+            target="_blank">Exempel 1.1 - tom hemsida</a></p>
+        </div>
+      </div>
+
+      <h4>Versioner av HTML</h4>
+
+      <div class="row">
+        <div class="col l12 s12">
+          <p>Som nämnt ovan så används taggen <code>&lt;!DOCTYPE ...&gt;</code> för att
+            ange hur webbläsare ska tolka dokument. Nedan är några exempel på versioner,
+            där endast den första används numera.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <td>&lt;!DOCTYPE html&gt;</td>
+                <td>HTML version 5</td>
+              </tr>
+              <tr>
+                <td>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;
+                  &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</td>
+                <td>HTML version 4.01</td>
+              </tr>
+              <tr>
+                <td>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot;
+                  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</td>
+                <td>XHTML version 1</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+      <h4>Språk för innehåll i sida</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>För att underlätta för besökare så bör språk för innehåll anges för sida
+            vilket görs i taggen <code>&lt;html&gt;</code>.
+          </p>
+
+          <p>Genom att ange språk i sida så kan hjälpverktyg för t.ex. personer med
+            nedsatt syn lättare göra det de gjorts för att göra. ;-) Det finns även
+            riktlinjer (och lagar?) som visar på vad man bör göra för att göra webbsidor
+            mer tillgängliga för personer med t.ex. nedsatt syn eller rörelseförmåga.
+          </p>
+        </div>
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;html lang=&quot;sv&quot;&gt;</code></pre>
+        </div>
+      </div>
+
+      <h4>Teckenkodning för sidas innehåll</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>För att webbläsare ska kunna presentera innehåll korrekt, t.ex. svenska
+            tecken (å, ä och ö), så bör teckenkodning som använts för att redigera
+            webbsida med anges, vilket görs med taggen <code>&lt;meta&gt;</code>
+            i webbsidans huvud (<code>&lt;head&gt;</code>).
+          </p>
+
+          <p>Rekommenderad teckenkodning är UTF-8, vilket brukar kunna anges när
+            fil sparas. (Andra vanliga teckenkodningar är <code>windows-1252</code>
+            och <code>ISO 8859-1</code>, som inte rekommenderas.)</p>
+        </div>
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+        </div>
+      </div>
+
+      <h4>Fönsterstorlek (<code>viewport</code>)</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>För att ange den synliga delen av sida för webbläsare och för att s.k.
+            responsiv design ska fungera så bör man ange fönsterstorlek (viewport),
+            vilket görs med taggen <code>&lt;meta&gt;</code>.
+          </p>
+
+          <p>Rekommenderat värde för fönsterstorlek är det nedan.</p>
+          
+          <blockquote>
+            <p><code>width=device-width, initial-scale=1.0</code>.</p>
           </blockquote>
         </div>
 
-        <div class="col l7 s12">
-          <p>Se <a href="del1/html1_1.html" target="_blank"> exempel 1.1</a> - tom hemsida</p>
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
+        </div>
+      </div>
+
+      <h4>En mer komplett &quot;mall&quot; för HTML-sidor och Emmet</h4>
+
+      <div class="row">
+        <div class="col l6 s12">
+          <p>Så, enligt information ovan så bör en webbsida minst innhålla koden 
+            i exempel till höger (eller nedan).
+          </p>
+
+          <p>Många verktyg för att redigera webbsidor, t.ex. Microsofts Visual Studio
+            Code, innehåller funktioner för att generera HTML-kod med kortkommando
+            (s.k. &quot;Emmet-kommando&quot;). Ett mycket användbart kortkommando
+            är utropstecknet (!) som expanderar till koden till höger (eller nedan).
+            För att använda kortkommandona så skriver man kommandot och trycker sen
+            på Tab-tangenten. (Tips: spara först sida så att verktyg kan avgöra typ
+            av kod i fil - HTML i detta fall. ;-))
+          </p>
+        </div>
+
+        <div class="col l6 s12">
+          <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;sv&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot;
+    content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;itel f&ouml;r sida&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
         </div>
       </div>
 
       <h3>En enkelt hemsida med titel, text och kommentar</h3>
       
       <div class="row">
-        <div class="col l7 s12">
+        <div class="col l6 s12">
           <p>I detta exempel ges sidan titeln &quot;<em>En demonstration av
           HTML-kod</em>&quot;. Dokumentets kropp (<em>body</em>) inneh&aring;ller lite
           text och en kommentar. Observera att trots att texten till kroppen har
           skrivits p&aring; tre rader i HTML-koden s&aring; visas eventuellt inte texten med
           radbrytningar p&aring; samma st&auml;lle!</p>
-        <!-- </div>
-      </div> -->
-
-      <!-- <h4>Exempel som demonstrera HTML-koden f&ouml;r en enkel hemsida</h4> -->
       
-          <p class="kommentar"><strong>Observera</strong> att taggen &lt;!DOCTYPE ...&gt;
-            har utel&auml;mnats h&auml;r och i alla efterf&ouml;ljande exempel.</p>
+          <p class="kommentar"><strong>Observera</strong> att taggarna <code>&lt;!DOCTYPE html&gt;</code>
+            och <code>&lt;meta&gt;</code> har utel&auml;mnats h&auml;r och i alla 
+            efterf&ouml;ljande exempel för att minska kodens komplexitet.</p>
         </div>
       
-        <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>&lt;html&gt;<br />
-              &lt;head&gt;<br />
-              &nbsp; &lt;title&gt;En demonstration av HTML-kod&lt;/title&gt;<br />
-              &lt;/head&gt;<br />
-              &lt;body&gt;<br />
-              &nbsp; &lt;p&gt;Denna hemsida demonstrerar de grundl&auml;ggande
-              elementen i HTML. Texten i kroppen syns i webbl&auml;sarens f&ouml;nster.&lt;/p&gt;<br />
-              &nbsp; &lt;!-- Kommentar som inte syns --&gt;<br />
-              &lt;/body&gt;<br />
-              &lt;/html&gt;</code></p>
-          </blockquote>
+        <div class="col l6 s12">
+          <pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;En demonstration av HTML-kod&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Denna hemsida demonstrerar de grundl&auml;ggande
+    elementen i HTML. Texten i kroppen syns i 
+    webbl&auml;sarens f&ouml;nster.&lt;/p&gt;
+  &lt;!-- Kommentar som inte syns --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
         </div>
 
-        <div class="col l7 s12">
-          <p>Se <a href="del1/html1_2.html" target="_blank"> exempel 1.2</a> - med titel, text i kroppen och en kommentar.</p>
+        <div class="col l6 s12 center-align">
+          <p><a href="del1/html1_2.html" class="btn bg-scania-red fg-scania-yellow"
+            target="_blank">Exempel 1.2 - med titel, text i kroppen och en kommentar</a></p>
         </div>
       </div>
 
@@ -192,26 +320,100 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <p>Attribut anv&auml;nds f&ouml;r att ange egenskaper f&ouml;r ett element.
-            Egenskaperna kan &auml;ndra elementets utseende, position, m.m.. V&auml;rdet
-            f&ouml;r ett attribut anges p&aring; n&aring;got av f&ouml;ljande s&auml;tt - attribut med v&auml;rde resp.
-            attribut utan v&auml;rde (s&aring; som att kryssruta ska vara f&ouml;rbockad).</p>
+          <p>Attribut anv&auml;nds f&ouml;r att ange egenskaper f&ouml;r ett element,
+            t.ex. &auml;ndra elementets utseende, position, m.m., och brukar ha ett
+            värde, men några saknar värde (d.v.s. att attributet finns &quot;är
+            värdet&quot;, t.ex. <code>checked</code> som anger att kryssruta ska vara
+            ibockad). V&auml;rdet f&ouml;r ett attribut anges p&aring; n&aring;got 
+            av s&auml;tten nedan.
+          </p>
+
+            <ul class="collection">
+              <li class="collection-item">attribut med v&auml;rde</li>
+              <li class="collection-item">attribut utan v&auml;rde (attributnamn används även som värde, <code>checked=&quot;checked&quot;</code>)</li>
+              <li class="collection-item">endast attributnamn (t.ex. <code>checked</code>)</li>
+            </ul>
+
+            <p class="kommentar">(Det rekommenderas att man tar för vana att använda det andra sättet
+              för attribut utan värden över det sista så att man lättare kan konvertera
+              till kod som bygger på XML-standard, så som den nu utdaterade XHTML-standarden.)
+            </p>
         </div>
+
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>attributnamn=&quot;v&auml;rde&quot;</code><br />
-              <code>attributnamn=&quot;attributnamn&quot;</code></p>
-          </blockquote>
+          <pre><code class="language-html">attributnamn=&quot;v&auml;rde&quot;
+attributnamn=&quot;attributnamn&quot;
+attributnamn</code></pre>
+
+<pre><code class="language-html">checked=&quot;checked&quot;
+checked
+
+disabled=&quot;disabled&quot;
+disabled</code></pre>
         </div>
       </div>
 
-      <h4>F&auml;rger i hemsidor</h4>
+      <h4>Attributvärden</h4>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Attribut som ska ges ett värde följs av ett lika med-tecken (=) och
+            en sträng innesluten med antingen dubbla eller enkla citattecken (" resp. ')
+            - bägge s.k. raka citattecken (alltså inte typografiska citattecken).
+            Lika med-tecken kan föregås och efterföljas av inga eller flera mellanslag
+            och/eller radbrytningar (<i>whitespaces</i>):
+          </p>
+
+          <p>Tal och andra datatyper ska också inneslutas inom citattecken när de
+            används som ett värdet för ett attribut.
+          </p>
+
+          <p>Det går att utelämna citattecken om värdet inte innehåller något mellanslag 
+            (s.k. <i>whitespace</i>), men det rekommenderas att man tar för vana 
+            att alltid använda dem (så att kod lättare kan konverteras i framtiden
+            och undvika prolem med eventuella JavaScript-ramverk).
+          </p>
+        </div>
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">attributnamn=&quot;v&auml;rde&quot;
+attributnamn='v&auml;rde'
+attributnamn
+=
+&quot;v&auml;rde&quot;</code></pre>
+
+          <pre><code class="language-html">rows=&quot;5&quot;</code></pre>
+          
+          <pre><code class="language-html">attributnamn=42
+attributnamn=attributnamn</code></pre>
+        </div>
+      </div>
+
+      <h4>Attribut för f&auml;rger (<code>color</code> och <code>bgcolor</code>)</h4>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Det &auml;r fortfarande m&ouml;jligt att anv&auml;nda attribut s&aring; som <code>color</code> 
-            och <code>bgcolor</code> f&ouml;r att &auml;ndra f&ouml;r- och bakgrundsf&auml;rger i vissa element.
-            Men man b&ouml;r anv&auml;nda stilmallar (CSS) ist&auml;llet f&ouml;r att ange f&auml;rger.</p>
+          <p>Tidigare anv&auml;ndes attribut s&aring; som <code>color</code> och 
+            <code>bgcolor</code> f&ouml;r att &auml;ndra f&ouml;r- och bakgrundsf&auml;rger 
+            (i vissa element), vilket ersatts med stilmallar (CSS).</p>
+        </div>
+      </div>
+
+      <h4>Anpassade dataattribut (<code>data-...</code>)</h4>
+      
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Det går att använda s.k. &quot;dataattribut&quot; för att associera
+            data med taggar, vilket ofta används av JavaScript-ramverk (så som Angular
+            och React), och dessa attribut ska börja med <code>data-</code>.</p>
+
+          <p>Använd <b>inte</b> svenska eller reserverade tecken i namn på dataattribut!</p>
+        </div>
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">data-mitt-varde=&quot;en text&quot;
+data-ytterligare-varde=&quot;en annan text&quot;
+data-svaret-pa-allt=&quot;42&quot;</code></pre>
         </div>
       </div>
 
@@ -219,36 +421,133 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>I HTML 5 introduceras ett antal strukturella taggar, d.v.s. taggar som inte
-            p&aring;verkar webbsidans utseende (annat &auml;n kanske radbrytningar f&ouml;re och efter).</p>
+          <p>I HTML 5 introduceras ett antal strukturella taggar, d.v.s. taggar som 
+            inte p&aring;verkar webbsidans utseende (annat &auml;n kanske radbrytningar 
+            f&ouml;re och efter).</p>
           
-          <!-- <blockquote> -->
-            <dl>
-              <dt><code>&lt;header&gt;</code></dt>
-              <dd>- m&auml;rker upp sid- eller sektionshuvud.</dd>
-              <dt><code>&lt;footer&gt;</code></dt>
-              <dd>- m&auml;rker upp sid- eller sektionsfot.</dd>
-              <dt><code>&lt;nav&gt;</code></dt>
-              <dd>- m&auml;rker upp navigeringsl&auml;nkar.</dd>
-              <dt><code>&lt;section&gt;</code></dt>
-              <dd>- m&auml;rker upp en generisk del av dokument.</dd>
-              <dt><code>&lt;article&gt;</code></dt>
-              <dd>- m&auml;rker upp en frist&aring;ende del av dokument - en del som skulle kunna
-                anv&auml;ndas i andra sammanhang (t.ex. RSS).</dd>
-              <dt><code>&lt;aside&gt;</code></dt>
-              <dd>- m&auml;rker upp inneh&aring;ll som &auml;r relaterat till kringliggande element, men 
-                &auml;nd&aring; inte, t.ex. bakgrundsartikel.</dd>
-              <dt><code>&lt;hgroup&gt;</code></dt>
-              <dd>- anv&auml;nds f&ouml;r gruppera rubriker (h1-h6) om fler &auml;n en i f&ouml;ljd (t.ex. h1 och h2).</dd>
-            </dl>
-          <!-- </blockquote> -->
+          <dl>
+            <dt><code>&lt;header&gt;</code></dt>
+            <dd>- m&auml;rker upp sid- eller sektionshuvud.</dd>
+            <dt><code>&lt;footer&gt;</code></dt>
+            <dd>- m&auml;rker upp sid- eller sektionsfot.</dd>
+            <dt><code>&lt;nav&gt;</code></dt>
+            <dd>- m&auml;rker upp navigeringsl&auml;nkar, vilket gör sida mer tillgänglig
+              för personer med t.ex. nedsatt syn eller rörelseförmåga.</dd>
+            <dt><code>&lt;section&gt;</code></dt>
+            <dd>- m&auml;rker upp en generisk del av dokument och grupperar innehåll.</dd>
+            <dt><code>&lt;article&gt;</code></dt>
+            <dd>- m&auml;rker upp en del av dokument som kan användas frist&aring;ende,
+              d.v.s. skulle kunna anv&auml;ndas i andra sammanhang (t.ex. RSS).</dd>
+            <dt><code>&lt;aside&gt;</code></dt>
+            <dd>- m&auml;rker upp inneh&aring;ll som &auml;r relaterat till kringliggande element, men 
+              &auml;nd&aring; inte, t.ex. bakgrundsartikel.</dd>
+            <dt><code>&lt;hgroup&gt;</code></dt>
+            <dd>- anv&auml;nds f&ouml;r gruppera rubriker (&lt;h1&gt;-&lt;h6&gt;) 
+              med relaterat innehåll, t.ex. en ingress.</dd>
+          </dl>
         </div>
+      </div>
 
+      <h3>Sidhuvud och -fot samt &quot;rubrikgrupp&quot;</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Sidhuvud - <code>&lt;header&gt;</code> (inte att förväxla med taggen
+            <code>&lt;head&gt;</code>) - används för att märka ut t.ex. rubrik, ingress
+            och annan information för efterföljande innehåll och kan användas för en hel webbsida (d.v.s. i taggen
+            <code>&lt;body&gt;</code>) eller i t.ex. <code>&lt;section&gt;</code>
+            eller <code>&lt;article&gt;</code>.
+          </p>
+
+          <p>Liknande gäller för <code>&lt;footer&gt;</code>, men dess innehåll används
+            ofta för att beskriva data om relaterat innehåll (d.v.s. det &quot;ovanför&quot;).</p>
+
+          <p>Taggen <code>&lt;hgroup&gt;</code> är tänkt att användas för att gruppera
+            en rubrik med relaterat innehåll, t.ex. rubrik och en ingress.
+          </p>
+
+          <p>Som exempel så används ett sidhuvud (<code>&lt;header&gt;</code>) för 
+            denna webbsidas rubrik och navigeringsrad (vilka har färgats med färger 
+            i skånska flaggan ;-)), men här skulle lika gärna taggen <code>&lt;hgroup&gt;</code>
+            använts.
+          </p>
+        </div>
+        
         <div class="col l5 s12">
-          <fieldset>
-            <legend>Exempel</legend>
-            <p>Exempel kommer n&auml;r jag l&auml;rt mig mer om &auml;mnet...</p>
-          </fieldset>
+          <pre><code class="language-html">&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;En rubrik&lt;/h1&gt;
+    &lt;p&gt;En ingress&lt;/p&gt;
+  &lt;/header&gt;
+  ...
+  &lt;footer&gt;
+    &lt;b&gt;Uppdaterad:&lt;/b&gt; 2024-12-28.
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+
+      <h3>Navigering</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggen <code>&lt;nav&gt;</code> används för att märka upp länkar till
+            platser i dokument (d.v.s. en innehållsförteckning) och/eller till andra
+            webbsidor.
+          </p>
+
+          <p class="kommentar">Navigeringstaggar används med fördel med s.k. ARIA-attribut
+            för att definiera vad taggar innehåller, vilket gör det lättare för verktyg
+            för t.ex. personer med nedsatt syn eller rörelseförmåga att tolka innehåll
+            i webbsida.
+          </p>
+        </div>
+        
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;En sida&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Annan sida&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Ytterligare sida&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+      </div>
+
+      <h3>Sektioner, artiklar och relaterad information</h3>
+
+      <div class="row">
+        <div class="col l7 s12">
+          <p>Taggen <code>&lt;section&gt;</code> används för att gruppera och dela 
+            in innehåll i webbsidor, d.v.s. strukturera upp innehåll.</p>
+
+          <p>Taggen <code>&lt;article&gt;</code> däremot används för att markera
+            innehåll som kan användas i andra sammanhang än aktuell webbsida, t.ex.
+            ett blogginlägg eller en nyhetsartikel.
+          </p>
+
+          <p>För innehåll som är startkt relaterat till annat innehåll i webbsida
+            kan taggen <code>&lt;aside&gt;</code> användas.
+          </p>
+          
+          <p>I något förenklat exempel till höger (eller nedan) grupperas (<code>&lt;section&gt;</code>) 
+            en artikel (<code>&lt;article&gt;</code>) och referenser (<code>&lt;aside&gt;</code>),
+            vilket skulle kunna tolkas som att artikel kan användas annanstädes,
+            men att använda referenser utan artikel lär inte ge någon mening.
+          </p>
+        </div>
+        
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;section&gt;
+  &lt;article&gt;
+    &lt;h1&gt;En artikel&lt;/h1&gt;
+    &lt;p&gt;Innehåll i artikel&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;
+    &lt;h2&gt;Referenser&lt;/h2&gt;
+    &lt;ul&gt;...&lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/section&gt;</code></pre>
         </div>
       </div>
 
@@ -260,7 +559,8 @@
             f&ouml;r att dela upp texten i mindre delar och d&auml;rmed g&ouml;ra den mer l&auml;tt
             l&auml;st.</p>
           
-          <p>I (X)HTML finns 6 f&ouml;rdefinierade niv&aring;er f&ouml;r rubriker och som alla oftast visas med fet stil.
+          <p>I HTML finns 6 f&ouml;rdefinierade niv&aring;er f&ouml;r rubriker och 
+            som alla oftast visas med fet stil och större storlek.
             Rubrikerna f&ouml;r de olika niv&aring;erna markeras med taggarna <code>&lt;h1&gt;</code>
             till <code>&lt;h6&gt;</code> (eng. <em>heading</em>). Som exempel 1.4 
             visar s&aring; &auml;r oftast niv&aring;erna 5 och 6 f&ouml;r rubriker mindre en vanlig text. Genom 
@@ -268,37 +568,32 @@
             utseendet p&aring; dem (i alla hemsidor p&aring; t.ex. en hel webbplats) m.h.a.
             CSS.</p>
           
-          <p>Stycken i (X)HTML (eller snarare i webbl&auml;sare) skiljer sig n&aring;got fr&aring;n
+          <p>Stycken i HTML (eller snarare i webbl&auml;sare) skiljer sig n&aring;got fr&aring;n
             stycken i ordbehandlare d&aring; de oftast visas med en rads mellanrum mellan
-            styckena. Stycken markeras med taggen <strong>&lt;p&gt;</strong> (eng. <em>paragraph</em>).
-            Avslutande tagg <strong>b&ouml;r</strong> alltid anv&auml;ndas f&ouml;r att t.ex. CSS ska 
+            styckena. Stycken markeras med taggen <strong>&lt;p&gt;</strong> (eng. <em>paragraph</em>)
+            och avslutande tagg <strong>b&ouml;r</strong> alltid anv&auml;ndas f&ouml;r att t.ex. CSS ska 
             fungera).</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>&lt;html&gt;<br />
-              &lt;head&gt;<br />
-              &nbsp; &lt;title&gt;Rubriker och stycken&lt;/title&gt;<br />
-              &lt;/head&gt;<br />
-              &lt;body&gt;<br />
-              &nbsp; &lt;h1&gt;Rubrik niv&aring; 1&lt;/h1&gt;<br />
-              &nbsp; &lt;h2&gt;Rubrik niv&aring; 2&lt;/h2&gt;<br />
-              &nbsp; &lt;h3&gt;Rubrik niv&aring; 3&lt;/h3&gt;<br />
-              &nbsp; &lt;h4&gt;Rubrik niv&aring; 4&lt;/h4&gt;<br />
-              &nbsp; &lt;h5&gt;Rubrik niv&aring; 5&lt;/h5&gt;<br />
-              &nbsp; &lt;h6&gt;Rubrik niv&aring; 6&lt;/h6&gt;<br />
-              &nbsp; &lt;p&gt;Ett stycke vanlig text&lt;/p&gt;<br />
-              &nbsp; &lt;p&gt;Ett stycke till med vanlig text. Observera den tomma
-              raden mellan styckena men inte inom detta stycke (som b&ouml;r vara minst
-              tv&aring; rader).&lt;/p&gt;<br />
-              &lt;/body&gt;<br />
-              &lt;/html&gt;</code></p>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;Rubrik niv&aring; 1&lt;/h1&gt;
+  &lt;h2&gt;Rubrik niv&aring; 2&lt;/h2&gt;
+  &lt;h3&gt;Rubrik niv&aring; 3&lt;/h3&gt;
+  &lt;h4&gt;Rubrik niv&aring; 4&lt;/h4&gt;
+  &lt;h5&gt;Rubrik niv&aring; 5&lt;/h5&gt;
+  &lt;h6&gt;Rubrik niv&aring; 6&lt;/h6&gt;
+  &lt;p&gt;Ett stycke vanlig text&lt;/p&gt;
+  &lt;p&gt;Ett stycke till med vanlig text.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+
+          <p>(Se exempel 1.4 för resultat.)</p>
         </div>
 
-        <div class="col l7 s12">
-          <p>Se <a href="del1/html1_4.html" target="_blank"> exempel 1.4</a> - rubriker och stycken</p>
+        <div class="col l7 s12 center-align">
+          <p><a href="del1/html1_4.html" class="btn bg-scania-red fg-scania-yellow"
+            target="_blank">Exempel 1.4 - rubriker och stycken</a></p>
         </div>
       </div>
 
@@ -358,11 +653,8 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;img src=&quot;bild.jpg&quot; <br />
-            &nbsp; alt=&quot;Text om bild 
-            inte visas&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;img src=&quot;bild.jpg&quot;
+  alt=&quot;Text om bild inte visas&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -377,15 +669,24 @@
         </div>
         
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;img src=&quot;bild.jpg&quot; width=&quot;283&quot;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp; height=&quot;212&quot; alt=&quot;...&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;img src=&quot;bild.jpg&quot; width=&quot;283&quot;
+  height=&quot;212&quot; alt=&quot;Text om ...&quot; /&gt;</code></pre>
         </div>
       
+        <div class="col l7 s12 center-align">
+          <p><a href="del1/html1_5.html" class="btn bg-scania-red fg-scania-yellow"
+            target="_blank">Exempel 1.5 - bild inl&auml;nkad med &lt;img&gt;</a>.</p>
+        </div>
+      </div>
+
+      <h3>Referenser</h3>
+
+      <div class="row">
         <div class="col l7 s12">
-          <p>Se <a href="del1/html1_5.html" target="_blank"> exempel 1.5</a> - bild inl&auml;nkad med
-            &lt;img&gt;.</p>
+          <ul class="collection">
+            <li class="collection-item"><a href="https://docs.emmet.io/" target="_blank"
+              rel="noopener">Emmet Documentation</a></li>
+          </ul>
         </div>
       </div>
 
@@ -393,7 +694,7 @@
         <div class="col s12">
           <ul class="pagination center-align">
             <li class="waves-effect"><a href="del0.html">&lt; F&ouml;reg&aring;ende</a></li>
-            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li class="waves-effect waves-red btn yellow"><a href="./">Hem (HTML)</a></li>
             <li class="waves-effect"><a href="del2.html">N&auml;sta &gt;</a></li>
           </ul>
         </div>
@@ -403,7 +704,7 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12"><b>Skapad av:</b> Bj&ouml;rn G D Persson.</div>
-            <div class="col l6 s12"><b>Uppdaterad:</b> 2020-02-15.</div>
+            <div class="col l6 s12"><b>Uppdaterad:</b> 2024-12-28.</div>
           </div>
         </div>
       </footer>
@@ -411,6 +712,7 @@
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

@@ -21,7 +21,13 @@
   <title>HTML - Listor och tabeller i HTML</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <style>
+    /* Kompensera for CSS-ramverkets stilar for att visa som utan ramverk */
+    ul.list-style-square:not(.browser-default) { padding-inline-start: 40px;}
+    ul.list-style-square:not(.browser-default)>li { list-style-type: square !important; }
+  </style>
 </head>
 <body>
   <header class="fg-scania-yellow bg-scania-red">
@@ -73,20 +79,6 @@
           <p>P&aring; denna hemsida beskrivs punktlistor och tabeller. H&auml;r beskrivs
             ocks&aring; hur man kan anv&auml;nda tabeller f&ouml;r att skapa ett rutn&auml;t f&ouml;r
             design, s.k. platsh&aring;llare.</p>
-
-          <div class="card-panel">
-          <p class="kommentar">N&auml;r vi kommit s&aring; h&auml;r l&aring;ngt s&aring; 
-            b&ouml;rjar kodexemplen bli f&ouml;r stora
-            och sv&aring;rl&auml;sta (i.a.f. i den design jag valt f&ouml;r hemsidorna) f&ouml;r att
-            redovisas innan (de &quot;externa&quot;) exempelsidorna. D&auml;rf&ouml;r kommer
-            jag ibland att utel&auml;mna hela koden f&ouml;r exemplen och endast visa p&aring;
-            det viktigaste. Ni f&aring;r ist&auml;llet studera
-            koden i (de &quot;externa&quot;) exempelsidorna f&ouml;r att se den
-            fullst&auml;ndiga koden f&ouml;r exemplet. Webbsidorna med exempelkoden
-            inneh&aring;ller &auml;ven en sidfot med dokumentinformation (ett tappert
-            f&ouml;rs&ouml;k att f&ouml;rs&ouml;ka beh&aring;lla r&auml;ttigheterna till koden p&aring;
-            webbsidorna :-) vilket har markerats med kommentarer i HTML-koden.</p>
-          </div>
         </div>
 
         <div class="col l5 s12">
@@ -105,6 +97,12 @@
           <p>Punktlistor kan f&aring;s antingen som numrerade eller onumrerade listor.
             Exempel p&aring; en onumrerad punktlista &auml;r t.ex. inneh&aring;llsf&ouml;rteckningen
             ovan f&ouml;r denna hemsida.</p>
+
+          <p class="kommentar">CSS-ramverk, så som Materialize som används för denna
+            underwebb, har åsikter om hur listor (och andra element) bör visas, vilket
+            brukar vara att inte visa punkt och eller ha ett indrag till vänster
+            (så som innehållsförteckningen uppe till höger i denna sida).
+          </p>
         </div>
       </div>
 
@@ -119,23 +117,21 @@
             f&ouml;r att avgr&auml;nsa listan, d.v.s. tala om var den b&ouml;rjar och slutar,
             och varje punkt i listan markeras med taggen <code>&lt;li&gt;</code> (eng. <i>list
             item</i>).</p>
-          
-          <p>Exempel på lista med 2 listelement.</p>
-          
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Punkt 1 i listan&lt;/li&gt;
+  &lt;li&gt;Punkt 2 i listan&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+          <h4>Resultat</h4>
           <!-- Kompensera for CSS-ramverkets stil for listor med klassen browser-default -->
           <ul class="browser-default">
             <li>Punkt 1 i listan</li>
             <li>Punkt 2 i listan</li>
           </ul>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ul&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 1 i listan&lt;/li&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 2 i listan&lt;/li&gt;<br />
-              &lt;/ul&gt;</code>
-          </blockquote>
         </div>
       </div>
 
@@ -143,50 +139,75 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Listor &auml;r till&aring;tna inom andra listor, s.k. n&auml;stlade listor, och webbl&auml;saren visar d&aring;
-          oftast den inre listans punkter med ett annat utseende.</p>
+          <p>Listor &auml;r till&aring;tna inom andra listor, s.k. n&auml;stlade listor.
+            Den inre listan ska placeras mellan öppnande och avslutande <code>li</code>-tagg.
+          </p>
           
-          <p>Exempel med n&auml;stlad lista.</p>
-          
+          <p>Vanligtvis visas den inre listan med en annan typ av utseende p&aring; punkterna.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Punkt 1 i yttre lista
+    &lt;ul&gt;
+      &lt;li&gt;Punkt 1.1 i inre lista&lt;/li&gt;
+      &lt;li&gt;Punkt 1.2 i inre lista&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Punkt 2 i yttre lista&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+          <h4>Resultat</h4>
           <!-- Kompensera for CSS-ramverkets stil for listor med klassen browser-default -->
           <ul class="browser-default">
             <li>
               Punkt 1 i yttre lista
               <ul class="browser-default">
-                <li>Punkt 1 i inre lista</li>
-                <li>Punkt 2 i inre lista</li>
+                <li>Punkt 1.1 i inre lista</li>
+                <li>Punkt 1.2 i inre lista</li>
               </ul>
             </li>
             <li>Punkt 2 i yttre lista</li>
           </ul>
-          
-          <p>Exempel visar p&aring; att den inre listan en annan typ av
-            utseende p&aring; punkterna.</p>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ul&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 1 i yttre lista<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;Punkt 1 i inre lista&lt;/li&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;Punkt 2 i inre lista&lt;/li&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
-              &nbsp; &lt;/li&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 2 i yttre lista&lt;/li&gt;<br />
-              &lt;/ul&gt;</code>
-          </blockquote>
         </div>
       </div>
 
-      <h4>&Auml;ndra punktens utseende</h4>
+      <h4><del>&Auml;ndra punktens utseende</del> [utfasad/obsolet!]</h4>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Det g&aring;r att &auml;ndra punktens utseende genom att anv&auml;nda 
-            attributet <code>type</code>. Giltiga v&auml;rden f&ouml;r attributet 
-            &auml;r &quot;circle&quot; och &quot;square&quot;.</p>
-          
+          <p>Tidigare kunde man &auml;ndra punktens utseende genom att anv&auml;nda 
+            attributet <code>type</code>, men numera får (bör) man använda CSS-egenskapen
+            <code>list-style-type</code> med något av värdena <code>circle</code>,
+            <code>disc</code>, <code>none</code> eller <code>square</code>.</p>
+
+          <p class="kommentar">(Exampel till höger/nedan visar på applicering av
+            stil m.h.a attributet <code>style</code> - något som bör undvikas!)</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;ul type=&quot;square&quot;&gt;
+  &lt;li&gt;Punkt nummer ett&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul style=&quot;list-style-type: square;&quot;&gt;
+  &lt;li&gt;Annan punkt nummer ett&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+          <h4>Resultat</h4>
+            <ul type="square" class="browser-default">
+              <li>Punkt nummer ett</li>
+            </ul>
+            
+            <ul class="list-style-square">
+              <li>Annan punkt nummer ett</li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col l7 s12">
           <div class="center-align hide-on-med-and-down">
             <p><a href="del4/html4_1_1.html" target="_blank" 
               class="btn bg-scania-red fg-scania-yellow">Exempel 4.1.1 - onumrerade listor</a></p>
@@ -195,14 +216,6 @@
             för att visa exempel och studera dess bakomliggande kod.
           </div>
         </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ul type=&quot;square&quot;&gt;<br />
-              &nbsp;&lt;li&gt;Punkt nummer ett&lt;/li&gt;<br />
-              &lt;/ul&gt;</code>
-          </blockquote>
-        </div>
       </div>
 
       <h3>Numrerade listor</h3>
@@ -210,40 +223,34 @@
       <div class="row">
         <div class="col l7 s12">
           <p>Numrerade listor fungera som de onumrerade med skillnaden att man
-            anv&auml;nder taggen <b>&lt;ol&gt;</b> (eng. <i>ordered list</i>) ist&auml;llet
-            f&ouml;r &lt;UL&gt; och att punkterna ers&auml;tts med siffror.</p>
-          
-          <p>Genom att skriva om exemplet med n&auml;stlade onumrerade listor ovan och
-            ers&auml;tta &lt;ul&gt; med &lt;ol&gt; ger f&ouml;ljande kod</p>
-            
-          <p>ger f&ouml;ljande resultat</p>
-          
-          <ol class="browser-default">
-            <li>Punkt 1 i yttre lista
-              <ol class="browser-default">
-                <li>Punkt 1 i inre lista</li>
-                <li>Punkt 2 i inre lista</li>
-              </ol>
-            </li>
-            <li>Punkt 2 i yttre lista</li>
-          </ol>
-          
+            anv&auml;nder taggen <code>&lt;ol&gt;</code> (eng. <i>ordered list</i>) ist&auml;llet
+            f&ouml;r &lt;ul&gt; och att punkterna ers&auml;tts med siffror.</p>
+                    
           <p>Till skillnad fr&aring;n onumrerade listor s&aring; ges inte den inre listan en
             annan typ av numrering.</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ol&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 1 i yttre lista<br />
-              &nbsp;&nbsp;&nbsp; &lt;ol&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;Punkt 1 i inre lista&lt;/li&gt;<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;Punkt 2 i inre lista&lt;/li&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;/ol&gt;<br />
-              &nbsp; &lt;/li&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 2 i yttre lista&lt;/li&gt;<br />
-              &lt;/ol&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Punkt 1 i yttre lista
+    &lt;ol&gt;
+      &lt;li&gt;Punkt 1.1 i inre lista&lt;/li&gt;
+      &lt;li&gt;Punkt 1.2 i inre lista&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Punkt 2 i yttre lista&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <ol class="browser-default">
+            <li>Punkt 1 i yttre lista
+              <ol class="browser-default">
+                <li>Punkt 1.1 i inre lista</li>
+                <li>Punkt 1.2 i inre lista</li>
+              </ol>
+            </li>
+            <li>Punkt 2 i yttre lista</li>
+          </ol>
         </div>
       </div>
 
@@ -282,16 +289,28 @@
               <td><code>A</code></td>
             </tr>
           </table>
+
+          <p>Önskas annan typ av numrering, t.ex. armenisk eller georgisk, så kan
+            man istället använda CSS för att ändra den (se exempel 4.1.2 nedan).
+          </p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ol type=&quot;i&quot;&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 1 i en lista <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;med romerska siffror&lt;/li&gt;<br />
-              &lt;/ol&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;ol type=&quot;i&quot;&gt;
+  &lt;li&gt;Punkt 1 i en lista 
+    med romerska siffror&lt;/li&gt;
+  &lt;li&gt;Punkt 2 i en lista 
+    med romerska siffror&lt;/li&gt;
+  &lt;li&gt;Punkt 3 i en lista 
+    med romerska siffror&lt;/li&gt;
+  &lt;li&gt;Punkt 4 i en lista 
+    med romerska siffror&lt;/li&gt;
+  &lt;li&gt;Punkt 5 i en lista 
+    med romerska siffror&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
 
+          <h4>Resultat</h4>
           <ol type="i">
             <li>Punkt 1 i en lista med romerska siffror</li>
             <li>Punkt 2 i en lista med romerska siffror</li>
@@ -316,16 +335,27 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;ol start=&quot;6&quot;&gt;<br />
-              &nbsp; &lt;li&gt;Punkt 6&lt;/li&gt;<br />
-              &lt;/ol&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;ol start=&quot;6&quot;&gt;
+  &lt;li&gt;Punkt 6&lt;/li&gt;
+  &lt;li&gt;Punkt 7&lt;/li&gt;
+  &lt;li&gt;Punkt 8&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol start=&quot;5&quot; type=&quot;i&quot;&gt;
+  &lt;li&gt;Punkt 5&lt;/li&gt;
+  &lt;li&gt;Punkt 6&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
 
           <ol start="6">
             <li>Punkt 6</li>
             <li>Punkt 7</li>
             <li>Punkt 8</li>
+          </ol>
+
+          <ol start="5" type="i">
+            <li>Punkt 5</li>
+            <li>Punkt 6</li>
           </ol>
         </div>
 
@@ -344,10 +374,11 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Tabeller &auml;r anv&auml;ndbart till mycket, bl.a. f&ouml;r att strukturera data
-            men &auml;ven, som visas i n&auml;sta avsnitt, f&ouml;r att skapa s.k. platsh&aring;llare
-            f&ouml;r design. I detta avsnitt behandlas hur man skapar tabeller f&ouml;r att
-            presentera data i n&aring;gon form.</p>
+          <p>Tabeller &auml;r till för att presentera data i tabellform.</p>
+
+          <p class="kommentar">(Tabeller har tidigare, innan CSS, används för att
+            designa webbsidor, något som bör göras med CSS istället.)
+          </p>
         </div>
       </div>
 
@@ -381,7 +412,7 @@
         </div>
       </div>
 
-      <h4>En enkel tabell</h4>
+      <h4>Tabell i sin enklaste form</h4>
       
       <div class="row">
         <div class="col l7 s12">
@@ -391,6 +422,34 @@
             Utseende p&aring; exempel nedan har, eller kan ha, p&aring;verkats av CSS-ramverk
             som anv&auml;nds f&ouml;r sida.)</p>
 
+          <p>Tabellens bredd (och h&ouml;jd) anpassas, som standard, automatiskt till
+            den cell med bl.a. l&auml;ngst (resp. flest rader) text i en kolumn (rad).
+            &Auml;ven de kolumnernas bredd anpassas individuellt till den text som &auml;r
+            l&auml;ngst i cellerna. Bredden p&aring; de olika kolumnerna anpassa allts&aring; till
+            inneh&aring;llet i respektive kolumns celler. L&auml;ngre ner ska vi se hur man kan 
+            styra bredden (och h&ouml;jden) p&aring; tabeller och celler (rader).</p>
+
+          <p class="kommentar">(Olyckligtvis har jag valt ett CSS-ramverk, Materialize,
+            som är &quot;åsiktsfullt&quot; för denna webbsida/underwebb, d.v.s. 
+            ramverket anger som standard hur något bör se ut, så som tabeller. :-S
+            Se exempel 4.2.0 nedan för hur tabeller ser ut utan formatering.)
+          </p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;table&gt;
+&nbsp; &lt;tr&gt;
+&nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 1 - kol. 1]&lt;/td&gt;
+&nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 1 - kolumn 2&lt;/td&gt;
+&nbsp; &lt;/tr&gt;
+&nbsp; &lt;tr&gt;
+&nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 2 - kolumn 1]&lt;/td&gt;
+&nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 2 - kol. 2]&lt;/td&gt;
+&nbsp; &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat (m. formatering)</h4>
           <table>
             <tr>
               <td>[Rad 1 - kol. 1]</td>
@@ -403,21 +462,6 @@
           </table>
         </div>
 
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 1 - kol. 1]&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 1 - kolumn 2&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 2 - kolumn 1]&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;[Rad 2 - kol. 2]&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
         <div class="col l7 s12">
           <div class="center-align hide-on-med-and-down">
             <p><a href="del4/html4_2_0.html" target="_blank" 
@@ -426,101 +470,21 @@
           <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
             för att visa exempel och studera dess bakomliggande kod.
           </div>
-
-          <p>Tabellens bredd (och h&ouml;jd) anpassas, som standard, automatiskt till
-            den cell med bl.a. l&auml;ngst (resp. flest rader) text i en kolumn (rad).
-            &Auml;ven de kolumnernas bredd anpassas individuellt till den text som &auml;r
-            l&auml;ngst i cellerna. Bredden p&aring; de olika kolumnerna anpassa allts&aring; till
-            inneh&aring;llet i respektive kolumns celler. L&auml;ngre ner ska vi se hur man kan 
-            styra bredden (och h&ouml;jden) p&aring; tabeller och celler (rader).</p>
         </div>
       </div>
 
-      <h4>Kantlinjers tjocklek</h4>
+      <h4><del>Kantlinjer, mellanrum, utfyllnad och positionering</del> [utfasat/obsolet!]</h4>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Som exemplet ovan (antagligen) visar, s&aring; tenderar webbl&auml;sare (idag)
-            till att visa tabeller utan n&aring;gon kantlinje kring cellerna. Kantlinjens
-            existens/bredd styrs av attributet <code>border</code> i <code>table</code>-taggen 
-            och &auml;r (idag) som standard 0. Om vi skriver om exemplet ovan med fyra celler
-            och &auml;ndra till en punkts bred p&aring;
-            kantlinjerna, d.v.s. &auml;ndrar till &lt;table border=&quot;1&quot;&gt;, s&aring; blir
-            resultatet f&ouml;ljande:</p>
-
-          <table border="1">
-            <tr>
-              <td>[Rad 1 - kol. 1]</td>
-              <td>[Rad 1 - kolumn 2]</td>
-            </tr>
-            <tr>
-              <td>[Rad 2 - kolumn 1]</td>
-              <td>[Rad 2 - kol. 2]</td>
-            </tr>
-          </table>
-        </div>
-        
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table border=&quot;0&quot;&gt;<br />
-              &nbsp; ...<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12">
-          <p>Om vi anger ett v&auml;rde p&aring; attributet <code>border</code> som &auml;r st&ouml;rre &auml;n 0
-            s&aring; kommer (tredimensionella) linjer ritas kring cellerna. &Auml;r v&auml;rdet
-            st&ouml;rre &auml;n 1 s&aring; kommer linjerna mellan cellerna att vara detsamma (som
-            d&aring; v&auml;rdet &auml;r 0) men linjerna kring hela tabellen kommer bli gr&ouml;vre
-            (se exempel 4.2.1 nedan).</p>
-
-          <div class="center-align hide-on-med-and-down">
-            <p><a href="del4/html4_2_1.html" target="_blank" 
-              class="btn bg-scania-red fg-scania-yellow">Exempel 4.2.1 - tabeller och attributet border</a></p>
-          </div>
-          <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
-            för att visa exempel och studera dess bakomliggande kod.
-          </div>
-        </div>
-      </div>
-
-      <h4>Avst&aring;nd mellan celler och fr&aring;n cellkant till cellinneh&aring;ll</h4>
-      
-      <div class="row">
-        <div class="col l7 s12">
-          <p>Tv&aring; attribut till i <code>table</code>-taggen &auml;r <code>cellpadding</code> 
-            och <code>cellspacing</code>.
-            Dessa anv&auml;nds f&ouml;r att &auml;ndra avst&aring;ndet fr&aring;n elementen i cellerna och
-            cellens innerkant respektive avst&aring;ndet mellan cellerna.
-            Standardv&auml;rdena brukar vara 1 f&ouml;r <code>cellpadding</code> och 2 f&ouml;r <code>cellspacing</code>.
-            I exempel 4.2.2 visas skillnaden mellan de tv&aring; attributen. Om vi t.ex.
-            vill ta bort dessa mellanrum (f&ouml;r t.ex. designsk&auml;l) s&aring; skriver vi
-            f&ouml;ljande:</p>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;<br />
-              &nbsp; ...<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12">
-          <p>Att &auml;ndra avst&aring;ndet mellan cellerna &auml;r fr&auml;mst anv&auml;ndbart n&auml;r vi
-            f&auml;rgl&auml;gger bakgrunden p&aring; tabeller och dess celler. Om vi inte
-            anv&auml;nder kantlinjer och inte vill att bakgrundsf&auml;rgen ska lysa igenom
-            mellan tabellerna s&aring; m&aring;ste vi ta bort avst&aring;ndet mellan cellerna. Se
-            de tv&aring; tabellerna l&auml;ngst ner i exempel 4.2.2.</p>
-
-          <div class="center-align hide-on-med-and-down">
-            <p><a href="del4/html4_2_2.html" target="_blank" 
-              class="btn bg-scania-red fg-scania-yellow">Exempel 4.2.2 - cellpadding och cellspacing</a></p>
-          </div>
-          <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
-            för att visa exempel och studera dess bakomliggande kod.
-          </div>
+          <p>Tidigare fanns attribut för att ange tjocklek på kantlinjer för tabell
+            och celler, mellanrum mellan celler (både kolumner och rader), utfyllnad -
+            d.v.s. avstånd mellan cellens innehåll och dess kantlinje - samt positionering
+            av innehåll i celler, men dessa attribut har numera utgått (d.v.s. attributen 
+            <code>border</code>, <code>cellspacing</code>, <code>cellpadding</code>
+            samt <code>align</code> och <code>valign</code>).
+          </p>
+          <p>Använd CSS för att ändra dessa egenskaper i tabeller.</p>
         </div>
       </div>
 
@@ -535,14 +499,20 @@
             Nedan visas samma tabell som ovan fast med flera rader med text i cell 1
             i f&ouml;rsta raden.</p>
 
-          <p class="kommentar">Bredden p&aring; tabellen i exemplet nedan styrs &auml;ven
-            av den tabell som jag har placerat all text i p&aring; denna webbsida. Denna
-            tabell &auml;r 425 bildpunkter bred f&ouml;r att skapa lagom l&aring;nga rader med
-            text och f&ouml;rhoppningsvis g&ouml;ra texten mer l&auml;ttl&auml;st. (Se exempel
-            4.2.3. f&ouml;r b&auml;ttre exempel. Mer om tabeller som platsh&aring;llare finns
-            nedan.)</p>
+          <p class="kommentar">(Se exempel 4.2.3. f&ouml;r b&auml;ttre exempel.)</p>
 
-          <table border="1">
+          <p>Ibland kan det vara trevligt att vet lite mer exakt hur en tabell
+            eller cell kommer ta sig ut. Bredden och h&ouml;jden p&aring; tabeller och
+            celler kan styras med attributen <code>width</code> respektive <code>height</code>. 
+            Attributen kan anges f&ouml;r b&aring;de <code>table</code>- och <code>td</code>-taggen 
+            (&auml;ven om inte attributet &auml;r standard i
+            den senare) och v&auml;rdena kan ges i procent eller bildpunkter.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Exempel</h4>
+
+          <table>
             <tr>
               <td>[Rad 1 - kol. 1] I denna cell har mer text infogats f&ouml;r att
                 visa hur webbl&auml;sare brukar anpassa bredden p&aring; tabeller och
@@ -557,13 +527,6 @@
               <td>[Rad 2 - kol. 2]</td>
             </tr>
           </table>
-
-          <p>Ibland kan det vara trevligt att vet lite mer exakt hur en tabell
-            eller cell kommer ta sig ut. Bredden och h&ouml;jden p&aring; tabeller och
-            celler kan styras med attributen <code>width</code> respektive <code>height</code>. 
-            Attributen kan anges f&ouml;r b&aring;de <code>table</code>- och <code>td</code>-taggen 
-            (&auml;ven om inte attributet &auml;r standard i
-            den senare) och v&auml;rdena kan ges i procent eller bildpunkter.</p>
         </div>
       </div>
 
@@ -590,39 +553,38 @@
             
           <p>Vi skulle kunna g&ouml;ra en tabell med bredden 300 punkter och sen
             f&ouml;rdela bredden p&aring; kolumnerna till 75, 100 respektive 125 punkter.
-            Koden blir d&aring; f&ouml;ljande:</p>
-            
-          <div class="center">
-            <table border="1" width="300">
-              <tr>
-                <td style="width: 75px">Kolumn 1</td>
-                <td style="width: 100px">Kolumn 2</td>
-                <td style="width: 125px">Kolumn 3</td>
-              </tr>
-              <tr>
-                <td>75</td>
-                <td>100</td>
-                <td>125</td>
-              </tr>
-            </table>
-          </div>            
+            Koden blir d&aring; f&ouml;ljande:</p>          
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table border="1" width=&quot;300&quot;&gt;<br />
-              &lt;tr&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 75px&quot;>Kolumn 1&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 100px&quot;>Kolumn 2&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 125px&quot;>Kolumn 3&lt;/td&gt;<br />
-              &lt;/tr&gt;<br />
-              &lt;tr&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 75px&quot;&gt;75&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 100px&quot;&gt;100&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 125px&quot;&gt;125&lt;/td&gt;<br />
-              &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;table
+    style=&quot;width: 300px; border: solid red 1px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 75px&quot;>Kolumn 1&lt;/td&gt;
+    &lt;td style=&quot;width: 100px&quot;>Kolumn 2&lt;/td&gt;
+    &lt;td style=&quot;width: 125px&quot;>Kolumn 3&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 75px&quot;&gt;75&lt;/td&gt;
+    &lt;td style=&quot;width: 100px&quot;&gt;100&lt;/td&gt;
+    &lt;td style=&quot;width: 125px&quot;&gt;125&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
+            
+          <table style="width: 300px; border: solid red 1px;">
+            <tr>
+              <td style="width: 75px; border: solid blue 1px;">Kolumn 1</td>
+              <td style="width: 100px; border: solid blue 1px;">Kolumn 2</td>
+              <td style="width: 125px; border: solid blue 1px;">Kolumn 3</td>
+            </tr>
+            <tr>
+              <td>75</td>
+              <td>100</td>
+              <td>125</td>
+            </tr>
+          </table>
         </div>
 
         <div class="col l7 s12">
@@ -649,44 +611,8 @@
             ist&auml;llet (v&auml;rdena ska motsvara de bredder vi fick i exemplet med
             bildpunkter ovan - t.ex. 75 &auml;r 25% av 300).</p>
 
-          <div class="center">
-            <table border="1" width="300">
-              <tr>
-                <td style="width: 25%">Kolumn 1</td>
-                <td style="width: 33%">Kolumn 2</td>
-                <td style="width: 42%">Kolumn 3</td>
-              </tr>
-              <tr>
-                <td>25%</td>
-                <td>33%</td>
-                <td>42%</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table border="1" width=&quot;300&quot;&gt;<br />
-              &lt;tr&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 25%&quot;&gt;Kolumn 1&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 33%&quot;&gt;Kolumn 2&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 42%&quot;&gt;Kolumn 3&lt;/td&gt;<br />
-              &lt;/tr&gt;<br />
-              &lt;tr&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 25%&quot;&gt;25%&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 33%&quot;&gt;33&amp;&lt;/td&gt;<br />
-              &nbsp; &lt;td style=&quot;width: 42%&quot;&gt;42%&lt;/td&gt;<br />
-              &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-      </div>
-
-      <h5>Om h&ouml;jden p&aring; tabeller och celler</h5>
-      
-      <div class="row">
-        <div class="col l7 s12">
+          <h5>Om h&ouml;jden p&aring; tabeller och celler</h5>
+          
           <p>Attributet <code>height</code> <b>b&ouml;r inte</b> anv&auml;ndas - l&aring;t webbl&auml;saren
             anpassa h&ouml;jden p&aring; tabell och rader i tabell! Olika webbl&auml;sare
             tenderar n&auml;mligen att anv&auml;nda olika typsnitt och lite olika storlek
@@ -697,7 +623,40 @@
             endast den text som f&aring;r plats i cellerna. (Det finns dock undantag,
             t.ex. f&ouml;r design, d&aring; h&ouml;jd kan vara l&auml;mpligt att ange. Detta
             behandlas dock inte p&aring; dessa hemsidor.)</p>
+        </div>
 
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;table style=&quot;width: 100%&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 25%&quot;&gt;Kolumn 1&lt;/td&gt;
+    &lt;td style=&quot;width: 33%&quot;&gt;Kolumn 2&lt;/td&gt;
+    &lt;td style=&quot;width: 42%&quot;&gt;Kolumn 3&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width: 25%&quot;&gt;25%&lt;/td&gt;
+    &lt;td style=&quot;width: 33%&quot;&gt;33&amp;&lt;/td&gt;
+    &lt;td style=&quot;width: 42%&quot;&gt;42%&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <table style="width: 100%; border: solid red 1px;">
+            <tr>
+              <td style="width: 25%; border: solid blue 1px;">Kolumn 1</td>
+              <td style="width: 33%; border: solid blue 1px;">Kolumn 2</td>
+              <td style="width: 42%; border: solid blue 1px;">Kolumn 3</td>
+            </tr>
+            <tr>
+              <td>25%</td>
+              <td>33%</td>
+              <td>42%</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col l7 s12">
           <div class="center-align hide-on-med-and-down">
             <p><a href="del4/html4_2_3.html" target="_blank" 
               class="btn bg-scania-red fg-scania-yellow">Exempel 4.2.3 - Attributet width</a></p>
@@ -708,106 +667,26 @@
         </div>
       </div>
 
-      <!-- <h4>Centrering av tabeller</h4>
-
-      <div class="row">
-        <div class="col l7">
-          <p><code>table</code>-taggen inneh&aring;ller &auml;ven den attributet <code>align</code>. 
-            Men attributet fungerar inte som andra taggars <code>align</code>-attribut 
-            (t.ex. &lt;p&gt; och &lt;h1&gt;). Attributet <code>align</code> i <code>table</code>-taggen 
-            p&aring;verkar n&auml;mligen justeringen av inneh&aring;llet i alla celler. D&auml;rf&ouml;r m&aring;ste vi
-            anv&auml;nda oss av <code>div</code>-taggen, med sitt <code>align</code>-attribut, 
-            f&ouml;r att justeringen av en tabell p&aring; en hemsida. F&ouml;r att vara p&aring; s&auml;kra sidan
-            brukar man anv&auml;nda b&aring;de <code>div</code>- och <code>center</code>-taggarna, 
-            f&ouml;r att de flesta webbl&auml;sare ska centrera tabellen p&aring; hemsidan, enligt f&ouml;ljande:</p>
-
-          <div class="exempel">
-            <p>&lt;div align=&quot;center&quot;&gt;<br />
-              &lt;center&gt;</p>
-            <p>&lt;table&gt;<br />
-              &nbsp; ...<br />
-              &lt;/table&gt;</p>
-            <p>&lt;/center&gt;<br />
-              &lt;/div&gt;</p>
-          </div>
-        </div>
-      </div> -->
-
-      <h4>Justering av element i celler</h4>
-      
-      <div class="row">
-        <div class="col l7 s12">
-          <p>F&ouml;r att &auml;ndra justeringen av cellers inneh&aring;ll anv&auml;nds attributen
-            <code>align</code> och <code>valign</code> som justerar i horisontellt respektive 
-            vertikalt led. Attributen finns i b&aring;de <code>tr</code>- och <code>td</code>-taggen. 
-            Giltiga v&auml;rden f&ouml;r attributet <code>align</code> &auml;r de samma som f&ouml;r andra 
-            taggar med attributet, d.v.s. &quot;left&quot;, &quot;center&quot; och &quot;right&quot;.
-            Giltiga v&auml;rden f&ouml;r attributet <code>valign</code> visas, och f&ouml;rklaras, i 
-            tabellen nedan</p>
-            
-          <dl>
-            <dt><code>top</code></dt>
-            <dd>Inneh&aring;llet positioneras mot &ouml;ver kanten
-                p&aring; cellen</dd>
-            <dt><code>middle</code></dt>
-            <dd>Inneh&aring;llet centreras vertikalt i cellen</dd>
-            <dt><code>bottom</code></dt>
-            <dd>Inneh&aring;llet i cellen positioneras mot nederkanten
-                p&aring; cellen</dd>
-          </dl>
-          
-          <p>Om vi anv&auml;nder attributen i <code>tr</code>-taggen s&aring; p&aring;verkas alla celler
-            (d.v.s. <code>td</code>-taggar) i raden. Vi kan t.ex., som i f&ouml;rsta raden 
-            i exemplet nedan, centrera alla cellers inneh&aring;ll i en</p>
-
-          <table width="100%" border="1">
-            <tr align="center">
-              <td>Centrerad cell 1</td>
-              <td>Centrerad cell 2</td>
-            </tr>
-            <tr>
-              <td align="center">Centrerad cell 3</td>
-              <td align="right">H&ouml;gerjusterad cell</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table width=&quot;100%&quot; border=&quot;1&quot;&gt;<br />
-              &nbsp; &lt;tr align=&quot;center&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Centrerad cell 1&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Centrerad cell 2&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td align=&quot;center&quot;&gt;Centrerad cell
-              3&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td align=&quot;right&quot;&gt;H&ouml;gerjusterad<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cell&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12">
-          <p class="kommentar">I exemplet ovan har tabellens bredd angivits som 100% och kantlinjen
-            satts till 1 f&ouml;r att effekten av justeringen ska bli synlig. Sk&auml;let
-            till att tabellens bredd inte motsvarar hela (den vita) hemsidans bredd
-            &auml;r att jag anv&auml;nder en tabell (om 425 punkter) f&ouml;r att styra bredden p&aring; texten p&aring;
-            hemsidan. Mer om detta i n&auml;sta avsnitt.</p>
-        </div>
-      </div>
-
       <h3>Rubriker f&ouml;r tabell och kolumner</h3>
       
       <div class="row">
         <div class="col l7 s12">
+          <h4>Tabellrubrik</h4>
           <p>Tabeller kan ges en rubrik genom att anv&auml;nda taggen <code>caption</code>
             och som placeras mellan &ouml;ppnande och avslutande <code>table</code>-tagg. Rubriken
             placeras som standard centrerat ovanf&ouml;r tabellen men kan &auml;ven placeras
             nedanf&ouml;r m.h.a. v&auml;rdet &quot;bottom&quot; i attributet <code>align</code> i
             <code>caption</code>-taggen.</p>
+        </div>
 
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Rubrik f&ouml;r tabell&lt;/caption
+  ...
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
           <table>
             <caption>Rubrik f&ouml;r tabell</caption>
             <tr>
@@ -821,56 +700,46 @@
           </table>
         </div>
 
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table&gt;<br />
-              &nbsp; &lt;caption align=&quot;bottom&quot;&gt;Rubrik f&ouml;r&nbsp;<br />
-              &nbsp;&nbsp;&nbsp; tabell&lt;/caption<br />
-              &nbsp; ...<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
         <div class="col l7 s12">
+          <h4>Kolumnrubriker</h4>
           <p>&Auml;ven kolumner kan f&aring; rubriker, vilka oftast visas med fet stil.
             Rubrikerna markeras med taggen <code>th</code> (eng. <i>table header</i>) och
             anv&auml;nds ist&auml;llet f&ouml;r <code>td</code>-taggen i den rad man vill ha rubrikerna. I
             exemplet nedan har tabellen f&aring;tt en rubrik, som visas under tabellen,
             och f&ouml;rsta raden &auml;r rubriker f&ouml;r kolumnerna</p>
-
-            <table>
-              <caption align="bottom">Rubrik f&ouml;r tabell</caption>
-              <tr>
-                  <th>Rubrik kolumn 1</th>
-                  <th>Rubrik kolumn 2</th>
-                </tr>
-              <tr>
-                <td>Rad 1 - kolumn 1</td>
-                <td>Rad 1 - kolumn 2</td>
-              </tr>
-              <tr>
-                <td>Rad 2 - kolumn 1</td>
-                <td>Rad 2 - kolumn 2</td>
-                </tr>
-            </table>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table border=&quot;1&quot;&gt;<br />
-              &nbsp; &lt;caption align=&quot;bottom&quot;&gt;Rubrik f&ouml;r&nbsp;<br />
-              &nbsp;&nbsp;&nbsp; tabell&lt;/caption&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;th&gt;Rubrik kolumn 1&lt;/th&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;th&gt;Rubrik kolumn 2&lt;/th&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Rad 1 - kolumn 1&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Rad 1 - kolumn 2&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; ...<br />
-              &lt;/table&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Rubrik f&ouml;r tabell&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Rubrik kolumn 1&lt;/th&gt;
+    &lt;th&gt;Rubrik kolumn 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Rad 1 - kolumn 1&lt;/td&gt;
+    &lt;td&gt;Rad 1 - kolumn 2&lt;/td&gt;
+  &lt;/tr&gt;
+  ...
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <table>
+            <caption>Rubrik f&ouml;r tabell</caption>
+            <tr>
+                <th>Rubrik kolumn 1</th>
+                <th>Rubrik kolumn 2</th>
+              </tr>
+            <tr>
+              <td>Rad 1 - kolumn 1</td>
+              <td>Rad 1 - kolumn 2</td>
+            </tr>
+            <tr>
+              <td>Rad 2 - kolumn 1</td>
+              <td>Rad 2 - kolumn 2</td>
+              </tr>
+          </table>
         </div>
 
         <div class="col l7 s12">
@@ -908,7 +777,28 @@
             i f&ouml;rsta raden d&aring; cellerna i denna rad har sammanfogats! (har
             markerats med en kommentar d&auml;r taggen skulle varit).</p>
           
-          <table border="1">
+          <p class="kommentar">Den kan vara praktiskt att visa att en <code>td</code>-tagg utel&auml;mnats med en
+            kommentar som i exemplet ovan (speciellt om man skriver koden f&ouml;r
+            hand). Och givetvis kan en cell sp&auml;nna &ouml;ver fler kolumner &auml;n 2 -
+            antalet begr&auml;nsas av antalet kolumner i tabellen. :-)</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;2&quot;&gt;Sammanfogad cell&lt;/td&gt;
+    &lt;!-- td-tagg 2 utel&auml;mnad --&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Cell 1 rad 2&lt;/td&gt;
+    &lt;td&gt;Cell 2 rad 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          
+          <table>
             <tr>
               <td colspan="2">Sammanfogad cell</td>
             </tr>
@@ -917,29 +807,6 @@
               <td>Cell 2 rad 2</td>
             </tr>
           </table>
-        </div>
-
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td colspan=&quot;2&quot;&gt;Sammanfogad
-              cell&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;!-- td-tagg 2 utel&auml;mnad --&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Cell 1 rad 2&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Cell 2 rad 2&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12">
-          <p>Den kan vara praktiskt att visa att en <code>td</code>-tagg utel&auml;mnats med en
-            kommentar som i exemplet ovan (speciellt om man skriver koden f&ouml;r
-            hand). Och givetvis kan en cell sp&auml;nna &ouml;ver fler kolumner &auml;n 2 -
-            antalet begr&auml;nsas av antalet kolumner i tabellen. :-)</p>
         </div>
       </div>
 
@@ -952,8 +819,25 @@
             <code>rowspan</code> i <code>td</code>-taggen ist&auml;llet. I exemplet nedan har 
             cellerna i kolumn ett sammanfogats. Observera att vi utel&auml;mnar en <code>td</code>-tagg 
             i rad tv&aring;! (har markerats med en kommentar d&auml;r taggen skulle varit).</p>
-          
-          <table border="1">
+            
+          <p>&Auml;ven h&auml;r kan celler sp&auml;nna &ouml;ver fler rader &auml;n 2.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td rowspan=&quot;2&quot;&gt;Sammanfogad cell&lt;/td&gt;
+    &lt;td&gt;Cell 2 rad 1&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;!-- td-tagg 1 utel&auml;mnad --&gt;
+    &lt;td&gt;Cell 2 rad 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <table>
             <tr>
               <td rowspan="2">Sammanfogad cell</td>
               <td>Cell 2 rad 1</td>
@@ -964,25 +848,6 @@
           </table>
         </div>
 
-        <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;table&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td rowspan=&quot;2&quot;&gt;Sammanfogad
-              cell&lt;/td&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Cell 2 rad 1&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &nbsp; &lt;tr&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;!-- td-tagg 1 utel&auml;mnad --&gt;<br />
-              &nbsp;&nbsp;&nbsp; &lt;td&gt;Cell 2 rad 2&lt;/td&gt;<br />
-              &nbsp; &lt;/tr&gt;<br />
-              &lt;/table&gt;</code>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12">
-          <p>&Auml;ven h&auml;r kan celler sp&auml;nna &ouml;ver fler rader &auml;n 2.</p>
-        </div>
       </div>
 
       <h2 id="platshallare">Tabeller som platsh&aring;llare i design</h2>
@@ -1009,7 +874,7 @@
       <footer class="page-footer center-align">
         <div class="container">
           <div class="row">
-            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-15.</p>
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
           </div>
         </div>
       </footer>
@@ -1017,6 +882,7 @@
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

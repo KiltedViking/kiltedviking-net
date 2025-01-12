@@ -4,37 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datalist - HTML - Kilted Viking's Scrapbook</title>
+    <link rel="stylesheet" href="/css/prism/prism.css" />
+    <link rel="stylesheet" href="../../scrapbook-examples.css" />
 </head>
 <body>
-    <header class="row">
-        <div class="col">
-            <h1>Datalist</h1>
-            <p>Example showing how to use the new element <code>datalist</code> as suggested
-                source for an <code>input</code> element while still allowing visitor to 
-                enter custom value.
-            </p>
-        </div>
-    </header>
+    <div class="container">
+        <header class="row">
+            <div class="col">
+                <h1>Datalist</h1>
+                <p>Example showing how to use the new element <code>datalist</code> as suggested
+                    source for an <code>input</code> element while still allowing visitor to 
+                    enter custom value.
+                </p>
+            </div>
+        </header>
 
-    <h2>Example</h2>
-    <!-- START example -->
-    <form>
-        <label for="country">Country:</label>
-        <input type="text" name="country" id="country" list="countries">
-        <datalist id="countries">
-            <option>Denmark</option>
-            <option>Finland</option>
-            <option>Norway</option>
-            <option>Sweden</option>
-            <option>United Kingdom</option>
-        </datalist>
-    </form>
-    <!-- END example -->
+        <h2>Code</h2>
 
-    <footer class="row">
-        <div class="col">
-            <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-10-01.</p>
-        </div>
-    </footer>
+        <pre><code class="language-html">&lt;form&gt;
+    &lt;label for=&quot;country&quot;&gt;Country:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;country&quot; id=&quot;country&quot; list=&quot;countries&quot;&gt;
+    &lt;datalist id=&quot;countries&quot;&gt;
+        &lt;option&gt;Denmark&lt;/option&gt;
+        &lt;option&gt;Finland&lt;/option&gt;
+        &lt;option&gt;Norway&lt;/option&gt;
+        &lt;option&gt;Sweden&lt;/option&gt;
+        &lt;option&gt;United Kingdom&lt;/option&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;</code></pre>
+
+
+        <h2>Result</h2>
+        <!-- START example -->
+        <form>
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" list="countries">
+            <datalist id="countries">
+                <option>Denmark</option>
+                <option>Finland</option>
+                <option>Norway</option>
+                <option>Sweden</option>
+                <option>United Kingdom</option>
+            </datalist>
+        </form>
+        <!-- END example -->
+
+        <footer class="row">
+            <div class="col">
+                <p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Updated:</b> 2023-10-01.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="/js/prism/prism.js"></script>
 </body>
 </html>

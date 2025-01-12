@@ -34,6 +34,7 @@ css/ekko*.*
 css/fonts/*
 css/font-awe*.*
 css/jquery*.*
+css/prism/*.css
 fonts
 images/bootstrap-icons-1.11.1
 images/desktop.ini
@@ -41,6 +42,7 @@ js/bootstrap*.*
 js/bootstrap5/*
 js/ekko*.*
 js/jquery-*.*
+js/prism/*.js
 se/www/css/bootstrap*.*
 se/www/css/bootstrap4
 se/www/css/bootstrap5

@@ -18,9 +18,10 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del3.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del3.html" />
-  <title>HTML - L&auml;nkar i HTML</title>
+  <title>HTML - L&auml;nkar i HTML - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-materialize.css">
   <style type="text/stylesheet">
     span.bla { color: blue; background-color: white; text-decoration: underline; }
@@ -80,7 +81,6 @@
           
         <div class="col l5 s12">
           <ul class="collection">
-            <li><a href="#begreppen" class="collection-item">Begreppen URL och URI</a></li>
             <li><a href="#typer" class="collection-item">Typer av URL:er</a></li>
             <li><a href="#lankar" class="collection-item">L&auml;nkar till (HTML-)dokument</a></li>
             <li><a href="#andra" class="collection-item">Andra typer av l&auml;nkar</a></li>
@@ -90,34 +90,14 @@
         </div>
       </div>
 
-      <h2 id="begreppen">Begreppen URL och URI</h2>
-      
-      <div class="row">
-        <div class="col l7 s12">
-          <dl>
-            <dt>URL - Uniform Resource Locator</dt>
-            <dd>En adress till en specifik resurs
-              (dokument) p&aring; en specifik webbserver. Vad URL:er kan best&aring; av, och hur
-              de fungerar, beskrivs p&aring; resten av denna hemsida.</dd>
-              
-            <dt>URI - Universal Resource Identifier</dt>
-            <dd>En form av generell URL.
-              Tanken &auml;r att man (i framtiden?) ska kunna beg&auml;ra ett dokument utan
-              att beh&ouml;va tala om <b>var</b> dokumentet finns. Om dokumentet har
-              replikerats till flera webbservrar s&aring; ska n&aring;gon form av val, dock ej
-              av anv&auml;ndaren av webbl&auml;saren, ske f&ouml;r att ladda n&aring;gon av de
-              replikerade dokumenten.</dd>
-          </dl>
-        </div>
-      </div>
-
       <h2 id="typer">Typer av URL:er</h2>
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Innan vi kan b&ouml;rja titta p&aring; hur taggen f&ouml;r l&auml;nkar fungerar s&aring;
-            ska vi titta p&aring; lite olika typer av URL:er som anv&auml;nds i taggen. Vi
-            b&ouml;rjar med att titta p&aring; URL:ens delar.</p>
+          <p>En URL (Uniform Resource Locator) är en adress till en resurs (t.ex. 
+            HTML-dokument), t.ex. adressen till denna sida nedan.</p>
+
+          <pre><code class="language-html">https://kiltedviking.net/se/www/html/del3.html</code></pre>
         </div>
       </div>
 
@@ -128,22 +108,20 @@
           <p>URL:er kan anges p&aring; lite olika s&auml;tt men alla best&aring;r av en eller
             flera av f&ouml;ljande delar (som f&ouml;rklaras nedan):</p>
           
-          <div>
-            <code>protokoll://webbadress:port/s&ouml;kv&auml;g/fil.ext?param</code>
-          </div>
+          <pre><code class="language-html">protokoll://v&auml;rdnamn:port/s&ouml;kv&auml;g/fil.ext?param</code></pre>
           
           <dl>
             <dt>protokoll</dt>
             <dd> - vilken typ av tj&auml;nst som ska beg&auml;ras fr&aring;n
-              webbservern. Vanligast &auml;r &quot;http:&quot;, d.v.s. att vi vill ha
-              en hemsida. Men &auml;ven andra finns s&aring;som &quot;ftp:&quot;, &quot;nntp:&quot;
-              och &quot;mailto:&quot; (vilka f&ouml;rklaras l&auml;ngre ner p&aring; hemsidan).
-              Protokoll kan ofta utel&auml;mnas d&aring; t.ex. webbl&auml;sare ofta
-              f&ouml;ruts&auml;tter att det &auml;r HTTP-protokollet som ska anv&auml;ndas.<br />
-              &nbsp;</dd>
-            <dt>webbadress</dt>
-            <dd> - adressen till webbservern, t.ex. &quot;//www.kiltedviking.net&quot;.<br />
-              &nbsp;</dd>
+              webbservern. Vanligast &auml;r <code class="language-html">https:</code>,
+              d.v.s. att vi vill ha en hemsida. Men &auml;ven andra finns s&aring;som
+              <code class="language-html">ftp:</code>, <code class="language-html">nntp:</code>
+              och <code class="language-html">mailto:</code> (vilka f&ouml;rklaras 
+              l&auml;ngre ner p&aring; hemsidan). Protokoll kan ofta utel&auml;mnas
+              d&aring; t.ex. webbl&auml;sare ofta f&ouml;ruts&auml;tter att det &auml;r
+              HTTP-protokollet som ska anv&auml;ndas.</dd>
+            <dt>v&auml;rdnamn</dt>
+            <dd> - adress till webbserver, t.ex. <code class="language-html">//www.kiltedviking.net</code>.</dd>
             <dt>port</dt>
             <dd>nummer p&aring; den port som server svarar p&aring;. En dator
               kan ha flera (mjukvaru-)servrar som exekverar samtidigt. T.ex. kan
@@ -151,42 +129,42 @@
               vilken server som klienten beg&auml;r n&aring;got fr&aring;n s&aring; anv&auml;nds s.k.
               portar. En webbserver brukar svara p&aring; port 80, FTP-server p&aring; port
               21, o.s.v.. Porten kan oftast utel&auml;mnas d&aring; b&aring;de webbservrar och
-              webbl&auml;sare brukar anv&auml;nda port 80 som standard.<br />
+              webbl&auml;sare brukar anv&auml;nda port 80 som standard.
               &nbsp;</dd>
             <dt>s&ouml;kv&auml;g</dt>
             <dd>s&ouml;kv&auml;gen p&aring; server till dokumentet som ska
-              visas, t.ex. &quot;/se/www/&quot;. S&ouml;kv&auml;gen i en URL motsvaras ofta av s&ouml;kv&auml;gen i
+              visas, t.ex. <code class="language-html">/se/www/</code>. S&ouml;kv&auml;gen i en URL motsvaras ofta av s&ouml;kv&auml;gen i
               datorns filsystem (dock oftast med start en bit ner i filsystemets
-              hierarki). T.ex. s&aring; &auml;r s&ouml;kv&auml;gen i filsystemet till
-              &quot;/se/www/&quot; p&aring; webbservern &quot;//www.kiltedviking.net&quot;
-              &quot;/home/kiltedviking/public_html/se/www/&quot; (p&aring; mitt webbhotells
-              Linux-server).<br />
-              &nbsp;</dd>
+              hierarki). T.ex. s&aring; &auml;r s&ouml;kv&auml;gen denna fil p&aring; 
+              webbserver, <code class="language-html">/se/www/html/del3.html</code>,
+              något i stil med 
+              <code class="language-html">/home/kiltedviking/public_html/se/www/html/del3.html</code>
+              i filsystemet (om i Linux).</dd>
             <dt>fil.ext</dt>
             <dd>- filnamnet med fil&auml;ndelse (extension) f&ouml;r
-              dokumentet som ska visas, t.ex. <code>index.html</code>.<br />
-              &nbsp;</dd>
+              dokumentet som ska visas, t.ex. <code class="language-html">index.html</code>
+              eller <code class="language-html">del3.html</code>.</dd>
             <dt>param</dt>
-            <dd>eventuella parametrar som ska skickas. Kallas f&ouml;r
+            <dd>eventuella parametrar som ska bifogas. Kallas f&ouml;r
               fr&aring;gestr&auml;ng (eng. <i>query string</i>) och best&aring;r av en eller
-              flera namn/v&auml;rde-par, t.ex. <code>?fornamn=Benny&amp;efternamn=Olsson</code>.<br />
-              &nbsp;<br />
+              flera namn/v&auml;rde-par, t.ex. <code class="language-html">?fornamn=Benny&amp;efternamn=Olsson</code>.
               Parametrar skickas bl.a. fr&aring;n formul&auml;r men kan &auml;ven &quot;h&aring;rdkodas&quot;
               in i en l&auml;nks URL. Parametrar behandlas mer p&aring; <a href="del5.html">hemsidan
               om formul&auml;r</a>.</dd>
           </dl>
           
-          <p>N&aring;gra exempel p&aring; l&auml;nkar &auml;r</p>
-          
-          <dl>
-            <dt><code>http://www.kiltedviking.net/</code></dt>
-            <dd>URL som pekar p&aring; Kilted Vikings startsida.<br />
-              &nbsp;</dd>
-            <dt><code>http://www.kiltedviking.net:80/se/www/index.html</code></dt>
-            <dd>URL som pekar p&aring; min studiewebb och som talar om att port 80 ska
-              anv&auml;ndas (vilket egentligen &auml;r on&ouml;dig information om vi anv&auml;nder
-              en webbl&auml;sare d&aring; den anv&auml;nder port 80 som standard).</dd>
-          </dl>
+          <h4>N&aring;gra exempel p&aring; URL:er</h4>
+
+          <p>Startsida för webbplatsen Kilted Viking (min webbplats).</p>
+          <pre><code class="language-html">https://www.kiltedviking.net/</code></pre>
+
+          <p>Startsida för Bj&ouml;rns studiewebb samt inkluderar protokoll (<code class="language-html">https:</code>),
+            port (80) och fil (<code class="language-html">index.html</code>). Protokoll
+            och port kan utelämnas då webbl&auml;sare och -server lär anv&auml;nda 
+            dessa protokoll och port som standard samt fil utelämnas då då webbserver
+            letar efter fil med namnet <code class="language-html">index.html</code>
+            om filnman utelämnas.</p>
+          <pre><code class="language-html">https://www.kiltedviking.net:80/se/www/index.html</code></pre>
         </div>
       </div>
 
@@ -222,24 +200,24 @@
             <li>och eventuellt &auml;ven filnamn.</li>
           </ul>
           
-          <p>En fullst&auml;ndig URL anv&auml;nds oftast d&aring; (X)HTML-dokument
+          <p>En fullst&auml;ndig URL anv&auml;nds oftast d&aring; HTML-dokument
             (som h&auml;nvisas till) finns p&aring; en annan
             webbserver (&auml;n den som dokument med l&auml;nken finns p&aring;). Exempel p&aring; en
             fullst&auml;ndig adress &auml;r:</p>
 
-          <blockquote>
-            <p>http://www.kiltedviking.net/se/www/index.html</p>
-          </blockquote>
+          <code class="language-html">
+            http://www.kiltedviking.net/se/www/index.html
+          </code>
 
-          <p>Ibland kan man utel&auml;mna filnamnet, t.ex. om (X)HTML-dokumentet &auml;r
+          <p>Ibland kan man utel&auml;mna filnamnet, t.ex. om HTML-dokumentet &auml;r
             standarddokumentet p&aring; webbservern - d.v.s. den fil som ska visas om
             inget filnamn angavs. T.ex. s&aring; &auml;r <code>index.html</code> standarddokumentet
             p&aring; min webbplats och adressen ovan kan d&auml;rf&ouml;r &auml;ven skrivas enligt
             f&ouml;ljande:</p>
 
-          <blockquote>
-            <p>http://www.kiltedviking.net/se/www/</p>
-          </blockquote>
+          <code class="language-html">
+            http://www.kiltedviking.net/se/www/
+          </code>
         </div>
       </div>
 
@@ -254,16 +232,14 @@
             <li>och eventuellt filnamn.</li>
           </ul>
           
-          <p>Denna typ av URL:er anv&auml;nds om (X)HTML-dokumentet finns p&aring; samma webbserver
+          <p>Denna typ av URL:er anv&auml;nds om HTML-dokumentet finns p&aring; samma webbserver
             (som dokument med l&auml;nken). Absoluta URL:er utg&aring;r alltid fr&aring;n roten p&aring;
             webbservern (&quot;/&quot;). En hemsida p&aring; webbservern www.kiltedviking.net kan m.a.o.
             anv&auml;nda n&aring;gon av f&ouml;ljande URL:er till samma dokument som i
             exemplet ovan med fullst&auml;ndiga URL:er:</p>
           
-          <blockquote>
-            <p>/se/www/index.html<br />
-              /se/www/</p>
-          </blockquote>
+          <p><code class="language-html">/se/www/index.html</code><br />
+            <code class="language-html">/se/www/</code></p>
           
           <p>Den f&ouml;rsta l&auml;nken s&auml;ger att webbl&auml;saren ska fr&aring;ga efter en fil
             med namnet <code>index.html</code> i s&ouml;kv&auml;gen <code>/se/www/</code>.
@@ -286,7 +262,7 @@
           </ul>
           
           <p>men utan det inledande snedstrecket (&quot;/&quot;). &Auml;ven
-            denna typ av URL f&ouml;ruts&auml;tter att (X)HTML-dokumentet finns p&aring; samma
+            denna typ av URL f&ouml;ruts&auml;tter att HTML-dokumentet finns p&aring; samma
             webbserver (som dokumentet med l&auml;nken). URL:erna
             utg&aring;r fr&aring;n samma mapp (d&auml;r dokumentet med l&auml;nken finns)
             n&auml;r den avg&ouml;r var det andra dokumentet finns. T.ex. s&aring; finns (fanns) det
@@ -295,9 +271,7 @@
             finns (fanns) en l&auml;nk till min (tidigare) personliga hemsida <code>index.html</code> (d.v.s. i
             s&ouml;kv&auml;gen <code>/personal/bpn/</code>), vilket ger den relativa URL:en:</p>
 
-          <blockquote>
-            <p>bpn/index.html</p>
-          </blockquote>
+          <p><code class="language-html">html/index.html</code></p>
           
           <p>L&auml;nken s&auml;ger att webbl&auml;saren ska fr&aring;ga efter en fil med namnet
             <code>index.html</code> som finns i mappen <code>bpn</code> som ligger i samma mapp (som
@@ -305,7 +279,7 @@
 
           <p>Om vi s&ouml;ker filer i mappar som ligger i en annan del av
             mapphierarkin (f&ouml;r webbservern) s&aring; kan vi anv&auml;nda oss av s&ouml;kv&auml;gar
-            som &quot;./&quot; och &quot;../&quot;. Nedanst&aring;ende (3) exempel
+            som &quot;<code>./</code>&quot; och &quot;<code>../</code>&quot;. Nedanst&aring;ende (3) exempel
             f&ouml;rs&ouml;ker visar p&aring; hur dessa s&ouml;kv&auml;gar fungerar.</p>
 
           <h5>Mer om relativa l&auml;nkar - Exempel 1</h5>
@@ -315,44 +289,42 @@
             f&ouml;ljande mapphierarki p&aring; webbservern: (/ &auml;r roten p&aring; webbserverns
             mapphierarki i filsystemet.)</p>
 
-          <blockquote>
-            <p>/<br />
-              &nbsp; mapp1<br />
-              &nbsp;&nbsp;&nbsp; mapp1_2<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sida1_2_1.html<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sida1_2_2.html<br />
-              &nbsp; mapp2<br />
-              &nbsp;&nbsp;&nbsp; mapp2_1<br />
-              &nbsp;&nbsp;&nbsp; mapp2_2<br />
-              &nbsp;&nbsp;&nbsp; sida2.html<br />
-              &nbsp; mapp3<br />
-              index.html</p>
-          </blockquote>
+          <pre>/
+  mapp1
+    mapp1_2
+      sida1_2_1.html
+      sida1_2_2.html
+  mapp2
+    mapp2_1
+    mapp2_2
+      sida2_2_1.html
+  mapp3
+  index.html</pre>
           
           <p>s&aring; skulle en l&auml;nk fr&aring;n filen <code>sida1_2_1.html</code> till filen
             <code>sida1_2_2.html</code> bli</p>
 
-          <blockquote>
-            <p>&lt;a href=&quot;./sida1_2_2.html&quot;&gt;Sida 2 i mapp&lt;/a&gt;</p>
-          </blockquote>
+          <code class="language-html">
+            &lt;a href=&quot;./sida1_2_2.html&quot;&gt;Sida 2 i mapp&lt;/a&gt;
+          </code>
           
           <p>eller bara</p>
 
-          <blockquote>
-            <p>&lt;a href=&quot;sida1_2_2.html&quot;&gt;Sida 2 i mapp&lt;/a&gt;</p>
-          </blockquote>
+          <code class="language-html">
+            &lt;a href=&quot;sida1_2_2.html&quot;&gt;Sida 2 i mapp&lt;/a&gt;
+          </code>
           
           <p>I den f&ouml;rsta l&auml;nken betyder punkten att vi ska b&ouml;rja leta i samma
             mapp som filen med l&auml;nken (<code>sida1_2_1.html</code>) finns i. D&auml;refter f&ouml;ljer
             resten av s&ouml;kv&auml;gen till den andra filen (<code>sida1_2_2.html</code>), d.v.s.
             <code>/sida1_2_2.html</code>. Men eftersom vi ibland kan anv&auml;nda en del
-            genv&auml;gar i s&ouml;kv&auml;gar s&aring; kan vi utel&auml;mna &quot;./&quot; (som i andra
+            genv&auml;gar i s&ouml;kv&auml;gar s&aring; kan vi utel&auml;mna &quot;<code>./</code>&quot; (som i andra
             exemplet ovan) eftersom
             filen som l&auml;nken h&auml;nvisar till finns i samma mapp.</p>
 
           <div class="card-panel">
-            <p class="kommentar">S&ouml;kv&auml;gen &quot;./&quot; &auml;r ganska anv&auml;ndbart om man vill g&ouml;ra generella
-              webbplatser som
+            <p class="kommentar">S&ouml;kv&auml;gen &quot;<code>./</code>&quot; &auml;r ganska anv&auml;ndbart 
+              om man vill g&ouml;ra generella webbplatser som
               enkelt kan flyttas mellan olika typer av webbservrar. De flesta
               webbservrar anv&auml;nder ju filnamnet <code>index.html</code> (eller <code>.htm</code>) som
               standardfil medan IIS anv&auml;nder <code>default.htm</code> (eller <code>.asp</code>). Om man d&aring;
@@ -374,15 +346,15 @@
         <p>Om vi vill ha en l&auml;nk fr&aring;n filen <code>sida1_2_1.html</code> till
           startsidan (<code>index.html</code>) blir URL:en</p>
 
-        <blockquote>
-          <p>&lt;a href=&quot;../../index.html&quot;&gt;Till startsida&lt;/a&gt;</p>
-        </blockquote>
+        <code class="language-html">
+          &lt;a href=&quot;../../index.html&quot;&gt;Till startsida&lt;/a&gt;
+        </code>
         
           <p>eller, om <code>index.html</code> &auml;r standardfil,</p>
 
-        <blockquote>
-          <p>&lt;a href=&quot;../../&quot;&gt;Till startsida&lt;/a&gt;</p>
-        </blockquote>
+          <code class="language-html">
+          &lt;a href=&quot;../../&quot;&gt;Till startsida&lt;/a&gt;
+        </code>
         
         <p>Filen <code>sida1_2_1.html</code> finns i mappen <code>mapp1_2</code> och vi vill l&auml;nka till
           en mapp tv&aring; niv&aring;er upp. F&ouml;r att l&auml;nka till en mapp en niv&aring; upp s&aring;
@@ -399,14 +371,14 @@
 
       <div class="row">
         <div class="col l7 s12">
-          <p>Om vi vill l&auml;nka fr&aring;n filen <code>sida1_2_1.html</code> till <code>sida2.html</code> s&aring; blir
+          <p>Om vi vill l&auml;nka fr&aring;n filen <code>sida1_2_1.html</code> till <code>sida2_2_1.html</code> s&aring; blir
             koden</p>
 
-          <blockquote>
-            <p>&lt;a href=&quot;../../mapp2/sida2.html&quot;&gt;Till sida 2&lt;/a&gt;
+          <code class="language-html">
+            &lt;a href=&quot;../../mapp2/sida2_2_1.html&quot;&gt;Till sida 2&lt;/a&gt;
               i&nbsp;<br />
-              &nbsp; mapp 2</p>
-          </blockquote>
+              &nbsp; mapp 2
+          </code>
           
           <p>H&auml;r betyder s&ouml;kv&auml;gen &quot;flytta upp tv&aring; niv&aring;er och sen ner en
             niv&aring; till <code>mapp2</code>&quot;.</p>
@@ -453,25 +425,61 @@
             som inneh&aring;ll f&ouml;r elementet, d.v.s. mellan &ouml;ppnande och avslutande
             tagg.</p>
           
-          <p>Om vi vill l&auml;nka till ett andra (X)HTML-dokument, <code>sida2.html</code>, i samma
-            mapp (som (X)HTML-dokumentet med l&auml;nken finns i) s&aring; blir koden f&ouml;ljande:</p>
+          <p>Om vi vill l&auml;nka till ett andra HTML-dokument, <code>sida2.html</code>, i samma
+            mapp (som HTML-dokumentet med l&auml;nken finns i) s&aring; blir koden 
+            som i exempel till höger (eller nendan).</p>
+        </div>
 
-          <blockquote>
-            <p>&lt;a href=&quot;sida2.html&quot;&gt;Till andra
-              sidan&lt;/a&gt;</p>
-          </blockquote>
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;a href=&quot;sida2.html&quot;&gt;Till andra sidan&lt;/a&gt;</code></pre>
 
-          <p>eller</p>
+          <pre><code class="language-html">&lt;a href=&quot;sida2.html&quot;&gt;Till&lt;/a&gt; andra sidan</code></pre>
 
-          <blockquote>
-            <p>&lt;a href=&quot;sida2.html&quot;&gt;Till&lt;/a&gt;
-              andra sidan</p>
-          </blockquote>
+          <h4>Resultat</h4>
 
-          <p>Resultatet blir</p>
+          <p><u class="blue-text">Till andra sidan</u></p>
+          <p><u class="blue-text">Till</u> andra sidan.</p>
+        </div>
 
-          <p style="padding-left: 10px"><span class="bla">Till andra sidan</span> eller 
-            <span class="bla">Till</span> andra sidan.</p>
+        <div class="col l7 s12">
+          <h4>Attribut</h4>
+
+          <dl>
+            <dt>href</dt>
+            <dd>Adress till destination som ska navigeras till vid klick på länk.</dd>
+          </dl>
+
+          <h5>Fler attribut</h5>
+          <dl>
+            <dt>target</dt>
+            <dd>Hur ny webbsida ska öppnas. Vanligast är värdet <code>_blank</code>
+              för att öppna i nytt fönster/flik och standard är <code>_self</code>.
+            </dd>
+            <dt>rel</dt>
+            <dd>Relation mellan dokument med länk i och destinationen. Ett praktiskt
+              värde för länkar till obetrodda sidor är <code class="language-html">noopener</code>
+              för att ange att det inte finns någon relation mellan dokumenten samt
+              att inget &quot;webbläsarkontext&quot; ska bifogas till destination
+              (något som verktyg som Googles Lighthouse tidgare rekommenderar).
+              (Värdet <code class="language-html">noopener</code> är överflödigt
+              om attributet <code>target</code> har värdet <code>_blank</code>.)
+            </dd>
+          </dl>
+
+          <p class="kommentar">(Tidigare, länkar hade ett attribut <code>name</code>
+            som används som en destination, d.v.s. en namngiven plats i dokument,
+            vilket inte längre kan användas. Använd istället attributet <code>id</code>
+            på t.ex. en rubrik eller annat element att länka till.)</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;a href="ny_sida.html"&gt;Ny sida&lt;/a&gt;
+&lt;a href="nytt_fonster.html"
+  target=&quot;_blank&quot;&gt;Nytt fönster&lt;/a&gt;
+&lt;a href="orelaterad_sida.html"
+  rel=&quot;noopener&quot;&gt;Orelaterad sida&lt;/a&gt;</code></pre>
         </div>
       </div>
 
@@ -479,23 +487,16 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <div class="kod">
-            <p>&lt;html&gt;<br />
-              &lt;head&gt;<br />
-              &nbsp; &lt;title&gt;L&amp;auml;nkar till (X)HTML-dokument&lt;/title&gt;<br />
-              &lt;/head&gt;<br />
-              &lt;body&gt;<br />
-              &lt;p&gt;&lt;a href= &quot;http://www.eki.mdh.se/personal/bpn/index.html&quot;&gt;Till
-              Bj&ouml;rn Perssons personliga hemsida - fullst&amp;auml;ndig s&amp;ouml;kv&amp;auml;g&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p&gt;&lt;a href=&quot;/personal/bpn/index.html&quot;&gt;Till
-              Bj&ouml;rn Perssons personliga hemsida - absolut s&amp;ouml;kv&amp;auml;g&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p&gt;&lt;a href=&quot;../../../index.html&quot;&gt;Till Bj&ouml;rn
-              Perssons personliga hemsida - relativ s&amp;ouml;kv&amp;auml;g&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p&gt;F&ouml;rsta l&auml;nken fungerar alltid. Men &ouml;vriga l&amp;auml;nkarna fungerar
-              endast om dessa hemsidor finns p&aring; webbservern www.eki.mdh.se.&lt;/p&gt;<br />
-              &lt;/body&gt;<br />
-              &lt;/html&gt;</p>
-          </div>
+          <pre><code class="language-html">&lt;a href=&quot;https://kiltedviking.net/se/www/index.html&quot;&gt;Till
+  Bj&amp;ouml;rns studiewebb - fullst&amp;auml;ndig 
+  s&amp;ouml;kv&amp;auml;g&lt;/a&gt;</code></pre>
+          <pre><code class="language-html">&lt;a href=&quot;/se/www/index.html&quot;&gt;Till Bj&amp;ouml;rns studiewebb -
+  absolut s&amp;ouml;kv&amp;auml;g&lt;/a&gt;</code></pre>
+          <pre><code class="language-html">&lt;a href=&quot;../index.html&quot;&gt;Till Bj&amp;ouml;rns studiewebb - relativ
+  s&amp;ouml;kv&amp;auml;g&lt;/a&gt;</code></pre>
+
+          <p>F&ouml;rsta l&auml;nken fungerar alltid. Men &ouml;vriga l&amp;auml;nkarna
+            fungerar endast om dessa hemsidor finns p&aring; webbservern kiltedviking.net.</p>
 
           <div class="center">
             <p class="hide-on-med-and-down"><a href="del3/html3_1.html" class="btn bg-scania-red fg-scania-yellow" 
@@ -511,9 +512,8 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>I.o.m. XHTML s&aring; &auml;r inte attributet <code>target</code> l&auml;ngre giltigt i taggen
-            &lt;a&gt;. Men ist&auml;llet kan man anv&auml;nda JavaScript. (Se <a href="../exempel/nyttfonster/">&Ouml;ppna 
-            l&auml;nk i nytt f&ouml;nster</a>.)</p>
+          <p class="kommentar">(I XHTML togs attributet <code>target</code> bort, 
+            men i HTML 5 så ansågs attributet OK igen.)</p>
         </div>
       </div>
 
@@ -533,24 +533,11 @@
 
       <h4>Exempel som visar hur l&auml;nkar till e-postadresser fungerar</h4>
       
+      <pre><code class="language-html">&lt;a href=&quot;mailto:bjorn@example.com&quot;&gt;Skicka e-post till mig Bj&amp;ouml;rn&lt;/a&gt;</code></pre>
+      <pre><code class="language-html">&lt;a href=&quot;mailto:bjorn@example.com?subject=Tjaba!&quot;&gt;Skicka e-post till mig Bj&amp;ouml;rn med &amp;auml;mnet Tjaba!&lt;/a&gt;</code></pre>
+
       <div class="row">
         <div class="col l7 s12">
-          <blockquote>
-            <p>&lt;html&gt;<br />
-              &lt;head&gt;<br />
-              &nbsp; &lt;title&gt;L&amp;auml;nkar till annat&lt;/title&gt;<br />
-              &lt;/head&gt;<br />
-              &lt;body&gt;</p>
-            <p>&lt;p&gt;&lt;a href=&quot;mailto:bjorn.persson@mdh.se&quot;&gt;Skicka e-post&nbsp;<br />
-              &nbsp; till mig Bj&amp;ouml;rn&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p&gt;&lt;a href=&quot;mailto:bjorn.persson@mdh.se?subject=Tjaba!&quot;&gt;Skicka
-              e-post till mig Bj&amp;ouml;rn med &amp;auml;mnet Tjaba!&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p&gt;Klicka p&amp;aring; l&amp;auml;nkarna ovan f&amp;ouml;r&nbsp;<br />
-              &nbsp; att se resultatet..&lt;/p&gt;</p>
-            <p>&lt;/body&gt;<br />
-              &lt;/html&gt;</p>
-          </blockquote>
-
           <div class="center">
             <p class="hide-on-med-and-down"><a href="del3/html3_2.html" class="btn bg-scania-red fg-scania-yellow" 
               target="_blank">Exempel 3.2 - l&auml;nkar till annat</a></p>
@@ -565,62 +552,43 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>F&ouml;r att kunna hoppa inom ett dokument s&aring; markerar vi &auml;ven, den
-            plats vi vill hoppa till, med taggen &lt;a&gt; - vi skapar ett
-            &quot;bokm&auml;rke&quot; i dokumentet. Men ist&auml;llet f&ouml;r att anv&auml;nda
-            attributet <code>href</code> anv&auml;nder vi attributet <code>name</code>. Observera att den
-            avslutande taggen beh&ouml;vs &auml;ven om taggen saknar inneh&aring;ll!</p>
+          <p>F&ouml;r att kunna hoppa inom ett dokument s&aring; markerar vi en tagg på
+            plats vi vill hoppa till med attributet <code>id</code> - vi skapar ett
+            &quot;bokm&auml;rke&quot; i dokumentet.</p>
+        </div>  
+
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;h2 id=&quot;nagonstans&quot;&gt;N&aring;gonstans i ett
+  dokument&lt;/h2&gt;</code></pre>
+        </div>
+      </div>
           
-          <blockquote>
-            <code>
-            <p>&lt;a name=&quot;nagonstans&quot;&gt;&lt;/a&gt;</p>
-            <p>&lt;a name=&quot;nagonstans&quot;&gt;Detta &auml;r
-              n&aring;gonstans&lt;/a&gt;</p>
-            </code>
-          </blockquote>
-          
+      <div class="row">
+        <div class="col l7 s12">
           <p>F&ouml;r att l&auml;nka till ett &quot;bokm&auml;rke&quot; i samma dokument som
             l&auml;nken s&aring; blir koden f&ouml;ljande.</p>
+        </div>  
+        
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;a href=&quot;#nagonstans&quot;&gt;Till&lt;/a&gt; n&aring;gonstans</code></pre>
+        </div>
+      </div>
           
-          <blockquote>
-            <code>
-            <p>&lt;a href=&quot;#nagonstans&quot;&gt;Till&lt;/a&gt; n&aring;gonstans</p>
-            </code>
-          </blockquote>
-          
+      <div class="row">
+        <div class="col l7 s12">
           <p>Om vi vill l&auml;nka till ett &quot;bokm&auml;rke&quot; i ett annat dokument
             s&aring; l&auml;gger vi till namnet p&aring; &quot;bokm&auml;rket&quot; (med #-tecknet)
             efter dokumentets namn enligt f&ouml;ljande.</p>
-          
-          <blockquote>
-            <code>
-            <p>&lt;a href=&quot;index.html#nagonstans&quot;&gt;N&aring;gonstans&lt;/a&gt;
-              i&nbsp;<br />
-              &nbsp; annat dokument.</p>
-            </code>
-          </blockquote>
+        </div>  
+      
+        <div class="col l5 s12">
+          <pre><code class="language-html">&lt;a href=&quot;index.html#nagonstans&quot;&gt;Till&lt;/a&gt;
+  n&aring;gonstans i annat dokument.</code></pre>
         </div>
       </div>
 
-      <h4>Exempel p&aring; &quot;bokm&auml;rke&quot; i samma och annat dokument</h4>
-      
       <div class="row">
         <div class="col l7 s12">
-          <blockquote>
-            <p>&lt;html&gt;<br />
-              &lt;head><br />
-              &nbsp;  &lt;title&gt;L&amp;auml;nkar inom dokument&lt;/title><br />
-              &lt;/head><br />
-              &lt;body&gt;</p>
-            <p>&lt;p&gt;&lt;a href=&quot;#nagonstans&quot;&gt;Till n&amp;aring;gonstans
-              i dokumentet&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;p>&lt;a href=&quot;annat.htm#nagonstans&quot;&gt;Till n&amp;aring;gonstans i annat dokument&lt;/a>&lt;/p&gt;</p>
-            <p>&lt;p&gt;&lt;a name=&quot;nagonstans&quot;&gt;H&amp;auml;r finns
-              texten som l&amp;auml;nkas till ovan.&lt;/a&gt;&lt;/p&gt;</p>
-            <p>&lt;/body&gt;<br />
-              &lt;/html&gt;</p>
-          </blockquote>
-
           <div class="center">
             <p class="hide-on-med-and-down"><a href="del3/html3_3.html" class="btn bg-scania-red fg-scania-yellow" 
               target="_blank">Exempel 3.3 - l&auml;nkar inom ett dokument</a></p>
@@ -637,26 +605,22 @@
         <div class="col l7 s12">
           <p>Vi kan &auml;ven anv&auml;nda ikoner (GIF-bilder) och bilder (JPG-bilder) som
             l&auml;nkar. Ist&auml;llet f&ouml;r att skriva text mellan den &ouml;ppnade och
-            avslutande taggen s&aring; placerar vi img-taggen d&auml;r. Som standard f&aring;r
-            ikonerna (och bilderna) en bl&aring; kantlinje kring sig f&ouml;r att markera att
-            det &auml;r en l&auml;nk. Vill vi bli av med kantlinjen s&aring; m&aring;ste vi i.o.m. XHTML anv&auml;nda
-            CSS.</p>
+            avslutande taggen s&aring; placerar vi img-taggen d&auml;r.</p>
+            
+          <p class="kommentar">(Tidigare fick ikonerna/bilderna en bl&aring; kantlinje 
+            kring sig f&ouml;r att markera att det &auml;r en l&auml;nk, men så är
+            inte längre fallet.)</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p>&lt;html&gt;<br />
-                &lt;head><br />
-                &nbsp;  &lt;title&gt;Bilder som l&amp;auml;nkar&lt;/title><br />
-                &lt;/head><br />
-                &lt;body><br />
-                &lt;p&gt;Bild som l&amp;auml;nk (med kantlinje).&lt;/p&gt;<br />
-                &lt;p&gt;&lt;a href=&quot;index.htm&quot;&gt;&lt;img src=&quot;bild.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;<br />
-                &lt;/body&gt;<br />
-                &lt;/html&gt;</p>
-            </code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;a href=&quot;index.html&quot;&gt;
+  &lt;img src=&quot;WadeBridge.jpg&quot; width=&quot;195&quot;
+    height=&quot;147&quot; alt=&quot;Bro byggd av ...&quot;&gt;
+&lt;/a&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <a href="#"><img src="del3/WadeBridge.jpg" width="195" height="147" alt="Bro byggd av General Wade i Aberfeldy, Scotland" /></a>
         </div>
 
         <div class="col l7 s12">
@@ -683,7 +647,7 @@
       <footer class="page-footer center-align">
         <div class="container">
           <div class="row">
-            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2020-02-15.</p>
+            <p><b>Skapad av:</b> Bj&ouml;rn G D Persson. <b>Uppdaterad:</b> 2025-01-05.</p>
           </div>
         </div>
       </footer>
@@ -691,6 +655,7 @@
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

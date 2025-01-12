@@ -1,0 +1,14 @@
+/* Styles for examples in Kilted Viking's Scrapbook */
+h1, h2, h3, h4, h5, h6, p, label, ul, ol {
+    font-family: Calibri, Verdana, san-serif;
+}
+footer > p {
+    text-align: center;
+}
+footer {
+    border-top: solid 1px #800000;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}

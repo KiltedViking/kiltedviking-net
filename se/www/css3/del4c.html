@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
@@ -23,6 +22,7 @@
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
 </head>
@@ -80,13 +80,13 @@
             &auml;r: </p>
 
           <ul>
-            <li>color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</li>
-            <li>background-color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</li>
-            <li>background-image: none | <em>&lt;uri&gt;</em></li>
-            <li>background-repeat: repeat | repeat-x | repeat-y | no-repeat</li>
-            <li>background-attachment: scroll | fixed</li>
-            <li>background-position: <em>l&auml;ngd l&auml;ngd</em> (5px 5px) | ...</li>
-            <li>background: <em>kombination av bakgrundsegenskaper ovan</em></li>
+            <li><code>color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</code></li>
+            <li><code>background-color: <em>f&auml;rgnamn</em> (yellow) | #xxyyzz | rgb(xxx,yyy,zzz)</code></li>
+            <li><code>background-image: none | <em>&lt;uri&gt;</em></code></li>
+            <li><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></li>
+            <li><code>background-attachment: scroll | fixed</code></li>
+            <li><code>background-position: <em>l&auml;ngd l&auml;ngd</em> (5px 5px) | ...</code></li>
+            <li><code>background: <em>kombination av bakgrundsegenskaper ovan</em></code></li>
           </ul>
         </div>
 
@@ -123,7 +123,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>{
+          <pre><code class="language-css">{
   color: black;
   background-color: white;
 }</code></pre>
@@ -231,8 +231,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>p.varning
-{
+          <pre><code class="language-css">p.varning {
   color: red;
   background-color: yellow;
 }</code></pre>
@@ -462,11 +461,11 @@
       <div class="row">
         <div class="seven columns">
           <ul>
-            <li>background-image: URL</li>
-            <li>background-repeat: repeat | repeat-x | repeat-y | no-repeat</li>
-            <li>background-attachment: scroll | fixed</li>
-            <li>background-position: ...</li>
-            <li>background: ...</li>
+            <li><code>background-image: URL</code></li>
+            <li><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></li>
+            <li><code>background-attachment: scroll | fixed</code></li>
+            <li><code>background-position: ...</code></li>
+            <li><code>background: ...</code></li>
           </ul>
         </div>
       </div>
@@ -482,8 +481,11 @@
         </div>
 
         <div class="five columns">
-          <code>background-image: url(bjorns_studiewebb.jpg);</code><br />
-          <code>background-image: url(../bilder/bjorns_studiewebb.jpg);</code>
+          <pre><code class="language-css">background-image:
+  url(bjorns_studiewebb.jpg);</code></pre>
+
+          <pre><code class="language-css">background-image:
+  url(../bilder/bjorns_studiewebb.jpg);</code></pre>
         </div>
       </div>
 
@@ -502,8 +504,8 @@
         </div>
 
         <div class="five columns">
-          <code>background-repeat: no-repeat;</code><br />
-          <code>background-repeat: repeat-x;</code>
+          <pre><code class="language-css">background-repeat: no-repeat;</code></pre>
+          <pre><code class="language-css">background-repeat: repeat-x;</code></pre>
         </div>
       </div>
 
@@ -531,7 +533,8 @@
         </div>
 
         <div class="five columns">
-          <code>background: white url(bjorns_studiewebb.jpg) no-repeat;</code>
+          <pre><code class="language-css">background: white
+  url(bjorns_studiewebb.jpg) no-repeat;</code></pre>
         </div>
       </div>
 
@@ -550,9 +553,9 @@
             <li><a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank"
               rel="noopener">CSS Color Names</a> (CSS3-namn samt hexadecimala koder) 
               hos <a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a></li>
-            <li><a href="http://html-color-codes.com/" target="_blank" rel="noopener">Web 
+            <li><a href="https://html-color-codes.com/" target="_blank" rel="noopener">Web 
               Color Chart</a> [ej HTTPS!] (exempel p&aring; f&auml;rger med hexadecimala koder) 
-              hos <a href="http://www.visibone.com/" target="_blank" rel="noopener">VisiBone</a> [ej HTTPS!]
+              hos <a href="https://www.visibone.com/" target="_blank" rel="noopener">VisiBone</a> [ej HTTPS!]
               (se Free Online Services l&auml;nst ner p&aring; deras startsida f&ouml;r mer anv&auml;ndbart
               referensmaterial)</li>
               <li><!-- <a href="https://www.learningwebdesign.com/webpalette.html" target="_blank"
@@ -579,8 +582,9 @@
     </div>
 
     <footer>
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2017-10-29.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

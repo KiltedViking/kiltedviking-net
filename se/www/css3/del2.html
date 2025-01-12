@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
@@ -18,11 +17,12 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del2.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del2.html" />
-  <title>Placering (CSS2) - Bj&ouml;rns studiewebb</title>
+  <title>Placering (CSS3) - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
 </head>
@@ -149,10 +149,10 @@
         </div>
 
         <div class="five columns">
-          <code>&lt;p&gt;Text med standard typsnitt...&lt;/p&gt;</code>
-          <code>&lt;p <span class="highlight">style=&quot;font-family: Verdana&quot;</span>
-            &gt;Text med typsnittet Verdana&lt;/p&gt;</code>
-          <code>&lt;p&gt;Text med standard typsnitt igen...&lt;/p&gt;</code>
+          <pre><code class="language-html">&lt;p&gt;Text med standard typsnitt...&lt;/p&gt;
+&lt;p style=&quot;font-family: Verdana&quot;</span>
+  &gt;Text med typsnittet Verdana&lt;/p&gt;
+&lt;p&gt;Text med standard typsnitt igen...&lt;/p&gt;</code></pre>
         </div>
       </div>
 
@@ -164,7 +164,7 @@
         </div>
 
         <div class="five columns">
-          <code>&lt;h1 <span class="highlight">style=&quot;font-family: Verdana&quot;</span>&gt;</code>
+          <pre><code class="language-html">&lt;h1 style=&quot;font-family: Verdana&quot;&gt;</code></pre>
         </div>
       </div>
 
@@ -191,12 +191,12 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;html&gt;
+          <pre><code class="language-html">&lt;html&gt;
 &lt;head&gt;
-  &lt;title&gt;Titeln...&lt;/title&gt;
-<span class="highlight">&nbsp; &lt;style type=&quot;text/css&quot;&gt;
-    p { font-family: Verdana }
-  &lt;/style&gt;</span>
+  &lt;title&gt;Titeln p&aring; sida&lt;/title&gt;
+  &lt;style&gt;
+    p { font-family: Verdana; }
+  &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;!-- sj&auml;lva dokumentet... --&gt;</code></pre>
@@ -208,7 +208,9 @@
       <div class="row">
         <div class="seven columns">
           <p><strong>2020-02-09:</strong> Denna information har inaktualiserats då 
-            alla webbläsare idag stödjer CSS eller ignorerar CSS-kod. ;-)</p>    
+            alla webbläsare idag stödjer CSS eller ignorerar CSS-kod. ;-) Även attributet
+            <code>type</code> används inte på taggen <code>style</code> längre.
+          </p>    
 
           <p>Eftersom webbl&auml;sare &auml;r konstruerade att bortse fr&aring;n taggar dom
             inte f&ouml;rst&aring;r (d.v.s. inte ing&aring;r i den HTML-standard som webbl&auml;saren
@@ -220,11 +222,11 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;style type=&quot;text/css&quot;&gt;
-<span class="highlight">&lt;!--</span>
+          <pre><code class="language-html">&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
 &nbsp; p { font-family: Verdana }
-<span class="highlight">--&gt;</span>
-&lt;/ &gt;</code></pre>
+--&gt;
+&lt;/style&gt;</code></pre>
         </div>
       </div>
 
@@ -238,8 +240,8 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;style type=&quot;text/css&quot;&gt;
-  <span class="highlight">h1 { font-family: Verdana }</span>
+          <pre><code class="language-html">&lt;style&gt;
+  h1 { font-family: Verdana }
 &lt;/style&gt;</code></pre>
         </div>
       </div>
@@ -296,10 +298,10 @@
 
         <div class="five columns">
           <h3>Filen <code>min-sida.html</code></h3>
-          <pre><code>&lt;html&gt;
+          <pre><code class="language-html">&lt;html&gt;
 &lt;head&gt;
-  &lt;title&gt;Titeln...&lt;/title&gt;
-  <span class="highlight">&lt;link href=&quot;stil.css&quot; rel=&quot;stylesheet&quot;&gt;</span>
+  &lt;title&gt;Titeln p&aring; sida&lt;/title&gt;
+  &lt;link href=&quot;stil.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;h1&gt;Rubrik&lt;/h1&gt;
@@ -307,7 +309,7 @@
 &lt;/html&gt;</code></pre>
 
             <h3>Filen <code>stil.css</code></h3>
-            <pre><code>h1 { font-family: Verdana; }</code></pre>
+            <pre><code class="language-css">h1 { font-family: Verdana; }</code></pre>
         </div>
       </div>
 
@@ -338,11 +340,12 @@
             en annan, d.v.s. att stilen i taggen gäller istället för den inbäddade. (Mer
             om detta i kommande sidor.)</p>
 
-            <pre><code>&lt;!DOCTYPE html&gt;
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;sv&quot;&gt;
 &lt;head&gt;
-  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;
-    charset=iso-8859-1&quot; /&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot;
+    content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
   &lt;title>Exempel 2.4 - Ett &quot;komplett&quot; exempel&lt;/title&gt;
 <span class="highlight">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;stilmall.css&quot; /&gt;
   &lt;style type=&quot;text/css&quot;&gt;
@@ -352,8 +355,8 @@
 &lt;body&gt;
   &lt;h1&gt;Rubrik nivå 1 (inlänkad)&lt;/h1&gt;
 
-  &lt;p&gt;Rubrik ovan hämtar sin stilmall från extern fil (samma som
-    förra exemplet). Alla stycken har blå text, som ges av
+  &lt;p&gt;Rubrik ovan hämtar sin stilmall från extern fil (samma
+    som förra exemplet). Alla stycken har blå text, som ges av
     inbäddad stilmall i detta dokument, utom ett som är rött
     p.g.a. stilmall i styckets attribut STYLE.&lt;/p&gt;
 
@@ -374,13 +377,12 @@
 
   &lt;h2&gt;Rubrik nivå 2 (opåverkad)&lt;/h2&gt;
 
-  &lt;p>Ett tredje stycke med meingslös text. Ett tredje stycke med
-    meingslös text. Ett tredje stycke med meingslös text. Ett
-    tredje stycke med meingslös text. Ett tredje stycke med
+  &lt;p>Ett tredje stycke med meingslös text. Ett tredje stycke
+    med meingslös text. Ett tredje stycke med meingslös text.
+    Ett tredje stycke med meingslös text. Ett tredje stycke med
     meingslös text. Ett tredje stycke med meingslös text. Ett
     tredje stycke med meingslös text. Ett tredje stycke med
     meingslös text.&lt;/p&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
@@ -400,8 +402,9 @@
     </div>
 
     <footer class="row">
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2020-02-09.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

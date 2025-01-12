@@ -18,9 +18,10 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del2.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del2.html" />
-  <title>HTML - Textformatering och specialtecken i HTML</title>
+  <title>Textformatering och specialtecken i HTML - HTML - Bj&ouml;rns studiewebb</title>
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-materialize.css">
 </head>
 <body>
@@ -90,15 +91,15 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>Eftersom (X)HTML designats f&ouml;r att ers&auml;tta alla mellanrum (mellanslag,
-            tabbar och radbrytningar) i kod med ett mellanslag i webbl&auml;sarens
+          <p>Eftersom HTML designats f&ouml;r att ers&auml;tta alla mellanrum (mellanslag,
+            tabbar och radbrytningar, kallat <i>whitespaces</i>) i kod med ett mellanslag i webbl&auml;sarens
             f&ouml;nster s&aring; beh&ouml;vs en tagg f&ouml;r radbrytning. Taggen f&ouml;r
             radbrytning &auml;r <code>&lt;br /&gt;</code> och den har ingen avslutande tagg. 
             Taggen ger, i motsats till stycke taggen, en radbrytning utan mellanrum mellan 
             raderna.</p>
 
           <div class="card-panel">Specialtecken f&ouml;r flera
-              mellanslag i rad beskrivs l&auml;ngre ner p&aring; denna hemsida.
+              mellanslag i rad beskrivs l&auml;ngre ner p&aring; denna webbsida.
           </div>
 
           <p class="hide-on-med-and-down center-align"><a href="del2/html2_1.html" 
@@ -109,12 +110,15 @@
         </div>
       
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>
-              &lt;p&gt;Bj&ouml;rn Persson&lt;br /&gt;<br />
-              Nygatan 1&lt;br /&gt;<br />
-              234 56&nbsp;&nbsp; Nystad&lt;/p&gt;</code></p>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;p&gt;Bj&ouml;rn Persson&lt;br /&gt;
+Nygatan 1&lt;br /&gt;
+234 56&nbsp; Nystad&lt;/p&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Björn Persson<br />
+          Nygatan 1<br />
+          234 56&nbsp; Nystad</p>
         </div>
       </div>
 
@@ -141,16 +145,34 @@
             (eng. emphasize) och f&ouml;r att f&ouml;rst&auml;rka text (oftast med fet stil) taggen 
             <code>&lt;strong&gt;</code>.</p>
         </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">Finns &lt;em&gt;betonad&lt;/em&gt; och 
+  &lt;strong&gt;förstärkt&lt;/strong&gt; text</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Finns <em>betonad</em> och <strong>förstärkt</strong> text</p>
+        </div>
       </div>
 
-      <h3>Fet och kursiv stil</h3>
+      <h3>Fet och kursiv stil (och understrykning)</h3>
       
       <div class="row">
         <div class="col l7 s12">
           <p>Fet stil erh&aring;lls med taggen <code>&lt;b&gt;</code> (eng. <em>bold</em>) och 
-            kursiv stil med taggen <code>&lt;i&gt;</code> (eng. <em>italic</em>).<br />
-            (Taggen <code>&lt;u&gt;</code> [eng. <em>underline</em>] ing&aring;r inte l&auml;ngre
+            kursiv stil med taggen <code>&lt;i&gt;</code> (eng. <em>italic</em>).</p>
+
+            <p>(Taggen <code>&lt;u&gt;</code>, för understruken text, [eng. <em>underline</em>] ing&aring;r inte l&auml;ngre
             i XHTML och b&ouml;r undvikas i HTML d&aring; texten l&auml;tt kan f&ouml;rv&auml;xlas med l&auml;nkar).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">Finns &lt;b&gt;fet&lt;/b&gt; och &lt;i&gt;kursiv&lt;/i&gt; stil</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Finns <b>fet</b> och <i>kursiv</i> stil</p>
         </div>
       </div>
 
@@ -158,10 +180,10 @@
       
       <div class="row">
         <div class="col l7 s12">
-          <p>(X)HTML &auml;r, som sagt, avsett f&ouml;r att m&auml;rka upp element i dokument och b&ouml;r
+          <p>HTML &auml;r, som sagt, avsett f&ouml;r att m&auml;rka upp element i dokument och b&ouml;r
             d&auml;rf&ouml;r anv&auml;ndas som de avses att anv&auml;ndas. Genom att anv&auml;nda r&auml;tt taggar till
-            r&auml;tt sak s&aring; g&ouml;r det m&ouml;jligt f&ouml;r bl.a. verktyg f&ouml;r t.ex. synskadade att tolka
-            texten r&auml;tt.</p>
+            r&auml;tt sak s&aring; g&ouml;r det m&ouml;jligt f&ouml;r bl.a. verktyg f&ouml;r 
+            t.ex. personer med nedsatt syn att tolka texten r&auml;tt.</p>
             
           <p>Det rekommenderas d&auml;rf&ouml;r att:</p>
             
@@ -175,79 +197,26 @@
         </div>
       </div>
 
-      <h3>Text med fast teckenbredd</h3>
-      
-      <div class="row">
-        <div class="col l7 s12">
-          <p>Ibland kan det vara anv&auml;ndbart att skriva text med fast teckenbredd,
-            d.v.s. att alla bokst&auml;ver i alfabetet har lika mycket utrymme i bredd
-            till sitt f&ouml;rfogande. (Studerar ni texten ordentligt i denna mening,
-            med varierande teckenbredd, s&aring; ser ni att t.ex. bokst&auml;verna
-            &quot;i&quot; och &quot;m&quot; inte utnyttjar samma utrymme i bredd.)
-            Ett exempel &auml;r n&auml;r man t.ex. vill betona att en viss text &auml;r en
-            &quot;kodsnutt&quot; fr&aring;n ett programmerinsspr&aring;k. I dess fall kan man
-            anv&auml;nda taggarna <code>&lt;tt&gt;</code> (eng. <em>teletype</em>) eller
-            <code>&lt;code&gt;</code>. (Hur man kan beh&aring;lla
-            textens placering fr&aring;n HTML-koden med fast teckenbredd p&aring; typsnittet
-            beskrivs l&auml;ngre ner p&aring; denna hemsida.)</p>
-        </div>
-      <!-- </div>
-
-      <h4>Exempel som visar hur taggarna ovan &auml;ndrar texts stil</h4>
-      
-      <div class="row"> -->
-        <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>
-              &lt;p&gt;P&aring; denna hemsida visas hur text kan formateras med &lt;b&gt;fet
-              stil&lt;/b&gt; och &lt;i&gt;kursiv stil&lt;/i&gt;.&lt;/p&gt;<br />
-              &lt;p&gt;Man kan &auml;ven &lt;em&gt;betona text&lt;/em&gt; eller &lt;strong&gt;f&ouml;rst&auml;rka
-              text&lt;/strong&gt;.&lt;/p&gt;<br />
-              &lt;p&gt;Vill man undvika att text avl&auml;ses fel kan man anv&auml;nda &lt;tt&gt;formaterad
-              text&lt;/tt&gt; med fast bredd p&aring; typsnittet.&lt;/p&gt;</code></p>
-          </blockquote>
-        </div>
-
-        <div class="col l7 s12 center-align">
-          <p class="hide-on-med-and-down"><a href="del2/html2_2.html" class="btn bg-scania-red fg-scania-yellow" 
-            target="_blank">Exempel 2.2 - visuella taggar</a></p>
-          <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
-            för att visa exempel och studera dess bakomliggande kod.
-          </div>
-        </div>
-      </div>
-
-      <h3>&Auml;ndra typsnitt och f&auml;rg p&aring; text</h3>
-      
-      <div class="row">
-        <div class="col l7 s12">
-          <p>Taggar f&ouml;r att &auml;ndra typsnitt och f&auml;rg p&aring; text har tagits bort i XHTML och
-            de b&ouml;r inte heller anv&auml;ndas i HTML. Ist&auml;llet b&ouml;r man anv&auml;nda stilmallar (CSS).</p>
-        </div>
-      </div>
-
-      <h3>&Auml;ndra storlek p&aring; text</h3>
+      <h3>Text med mindre storlek</h3>
 
       <div class="row">
           <div class="col l7 s12">
-          <p>F&ouml;r att f&aring; lite mindre eller st&ouml;rre text kan man anv&auml;nda taggarna &lt;small&gt;
-            resp. &lt;big&gt;. I &ouml;vrigt b&ouml;r man anv&auml;nda stilmallar (CSS) f&ouml;r att anpassa
-            storleken p&aring; text.</p>
+          <p>F&ouml;r att f&aring; lite mindre text, så kallad &quot;finstilt text&quot;, 
+            kan man anv&auml;nda taggen <code>&lt;small&gt;</code> - text som brukar
+            visas med något mindre teckenstorlek.</p>
+            
+          <p class="kommentar">(Större text med taggen <code>&lt;big&gt;</code> ska inte längre användas,
+            även om det fortfarande fungerar i 2025.)</p>
         </div>
-      <!-- </div>
-
-      <h4>Exempel som visar hur man kan &auml;ndra storlek f&ouml;r text</h4>
-
-      <div class="row"> -->
+      
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <code>
-            &nbsp; &lt;h1&gt;&Auml;ndra storlek p&aring; text&nbsp;&lt;h1&gt;<br />
-            &nbsp; &lt;p&gt;Ett vanligt stycke&lt;/p&gt;<br />
-            &nbsp; &lt;p&gt;Ett stycke med &lt;big&gt;lite st&ouml;rre&lt;/big&gt;&nbsp;<br />
-            &nbsp;&nbsp;&nbsp; text och &lt;small&gt;mindre&nbsp;<br />
-            &nbsp;&nbsp;&nbsp; text&lt;/small&gt; som synes.&lt;/p&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">Pris: 1 kr &lt;small&gt;inkl. moms&lt;/small&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <aside>
+            <p>Pris: 1 kr <small>inkl. moms</small></p>
+          </aside>
         </div>
 
         <div class="col l7 s12 center-align">
@@ -266,18 +235,18 @@
           <p>F&ouml;r att h&ouml;ja upp och s&auml;nka ner text anv&auml;nds 
             taggarnar <code>&lt;sup&gt;</code>
           respektive <code>&lt;sub&gt;</code>.</p>
-
-          <p>För att få resultatet &quot;Exponenter &auml;r upph&ouml;jda, t.ex. x<sup>2</sup>, och kemiska f&ouml;reningar
-            neds&auml;nkta, t.ex.
-            H<sub>2</sub>O.&quot;</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;p&gt;Exponenter &auml;r upph&ouml;jda, t.ex.<br />
-            &nbsp; x<strong>&lt;sup&gt;</strong>2<strong>&lt;/sup&gt;</strong>, och kemiska f&ouml;reningar<br />
-            &nbsp; neds&auml;nkta, t.ex. H<strong>&lt;sub&gt;</strong>2<strong>&lt;/sub&gt;</strong>O.&lt;/p&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;p&gt;Exponenter &auml;r upph&ouml;jda, t.ex.
+  x<strong>&lt;sup&gt;</strong>2<strong>&lt;/sup&gt;</strong>, och kemiska f&ouml;reningar
+  neds&auml;nkta, t.ex. H<strong>&lt;sub&gt;</strong>2<strong>&lt;/sub&gt;</strong>O.&lt;/p&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Exponenter är upphöjda, t.ex. x<sup>2</sup>, och kemiska föreningar
+            nedsänkta, t.ex. H<sub>2</sub>O.
+          </p>
         </div>
       </div>
       
@@ -287,6 +256,16 @@
         <div class="col l7 s12">
           <p>Det g&aring;r att markera borttagen och infogad text m.h.a. taggarna &lt;del&gt;
             resp. &lt;ins&gt;.</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">Text kan markeras som &lt;del&gt;borttagen&lt;/del&gt;
+  och &lt;ins&gt;infogad&lt;/ins&gt;.</code></pre>
+
+
+          <h4>Resultat</h4>
+          <p>Text kan markeras som <del>borttagen</del> och <ins>infogad</ins>.</p>
         </div>
       </div>
 
@@ -305,32 +284,34 @@
         <div class="col l7 s12">
           <p>&quot;F&ouml;rformaterad&quot; text inneb&auml;r att webbl&auml;sare ska visa texten som den
             skrivits i HTML-koden, d.v.s. med mellanrum (mellanslag, radbrytningar och
-            tabbar). Texten kommer att anv&auml;nda ett typsnitt med fast teckenbredd
+            tabbar). Texten brukar visas med ett typsnitt med fast teckenbredd
             (Courier New i Windows).</p>
-          <p>Taggen &auml;r <strong>&lt;pre&gt;</strong> och &auml;r anv&auml;ndbar om man t.ex. skriver programkod i en hemsida.</p>
+          <p>Taggen &auml;r <strong>&lt;pre&gt;</strong> och &auml;r anv&auml;ndbar 
+            om man t.ex. skriver programkod i en hemsida (så som denna).</p>
         </div>
-      <!-- </div>
-
-      <h4>Exempel som visar skillnaden mellan f&ouml;rformaterad text och ett
-        vanligt stycke</h4>
-
-        <div class="row"> -->
+      
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              &lt;pre&gt;<br />
-              Denna text<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kommer att
-              visas<br />
-              &nbsp;&nbsp;&nbsp; precis som den skrivits i HTML-koden.<br />
-              &lt;/pre&gt;<br />
-              &lt;hr&gt;<br />
-              &lt;p&gt;Ett vanligt stycke<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; som skrivits p&aring;<br />
-              &nbsp;&nbsp;&nbsp; samma s&auml;tt i HTML-koden.&lt;/p&gt;<br />
-              &lt;/body&gt;<br />
-              &lt;/html&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;pre&gt;
+  Denna text
+            kommer att
+  visas
+     precis som den skrivits i HTML-koden.
+  &lt;/pre&gt;
+  &lt;p&gt;Ett vanligt stycke
+            som skrivits p&aring;
+      samma s&auml;tt i HTML-koden.&lt;/p&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <pre>
+            Denna text
+          kommer att
+  visas
+     precis om den skrivits i HTML-koden.</pre>
+          <p>Ett vanligt stycke
+            som skrivits på
+            samma sätt i HTML-koden.
+          </p>
         </div>
 
         <div class="col l7 s12 center-align">
@@ -348,12 +329,21 @@
         <div class="col l7 s12">
           <p>Horisontella linjer anv&auml;nds som avdelar i hemsidor och man anv&auml;nder
             taggen <code>&lt;hr /&gt;</code> f&ouml;r att l&auml;gga till en. Linjerna &auml;r som 
-            standard 2 bildpunkter h&ouml;ga och g&aring;r fr&aring;n kant till kant i webbl&auml;sarens
-            f&ouml;nster. Linjerna brukar (i Windows) visas som en neds&auml;nkt linje,
+            standard 2 bildpunkter h&ouml;ga och g&aring;r fr&aring;n kant till kant 
+            i webbl&auml;sarens f&ouml;nster eller omslutande element. Linjerna 
+            brukar (i Windows) visas som en neds&auml;nkt linje,
             d.v.s. man anv&auml;nder skugga f&ouml;r att ge linjen ett tredimensionellt
             intryck.</p>
           
           <p>Utseende av horisontella linjer b&ouml;r &auml;ndras med stilmallar (CSS).</p>
+        </div>
+
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;hr /&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <hr />
         </div>
       </div>
 
@@ -381,17 +371,22 @@
         <div class="col l7 s12">
           <p>Specialtecknen b&ouml;rjar med &amp;-tecknet (eng. <em>ampersand</em>) som
             f&ouml;ljs av f&ouml;rkortningen f&ouml;r tecknet och avslutas med semikolon:</p>
+
+          <p><code class="language-html">&amp;f&ouml;rkortning;</code></p>
           
-          <p>T.ex. s&aring; betyder tecknet &quot;&lt;&quot; mindre &auml;n (eng. <em>less
-            than</em>) vilket blir &quot;lt&quot;.</p>
+          <p>T.ex. s&aring; betyder tecknet &quot;<code>&lt;</code>&quot; mindre &auml;n (eng. <em>less
+            than</em>) vilket blir &quot;lt&quot; och &quot;<code>&amp;</code>&quot; och-tecken
+            (eng. <em>ampersand</em>).</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&amp;f&ouml;rkortning;<br />
-              &amp;lt; =&gt; &lt;<br />
-              &amp;amp; =&gt; &amp;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&amp;lt;
+&amp;amp;</code></pre>
+
+          <h4>Resultat</h4>
+          <p>&lt;<br/>
+          &amp;</p>
         </div>
       </div>
 
@@ -461,7 +456,29 @@
               <td><code>&nbsp;</code></td>
             </tr>
           </table>
-          
+        </div>
+                  
+        <div class="col l5 s12">
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;p&gt;Man b&amp;ouml;rjar alltid HTML-kod med
+  &amp;lt;html&amp;gt; och avslutar med 
+  &amp;lt;/html&amp;gt;. Namnet Bj&amp;ouml;rn
+  s&amp;aring;g inte s&amp;aring; roligt ut i
+  HTML-kod.&lt;/p&gt; &lt;p&gt;Det &amp;auml;r sv&amp;aring;rt
+  att h&amp;aring;lla p&amp;aring; copyright
+  p&amp;aring; Internet. &amp;copy; Bj&ouml;rn.&lt;/p&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Man b&ouml;rjar alltid HTML-kod med
+            &lt;html&gt; och avslutar med 
+            &lt;/html&gt;. Namnet Bj&ouml;rn
+            s&aring;g inte s&aring; roligt ut i
+            HTML-kod.</p> <p>Det &auml;r sv&aring;rt
+            att h&aring;lla p&aring; copyright
+            p&aring; Internet. &copy; Bj&ouml;rn.</p>
+        </div>
+
+        <div class="col l7 s12">
           <h4>Exempel som visar hur bl.a. tecknen &aring;, &auml;, &ouml;, &lt; och &gt;
             kodas i HTML</h4>
             
@@ -471,21 +488,11 @@
             och &quot;&gt;&quot; m&aring;ste kodas f&ouml;r att webbl&auml;saren inte ska tolka
             HTML-koden fel. Tyv&auml;rr visar &auml;ven exemplet att koden blir mycket
             sv&aring;rare att l&auml;sa d&aring; &auml;ven de svenska tecknen kodats.</p>
-        </div>
-                  
-        <div class="col l5 s12">
-          <blockquote class="kod">
-            <code>&lt;p&gt;Man b&amp;ouml;rjar alltid HTML-kod med &amp;lt;html&amp;gt;
-              och avslutar med &amp;lt;/html&amp;gt;. Namnet Bj&amp;ouml;rn s&amp;aring;g 
-              inte s&amp;aring; roligt ut i HTML-kod.&lt;/p&gt;</code><br />
-            <code>&lt;p&gt;Det &amp;auml;r sv&amp;aring;rt att h&amp;aring;lla p&amp;aring;
-              copyright p&amp;aring; Internet. &amp;copy; BPn.&lt;/p&gt;</code>
-          </blockquote>
-        </div>
 
-        <div class="col l7 s12 center-align">
-          <p class="hide-on-med-and-down"><a href="del2/html2_9.html" class="btn bg-scania-red fg-scania-yellow" 
-            target="_blank">Exempel 2.9 - specialtecken i HTML</a></p>
+          <p class="hide-on-med-and-down center-align"><a href="del2/html2_9.html"
+            class="btn bg-scania-red fg-scania-yellow"  target="_blank">Exempel 2.9 
+            - specialtecken i HTML</a></p>
+
           <div class="hide-on-med-and-up card-panel">Öppna sida i webbläsare på dator
             för att visa exempel och studera dess bakomliggande kod.
           </div>
@@ -505,39 +512,51 @@
         </div>
         
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;p&gt;631 05 &amp;nbsp;Eskilstuna&lt;/p&gt;<br />
-            &lt;p&gt;631 05&amp;nbsp;&amp;nbsp;Eskilstuna&lt;/p&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;p&gt;631 05 &amp;nbsp;Eskilstuna&lt;br /&gt;
+631 05&amp;nbsp;&amp;nbsp;Eskilstuna&lt;/p&gt;</code></pre>
+
+          <p>631 05 &nbsp;Eskilstuna<br />
+            631 05&nbsp;&nbsp;Eskilstuna</p>
         </div>
 
         <div class="col l7 s12">
-          <p>&amp;nbsp; &auml;r anv&auml;ndbart &auml;ven i andra sammanhang, t.ex. f&ouml;r att
+          <p><code>&amp;nbsp;</code> &auml;r anv&auml;ndbart &auml;ven i andra sammanhang, t.ex. f&ouml;r att
             tvinga webbl&auml;saren att skriva ut tomma rader eller tomma celler i
             tabell (mer om det senare p&aring; hemsidan <a href="del4.html">Listor
             och tabeller</a>). De flesta webbl&auml;sare skulle strunta i radbrytningen
-            innan &lt;HR&gt; i f&ouml;ljande exempel</p>
+            innan &lt;hr /&gt; i f&ouml;ljande exempel</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;p&gt;Rad 1&lt;br /&gt;<br />
-              Rad 2 som ska f&ouml;ljas av en tom rad&lt;br /&gt;&lt;/p&gt;<br />
-            &lt;hr /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;p&gt;Rad 1&lt;br /&gt;<br />
+  Rad 2 som är t&auml;nkt att f&ouml;ljas av en tom 
+  rad&lt;br /&gt;
+&lt;/p&gt;<br />
+&lt;hr /&gt;</code></pre>
+
+          <p>Rad 1<br />
+            Rad 2 som är tänkt att följas av en tom rad<br />
+          </p>
+          <hr />
         </div>
         
         <div class="col l7 s12">
           <p>Men om vi ist&auml;llet anv&auml;nder f&ouml;ljande kod (d.v.s. l&auml;gger till
-            &amp;nbsp; efter br-taggen) s&aring; kommer resultatet bli som man t&auml;nkt sig.</p>
+            <code>&amp;nbsp;</code> efter br-taggen) s&aring; kommer resultatet bli som man t&auml;nkt sig.</p>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;p&gt;Rad 1&lt;br /&gt;<br />
-              Rad 2 som f&ouml;ljs av en tom rad&lt;br /&gt;&amp;nbsp;&lt;/p&gt;<br />
-              &lt;hr /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;p&gt;Rad 1&lt;br /&gt;
+  Rad 2 som f&ouml;ljs av en tom
+  rad&lt;br /&gt;&amp;nbsp;
+&lt;/p&gt;
+&lt;hr /&gt;</code></pre>
+
+          <p>Rad 1<br />
+            Rad 2 som följs av en tom 
+            rad<br />&nbsp;
+          </p>
+          <hr />
         </div>
 
         <div class="col l7 s12 center-align">
@@ -560,21 +579,18 @@
       </div>
 
       <footer class="row page-footer center-align">
-        <!-- <div class="container"> -->
-          <!-- <div class="row"> -->
-            <div class="col l6 s12">
-              <b>Skapad av:</b> Bj&ouml;rn G D Persson.
-            </div>
-            <div class="col l6 s12">
-              <b>Uppdaterad:</b> 2020-02-15.
-            </div>
-          <!-- </div> -->
-        <!-- </div> -->
+        <div class="col l6 s12">
+          <b>Skapad av:</b> Bj&ouml;rn G D Persson.
+        </div>
+        <div class="col l6 s12">
+          <b>Uppdaterad:</b> 2025-01-05.
+        </div>
       </footer>
     </div>
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

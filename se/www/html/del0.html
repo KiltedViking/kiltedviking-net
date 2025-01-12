@@ -18,9 +18,10 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/html/del0.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del0.html" />
-  <title>HTML - Kodens struktur</title>
+  <title>HTML - Kodens struktur - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-materialize.css">
 </head>
 <body>
@@ -179,18 +180,14 @@
             m&aring;ste separeras med mellanrum.</p>
         </div>
         <div class="col l5 s12">
-          <h6>R&auml;tt:</h6>
-          <blockquote>
-            <code>&lt;body color=&quot;white&quot;&gt;<br />
-            &lt;body<br />
-            &nbsp;&nbsp;&nbsp;&nbsp; color=&quot;white&quot;&gt;</code><br />&nbsp;
-          </blockquote>
+          <h4>Korrekt kod</h4>
+          <pre><code class="language-html">&lt;body color=&quot;white&quot;&gt;
+&lt;body
+  color=&quot;white&quot;&gt;</code></pre>
 
-          <h6>Fel:</h6>
-          <blockquote>
-            <code>&lt;bo dy&gt;<br />
-            &lt;bodycolor=&quot;white&quot;&gt;</code>
-          </blockquote>
+          <h4>Felaktig kod</h4>
+          <pre><code class="language-html">&lt;bo dy color=&quot;white&quot;&gt;
+&lt;bodycolor=&quot;white&quot;&gt;</code></pre>
         </div>
       </div>
 
@@ -205,7 +202,7 @@
             l&auml;ttl&auml;st. (Se <a href="#rekommendationer">Rekommendationer</a> nedan
             f&ouml;r mer information.)</p>
             
-          <p>I XHTML m&aring;ste man dock anv&auml;nda gemener f&ouml;r taggar.</p>
+          <p>(I XHTML m&aring;ste man dock anv&auml;nda gemener f&ouml;r taggar.)</p>
         </div>
       </div>
 
@@ -218,15 +215,11 @@
         </div>
 
         <div class="col l5 s12">
-          <h6>Fel - &ouml;verlappning:</h6>
-          <blockquote>
-            <code>&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg1&gt;<em>ijkl</em>&lt;/tagg2&gt;</code>
-          </blockquote>
+          <h4>Fel - &ouml;verlappning:</h4>
+          <pre><code class="language-html">&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg1&gt;<em>ijkl</em>&lt;/tagg2&gt;</code></pre>
 
-          <h6>R&auml;tt - inneslutning:</h6>
-          <blockquote>
-            <code>&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg2&gt;<em>ijkl</em>&lt;/tagg1&gt;</code>
-          </blockquote>
+          <h4>R&auml;tt - inneslutning:</h4>
+          <pre><code class="language-html">&lt;tagg1&gt;<em>abcd</em>&lt;tagg2&gt;<em>efgh</em>&lt;/tagg2&gt;<em>ijkl</em>&lt;/tagg1&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -235,9 +228,11 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code class="kod">&lt;p&gt;<em>Ord med </em>&lt;b&gt;<em>fet</em>&lt;/b&gt;<em> stil</em>&lt;/p&gt;</code>
-          </blockquote>
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;p&gt;<em>Ord med </em>&lt;b&gt;<em>fet</em>&lt;/b&gt;<em> stil</em>&lt;/p&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <p>Ord med <b>fet</b> stil.</p>
         </div>
       </div>
 
@@ -256,9 +251,7 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>&lt;p class=&quot;fet&quot;&gt;...&lt;/p&gt;</code></p>
-          </blockquote>
+          <pre><code class="language-html">&lt;p class=&quot;fet&quot;&gt;...&lt;/p&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -270,9 +263,7 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; /&gt;</code></p>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -285,9 +276,7 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote class="kod">
-            <p><code>&lt;!-- Text som inte visas av webbl&auml;sare --&gt;</code></p>
-          </blockquote>
+          <pre><code class="language-html">&lt;!-- Text som inte visas av webbl&auml;sare --&gt;</code></pre>
         </div>
         <div class="col l7 s12">
           <p>Kommentarer visas inte i webbl&auml;sarens f&ouml;nster. Dock kan kommentarer ses i
@@ -392,21 +381,15 @@
 
         <div class="col l6 s12">
           <h3><small>HTML 5</small></h3>
-          <blockquote>
-            <code>&lt;!DOCTYPE html&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;!DOCTYPE html&gt;</code></pre>
 
           <h3><small>HTML 4.01 (Strict)</small></h3>
-          <blockquote>
-            <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;
-              &quot;https://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;
+  &quot;https://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code></pre>
 
           <h3><small>XHTML 1.0 (Strict)</small></h3>
-          <blockquote>                
-            <code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
-              &quot;https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></pre>
         </div>
 
         <div class="col s12">
@@ -443,7 +426,7 @@
         <div class="col s12">
           <ul class="pagination center-align">
             <li><a href="#" onclick="return false;">&lt; F&ouml;reg&aring;ende</a></li>
-            <li class="waves-effect"><a href="./">Hem (HTML)</a></li>
+            <li class="waves-effect waves-red btn yellow"><a href="./">Hem (HTML)</a></li>
             <li class="waves-effect"><a href="del1.html">N&auml;sta &gt;</a></li>
           </ul>
         </div>
@@ -456,7 +439,7 @@
               <b>Skapad av:</b> Bj&ouml;rn G D Persson.
             </div>
             <div class="col l6 s12">
-              <b>Uppdaterad:</b> 2020-01-26.
+              <b>Uppdaterad:</b> 2024-12-27.
             </div>
           </div>
         </div>
@@ -465,6 +448,7 @@
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

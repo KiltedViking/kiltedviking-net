@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till HTML, CSS och JavaScript." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: Stilmallar (CSS3)" />
@@ -20,9 +19,10 @@
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del3.html" />
   <title>Selektorer (CSS3) - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
 </head>
@@ -148,8 +148,8 @@
         </div>
 
         <div class="five columns">
-          <code>h1 { font-family: Arial }</code><br />
-          <code>p { font-family: Verdana }</code>
+          <pre><code class="language-css">h1 { font-family: Arial }
+p { font-family: Verdana }</code></pre>
         </div>
       </div>
 
@@ -176,7 +176,7 @@
         </div>
 
         <div class="five columns">
-          <code>h1, h2 { font-family: Verdana; }</code>
+          <pre><code class="language-css">h1, h2 { font-family: Verdana; }</code></pre>
         </div>
       </div>
 
@@ -197,7 +197,7 @@
         </div>
 
         <div class="five columns">
-          <code>h1.litenrubrik { font-size: 6pt }</code>
+          <pre><code class="language-css">h1.litenrubrik { font-size: 6pt }</code></pre>
         </div>
       </div>
 
@@ -210,9 +210,9 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;h1 <span class="highlight">class=&quot;litenrubrik&quot;</span>&gt;Mindre rubrik&lt;/h1&gt;
-&lt;p <span class="highlight">class=&quot;litenrubrik&quot;</span>&gt;Ett
-  stycke op&aring;verkad text&lt;/p&gt;
+          <pre><code class="language-html">&lt;h1 class=&quot;litenrubrik&quot;&gt;Mindre rubrik&lt;/h1&gt;
+&lt;p class=&quot;litenrubrik&quot;&gt;Ett stycke
+  op&aring;verkad text&lt;/p&gt;
           </code></pre>
         </div>
       </div>
@@ -235,8 +235,8 @@
         </div>
 
         <div class="five columns">
-          <code>.storrubrik { font-size: 72pt }</code><br />
-          <code>.kod { font-family: &quot;Courier New&quot; }</code>
+          <pre><code class="language-css">.storrubrik { font-size: 72pt }
+.kod { font-family: &quot;Courier New&quot; }</code></pre>
         </div>
       </div>
 
@@ -249,12 +249,12 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;h1 class=&quot;storrubrik&quot;&gt;Var
+          <pre><code class="language-html">&lt;h1 class=&quot;storrubrik&quot;&gt;Var
   JavaScript-kod skrivs&lt;/h1&gt;
   &lt;p&gt;JavaScript-koden kan skrivs ... &lt;/p&gt;
 ...
 &lt;blockquote&gt;
-  &lt;p <span class="highlight">class=&quot;kod&quot;</span>&gt;&amp;lt;HTML&amp;gt;&lt;br /&gt;
+  &lt;p class=&quot;kod&quot;&gt;&amp;lt;HTML&amp;gt;&lt;br /&gt;
     &amp;lt;HEAD&amp;gt;&lt;/p&gt;&gt;
   ...</code></pre>
         </div>
@@ -283,8 +283,14 @@
         </div>
 
         <div class="five columns">
-          <code>.rod { color: red; background-color: white; }</code><br />
-          <code>.bla { color: blue; background-color: white; }</code>
+          <pre><code class="language-css">.rod { 
+  color: red;
+  background-color: white;
+}
+.bla {
+  color: blue; 
+  background-color: white; 
+}</code></pre>
         </div>
       </div>
 
@@ -297,7 +303,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;div class=&quot;rod&quot;&gt;
+          <pre><code class="language-html">&lt;div class=&quot;rod&quot;&gt;
   &lt;p&gt;Ett stycke p&aring;verkad text&lt;/p&gt;
   &lt;p&gt;Ett stycke till med p&aring;verkad text -
     &lt;span class=&quot;bla&quot;&gt;b&aring;de
@@ -330,7 +336,7 @@
         </div>
 
         <div class="five columns">
-          <code>#dokumentinfo { font-size: smaller }</code>
+          <pre><code class="language-css">#dokumentinfo { font-size: smaller }</code></pre>
         </div>
       </div>
 
@@ -342,7 +348,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;p id="dokumentinfo"&gt;&lt;strong>Skapad 
+          <pre><code class="language-html">&lt;p id="dokumentinfo"&gt;&lt;strong>Skapad 
   av:&lt;/strong&gt; Bj&ouml;rn G. D. Persson.
   &lt;strong&gt;Uppdaterad:&lt;/strong&gt; 
   2017-10-22.&lt;/p&gt;</code></pre>
@@ -393,25 +399,24 @@
         </div>
 
         <div class="five columns">
-          <div class="code">
-            <code>a:link { color: green }</code><br />
-            <code>a:visited { color: red }</code><br />
-            <code>a:active { color: yellow }</code><br />
-            <code>a:hover, p:hover { background-color: cyan; }</code><br />
-            <code>a:focus { background-color: yellow; }</code><br />
-            <code>p:first-line { font-weight: bold; }</code><br />
-            <code>p:first-letter { font-size: 32px; }</code><br />
-            <code>p:first-child {<br />
-              &nbsp; color: blue;<br />
-              &nbsp; background-color: white;<br />
-            }</code>
-          </div>
+          <pre><code class="language-css">a:link { color: green }
+a:visited { color: red }
+a:active { color: yellow }
+a:hover, p:hover { 
+  background-color: cyan; 
+}
+a:focus { background-color: yellow; }
+p:first-line { font-weight: bold; }
+p:first-letter { font-size: 32px; }
+p:first-child {
+  color: blue;
+  background-color: white;
+}</code></pre>
+          
           <h4>Nyare pseudoklasser</h4>
-          <div class="code">
-            <code>.has()</code><br />
-            <code>.is()</code><br />
-            <code>.where()</code>
-            
+          <pre><code class="language-css">.has()
+.is()
+.where()</code></pre>
           </div>
         </div>
       </div>
@@ -438,7 +443,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>p.anfang:first-letter {
+          <pre><code class="language-css">p.anfang:first-letter {
   font-size: 300%;
   float: left;
 }</code></pre>
@@ -497,7 +502,7 @@
         </div>
 
         <div class="five columns">
-          <code>ul em { ... }</code>
+          <pre><code class="language-css">ul em { ... }</code></pre>
         </div>
       </div>
 
@@ -512,8 +517,8 @@
         </div>
 
         <div class="five columns">
-          <code>h1 { font-family: Verdana; }</code><br />
-          <code>h1 em, ul em { color: blue; }</code>
+          <pre><code class="language-css">h1 { font-family: Verdana; }
+h1 em, ul em { color: blue; }</code></pre>
         </div>
       </div>
 
@@ -523,7 +528,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;h1&gt;Viss del av rubrik ska vara 
+          <pre><code class="language-html">&lt;h1&gt;Viss del av rubrik ska vara 
   &lt;em&gt;bl&aring;&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;Men denna text ska &lt;em&gt;inte vara 
   bl&aring;&lt;/em;&gt;, endast kursiv.&lt;/p&gt;
@@ -551,7 +556,7 @@
         </div>
 
         <div class="five columns">
-          <code>ul &gt; em { ... }</code>
+          <pre><code class="language-css">ul &gt; em { ... }</code></pre>
         </div>
       </div>
 
@@ -563,8 +568,8 @@
         </div>
 
         <div class="five columns">
-          <code>h1 { font-family: Verdana; }</code><br />
-          <code>h1 &gt; em, ul &gt; em { color: blue; }</code>
+          <pre><code class="language-css">h1 { font-family: Verdana; }
+h1 &gt; em, ul &gt; em { color: blue; }</code></pre>
         </div>
       </div>
 
@@ -575,7 +580,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;h1&gt;Viss del av rubrik ska vara 
+          <pre><code class="language-html">&lt;h1&gt;Viss del av rubrik ska vara 
   &lt;em&gt;bl&aring;&lt;/em&gt;&lt;/h1&gt;
 &lt;p&gt;Men denna text ska &lt;em&gt;inte vara 
   bl&aring;&lt;/em&gt;, endast kursiv.&lt;/p&gt;
@@ -603,7 +608,7 @@
         </div>
 
         <div class="five columns">
-          <code>h2 + p { ... }</code>
+          <pre><code class="language-css">h2 + p { ... }</code></pre>
         </div>
       </div>
 
@@ -613,7 +618,7 @@
         </div>
 
         <div class="five columns">
-          <code>h1 + p { font-style: italic; }</code>
+          <pre><code class="language-css">h1 + p { font-style: italic; }</code></pre>
         </div>
       </div>
 
@@ -624,7 +629,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;h1&gt;En rubrik&lt;/h1&gt;
+          <pre><code class="language-html">&lt;h1&gt;En rubrik&lt;/h1&gt;
 &lt;p&gt;Stycke med kursiv stil.&lt;/p&gt;
 &lt;p&gt;Vanligt stycke, dvs ej kursiv stil.&lt;/p&gt;</code></pre>
         </div>
@@ -655,8 +660,8 @@
         </div>
 
         <div class="five columns">
-          <code>a:link { color: yellow; }</code><br />
-          <pre><code>a.meny:link {
+          <pre><code class="language-css">a:link { color: yellow; }
+a.meny:link {
   color: white;
   background-color: blue;
 }</code></pre>
@@ -671,7 +676,7 @@
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;p&gt;&lt;a href=&quot;start.htm&quot;
+          <pre><code class="language-html">&lt;p&gt;&lt;a href=&quot;start.htm&quot;
   class=&quot;meny&quot;&gt;Start&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Se v&aring;rt 
   &lt;a href=&quot;bokslut.htm&quot;&gt;bokslut&lt;/a&gt;
@@ -715,8 +720,9 @@
     </div>
 
     <footer>
-      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2023-08-19.</p>
+      <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-01-12.</p>
     </footer>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>

@@ -20,8 +20,9 @@
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/html/del5.html" />
   <title>HTML - Formul&auml;r i HTML</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
-  <link rel="stylesheet" href="../css/materialize.min.css">
-  <link rel="stylesheet" href="../css/studiewebb-materialize.css">
+  <link rel="stylesheet" href="../css/materialize.min.css" />
+  <link rel="stylesheet" href="/css/prism/prism.css" />
+  <link rel="stylesheet" href="../css/studiewebb-materialize.css" />
 </head>
 <body>
   <header class="fg-scania-yellow bg-scania-red">
@@ -171,15 +172,10 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p>&lt;h1&gt;Ett enkelt formul&amp;auml;r&lt;/h1&gt;</p>
-              <p>&lt;form method=&quot;post&quot;<br />
-                &nbsp; action=&quot;html5_1_behandlat.php&quot;&gt;</p>
-              <p>...</p>
-              <p>&lt;/form&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;h1&gt;Ett enkelt formul&amp;auml;r&lt;/h1&gt;
+&lt;form method=&quot;post&quot; action=&quot;behandla.php&quot;&gt;
+  ...
+&lt;/form&gt;</code></pre>
         </div>
       </div>
 
@@ -199,12 +195,8 @@
             </form>
         </div>
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p class="kod">&lt;label for=&quot;mintext&quot;&gt;Fyll i ditt namn:&lt;/label&gt;<br />
-                &lt;input type=&quot;text&quot; name=&quot;mintext&quot;&gt;&lt;/p&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;mintext&quot;&gt;Fyll i namn:&lt;/label&gt;
+&lt;input type=&quot;text&quot; name=&quot;mintext&quot;&gt;&lt;/p&gt;</code></pre>
         </div>
       </div>
 
@@ -224,12 +216,8 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>
-              <p class="kod">&lt;input type=&quot;submit&quot;&gt;</p>
-              <p class="kod">&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;</p>
-            </code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;submit&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot;&gt;</code></pre>
         </div>
       </div>
 
@@ -395,12 +383,10 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
-              maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code><br />
-            <code>&lt;input type=&quot;text&quot; name=&quot;MinText1&quot; size=&quot;25&quot;
-              maxlength=&quot;25&quot; placeholder=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;MinText&quot; size=&quot;25&quot;
+  maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;
+&lt;input type=&quot;text&quot; name=&quot;MinText1&quot; size=&quot;25&quot;
+  maxlength=&quot;25&quot; placeholder=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -449,10 +435,8 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-          <code>&lt;textarea name=&quot;MinArea&quot; rows=&quot;5&quot; 
-            cols=&quot;25&quot;&gt;Startvarde&lt;/textarea&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;textarea name=&quot;MinArea&quot; rows=&quot;5&quot; 
+  cols=&quot;25&quot;&gt;Startvarde&lt;/textarea&gt;</code></pre>
         </div>
       </div>
 
@@ -501,10 +485,8 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;password&quot; name=&quot;MittLosenord&quot;
-              size=&quot;25&quot; maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;password&quot; name=&quot;MittLosenord&quot;
+ size=&quot;25&quot; maxlength=&quot;25&quot; value=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -559,10 +541,8 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;hidden&quot; name=&quot;MinDold&quot; 
-              value=&quot;Startvarde&quot; /&gt;</code>
-          </blockquote>
+            <pre><code class="language-html">&lt;input type=&quot;hidden&quot; name=&quot;MinDold&quot; 
+  value=&quot;Startvarde&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -609,14 +589,18 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code><p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss0&quot; name=&quot;MittKryss0&quot; 
-              value=&quot;Kryssad0&quot; /&gt;<br />
-              &lt;label for=&quot;MittKryss0&quot;&gt;MittKryss0&lt;/label&gt;</p>
-              <p>&lt;input type=&quot;checkbox&quot; id=&quot;MittKryss1&quot; name=&quot;MittKryss1&quot; 
-                value=&quot;Kryssad1&quot; checked="checked" /&gt;<br />
-                &lt;label for=&quot;MittKryss1&quot;&gt;MittKryss1&lt;/label&gt;</p></code>
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;MittKryss0&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;MittKryss0&quot;
+    name=&quot;MittKryss0&quot; value=&quot;Kryssad0&quot; /&gt;
+  MittKryss0
+&lt;/label&gt;
+
+&lt;label for=&quot;MittKryss1&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;MittKryss1&quot;
+    name=&quot;MittKryss1&quot; value=&quot;Kryssad1&quot;
+    checked="checked" /&gt;
+  MittKryss1
+&lt;/label&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -674,11 +658,12 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;radio&quot; id=&quot;MinRadio&quot; name=&quot;MinRadio&quot; 
-              value=&quot;Markerad0&quot; checked="checked" /&gt;<br />
-              &lt;label for=&quot;MinRadio&quot;&gt;MinRadio0&lt;/label&gt;</code> 
-          </blockquote>
+            <pre><code class="language-html">&lt;label for=&quot;MinRadio&quot;&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;MinRadio&quot;
+    name=&quot;MinRadio&quot; value=&quot;Markerad0&quot;
+    checked="checked" /&gt;
+  MinRadio0
+&lt;/label&gt;</code></pre>
         </div>
       </div>
 
@@ -717,72 +702,67 @@
 
           <form action="">
             <p>Grupp 1</p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio11" name="MinRadio1" value="Markerad0" checked="checked" />
-                <span>MinRadio0</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio12" name="MinRadio1" value="Markerad1" />
-                <span>MinRadio1</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio13" name="MinRadio1" value="Markerad2" />
-                <span>MinRadio2</span>
-              </label>
-            </p>
+            <label>
+              <input type="radio" id="MinRadio11" name="MinRadio1" value="Markerad0" checked="checked" />
+              <span>MinRadio0</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio12" name="MinRadio1" value="Markerad1" />
+              <span>MinRadio1</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio13" name="MinRadio1" value="Markerad2" />
+              <span>MinRadio2</span>
+            </label>
+
             <p>Grupp 2</p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio21" name="MinRadio2" value="Markerad0" checked="checked" />
-                <span>MinRadio0</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio22" name="MinRadio2" value="Markerad1" />
-                <span>MinRadio1</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="radio" id="MinRadio23" name="MinRadio2" value="Markerad2" />
-                <span>MinRadio2</span>
-              </label>
-            </p>
+            <label>
+              <input type="radio" id="MinRadio21" name="MinRadio2" value="Markerad0" checked="checked" />
+              <span>MinRadio0</span>
+            </label>
+            <label>
+              <input type="radio" id="MinRadio22" name="MinRadio2" value="Markerad1" />
+              <span>MinRadio1</span>
+            </label>
           </form>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <p><code>&lt;form&gt;</code></p>
-            <p><code>&lt;p&gt;Grupp 1&lt;/P&gt;<br />
-              &lt;p&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a1&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;1&quot; checked="checked" /&gt;<br />
-              &nbsp; &lt;label for=&quot;a1&quot;&gt;Alternativ 1&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a2&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;2&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;a2&quot;&gt;Alternativ 2&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;a3&quot; name=&quot;grupp1&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;3&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;a3&quot;&gt;Alternativ 3&lt;/label&gt;<br />
-              &lt;/p&gt;</code></p>
-            <p><code>&lt;p&gt;Grupp 2&lt;/p&gt;</code></p>
-            <p><code>&lt;p&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b1&quot; name=&quot;grupp2&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;Ja&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;b1&quot;&gt;Ja&lt;/label&gt;<br />
-              &nbsp; &lt;input type=&quot;radio&quot; id=&quot;b2&quot; name=&quot;grupp2&quot;<br />
-              &nbsp;&nbsp;&nbsp; value=&quot;Nej&quot; /&gt;<br />
-              &nbsp; &lt;label for=&quot;b2&quot;&gt;Nej&lt;/label&gt;<br />
-              &lt;/p&gt;</code></p>
-            <p><code>&lt;/form&gt;</code></p>
-          </blockquote>
+          <pre><code class="language-html">&lt;form&gt;
+  &lt;p&gt;Grupp 1&lt;/p&gt;
+
+  &lt;label for=&quot;a1&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a1&quot; name=&quot;grupp1&quot;
+      value=&quot;1&quot; checked="checked" /&gt;
+    Alternativ 1
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;a2&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a2&quot; name=&quot;grupp1&quot;
+      value=&quot;2&quot; /&gt;
+    Alternativ 2
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;a3&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;a3&quot; name=&quot;grupp1&quot;
+      value=&quot;3&quot; /&gt;
+    Alternativ 3
+  &lt;/label&gt;
+
+  &lt;p&gt;Grupp 2&lt;/p&gt;
+
+  &lt;label for=&quot;b1&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;b1&quot; name=&quot;grupp2&quot;
+      value=&quot;Ja&quot; /&gt;
+    Ja
+  &lt;/label&gt;
+  
+  &lt;label for=&quot;b2&quot;&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;b2&quot; name=&quot;grupp2&quot;
+      value=&quot;Nej&quot; /&gt;
+    Nej
+  &lt;/label&gt;
+&lt;/form&gt;</code></pre>
         </div>
       </div>
 
@@ -805,11 +785,9 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;submit&quot; name=&quot;MinSubmit&quot; /&gt;</code><br />
-            <code>&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot; 
-              name=&quot;MinSubmit&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;submit&quot; name=&quot;MinSubmit&quot; /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Skicka&quot; 
+  name=&quot;MinSubmit&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -851,11 +829,10 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;reset&quot; name=&quot;MinReset1&quot; /&gt;</code><br />
-            <code>&lt;input type=&quot;reset&quot; value=&quot;&amp;Aring;terst&amp;auml;ll&quot;
-              name=&quot;MinReset2&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;reset&quot; name=&quot;MinReset1&quot; /&gt;
+&lt;input type=&quot;reset&quot;
+  value=&quot;&amp;Aring;terst&amp;auml;ll&quot;
+  name=&quot;MinReset2&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -888,17 +865,15 @@
           <h4>Utseende</h4>
           <form action="">
             <input type="button" name="MittKnapp" value="Klicka mig!"
-              onclick="javascript:alert('Du klickade p&aring; mig')" />
+              onclick="javascript:alert('Du klickade')" />
           </form>
         </div>
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;input type=&quot;button&quot; value=&quot;Klicka mig!&quot;
-              name=&quot;MinKnapp&quot; onclick=&quot;javascript:alert(&apos;Du klickade
-              p&aring; mig&apos;)&quot; /&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;input type=&quot;button&quot; value=&quot;Klicka mig!&quot;
+  name=&quot;MinKnapp&quot; 
+  onclick=&quot;javascript:alert(&apos;Du klickade&apos;)&quot; /&gt;</code></pre>
         </div>
       </div>
 
@@ -975,15 +950,13 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;select size="1" name="MinListruta"&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
-              &nbsp;&nbsp;&nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size="1" name="MinListruta"&gt;
+  &lt;option&gt;Alternativ 1&lt;/option&gt;
+  &lt;option&gt;Alternativ 2&lt;/option&gt;
+  &lt;option&gt;Alternativ 3&lt;/option&gt;
+  &lt;option&gt;Alternativ 4&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
       </div>
 
@@ -997,7 +970,8 @@
         <div class="col l7 s12">
           <h4>Utseende</h4>
           <form action="">
-            <select size="5" name="MinListruta" multiple="multiple" title="Listruta för flera val" class="browser-default">
+            <select size="5" name="MinListruta" multiple="multiple" 
+              title="Listruta för flera val" class="browser-default">
                 <option>Alternativ 1</option>
                 <option>Alternativ 2</option>
                 <option>Alternativ 3</option>
@@ -1024,15 +998,14 @@
 
         <div class="col l5 s12">
           <h4>HTML-kod</h4>
-          <blockquote>
-            <code>&lt;select size=&quot;5&quot; name=&quot;MinListruta&quot; multiple="multiple"&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 3&lt;/option&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 4&lt;/option&gt;<br />
-              &nbsp;&nbsp;&nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;5&quot; name=&quot;MinListruta&quot;
+  multiple="multiple"&gt;
+    &lt;option&gt;Alternativ 1&lt;/option&gt;
+    &lt;option&gt;Alternativ 2&lt;/option&gt;
+    &lt;option&gt;Alternativ 3&lt;/option&gt;
+    &lt;option&gt;Alternativ 4&lt;/option&gt;
+      ...
+&lt;/select&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -1060,13 +1033,11 @@
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;select size=&quot;5&quot; name=&quot;MinLista&quot;&gt;<br />
-              &nbsp; &lt;option value=&quot;1&quot;&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option value=&quot;2&quot;&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;5&quot; name=&quot;MinLista&quot;&gt;
+  &lt;option value=&quot;1&quot;&gt;Alternativ 1&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Alternativ 2&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
 
         <div class="col l7 s12">
@@ -1090,25 +1061,25 @@
             attributet <code>selected</code>. F&ouml;ljande kod</p>
 
           <form action="">
-            <p>
-              <select size="1" name="MinKombo" title="En nedrullningsbar listruta">
+              <label for="MinKombo99">Välj ett alternativ:</label><br />
+              <select name="MinKombo99" title="En nedrullningsbar listruta" class="browser-default">
                 <option>Alternativ 1</option>
                 <option selected="selected">Alternativ 2</option>
                 <option>Alternativ 3</option>
                 <option>Alternativ 4</option>
               </select>
-            </p>
           </form>
         </div>
 
         <div class="col l5 s12">
-          <blockquote>
-            <code>&lt;select size=&quot;1&quot; name=&quot;MinKombo&quot;&gt;<br />
-              &nbsp; &lt;option&gt;Alternativ 1&lt;/option&gt;<br />
-              &nbsp; &lt;option selected="selected"&gt;Alternativ 2&lt;/option&gt;<br />
-              &nbsp; ...<br />
-              &lt;/select&gt;</code>
-          </blockquote>
+          <pre><code class="language-html">&lt;select size=&quot;1&quot; name=&quot;MinKombo&quot;&gt;
+  &lt;option&gt;Alternativ 1&lt;/option&gt;
+  &lt;option 
+    selected=&quot;selected&quot;&gt;Alt. 2&lt;/option&gt;
+  &lt;option&gt;Alternativ 3&lt;/option&gt;
+  &lt;option&gt;Alternativ 4&lt;/option&gt;
+    ...
+&lt;/select&gt;</code></pre>
         </div>
       </div>
 
@@ -1153,6 +1124,7 @@
   </div>
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/materialize.min.js"></script>
+  <script src="/js/prism/prism.js"></script>
   <script>
     $(".sidenav").sidenav();
   </script>

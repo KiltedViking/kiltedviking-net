@@ -18,11 +18,12 @@
 	<meta property="og:url" content="https://www.kiltedviking.net/se/www/css3/del1.html" />
 	<meta property="og:image" content="https://www.kiltedviking.net/se/www/bilder/logony1.jpg" />
 	<link rel="canonical" href="https://www.kiltedviking.net/se/www/css3/del1.html" />
-  <title>Funktion (CSS2) - Bj&ouml;rns studiewebb</title>
+  <title>Funktion (CSS3) - Bj&ouml;rns studiewebb</title>
   <link rel="shortcut icon" href="../../../favicon.ico" />
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link rel="stylesheet" href="../css/studiewebb-skeleton.css">
   <!-- This site uses code learnt from https://codepen.io/SitePoint/pen/PwmjYp -->
 </head>
@@ -125,18 +126,20 @@
             b&ouml;r) g&auml;lla &auml;ven f&ouml;r alla rubriker och stycken som placerats i taggen BODY.
             (Vi &aring;terkommer till de tv&aring; orden "eller b&ouml;r" l&auml;ngre ner p&aring; sidan.)</p>
 
-          <p>I exempel nedan s&aring; har vi t.ex. f&ouml;rst en rubrik (H1) som &auml;rver fr&aring;n BODY.
+          <p>I exempel till höger (nedan) s&aring; har vi t.ex. f&ouml;rst en rubrik (<code>H5</code>) som &auml;rver fr&aring;n BODY.
             Efter det finns det tv&aring; stycken (P) som ocks&aring; &auml;rver fr&aring;n BODY. Men i det andra
             stycket s&aring; finns betonad text (EM) som &auml;rver fr&aring;n b&aring;de BODY och P.</p>
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;html&gt;
+          <h4>Kod</h4>
+          <pre><code class="language-html">&lt;html&gt;
   &lt;head&gt;
   &nbsp;  ...
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1>Rubrik som &auml;rver fr&aring;n BODY&lt;/h1&gt;
+    ...
+    &lt;h5&gt;Rubrik som &auml;rver fr&aring;n BODY&lt;/h5&gt;
     &lt;p&gt;Stycke som &auml;rver fr&aring;n BODY.&lt;/p&gt;
     &lt;p&gt;
       Stycke som &auml;rver fr&aring;n BODY. 
@@ -144,7 +147,12 @@
         fr&aring;n BODY och P.&lt;/em&gt;
     &lt;/p&gt;
   &lt;/body&gt;
-  &lt;/html&gt;</code></pre>
+&lt;/html&gt;</code></pre>
+
+          <h4>Resultat</h4>
+          <h5>Rubrik som ärver från BODY</h5>
+          <p>Stycke som ärver från BODY.</p>
+          <p>Stycke som ärver från BODY. <em>Kursiv stil som ärver från BODY och P.</em></p>
         </div>
       </div>
 
@@ -164,21 +172,21 @@
             som meny och inneh&aring;ll i detta dokument) ska ha olika stilar s&aring; brukar man
             anv&auml;nda HTML:s tagg <code>div</code>. I exempel nedan s&aring; har jag anpassat koden ovan
             f&ouml;r att skapa tv&aring; s.k. block: ett f&ouml;r meny (&ouml;verst) och inneh&aring;ll (som exempel
-            ovan). Jag anv&auml;nder mig av <code>div</code>-taggens attribut <code>id</code> f&ouml;r att g&ouml;ra blocken unikt
+            ovan). Jag anv&auml;nder mig av <code>nav</code>-taggens attribut <code>id</code> f&ouml;r att g&ouml;ra blocken unikt
             identifierbara. (<code>div</code>, <code>id</code> och block, eller boxar, samt positionering av blocken
             - t.ex. bredvid varandra, som i detta dokument - behandlas p&aring; efterf&ouml;ljande
             sidor i denna underwebb.)</p>
         </div>
 
         <div class="five columns">
-          <pre><code>&lt;html&gt;
+          <pre><code class="language-html">&lt;html&gt;
 &lt;head&gt;
 &nbsp;  ...
 &lt;/head&gt;
 &lt;body&gt;
-&lt;div id=&quot;meny&quot;&gt;
+&lt;nav id=&quot;meny&quot;&gt;
 &nbsp; &lt;!-- Menyalternativ h&auml;r --&gt;
-&lt;/div&gt;
+&lt;/nav&gt;
 &lt;div id=&quot;innehall&quot;&gt;
   &lt;h1>Rubrik som &auml;rver fr&aring;n BODY&lt;/h1&gt;
   &lt;p&gt;Stycke som &auml;rver fr&aring;n BODY.&lt;/p&gt;
@@ -316,9 +324,10 @@
     <div id="footer">
       <footer>
         <p id="dokumentinfo"><strong>Skapad av:</strong> Bj&ouml;rn G. D. Persson.
-          <strong>Uppdaterad:</strong> 2020-02-09.</p>
+          <strong>Uppdaterad:</strong> 2025-01-12.</p>
       </footer>
     </div>
   </div>
+  <script src="/js/prism/prism.js"></script>
 </body>
 </html>
