@@ -24,7 +24,7 @@
     $res->free();
   }
   else
-    print("FEL: Kunde inte utföra fråga eller fråga returnerarade inga poster.");
+    print("FEL: Kunde inte utfÃ¶ra frÃ¥ga eller frÃ¥ga returnerarade inga poster.");
 
   $db->close();
 ?>

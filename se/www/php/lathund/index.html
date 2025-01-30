@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
@@ -22,15 +21,13 @@
   <title>PHP lathund (del 1) - Björns studiewebb</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
   <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
-  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
-  <script type="text/javascript" src="../../studiewebb.js"></script> -->
 </head>
 <body>
 <header class="container">
-  <div class="row">
+  <div class="row pt-4">
     <div class="column column-100">
       <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
         alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
@@ -98,7 +95,7 @@
         förekomma flera gånger i HTML-koden, d.v.s. vi kan dela
         upp PHP-koden i flera olika delar.</p>
         
-      <pre><code>&lt;!-- Utanför PHP-taggar är det ren HTML-kod --&gt;
+      <pre><code class="language-php">&lt;!-- Utanför PHP-taggar är det ren HTML-kod --&gt;
 &lt;?php
 &nbsp; //Här placeras koden
 ?&gt;
@@ -113,19 +110,19 @@
       
       <p>I exemplet nedan har PHP-koden markerats med gul bakgrund.</p>
       
-      <pre><code>&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
-&lt;p&gt;<span class="code">
+      <pre><code class="language-php">&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
+&lt;p&gt;
 &lt;?php
 &nbsp; $str = &quot;Detta är PHP-kod&quot;;
 &nbsp; print $str;
-?&gt;</span>
+?&gt;
 &lt;/p&gt;
 &lt;p&gt;Detta är mer HTML-kod&lt;/p&gt;</code></pre>
     
       <p>Resultatet från exekveringen ovan blir följande HTML-kod, d.v.s. den
       HTML-kod som skickas till besökarens webbläsare:</p>
       
-      <pre><code>&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
+      <pre><code class="language-html">&lt;p&gt;Detta är ren HTML-kod&lt;/p&gt;
 &lt;p&gt;
 Detta är PHP-kod
 &lt;/p&gt;
@@ -158,9 +155,9 @@ Detta är PHP-kod
         
       <p>I exemplet nedan så har kommentarer markerats med fet stil.</p>
       
-      <pre><code>&lt;?php
-  $tal = 1 + 2;  <b>//Addition av två tal - 1 + 2</b>
-  $strang = &quot;En tuff sträng&quot;;&nbsp; <b>#En till
+      <pre><code class="language-php">&lt;?php
+  $tal = 1 + 2;  //Addition av två tal - 1 + 2
+  $strang = &quot;En tuff sträng&quot;;&nbsp; #En till
   /* En kommentare
      på flera rader */</b>
 ?&gt;</code></pre>
@@ -174,7 +171,7 @@ Detta är PHP-kod
         ett dollartecken ($). För att införa
         (&quot;deklarera&quot;) en variabel så tilldelar vi bara variabeln ett värde.</p>
 
-      <pre><code>$tal1 = 42;
+      <pre><code class="language-php">$tal1 = 42;
 $text1 = &quot;En sträng&quot;;</code></pre>
 
       <div class="panel">
@@ -184,7 +181,7 @@ $text1 = &quot;En sträng&quot;;</code></pre>
           betraktas alltså som olika variabler.</p>
       </div>
 
-      <pre><code>$tal1 = 42;
+      <pre><code class="language-php">$tal1 = 42;
 $TaL1 = 37;</code></pre>
 
       <p>Det trevliga med att variabler använder dollartecken (före namnet på
@@ -198,7 +195,7 @@ $TaL1 = 37;</code></pre>
       <p>I exempel nedan så infogas första variabeln (heltalet) i strängen som
         tilldelas till andra variabelns (strängen).</p>
 
-      <pre><code>$tal1 = 42;
+      <pre><code class="language-php">$tal1 = 42;
 $text1 = &quot;Svaret på allt är $tal1&quot;;</code></pre>
 
       <p>Strängen (<code>$text1</code>) innehåller nu texten <code>&quot;Svaret på allt är 42&quot;</code>.</p>
@@ -256,11 +253,11 @@ $text1 = &quot;Svaret på allt är $tal1&quot;;</code></pre>
         ett citattecken i en sträng (utan att för den sakens skull avsluta
         strängen).</p>
 
-      <pre><code>&quot;Denna sträng \&quot;innehåller\&quot; citattecken&quot;</code></pre>
+      <pre><code class="language-php">&quot;Denna sträng \&quot;innehåller\&quot; citattecken&quot;</code></pre>
 
       <p>ger</p>
 
-      <pre><code>Denna sträng &quot;innehåller&quot; citattecken</code></pre>
+      <pre><code class="language-html">Denna sträng &quot;innehåller&quot; citattecken</code></pre>
 
       <p>&nbsp;</p>
 
@@ -337,7 +334,7 @@ $text1 = &quot;Svaret på allt är $tal1&quot;;</code></pre>
       <p>För att skapa en vektor så tilldelar vi helt enkelt ett värde till en
         vektorvariabel.</p>
 
-      <pre><code>$arrTal[] = 1;&nbsp; //index = 0
+      <pre><code class="language-php">$arrTal[] = 1;&nbsp; //index = 0
 $arrTal[] = 1;
 $arrTal[] = 1;
 $arrTal[] = 1;&nbsp; //index = 3</code></pre>
@@ -347,7 +344,7 @@ $arrTal[] = 1;&nbsp; //index = 3</code></pre>
         vektor är tom första gången så kommer högsta index vara &quot;-1&quot; och första
         positionen kommer få index 0.</p>
 
-      <p><a href="arrays/ex1.php" target="_blank" class="button button-red">Exempel 1 - vektorer</a></p>
+      <p class="align-center"><a href="arrays/ex1.php" target="_blank" class="button button-red">Exempel 1 - vektorer</a></p>
 
       <h4>Tilldela till vektor med index</h4>
 
@@ -355,7 +352,7 @@ $arrTal[] = 1;&nbsp; //index = 3</code></pre>
         vara ordnade eller efter varandra följande värden (d.v.s.&nbsp;
         sekventiella som 1, 2, 3, ...).</p>
 
-        <pre><code>$arrTal[3] = 1;
+        <pre><code class="language-php">$arrTal[3] = 1;
 $arrTal[6] = 2; 
 $arrTal[2] = 3;
 $arrTal[1] = 4;</code></pre>
@@ -363,7 +360,7 @@ $arrTal[1] = 4;</code></pre>
       <p>I exempel ovan så kommer första positionen i vektorn ha index 3 samt
         efterföljande index vara 6, 2 och 1.</p>
 
-      <p><a href="arrays/ex2.php" target="_blank" class="button button-red">Exempel 2 - mer vektorer</a></p>
+      <p class="align-center"><a href="arrays/ex2.php" target="_blank" class="button button-red">Exempel 2 - mer vektorer</a></p>
 
       <div class="panel">
         <p><b>Observera</b> att vi <b>inte</b> kan använda en &quot;klassisk&quot; for-loop (med en
@@ -378,13 +375,13 @@ $arrTal[1] = 4;</code></pre>
         kallas associativa vektorer (ett namn har associerats med värdet i
         vektorn).</p>
 
-      <pre><code>$arrTal[&quot;ett&quot;] = 1;
+      <pre><code class="language-php">$arrTal[&quot;ett&quot;] = 1;
 $arrTal[&quot;två&quot;] = 2;
 $arrTal[&quot;femtitvå&quot;] = 3;
 $arrTal[&quot;sture&quot;] = 4;</code></pre>
 
       <p>Exempel ovan talar för sig själv. :-)</p>
-      <p>><a href="arrays/ex3.php" target="_blank" class="button button-red">Exempel 3 - ännu mer vektorer</a></p>
+      <p class="align-center"><a href="arrays/ex3.php" target="_blank" class="button button-red">Exempel 3 - ännu mer vektorer</a></p>
 
       <p>Denna typ av index är något som vi bl.a. kan använda oss av då vi hämta poster från
         en databas och vill använda kolumnnamnen för att hämta värden från
@@ -423,14 +420,14 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         andra värden. PHP kommer automatiskt konvertera t.ex. tal till strängar
         för utskrift.</p>
 
-      <pre><code>&lt;?php
+      <pre><code class="language-php">&lt;?php
 &nbsp; print &quot;Hej hela världen. &quot;;
 &nbsp; print(&quot;Klockan är nu: &quot; . date(&quot;H:i&quot;);
 ?&gt;</code></pre>
     
       <p>Resultatet från de två raderna ovan kommer bli &quot;Hej hela
         världen. Klockan är nu XX:XX&quot;.</p>
-      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift</a></p>
+      <p class="align-center"><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift</a></p>
 
       <p class="kommentar">För att sammanfoga två strängar används
         punktoperatorn (<code>.</code>) och för att erhålla tiden så används funktionen 
@@ -445,14 +442,14 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         (d.v.s. inte bara en sträng). Resultaten från både <code>print()</code> och 
         <code>echo()</code> är i stort sett de samma.</p>
 
-      <pre><code>&lt;?php
+      <pre><code class="language-php">&lt;?php
 &nbsp; echo &quot;Hej hela världen. &quot;;
 &nbsp; echo(&quot;Klockan är nu: &quot;, date(&quot;H:i&quot;));
 ?&gt;</code></pre>
     
       <p>Resultatet från de två raderna ovan kommer bli &quot;Hej hela
         världen. Klockan är nu XX:XX&quot;.</p>
-      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen)</a></p>
+      <p class="align-center"><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen)</a></p>
 
       <p>Observera att inga mellanrum infogas mellan parametrarna! I exemplet
         ovan har ett mellanslag placerats sist i båda strängar för att erhålla
@@ -475,7 +472,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
       
       <p>Syntaxen för <code>printf()</code> är</p>
 
-      <pre><code>printf(format_sträng, arg1, arg2, ...);</code></pre>
+      <pre><code class="language-php">printf(format_sträng, arg1, arg2, ...);</code></pre>
       
       <p>Se PHP-dokumentationen för en beskrivning för nu... (Jag kommer ev. i
         framtiden att göra en beskrivning). <code>printf()</code> <b>är</b> en funktion. :-)</p>
@@ -487,7 +484,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         &quot;genväg&quot; (kallat <i>inline</i> på engelska). Vi använder oss
         av likhetstecknet för att skriva ut enligt följande exempel:</p>
 
-      <pre><code>Lite text <span class="code">&lt;?php =sats ?&gt;</span> och mer text</code></pre>
+      <pre><code class="language-php">Lite text <span class="code">&lt;?php =sats ?&gt;</span> och mer text</code></pre>
 
       <div class="panel">
         <p><b>Observera</b>
@@ -497,7 +494,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
           någon av &quot;funktionerna&quot; ovan.</p>
       </div>
 
-      <pre><code>&lt;head&gt;
+      <pre><code class="language-php">&lt;head&gt;
 &lt;?php
 &nbsp; $intTal = 5
 ?&gt;
@@ -507,7 +504,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
 &lt;/body&gt;</code></pre>
     
       <p>Resultatet (i webbläsare) från dessa rader ovan blir &quot;Talet är 5&quot;.</p>
-      <p><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen!)</a></p>
+      <p class="align-center"><a href="utskrifter/ex1_1.php" target="_blank" class="button button-red">Exempel 1.1 - utskrift (igen!)</a></p>
 
       <p class="kommentar">Det kan ibland vara praktiskt att samla all exekvering i början på en
         webbsida och spara eventuella resultat i variabler för att skriva ut
@@ -526,7 +523,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
 
       <p>Tilldelning sker med likhetstecknet (<code>=</code>)</p>
 
-      <pre><code>$intTal1 =&nbsp;5;</code></pre>
+      <pre><code class="language-php">$intTal1 =&nbsp;5;</code></pre>
 
       <h3>Aritmetiska operator</h3>
 
@@ -538,7 +535,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         <li><code>-</code> - negering (unärt minus).</li>
       </ul>
       
-      <pre><code>$intTal1 = 1 + 2 * 3 / 4;</code></pre>
+      <pre><code class="language-php">$intTal1 = 1 + 2 * 3 / 4;</code></pre>
       
       <p>Division resulterar i decimaltal, även om båda operander är heltal.</p>
       
@@ -549,7 +546,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
 
       <p>För att sammanfoga två strängar (konkatinera) använder vi punktoperatorn (<code>.</code>)</p>
 
-      <pre><code>$strText1 = &quot;Lite text&quot; . &quot; och lite text till&quot;;</code></pre>
+      <pre><code class="language-php">$strText1 = &quot;Lite text&quot; . &quot; och lite text till&quot;;</code></pre>
 
       <p class="kommentar">Använder vi plustecken av misstag så kommer variabel
         att innehålla en 0:a (d.v.s. om utskrift av en sträng blir 0 så kan vi vid felsökning leta
@@ -568,19 +565,19 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         <li><code>!==</code> - icke identitet</li>
       </ul>
       
-      <pre><code>1 != 2&nbsp;&nbsp; //Ger resultatet TRUE</code></pre>
+      <pre><code class="language-php">1 != 2&nbsp;&nbsp; //Ger resultatet TRUE</code></pre>
       
       <p>PHP stödjer två skilt från-operatorer: != och &lt;&gt;. Likhet i PHP
         innebär att två värden är lika - oavsett vilken datatyp värdena är.
         Identitet innebär att två värden är lika och har samma datatyp.</p>
         
-      <pre><code>1 == &quot;1&quot;
+      <pre><code class="language-php">1 == &quot;1&quot;
 1 == 1.0
 1 == &quot;1.0&quot;
 1 === 1</code></pre>
     
       <p>Alla fyra ovanstående uttryck är sanna.</p>
-      <p><a href="operatorer/ex1.php" target="_blank" class="button button-red">Exempel operatorer 1</a>.</p>
+      <p class="align-center"><a href="operatorer/ex1.php" target="_blank" class="button button-red">Exempel operatorer 1</a>.</p>
         
       <h3>Logiska operatorer</h3>
 
@@ -591,7 +588,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
           tvärtom)</li>
       </ul>
       
-      <pre><code>1 != 2 &amp;&amp; 1 &lt; 2     //Ger resultatet TRUE</code></pre>
+      <pre><code class="language-php">1 != 2 &amp;&amp; 1 &lt; 2     //Ger resultatet TRUE</code></pre>
       
       <p>Skillnaden mellan operatorerna <code>&amp;&amp;</code> och <code>||</code> 
         samt <code>and</code> och <code>or</code> är att de två senare har lägre prioritet.</p>
@@ -638,7 +635,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
         
       <h4>Syntax</h4>
       
-      <pre><code>if(villkor)
+      <pre><code class="language-php">if(villkor)
 &nbsp; satser;
 [ elseif(villkor2)
 &nbsp; satser;
@@ -649,7 +646,7 @@ $arrTal[&quot;sture&quot;] = 4;</code></pre>
     
       <h4>Exempel</h4>
 
-      <pre><code>$intTimme = date(&quot;h&quot;);
+      <pre><code class="language-php">$intTimme = date(&quot;h&quot;);
 
 if($intTimme &lt; 12)
 &nbsp; print &quot;God morgon&quot;;
@@ -665,7 +662,7 @@ else
         
       <h4>Syntax</h4>
 
-      <pre><code>switch(värde_att_jämföra)
+      <pre><code class="language-php">switch(värde_att_jämföra)
 {
 &nbsp; case värde1:
 &nbsp;&nbsp;&nbsp; satser;
@@ -682,7 +679,7 @@ else
 
       <h4>Exempel</h4>
 
-      <pre><code>$intTimme = date(&quot;h&quot;);
+      <pre><code class="language-php">$intTimme = date(&quot;h&quot;);
 
 switch($intTimme)
 {
@@ -728,7 +725,7 @@ switch($intTimme)
 
       <h4>Syntax</h4>
 
-      <pre><code>function funktionsnamn([ param1, param2, ... ])
+      <pre><code class="language-php">function funktionsnamn([ param1, param2, ... ])
 {
 &nbsp; satser;
 &nbsp; [ return returvärde; ]
@@ -736,7 +733,7 @@ switch($intTimme)
 
       <h4>Exempel</h4>
 
-      <pre><code>function addera(tal1, tal2)
+      <pre><code class="language-php">function addera(tal1, tal2)
 {
 &nbsp; return tal1 + tal2;
 }</code></pre>
@@ -764,7 +761,7 @@ switch($intTimme)
       
       <h4>Syntax</h4>
       
-      <pre><code>for(initiering; slutvillkor; uppräkning)
+      <pre><code class="language-php">for(initiering; slutvillkor; uppräkning)
 &nbsp; satser;</code></pre>
     
       <h4>Exempel</h4>
@@ -776,10 +773,10 @@ switch($intTimme)
         strängen som skrivs ut utan att sammanfoga variabeln med två strängar (en
         på var sida om variabeln).</p>
       
-      <pre><code>for($varTal = 1; $varTal &lt;= 10; $varTal++)
+      <pre><code class="language-php">for($varTal = 1; $varTal &lt;= 10; $varTal++)
 &nbsp; print &quot;Talet är: $varTal &lt;BR&gt;&quot;;</code></pre>
     
-      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel kontrollstukturer 1.1</a></p>
+      <p class="align-center"><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel kontrollstukturer 1.1</a></p>
       
       <h3>foreach</h3>
       
@@ -790,7 +787,7 @@ switch($intTimme)
       
       <h4>Syntax</h4>
       
-      <pre><code>foreach($arrVektor as $varde)
+      <pre><code class="language-php">foreach($arrVektor as $varde)
 &nbsp; satser;
 
 foreach ($arr as $key =&gt; $value)
@@ -798,7 +795,7 @@ foreach ($arr as $key =&gt; $value)
     
       <h4>Exempel</h4>
       
-      <pre><code>$arrVektor[] = array(21, 22, 23);
+      <pre><code class="language-php">$arrVektor[] = array(21, 22, 23);
       
 foreach($arrVektor as $varde)
   &nbsp; print &quot;$varde | &quot;;
@@ -806,7 +803,7 @@ foreach($arrVektor as $varde)
 foreach ($arrVektor as $nyckel =&gt; $varde)
   &nbsp; print &quot;$nyckel : $varde&lt;br&gt;\n&quot;;</code></pre>
     
-      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
+      <p class="align-center"><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
         kontrollstrukturer 1.1</a></p>
       
       <h3>while</h3>
@@ -815,12 +812,12 @@ foreach ($arrVektor as $nyckel =&gt; $varde)
       
       <h4>Syntax</h4>
       
-      <pre><code>while(villkor)
+      <pre><code class="language-php">while(villkor)
 &nbsp; satser;</code></pre>
     
       <h4>Exempel</h4>
       
-      <pre><code>$intTal = 0;
+      <pre><code class="language-php">$intTal = 0;
 
 while($intTal &lt; 10)
 {
@@ -828,7 +825,7 @@ while($intTal &lt; 10)
 &nbsp; $intTal++;
 }</code></pre>
     
-      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel
+      <p class="align-center"><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel
         kontrollstrukturer 1.1 (igen)</a></p>
       
       <h3>do...while</h3>
@@ -839,13 +836,13 @@ while($intTal &lt; 10)
         
       <h4>Syntax</h4>
       
-      <pre><code>do
+      <pre><code class="language-php">do
 &nbsp; satser;
 while(villkor);</code></pre>
     
       <h4>Exempel</h4>
       
-      <pre><code>$intTal = 0
+      <pre><code class="language-php">$intTal = 0
 
 do
 {
@@ -853,7 +850,7 @@ do
 &nbsp; $intTal++;
 } while(intTal &lt; 10);</code></pre>
     
-      <p><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
+      <p class="align-center"><a href="kontrollstrukturer/ex1_1.php" target="_blank" class="button button-red">Exempel 
         kontrollstrukturer 1.1</a></p>
       
       <h3>break och continue</h3>
@@ -864,7 +861,7 @@ do
         
       <h4>Exempel</h4>
       
-      <pre><code>$intTimme = date("H");
+      <pre><code class="language-php">$intTimme = date("H");
 
 for($varTal = 0; $varTal &lt; 24; $varTal++)
 {
@@ -881,12 +878,8 @@ for($varTal = 0; $varTal &lt; 24; $varTal++)
 &nbsp;  print "$varTal | ";
 }</code></pre>
 
-      <p><a href="kontrollstrukturer/ex2.php" target="_blank" class="button button-red">Exempel 
+      <p class="align-center"><a href="kontrollstrukturer/ex2.php" target="_blank" class="button button-red">Exempel 
         kontrollstrukturer 1.1</a></p>
-
-      <p class="tillborjan"><a href="#">Till början</a> på sida |
-        <a href="lathund2.html">Till</a> del 2 |
-        <a href="../">Tillbaka</a> till PHP</p>
     </div>
     
     <div class="column column-33">
@@ -894,15 +887,24 @@ for($varTal = 0; $varTal &lt; 24; $varTal++)
       <p>(Kommer... eller???)</p>
     </div>
   </div>
+
+  <div class="row pt-4 align-center">
+    <div class="column">
+      <p class="tillborjan"><a href="#">Till början</a> på sida |
+        <a href="lathund2.html">Till</a> del 2 |
+        <a href="../">Tillbaka</a> till PHP</p>
+    </div>
+  </div>
 </div>
 
 <footer class="container">
-  <div class="row">
+  <div class="row pt-4 align-center">
     <div class="column column-100">
       <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
-        2005-05-01.</p>
+        2025-01-15.</p>
     </div>
   </div>
 </footer>
+<script src="/js/prism/prism.js"></script>
 </body>
 </html>

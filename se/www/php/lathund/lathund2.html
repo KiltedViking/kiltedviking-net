@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
@@ -22,15 +21,13 @@
   <title>PHP lathund (del 2) - Björns studiewebb</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
   <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
-  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
-  <script type="text/javascript" src="../../studiewebb.js"></script> -->
 </head>
 <body>
 <header class="container">
-  <div class="row">
+  <div class="row pt-4">
     <div class="column column-100">
       <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
         alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
@@ -99,108 +96,130 @@
 
       <h3><a name="funktioner-datum"></a>Datum och tid</h3>
 
-      <p>Klicka på funktionsnamnet för visa exempel (observera att webbserver
-        med denna webbsida måste stödja PHP för att exempel ska fungera).</p>
+      <p>Klicka på funktionsnamnet för visa exempel.</p>
 
-      <ul>
-        <li><a href="funktioner/date.php" class="externallink">date()</a> - returnerar en sträng med
+      <dl>
+        <dt><code><a href="funktioner/date.php" target="_blank">date()</a></code></dt>
+        <dd>Returnerar en sträng med
           aktuellt datum och tid. Som argument skickas en sträng med &quot;formattecken&quot;
           med vad som ska returneras. (Se dokumentation för funktion för vilka &quot;formattecken&quot;
-          som kan användas.)</li>
-        <li><a href="funktioner/getdate.php" class="externallink">getdate()</a> -
-          returnerar en vektor med datum och tids delar. (Se dokumentation för
-          vilka index vektorn innehåller.)</li>
-        <li><a href="funktioner/mktime.php" class="externallink">mktime()</a> -
-          returnerar ett heltal motsvarande tid och datum som ska skapas. Som
+          som kan användas.)</dd>
+        <dt><code><a href="funktioner/getdate.php" target="_blank">getdate()</a></code></dt>
+        <dd>Returnerar en vektor med datum och tids delar. (Se dokumentation för
+          vilka index vektorn innehåller.)</dd>
+        <dt><code><a href="funktioner/mktime.php" target="_blank">mktime()</a></code></dt>
+        <dd>Returnerar ett heltal motsvarande tid och datum som ska skapas. Som
           parametrar till metod skickas tids- och datumdelar (timme, minuter,
-          sekunder, månad, dag och år). Används lämpligen med funktionen date()
-          för att skriva ut datum.</li>
-        <li><a href="funktioner/strftime.php" class="externallink">strftime()</a> -
-          returnerar en sträng med datum och tid - antingen aktuellt eller det som
+          sekunder, månad, dag och år). Används lämpligen med funktionen <code>date()</code>
+          för att skriva ut datum.</dd>
+        <dt><code><a href="funktioner/strftime.php" target="_blank">strftime()</a></code></dt>
+        <dd>Returnerar en sträng med datum och tid - antingen aktuellt eller det som
           skickas som andra parameter till metod. Som första parameter skickas
-          sträng med &quot;formattecken&quot; (inte samma som för date() dock!).</li>
-        <li><a href="funktioner/strtotime.php" class="externallink">strtotime()</a> -
-          returnerar ett heltal motsvarande tid och datum som skickas som
-          parameter till metod. Används lämpligen med funktionen date() för att
-          skriva ut datum.</li>
-        <li><a href="funktioner/time.php" class="externallink">time()</a> -
-          returnerar ett heltal motsvarande aktuell tid och datum. Används
-          lämpligen med funktionen date() för att skriva ut datum.</li>
-      </ul>
+          sträng med &quot;formattecken&quot; (inte samma som för <code>date()</code> dock!).</dd>
+        <dt><code><a href="funktioner/strtotime.php" target="_blank">strtotime()</a></code></dt>
+        <dd>Returnerar ett heltal motsvarande tid och datum som skickas som
+          parameter till metod. Används lämpligen med funktionen <code>date()</code> för att
+          skriva ut datum.</dd>
+        <dt><code><a href="funktioner/time.php" target="_blank">time()</a></code></dt>
+        <dd>Returnerar ett heltal motsvarande aktuell tid och datum. Används
+          lämpligen med funktionen <code>date()</code> för att skriva ut datum.</dd>
+      </dl>
       
-      <p><b>Observera</b> att datum brukar kunna ställa till problem!
-        Datumformaten är olika i olika länder, t.ex. Sverige ([YY]YY-MM-DD),
-        Storbritannien (DD/MM/YY) och USA (MM/DD/YY). Kontrollera därför hur
-        datumen fungerar (vilket format dom har) på datorn du ska placera
-        PHP-sidorna på!</p>
-
+      <div class="">
+        <p><b>Observera</b> att datum brukar kunna ställa till problem!
+          Datumformaten är olika i olika länder, t.ex. Sverige ([YY]YY-MM-DD),
+          Storbritannien (DD/MM/YY) och USA (MM/DD/YY). Kontrollera därför hur
+          datumen fungerar (vilket format dom har) på datorn du ska placera
+          PHP-sidorna på!
+        </p>
+      </div>
+          
       <h3><a name="funktioner-konvertering"></a>Konvertering</h3>
 
       <p>Konvertering i PHP sker med cast-operatorer, d.v.s. precis som i Java.
         Det finns fyra datatyper som kan konverteras till: int, float, string och
         array.</p>
 
-      <div class="exempel">
-        <p>$heltal = (int)$strang;</p>
-      </div>
+      <pre><code class="language-php">$heltal = (int)$strang;</code></pre>
 
       <h3><a name="funktioner-matematiska"></a>Matematiska</h3>
 
-      <ul>
-        <li>rand() - returnerar ett slumpmässigt heltal. Som parametrar till
-          funktion kan min- och maxvärde skickas.</li>
-      </ul>
+      <dl>
+        <dt><code>rand()</code></dt>
+        <dd>Returnerar ett slumpmässigt heltal. Som parametrar till
+          funktion kan min- och maxvärde skickas.</dd>
+      </dl>
 
       <h3><a name="funktioner-strangar"></a>Strängar</h3>
 
-      <p>Nedanstående funktioner returnerar en ny (manipulerad) sträng:</p>
+      <p>Nedanstående funktioner returnerar en ny (manipulerad) sträng, d.v.s. ursprunglig
+        sträng är oförändrad.
+      </p>
 
-      <ul>
-        <li>htmlentities() - konverterar alla specialtecken i HTML (t.ex. &amp; och
-          &quot;) till HTML-kod i sträng som skickas som parameter.</li>
-        <li>htmlspecialchars() - konverterar de viktigaste specialtecknen i HTML
-          (&amp;, &quot;, ', &lt; och &gt;) till HTML-kod i sträng som skickas som parameter.</li>
-        <li>ltrim() - returnerar sträng som skickas som parameter utan inledande
-          mellanslag.</li>
-        <li>money_format() - returnerar en sträng formaterad som valuta. Används
-          lämpligen tillsammans med funktionen setlocale().</li>
-        <li>number_format() - returnerar en formaterad sträng.</li>
-        <li>printf() - skriver ut en formaterad sträng (som i C).</li>
-        <li>rtrim() - returnerar sträng som skickas som parameter utan
-          avslutande mellanslag.</li>
-        <li>sprintf() - returnerar en formaterad sträng (som i C).</li>
-        <li>str_pad() - returnerar en sträng av viss längd (skickad som andra
+      <dl>
+        <dt><code>htmlentities()</code></dt>
+        <dd>Konverterar alla specialtecken i HTML (t.ex. &amp; och
+          &quot;) till HTML-kod i sträng som skickas som parameter.</dd>
+        <dt><code>htmlspecialchars()</code></dt>
+        <dd>Konverterar de viktigaste specialtecknen i HTML
+          (&amp;, &quot;, ', &lt; och &gt;) till HTML-kod i sträng som skickas som parameter.</dd>
+        <dt><code>ltrim()</code></dt>
+        <dd>Returnerar sträng som skickas som parameter utan inledande mellanslag.</dd>
+        <dt><code>money_format()</code></dt>
+        <dd>Returnerar en sträng formaterad som valuta. Används
+          lämpligen tillsammans med funktionen <code>setlocale()</code>.</dd>
+        <dt><code>number_format()</code></dt>
+        <dd>Returnerar en formaterad sträng.</dd>
+        <dt><code>printf()</code></dt>
+        <dd>Skriver ut en formaterad sträng (som i C).</dd>
+        <dt><code>rtrim()</code></dt>
+        <dd>Returnerar sträng som skickas som parameter utan avslutande mellanslag.</dd>
+        <dt><code>sprintf()</code></dt>
+        <dd>Returnerar en formaterad sträng (som i C).</dd>
+        <dt><code>str_pad()</code></dt>
+        <dd>Returnerar en sträng av viss längd (skickad som andra
           parameter) där sträng fyllts ut med blanksteg eller ev. tecken som
           skickats som tredje parameter. Sträng som fylls ut skickas som första
-          parameter.</li>
-        <li>str_replace() - ersätter alla förekomster av en sträng i en annan
-          sträng med värdet av en tredje sträng.</li>
-        <li>strchr() - se strstr().</li>
-        <li>strlen() - returnerar längden av en sträng (som skickas som
-          parameter).</li>
-        <li>strpos() - returnerar position i en sträng som en andra sträng
-          förekommer.</li>
-        <li>strrpos() - som strpos() fast börjar leta bakifrån.</li>
-        <li>strstr() - returnerar resterande tecken i sträng fr.o.m. första
+          parameter.</dd>
+        <dt><code>str_replace()</code></dt>
+        <dd>Ersätter alla förekomster av en sträng i en annan
+          sträng med värdet av en tredje sträng.</dd>
+        <dt><code>strchr()</code></dt>
+        <dd>Se <code>strstr()</code>.</dd>
+        <dt><code>strlen()</code></dt>
+        <dd>Returnerar längden av en sträng (som skickas som parameter).</dd>
+        <dt><code>strpos()</code></dt>
+        <dd>Returnerar position i en sträng som en andra sträng förekommer.</dd>
+        <dt><code>strrpos()</code></dt>
+        <dd>Som <code>strpos()</code> fast börjar leta bakifrån.</dd>
+        <dt><code>strstr()</code></dt>
+        <dd>Returnerar resterande tecken i sträng fr.o.m. första
           förekomsten av en andra sträng. Som första parameter skickas sträng att
-          söka i och som andra sträng att söka efter.</li>
-        <li>substr() - returnerar en delsträng av en sträng. Första parameter är
+          söka i och som andra sträng att söka efter.</dd>
+        <dt><code>substr()</code></dt>
+        <dd>Returnerar en delsträng av en sträng. Första parameter är
           sträng att kopiera från och som andra parameter första position att
-          kopiera från. Som tredje parameter kan antal tecken att kopiera skickas.</li>
-        <li>trim() - returnerar sträng som skickas som parameter utan inledande
-          eller avslutande mellanslag.</li>
-      </ul>
+          kopiera från. Som tredje parameter kan antal tecken att kopiera skickas.</dd>
+        <dt><code>trim()</code></dt>
+        <dd>Returnerar sträng som skickas som parameter utan inledande
+          eller avslutande mellanslag.</dd>
+      </dl>
 
       <h3><a name="funktioner-variabler"></a>Variabler</h3>
+      <p>Funktioner för att testa vad variabler innehåll, om något.</p>
 
-      <ul>
-        <li>isset() - returnerar sant om variabel har satts till ett värde
-          (initierats).</li>
-        <li>is_xxx() - returnerar sant om en variabel är av en viss typ (ersätt
-          xxx med typ som ska kontrolleras, t.ex. is_array(), is_float()).</li>
-        <li>unset() - förstör värde i variabel (d.v.s. isset() kommer returnera
-          falskt).</li>
-      </ul>
+      <dl>
+        <dt><code>isset()</code></dt>
+        <dd>Returnerar sant om variabel har satts till ett värde
+          (initierats).</dd>
+        <dt><code>is_xxx()</code></dt>
+        <dd>Returnerar sant om en variabel är av en viss typ (ersätt
+        <code>xxx</code> med typ som ska kontrolleras, t.ex. <code>is_array()</code>
+        eller <code>is_float()</code>).</dd>
+        <dt><code>unset()</code></dt>
+        <dd>Förstör värde i variabel (d.v.s. <code>isset()</code> kommer returnera
+          falskt).</dd>
+      </dl>
 
       <h3><a name="funktioner-vektorer"></a>Vektorer</h3>
 
@@ -208,30 +227,44 @@
         t.ex. sortera innehåll i vektorer. VI kan även använda en s.k.
         elementpekare för att hålla reda på aktuell position i vektor.</p>
 
-      <ul>
-        <li>asort() - sorterar vektor fallande på värde och behåller association
-          med elementens nycklar (index). Används främst då index är strängar.</li>
-        <li>asort() - sorterar vektor stigande på värde och behåller association
-          med elementens nycklar (index). Används främst då index är strängar.</li>
-        <li>count() - returnerar heltal med antal positioner i vektor.</li>
-        <li>current() - returnerar aktuellt elements värde. Används främst
-          tillsammans med funktioner som next() och prev.</li>
-        <li>each() - returnerar aktuellt elements nyckel och värde.</li>
-        <li>key() - returnerar aktuelt elements nyckel.</li>
-        <li>krsort() - sorterar vektor fallande efter nyckel. Används främst då
-          index är strängar.</li>
-        <li>ksort() - sorterar vektor stigande efter nyckel. Används främst då
-          index är strängar.</li>
-        <li>next() - flyttar elementpekare till nästa element.</li>
-        <li>prev() - flyttar elementpekare till föregående element.</li>
-        <li>reset() - flyttar elementpekare till första elementet i vektorn.</li>
-        <li>rsort() - sorterar vektor fallande efter värde. Används främst då
-          index är ett tal motsvarande position i vektor.</li>
-        <li>sort() - sorterar vektor stigande efter värde. Används främst då
-          index är ett tal motsvarande position i vektor.</li>
-        <li>usort() - sorterar vektor m.h.a. funktion som skickas som andra
-          parameter.</li>
-      </ul>
+      <dl>
+        <dt><code>asort()</code></dt>
+        <dd>Sorterar vektor fallande på värde och behåller association
+          med elementens nycklar (index). Används främst då index är strängar.</dd>
+        <dt><code>asort()</code></dt>
+        <dd>Sorterar vektor stigande på värde och behåller association
+          med elementens nycklar (index). Används främst då index är strängar.</dd>
+        <dt><code>count()</code></dt>
+        <dd>Returnerar heltal med antal positioner i vektor.</dd>
+        <dt><code>current()</code></dt>
+        <dd>Returnerar aktuellt elements värde. Används främst
+          tillsammans med funktioner som next() och prev.</dd>
+        <dt><code>each()</code></dt>
+        <dd>Returnerar aktuellt elements nyckel och värde.</dd>
+        <dt><code>key()</code></dt>
+        <dd>Returnerar aktuelt elements nyckel.</dd>
+        <dt><code>krsort()</code></dt>
+        <dd>Sorterar vektor fallande efter nyckel. Används främst då
+          index är strängar.</dd>
+        <dt><code>ksort()</code></dt>
+        <dd>Sorterar vektor stigande efter nyckel. Används främst då
+          index är strängar.</dd>
+        <dt><code>next()</code></dt>
+        <dd>Flyttar elementpekare till nästa element.</dd>
+        <dt><code>prev()</code></dt>
+        <dd>Flyttar elementpekare till föregående element.</dd>
+        <dt><code>reset()</code></dt>
+        <dd>Flyttar elementpekare till första elementet i vektorn.</dd>
+        <dt><code>rsort()</code></dt>
+        <dd>Sorterar vektor fallande efter värde. Används främst då
+          index är ett tal motsvarande position i vektor.</dd>
+        <dt><code>sort()</code></dt>
+        <dd>Sorterar vektor stigande efter värde. Används främst då
+          index är ett tal motsvarande position i vektor.</dd>
+        <dt><code>usort()</code></dt>
+        <dd>Sorterar vektor m.h.a. funktion som skickas som andra
+          parameter.</dd>
+      </dl>
 
       <p class="tillborjan"><a href="#borjan">Till början</a> på sida</p>
 
@@ -248,39 +281,49 @@
       <p>Många av de globala vektorerna innehåller samma data som andra
         vektorer. Nedan beskrivs de mest intressanta.</p>
 
-      <ul>
-        <li>$_SERVER - innehåller data om webbserver och klienten (webbläsaren).</li>
-        <li>$_GET - innehåller data från en HTTP-GET-begäran.</li>
-        <li>$_POST - innehåller data från en HTTP-POST-begäran.</li>
-        <li>$_COOKIE - innehåller HTTP-begärans alla cookies.</li>
-        <li>$_REQUEST - innehåller samma data som i $_GET/$_POST och $_COOKIE.</li>
-        <li>$_SESSION - </li>
-        <li>$GLOBALS - innehåller allt som finns i ovanstående vektorer.</li>
-      </ul>
+      <dl>
+        <dt><code>$_SERVER</code></dt>
+        <dd>Innehåller data om webbserver och klienten (webbläsaren).</dd>
+        <dt><code>$_GET</code></dt>
+        <dd>Innehåller data från en HTTP-GET-begäran.</dd>
+        <dt><code>$_POST</code></dt>
+        <dd>Innehåller data från en HTTP-POST-begäran.</dd>
+        <dt><code>$_COOKIE</code></dt>
+        <dd>Innehåller HTTP-begärans alla cookies.</dd>
+        <dt><code>$_REQUEST</code></dt>
+        <dd>Innehåller samma data som i <code>$_GET</code>/<code>$_POST</code> och <code>$_COOKIE</code>.</dd>
+        <dt><code>$_SESSION</code></dt>
+        <dd></dd>
+        <dt><code>$GLOBALS</code></dt>
+        <dd>Innehåller allt som finns i ovanstående vektorer.</dd>
+      </dl>
 
-      <p>Ytterligare vektorer är $_ENV och $_FILES</p>
+      <p>Ytterligare vektorer är <code>$_ENV</code> och <code>$_FILES</code>.</p>
 
       <p class="kommentar">I exempelsidor nedan så finns två formulär - ett som
         skickas med HTTP-GET och ett som skickas med HTTP-POST för att olika
         innehåll i vektorer ska kunna testas.</p>
 
-      <h4>Vektorn $_SERVER</h4>
+      <h4>Vektorn <code>$_SERVER</code></h4>
 
       <p>Några av de värden som är av intresse finns bakom nedanstående index</p>
 
-      <ul>
-        <li>'SCRIPT_NAME', 'URL', 'PHP_SELF' - tre värden som refererar till
-          samma sak</li>
-        <li>'HTTP_REFERER' - adress som webbläsare kom ifrån (den webbsida som
-          länkar till aktuell webbsida).</li>
-        <li>'REMOTE_ADDR' - IP-adress för klient, t.ex. 193.11.82.11.</li>
-        <li>'REMOTE_HOST' - URL för klient, bpn.eki.mdh.se.</li>
-        <li>'PATH_TRANSLATED' - fysisk sökväg till webbsida på webbserver.</li>
-      </ul>
+      <dl>
+        <dt><code>'SCRIPT_NAME'</code>, <code>'URL'</code>, <code>'PHP_SELF'</code></dt>
+        <dd>Tre värden som refererar till samma sak</dd>
+        <dt><code>'HTTP_REFERER'</code></dt>
+        <dd>Adress som webbläsare kom ifrån (den webbsida som länkar till aktuell webbsida).</dd>
+        <dt><code>'REMOTE_ADDR'</code></dt>
+        <dd>IP-adress för klient, t.ex. 193.11.82.11.</dd>
+        <dt><code>'REMOTE_HOST'</code></dt>
+        <dd>URL för klient, t.ex. bpn.example.com.</dd>
+        <dt><code>'PATH_TRANSLATED'</code></dt>
+        <dd>Fysisk sökväg till webbsida på webbserver.</dd>
+      </dl>
 
       <p>Se <a href="globalvars/server.php" class="externallink">exempel</a>.</p>
 
-      <h4>Vektorerna $_GET och $_POST</h4>
+      <h4>Vektorerna <code>$_GET</code> och <code>$_POST</code></h4>
 
       <p>Dessa två vektorer innehåller data som skickats från formulär. D.v.s.
         innehållet i respektive vektor beror alltså på hur formulär skickats -
@@ -288,17 +331,17 @@
         HTTP-POST.</p>
 
       <p>Denna vektor innehåller index som motsvarar de fält som finns i
-        formulär. D.v.s. om vi har ett fält med namnet 'anvid' så kommer det
+        formulär. D.v.s. om vi har ett fält med namnet <code>anvid</code> så kommer det
         finnas ett motsvarande index med samma namn i denna vektor. Viktigt är att
         använda rätt skiftläge (gemener och versaler) som namn på fält i formulär.</p>
 
       <p>Se <a href="globalvars/get_post.php" class="externallink">exempel</a>.</p>
 
-      <p>Data i dessa vektorer kan även nås via vektorn $_REQUEST (och på ett
-        lite krångligare sätt via vektorn $GLOBALS - främst för
+      <p>Data i dessa vektorer kan även nås via vektorn <code>$_REQUEST</code> (och på ett
+        lite krångligare sätt via vektorn <code>$GLOBALS</code> - främst för
         bakåtkompabilitet.)</p>
 
-      <h4>Vektorn $_COOKIE</h4>
+      <h4>Vektorn <code>$_COOKIE</code></h4>
 
       <p>Denna vektor innehåller index som motsvarar de cookies som skrivits
         till besökarens webbläsare. D.v.s. om vi skriver en cookie med namnet 'anvid'
@@ -306,12 +349,13 @@
         Viktigt är att använda rätt skiftläge (gemener och versaler) som namn på
         cookie.</p>
 
-      <p>Data i denna vektor kan även nås via vektorn $_REQUEST (och på ett lite
-        krångligare sätt via vektorn $GLOBALS - främst för bakåtkompabilitet.)</p>
+      <p>Data i denna vektor kan även nås via vektorn <code>$_REQUEST</code> (och på ett lite
+        krångligare sätt via vektorn <code>$GLOBALS</code> - främst för bakåtkompabilitet.)</p>
 
-      <h4>Vektorn $_REQUEST</h4>
+      <h4>Vektorn <code>$_REQUEST</code></h4>
 
-      <p>Se beskrivningar för vektorerna $_GET/$_POST och $_COOKIE.</p>
+      <p>Se beskrivningar för vektorerna <code>$_GET</code>/<code>$_POST</code> och 
+        <code>$_COOKIE</code>.</p>
 
       <p>Eftersom denna vektor innehåller både cookies och data från formulär så
         måste vi se till att vi inte använder samma namn på en cookie och ett fält
@@ -319,16 +363,16 @@
 
       <p>Se <a href="globalvars/server.php" class="externallink">exempel</a>.</p>
 
-      <h4>Vektorn $_SESSION</h4>
+      <h4>Vektorn <code>$_SESSION</code></h4>
 
       <p>Denna vektor innehåller eventuella värden på sessionsvariabler.</p>
 
       <p>Som standard så aktiveras inte sessioner för alla besökare, vilket gör
         att denna vektor inte alltid är tillgänglig (d.v.s. odefinierad). Detta
-        kan ändras i konfigurationsfilen (PHP.INI - sätt session.auto_start till
-        1) eller session manuellt startas med funktionen session_start().</p>
+        kan ändras i konfigurationsfilen (<code>php.ini</code> - sätt <code>session.auto_start</code>
+        till 1) eller session manuellt startas med funktionen <code>session_start()</code>.</p>
 
-      <h4>Vektorn $GLOBALS</h4>
+      <h4>Vektorn <code>$GLOBALS</code></h4>
 
       <p>Denna vektor innehåller som sagt de flesta andra data från övriga
         vektorer. Men några nås via andra sätt (bl.a. innehåll i formulär). Denna
@@ -337,12 +381,12 @@
       <h3>&quot;Namngivna&quot; variabler</h3>
 
       <p>De &quot;namngivna&quot; variablerna motsvarar namnen på index i variabler ovan.
-        Eftersom det är variabler så sätter vi ett dollartecken framför, t.ex. $SCRIPT_NAME
-        och $REMOTE_ADDR som motsvarar samma index i vektorn $_SERVER.</p>
+        Eftersom det är variabler så sätter vi ett dollartecken framför, t.ex. <code>$SCRIPT_NAME</code>
+        och <code>$REMOTE_ADDR</code> som motsvarar samma index i vektorn <code>$_SERVER</code>.</p>
 
       <p>Bland dessa variabler så hittas även de som motsvarar fält i formulär.
-        D.v.s. om vi har ett fält med namnet 'anvid' så kommer det finnas en
-        motsvarande variabel med samma namn (med ett dollartecken före, d.v.s. $anvid).
+        D.v.s. om vi har ett fält med namnet <code>anvid</code> så kommer det finnas en
+        motsvarande variabel med samma namn (med ett dollartecken före, d.v.s. <code>$anvid</code>).
         Viktigt är att använda rätt skiftläge (gemener och versaler) som namn på
         fält i formulär.</p>
 
@@ -366,12 +410,13 @@
   </div>
 </div>
 <footer class="container">
-  <div class="row">
+  <div class="row pt-4 align-center">
     <div class="column column-100">
       <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
-        2005-05-01.</p>
+        2025-01-15.</p>
     </div>
   </div>
 </footer>
+<script src="/js/prism/prism.js"></script>
 </body>
 </html>

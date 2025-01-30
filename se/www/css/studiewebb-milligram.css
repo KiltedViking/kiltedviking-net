@@ -8,9 +8,13 @@ header.container, footer.container { background-color: #E03C31; color: #FEDB00; 
 
 .container  a { color: #E03C31; }
 
+
 .button-red, a.button-red { background-color: #E03C31; color: #FEDB00; }
 .button-red:hover, a.button-red:hover { background-color: #FEDB00; color: #E03C31; }
- 
+
+.align-center { text-align: center; }
+.mt-4 { margin-top: 1rem; }
+.pt-4 { padding-top: 2rem; }
 
 .panel {
   color: black;

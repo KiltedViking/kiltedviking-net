@@ -10,7 +10,6 @@
 	<!-- End Google Tag Manager -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Webbutveckling på svenska. Introduktion till PHP." />
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Björns studiewebb - Webbutveckling på svenska: PHP" />
@@ -22,15 +21,13 @@
   <title>PHP och databaser (MySQLi) - Björns studiewebb</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"> -->
   <link href="../../css/milligram.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/prism/prism.css">
   <link href="../../css/studiewebb-milligram.css" rel="stylesheet" />
-  <!-- <script type="text/javascript" src="../../addLoadEvent.js"></script>
-  <script type="text/javascript" src="../../studiewebb.js"></script> -->
 </head>
 <body>
 <header class="container">
-  <div class="row">
+  <div class="row pt-4">
     <div class="column column-100">
       <a href="../../"><img src="../../bilder/logony1.jpg" class="float-right"
         alt="Logotyp f&ouml;r Bj&ouml;rns studiewebb" width="155" height="54" /></a>
@@ -112,7 +109,7 @@
       <h3 id="oppna">Öppna (en) databas</h3>
 
       <p>För att ansluta till databas skapas en instans (ett objekt) av klassen
-        mysqli. Data om anslutningen bifogas lämpligen som parametrar till
+        <code>mysqli</code>. Data om anslutningen bifogas lämpligen som parametrar till
         klassens konstruktor när instansen skapas.</p>
 
       <p>I exempel nedan deklareras variabler för respektive parameter som
@@ -123,20 +120,20 @@
         sist i strängen). Om MySQL installerats lokalt så kan vi använda localhost
         som adress till server.</p>
 
-      <pre><code>$strServer = &quot;server.example.com:3306&quot;;
+      <pre><code class="language-php">$strServer = &quot;server.example.com:3306&quot;;
 $strAnvId = &quot;mysql_anvid&quot;;
 $strLosenord = &quot;mysql_losenord&quot;;
 $strDatabas = &quot;test&quot;;
 &nbsp;
 $db = new mysqli($strServer, $strAnvId, $strLosenord, $strDatabas);</code></pre>
     
-      <p>Variabeln $db innehåller nu instansen som representerar anslutningen till databasen,
+      <p>Variabeln <code>$db</code> innehåller nu instansen som representerar anslutningen till databasen,
         en variabel som vi använder för att utföra kommando mot databasen (t.ex.
         stänga anslutningen).</p>
 
       <h3 id="exekvera">Exekvera kommando (SQL-sats)</h3>
 
-      <p>För att utföra ett kommando använder vi metoden query() i
+      <p>För att utföra ett kommando använder vi metoden <code>query()</code> i
         databasinstansen vars enda parameter är SQL-sats som ska utföras.
         Metoden returnerar olika värden - allt beroende på vilken typ av
         kommando som utförs: hämta poster (SELECT) eller uppdatera poster
@@ -144,13 +141,13 @@ $db = new mysqli($strServer, $strAnvId, $strLosenord, $strDatabas);</code></pre>
 
       <h4>Hämta poster (SELECT)</h4>
 
-      <p>När vi hämtar poster så returnerar metoden query() posterna i
+      <p>När vi hämtar poster så returnerar metoden <code>query()</code> posterna i
         en instans av klassen result om kommando lyckades. Om kommando
-        misslyckas så kommer metoden returnera FALSE.</p>
+        misslyckas så kommer metoden returnera <code>FALSE</code>.</p>
 
       <p>Även här använder jag en variabel för parametern.</p>
 
-      <pre><code>$strSql = &quot;SELECT * FROM studenter&quot;;
+      <pre><code class="language-php">$strSql = &quot;SELECT * FROM studenter&quot;;
 if($resultat = $db-&gt;query($strSql)) {
 &nbsp; //Manipulera poster (se avsnitt nedan)
 }
@@ -158,29 +155,29 @@ else {
 &nbsp; //Meddela besökare att kommando inte returnerade några poster
 }</code></pre>
 
-      <p>Variabeln $resultat innehåller nu alla poster från tabellen studenter
-        om SQL-sats utfördes - annars innehåller variabeln FALSE. Detta faktum
+      <p>Variabeln <code>$resultat</code> innehåller nu alla poster från tabellen studenter
+        om SQL-sats utfördes - annars innehåller variabeln <code>FALSE</code>. Detta faktum
         används i if-sats ovan för att avgöra vad som ska göras. Nästa steg är
         att manipulera posterna, d.v.s. skriva ut innehållet i posterna (se nästa
         avsnitt för detta).</p>
 
       <h4>Uppdatera poster (INSERT, UPDATE och DELETE)</h4>
 
-      <p>Även när vi uppdaterar poster så använder vi metoden query().
-        Skillnaden mot att hämta poster är att metoden returnerar TRUE om
-        SQL-sats utfördes och FALSE om den misslyckades.</p>
+      <p>Även när vi uppdaterar poster så använder vi metoden <code>query()</code>.
+        Skillnaden mot att hämta poster är att metoden returnerar <code>TRUE</code> om
+        SQL-sats utfördes och <code>FALSE</code> om den misslyckades.</p>
 
-      <pre><code>$strSql = &quot;INSERT INTO studenter (persnr, namn) VALUES('12', 'Ola')&quot;;
+      <pre><code class="language-php">$strSql = &quot;INSERT INTO studenter (persnr, namn) VALUES('12', 'Ola')&quot;;
 $resultat = $db-&gt;query($strSql);</code></pre>
     
-      <p>Variabeln $resultat kommer som sagt att innehålla TRUE eller FALSE
+      <p>Variabeln <code>$resultat</code> kommer som sagt att innehålla <code>TRUE</code> eller <code>FALSE</code>
         (d.v.s. inte en instans), allt beroende på om SQL-sats lyckades eller
         inte. För att ta reda på hur många poster som påverkades av (senaste)
-        SQL-sats så kan vi använda egenskapen affected_rows i databasinstansen.
+        SQL-sats så kan vi använda egenskapen <code>affected_rows</code> i databasinstansen.
         Om SQL-sats är ogiltig så returneras ett negativt värde från egenskapen
-        affected_rows.</p>
+        <code>affected_rows</code>.</p>
 
-      <pre><code>$intAntal = $db-&gt;affected_rows;
+      <pre><code class="language-php">$intAntal = $db-&gt;affected_rows;
 print &quot;Antal påverkade poster: $intAntal&quot; ;</code></pre>
     
       <h3 id="manipulera">Manipulera poster</h3>
@@ -192,7 +189,7 @@ print &quot;Antal påverkade poster: $intAntal&quot; ;</code></pre>
 
       <p>För att hämta data från resultatinstansen så kan vi använda flera olika
         sätt. Ett av det vanligaste sättet är att hämta en post åt gången. Nedan
-        beskrivs hur vi använder metoden fetch_assoc() för att hämta en
+        beskrivs hur vi använder metoden <code>fetch_assoc()</code> för att hämta en
         post som en vektor - en vektor där index i vektor motsvarar namn på
         kolumner i SQL-satsen. När metoden anropas så flyttas postpekaren (den
         till aktuell post) till nästa post. När vi nått sista posten så kommer
@@ -202,7 +199,7 @@ print &quot;Antal påverkade poster: $intAntal&quot; ;</code></pre>
       <p>Om vi hämtar poster ur en tabell studenter med kolumnerna &quot;persnr&quot; och
         &quot;namn&quot; så skulle koden kunna se ut enligt följande:</p>
 
-      <pre><code>while($rad = $db-&gt;fetch_assoc($resultat) {
+      <pre><code class="language-php">while($rad = $db-&gt;fetch_assoc($resultat) {
 &nbsp; print &quot;studentdata: &quot;&nbsp; //Skriv ut ledtext
 &nbsp; print $rad['persnr'];&nbsp; //Skriv ut innehåll i kolumnen persnr
 &nbsp; print &quot; &quot;;             //Skriv ut ett mellanslag
@@ -210,12 +207,12 @@ print &quot;Antal påverkade poster: $intAntal&quot; ;</code></pre>
 &nbsp; print &quot;&lt;br&gt;&quot;;          //Skriv ut en radbrytning i HTML
 }</code></pre>
 
-      <p>Index i vektorn $rad, som returneras från metoden fetch_assoc(), kommer
+      <p>Index i vektorn <code>$rad</code>, som returneras från metoden <code>fetch_assoc()</code>, kommer
         heta samma som kolumnerna i tabellen som SQL-sats hämtade poster från.</p>
 
       <p>Resultatet av koden ovan skull kunna se ut något liknande:</p>
 
-      <pre><code>studentdata: 12 Ola
+      <pre><code class="language-html">studentdata: 12 Ola
 studentdata: 24 Benkt</code></pre>
 
       <h3 id="stanga">Stäng databas</h3>
@@ -227,10 +224,10 @@ studentdata: 24 Benkt</code></pre>
         minne och antalet anslutningar till databas, vilka brukar vara
         begränsade).</p>
 
-      <p>För att stänga en anslutning så använder vi metoden close() i
+      <p>För att stänga en anslutning så använder vi metoden <code>close()</code> i
         databasinstans.</p>
 
-      <pre><code>$db-&gt;close();</code></pre>
+      <pre><code class="language-php">$db-&gt;close();</code></pre>
     
       <p><a href="#">Till början</a> på sida | <a href="../">Tillbaka</a> till PHP</p>
     </div>
@@ -243,12 +240,13 @@ studentdata: 24 Benkt</code></pre>
 </div>
 
 <footer class="container">
-  <div class="row">
+  <div class="row pt-4 align-center">
     <div class="column column-100">
       <p><b>Skapad av:</b> Björn G D Persson. <b>Uppdaterad:</b>
-        2005-05-01.</p>
+        2025-01-18.</p>
     </div>
   </div>
 </footer>
+<script src="/js/prism/prism.js"></script>
 </body>
 </html>
