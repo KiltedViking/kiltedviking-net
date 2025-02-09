@@ -87,25 +87,29 @@
             <li class="menuitem"><a href="#who_is" class="menuitem">Who is Bj&ouml;rn?</a></li>
             <li class="menuitem"><a href="#education" class="menuitem">Education</a></li>
             <li class="menuitem"><a href="#work_experience" class="menuitem">Work experience</a></li>
-            <li class="menuitem"><a href="#languages" class="menuitem">Languages, technologies, and tools</a></li>
+            <li class="menuitem"><a href="#knowledge" class="menuitem">Programming languages, technologies, and tools</a></li>
+            <li class="menuitem"><a href="#languages" class="menuitem">Languages</a></li>
             <li class="menuitem"><a href="#interests" class="menuitem">Interests</a></li>
             <li class="menuitem"><a href="#projects" class="menuitem">Private projects</a></li>
+            <li class="menuitem"><a href="#accomplishments" class="menuitem">Private accomplishments</a></li>
           </ul>
         </nav>
 
-        <h4 class="mt-4"><a id="who_is">Who is Bj&ouml;rn?</a></h4>
+        <h4 id="who_is" class="mt-4">Who is Bj&ouml;rn?</h4>
         
         <p>I was born in B&aring;stad in the south of Sweden in 1970 by a Swedish father and
           a Scottish mother. Most of my summers were spent in Scotland
           visiting my grandmother and aunt. This, and my mother speaking English
           to me, meant I became bilingual and fluent in both Swedish and English.
-          Five years have also been spent studying German - a language I
-          understand and might be able to speak again with some practice.</p>
+        </p>
 
         <p>I now live in Stockholm, the Swedish capital, but I have also
           lived in the towns Halmstad, V&auml;xj&ouml;, Eskilstuna, and
-          V&auml;ster&aring;s. While working for M&auml;lardalen University
-          (1999), I bought a house in Eskilstuna, which I sold in 2006.</p>
+          V&auml;ster&aring;s. While working for M&auml;lardalen University,
+          I bought a house in Eskilstuna in 1999, which I sold in 2006. But for my
+          flat and work, there is nothing tying me to my current location and I’d relish
+          a new location to explore (but I would miss my local friends and colleagues).
+        </p>
 
         <p>My interest for computers started when my childhood friend lured me
           to start, what was to become, one of Sweden's largest BBS:es
@@ -120,7 +124,7 @@
           helping others, seeing them smile when the understand or things
           work, is gratifying for me.</p>
 
-        <h4 class="mt-4"><a name="education">Education</a></h4>
+        <h4 id="education" class="mt-4">Education</h4>
         
         <p>Compulsory school in Sweden is (or was when I went to school)
           nine years, preparing you for 'optional' (upper) secondary school
@@ -173,7 +177,7 @@
           platforms (PC, Mac, and UNIX computers) using different operating
           systems (DOS, Windows, OS/2, MacOS, Linux, and UNIX).</p>
 
-        <h4 class="mt-4"><a name="work_experience">Work experience</a></h4>
+        <h4 id="work_experience" class="mt-4">Work experience</h4>
 
         <table class="table table-striped">
           <tr>
@@ -220,10 +224,10 @@
               University, Eskilstuna/V&auml;ster&aring;s</td>
           </tr>
           <tr>
-            <td>2008 (Sept) - </td>
+            <td>2008 (Sept) - 2025 (Aug)</td>
             <td>Systems Administrator and Developer,
               Ecolabelling Sweden (Milj&ouml;m&auml;rkning Sverige AB, formerly 
-              SIS Ecolabelling AB), Stockholm</td>
+              SIS Milj&ouml;m&auml;rkning AB), Stockholm</td>
           </tr>
         </table>
 
@@ -276,12 +280,13 @@
           site using HTML, CSS, SSI, PHP, and some older systems in ASP.
           Data was stored in MySQL and Oracle servers.</p>
           
-        <p>While working at SIS Ecolabelling, later renamed to Ecolabelling
-          Sweden, I maintained and developed web sites using ASP.NET and 
-          SQL Server. The web sites where custom developed systems. I also
-          maintained informational web sites using a custom version of ISpyBuy 
-          Portal, DotNetNuke, and EPiServer as CMS, which required some 
-          development.</p>
+        <p>While working at Ecolabelling Sweden, I maintained and developed web 
+          sites using ASP.NET and SQL Server. The web sites where custom developed 
+          systems. I also maintained informational web sites using a custom version
+          of ISpyBuy Portal, DotNetNuke, and EPiServer as CMS, which required some 
+          development, both frontend and backend. I also installed and maintained
+          the company's computers as well as acted as local support.
+        </p>
 
         <p>Privately I have helped a lot of my (non-computer) friends and
           family install/service computers, connect to Internet, and setup networks.
@@ -290,17 +295,17 @@
           different CMS (Concrete5, Drupal, Joomla, Tikiwiki, Umbraco, 
           Website Baker, and WordPress) for other organisations and persons.</p>
 
-        <h4 class="mt-4"><a name="languages">Programming languages, technologies, and tools</a></h4>
+        <h4 id="knowledge" class="mt-4">Programming languages, technologies, and tools</h4>
         
         <p>Below are programming languages, database systems, content
           management systems (CMS), and other
           programming related technologies I master or have a working
           knowledge of.<br />
-        <span class="instructions">Languages/technologies in (round) brackets are ones
+        <span class="comments">Languages/technologies in (round) brackets are ones
           I have come across during my studies, i.e. mainly have a 'knowledge'
           about (or feel less inclined to program in or use :-).</span></p>
           
-          <div class="row">
+        <div class="row">
           <div class="col-sm-6">
 
             <h5>Programming languages</h5>
@@ -319,6 +324,7 @@
               <li>Python</li>
               <li>Ruby</li>
               <li>Smalltalk</li>
+              <li>TypeScript</li>
               <li>Visual Basic/VB.NET</li>
             </ul>
           </div>
@@ -329,8 +335,9 @@
               <li>Access/Jet</li>
               <li>CouchDB</li>
               <li>Couchbase</li>
+              <li>Firebase</li>
               <li>MongoDB</li>
-              <li>MySQL</li>
+              <li>MySQL/MariaDB</li>
               <li>Oracle incl. PL/SQL</li>
               <li>Paradox</li>
               <li>SQL Server incl. T-SQL</li>
@@ -393,7 +400,7 @@
               <li>Nuxt.js</li>
               <li>Prototype</li>
               <li>React</li>
-              <li>(Svelte)</li>
+              <li>Svelte</li>
               <li>Underscore</li>
               <li>Vue.js</li>
               <li>YUI</li>
@@ -441,8 +448,23 @@
             </ul>
           </div>
         </div>
+
+        <h4 id="languages" class="mt-4">Languages</h4>
+
+        <p>Swedish is my first language, having been brought up in Sweden and done 
+          all my studying there, which includes the subject Swedish all through primary 
+          and secondary schooling.</p>
+      
+        <p>My English is not far behind, having been brought up bilingual by British 
+          mother and Swedish father, spent most of my childhood summers in Scotland 
+          with grandmother, aunt and cousins, and having studied English as a second 
+          language up to level B2 at school, as well as receiving highest grade in 
+          the subject, so is equal to level C1.</p>
+
+        <p>Having spent 5 years studying German, but not really having practiced it, 
+          my level is A2.</p>
         
-        <h4 class="mt-4"><a name="interests">Interests</a></h4>
+        <h4 id="interests" class="mt-4">Interests</h4>
         
         <p>I find problem solving the most interesting. It's a way of learning
           more and it's gratifying to solve a problem. Helping others is
@@ -451,15 +473,22 @@
           if it is part of my work description or not, if there is no one
           else to do the job better.</p>
 
-        <p>The last couple of years I have focused on J2EE and PHP/MySQL
-          while becoming, among other things, fascinated by how well Sun
-          has created J2EE.</p>
+        <p>During the years I have looked into .NET Framework, J2EE and PHP/MySQL
+          while becoming fascinated by the idea behind frameworks.</p>
 
-        <p>During my  years I have tried to avoid user interfaces (GUIs)
+        <p>During my  years I have tried to avoid designing user interfaces (UI)
           and Perl - two thing I feel other people are more competent at
-          handling (as I believe my homepage proves :-).</p>
+          handling (as I believe my website proves :-)).</p>
 
-        <h4 class="mt-4"><a name="projects">Private projects</a></h4>
+        <p>Having been brought up next to a railway, this has influenced my interest
+          in railways, together with my grandfather working for the railway and
+          growing up around persons with an interest for railways. Trains have also
+          been my preferred mode of transport, both in my daily life and while holidaying.
+          Learning that the train is the more energy efficient way of transport
+          has strengthened my belief in railways.
+        </p>
+
+        <h4 id="projects" class="mt-4">Private projects</h4>
 
         <p>I have some private computer-related projects, which I started
           to develop as part of a course at &Ouml;rebro University (2000), and
@@ -482,6 +511,12 @@
           friends. (It also gave me a reason to register the domain and
           an e-mail address I enjoy and can keep, regardless
           of any employer. :-))</p>
+
+        <h4 id="accomplishments" class="mt-4">Private accomplishments</h4>
+        <p>In 2019, I climbed Ben Nevis, Scotland's highest point at 1.345 m (which
+          took me about 4 hours to walk the 8 km up and about 2 hours back down),
+          and Ben Vrackie at 841 m, but since also Shetland's highest point, Ronas Hill
+          at 450 m. ;-)</p>
       </div>
 
       <!-- *** News column ***************************************************** -->
