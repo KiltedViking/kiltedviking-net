@@ -3,6 +3,14 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+#Redirect /cv/cv_full.php and /cv/full.php to new file /cv/index.php
+RewriteRule ^/cv/cv_full.php$ /cv/ [R=301,NC,L]
+RewriteRule ^/cv/full.php$ /cv/ [R=301,NC,L]
+
+#Redirect /se/cv/full.php and /se/cv/cv_full.php to new file /se/cv/index.php
+RewriteRule ^/se/cv/cv_full.php$ /se/cv/ [R=301,NC,L]
+RewriteRule ^/se/cv/full.php$ /se/cv/ [R=301,NC,L]
+
 #Redirect /se/www/js_dom/ to new directory /se/www/javascript/
 RewriteRule ^se/www/js_dom/(.*)$ /se/www/javascript/$1 [R=301,NC,L]
 
