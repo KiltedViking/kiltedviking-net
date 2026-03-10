@@ -93,6 +93,7 @@
         <nav>
           <ul>
             <li class="menuitem"><a href="#who_is" class="menuitem">Who is Bj&ouml;rn?</a></li>
+            <li class="menuitem"><a href="#competencies" class="menuitem">Competencies and certificates</a></li>
             <li class="menuitem"><a href="#work_experience" class="menuitem">Work experience</a></li>
             <li class="menuitem"><a href="#education" class="menuitem">Education</a></li>
             <li class="menuitem"><a href="#knowledge" class="menuitem">Programming languages, technologies, and tools</a></li>
@@ -104,10 +105,10 @@
 
         <h3 id="who_is" class="mt-4">Who is Bj&ouml;rn?</h3>
         
-        <p>I was born in B&aring;stad in the south of Sweden in 1970 by a Swedish father and
-          a Scottish mother. Most of my summers were spent in Scotland
-          visiting my grandmother and aunt. Interests, studies and jobs have made 
-          me into tech-loving and socially competent nerd.
+        <p>I was born in B&aring;stad, in the south of Sweden, in 1970 and have been
+          retraining to become a HGV driver, category C+E, after 35 years in the
+          IT sector. Interests, studies and jobs have made me into tech-loving and
+          socially competent nerd.
         </p>
 
         <div class="accordion" id="accordionWhoIs">
@@ -121,30 +122,82 @@
             <div id="collapseWhoIs" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWhoIs">
               <div class="accordion-body">
-                <p>I now live in Stockholm, the Swedish capital, but I have also
-                  lived in the towns Halmstad, V&auml;xj&ouml;, Eskilstuna, and
-                  V&auml;ster&aring;s. While working for M&auml;lardalen University,
-                  I bought a house in Eskilstuna in 1998, which I sold in 2006. But for my
-                  flat and work, there is nothing tying me to my current location and I'd relish
-                  a new location to explore (but I would miss my local friends and colleagues).
-                </p>
+                <h4>Retraining</h4>
+                <p>During the autumn/winter 2025/26 I partook in labour market
+                  educations that resulted in HGV driving license (category C and
+                  C+E), certificate of professional competence (CPC), ADR certificate
+                  (dangerous goods), fork lift certificate and tail lift certificate.
+                  All tests have been passed on first tries.
+                  The educations ended with 25 days of work experience, which I did
+                  at a refuse collection company in their rear loader.</p>
 
-                <p>My interest for computers started when my childhood friend lured me
-                  to start, what was to become, one of Sweden's largest BBS:es
-                  (multiple phone lines, computers, CD-ROM switchers, etc.). Shortly
-                  after that I bought my own computer, a computer I've extended,
-                  and replaced, quite a few times. When I had enough hardware I
-                  built my own network at home to help me learn more about computers
-                  and networking.</p>
+                <h4>Computer interests</h4>
+                <p>In 1991 I bought my first computer with MS DOS - a computer I've
+                  extended and replaced quite a few times - and I’ve installed all
+                  versions of MS Windows since versions 3.1 and NT 3.51. When I had enough hardware
+                  I built my own network at home to help me learn more about computers
+                  and networking. Two decades later (2011) I bought my first Mac
+                  computer, which turned out to have a well-established community
+                  for web development tools (now also for PC’s).</p>
 
+                <h4>Service and technology interests</h4>
                 <p>I like computers (and other electronic things) and solving computer-related
                   problems as it requires me to learn new things all the time. And
                   helping others, seeing them smile when the understand or things
                   work, is gratifying for me.</p>
+
+                <h4>Hometowns</h4>
+                <p>I now live in Stockholm, the Swedish capital, but I have also
+                  lived in the towns of B&aring;stad, Helsingborg, Halmstad, V&auml;xj&ouml;,
+                  Eskilstuna, and V&auml;ster&aring;s. I bought a house in Eskilstuna
+                  in 1998, which I sold in 2006. But for my flat and work, there
+                  is nothing tying me to my current location and I'd relish a new
+                  location to explore (but I would miss my local friends and colleagues).</p>
               </div>
             </div>
           </div>
         </div>
+
+        <h3 id="competencies" class="mt-4">Competencies and certificates</h3>
+
+        <table class="table table-striped">
+          <tr>
+            <td>Driving license</td>
+            <td>Category B and BE, manual gearbox (from 1998/2026)</td>
+          </tr>
+          <tr>
+            <td>Lorry</td>
+            <td>Category C and CE (from 2025/2026)</td>
+          </tr>
+          <tr>
+            <td>Tachograph card</td>
+            <td>Digital tachograph card</td>
+          </tr>
+          <tr>
+            <td>CPC</td>
+            <td>Driver Certificate of Professional Competence (2025)</td>
+          </tr>
+          <tr>
+            <td>ADR</td>
+            <td>Dangerous goods, core module (other than tanks)</td>
+          </tr>
+          <tr>
+            <td>Forklift</td>
+            <td>Low-lift, stacker and counterbalanced (swe: A2, A4 and B1)</td>
+          </tr>
+          <tr>
+            <td>Tail lift</td>
+            <td>Documented knowledge of use of tail lift for loading</td>
+          </tr>
+          <tr>
+            <td>Roadside work</td>
+            <td>Documented knowledge of roadside work (swe: APV)</td>
+          </tr>
+          <tr>
+            <td>Skidpan training</td>
+            <td>Driving safety education, lorry (and car)</td>
+          </tr>
+        </table>
 
         <h3 id="work_experience" class="mt-4">Work experience</h3>
 
@@ -296,6 +349,14 @@
 
         <table class="table table-striped">
           <tr>
+            <td>2026</td>
+            <td>Labour market training, lorry + trailer, Swedish Public Empolyment Service</td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>Labour market training, lorry driver, from Swedish Public Empolyment Service</td>
+          </tr>
+          <tr>
             <td>1995-96</td>
             <td>Information Systems and Computer Science, incl. bachelor thesis, at
             M&auml;lardalen University</td>
@@ -349,10 +410,15 @@
                   studying computer science, computer engineering, mathematics, and
                   information systems. After finishing my bachelor thesis in
                   information systems, and started working, I kept on studying
-                  to expand my knowledge, mainly in information systems. (My employers
-                  have been nice enough to spend money on courses in handling customers
-                  and computer technologies - like Novell NetWare).</p>
+                  to expand my knowledge, mainly in information systems.</p>
 
+                <p>In 2025, I was offered a labour market training course to become
+                  a lorry driver, which included a category C driving license, CPC
+                  certificate, dangerous goods (ADR), forklifts, tailgate lift and
+                  roadside work, and in 2026 course for category C+E license.
+                </p>
+
+                <h5>Programming languages, database management systems and platforms</h5>
                 <p>During my studies I have come in contact with programming languages
                   like Ada, Pascal, Smalltalk, Eiffel, Prolog, C/C++, Visual Basic
                   (5/6), Java, and assembler (Motorola 68000). Databases (or rather
@@ -360,6 +426,13 @@
                   PL/SQL) and MySQL. The programming has been done on different
                   platforms (PC, Mac, and UNIX computers) using different operating
                   systems (DOS, Windows, OS/2, MacOS, Linux, and UNIX).</p>
+
+                <h5>Job and subject specific courses, and MOOCs</h5>
+                <p>My employers have been nice enough to spend money on courses in 
+                  handling customers and computer technologies, like Novell NetWare.
+                  I've also taken part in Massive Open Online Courses (MOOC) from
+                  Coursera, edX and LinkedIn Learning.
+                </p>
               </div>
             </div>
           </div>
@@ -580,6 +653,11 @@
 
                 <p>Having spent 5 years studying German, but not really having practiced it, 
                   my level is A2.</p>
+
+                <p>During almost 17 years I worked within a Nordic organisation, so
+                  I've got used to listening to Danish and Norwegian while replying
+                  in Swedish or English.
+                </p>
               </div>
             </div>
           </div>
@@ -725,6 +803,12 @@
               <i class="bi bi-link"></i> [se/en]</li>
             <li><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
               <i class="bi bi-link"></i> [en]</li>
+          </ul>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://www.youtube.com/@kiltedviking" target="_blank" rel="noopener">YouTube</a>
+                <i class="bi bi-link"></i> [en]</li>
           </ul>
 
           <p class="description d-print-none">[en] =  English<br />[se] = Swedish</p>

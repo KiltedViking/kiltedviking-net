@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exempelsida: Tacit - Björns studiewebb</title>
+    <link rel="stylesheet" href="../../css/tacit-css-1.9.1.min.css">
+</head>
+<body>
+    <section>
+        <header>
+            <h1>Exempelsida: Tacit (v1.9.1)</h1>
+            <p>Denna sida visar på vanliga "komponenter" i ramverket Tacit 
+                (<a href="https://yegor256.github.io/tacit/">https://yegor256.github.io/tacit/</a>).
+                Stilmallar i ramverk bygger på ording av HTML-taggar istället för
+                klasser (som många andra CSS-ramverk), t.ex. <code>&lt;section&gt;</code>,
+                <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> och
+                <code>&lt;article&gt;</code>.
+            </p>
+        </header>
+
+        <div>
+            <h2>Rubriker och stycken</h2>
+            <h2>Rubrik nivå 2</h2>
+            <h3>Rubrik nivå 3</h3>
+            <h4>Rubrik nivå 4</h4>
+            <h5>Rubrik nivå 5</h5>
+            <h6>Rubrik nivå 6</h6>
+            <p>Stycke text</p>
+        </div>
+
+        <div>
+            <h2>Texter</h2>
+            <p>Finns bara en typ av texter. ;-)</p>
+        </div>
+
+        <div>
+            <h2>Punktlistor</h2>
+
+            <ul>
+                <li>Punkt 1</li>
+                <li>Punkt 2</li>
+                <li>Punkt 3
+                    <ul>
+                        <li>Punkt 3.1</li>
+                        <li>Punkt 3.2</li>
+                        <li>Punkt 3.3</li>
+                    </ul>
+                </li>
+                <li>Punkt 4</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Knappar</h2>
+
+            <input type="submit" value="Skicka (submit)">
+            <input type="reset" value="Återställ (reset)">
+            <input type="button" value="Knapp (input type=&quot;button&quot;)">
+            <button type="button">Knapp (button)</button>
+            <button type="button" disabled>Inaktiv knapp</button>
+            <a href="#" role="button">Länkknapp (role=&quot;button&quot;)</a>
+        </div>
+
+        <div>
+            <h2>Formulär</h2>
+
+            <form action="#" method="get">
+                <div>
+                    <label for="field-text">Textfält</label>
+                    <input type="text" name="field-text" id="field-text" placeholder="Ett enradigt textfält">
+                </div>
+
+                <div>
+                    <label for="field-date">Datumfält</label>
+                    <input type="date" name="field-date" id="field-date">
+                </div>
+
+                <div>
+                    <input type="checkbox" name="field-check" id="field-check">
+                    <label for="field-check">Kryssruta</label>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="field-check-1">
+                            <input type="radio" name="field-radio" id="field-check-1" value="1">
+                            Radioknapp 1
+                        </label>
+                    </div>
+                    <div>
+                        <label for="field-check-2">
+                            <input type="radio" name="field-radio" id="field-check-2" value="2">
+                            Radioknapp 2
+                        </label>
+                    </div>
+                    <div>
+                        <label for="field-check-3">
+                            <input type="radio" name="field-radio" id="field-check-3" value="3">
+                            Radioknapp 3
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="field-textarea">Textfält</label>
+                    <textarea name="field-textarea" id="field-textarea" placeholder="Ett flerradigt textfält"></textarea>
+                </div>
+
+                <div>
+                    <label for="field-select">Listruta</label>
+                    <select name="field-select" id="field-select">
+                        <option value="1">Alternativ 1</option>
+                        <option value="2">Alternativ 2</option>
+                        <option value="3">Alternativ 3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit" value="Skicka">
+                    <input type="reset" value="Återställ">
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <h2>Tabeller</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kolumn 1</th>
+                        <th>Kolumn 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rad 1-1</td>
+                        <td>Rad 1-2</td>
+                    </tr>
+                    <tr>
+                        <td>Rad 2-1</td>
+                        <td>Rad 2-2</td>
+                    </tr>
+                    <tr>
+                        <td>Rad 3-1</td>
+                        <td>Rad 3-2</td>
+                    </tr>
+                    <tr>
+                        <td>Rad 4-1</td>
+                        <td>Rad 4-2</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Fot 1</th>
+                        <th>Fot 2</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div>
+            <h2>Panel/kort</h2>
+
+            <p>(HTML eller CSS innehåller inte paneler... så inget här.)</p>
+        </div>
+        
+        <footer>
+            <p>Detta fönster/denna flik är tänkt att stängas för att återgå till sidan 
+                <a href="../../css-bibliotek.html">CSS-ramverk</a> på Björns studiewebb.</p>
+
+            <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson. <b>Uppdaterad:</b> 2025-07-09.</p>
+        </footer>
+    </section>
+</body>
+</html>

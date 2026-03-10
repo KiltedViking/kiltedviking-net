@@ -121,17 +121,23 @@
             <li class="list-group-item"><a href="#synpunkter">Synpunkter på ramverk</a></li>
             <li class="list-group-item"><a href="#bootstrap">Bootstrap</a></li>
             <li class="list-group-item"><a href="#bulma">Bulma</a></li>
+            <li class="list-group-item"><a href="#chota">Chota</a></li>
             <li class="list-group-item"><a href="#foundation">Foundation</a></li>
             <li class="list-group-item"><a href="#materialize">Materialize</a></li>
             <li class="list-group-item"><a href="#milligram">Milligram</a></li>
             <li class="list-group-item"><a href="#muicss">MUI CSS</a></li>
+            <li class="list-group-item"><a href="#mvpcss">MVP.css</a></li>
             <li class="list-group-item"><a href="#papercss">Paper CSS</a></li>
             <li class="list-group-item"><a href="#picnic">Picnic</a></li>
+            <li class="list-group-item"><a href="#picocss">Pico CSS</a></li>
             <li class="list-group-item"><a href="#primer">Primer CSS</a></li>
             <li class="list-group-item"><a href="#purecss">Pure CSS</a></li>
+            <li class="list-group-item"><a href="#sakura">Sakura</a></li>
             <li class="list-group-item"><a href="#semanticui">Semantic UI</a></li>
+            <li class="list-group-item"><a href="#simplecss">Simple.css</a></li>
             <li class="list-group-item"><a href="#skeleton">Skeleton CSS</a></li>
             <li class="list-group-item"><a href="#tachyons">Tachyons</a></li>
+            <li class="list-group-item"><a href="#tacit">Tacit</a></li>
             <li class="list-group-item"><a href="#tailwind">Tailwind</a></li>
             <li class="list-group-item"><a href="#uikit">UIkit</a></li>
           </ul>
@@ -195,6 +201,23 @@
             <i class="bi bi-box-arrow-up-right"></i></a>
         </p>
 
+        <h3 id="chota">Chota</h3>
+        <p>Ett minimalt ramverk (18 kB, eller 3 kB om minifierad och gzippad?) men
+          som ändå innehåller rutnät (grid) och ett antal hjälpklasser för textfärg,
+          bakgrundsfärg, kantlinjer och positionering.
+        </p>
+
+        <p>På det hela taget så anser jag det vara ett av de bättre av de &quot;minimalistiska&quot;
+          ramverken då det bäst fungerar med semantisk HTML. Någon mindre sak är att
+          fördefinierade färger inte är konsekvent (bakgrundsfärg och kantlinje för
+          vit saknas) samt etiketter och formulärfält kräver lite justering (om man
+          inte vill göra som i exempel och placera i en stycketagg).
+        </p>
+
+        <p><a href="css3/ramverk/chota0.html" class="btn btn-primary" target="_blank">Exempelsida
+          <i class="bi bi-box-arrow-up-right"></i></a>
+        </p>
+
         <h3 id="foundation">Foundation</h3>
         <p>När jag började titta på ramverken så fick jag uppfattningen att det fanns
           två läger - Bootstap- och Foundation-&quot;fantasterna&quot;, d.v.s. man
@@ -245,6 +268,20 @@
         <p><a href="css3/ramverk/muicss.html" class="btn btn-primary" target="_blank">Exempelsida 
           <i class="bi bi-box-arrow-up-right"></i></a></p>
 
+        <h3 id="mvpcss">MVP.css</h3>
+        <p>Ramverket <b>utan</b> klasser, d.v.s. appliceras på HTML-taggar, vilket
+          gör det lätt att använda ramverket. "Profilfärger" kan ganska enkelt ändras
+          genom att ändra CSS-variabler (t.ex. <code>--color-link</code>).
+        </p>
+
+        <p>I mångt och mycket så tycker jag om ramverket, men för dess funktion måste
+          man placera HTML-taggar i en viss ordning vilket tenderar till att skapa
+          HTML-kod används för design och inte semantik (betydelse).
+        </p>
+        
+        <p><a href="css3/ramverk/mvpcss1.html" class="btn btn-primary" target="_blank">Exempelsida 
+          <i class="bi bi-box-arrow-up-right"></i></a></p>
+
         <h3 id="papercss">Paper CSS</h3>
         <p>Mitt första intryck av detta ramverk är att det är ganska enkelt att komma
           igång med, om man har en grundläggande förståelse av ramverk, och jag tycker
@@ -258,6 +295,25 @@
         <p>Ramverket är myckel enkelt och bör anpassas för bäst resultat</p>
         
         <p><a href="css3/ramverk/picnic.html" class="btn btn-primary" target="_blank">Exempelsida 
+          <i class="bi bi-box-arrow-up-right"></i></a></p>
+
+        <h3 id="picocss">Pico CSS</h3>
+        <p>Ett minimalistiskt ramverk där man kan välja att använda CSS-klasser eller
+          inte. Det finns stöd för ljust och mörkt tema liksom nyanser för färger, 
+          t.ex. gul, röd eller blå.
+        </p>
+
+        <p>Ramverkets webbplats kan användas för att visa vilken version av CSS-fil
+          som ska användas för att få önskat utseende. ;-)
+        </p>
+
+        <p>Jag, som värdelös designer, gillar ramverket, även om jag har åsikter
+          om hur de valt att designa saker som t.ex. knappar i formulär (de tar upp
+          hela bredden av omgivande element), men det kan bero på att jag inte ännu
+          förstått hur ramverket ska användas. ;-)
+        </p>
+        
+        <p><a href="css3/ramverk/pico2.html" class="btn btn-primary" target="_blank">Exempelsida 
           <i class="bi bi-box-arrow-up-right"></i></a></p>
   
         <h3 id="primer">Primer CSS</h3>
@@ -277,16 +333,44 @@
         <p><a href="css3/ramverk/purecss.html" class="btn btn-primary" target="_blank">Exempelsida 
           <i class="bi bi-box-arrow-up-right"></i></a></p>
 
+        <h3 id="sakura">Sakura</h3>
+        <p>Ett ramverk <b>utan</b> klasser.</p>
+
+        <p>Ramverket har potential, men jag har nog inte förstått hur det ska användas
+          och tycker tyvärr inte om det så mycket.
+        </p>
+        
+        <p><a href="css3/ramverk/sakura1.html" class="btn btn-primary" target="_blank">Exempelsida 
+          <i class="bi bi-box-arrow-up-right"></i></a></p>
+
         <h3 id="semanticui">Semantic UI</h3>
         <p>Som namnet på ramverket ämnar anspela på så ska namn på CSS-klasser tydligt
           visa på vad dess effekt är, d.v.s. inte vara kryptiska (så som <code>.s4</code> 
           eller <code>.column-1-3</code> i andra ramverk). 
+        </p>
+
+        <p>(Ramverkets utveckling har stannat av, men en grupp av dess användare
+          har skapat en avknoppning (fork) med namnet Fomantic-UI för den som tycker
+          om Semantic-UI. ;-))
         </p>
         
         <p><a href="css3/ramverk/semanticui.html" class="btn btn-primary" target="_blank">Exempelsida 
           <i class="bi bi-box-arrow-up-right"></i></a>
           <a href="jquery/" class="btn btn-success" target="_blank">Besök underwebben 
             jQuery <i class="bi bi-box-arrow-up-right"></i></a></p>
+
+        <h3 id="simplecss">Simple.css</h3>
+        <p>Ett ramverk som fungerar <b>utan</b> klasser, men har även klasser, och
+          som stödjer ljust och mörkt tema.
+        </p>
+
+        <p>Ramverket är praktiskt för personer som mig som inte är bra på design,
+          men som åsiktsfullt ramverk så behöver man uppskatta de stilar som valts,
+          t.ex. artiklar och fotnötter (asides).
+        </p>
+        
+        <p><a href="css3/ramverk/simplecss2.html" class="btn btn-primary" target="_blank">Exempelsida 
+          <i class="bi bi-box-arrow-up-right"></i></a></p>
 
         <h3 id="skeleton">Skeleton</h3>
         <p>Som det låter på ramverkets namn så är detta ett ganska rudimentärt ramverk,
@@ -310,6 +394,22 @@
         </p>
 
         <p><a href="css3/ramverk/tachyons.html" class="btn btn-primary" target="_blank">Exempelsida 
+          <i class="bi bi-box-arrow-up-right"></i></a></p>
+       
+        <h3 id="tacit">Tacit</h3>
+
+        <p>Ramverket <b>utan</b> klasser, d.v.s. för personer som mig som saknar 
+          sinne för design. ;-)
+        </p>
+
+        <p>Detta ramverk är vad jag skulle kalla åsiktsfullt, d.v.s. det ändrar utseendet
+          på innehåll i webbsidor, men det är i realiteten bara en färdig stilmallsfil
+          (<code>.css</code>). En nackdel med ramverket är att det bygger på ordning
+          som HTML-taggar placeras, vilket leder till att taggar används för design
+          och inte semantik (betydelse).
+        </p>
+
+        <p><a href="css3/ramverk/tacit.html" class="btn btn-primary" target="_blank">Exempelsida 
           <i class="bi bi-box-arrow-up-right"></i></a></p>
        
         <h3 id="tailwind">Tailwind</h3>
@@ -350,17 +450,23 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://bulma.io/" target="_blank" rel="noopener">Bulma</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="https://jenil.github.io/chota/" target="_blank" rel="noopener">Chota</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://foundation.zurb.com/" target="_blank" rel="noopener">Foundation</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://materializecss.com/" target="_blank" rel="noopener">Materialize</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://milligram.io/" target="_blank" rel="noopener">Milligram</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://www.muicss.com/" target="_blank" rel="noopener">MUI CSS</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="http://andybrewer.github.io/mvp/" target="_blank" rel="noopener">MVP.css</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://www.getpapercss.com/" target="_blank" rel="noopener">Paper CSS</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://picnicss.com/" target="_blank" rel="noopener">Picnic</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="https://picocss.com/" target="_blank" rel="noopener">Pico CSS</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://primer.style/" target="_blank" rel="noopener">Primer CSS</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://purecss.io/" target="_blank" rel="noopener">Pure CSS</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="https://oxal.org/projects/sakura/" target="_blank" rel="noopener">Sakura</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="https://github.com/kevquirk/simple.css" target="_blank" rel="noopener">Simple.css</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://semantic-ui.com/" target="_blank" rel="noopener">Semantic UI</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="http://getskeleton.com/" target="_blank" rel="noopener">Skeleton</a> <i class="bi bi-box-arrow-up-right"></i> [ej HTTPS!]</li>
               <li class="list-group-item"><a href="https://tachyons.io/" target="_blank" rel="noopener">Tachyons</a> <i class="bi bi-box-arrow-up-right"></i></li>
+              <li class="list-group-item"><a href="https://yegor256.github.io/tacit/" target="_blank" rel="noopener">Tacit</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://tailwindcss.com/" target="_blank" rel="noopener">Tailwind</a> <i class="bi bi-box-arrow-up-right"></i></li>
               <li class="list-group-item"><a href="https://getuikit.com/" target="_blank" rel="noopener">UIkit</a> <i class="bi bi-box-arrow-up-right"></i></li>
             </ul>
@@ -371,7 +477,7 @@
     <!-- *** Rad med sidfot ************************************************ -->
     <footer class="row">
       <div class="col-sm-12 text-center">
-        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2024-11-03.</p>
+        <p><b>Skapad av:</b> Bj&ouml;rn G. D. Persson <b>Uppdaterad:</b> 2025-07-13.</p>
       </div>
     </footer>
   </div>

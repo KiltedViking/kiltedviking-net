@@ -68,11 +68,6 @@
 							<a class="nav-link dropdown-toggle" href="#" role="button" 
 								data-bs-toggle="dropdown" aria-expanded="false">
 								<i class="bi bi-globe fs-4"></i> In English
-                <!-- <svg class="fs-4" width="32px" height="32px" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#0052b4"><path d="m52.92 100.142c-20.109 26.163-35.272 56.318-44.101 89.077h133.178z"/><path d="m503.181 189.219c-8.829-32.758-23.993-62.913-44.101-89.076l-89.075 89.076z"/><path d="m8.819 322.784c8.83 32.758 23.993 62.913 44.101 89.075l89.074-89.075z"/><path d="m411.858 52.921c-26.163-20.109-56.317-35.272-89.076-44.102v133.177z"/><path d="m100.142 459.079c26.163 20.109 56.318 35.272 89.076 44.102v-133.176z"/><path d="m189.217 8.819c-32.758 8.83-62.913 23.993-89.075 44.101l89.075 89.075z"/><path d="m322.783 503.181c32.758-8.83 62.913-23.993 89.075-44.101l-89.075-89.075z"/><path d="m370.005 322.784 89.075 89.076c20.108-26.162 35.272-56.318 44.101-89.076z"/></g><g fill="#d80027"><path d="m509.833 222.609h-220.44-.001v-220.442c-10.931-1.423-22.075-2.167-33.392-2.167-11.319 0-22.461.744-33.391 2.167v220.44.001h-220.442c-1.423 10.931-2.167 22.075-2.167 33.392 0 11.319.744 22.461 2.167 33.391h220.44.001v220.442c10.931 1.423 22.073 2.167 33.392 2.167 11.317 0 22.461-.743 33.391-2.167v-220.44-.001h220.442c1.423-10.931 2.167-22.073 2.167-33.392 0-11.317-.744-22.461-2.167-33.391z"/><path d="m322.783 322.784 114.236 114.236c5.254-5.252 10.266-10.743 15.048-16.435l-97.802-97.802h-31.482z"/><path d="m189.217 322.784h-.002l-114.235 114.235c5.252 5.254 10.743 10.266 16.435 15.048l97.802-97.804z"/><path d="m189.217 189.219v-.002l-114.236-114.237c-5.254 5.252-10.266 10.743-15.048 16.435l97.803 97.803h31.481z"/><path d="m322.783 189.219 114.237-114.238c-5.252-5.254-10.743-10.266-16.435-15.047l-97.802 97.803z"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                In English -->
-
-                <!-- <svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#ffda44" r="256"/><g fill="#0052b4"><path d="m200.349 222.609h309.484c-16.363-125.607-123.766-222.609-253.833-222.609-19.114 0-37.733 2.113-55.652 6.085v216.524z"/><path d="m133.565 222.608v-191.481c-70.294 38.354-120.615 108.705-131.398 191.482h131.398z"/><path d="m133.564 289.391h-131.397c10.783 82.777 61.104 153.128 131.398 191.481z"/><path d="m200.348 289.392v216.523c17.919 3.972 36.538 6.085 55.652 6.085 130.067 0 237.47-97.002 253.833-222.609h-309.485z"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                P&aring; svenska -->
 							</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="../../"><i class="bi bi-flag fs-4"></i> Start</a></li>
@@ -102,6 +97,7 @@
         <nav>
           <ul>
             <li class="menuitem"><a href="#who_is" class="menuitem">Vem &auml;r Bj&ouml;rn?</a></li>
+            <li class="menuitem"><a href="#competencies" class="menuitem">Kompetenser och intyg</a></li>
             <li class="menuitem"><a href="#work_experience" class="menuitem">Arbetslivserfarenhet</a></li>
             <li class="menuitem"><a href="#education" class="menuitem">Utbildning</a></li>
             <li class="menuitem"><a href="#knowledge" class="menuitem">Programmeringsspr&aring;k, teknologier och verktyg</a></li>
@@ -111,52 +107,104 @@
           </ul>
         </nav>
 
-        <h3 id="who_is" class="mt-4">Vem &auml;r Bj&ouml;rn?</h3>
+        <h2 id="who_is" class="mt-4">Vem &auml;r Bj&ouml;rn?</h2>
         
-        <p>Jag &auml;r f&ouml;dd 1970 i B&aring;stad, Skåne, där jag också växte 
-          upp samt somrar som barn spenderades i Skottland. Intressen, studier och
-          jobb har gjort mig till en teknikintresserad och socialt kompetent nörd.
+        <p>IT-person född 1970 och uppvuxen i Båstad som håller på att ställa om till
+          yrkesförare med CE-behörighet efter över 35 år i IT-branschen. Intressen, 
+          studier och jobb har gjort mig till en teknikintresserad och socialt kompetent nörd.
         </p>
 
         <div class="accordion" id="accordionWhoIs">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseWhoIs" aria-expanded="true" aria-controls="collapseWhoIs">
                 Mer om mig
               </button>
-            </h4>
+            </h3>
             <div id="collapseWhoIs" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWhoIs">
               <div class="accordion-body">
-                <p>Mitt intresse för datorer började när min barndomsvän lockade mig till
-                  att starta, något som skulle bli, en av Sveriges största BBS:er (flera
-                  telefonlinjer, datorer, CD-ROM-växlare, etc.). Runt denna tid (1991) köpte jag
-                  min första PC-dator - en dator som jag expanderat och ersatt ett antal
-                  gånger. När jag fick ihop tillräckligt med hårdvara byggde jag mitt eget
-                  nätverk för att lära mig mer om datorer och nätverk. Två decennier senare
-                  (2011) köpta jag min första Mac-dator, som visade sig ha en väletablerad
-                  användargrupp för utveckling av webbutvecklingsverktyg.
+                <h4>Omskolning</h4>
+                <p>Under hösten/vintern 2025/26 har jag deltagit i arbetsmarknadsutbildningar
+                  som resulterat i C- och CE-behörigheter, yrkeskompetensbevis (YKB),
+                  ADR-intyg (farligt gods), truckkort och intyg för bakgavellyft.
+                  Alla teori- och körprov har klarats på första försöken. 
+                  Utbildningar har inkluderat 25 dagar praktik som jag gjort på ett
+                  renhållningsbolag i dess baklastare.
                 </p>
 
-                <p>Jag gillar datorer (och andra elektroniska saker) och datorrelaterad 
-                  problemlösning då det kräver att jag lär mig nytt hela tiden. Och att
-                  hjälpa andra - att se dem le när de förstår eller teknik fungerar - är
-                  vad som tillfredställer mig. Men jag står vid ett vägskäl och funderar
-                  också på om jag ska avsluta min arbetskarriär inom en ny sektor med nya
-                  saker att utforska och lära sig om.
+                <h4>Datorintresse</h4>
+                <p>1991 köpte jag min första dator med MS DOS - en dator som jag
+                  expanderat och ersatt ett antal gånger - och jag har installerat
+                  alla versioner av MS Windows sen versionerna 3.1 och NT 3.51.
+                  När jag fick ihop tillräckligt
+                  med hårdvara byggde jag mitt eget nätverk för att lära mig mer om
+                  datorer och nätverk. Två decennier senare (2011) köpta jag min första
+                  Mac-dator, som visade sig ha en väletablerad användargrupp för
+                  utveckling av webbutvecklingsverktyg (nu även till PC-miljö).
                 </p>
 
-                <p>Jag bor nu i Stockholm, men har tidigare bott i Halmstad, Växjö, Eskilstuna
-                  och Västerås. När jag bodde i Eskilstuna köpte jag ett hus,
-                  i vilket jag bodde mellan 1998 och 2006. Bortsett från min bostadsrätt
-                  i Stockholm och mina vänner är det inget som binder mig vid min nuvarande plats och
-                  jag skulle se fram emot en ny bostadsort att utforska.
+                <h4>Teknik- och serviceintresse</h4>
+                <p>Jag gillar datorer (och andra elektroniska saker) och datorrelaterad
+                  problemlösning då det kräver att jag lär mig nytt hela tiden. Och
+                  att hjälpa andra - att se dem le när de förstår eller teknik fungerar
+                  - är vad som tillfredsställer mig.
+                </p>
+
+                <h4>Hemorter</h4>
+                <p>Jag bor nu i Stockholm, men har tidigare bott i Båstad, Helsingborg,
+                  Halmstad, Växjö, Eskilstuna och Västerås. När jag bodde i Eskilstuna
+                  köpte jag ett hus, i vilket jag bodde mellan 1998 och 2006. Bortsett
+                  från min bostadsrätt i Stockholm och mina vänner är det inget som
+                  binder mig vid min nuvarande plats och jag skulle se fram emot
+                  en ny bostadsort att utforska.
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+        <h3 id="competencies" class="mt-4">Kompetenser och intyg</h3>
+
+        <table class="table table-striped">
+          <tr>
+            <td>Körkort</td>
+            <td>B- och BE-behörighet, manuell växel (från 1998/2026)</td>
+          </tr>
+          <tr>
+            <td>Lastbil</td>
+            <td>C- och CE-behörighet (från 2025/2026)</td>
+          </tr>
+          <tr>
+            <td>Förarkort</td>
+            <td>Digitalt förarkort</td>
+          </tr>
+          <tr>
+            <td>YKB</td>
+            <td>Yrkeskompetensbevis (2025)</td>
+          </tr>
+          <tr>
+            <td>ADR Grund</td>
+            <td>Farligt gods</td>
+          </tr>
+          <tr>
+            <td>Truck</td>
+            <td>TYA TLP10, typerna A2, A4 och B1</td>
+          </tr>
+          <tr>
+            <td>Bakgavellyft</td>
+            <td>Dokumenterad kunskap om bakgavellyft</td>
+          </tr>
+          <tr>
+            <td>APV (2025)</td>
+            <td>Dokumenterad kunskap om arbete på väg (1.1, 1.2, 1.3 och 2.1)</td>
+          </tr>
+          <tr>
+            <td>Halkbana</td>
+            <td>Trafiksäkerhetsutbildning, lastbil (och personbil)</td>
+          </tr>
+        </table>
 
         <h3 id="work_experience" class="mt-4">Arbetslivserfarenhet</h3>
 
@@ -236,7 +284,7 @@
 
                 <p>I ett avbrott i mina högskolestudier jobbade jag för ett litet företag
                   som sålde CD-ROM- och multimediaprodukter, när dessa var nya, med bl.a.
-                  telefonförsäljning (innan Internet), distribtion, användarstöd och annat
+                  telefonförsäljning (innan Internet), distribution, användarstöd och annat
                   som behövdes på ett företag med fåtal anställda. BBS som startats som ett
                   privat projekt övergick till att bli kommerciell.
                 </p>
@@ -260,8 +308,8 @@
 
                 <p>Som systemadministratör installerade och underhåll jag datorsalar med
                   operativsystem från DOS/Windows 3.x till 11 samt servrar med Novell NetWare
-                  (3.12 til 6) och Windows (NT + 2000 till 2016). På servrar installerade och underhöll
-                  jag även mjukvara som Oracel, SQL Server, webbservrar (IIS och Apache)
+                  (3.12 till 6) och Windows (NT + 2000 till 2016). På servrar installerade och underhöll
+                  jag även mjukvara som Oracle, SQL Server, webbservrar (IIS och Apache)
                   och applikationsservrar (bl.a. Resin för J2EE och SharePoint).
                 </p>
 
@@ -306,6 +354,14 @@
         <h3 id="education" class="mt-4">Utbildning</h3>
 
         <table class="table table-striped">
+          <tr>
+            <td>2026</td>
+            <td>Arbetsmarknadsutbildning yrkesförare CE vid Bergstrands Vuxenutbildningar</td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>Arbetsmarknadsutbildning yrkesförare vid Bergstrands Vuxenutbildningar</td>
+          </tr>
           <tr>
             <td>1995-96</td>
             <td>ADB och datateknik samt uppsats vid M&auml;lardalens högskola</td>
@@ -353,6 +409,14 @@
                   (så som LinkedIn Learning).
                 </p>
 
+                <p>2025 erbjöd Arbetsförmedlingen en arbetsmarknadsutbildning till
+                  yrkesförare, vilket inkluderade C-behörighet, yrkeskompetensbevis
+                  (YKB), farligt gods (ADR Grund), truck (A2, A4 och B1), bakgavellyft
+                  och arbete på väg (APV 1.1, 1.2, 1.3 och 2.1), samt 2026 till 
+                  yrkesförare CE-behörighet.
+                </p>
+
+                <h5>Programmeringsspråk, databashanterare och plattformar</h5>
                 <p>Under mina studier kom jag i kontakt med programmeringsspråk som Ada, 
                   Pascal, Smalltalk, Eiffel, Prolog, C/C++, Visual Basic (5/6), Java, and 
                   assembler (Motorola 68000) samt databaser (eller databashanteringsssystem, DBMS)
@@ -361,10 +425,12 @@
                   och flera operativsystem (DOS, Windows, OS/2, MacOS, Linux, and UNIX).
                 </p>
 
+                <h5>Yrkes- och ämnesspecifika utbildningar samt MOOC</h5>
                 <p>Mina arbetsgivare har även erbjudit mig utbildningar i bl.a. service- och
                   städteknik samt produktspecifika ämnen (så som Novell NetWare)
                   och jag har gjort självstudier genom att läsa böcker och delta i
-                  kurser från bl.a. Coursera, edX och LinkedIn Learning.
+                  kurser från bl.a. Coursera, edX och LinkedIn Learning (s.k. Massive
+                  Open Online Courses, MOOC).
                 </p>
               </div>
             </div>
@@ -583,6 +649,11 @@
               
                 <p>Tyska läste jag i fem år, men efter att inte ha använt språket så är min
                   nivå A2.</p>
+
+                <p>Under nästan 17 år har jag jobbat inom en nordisk organisation,
+                  så jag har blivit van vid att lyssna på danska och norska, men 
+                  har svarat på svenska eller engelska.
+                </p>
               </div>
             </div>
           </div>
@@ -734,6 +805,12 @@
               <i class="bi bi-link"></i> [se/en]</li>
             <li><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
               <i class="bi bi-link"></i> [en]</li>
+          </ul>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://www.youtube.com/@kiltedviking" target="_blank" rel="noopener">YouTube</a>
+                <i class="bi bi-link"></i> [en]</li>
           </ul>
 
           <p>[en] =  engelska<br />[se] = svenska</p>
