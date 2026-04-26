@@ -210,6 +210,10 @@
 
         <table class="table table-striped">
           <tr>
+            <td>2026 (Apr) - pågående</td>
+            <td>Ambulerande arbetare, Manpower AB, Uppsala</td>
+          </tr>
+          <tr>
             <td>2008 (Sept) - 2025 (Aug)</td>
             <td>Systemadministratör och -utvecklare, Milj&ouml;m&auml;rkning Sverige
               AB (tidigare SIS Milj&ouml;m&auml;rkning AB), Stockholm</td>
@@ -268,40 +272,26 @@
                   </tr>
                 </table>
 
-                <h4>Innan högskolestudier</h4>
+                <h4>Ambulerande arbetare</h4>
 
-                <p>Som distriktsinstruktör hos F&auml;ltbiologerna skötte jag kontoret,
-                  svarade i telefon, arrangerade kurser (bokade lokaler, m.m.), informerade
-                  om organisationen i skolor, m.m. samt jobbet var ideellt (d.v.s. dåligt
-                  betalt) och under skolåret. Resterande tid av åren jobbade jag på camping
-                  som campingvärd, kioskbiträde och receptionist.
+                <p>2026 började jag ett uppdrag som lastbils-/testförare hos Scania
+                  Transportlaboratorium AB i Södertälje för att köra lokala leveranser,
+                  ad hoc-körningar inom Sverige (och ev. utanför) samt medverka i
+                  intervjuer och tester med ingenjörer och andra utvecklare. Uppdraget
+                  har främst inneburit att köra olika varianter på dragbil och påhängsvagn
+                  (trailer).
                 </p>
 
-                <p>Värnplikt var obligatorisk när jag gjorde min militärtjänst och jag spenderade
-                  341 dagar med att rapportera väder till flygledare och SMHI. Under militärtjänsten
-                  fortsatte jag med att jobba extra på campingplatsen.
+                <h4>Systemutvecklare</h4>
+
+                <p>På högskolan tog jag över ansvaret för institutionens webbplats, vilket
+                  bl.a. innebar att presentera data från databas, och utvecklade ett studiesystem
+                  för institutionens distanskurser i ASP och PHP.
                 </p>
 
-                <p>I ett avbrott i mina högskolestudier jobbade jag för ett litet företag
-                  som sålde CD-ROM- och multimediaprodukter, när dessa var nya, med bl.a.
-                  telefonförsäljning (innan Internet), distribution, användarstöd och annat
-                  som behövdes på ett företag med fåtal anställda. BBS som startats som ett
-                  privat projekt övergick till att bli kommerciell.
-                </p>
-
-                <h4>Undervisning</h4>
-
-                <p>Som universitetsadjunkt så undervisade jag i programmeringsspråk så som
-                  Visual Basic (6), Visual C++, Smalltalk, Java, Visual Basic.NET och C#
-                  samt databaser så som Access (Jet), Oracle, SQL Server och MySQL. Jag undervisade
-                  även i ämnen så som databasteori och -design, objektorienterad programmering,
-                  komponentbaserad programmering (COM/COM+ och J2EE) samt webbaserade programmering
-                  med ASP (3) och ASP.NET.
-                </p>
-
-                <p>En av mina styrkor, enligt vad studenter sa till mig, var att jag kunde
-                  förklara på ett sätt de kunde relatera till, d.v.s. på ett mindre tekniskt
-                  sätt eller med termer inom personers kunskapsområde.
+                <p>De senaste åren har jag underhållit och vidareutvecklat webbplatser med
+                  ASP.NET och SQL Server - både egenutvecklade applikationer och CMS så 
+                  som ISpyBuy Portal, DotNetNuke och EPIServer.
                 </p>
 
                 <h4>Systemadministratör</h4>
@@ -321,16 +311,40 @@
                   Excel och PowerPoint).
                 </p>
 
-                <h4>Systemutvecklare</h4>
+                <h4>Undervisning</h4>
 
-                <p>På högskolan tog jag över ansvaret för institutionens webbplats, vilket
-                  bl.a. innebar att presentera data från databas, och utvecklade ett studiesystem
-                  för institutionens distanskurser i ASP och PHP.
+                <p>Som universitetsadjunkt så undervisade jag i programmeringsspråk så som
+                  Visual Basic (6), Visual C++, Smalltalk, Java, Visual Basic.NET och C#
+                  samt databaser så som Access (Jet), Oracle, SQL Server och MySQL. Jag undervisade
+                  även i ämnen så som databasteori och -design, objektorienterad programmering,
+                  komponentbaserad programmering (COM/COM+ och J2EE) samt webbaserade programmering
+                  med ASP (3) och ASP.NET.
                 </p>
 
-                <p>De senaste åren har jag underhållit och vidareutvecklat webbplatser med
-                  ASP.NET och SQL Server - både egenutvecklade applikationer och CMS så 
-                  som ISpyBuy Portal, DotNetNuke och EPIServer.
+                <p>En av mina styrkor, enligt vad studenter sa till mig, var att jag kunde
+                  förklara på ett sätt de kunde relatera till, d.v.s. på ett mindre tekniskt
+                  sätt eller med termer inom personers kunskapsområde.
+                </p>
+                
+                <h4>Innan högskolestudier</h4>
+
+                <p>Som distriktsinstruktör hos F&auml;ltbiologerna skötte jag kontoret,
+                  svarade i telefon, arrangerade kurser (bokade lokaler, m.m.), informerade
+                  om organisationen i skolor, m.m. samt jobbet var ideellt (d.v.s. dåligt
+                  betalt) och under skolåret. Resterande tid av åren jobbade jag på camping
+                  som campingvärd, kioskbiträde och receptionist.
+                </p>
+
+                <p>Värnplikt var obligatorisk när jag gjorde min militärtjänst och jag spenderade
+                  341 dagar med att rapportera väder till flygledare och SMHI. Under militärtjänsten
+                  fortsatte jag med att jobba extra på campingplatsen.
+                </p>
+
+                <p>I ett avbrott i mina högskolestudier jobbade jag för ett litet företag
+                  som sålde CD-ROM- och multimediaprodukter, när dessa var nya, med bl.a.
+                  telefonförsäljning (innan Internet), distribution, användarstöd och annat
+                  som behövdes på ett företag med fåtal anställda. BBS som startats som ett
+                  privat projekt övergick till att bli kommerciell.
                 </p>
 
                 <h4>Privat</h4>

@@ -203,6 +203,10 @@
 
         <table class="table table-striped">
           <tr>
+            <td>2026 (Apr) - ongoing</td>
+            <td>Outplaced worker, Manpower AB, Uppsala</td>
+          </tr>
+          <tr>
             <td>2008 (Sept) - 2025 (Aug)</td>
             <td>Systems Administrator and Developer,
               Ecolabelling Sweden (Milj&ouml;m&auml;rkning Sverige AB, formerly 
@@ -267,6 +271,57 @@
                   </tr>
                 </table>
 
+                <h4>Outplaced worker</h4>
+
+                <p>In 2026, I started an assignment as lorry and test driver at Scania
+                  Transport Laboratory (Scania Transportlaboratorium AB) in Södertälje to drive
+                  local deliveries, ad hoc driving witin Sweden (and possibly abroad),
+                  and to take part in interviews and tests with engineers and other
+                  developers. The assignment has mostly meant driving different variants
+                  of tractor and trailers (articulated lorries).
+                </p>
+
+                <h4>System developer</h4>
+
+                <p>While working at Ecolabelling Sweden, I maintained and developed web 
+                  sites using ASP.NET and SQL Server. The web sites where custom developed 
+                  systems. I also maintained informational web sites using a custom version
+                  of ISpyBuy Portal, DotNetNuke, and EPiServer as CMS, which required some 
+                  development, both frontend and backend. I also installed and maintained
+                  the company's computers as well as acted as local support.
+                </p>
+
+                <h4>System administrator</h4>
+
+                <p>As a systems administrator I have installed and maintained computer
+                  rooms with operating systems varying between DOS/Windows 3.x to
+                  XP using servers running Novell NetWare (3.12 to 6) and Windows
+                  NT/2000/2003. Server software I have installed and maintained
+                  are Oracle, SQL Server, web servers (IIS and Apache), and application
+                  servers (among others Resin for J2EE). As a systems administrator
+                  my job was also to maintain and develop the department's  web
+                  site using HTML, CSS, SSI, PHP, and some older systems in ASP.
+                  Data was stored in MySQL and Oracle servers.</p>
+                  
+                <h4>Teaching</h4>
+
+                <p>During my lecturing at university I have taught in programming
+                  languages like Visual Basic (6), Visual C++, Smalltalk, Java,
+                  and C# using DMBS like Access (Jet), Oracle, SQL Server, and
+                  MySQL. I have also taught subjects like database theory and
+                  design, and object oriented programming (i.e. the theory of OOP
+                  and how to implement it in Java). On a course about component-based
+                  development I have taught both COM/COM+/.NET and J2EE using both
+                  desktop (local) and web-based clients. I have also taught web-based
+                  development with ASP and ASP.NET. Most of the education has
+                  been done in a Microsoft environment (DOS/Windows).</p>
+
+                <p>One of my strengths (and according to students who have told me)
+                  is my ability to explain computer-related problems/technologies
+                  to less computer literary people. I can 'lower' myself to their
+                  level of knowledge or even try to use terms in their area of
+                  expertise/knowlegde as metaphors.</p>
+
                 <h4>Before University</h4>
 
                 <p>As administrator for the Fieldbiologists (F&auml;ltbiologerna) I ran
@@ -290,47 +345,6 @@
                   as well as distribution (packaging) and customer support for sold
                   products. (The company, and the domain Sverige.net, has since
                   been sold.)</p>
-
-                <h4>Teaching</h4>
-
-                <p>During my lecturing at university I have taught in programming
-                  languages like Visual Basic (6), Visual C++, Smalltalk, Java,
-                  and C# using DMBS like Access (Jet), Oracle, SQL Server, and
-                  MySQL. I have also taught subjects like database theory and
-                  design, and object oriented programming (i.e. the theory of OOP
-                  and how to implement it in Java). On a course about component-based
-                  development I have taught both COM/COM+/.NET and J2EE using both
-                  desktop (local) and web-based clients. I have also taught web-based
-                  development with ASP and ASP.NET. Most of the education has
-                  been done in a Microsoft environment (DOS/Windows).</p>
-
-                <p>One of my strengths (and according to students who have told me)
-                  is my ability to explain computer-related problems/technologies
-                  to less computer literary people. I can 'lower' myself to their
-                  level of knowledge or even try to use terms in their area of
-                  expertise/knowlegde as metaphors.</p>
-
-                <h4>System administrator</h4>
-
-                <p>As a systems administrator I have installed and maintained computer
-                  rooms with operating systems varying between DOS/Windows 3.x to
-                  XP using servers running Novell NetWare (3.12 to 6) and Windows
-                  NT/2000/2003. Server software I have installed and maintained
-                  are Oracle, SQL Server, web servers (IIS and Apache), and application
-                  servers (among others Resin for J2EE). As a systems administrator
-                  my job was also to maintain and develop the department's  web
-                  site using HTML, CSS, SSI, PHP, and some older systems in ASP.
-                  Data was stored in MySQL and Oracle servers.</p>
-                  
-                <h4>System developer</h4>
-
-                <p>While working at Ecolabelling Sweden, I maintained and developed web 
-                  sites using ASP.NET and SQL Server. The web sites where custom developed 
-                  systems. I also maintained informational web sites using a custom version
-                  of ISpyBuy Portal, DotNetNuke, and EPiServer as CMS, which required some 
-                  development, both frontend and backend. I also installed and maintained
-                  the company's computers as well as acted as local support.
-                </p>
 
                 <h4>Privately</h4>
 
