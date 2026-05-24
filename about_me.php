@@ -57,6 +57,8 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="se/"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
 								<li><a class="dropdown-item" href="se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="se/cv/"><i class="bi bi-mortarboard fs-4"></i> CV [se]</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -64,7 +66,7 @@
 			</nav>
 		<!-- *** Contents row ************************************************** -->
 		<div class="row">
-			<div class="col-md-6 offset-md-2">
+			<div class="col-xl-6 col-lg-7 col-md-7 offset-xl-2 offset-lg-1 offset-md-1">
 				<h3 class="mt-4">About me</h3>
 				<p>My name is Bj&ouml;rn (<em>bear</em> in Swedish), or
 					&quot;Bj&quot; for short, and I presently live in Sweden.
@@ -87,30 +89,35 @@
 					to work for <strong>Ecolabelling Sweden</strong>.</p>
 
 				<img src="images/CairnCree.jpg" alt="Cairn south of Cree" title="Cairn south of Cree" 
-					class="rounded mx-auto d-block"/>
+					class="d-block img-fluid mx-auto rounded"/>
 
 				<h3 class="mt-4">Work experience</h3>
 				
-				<p>I have spent about 11 years working as a system administrator,
+				<p>I have spent about 17 years as a system administrator and developer at Ecolabelling
+					Sweden (and Nordic Ecolabelling, which Ecolabelling Sweden is a
+					part of). Before that I worked as system administrator,
 					lecturer, and what ever needed to be done at (former) <strong>School 
 					of Business</strong>, <strong>M&auml;lardalen University</strong>. 
-					Before that I sold, and supported, multimedia
-					products (when CD-ROMs where new) at (former) Buller Data AB. During summer 
-					breaks (in studies and work) and during military service I worked 
-					at a (former) DomänTurist camp site for four seasons.</p>
-					
-				<p>Since 2008 I work as a system administrator and developer at Ecolabelling
-					Sweden (and Nordic Ecolabelling, which Ecolabelling Sweden is a
-					part of).</p>
+					And before that I sold, and supported, multimedia
+					products (when CD-ROM's where new) and during summer 
+					breaks (in studies and work) and military service I worked 
+					at a camp site for four seasons.</p>
 
+				<h4>Interests</h4>
+					
 				<p>Work related interests are computer related problem solving and
 					web based development. I love learning new things, something one
 					needs to do when working with computers. For awhile I
 					enjoyed studying Sun's J2EE and how well it is designed, but I
 					now focus on web technologies, both standard and Microsoft's.</p>
 
+				<h4>New career!</h4>
+
+				<p>In 2026 I started my new career as professional driver (category
+					CE) driving lorries with trailers.</p>
+
 				<img src="images/LochDoon.jpg" alt="Loch Doon" title="Loch Doon" 
-					class="rounded mx-auto d-block" />
+					class="d-block img-fluid mx-auto rounded" />
 
 				<h3 class="mt-4">Private interests</h3>
 				
@@ -125,11 +132,11 @@
 					especially, the area is a beautiful place to be with all it's colours.</p>
 
 				<img src="images/SunsetCulzean.jpg" alt="Sunset at Culzean" title="Sunset at Culzean" 
-					class="rounded mx-auto d-block mb-4" />
+					class="d-block img-fluid mb-4 mx-auto rounded" />
 			</div>
 			
 			<!-- *** News column ***************************************************** -->
-			<div class="col-sm-2 col-sm-offset-0" id="news">
+			<div class="col-xxl-2 col-lg-3 col-md-4 col-sm-12 col-sm-offset-0" id="news">
 				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a itemprop="item" itemtype="http://schema.org/WebPage" href="../../">
@@ -144,18 +151,32 @@
 				</ol>
 				
 				<h3>Links</h3>
-				<h4>Places</h4>
-				<p><a href="http://www.stockholm.se/?omrade=Bromma" target="_blank" rel="noopener">Bromma</a> [se]</p>
-				<p><a href="http://www.bastad.se/" target="_blank" rel="noopener">B&aring;stad</a> [se]</p>
-				<p><a href="http://www.eskilstuna.se/" target="_blank" rel="noopener">Eskilstuna</a> [se]</p>
-				<p><a href="http://www.huddinge.se/Engelska-startsidan/In-English/" target="_blank" rel="noopener">Huddinge</a></p>
-				<p><a href="http://www.nacka.se/" target="_blank" rel="noopener">Saltsj&ouml;baden (Nacka)</a> [se]</p>
 
-				<h4>Employers</h4>
-				<p>Buller Data AB</p>
-				<p>DomänTurist</p>
-				<p><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a></p>
-				<p><a href="https://www.mdu.se/" target="_blank" rel="noopener">M&auml;lardalen University</a></p>
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Places</h4>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><a href="http://www.stockholm.se/?omrade=Bromma" target="_blank" rel="noopener">Bromma</a> [se]</li>
+							<li class="list-group-item"><a href="http://www.bastad.se/" target="_blank" rel="noopener">B&aring;stad</a> [se]</li>
+							<li class="list-group-item"><a href="http://www.eskilstuna.se/" target="_blank" rel="noopener">Eskilstuna</a> [se]</li>
+							<li class="list-group-item"><a href="http://www.huddinge.se/Engelska-startsidan/In-English/" target="_blank" rel="noopener">Huddinge</a></li>
+							<li class="list-group-item"><a href="http://www.nacka.se/" target="_blank" rel="noopener">Saltsj&ouml;baden (Nacka)</a> [se]</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Employers</h4>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Buller Data AB</li>
+							<li class="list-group-item">DomänTurist</li>
+							<li class="list-group-item"><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a></li>
+							<li class="list-group-item"><a href="https://www.mdu.se/" target="_blank" rel="noopener">M&auml;lardalen University</a></li>
+						</ul>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	
@@ -165,7 +186,8 @@
 				<footer>
 					<p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b>
 						<?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
-        <p><b>Photo:</b> Bathing pier at B&aring;stad beach.</p>
+        			<p><b>Photo:</b> Bathing pier at B&aring;stad beach, cairn at
+						Cree, Loch Doon, and sunset at Culzean.</p>
 				</footer>
 			</div>
 		</div>

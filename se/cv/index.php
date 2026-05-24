@@ -60,7 +60,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="../datorer.htm"><i class="bi bi-display fs-4"></i> Datorer</a></li>
 						<li class="nav-item"><a class="nav-link" href="../tips/"><i class="bi bi-pencil fs-4"></i> Webbutvecklingstips</a></li>
-						<li class="nav-item"><a class="nav-link" href="../google-tech/"><i class="bi bi-google fs-4"></i> Google-teknologier</a></li class="active">
+						<li class="nav-item"><a class="nav-link" href="../lastbil/"><i class="bi bi-truck fs-4"></i> Lastbil</a></li class="active">
 						<li class="nav-item"><a class="nav-link" href="../om_mig.html"><i class="bi bi-person-standing fs-4"></i> Om mig</a></li>
 						<li class="nav-item"><a class="nav-link active" href="../cv/"><i class="bi bi-mortarboard fs-4"></i> CV</a></li>
 
@@ -73,9 +73,9 @@
 								<li><a class="dropdown-item" href="../../"><i class="bi bi-flag fs-4"></i> Start</a></li>
 								<li><a class="dropdown-item" href="../../travels/"><i class="bi bi-backpack2 fs-4"></i> Travels</a></li>
 								<li><a class="dropdown-item" href="../../walks/"><i class="bi bi-map fs-4"></i> Walks</a></li>
-                <li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="../../about_kv.php"><i class="bi bi-info-square fs-4"></i> About</a></li>
 								<li><a class="dropdown-item" href="../../about_me.php"><i class="bi bi-person-standing fs-4"></i> Me</a></li>
+                <li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="../../cv/"><i class="bi bi-mortarboard  fs-4"></i> CV</a></li>
 							</ul>
 						</li>

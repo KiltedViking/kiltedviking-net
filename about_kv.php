@@ -56,6 +56,8 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="se/"><i class="bi bi-flag fs-4"></i> Swedish site [se]</a></li>
 								<li><a class="dropdown-item" href="se/datorer.htm"><i class="bi bi-display fs-4"></i> Computers [se]</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="se/cv/"><i class="bi bi-mortarboard fs-4"></i> CV [se]</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -64,7 +66,7 @@
 		</nav>
 		<!-- *** Content row *************************************************** -->
 		<div class="row">
-			<div class="col-md-6 offset-md-2 mt-4">
+			<div class="col-xl-6 col-lg-7 col-md-7 offset-xl-2 offset-lg-1 offset-md-1">
 				<h3>The name (Kilted Viking)</h3>
 
 				<p>The name <b>Kilted Viking</b> was coined by a cousin and refers to
@@ -73,7 +75,7 @@
 					I decided to register kiltedviking.net.</p>
 					
 				<img src="images/AnnanBeach.jpg" alt="Annan beach" title="Annan beach" 
-					class="img-fluid rounded mx-auto d-block" />
+					class="d-block img-fluid mx-auto rounded" />
 
 				<h3 class="mt-4"><i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> 
 					Cookies <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i> <i class="bi bi-cookie"></i></h3>
@@ -117,7 +119,7 @@
 					the sites! :-)) and developing websites, giving me some experience.</p>
 				
 				<img src="images/Arran.jpg" alt="Arran island" title="Arran island" 
-					class="img-fluid rounded mx-auto d-block" />
+					class="d-block img-fluid mx-auto rounded" />
 
 				<h3 class="mt-4">The technologies used</h3>
 
@@ -129,7 +131,7 @@
 					page). I also started using FavIcon (as the web hotel supports it - see below).</p>
 
 				<img src="images/CulzeanCastle.jpg" alt="Culzean castle" title="Culzean castle" 
-					class="img-fluid rounded mx-auto d-block"/>
+					class="d-block img-fluid mx-auto rounded"/>
 
 				<h3 class="mt-4">Images used on site</h3>
 
@@ -161,7 +163,7 @@
 			</div>
 			
 			<!-- *** News column ***************************************************** -->
-			<div class="col-sm-2 col-sm-offset-0">
+			<div class="col-xxl-2 col-lg-3 col-md-4 col-sm-12 col-sm-offset-0">
 				<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a itemprop="item" itemtype="http://schema.org/WebPage" href="../../">
@@ -176,16 +178,24 @@
 				</ol>
 				
 				<h3>Links</h3>
+
+				<div class="card">
+					<div class="card-body">
+							
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><a href="http://www.crimsoneditor.com/" id="crimson" target="_blank" rel="noopener">Crimson Editor</a> [not secure!]</li>
+							<li class="list-group-item"><a href="https://www.htmlkit.com/" id="htmlkit" target="_blank" rel="noopener">HTML-Kit Editor</a> (<a
+								href="http://www.html-kit.com/favicon/" id="htmlkiticon" target="_blank" rel="noopener">FavIcon</a> [not secure])</li>
+							<li class="list-group-item"><a href="https://www.mozilla.com" id="mozilla" target="_blank" rel="noopener">Mozilla</a>
+								(Firefox &amp; Thunderbird)</li>
+							<li class="list-group-item"><a href="https://developer.mozilla.org/" id="mdn" target="_blank" rel="noopener">Mozilla Developer Network</a> (MDN)</li>
+							<li class="list-group-item"><a href="https://notepad-plus-plus.org/" id="vscode" target="_blank" rel="noopener">Notepad++</a></li>
+							<li class="list-group-item"><a href="https://code.visualstudio.com/" id="notepad" target="_blank" rel="noopener">Visual Studio Code</a> (VSCode)</li>
+							<li class="list-group-item"><a href="https://www.htmlhelp.com/" id="wdg" target="_blank" rel="noopener">Web Design Group</a></li>
+						</ul>
+					</div>
+				</div>
 				
-				<p><a href="http://www.crimsoneditor.com/" id="crimson" target="_blank" rel="noopener">Crimson Editor</a> [not secure!]</p>
-				<p><a href="https://www.htmlkit.com/" id="htmlkit" target="_blank" rel="noopener">HTML-Kit Editor</a> (<a 
-					href="http://www.html-kit.com/favicon/" id="htmlkiticon" target="_blank" rel="noopener">FavIcon</a> [not secure])</p>
-				<p><a href="https://www.mozilla.com" id="mozilla" target="_blank" rel="noopener">Mozilla</a>
-					(Firefox &amp; Thunderbird)</p>
-				<p><a href="https://developer.mozilla.org/" id="mdn" target="_blank" rel="noopener">Mozilla Developer Network</a> (MDN)</p>
-				<p><a href="https://notepad-plus-plus.org/" id="vscode" target="_blank" rel="noopener">Notepad++</a></p>
-				<p><a href="https://code.visualstudio.com/" id="notepad" target="_blank" rel="noopener">Visual Studio Code</a> (VSCode)</p>
-				<p><a href="https://www.htmlhelp.com/" id="wdg" target="_blank" rel="noopener">Web Design Group</a></p>
 			</div>
 		</div>
 		
@@ -195,7 +205,7 @@
 				<footer>
 					<p><b>Created by:</b> Bj&ouml;rn G. D. Persson. <b>Last updated:</b>
 						<?= date("Y-m-d", filemtime($_SERVER["SCRIPT_FILENAME"])) ?>.</p>
-					<p><b>Photo:</b> Bass rock in Firth of Forth, Scotland.</p>
+					<p><b>Photos:</b> Bass rock in Firth of Forth, Annan beach, Isle of Arran and Culzean Castle, Scotland.</p>
 				</footer>
 			</div>
 		</div>
