@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="News about site of Kilted Viking - a nerd who likes Scotland, music, walking, and takes a lot of photos, when not working with computers." />
+  <link rel="canonical" href="https://kiltedviking.net/news/" />
   <title>News (Kilted Viking)</title>
   <link rel="shortcut icon" href="../favicon.ico" >
 	<link rel="stylesheet" href="../css/bootstrap5/bootstrap.min.css" />

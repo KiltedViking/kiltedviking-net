@@ -18,6 +18,7 @@ RewriteRule ^se/www/js_dom/(.*)$ /se/www/javascript/$1 [R=301,NC,L]
 RewriteRule ^se/www/js_lib/(.*)$ /se/www/js-bibliotek.html [R=301,NC,L]
 
 #Redirect /lastbil/ to new directory /se/lastbil/
+RewriteRule ^lastbil/(.*)$ /se/lastbil/ [R=301,NC,L]
 RewriteRule ^lastbil/(.*)$ /se/lastbil/$1 [R=301,NC,L]
 
 #To fix when renaming files from *.htm to *.html

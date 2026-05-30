@@ -15,7 +15,7 @@
 	<!-- Open Graph protocol data -->
 	<meta property="og:title" content="Kilted Viking - Peace loving nerd that wishes for sustainability" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://kiltedviking.net/" />
+	<meta property="og:url" content="https://kiltedviking.net/se/cv/" />
 	<meta property="og:image" content="https://kiltedviking.net/images/thistle.jpg" />
 	<link rel="canonical" href="https://kiltedviking.net/se/cv/" />
   <link rel="shortcut icon" href="../../favicon.ico" />
