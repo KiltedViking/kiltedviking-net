@@ -85,53 +85,58 @@
     <!-- *** Contents row ************************************************* -->
     <div class="row">
       <div class="col-lg-6 offset-lg-2 col-md-12">
-        <img src="MeInKilt__cropped_145x300.jpg" alt="Kilted Viking in his kilt" 
-        class="rounded float-end p-4" />
-        
         <h2 class="mt-4">Contents</h2>
 
+        <img src="MeInKilt__cropped_145x300.jpg" alt="Kilted Viking in his kilt" 
+        class="rounded float-end ms-4" />
+        
         <nav>
-          <ul>
-            <li class="menuitem"><a href="#who_is" class="menuitem">Who is Bj&ouml;rn?</a></li>
-            <li class="menuitem"><a href="#competencies" class="menuitem">Competencies and certificates</a></li>
-            <li class="menuitem"><a href="#work_experience" class="menuitem">Work experience</a></li>
-            <li class="menuitem"><a href="#education" class="menuitem">Education</a></li>
-            <li class="menuitem"><a href="#knowledge" class="menuitem">Programming languages, technologies, and tools</a></li>
-            <li class="menuitem"><a href="#languages" class="menuitem">Languages</a></li>
-            <li class="menuitem"><a href="#interests" class="menuitem">Interests</a></li>
-            <li class="menuitem"><a href="#private" class="menuitem">Private</a></li>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#who_is">Who is Bj&ouml;rn?</a></li>
+            <li class="list-group-item"><a href="#competencies">Competencies and certificates</a></li>
+            <li class="list-group-item"><a href="#work_experience">Work experience</a></li>
+            <li class="list-group-item"><a href="#education">Education</a></li>
+            <li class="list-group-item"><a href="#knowledge">Programming languages, technologies, and tools</a></li>
+            <li class="list-group-item"><a href="#languages">Languages</a></li>
+            <li class="list-group-item"><a href="#interests">Interests</a></li>
+            <li class="list-group-item"><a href="#private">Private</a></li>
           </ul>
         </nav>
 
-        <h3 id="who_is" class="mt-4">Who is Bj&ouml;rn?</h3>
+        <h2 id="who_is" class="mt-4">Who is Bj&ouml;rn?</h2>
         
-        <p>I was born in B&aring;stad, in the south of Sweden, in 1970 and have been
-          retraining to become a HGV driver, category C+E, after 35 years in the
-          IT sector. Interests, studies and jobs have made me into tech-loving and
-          socially competent nerd.
+        <p>Professional driver with category C+E driving license and over 35 years in IT sector, born
+          1970 and raised in Båstad, Southern Sweden. Interests, studies and jobs have
+          resulted in a tech-loving and socially competent nerd that likes to learn
+          new things.
         </p>
 
         <div class="accordion" id="accordionWhoIs">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseWhoIs" aria-expanded="true" aria-controls="collapseWhoIs">
                 More about me
               </button>
-            </h4>
+            </h3>
             <div id="collapseWhoIs" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWhoIs">
               <div class="accordion-body">
-                <h4>Retraining</h4>
+                <h4>Professional driver</h4>
+
+                <p>Currently, I’m driving tractor and trailer units, or articulated
+                  lorries (16.5 meters), but also rigid lorries with and without
+                  four-axled trailers (24 meters).</p>
+
                 <p>During the autumn/winter 2025/26 I partook in labour market
                   educations that resulted in HGV driving license (category C and
                   C+E), certificate of professional competence (CPC), ADR certificate
                   (dangerous goods), fork lift certificate and tail lift certificate.
-                  All tests have been passed on first tries.
-                  The educations ended with 25 days of work experience, which I did
-                  at a refuse collection company in their rear loader.</p>
+                  All tests have been passed on first tries and 25 days of work experience
+                  was had at a refuse collection company in their rear loaders.</p>
 
                 <h4>Computer interests</h4>
+
                 <p>In 1991 I bought my first computer with MS DOS - a computer I've
                   extended and replaced quite a few times - and I’ve installed all
                   versions of MS Windows since versions 3.1 and NT 3.51. When I had enough hardware
@@ -141,12 +146,14 @@
                   for web development tools (now also for PC’s).</p>
 
                 <h4>Service and technology interests</h4>
+
                 <p>I like computers (and other electronic things) and solving computer-related
                   problems as it requires me to learn new things all the time. And
                   helping others, seeing them smile when the understand or things
                   work, is gratifying for me.</p>
 
                 <h4>Hometowns</h4>
+
                 <p>I now live in Stockholm, the Swedish capital, but I have also
                   lived in the towns of B&aring;stad, Helsingborg, Halmstad, V&auml;xj&ouml;,
                   Eskilstuna, and V&auml;ster&aring;s. I bought a house in Eskilstuna
@@ -158,7 +165,7 @@
           </div>
         </div>
 
-        <h3 id="competencies" class="mt-4">Competencies and certificates</h3>
+        <h2 id="competencies" class="mt-4">Competencies and certificates</h2>
 
         <table class="table table-striped">
           <tr>
@@ -199,7 +206,7 @@
           </tr>
         </table>
 
-        <h3 id="work_experience" class="mt-4">Work experience</h3>
+        <h2 id="work_experience" class="mt-4">Work experience</h2>
 
         <table class="table table-striped">
           <tr>
@@ -234,15 +241,17 @@
 
         <div class="accordion" id="accordionWorkExperience">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseWorkExperience" aria-expanded="true" aria-controls="collapseWorkExperience">
                 More about work experience
               </button>
-            </h4>
+            </h3>
             <div id="collapseWorkExperience" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWorkExperience">
               <div class="accordion-body">
+                <h4>Shorter employments, summer jobs and military service</h4>
+
                 <table class="table table-striped">
                   <tr>
                     <td>1995</td>
@@ -278,7 +287,8 @@
                   local deliveries, ad hoc driving witin Sweden (and possibly abroad),
                   and to take part in interviews and tests with engineers and other
                   developers. The assignment has mostly meant driving different variants
-                  of tractor and trailers (articulated lorries).
+                  of tractor and trailers (articulated lorries), but also rigid
+                  lorries with and without four-axel trailers.
                 </p>
 
                 <h4>System developer</h4>
@@ -359,7 +369,7 @@
           </div>
         </div>
 
-        <h3 id="education" class="mt-4">Education</h3>
+        <h2 id="education" class="mt-4">Education</h2>
 
         <table class="table table-striped">
           <tr>
@@ -389,15 +399,17 @@
         
         <div class="accordion" id="accordionEducation">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseEducation" aria-expanded="true" aria-controls="collapseEducation">
                 More about education
               </button>
-            </h4>
+            </h3>
             <div id="collapseEducation" class="accordion-collapse collapse" 
               data-bs-parent="#accordionEducation">
               <div class="accordion-body">
+                <h4>Individual courses</h4>
+
                 <table class="table table-striped">
                   <tr>
                     <td>2008-09</td>
@@ -411,6 +423,16 @@
                   </tr>
                 </table>
 
+                <h4>Labour market training</h4>
+                
+                <p>In 2025, I was offered a labour market training to become
+                  a lorry driver, which included a category C driving license, CPC
+                  certificate, ADR certificate (dangerous goods), forklifts, taillift and
+                  roadside work, and in 2026 for category C+E license.
+                </p>
+
+                <h4>Upper secondary school and bachelor degree</h4>
+
                 <p><small>Compulsory school in Sweden is (or was when I went to school)
                   nine years, preparing you for 'optional' (upper) secondary school
                   (three to five years), to be followed by studies at University.</small></p>
@@ -420,19 +442,14 @@
                   The last year I specialised in structural engineering (house building).
                 </p>
 
-                <p>After working a couple of years (see below) I went on to University
+                <p>After working a couple of years (see above) I went on to University
                   studying computer science, computer engineering, mathematics, and
                   information systems. After finishing my bachelor thesis in
                   information systems, and started working, I kept on studying
                   to expand my knowledge, mainly in information systems.</p>
 
-                <p>In 2025, I was offered a labour market training course to become
-                  a lorry driver, which included a category C driving license, CPC
-                  certificate, dangerous goods (ADR), forklifts, tailgate lift and
-                  roadside work, and in 2026 course for category C+E license.
-                </p>
+                <h4>Programming languages, database management systems and platforms</h4>
 
-                <h5>Programming languages, database management systems and platforms</h5>
                 <p>During my studies I have come in contact with programming languages
                   like Ada, Pascal, Smalltalk, Eiffel, Prolog, C/C++, Visual Basic
                   (5/6), Java, and assembler (Motorola 68000). Databases (or rather
@@ -441,7 +458,8 @@
                   platforms (PC, Mac, and UNIX computers) using different operating
                   systems (DOS, Windows, OS/2, MacOS, Linux, and UNIX).</p>
 
-                <h5>Job and subject specific courses, and MOOCs</h5>
+                <h4>Job and subject specific courses, and MOOCs</h4>
+
                 <p>My employers have been nice enough to spend money on courses in 
                   handling customers and computer technologies, like Novell NetWare.
                   I've also taken part in Massive Open Online Courses (MOOC) from
@@ -452,7 +470,7 @@
           </div>
         </div>
 
-        <h3 id="knowledge" class="mt-4">Programming languages, technologies, and tools</h3>
+        <h2 id="knowledge" class="mt-4">Programming languages, technologies, and tools</h2>
 
         <p>At work I've mainly used .NET and SQL Server while in private I've used
           PHP and MySQL/MariaDB, but I've also taught Java and J2EE.
@@ -460,12 +478,12 @@
         
         <div class="accordion" id="accordionKnowledge">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseKnowledge" aria-expanded="true" aria-controls="collapseKnowledge">
                 More about programming languages, technologies, and tools
               </button>
-            </h4>
+            </h3>
             <div id="collapseKnowledge" class="accordion-collapse collapse" 
               data-bs-parent="#accordionKnowledge">
               <div class="accordion-body">
@@ -482,7 +500,8 @@
                 <div class="row">
                   <div class="col-sm-6">
 
-                    <h5>Programming languages</h5>
+                    <h4>Programming languages</h4>
+
                     <ul>
                       <li>Ada</li>
                       <li>(Assembler, 68000)</li>
@@ -504,7 +523,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>Databases/storage</h5>
+                    <h4>Databases/storage</h4>
+
                     <ul>
                       <li>Access/Jet</li>
                       <li>CouchDB</li>
@@ -520,7 +540,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>Content Management Systems (CMS)</h5>
+                    <h4>Content Management Systems (CMS)</h4>
+
                     <ul>
                       <li>Concrete5</li>
                       <li>DotNetNuke</li>
@@ -534,7 +555,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>CSS frameworks</h5>
+                    <h4>CSS frameworks</h4>
+
                     <ul>
                       <li>Bootstrap [3+]</li>
                       <li>(Bulma)</li>
@@ -555,7 +577,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>JS frameworks and libraries</h5>
+                    <h4>JS frameworks and libraries</h4>
+
                     <ul>
                       <li>AngularJS [1.x]/Angular [2+]</li>
                       <li>Aurelia</li>
@@ -582,7 +605,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>Tools for web development</h5>
+                    <h4>Tools for web development</h4>
+
                     <ul>
                       <li>Babel</li>
                       <li>Bower</li>
@@ -601,7 +625,8 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <h5>Other technologies</h5>
+                    <h4>Other technologies</h4>
+
                     <ul>
                       <li>.NET/.NET Core</li>
                       <li>AJAX</li>
@@ -627,7 +652,7 @@
           </div>
         </div>
 
-        <h3 id="languages" class="mt-4">Languages</h3>
+        <h2 id="languages" class="mt-4">Languages</h2>
 
         <table class="table table-striped">
           <tr>
@@ -646,28 +671,36 @@
 
         <div class="accordion" id="accordionLanguages">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseLanguages" aria-expanded="true" aria-controls="collapseLanguages">
                 More about languages
               </button>
-            </h4>
+            </h3>
             <div id="collapseLanguages" class="accordion-collapse collapse" 
               data-bs-parent="#accordionLanguages">
               <div class="accordion-body">
+                <h4>Swedish</h4>
+
                 <p>Swedish is the language I've been brought up with in Sweden and in which 
                   all my studyies have been, which includes the subject Swedish all 
                   through primary and secondary schooling.</p>
               
+                <h4>English</h4>
+                
                 <p>My English is not far behind, having been brought up bilingual by British 
                   mother and Swedish father, spent most of my childhood summers in Scotland 
                   with grandmother, aunt and cousins, and having studied English as a second 
                   language up to level B2 at school, as well as receiving highest grade in 
                   the subject, so is equal to level C1.</p>
 
+                <h4>German</h4>
+                
                 <p>Having spent 5 years studying German, but not really having practiced it, 
                   my level is A2.</p>
 
+                <h4>Scandinavian</h4>
+                
                 <p>During almost 17 years I worked within a Nordic organisation, so
                   I've got used to listening to Danish and Norwegian while replying
                   in Swedish or English.
@@ -677,18 +710,18 @@
           </div>
         </div>
         
-        <h3 id="interests" class="mt-4">Interests</h3>
+        <h2 id="interests" class="mt-4">Interests</h2>
 
         <p>I like troubleshooting, learning more and helping others.</p>
         
         <div class="accordion" id="accordionInterests">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapseInterests" aria-expanded="true" aria-controls="collapseInterests">
                 More about interests
               </button>
-            </h4>
+            </h3>
             <div id="collapseInterests" class="accordion-collapse collapse" 
               data-bs-parent="#accordionInterests">
               <div class="accordion-body">
@@ -718,7 +751,7 @@
           </div>
         </div>
 
-        <h3 id="private" class="mt-4">Private</h3>
+        <h2 id="private" class="mt-4">Private</h2>
 
         <p>I have a couple of private IT projects I'm working on since the year 2000
           and keep myself busy with walks in nature with a camera or two.
@@ -726,16 +759,16 @@
 
         <div class="accordion" id="accordionPrivate">
           <div class="accordion-item">
-            <h4 class="accordion-header">
+            <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#collapsePrivate" aria-expanded="true" aria-controls="collapsePrivate">
                 More on private
               </button>
-            </h4>
+            </h3>
             <div id="collapsePrivate" class="accordion-collapse collapse" 
               data-bs-parent="#accordionPrivate">
               <div class="accordion-body">
-                <h5>Projects</h5>
+                <h4>Projects</h4>
 
                 <p>I have some private computer-related projects, which I started
                   to develop as part of a course at &Ouml;rebro University (2000), and
@@ -765,7 +798,7 @@
                   an e-mail address I enjoy and can keep, regardless
                   of any employer. :-))</p>
 
-                <h5>Accomplishments</h5>
+                <h4>Accomplishments</h4>
 
                 <p>In 2019, I climbed Ben Nevis, Scotland's highest point at 1.345 m (which
                   took me about 4 hours to walk the 8 km up and about 2 hours back down),
@@ -803,24 +836,26 @@
         <nav class="d-print-none">
           <h3>Employers</h3>
 
-          <ul class="list-unstyled">
-            <li><a href="https://www.mdh.se/" target="_blank" rel="noopener">M&auml;lardalen University</a> 
+          <ul class="list-group">
+            <li class="list-group-item"><a href="https://www.mdh.se/" target="_blank" rel="noopener">M&auml;lardalen University</a> 
               <i class="bi bi-link"></i> [se/en]</li>
-            <li><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a> 
+            <li class="list-group-item"><a href="https://www.svanen.se/en/" target="_blank" rel="noopener">Ecolabelling Sweden</a> 
               <i class="bi bi-link"></i> [en]</li>
           </ul>
 
           <h3>Sociala media, etc.</h3>
 
-          <ul class="list-unstyled">
-            <li><a href="https://www.linkedin.com/in/kiltedviking/" target="_blank" rel="noopener">LinkedIn</a> 
+          <ul class="list-group">
+            <li class="list-group-item"><a href="https://www.linkedin.com/in/kiltedviking/" target="_blank" rel="noopener">LinkedIn</a> 
               <i class="bi bi-link"></i> [se/en]</li>
-            <li><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
+            <li class="list-group-item"><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
               <i class="bi bi-link"></i> [en]</li>
           </ul>
 
-          <ul class="list-unstyled">
-            <li>
+          <h4>Private projects</h4>
+
+          <ul class="list-group">
+            <li class="list-group-item">
               <a href="https://www.youtube.com/@kiltedviking" target="_blank" rel="noopener">YouTube</a>
                 <i class="bi bi-link"></i> [en]</li>
           </ul>

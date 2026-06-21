@@ -58,6 +58,9 @@ footer {
   border-top: 1px solid gray;
   text-align: center;
 }
+
+.kvclearfix { clear: both; }
+.kvmin50 { max-width: 50%; min-width: min(fit-content, 50%); }
 /* Handle long page names/level 1 headings, i.e. Sammanfattningar */
 @media (max-width: 600px) {
   h1 { font-size: 1.8rem; }

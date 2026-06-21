@@ -89,29 +89,29 @@
     <!-- *** Contents row ************************************************* -->
     <div class="row">
       <div class="col-lg-6 offset-lg-2 col-md-12">
-        <img src="/cv/MeInKilt__cropped_145x300.jpg" alt="Kilted Viking in his kilt" 
-        class="rounded float-end p-4" />
-        
         <h2 class="mt-4">Inneh&aring;ll</h2>
 
+        <img src="/cv/MeInKilt__cropped_145x300.jpg" alt="Kilted Viking in his kilt" 
+        class="rounded float-end ms-4" />
+        
         <nav>
-          <ul>
-            <li class="menuitem"><a href="#who_is" class="menuitem">Vem &auml;r Bj&ouml;rn?</a></li>
-            <li class="menuitem"><a href="#competencies" class="menuitem">Kompetenser och intyg</a></li>
-            <li class="menuitem"><a href="#work_experience" class="menuitem">Arbetslivserfarenhet</a></li>
-            <li class="menuitem"><a href="#education" class="menuitem">Utbildning</a></li>
-            <li class="menuitem"><a href="#knowledge" class="menuitem">Programmeringsspr&aring;k, teknologier och verktyg</a></li>
-            <li class="menuitem"><a href="#languages" class="menuitem">Spr&aring;k</a></li>
-            <li class="menuitem"><a href="#interests" class="menuitem">Intressen</a></li>
-            <li class="menuitem"><a href="#private" class="menuitem">Privat</a></li>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#who_is">Vem &auml;r Bj&ouml;rn?</a></li>
+            <li class="list-group-item"><a href="#competencies">Kompetenser och intyg</a></li>
+            <li class="list-group-item"><a href="#work_experience">Arbetslivserfarenhet</a></li>
+            <li class="list-group-item"><a href="#education">Utbildning</a></li>
+            <li class="list-group-item"><a href="#knowledge">Programmeringsspr&aring;k, teknologier och verktyg</a></li>
+            <li class="list-group-item"><a href="#languages">Spr&aring;k</a></li>
+            <li class="list-group-item"><a href="#interests">Intressen</a></li>
+            <li class="list-group-item"><a href="#private">Privat</a></li>
           </ul>
         </nav>
 
         <h2 id="who_is" class="mt-4">Vem &auml;r Bj&ouml;rn?</h2>
         
-        <p>IT-person född 1970 och uppvuxen i Båstad som håller på att ställa om till
-          yrkesförare med CE-behörighet efter över 35 år i IT-branschen. Intressen, 
-          studier och jobb har gjort mig till en teknikintresserad och socialt kompetent nörd.
+        <p>Yrkesförare med CE-behörighet och över 35 år i IT-branschen, född 1970 och
+          uppvuxen i Båstad. Intressen, studier och jobb har resulterat i en
+          teknikintresserad och socialt kompetent nörd som gillar att lära sig nytt.
         </p>
 
         <div class="accordion" id="accordionWhoIs">
@@ -125,13 +125,15 @@
             <div id="collapseWhoIs" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWhoIs">
               <div class="accordion-body">
-                <h4>Omskolning</h4>
-                <p>Under hösten/vintern 2025/26 har jag deltagit i arbetsmarknadsutbildningar
-                  som resulterat i C- och CE-behörigheter, yrkeskompetensbevis (YKB),
-                  ADR-intyg (farligt gods), truckkort och intyg för bakgavellyft.
-                  Alla teori- och körprov har klarats på första försöken. 
-                  Utbildningar har inkluderat 25 dagar praktik som jag gjort på ett
-                  renhållningsbolag i dess baklastare.
+                <h4>Yrkesförare</h4>
+                <p>Idag kör jag mestadels dragbil med påhängsvagn (trailer), men
+                  även lastbil med och utan fyraxliga släp.</p>
+
+                <p>Under hösten/vintern 2025/26 deltog jag i arbetsmarknadsutbildningar
+                  som resulterade i C- och CE-behörigheter, yrkeskompetensbevis (YKB),
+                  ADR-intyg (farligt gods), truckkort samt intyg för bakgavellyft.
+                  Alla teori- och körprov klarades på första försöken samt 25 dagar
+                  praktik gjordes på ett renhållningsbolag i dess baklastare.
                 </p>
 
                 <h4>Datorintresse</h4>
@@ -247,6 +249,7 @@
             <div id="collapseWorkExperience" class="accordion-collapse collapse" 
               data-bs-parent="#accordionWorkExperience">
               <div class="accordion-body">
+                <h4>Kortare anställningar, sommarjobb och militärtjänst</h4>
                 <table class="table table-striped">
                   <tr>
                     <td>1995</td>
@@ -279,7 +282,7 @@
                   ad hoc-körningar inom Sverige (och ev. utanför) samt medverka i
                   intervjuer och tester med ingenjörer och andra utvecklare. Uppdraget
                   har främst inneburit att köra olika varianter på dragbil och påhängsvagn
-                  (trailer).
+                  (trailer), men även lastbilar med och utan fyraxliga släpvagnar.
                 </p>
 
                 <h4>Systemutvecklare</h4>
@@ -402,6 +405,8 @@
             <div id="collapseEducation" class="accordion-collapse collapse" 
               data-bs-parent="#accordionEducation">
               <div class="accordion-body">
+                <h5>Fristående kurser</h5>
+
                 <table class="table table-striped">
                   <tr>
                     <td>2008-09</td>
@@ -414,23 +419,27 @@
                   </tr>
                 </table>
 
+                <h5>Arbetsmarknadsutbildningar</h5>
+
+                <p>2025 erbjöd Arbetsförmedlingen en arbetsmarknadsutbildning till
+                  yrkesförare, vilket inkluderade C-behörighet, yrkeskompetensbevis
+                  (YKB), farligt gods (ADR Grund), truck (TYA TLP10, typerna A2, A4 och B1),
+                  bakgavellyft och arbete på väg (APV 1.1, 1.2, 1.3 och 2.1), samt
+                  2026 till yrkesförare CE-behörighet.
+                </p>
+                
+                <h5>Gymnasium och kandidatexamen</h5>
+                
                 <p>Jag påbörjade mina gymnasiestudier på Teknisk linje i Laholm och avslutade
                   med sista året på byggteknisk gren i Halmstad. Efter militärtjänst fortsatte
                   jag med studier inom datalogi, digital- och mikrodatorteknik, matematik
                   och ADB i Växjö samt ADB och datateknik i Eskilstuna, där jag även skrev
-                  min kandidatuppsats. Efter anställning forsatte jag att studera på bl.a. 
-                  distans samt på webbaserade kurser (s.k. MOOC) och från utbildningsföretag
-                  (så som LinkedIn Learning).
-                </p>
-
-                <p>2025 erbjöd Arbetsförmedlingen en arbetsmarknadsutbildning till
-                  yrkesförare, vilket inkluderade C-behörighet, yrkeskompetensbevis
-                  (YKB), farligt gods (ADR Grund), truck (A2, A4 och B1), bakgavellyft
-                  och arbete på väg (APV 1.1, 1.2, 1.3 och 2.1), samt 2026 till 
-                  yrkesförare CE-behörighet.
+                  min kandidatuppsats. Efter anställning forsatte jag att studera
+                  fristående kurser.
                 </p>
 
                 <h5>Programmeringsspråk, databashanterare och plattformar</h5>
+
                 <p>Under mina studier kom jag i kontakt med programmeringsspråk som Ada, 
                   Pascal, Smalltalk, Eiffel, Prolog, C/C++, Visual Basic (5/6), Java, and 
                   assembler (Motorola 68000) samt databaser (eller databashanteringsssystem, DBMS)
@@ -440,6 +449,7 @@
                 </p>
 
                 <h5>Yrkes- och ämnesspecifika utbildningar samt MOOC</h5>
+
                 <p>Mina arbetsgivare har även erbjudit mig utbildningar i bl.a. service- och
                   städteknik samt produktspecifika ämnen (så som Novell NetWare)
                   och jag har gjort självstudier genom att läsa böcker och delta i
@@ -651,19 +661,27 @@
             <div id="collapseLanguages" class="accordion-collapse collapse" 
               data-bs-parent="#accordionLanguages">
               <div class="accordion-body">
+                <h5>Svenska</h5>
+
                 <p>Jag är född, uppvuxen och har studerat i Sverige, så jag är flytande
                   i svenska.
                 </p>
 
+                <h5>Engelska</h5>
+                
                 <p>Min engelska är inte långt efter då jag vuxit upp tvåspråkig med brittisk
                   mamma samt spenderat de flesta somrarna som barn med att besöka min mormor
                   och moster i Skottland. I skolan läste jag även engelska som ämne upp till
                   nivå B2, i vilket jag fick högsta betyget (men min nivå är minst C1).          
                 </p>
               
+                <h5>Tyska</h5>
+                
                 <p>Tyska läste jag i fem år, men efter att inte ha använt språket så är min
                   nivå A2.</p>
 
+                <h5>Skandinaviska</h5>
+                
                 <p>Under nästan 17 år har jag jobbat inom en nordisk organisation,
                   så jag har blivit van vid att lyssna på danska och norska, men 
                   har svarat på svenska eller engelska.
@@ -805,24 +823,26 @@
         <nav class="d-print-none">
           <h3>Arbetsgivare</h3>
 
-          <ul class="list-unstyled">
-            <li><a href="https://www.mdu.se/" target="_blank" rel="noopener">M&auml;lardalens universitet</a> 
+          <ul class="list-group">
+            <li class="list-group-item"><a href="https://www.mdu.se/" target="_blank" rel="noopener">M&auml;lardalens universitet</a> 
               <i class="bi bi-link"></i> [se/en]</li>
-            <li><a href="https://www.svanen.se/" target="_blank" rel="noopener">Miljömärkning Sverige AB</a> 
+            <li class="list-group-item"><a href="https://www.svanen.se/" target="_blank" rel="noopener">Miljömärkning Sverige AB</a> 
               <i class="bi bi-link"></i> [se/en]</li>
           </ul>
 
           <h3>Sociala medier, m.m.</h3>
 
-          <ul class="list-unstyled">
-            <li><a href="https://www.linkedin.com/in/kiltedviking/" target="_blank" rel="noopener">LinkedIn</a> 
+          <ul class="list-group">
+            <li class="list-group-item"><a href="https://www.linkedin.com/in/kiltedviking/" target="_blank" rel="noopener">LinkedIn</a> 
               <i class="bi bi-link"></i> [se/en]</li>
-            <li><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
+            <li class="list-group-item"><a href="https://github.com/KiltedViking" target="_blank" rel="noopener">GitHub</a> 
               <i class="bi bi-link"></i> [en]</li>
           </ul>
 
-          <ul class="list-unstyled">
-            <li>
+          <h4>Privata projekt</h4>
+
+          <ul class="list-group">
+            <li class="list-group-item">
               <a href="https://www.youtube.com/@kiltedviking" target="_blank" rel="noopener">YouTube</a>
                 <i class="bi bi-link"></i> [en]</li>
           </ul>
